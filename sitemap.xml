@@ -1,0 +1,536 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  
+  <url>
+    <loc>http://ngudream.com/about/index.html</loc>
+    
+    <lastmod>2017-02-04T12:29:17.443Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://ngudream.com/2016/12/25/n-hexo-blog/</loc>
+    
+    <lastmod>2017-02-04T02:42:16.869Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://ngudream.com/2016/09/28/zookeeper-theory-feature/</loc>
+    
+    <lastmod>2017-01-15T07:58:44.512Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://ngudream.com/2016/07/24/work-plan/</loc>
+    
+    <lastmod>2017-01-15T07:58:44.510Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://ngudream.com/2016/03/23/windows-translucent-inoperative/</loc>
+    
+    <lastmod>2017-01-15T07:58:44.508Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://ngudream.com/2016/08/29/weixin-protocal/</loc>
+    
+    <lastmod>2017-01-15T07:58:44.505Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://ngudream.com/2016/01/18/webrtc-structure/</loc>
+    
+    <lastmod>2017-01-15T07:58:44.501Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://ngudream.com/2016/01/20/webrtc-pjsip/</loc>
+    
+    <lastmod>2017-01-15T07:58:44.497Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://ngudream.com/2016/09/28/viewpager-unlimited-loop/</loc>
+    
+    <lastmod>2017-01-15T07:58:44.495Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://ngudream.com/2016/07/16/viewholder-simple-create/</loc>
+    
+    <lastmod>2017-01-15T07:58:44.493Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://ngudream.com/2016/02/17/unable-userdata/</loc>
+    
+    <lastmod>2017-01-15T07:58:44.491Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://ngudream.com/2016/06/26/sqlite-mult-wal/</loc>
+    
+    <lastmod>2017-01-15T07:58:44.488Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://ngudream.com/2016/02/21/sql-inject/</loc>
+    
+    <lastmod>2017-01-15T07:58:44.486Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://ngudream.com/2016/01/16/spring-ejb-concordance/</loc>
+    
+    <lastmod>2017-01-15T07:58:44.483Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://ngudream.com/2016/01/21/seed7/</loc>
+    
+    <lastmod>2017-01-15T07:58:44.481Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://ngudream.com/2016/09/21/rxjava-understand/</loc>
+    
+    <lastmod>2017-01-15T07:58:44.479Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://ngudream.com/2016/09/26/rxjava-timer/</loc>
+    
+    <lastmod>2017-01-15T07:58:44.477Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://ngudream.com/2016/10/31/rxjava-thread-switch/</loc>
+    
+    <lastmod>2017-01-15T07:58:44.475Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://ngudream.com/2016/11/24/rxjava-thread-switch-theory/</loc>
+    
+    <lastmod>2017-01-15T07:58:44.465Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://ngudream.com/2016/09/22/rxjava-samples/</loc>
+    
+    <lastmod>2017-01-15T07:58:44.462Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://ngudream.com/2016/08/25/rxjava-repeatwhen-retrywhen/</loc>
+    
+    <lastmod>2017-01-15T07:58:44.460Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://ngudream.com/2016/08/25/rxjava-operators/</loc>
+    
+    <lastmod>2017-01-15T07:58:44.458Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://ngudream.com/2016/10/25/rxjava-map/</loc>
+    
+    <lastmod>2017-01-15T07:58:44.456Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://ngudream.com/2016/10/01/rxjava-flatmap/</loc>
+    
+    <lastmod>2017-01-15T07:58:44.454Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://ngudream.com/2016/10/17/response-programming-idea/</loc>
+    
+    <lastmod>2017-01-15T07:58:44.452Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://ngudream.com/2016/09/10/rxjava-eventbus/</loc>
+    
+    <lastmod>2017-01-15T07:58:44.449Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://ngudream.com/2016/09/17/rxjava-2-0-new-features/</loc>
+    
+    <lastmod>2017-01-15T07:58:44.446Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://ngudream.com/2016/09/06/realm-dbhelper/</loc>
+    
+    <lastmod>2017-01-15T07:58:44.444Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://ngudream.com/2016/08/13/realm-builder/</loc>
+    
+    <lastmod>2017-01-15T07:58:44.443Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://ngudream.com/2016/08/14/realm-browse/</loc>
+    
+    <lastmod>2017-01-15T07:58:44.441Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://ngudream.com/2016/08/25/presenter-interface/</loc>
+    
+    <lastmod>2017-01-15T07:58:44.439Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://ngudream.com/2016/01/04/phone-state-listener/</loc>
+    
+    <lastmod>2017-01-15T07:58:44.435Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://ngudream.com/2016/01/05/nginx-php-mysql-fastcgi/</loc>
+    
+    <lastmod>2017-01-15T07:58:44.433Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://ngudream.com/2016/10/09/mysql-quick-insert/</loc>
+    
+    <lastmod>2017-01-15T07:58:44.429Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://ngudream.com/2016/01/27/mysql-pwd-forgot/</loc>
+    
+    <lastmod>2017-01-15T07:58:44.427Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://ngudream.com/2016/10/11/mysql-delete-repeat-data/</loc>
+    
+    <lastmod>2017-01-15T07:58:44.425Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://ngudream.com/2016/08/23/morning-reading/</loc>
+    
+    <lastmod>2017-01-15T07:58:44.423Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://ngudream.com/2016/09/29/mongodb-inverted-index/</loc>
+    
+    <lastmod>2017-01-15T07:58:44.420Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://ngudream.com/2016/09/02/mobile-pay-market/</loc>
+    
+    <lastmod>2017-01-15T07:58:44.416Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://ngudream.com/2016/09/04/java-mult-threads/</loc>
+    
+    <lastmod>2017-01-15T07:58:44.413Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://ngudream.com/2016/10/12/java-compile-running/</loc>
+    
+    <lastmod>2017-01-15T07:58:44.409Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://ngudream.com/2016/08/15/im-tcp-udp/</loc>
+    
+    <lastmod>2017-01-15T07:58:44.406Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://ngudream.com/2016/09/23/im-series-articles/</loc>
+    
+    <lastmod>2017-01-15T07:58:44.403Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://ngudream.com/2016/09/17/im-heartbeat-why/</loc>
+    
+    <lastmod>2017-01-15T07:58:44.399Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://ngudream.com/2016/10/04/how-to-study-distributed-system/</loc>
+    
+    <lastmod>2017-01-15T07:58:44.396Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://ngudream.com/2016/07/25/horizontal-list-view/</loc>
+    
+    <lastmod>2017-01-15T07:58:44.391Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://ngudream.com/2016/09/13/hexo-install-prettify/</loc>
+    
+    <lastmod>2017-01-15T07:58:44.388Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://ngudream.com/2016/07/09/hexo-advanced/</loc>
+    
+    <lastmod>2017-01-15T07:58:44.383Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://ngudream.com/2016/10/09/gradle-common-command/</loc>
+    
+    <lastmod>2017-01-15T07:58:44.377Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://ngudream.com/2016/09/04/golang-zip-unzip/</loc>
+    
+    <lastmod>2017-01-15T07:58:44.374Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://ngudream.com/2016/08/12/git-common-command/</loc>
+    
+    <lastmod>2017-01-15T07:58:44.371Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://ngudream.com/2016/02/24/delphi-beautify-two/</loc>
+    
+    <lastmod>2017-01-15T07:58:44.368Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://ngudream.com/2016/02/21/delphi-beautify-one/</loc>
+    
+    <lastmod>2017-01-15T07:58:44.365Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://ngudream.com/2016/02/23/c%E4%BA%95-file-watcher/</loc>
+    
+    <lastmod>2017-01-15T07:58:44.362Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://ngudream.com/2016/01/20/as-quick-key/</loc>
+    
+    <lastmod>2017-01-15T07:58:44.359Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://ngudream.com/2016/10/08/android-third-views/</loc>
+    
+    <lastmod>2017-01-15T07:58:44.356Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://ngudream.com/2016/09/10/android-structure-rebuild/</loc>
+    
+    <lastmod>2017-01-15T07:58:44.354Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://ngudream.com/2016/08/25/android-plugin-sample/</loc>
+    
+    <lastmod>2017-01-15T07:58:44.351Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://ngudream.com/2016/10/10/android-picasso-use/</loc>
+    
+    <lastmod>2017-01-15T07:58:44.348Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://ngudream.com/2016/10/19/android-network-library/</loc>
+    
+    <lastmod>2017-01-15T07:58:44.345Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://ngudream.com/2016/11/01/android-network-base-structure/</loc>
+    
+    <lastmod>2017-01-15T07:58:44.343Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://ngudream.com/2016/11/21/android-mvp-rxjava-practice/</loc>
+    
+    <lastmod>2017-01-15T07:58:44.340Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://ngudream.com/2016/08/23/android-lrucache-bug/</loc>
+    
+    <lastmod>2017-01-15T07:58:44.337Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://ngudream.com/2016/10/08/android-listview-stopscroll/</loc>
+    
+    <lastmod>2017-01-15T07:58:44.334Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://ngudream.com/2016/11/06/android-glide-use/</loc>
+    
+    <lastmod>2017-01-15T07:58:44.330Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://ngudream.com/2016/08/30/android-getauthtoken/</loc>
+    
+    <lastmod>2017-01-15T07:58:44.328Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://ngudream.com/2016/09/17/android-dynamic-load/</loc>
+    
+    <lastmod>2017-01-15T07:58:44.324Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://ngudream.com/2016/11/30/android-data-gather/</loc>
+    
+    <lastmod>2017-01-15T07:58:44.320Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://ngudream.com/2016/12/21/android-clean-architecture-pattern/</loc>
+    
+    <lastmod>2017-01-15T07:58:44.317Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://ngudream.com/2016/08/31/alipay-wallet-technology/</loc>
+    
+    <lastmod>2017-01-15T07:58:44.313Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://ngudream.com/2016/09/16/alibaba-ipo-tech-power/</loc>
+    
+    <lastmod>2017-01-15T07:58:44.309Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://ngudream.com/2016/09/18/adapter-itempool/</loc>
+    
+    <lastmod>2017-01-15T07:58:44.304Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://ngudream.com/guestbook/index.html</loc>
+    
+    <lastmod>2017-01-15T04:15:29.276Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://ngudream.com/social/index.html</loc>
+    
+    <lastmod>2016-12-29T15:16:20.128Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://ngudream.com//404.html</loc>
+    
+    <lastmod>2016-12-20T14:28:24.477Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://ngudream.com/tags/index.html</loc>
+    
+    <lastmod>2016-09-25T04:43:07.230Z</lastmod>
+    
+  </url>
+  
+</urlset>
