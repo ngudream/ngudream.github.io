@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://ngudream.com/"/>
-  <updated>2017-02-04T02:42:16.869Z</updated>
+  <updated>2017-02-04T15:29:35.336Z</updated>
   <id>http://ngudream.com/</id>
   
   <author>
@@ -17,13 +17,13 @@
   
   <entry>
     <title>笔者博客源代码</title>
-    <link href="http://ngudream.com/2016/12/25/n-hexo-blog/"/>
-    <id>http://ngudream.com/2016/12/25/n-hexo-blog/</id>
-    <published>2016-12-25T09:35:19.000Z</published>
-    <updated>2017-02-04T02:42:16.869Z</updated>
+    <link href="http://ngudream.com/2017/01/24/n-hexo-blog/"/>
+    <id>http://ngudream.com/2017/01/24/n-hexo-blog/</id>
+    <published>2017-01-24T09:35:19.000Z</published>
+    <updated>2017-02-04T15:29:35.336Z</updated>
     
-    <content type="html"><![CDATA[<div><img class="pic lazy" data-original="/2016/12/25/n-hexo-blog/1.gif" style="float:left; margin-right:16px" alt="">
-<img class="pic lazy" id="img_right" data-original="/2016/12/25/n-hexo-blog/2.gif" style="float:right; margin-right:16px" alt="">
+    <content type="html"><![CDATA[<div><img class="pic lazy" data-original="/2017/01/24/n-hexo-blog/1.gif" style="float:left; margin-right:16px" alt="">
+<img class="pic lazy" id="img_right" data-original="/2017/01/24/n-hexo-blog/2.gif" style="float:right; margin-right:16px" alt="">
 <span>&#x53F7;&#x5916;&#x53F7;&#x5916;&#xFF01;&#xFF01; &#x7B14;&#x8005;&#x5BF9;&#x535A;&#x5BA2;&#x4FEE;&#x6539;&#x7684;&#x6E90;&#x7801;&#x5DF2;&#x653E;&#x5230;<a href="https://github.com/ngudream/N-Hexo-Blog" target="_blank"> github </a>&#x4E0A;&#x3002;&#x5306;&#x5306;&#x6765;&#x5306;&#x5306;&#x53BB;&#x4F60;&#x662F;&#x4F55;&#x610F;&#xFF1F;&#x6765;&#x4E86;&#x5C31;&#x4E0A;&#x53BB;&#x770B;&#x770B;&#x5457;&#x3002;&#x95EE;&#x541B;&#x4F55;&#x5904;&#x53BB;&#xFF1F;&#x5C3D;&#x5728;&#x4E0D;&#x8A00;&#x4E2D;&#x3002;&#x201C;&#x6D45;&#x6D45;&#x6C34;&#xFF0C;&#x957F;&#x60A0;&#x60A0;&#xFF0C;&#x6765;&#x65E0;&#x5C3D;&#xFF0C;&#x53BB;&#x65E0;&#x4F11;&#x3002;&#x66F2;&#x66F2;&#x6298;&#x6298;&#x5411;&#x4E1C;&#x6D41;&#xFF0C;&#x5C71;&#x5C71;&#x5CAD;&#x5CAD;&#x96BE;&#x963B;&#x7559;&#x3002;&#x95EE;&#x4F0A;&#x5954;&#x817E;&#x4F55;&#x65F6;&#x6B47;&#xFF0C;&#x4E0D;&#x5230;&#x5927;&#x6D77;&#x4E0D;&#x56DE;&#x5934;&#x3002;&#x201D;<a style="color:#660066">&#x5B9E;&#x9A8C;&#x6027;&#x7684;&#x52A0;&#x5165;&#x4E86;&#xFF08;&#x5751;&#x6BD4;&#x8F83;&#x591A;^_~&#xFF09;&#xFF1A;InstantClick&#xFF0C;&#x5927;&#x5BB6;&#x53EF;&#x4EE5;&#x4F53;&#x9A8C;&#x4E00;&#x4E0B;&#x6587;&#x7AE0;&#x7684;&#x52A0;&#x8F7D;&#x901F;&#x5EA6;</a>&#x3002;</span></div>
 <script>
 if(navigator.userAgent.match(/(iPhone|iPod|Android|ios|Opera Mini|BlackBerry|webOS)/i)){
@@ -158,8 +158,8 @@ image_minifier:
     
     <summary type="html">
     
-      &lt;div&gt;&lt;img class=&quot;pic lazy&quot; data-original=&quot;/2016/12/25/n-hexo-blog/1.gif&quot; style=&quot;float:left; margin-right:16px&quot; alt=&quot;&quot;&gt;
-&lt;img class=&quot;pic lazy&quot; id=&quot;img_right&quot; data-original=&quot;/2016/12/25/n-hexo-blog/2.gif&quot; style=&quot;float:right; margin-right:16px&quot; alt=&quot;&quot;&gt;
+      &lt;div&gt;&lt;img class=&quot;pic lazy&quot; data-original=&quot;/2017/01/24/n-hexo-blog/1.gif&quot; style=&quot;float:left; margin-right:16px&quot; alt=&quot;&quot;&gt;
+&lt;img class=&quot;pic lazy&quot; id=&quot;img_right&quot; data-original=&quot;/2017/01/24/n-hexo-blog/2.gif&quot; style=&quot;float:right; margin-right:16px&quot; alt=&quot;&quot;&gt;
 &lt;span&gt;&amp;#x53F7;&amp;#x5916;&amp;#x53F7;&amp;#x5916;&amp;#xFF01;&amp;#xFF01; &amp;#x7B14;&amp;#x8005;&amp;#x5BF9;&amp;#x535A;&amp;#x5BA2;&amp;#x4FEE;&amp;#x6539;&amp;#x7684;&amp;#x6E90;&amp;#x7801;&amp;#x5DF2;&amp;#x653E;&amp;#x5230;&lt;a href=&quot;https://github.com/ngudream/N-Hexo-Blog&quot; target=&quot;_blank&quot;&gt; github &lt;/a&gt;&amp;#x4E0A;&amp;#x3002;&amp;#x5306;&amp;#x5306;&amp;#x6765;&amp;#x5306;&amp;#x5306;&amp;#x53BB;&amp;#x4F60;&amp;#x662F;&amp;#x4F55;&amp;#x610F;&amp;#xFF1F;&amp;#x6765;&amp;#x4E86;&amp;#x5C31;&amp;#x4E0A;&amp;#x53BB;&amp;#x770B;&amp;#x770B;&amp;#x5457;&amp;#x3002;&amp;#x95EE;&amp;#x541B;&amp;#x4F55;&amp;#x5904;&amp;#x53BB;&amp;#xFF1F;&amp;#x5C3D;&amp;#x5728;&amp;#x4E0D;&amp;#x8A00;&amp;#x4E2D;&amp;#x3002;&amp;#x201C;&amp;#x6D45;&amp;#x6D45;&amp;#x6C34;&amp;#xFF0C;&amp;#x957F;&amp;#x60A0;&amp;#x60A0;&amp;#xFF0C;&amp;#x6765;&amp;#x65E0;&amp;#x5C3D;&amp;#xFF0C;&amp;#x53BB;&amp;#x65E0;&amp;#x4F11;&amp;#x3002;&amp;#x66F2;&amp;#x66F2;&amp;#x6298;&amp;#x6298;&amp;#x5411;&amp;#x4E1C;&amp;#x6D41;&amp;#xFF0C;&amp;#x5C71;&amp;#x5C71;&amp;#x5CAD;&amp;#x5CAD;&amp;#x96BE;&amp;#x963B;&amp;#x7559;&amp;#x3002;&amp;#x95EE;&amp;#x4F0A;&amp;#x5954;&amp;#x817E;&amp;#x4F55;&amp;#x65F6;&amp;#x6B47;&amp;#xFF0C;&amp;#x4E0D;&amp;#x5230;&amp;#x5927;&amp;#x6D77;&amp;#x4E0D;&amp;#x56DE;&amp;#x5934;&amp;#x3002;&amp;#x201D;&lt;a style=&quot;color:#660066&quot;&gt;&amp;#x5B9E;&amp;#x9A8C;&amp;#x6027;&amp;#x7684;&amp;#x52A0;&amp;#x5165;&amp;#x4E86;&amp;#xFF08;&amp;#x5751;&amp;#x6BD4;&amp;#x8F83;&amp;#x591A;^_~&amp;#xFF09;&amp;#xFF1A;InstantClick&amp;#xFF0C;&amp;#x5927;&amp;#x5BB6;&amp;#x53EF;&amp;#x4EE5;&amp;#x4F53;&amp;#x9A8C;&amp;#x4E00;&amp;#x4E0B;&amp;#x6587;&amp;#x7AE0;&amp;#x7684;&amp;#x52A0;&amp;#x8F7D;&amp;#x901F;&amp;#x5EA6;&lt;/a&gt;&amp;#x3002;&lt;/span&gt;&lt;/div&gt;
 &lt;script&gt;
 if(navigator.userAgent.match(/(iPhone|iPod|Android|ios|Opera Mini|BlackBerry|webOS)/i)){
