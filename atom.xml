@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://ngudream.com/"/>
-  <updated>2017-02-04T15:29:35.336Z</updated>
+  <updated>2017-02-05T14:49:54.326Z</updated>
   <id>http://ngudream.com/</id>
   
   <author>
@@ -14,6 +14,445 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Android Airbnb Lottie 复杂动画</title>
+    <link href="http://ngudream.com/2017/02/05/android-airbnb-lottie/"/>
+    <id>http://ngudream.com/2017/02/05/android-airbnb-lottie/</id>
+    <published>2017-02-05T14:27:31.000Z</published>
+    <updated>2017-02-05T14:49:54.326Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote>
+<p>&#x539F;&#x8C05;&#x94FE;&#x63A5;&#xFF1A;<a href="http://stormzhang.com/2017/02/03/airbnb-lottie-android/" target="_blank" rel="external">http://stormzhang.com/2017/02/03/airbnb-lottie-android/</a></p>
+</blockquote>
+<p>&#x65B0;&#x5E74;&#x7B2C;&#x4E00;&#x5929;&#x4E0A;&#x73ED;&#xFF0C;&#x6CA1;&#x60F3;&#x5230;&#x5C31;&#x7ACB;&#x6625;&#x4E86;&#xFF0C;&#x4FD7;&#x8BDD;&#x8BF4;&#xFF0C;&#x4E00;&#x5E74;&#x4E4B;&#x8BA1;&#x5728;&#x4E8E;&#x6625;&#xFF0C;&#x5168;&#x65B0;&#x7684; 17 &#x5E74;&#x5F00;&#x59CB;&#x5566;&#xFF0C;&#x6765;&#xFF0C;&#x6536;&#x62FE;&#x4E0B;&#x5FC3;&#x60C5;&#xFF0C;&#x6295;&#x5165;&#x5230;&#x5DE5;&#x4F5C;&#x4E2D;&#xFF0C;&#x64B8;&#x8D77;&#x8896;&#x5B50;&#xFF0C;&#x5C31;&#x662F;&#x5E72;&#xFF01;</p>
+<p>&#x5C31;&#x5728;&#x524D;&#x51E0;&#x5929;&#xFF0C;Airbnb &#x5F00;&#x6E90;&#x4E86;&#x4E00;&#x4E2A;&#x9879;&#x76EE;&#x53EB;&#x505A; Lottie&#xFF0C;&#x6211;&#x4E2A;&#x4EBA;&#x89C9;&#x5F97;&#x8FD9;&#x4E2A;&#x9879;&#x76EE;&#x7B80;&#x76F4;&#x7889;&#x5821;&#x4E86;&#xFF01;</p>
+<p>&#x52A8;&#x753B;&#x76F8;&#x4FE1;&#x5927;&#x5BB6;&#x90FD;&#x4E0D;&#x964C;&#x751F;&#xFF0C;&#x5728; App &#x5F00;&#x53D1;&#x8FC7;&#x7A0B;&#x4E2D;&#xFF0C;&#x9002;&#x5F53;&#x7684;&#x4F7F;&#x7528;&#x52A8;&#x753B;&#x53EF;&#x4EE5;&#x63D0;&#x5347;&#x7528;&#x6237;&#x4F53;&#x9A8C;&#xFF0C;&#x4F7F;&#x6211;&#x4EEC;&#x7684;&#x4EA7;&#x54C1;&#x9526;&#x4E0A;&#x6DFB;&#x82B1;&#xFF0C;&#x5BF9;&#x4E8E;&#x4E00;&#x4E9B;&#x7B80;&#x5355;&#x7684;&#x52A8;&#x753B;&#xFF0C;&#x6211;&#x4EEC;&#x5F88;&#x5BB9;&#x6613;&#x5C31;&#x80FD;&#x5B9E;&#x73B0;&#xFF0C;&#x4F46;&#x662F;&#x5BF9;&#x4E8E;&#x4E00;&#x4E9B;&#x6BD4;&#x8F83;&#x590D;&#x6742;&#x7684;&#x52A8;&#x753B;&#xFF0C;&#x5B9E;&#x73B0;&#x8D77;&#x6765;&#x5C31;&#x6BD4;&#x8F83;&#x9EBB;&#x70E6;&#x4E86;&#xFF0C;&#x6BD4;&#x5982;&#x4E0B;&#x56FE;&#x7684;&#x4E00;&#x4E9B;&#x52A8;&#x753B;&#xFF1A;</p>
+<div align="center">
+<img data-original="/2017/02/05/android-airbnb-lottie/Example1.gif" class="lazy">
+</div>
+<div align="center">
+<img data-original="/2017/02/05/android-airbnb-lottie/Example2.gif" class="lazy">
+</div>
+<div align="center">
+<img data-original="/2017/02/05/android-airbnb-lottie/Example3.gif" class="lazy">
+</div>
+<div align="center">
+<img data-original="/2017/02/05/android-airbnb-lottie/Example4.gif" class="lazy">
+</div>
+<p>&#x600E;&#x4E48;&#x6837;&#xFF1F;&#x8FD9;&#x4E9B;&#x53EF;&#x4E0D;&#x662F;&#x7B80;&#x5355;&#x7684;&#x79FB;&#x52A8;&#x3001;&#x7F29;&#x653E;&#x3001;&#x65CB;&#x8F6C;&#x5C31;&#x641E;&#x5F97;&#x5B9A;&#x7684;&#xFF0C;&#x53EF;&#x80FD;&#x6709;&#x4E9B;&#x4EBA;&#x601D;&#x8003;&#x4E86;&#x4E4B;&#x540E;&#x5927;&#x6982;&#x6709;&#x4EE5;&#x4E0B;&#x5B9E;&#x73B0;&#x601D;&#x8DEF;&#xFF1A;</p>
+<ul>
+<li>&#x4F7F;&#x7528; Gif&#xFF0C;&#x8FD9;&#x79CD;&#x65B9;&#x5F0F;&#x5F53;&#x7136;&#x53EF;&#x884C;&#xFF0C;&#x4F46;&#x662F;&#x4F7F;&#x7528; Gif &#x5360;&#x7528;&#x7A7A;&#x95F4;&#x8F83;&#x5927;&#xFF0C;&#x800C;&#x4E14;&#x9700;&#x8981;&#x4E3A;&#x5404;&#x79CD;&#x5C4F;&#x5E55;&#x5C3A;&#x5BF8;&#x3001;&#x5206;&#x8FA8;&#x7387;&#x505A;&#x9002;&#x914D;&#xFF0C;&#x56E0;&#x4E3A; Android &#x6CA1;&#x6709;&#x63D0;&#x4F9B;&#x539F;&#x751F; Gif &#x7684; api &#x652F;&#x6301;&#xFF0C;&#x6240;&#x4EE5;&#x8FD9;&#x79CD;&#x65B9;&#x6848;&#x8FD8;&#x4F1A;&#x9047;&#x5230;&#x517C;&#x5BB9;&#x6027;&#x95EE;&#x9898;&#xFF1B;</li>
+<li>&#x4F7F;&#x7528;&#x5E27;&#x52A8;&#x753B;&#xFF0C;&#x8FD9;&#x79CD;&#x65B9;&#x5F0F;&#x8FD8;&#x4E0D;&#x5982;&#x4F7F;&#x7528; Gif&#xFF0C;&#x4E00;&#x822C;&#x6765;&#x8BF4;&#x4F7F;&#x7528;&#x5E27;&#x52A8;&#x753B;&#x5360;&#x7528;&#x7A7A;&#x95F4;&#x6BD4; Gif &#x8FD8;&#x8981;&#x5927;&#x7684;&#x591A;&#xFF0C;&#x800C;&#x4E14;&#x4E00;&#x6837;&#x8981;&#x505A;&#x591A;&#x5C4F;&#x5E55;&#x5206;&#x8FA8;&#x7387;&#x7684;&#x9002;&#x914D;&#xFF0C;&#x4E0D;&#x8FC7;&#x4E0D;&#x4F1A;&#x9047;&#x5230;&#x517C;&#x5BB9;&#x6027;&#x95EE;&#x9898;&#xFF1B;</li>
+<li>&#x4F7F;&#x7528;&#x89C6;&#x9891;&#xFF0C;&#x8FD9;&#x79CD;&#x65B9;&#x5F0F;&#x5F53;&#x7136;&#x53EF;&#x4EE5;&#xFF0C;&#x4F46;&#x662F;&#x4E00;&#x822C;&#x6765;&#x8BF4;&#x5BA3;&#x4F20;&#x7247;&#x624D;&#x7528;&#x7684;&#x4E0A;&#x89C6;&#x9891;&#xFF0C;&#x4E00;&#x822C;&#x7684;&#x52A8;&#x753B;&#x8FDC;&#x4E0D;&#x9700;&#x8981;&#x7528;&#x89C6;&#x9891;&#x624D;&#x80FD;&#x5B9E;&#x73B0;&#x7684;&#xFF0C;&#x672A;&#x514D;&#x6709;&#x4E9B;&#x5927;&#x6750;&#x5C0F;&#x7528;&#x4E86;&#xFF0C;&#x800C;&#x4E14;&#x5360;&#x7528;&#x7A7A;&#x95F4;&#x4F9D;&#x7136;&#x5F88;&#x5927;&#x3002;</li>
+</ul>
+<p>&#x5C31;&#x6CA1;&#x6709;&#x66F4;&#x597D;&#x7684;&#x5B9E;&#x73B0;&#x65B9;&#x5F0F;&#x4E86;&#x4E48;&#xFF1F;</p>
+<p>&#x5F53;&#x7136;&#x6709;&#xFF0C;Android 5.x &#x4E4B;&#x540E;&#x63D0;&#x4F9B;&#x4E86;&#x5BF9; SVG &#x7684;&#x652F;&#x6301;&#xFF0C;&#x901A;&#x8FC7; VectorDrawable&#x3001;AnimatedVectorDrawable &#x7684;&#x7ED3;&#x5408;&#x53EF;&#x4EE5;&#x5B9E;&#x73B0;&#x4E00;&#x4E9B;&#x7A0D;&#x5FAE;&#x590D;&#x6742;&#x7684;&#x52A8;&#x753B;&#xFF0C;&#x4F46;&#x662F;&#x517C;&#x5BB9;&#x6027;&#x662F;&#x4E00;&#x4E2A;&#x95EE;&#x9898;&#xFF0C;&#x5F53;&#x7136;&#x8FD9;&#x4E2A;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x4E00;&#x4E9B;&#x7B2C;&#x4E09;&#x65B9;&#x5E93;&#x6765;&#x89E3;&#x51B3;&#xFF0C;&#x4E0D;&#x8FC7;&#x6574;&#x4E2A;&#x5B9E;&#x73B0;&#x6D41;&#x7A0B;&#x975E;&#x5E38;&#x9EBB;&#x70E6;&#xFF0C;&#x6BCF;&#x6B21;&#x5168;&#x65B0;&#x5B9E;&#x73B0;&#x4E00;&#x4E2A;&#x52A8;&#x753B;&#x90FD;&#x5F97;&#x91CD;&#x5934;&#x6765;&#x8FC7;&#xFF0C;&#x6700;&#x6700;&#x5173;&#x952E;&#x7684;&#x662F;&#xFF0C;&#x5982;&#x679C;&#x4E00;&#x4E2A;&#x516C;&#x53F8;&#x4E0B;&#x7684; App&#xFF0C;iOS &#x4E5F;&#x8981;&#x5B9E;&#x73B0;&#x4E00;&#x5957;&#x4E00;&#x6837;&#x7684;&#x52A8;&#x753B;&#xFF0C;&#x8D44;&#x6E90;&#x7684;&#x5360;&#x7528;&#x4E0E;&#x5F00;&#x53D1;&#x6210;&#x672C;&#x5C31;&#x663E;&#x5F97;&#x8FC7;&#x5927;&#x4E86;&#x3002;</p>
+<p>&#x800C; Airbnb &#x5F00;&#x6E90;&#x7684;&#x8FD9;&#x4E2A;&#x9879;&#x76EE;&#x5B8C;&#x7F8E;&#x7684;&#x89E3;&#x51B3;&#x4EE5;&#x4E0A;&#x96BE;&#x9898;&#xFF0C;&#x6211;&#x4EEC;&#x6765;&#x770B;&#x4E0B;&#x6574;&#x4E2A;&#x6D41;&#x7A0B;&#x662F;&#x4EC0;&#x4E48;&#x6837;&#x7684;&#x3002;</p>
+<p>&#x5047;&#x8BBE;&#x6211;&#x4EEC;&#x8981;&#x505A;&#x4E00;&#x4E2A;&#x5F15;&#x5BFC;&#x9875;&#x9762;&#x7684;&#x6B22;&#x8FCE;&#x52A8;&#x753B;&#xFF0C;&#x8FD9;&#x4E2A;&#x4E00;&#x822C;&#x8BBE;&#x8BA1;&#x5E08;&#x4F1A;&#x7528; Adobe &#x65D7;&#x4E0B;&#x7684; After Effects &#xFF08;&#x7B80;&#x79F0; AE&#xFF09;&#x6765;&#x505A;&#x4E2A;&#x52A8;&#x753B;&#x51FA;&#x6765;&#xFF0C;&#x8BBE;&#x8BA1;&#x5E08;&#x7528; AE &#x505A;&#x4E2A;&#x52A8;&#x753B;&#x6BD4;&#x5DE5;&#x7A0B;&#x5E08;&#x7528;&#x4EE3;&#x7801;&#x53BB;&#x5B9E;&#x73B0;&#x4E00;&#x4E2A;&#x52A8;&#x753B;&#x8981;&#x5FEB;&#x7684;&#x591A;&#x7684;&#x591A;&#xFF0C;&#x8C03;&#x6574;&#x8D77;&#x6765;&#x4E5F;&#x5F88;&#x65B9;&#x4FBF;&#xFF0C;&#x4E4B;&#x540E; AE &#x4E0A;&#x6709;&#x4E00;&#x6B3E;&#x63D2;&#x4EF6;&#x53EB;&#x505A; <a href="https://github.com/bodymovin/bodymovin" target="_blank" rel="external">Bodymovin</a>&#xFF0C;&#x8FD9;&#x4E2A;&#x63D2;&#x4EF6;&#x4E5F;&#x6BD4;&#x8F83;&#x5C4C;&#xFF0C;&#x53EF;&#x4EE5;&#x76F4;&#x63A5;&#x6839;&#x636E; AE &#x4E0A;&#x7684;&#x52A8;&#x753B;&#x6587;&#x4EF6;&#x5BFC;&#x51FA; json &#x6587;&#x4EF6;&#xFF0C;&#x8FD9;&#x4E2A; json &#x6587;&#x4EF6;&#x63CF;&#x8FF0;&#x4E86;&#x8BE5;&#x52A8;&#x753B;&#x7684;&#x4E00;&#x4E9B;&#x5173;&#x952E;&#x70B9;&#x7684;&#x5750;&#x6807;&#x4EE5;&#x53CA;&#x8FD0;&#x52A8;&#x8F68;&#x8FF9;&#xFF0C;&#x4E4B;&#x540E;&#x6211;&#x4EEC;&#x5728;&#x9879;&#x76EE;&#x4E2D;&#x5F15;&#x7528; Lottie &#x5F00;&#x6E90;&#x5E93;&#xFF0C;&#x5728;&#x5E03;&#x5C40;&#x6587;&#x4EF6;&#x4E2D;&#x7B80;&#x5355;&#x7684;&#x52A0;&#x4E0A;&#x8FD9;&#x4E48;&#x4E00;&#x53E5;&#x5C31;&#x5B8C;&#x7F8E;&#x7684;&#x5B9E;&#x73B0;&#x4E86;&#x3002;</p>
+<pre><code>&lt;com.airbnb.lottie.LottieAnimationView
+    android:id=&quot;@+id/animation_view&quot;
+    android:layout_width=&quot;wrap_content&quot;
+    android:layout_height=&quot;wrap_content&quot;
+    app:lottie_fileName=&quot;hello-world.json&quot;
+    app:lottie_loop=&quot;true&quot;
+    app:lottie_autoPlay=&quot;true&quot; /&gt;
+</code></pre>
+<p>&#x6216;&#x8005;&#x4EE3;&#x7801;&#x4E2D;&#x8FD9;&#x6837;&#x4F7F;&#x7528;&#xFF1A;</p>
+<pre><code>LottieAnimationView animationView = findViewById(R.id.animation_view);
+animationView.setAnimation(&quot;hello-world.json&quot;);
+animationView.loop(true);
+</code></pre>
+<p>&#x503C;&#x5F97;&#x4E00;&#x63D0;&#x7684;&#x662F;&#xFF0C;&#x6211;&#x4EEC;&#x7684; hello-world.json &#x6587;&#x4EF6;&#x53EA;&#x9700;&#x8981;&#x653E;&#x5728; app/src/main/assets &#x76EE;&#x5F55;&#x4E0B;&#x5C31; ok &#x4E86;&#x3002;</p>
+<p>&#x5F53;&#x7136;&#xFF0C;&#x8FD8;&#x6709;&#x66F4;&#x591A;&#x7684;&#x7528;&#x6CD5;&#xFF0C;&#x6BD4;&#x5982;&#x7ED9;&#x52A8;&#x753B;&#x6DFB;&#x52A0;&#x4E8B;&#x4EF6;&#xFF0C;&#x6BD4;&#x5982;&#x63CF;&#x8FF0;&#x52A8;&#x753B;&#x7684; json &#x6587;&#x4EF6;&#x53EF;&#x4EE5;&#x8FDC;&#x7A0B;&#x66F4;&#x65B0;&#x4E0B;&#x8F7D;&#x5230;&#x672C;&#x5730;&#xFF0C;&#x8FD9;&#x6837;&#x5C31;&#x53EF;&#x4EE5;&#x4E0D;&#x52A8;&#x58F0;&#x8272;&#x7684;&#x5B9A;&#x671F;&#x66F4;&#x65B0;&#x4F60;&#x7684;&#x52A8;&#x753B;&#x4E86;&#x3002;</p>
+<p>&#x6709;&#x4E86;&#x8FD9;&#x4E2A;&#x5E93;&#xFF0C;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x5145;&#x5206;&#x53D1;&#x6325;&#x6211;&#x4EEC;&#x7684;&#x60F3;&#x8C61;&#x529B;&#xFF0C;&#x5F88;&#x7B80;&#x5355;&#x65B9;&#x4FBF;&#x7684;&#x5C31;&#x5B9E;&#x73B0;&#x4E86;&#x4E00;&#x5957;&#x5F88;&#x9177;&#x70AB;&#x7684;&#x52A8;&#x753B;&#xFF0C;&#x6700;&#x91CD;&#x8981;&#x7684;&#x662F;&#xFF0C;&#x8FD9;&#x4E2A;&#x5E93;&#x662F;&#x8DE8;&#x5E73;&#x53F0;&#x7684;&#xFF0C;&#x652F;&#x6301; Android&#x3001;iOS &#x4EE5;&#x53CA; ReactNative&#xFF0C;&#x5171;&#x7528;&#x4E00;&#x5957; json &#x52A8;&#x753B;&#x63CF;&#x8FF0;&#x6587;&#x4EF6;&#x3002;</p>
+<p>&#x5176;&#x5B9E; Facebook &#x524D;&#x6BB5;&#x65F6;&#x95F4;&#x5F00;&#x6E90;&#x4E86;&#x4E00;&#x4E2A;&#x7C7B;&#x4F3C;&#x7684;&#x5E93;&#x53EB;&#x505A; <a href="https://github.com/facebookincubator/Keyframes" target="_blank" rel="external">Keyframes</a>&#xFF0C;&#x4E5F;&#x662F;&#x8DE8;&#x5E73;&#x53F0;&#x7684;&#xFF0C;&#x4F46;&#x662F; Lottie &#x6BD4; Keyframes &#x652F;&#x6301;&#x7684;&#x7279;&#x6027;&#x66F4;&#x591A;&#xFF0C;&#x800C;&#x4E14;&#x636E; Airbnb &#x5B98;&#x65B9;&#x535A;&#x5BA2;&#x4ECB;&#x7ECD;&#xFF0C;&#x4EE5;&#x540E;&#x5BF9;&#x8BA9;&#x8FD9;&#x4E2A;&#x5E93;&#x652F;&#x6301;&#x66F4;&#x591A;&#x7684;&#x7279;&#x6027;&#x4E0E;&#x529F;&#x80FD;&#xFF0C;&#x4E0D;&#x5F97;&#x4E0D;&#x8BF4;&#xFF0C;&#x771F;&#x4E43;&#x826F;&#x5FC3;&#xFF01;</p>
+<p>&#x6700;&#x540E;&#xFF0C;&#x8FD9;&#x4E2A;&#x5E93;&#x7684;&#x5F00;&#x6E90;&#x5730;&#x5740;&#x5728;&#x8FD9;&#x91CC;&#xFF1A;</p>
+<ul>
+<li>Android: <a href="https://github.com/airbnb/lottie-android" target="_blank" rel="external">https://github.com/airbnb/lottie-android</a></li>
+<li>iOS: <a href="https://github.com/airbnb/lottie-ios" target="_blank" rel="external">https://github.com/airbnb/lottie-ios</a></li>
+<li>ReactNative: <a href="https://github.com/airbnb/lottie-react-native" target="_blank" rel="external">https://github.com/airbnb/lottie-react-native</a></li>
+</ul>
+<p>&#x6700;&#x6700;&#x540E;&#xFF0C;Airbnb &#x8FD8;&#x63D0;&#x4F9B;&#x4E86;&#x4E00;&#x4E2A; sample apk&#xFF0C;&#x8003;&#x8651;&#x5230;&#x90E8;&#x5206;&#x4EBA;&#x5728; Google Play &#x4E0A;&#x4E0B;&#x8F7D; apk &#x6709;&#x4E9B;&#x56F0;&#x96BE;&#xFF0C;&#x6211;&#x4E5F;&#x8D34;&#x5FC3;&#x7684;&#x628A; sample apk &#x4E0B;&#x8F7D;&#x4E0B;&#x6765;&#x4E86;&#xFF0C;&#x516C;&#x4F17;&#x53F7; AndroidDeveloper &#x540E;&#x53F0;&#x56DE;&#x590D;&#x300C;lottie&#x300D;&#x5173;&#x952E;&#x5B57;&#x83B7;&#x53D6;&#x3002;</p>]]></content>
+    
+    <summary type="html">
+    
+      就在前几天，Airbnb 开源了一个项目叫做 Lottie，我个人觉得这个项目简直碉堡了！动画相信大家都不陌生，在 App 开发过程中，适当的使用动画可以提升用户体验，使我们的产品锦上添花，对于一些简单的动画，我们很容易就能实现，但是对于一些比较复杂的动画，实现起来就比较麻烦了。
+    
+    </summary>
+    
+      <category term="移动开发" scheme="http://ngudream.com/categories/%E7%A7%BB%E5%8A%A8%E5%BC%80%E5%8F%91/"/>
+    
+    
+      <category term="Android" scheme="http://ngudream.com/tags/Android/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Android安全–DexClassLoader动态加载分析</title>
+    <link href="http://ngudream.com/2017/02/05/android-dexclassloader/"/>
+    <id>http://ngudream.com/2017/02/05/android-dexclassloader/</id>
+    <published>2017-02-05T14:05:43.000Z</published>
+    <updated>2017-02-05T14:22:27.156Z</updated>
+    
+    <content type="html"><![CDATA[<p>&#x770B;&#x5230;&#x539F;&#x6765;&#x6709;&#x628A;&#x539F;&#x59CB;&#x7684;dex&#x6587;&#x4EF6;&#x52A0;&#x5BC6;&#x4FDD;&#x5B58;&#xFF0C;&#x7136;&#x540E;&#x89E3;&#x5BC6;&#x540E;&#x4F7F;&#x7528;DexClassLoader&#x52A0;&#x8F7D;&#x6587;&#x4EF6;&#x7684;&#x65B9;&#x6CD5;&#xFF0C;&#x5C31;&#x6765;&#x5206;&#x6790;&#x4E0B;DexClassLoader&#x7684;&#x52A0;&#x8F7D;&#x6D41;&#x7A0B;&#xFF1A;</p>
+<h2 id="java-&#x90E8;&#x5206;"><a class="header-anchor" href="#java-&#x90E8;&#x5206;"></a>java &#x90E8;&#x5206;</h2>
+<p>&#x6E90;&#x7801;&#x5730;&#x5740;&#xFF1A;<a href="http://androidxref.com/4.4_r1/xref/libcore/dalvik/src/main/java/dalvik/system/DexClassLoader.java" target="_blank" rel="external">http://androidxref.com/4.4_r1/xref/libcore/dalvik/src/main/java/dalvik/system/DexClassLoader.java</a></p>
+<p>&#x8BE5;class&#x52A0;&#x8F7D;&#x5668;&#x662F;&#x52A0;&#x8F7D;&#x5305;&#x542B;classes.dex&#x6587;&#x4EF6;&#x7684;jar&#x6587;&#x4EF6;&#x6216;&#x8005;apk&#x6587;&#x4EF6;&#xFF0C;&#x9700;&#x8981;&#x4E00;&#x4E2A;&#x5E94;&#x7528;&#x79C1;&#x6709;&#x7684;&#xFF0C;&#x53EF;&#x5199;&#x7684;&#x76EE;&#x5F55;&#x53BB;&#x7F13;&#x5B58;&#x4F18;&#x5316;&#x7684;classes&#x3002;&#x53EF;&#x4EE5;&#x7528;&#x4F7F;&#x7528;File dexoutputDir = context.getDir(&#x201C;dex&#x201D;,0);&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x8FD9;&#x6837;&#x7684;&#x76EE;&#x5F55;&#xFF0C;&#x4E0D;&#x8981;&#x4F7F;&#x7528;&#x5916;&#x90E8;&#x7F13;&#x5B58;&#xFF0C;&#x4EE5;&#x4FDD;&#x62A4;&#x4F60;&#x7684;&#x5E94;&#x7528;&#x88AB;&#x4EE3;&#x7801;&#x6CE8;&#x5165;&#x3002;</p>
+<p>&#x6784;&#x9020;&#x65B9;&#x6CD5;&#x5982;&#x4E0B;&#xFF1A;</p>
+<pre><code>public class DexClassLoader extends BaseDexClassLoader {
+    &#x4E0B;&#x9762;&#x8FD9;&#x6BB5;&#x6CE8;&#x91CA;&#x8BE6;&#x7EC6;&#x5730;&#x8BF4;&#x660E;&#x4E86;&#x8FD9;&#x4E2A;&#x6784;&#x9020;&#x51FD;&#x6570;&#x4E2D;&#x5404;&#x4E2A;&#x53C2;&#x6570;&#x5730;&#x610F;&#x4E49;&#xFF0C;&#x4E0D;&#x4F5C;&#x9610;&#x8FF0;&#x4E86;&#xFF0C;&#x5E0C;&#x671B;&#x5927;&#x5BB6;&#x80FD;&#x591F;&#x8BA4;&#x771F;&#x9605;&#x8BFB;&#xFF0C;&#x601D;&#x8003;&#xFF1B;
+
+public DexClassLoader(String dexPath, String optimizedDirectory,
+            String libraryPath, ClassLoader parent) {
+        super(dexPath, new File(optimizedDirectory), libraryPath, parent);
+    }
+}
+</code></pre>
+<p>dexpath&#x4E3A;jar&#x6216;apk&#x6587;&#x4EF6;&#x76EE;&#x5F55;&#x3002;</p>
+<p>optimizedDirectory&#x4E3A;&#x4F18;&#x5316;dex&#x7F13;&#x5B58;&#x76EE;&#x5F55;&#x3002;</p>
+<p>libraryPath&#x5305;&#x542B;native lib&#x7684;&#x76EE;&#x5F55;&#x8DEF;&#x5F84;&#x3002;</p>
+<p>parent&#x7236;&#x7C7B;&#x52A0;&#x8F7D;&#x5668;&#x3002;</p>
+<p>&#x7136;&#x540E;&#x6267;&#x884C;&#x7684;&#x662F;&#x7236;&#x7C7B;&#x7684;&#x6784;&#x9020;&#x51FD;&#x6570;&#xFF1A;</p>
+<pre><code>super(dexPath, new File(optimizedDirectory), libraryPath, parent);
+</code></pre>
+<p>BaseDexClassLoader &#x7684;&#x6784;&#x9020;&#x51FD;&#x6570;&#x5982;&#x4E0B;&#xFF1A;</p>
+<pre><code>public BaseDexClassLoader(String dexPath, File optimizedDirectory,
+          String libraryPath, ClassLoader parent) {
+    super(parent);
+    this.pathList = new DexPathList(this, dexPath, libraryPath, optimizedDirectory);
+}
+</code></pre>
+<p>&#x7B2C;&#x4E00;&#x53E5;&#x8C03;&#x7528;&#x7684;&#x8FD8;&#x662F;&#x7236;&#x7C7B;&#x7684;&#x6784;&#x9020;&#x51FD;&#x6570;&#xFF0C;&#x4E5F;&#x5C31;&#x662F;ClassLoader&#x7684;&#x6784;&#x9020;&#x51FD;&#x6570;&#xFF1A;</p>
+<pre><code>protected ClassLoader(ClassLoader parentLoader) {
+        this(parentLoader, false);
+    }
+    /*
+     * constructor for the BootClassLoader which needs parent to be null.
+     */
+    ClassLoader(ClassLoader parentLoader, boolean nullAllowed) {
+       if (parentLoader == null &amp;&amp; !nullAllowed) {
+            throw new NullPointerException(&#x201C;parentLoader == null &amp;&amp; !nullAllowed&#x201D;);
+      }
+      parent = parentLoader;
+}
+</code></pre>
+<p>&#x8BE5;&#x6784;&#x9020;&#x51FD;&#x6570;&#x628A;&#x4F20;&#x8FDB;&#x6765;&#x7684;&#x7236;&#x7C7B;&#x52A0;&#x8F7D;&#x5668;&#x8D4B;&#x7ED9;&#x4E86;&#x79C1;&#x6709;&#x53D8;&#x91CF;parent&#x3002;</p>
+<p>&#x518D;&#x6765;&#x770B;</p>
+<pre><code>this.pathList = new DexPathList(this, dexPath, libraryPath, optimizedDirectory);
+</code></pre>
+<p>pathList&#x4E3A;&#x8BE5;&#x7C7B;&#x7684;&#x79C1;&#x6709;&#x6210;&#x5458;&#x53D8;&#x91CF;&#xFF0C;&#x7C7B;&#x578B;&#x4E3A;DexPathList&#xFF0C;&#x8FDB;&#x53BB;DexPathList&#x51FD;&#x6570;&#xFF1A;</p>
+<pre><code>public DexPathList(ClassLoader definingContext, String dexPath,
+            String libraryPath, File optimizedDirectory) {
+    &#x2026;&#x2026;&#x2026;..    
+this.dexElements = makeDexElements(splitDexPath(dexPath), optimizedDirectory,
+                                           suppressedExceptions);
+    &#x2026;&#x2026;&#x2026;..
+}
+</code></pre>
+<p>&#x524D;&#x9762;&#x662F;&#x4E00;&#x4E9B;&#x5BF9;&#x4E8E;&#x4F20;&#x5165;&#x53C2;&#x6570;&#x7684;&#x9A8C;&#x8BC1;&#xFF0C;&#x7136;&#x540E;&#x8C03;&#x7528;&#x4E86;makeDexElements&#x3002;</p>
+<pre><code>private static Element[] makeDexElements(ArrayList&lt;File&gt; files, File optimizedDirectory,
+                                             ArrayList&lt;IOException&gt; suppressedExceptions) {
+ArrayList&lt;Element&gt; elements = new ArrayList&lt;Element&gt;();
+        for (File file : files) {
+            File zip = null;
+            DexFile dex = null;
+            String name = file.getName();
+
+            if (name.endsWith(DEX_SUFFIX)) {               //dex&#x6587;&#x4EF6;&#x5904;&#x7406;
+                // Raw dex file (not inside a zip/jar).
+                try {
+                    dex = loadDexFile(file, optimizedDirectory);
+                } catch (IOException ex) {
+                    System.logE(&#x201C;Unable to load dex file: &#x201D; + file, ex);
+                }
+            } else if (name.endsWith(APK_SUFFIX) || name.endsWith(JAR_SUFFIX)
+                    || name.endsWith(ZIP_SUFFIX)) {   //apk&#xFF0C;jar&#xFF0C;zip&#x6587;&#x4EF6;&#x5904;&#x7406;
+                zip = file;
+
+                try {
+                    dex = loadDexFile(file, optimizedDirectory);
+                } catch (IOException suppressed) {
+                    suppressedExceptions.add(suppressed);
+                }
+            } else if (file.isDirectory()) {
+                elements.add(new Element(file, true, null, null));
+            } else {
+                System.logW(&#x201C;Unknown file type for: &#x201D; + file);
+            }
+
+            if ((zip != null) || (dex != null)) {
+                elements.add(new Element(file, false, zip, dex));
+            }
+        }
+
+        return elements.toArray(new Element[elements.size()]);
+    }
+}
+</code></pre>
+<p>&#x4E0D;&#x7BA1;&#x662F;dex&#x6587;&#x4EF6;&#xFF0C;&#x8FD8;&#x662F;apk&#x6587;&#x4EF6;&#x6700;&#x7EC8;&#x52A0;&#x8F7D;&#x7684;&#x90FD;&#x662F;loadDexFile&#xFF0C;&#x8DDF;&#x8FDB;&#x8FD9;&#x4E2A;&#x51FD;&#x6570;&#xFF1A;</p>
+<pre><code>private static DexFile loadDexFile(File file, File optimizedDirectory)
+            throws IOException {
+        if (optimizedDirectory == null) {
+            return new DexFile(file);
+        } else {
+            String optimizedPath = optimizedPathFor(file, optimizedDirectory);
+            return DexFile.loadDex(file.getPath(), optimizedPath, 0);
+        }
+}
+</code></pre>
+<p>&#x5982;&#x679C;optimizedDirectory&#x4E3A;null&#x5C31;&#x4F1A;&#x8C03;&#x7528;openDexFile(fileName, null, 0);&#x52A0;&#x8F7D;&#x6587;&#x4EF6;&#x3002;</p>
+<p>&#x5426;&#x5219;&#x8C03;&#x7528;DexFile.loadDex(file.getPath(), optimizedPath, 0);</p>
+<p>&#x800C;&#x8FD9;&#x4E2A;&#x51FD;&#x6570;&#x4E5F;&#x53EA;&#x662F;&#x76F4;&#x63A5;&#x8C03;&#x7528;new DexFile(sourcePathName, outputPathName, flags);</p>
+<p>&#x91CC;&#x9762;&#x8C03;&#x7528;&#x7684;&#x4E5F;&#x662F;openDexFile(sourceName, outputName, flags);</p>
+<p>&#x6240;&#x4EE5;&#x6700;&#x540E;&#x90FD;&#x662F;&#x8C03;&#x7528;openDexFile&#xFF0C;&#x8DDF;&#x8FDB;&#x8FD9;&#x4E2A;&#x51FD;&#x6570;&#xFF1A;</p>
+<pre><code>private static int openDexFile(String sourceName, String outputName,
+        int flags) throws IOException {
+        return openDexFileNative(new File(sourceName).getCanonicalPath(),
+                                 (outputName == null) ? null : new File(outputName).getCanonicalPath(),
+                                 flags);
+}
+</code></pre>
+<p>&#x800C;&#x8FD9;&#x4E2A;&#x51FD;&#x6570;&#x8C03;&#x7528;&#x7684;&#x662F;so&#x7684;openDexFileNative&#x8FD9;&#x4E2A;&#x51FD;&#x6570;&#x3002;&#x6253;&#x5F00;&#x6210;&#x529F;&#x5219;&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;cookie&#x3002;</p>
+<h2 id="native-&#x90E8;&#x5206;"><a class="header-anchor" href="#native-&#x90E8;&#x5206;"></a>native &#x90E8;&#x5206;</h2>
+<p>&#x63A5;&#x4E0B;&#x6765;&#x5C31;&#x662F;&#x5206;&#x6790;native&#x51FD;&#x6570;&#x7684;&#x5B9E;&#x73B0;&#x90E8;&#x5206;&#x4E86;&#x3002;</p>
+<p>&#x4EE3;&#x7801;&#x5730;&#x5740;&#xFF1A;<a href="http://androidxref.com/4.4_r1/xref/dalvik/vm/native/dalvik_system_DexFile.cpp" target="_blank" rel="external">http://androidxref.com/4.4_r1/xref/dalvik/vm/native/dalvik_system_DexFile.cpp</a></p>
+<pre><code>static void Dalvik_dalvik_system_DexFile_openDexFileNative(const u4* args,
+    JValue* pResult)
+{
+    &#x2026;&#x2026;&#x2026;&#x2026;&#x2026;
+if (hasDexExtension(sourceName)
+            &amp;&amp; dvmRawDexFileOpen(sourceName, outputName, &amp;pRawDexFile, false) == 0) {
+        ALOGV(&#x201C;Opening DEX file &#x2018;%s&#x2019; (DEX)&#x201D;, sourceName);
+
+        pDexOrJar = (DexOrJar*) malloc(sizeof(DexOrJar));
+        pDexOrJar-&gt;isDex = true;
+        pDexOrJar-&gt;pRawDexFile = pRawDexFile;
+        pDexOrJar-&gt;pDexMemory = NULL;
+    } else if (dvmJarFileOpen(sourceName, outputName, &amp;pJarFile, false) == 0) {
+        ALOGV(&#x201C;Opening DEX file &#x2018;%s&#x2019; (Jar)&#x201D;, sourceName);
+
+        pDexOrJar = (DexOrJar*) malloc(sizeof(DexOrJar));
+        pDexOrJar-&gt;isDex = false;
+        pDexOrJar-&gt;pJarFile = pJarFile;
+        pDexOrJar-&gt;pDexMemory = NULL;
+    } else {
+        ALOGV(&#x201C;Unable to open DEX file &#x2018;%s&#x2019;&#x201D;, sourceName);
+        dvmThrowIOException(&#x201C;unable to open DEX file&#x201D;);
+    }
+    &#x2026;&#x2026;&#x2026;&#x2026;&#x2026;
+}
+</code></pre>
+<p>&#x8FD9;&#x91CC;&#x4F1A;&#x6839;&#x636E;&#x662F;&#x5426;&#x4E3A;dex&#x6587;&#x4EF6;&#x6216;&#x8005;&#x5305;&#x542B;classes.dex&#x6587;&#x4EF6;&#x7684;jar&#xFF0C;&#x5206;&#x522B;&#x8C03;&#x7528;&#x51FD;&#x6570;dvmRawDexFileOpen&#x548C;dvmJarFileOpen&#x6765;&#x5904;&#x7406;&#xFF0C;&#x6700;&#x7EC8;&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;DexOrJar&#x7684;&#x7ED3;&#x6784;&#x3002;</p>
+<p>&#x9996;&#x5148;&#x6765;&#x770B;dvmRawDexFileOpen&#x51FD;&#x6570;&#x7684;&#x5904;&#x7406;&#xFF1A;</p>
+<pre><code>int dvmRawDexFileOpen(const char* fileName, const char* odexOutputName,
+    RawDexFile** ppRawDexFile, bool isBootstrap)
+{
+    .................
+    dexFd = open(fileName, O_RDONLY);
+    if (dexFd &lt; 0) goto bail;
+
+    /* If we fork/exec into dexopt, don&apos;t let it inherit the open fd. */
+    dvmSetCloseOnExec(dexFd);
+
+    //&#x6821;&#x9A8C;&#x524D;8&#x4E2A;&#x5B57;&#x8282;&#x7684;magic&#x662F;&#x5426;&#x6B63;&#x786E;&#xFF0C;&#x7136;&#x540E;&#x628A;&#x6821;&#x9A8C;&#x548C;&#x4FDD;&#x5B58;&#x5230;adler32
+    if (verifyMagicAndGetAdler32(dexFd, &amp;adler32) &lt; 0) {
+        ALOGE(&quot;Error with header for %s&quot;, fileName);
+        goto bail;
+    }
+    //&#x5F97;&#x5230;&#x6587;&#x4EF6;&#x4FEE;&#x6539;&#x65F6;&#x95F4;&#x4EE5;&#x53CA;&#x6587;&#x4EF6;&#x5927;&#x5C0F;
+   if (getModTimeAndSize(dexFd, &amp;modTime, &amp;fileSize) &lt; 0) {
+        ALOGE(&quot;Error with stat for %s&quot;, fileName);
+        goto bail;
+    }
+    .................
+    //&#x8C03;&#x7528;&#x51FD;&#x6570;dexOptCreateEmptyHeader,&#x6784;&#x9020;&#x4E86;&#x4E00;&#x4E2A;DexOptHeader&#x7ED3;&#x6784;&#x4F53;&#xFF0C;&#x5199;&#x5165;fd&#x5E76;&#x8FD4;&#x56DE;
+    optFd = dvmOpenCachedDexFile(fileName, cachedName, modTime,
+        adler32, isBootstrap, &amp;newFile, /*createIfMissing=*/true);
+
+    if (optFd &lt; 0) {
+        ALOGI(&quot;Unable to open or create cache for %s (%s)&quot;,
+                fileName, cachedName);
+        goto bail;
+    }
+    locked = true;
+
+       //&#x5982;&#x679C;&#x6210;&#x529F;&#x751F;&#x4E86;opt&#x5934;
+    if (newFile) {
+        u8 startWhen, copyWhen, endWhen;
+        bool result;
+       off_t dexOffset;
+
+        dexOffset = lseek(optFd, 0, SEEK_CUR);
+        result = (dexOffset &gt; 0);
+
+        if (result) {
+            startWhen = dvmGetRelativeTimeUsec();
+            // &#x5C06;dex&#x6587;&#x4EF6;&#x4E2D;&#x7684;&#x5185;&#x5BB9;&#x5199;&#x5165;&#x6587;&#x4EF6;&#x7684;&#x5F53;&#x524D;&#x4F4D;&#x7F6E;&#xFF0C;&#x4E5F;&#x5C31;&#x662F;&#x4ECE;dexOffset&#x7684;&#x504F;&#x79FB;&#x5904;&#x5F00;&#x59CB;&#x5199;
+            result = copyFileToFile(optFd, dexFd, fileSize) == 0;
+            copyWhen = dvmGetRelativeTimeUsec();
+        }
+
+        if (result) {
+            //&#x5BF9;dex&#x6587;&#x4EF6;&#x8FDB;&#x884C;&#x4F18;&#x5316;
+            result = dvmOptimizeDexFile(optFd, dexOffset, fileSize,
+                fileName, modTime, adler32, isBootstrap);
+        }
+
+        if (!result) {
+            ALOGE(&quot;Unable to extract+optimize DEX from &apos;%s&apos;&quot;, fileName);
+            goto bail;
+        }
+
+        endWhen = dvmGetRelativeTimeUsec();
+        ALOGD(&quot;DEX prep &apos;%s&apos;: copy in %dms, rewrite %dms&quot;,
+            fileName,
+            (int) (copyWhen - startWhen) / 1000,
+            (int) (endWhen - copyWhen) / 1000);
+    }
+
+     //dvmDexFileOpenFromFd&#x8FD9;&#x4E2A;&#x51FD;&#x6570;&#x6700;&#x4E3B;&#x8981;&#x5728;&#x8FD9;&#x91CC;&#x5E72;&#x4E86;&#x4E24;&#x4EF6;&#x4E8B;&#x60C5;
+     // 1.&#x5C06;&#x4F18;&#x5316;&#x540E;&#x5F97;dex&#x6587;&#x4EF6;&#xFF08;&#x4E5F;&#x5C31;&#x662F;odex&#x6587;&#x4EF6;&#xFF09;&#x901A;&#x8FC7;mmap&#x6620;&#x5C04;&#x5230;&#x5185;&#x5B58;&#x4E2D;&#xFF0C;&#x5E76;&#x901A;&#x8FC7;mprotect&#x4FEE;&#x6539;&#x5B83;&#x7684;&#x6620;&#x5C04;&#x5185;&#x5B58;&#x4E3A;&#x53EA;&#x8BFB;&#x6743;&#x9650;
+     // 2.&#x5C06;&#x6620;&#x5C04;&#x4E3A;&#x53EA;&#x8BFB;&#x7684;&#x8FD9;&#x5757;dex&#x6570;&#x636E;&#x4E2D;&#x7684;&#x5185;&#x5BB9;&#x5168;&#x90E8;&#x63D0;&#x53D6;&#x5230;DexFile&#x8FD9;&#x4E2A;&#x6570;&#x636E;&#x7ED3;&#x6784;&#x4E2D;&#x53BB;
+    if (dvmDexFileOpenFromFd(optFd, &amp;pDvmDex) != 0) {
+        ALOGI(&quot;Unable to map cached %s&quot;, fileName);
+        goto bail;
+    }
+
+    if (locked) {
+        /* unlock the fd */
+       if (!dvmUnlockCachedDexFile(optFd)) {
+            /* uh oh -- this process needs to exit or we&apos;ll wedge the system */
+            ALOGE(&quot;Unable to unlock DEX file&quot;);
+            goto bail;
+        }
+        locked = false;
+    }
+
+    ALOGV(&quot;Successfully opened &apos;%s&apos;&quot;, fileName);
+    //&#x586B;&#x5145;&#x7ED3;&#x6784;&#x4F53; RawDexFile
+    *ppRawDexFile = (RawDexFile*) calloc(1, sizeof(RawDexFile));
+    (*ppRawDexFile)-&gt;cacheFileName = cachedName;
+   (*ppRawDexFile)-&gt;pDvmDex = pDvmDex;
+    cachedName = NULL;      // don&apos;t free it below
+    result = 0;
+
+bail:
+    free(cachedName);
+    if (dexFd &gt;= 0) {
+        close(dexFd);
+    }
+    if (optFd &gt;= 0) {
+        if (locked)
+            (void) dvmUnlockCachedDexFile(optFd);
+        close(optFd);
+    }
+    return result;
+}
+</code></pre>
+<p>&#x6700;&#x540E;&#x6210;&#x529F;&#x7684;&#x8BDD;&#xFF0C;&#x586B;&#x5145;RawDexFile&#x3002;</p>
+<p>dvmJarFileOpen&#x7684;&#x4EE3;&#x7801;&#x5904;&#x7406;&#x4E5F;&#x662F;&#x5DEE;&#x4E0D;&#x591A;&#x7684;&#x3002;</p>
+<pre><code>int dvmJarFileOpen(const char* fileName, const char* odexOutputName,
+    JarFile** ppJarFile, bool isBootstrap)
+{
+    ...
+    ...
+    ...
+    //&#x8C03;&#x7528;&#x51FD;&#x6570;dexZipOpenArchive&#x6765;&#x6253;&#x5F00;zip&#x6587;&#x4EF6;&#xFF0C;&#x5E76;&#x7F13;&#x5B58;&#x5230;&#x7CFB;&#x7EDF;&#x5185;&#x5B58;&#x91CC;
+    if (dexZipOpenArchive(fileName, &amp;archive) != 0)
+        goto bail;
+    archiveOpen = true;
+    ...
+    //&#x8FD9;&#x884C;&#x4EE3;&#x7801;&#x8BBE;&#x7F6E;&#x5F53;&#x6267;&#x884C;&#x5B8C;&#x6210;&#x540E;&#xFF0C;&#x5173;&#x95ED;&#x8FD9;&#x4E2A;&#x6587;&#x4EF6;&#x53E5;&#x67C4;
+    dvmSetCloseOnExec(dexZipGetArchiveFd(&amp;archive));
+    ...
+    //&#x4F18;&#x5148;&#x5904;&#x7406;&#x5DF2;&#x7ECF;&#x4F18;&#x5316;&#x4E86;&#x7684;Dex&#x6587;&#x4EF6;
+    fd = openAlternateSuffix(fileName, &quot;odex&quot;, O_RDONLY, &amp;cachedName);
+    ...
+    //&#x4ECE;&#x538B;&#x7F29;&#x5305;&#x91CC;&#x627E;&#x5230;Dex&#x6587;&#x4EF6;&#xFF0C;&#x7136;&#x540E;&#x6253;&#x5F00;&#x8FD9;&#x4E2A;&#x6587;&#x4EF6;
+    entry = dexZipFindEntry(&amp;archive, kDexInJarName);
+    ...
+    //&#x628A;&#x672A;&#x7ECF;&#x8FC7;&#x4F18;&#x5316;&#x7684;Dex&#x6587;&#x4EF6;&#x8FDB;&#x884C;&#x4F18;&#x5316;&#x5904;&#x7406;&#xFF0C;&#x5E76;&#x8F93;&#x51FA;&#x5230;&#x6307;&#x5B9A;&#x7684;&#x6587;&#x4EF6;
+    if (odexOutputName == NULL) {
+                cachedName = dexOptGenerateCacheFileName(fileName,
+                                kDexInJarName);
+    }
+    ...
+    //&#x521B;&#x5EFA;&#x7F13;&#x5B58;&#x7684;&#x4F18;&#x5316;&#x6587;&#x4EF6;
+    fd = dvmOpenCachedDexFile(fileName, cachedName,
+                    dexGetZipEntryModTime(&amp;archive, entry),
+                    dexGetZipEntryCrc32(&amp;archive, entry),
+                    isBootstrap, &amp;newFile, /*createIfMissing=*/true);
+    ...
+    //&#x8C03;&#x7528;&#x51FD;&#x6570;dexZipExtractEntryToFile&#x4ECE;&#x538B;&#x7F29;&#x5305;&#x91CC;&#x89E3;&#x538B;&#x6587;&#x4EF6;&#x51FA;&#x6765;
+    if (result) {
+                    startWhen = dvmGetRelativeTimeUsec();
+                    result = dexZipExtractEntryToFile(&amp;archive, entry, fd) == 0;
+                    extractWhen = dvmGetRelativeTimeUsec();
+                 }
+    ...
+    //&#x8C03;&#x7528;&#x51FD;&#x6570;dvmOptimizeDexFile&#x5BF9;&#xFF24;ex&#x6587;&#x4EF6;&#x8FDB;&#x884C;&#x4F18;&#x5316;&#x5904;&#x7406;
+    if (result) {
+                    result = dvmOptimizeDexFile(fd, dexOffset,
+                                dexGetZipEntryUncompLen(&amp;archive, entry),
+                                fileName,
+                                dexGetZipEntryModTime(&amp;archive, entry),
+                                dexGetZipEntryCrc32(&amp;archive, entry),
+                                isBootstrap);
+                }
+    ...
+    //&#x8C03;&#x7528;&#x51FD;&#x6570;dvmDexFileOpenFromFd&#x6765;&#x7F13;&#x5B58;dex&#x6587;&#x4EF6;
+    //&#x5E76;&#x5206;&#x6790;&#x6587;&#x4EF6;&#x7684;&#x5185;&#x5BB9;&#x3002;&#x6BD4;&#x5982;&#x6807;&#x8BB0;&#x662F;&#x5426;&#x4F18;&#x5316;&#x7684;&#x6587;&#x4EF6;&#xFF0C;&#x901A;&#x8FC7;&#x7B7E;&#x540D;&#x68C0;&#x67E5;Dex&#x6587;&#x4EF6;&#x662F;&#x5426;&#x5408;&#x6CD5;
+    if (dvmDexFileOpenFromFd(fd, &amp;pDvmDex) != 0) {
+        ALOGI(&quot;Unable to map %s in %s&quot;, kDexInJarName, fileName);
+        goto bail;
+    }
+    ...
+    //&#x4FDD;&#x5B58;&#x6587;&#x4EF6;&#x5230;&#x7F13;&#x5B58;&#x91CC;&#xFF0C;&#x6807;&#x8BB0;&#x8FD9;&#x4E2A;&#x6587;&#x4EF6;&#x53E5;&#x67C4;&#x5DF2;&#x7ECF;&#x4FDD;&#x5B58;&#x5230;&#x7F13;&#x5B58;
+    if (locked) {
+        /* unlock the fd */
+        if (!dvmUnlockCachedDexFile(fd)) {
+            /* uh oh -- this process needs to exit or we&apos;ll wedge the system */
+            ALOGE(&quot;Unable to unlock DEX file&quot;);
+            goto bail;
+        }
+        locked = false;
+    }
+    ...
+     //&#x8BBE;&#x7F6E;&#x4E00;&#x4E9B;&#x76F8;&#x5173;&#x4FE1;&#x606F;&#x8FD4;&#x56DE;&#x524D;&#x9762;&#x7684;&#x51FD;&#x6570;&#x5904;&#x7406;&#x3002;
+    *ppJarFile = (JarFile*) calloc(1, sizeof(JarFile));
+    (*ppJarFile)-&gt;archive = archive;
+    (*ppJarFile)-&gt;cacheFileName = cachedName;
+    (*ppJarFile)-&gt;pDvmDex = pDvmDex;
+    cachedName = NULL;      // don&apos;t free it below
+    result = 0;
+    ...
+
+}
+</code></pre>
+<p>&#x6700;&#x540E;&#x6210;&#x529F;&#x7684;&#x8BDD;&#xFF0C;&#x586B;&#x5145;JarFile&#x3002;</p>
+<h2 id="&#x53C2;&#x8003;"><a class="header-anchor" href="#&#x53C2;&#x8003;"></a>&#x53C2;&#x8003;</h2>
+<ul>
+<li><a href="http://bbs.pediy.com/showthread.php?t=199230" target="_blank" rel="external">http://bbs.pediy.com/showthread.php?t=199230</a></li>
+<li><a href="http://0nly3nd.sinaapp.com/?p=688" target="_blank" rel="external">http://0nly3nd.sinaapp.com/?p=688</a></li>
+<li><a href="http://blog.csdn.net/roland_sun/article/details/47183119" target="_blank" rel="external">http://blog.csdn.net/roland_sun/article/details/47183119</a></li>
+</ul>
+<blockquote>
+<p>&#x539F;&#x6587;&#x94FE;&#x63A5;&#xFF1A;<a href="http://www.blogfshare.com/dexclassloader.html" target="_blank" rel="external">http://www.blogfshare.com/dexclassloader.html</a></p>
+</blockquote>]]></content>
+    
+    <summary type="html">
+    
+      看到原来有把原始的dex文件加密保存，然后解密后使用DexClassLoader加载文件的方法，就来分析下DexClassLoader的加载流程。
+    
+    </summary>
+    
+      <category term="移动开发" scheme="http://ngudream.com/categories/%E7%A7%BB%E5%8A%A8%E5%BC%80%E5%8F%91/"/>
+    
+    
+      <category term="Android" scheme="http://ngudream.com/tags/Android/"/>
+    
+  </entry>
   
   <entry>
     <title>笔者博客源代码</title>
@@ -1065,7 +1504,7 @@ protected void schedule() {
     <link href="http://ngudream.com/2016/11/21/android-mvp-rxjava-practice/"/>
     <id>http://ngudream.com/2016/11/21/android-mvp-rxjava-practice/</id>
     <published>2016-11-21T15:08:01.000Z</published>
-    <updated>2017-01-15T07:58:44.340Z</updated>
+    <updated>2017-02-05T14:41:31.732Z</updated>
     
     <content type="html"><![CDATA[<div><a href="https://github.com/googlesamples/android-architecture" target="_blank" rel="external"><img class="pic lazy" data-original="/2016/11/21/android-mvp-rxjava-practice/pain.jpg" style="float:left; width:100px; height:56px; margin-right:16px" alt=""></a>
 <span>&#x5F88;&#x591A;&#x65F6;&#x5019;&#xFF0C;Activity&#x53EF;&#x80FD;&#x65E2;&#x627F;&#x62C5;UI&#x663E;&#x793A;&#x5DE5;&#x4F5C;&#xFF0C;&#x53C8;&#x627F;&#x62C5;&#x90E8;&#x5206;&#x4E1A;&#x52A1;&#x903B;&#x8F91;&#x5DE5;&#x4F5C;&#xFF0C;&#x751A;&#x81F3;&#x662F;&#x5404;&#x79CD;&#x7F51;&#x7EDC;&#x8BF7;&#x6C42;&#x3001;&#x56DE;&#x8C03;&#x7B49;&#xFF0C;&#x8FD9;&#x6837;&#x7684;&#x8BDD;Activity&#x7684;&#x4EE3;&#x7801;&#x4F1A;&#x5FEB;&#x901F;&#x81A8;&#x80C0;&#xFF0C;&#x6709;&#x65F6;&#x5019;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x770B;&#x5230;&#x51E0;&#x5343;&#x884C;&#x4EE3;&#x7801;&#x7684;Activity&#x3002;&#x4E00;&#x4E2A;&#x5230;&#x8FD9;&#x6837;&#x7684;&#x7C7B;&#x5C31;&#x662F;&#x6BD4;&#x8F83;&#x75DB;&#x82E6;&#x7684;&#x4E8B;&#x60C5;&#x3002;&#x90A3;&#x7528;&#x4EC0;&#x4E48;&#x529E;&#x6CD5;&#x89E3;&#x51B3;&#x5462;&#xFF1F;</span></div>
@@ -3786,482 +4225,6 @@ if (distance == 0 || mItemCount == 0 || childCount == 0 ||
     
     
       <category term="Android" scheme="http://ngudream.com/tags/Android/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>学习分布式系统需要怎样的知识？</title>
-    <link href="http://ngudream.com/2016/10/04/how-to-study-distributed-system/"/>
-    <id>http://ngudream.com/2016/10/04/how-to-study-distributed-system/</id>
-    <published>2016-10-04T14:04:54.000Z</published>
-    <updated>2017-01-15T07:58:44.396Z</updated>
-    
-    <content type="html"><![CDATA[<blockquote>
-<p>&#x4F5C;&#x8005;&#xFF1A;&#x9A6C;&#x8D85;<br>
-&#x94FE;&#x63A5;&#xFF1A;<a href="https://www.zhihu.com/question/23645117/answer/124708083" target="_blank" rel="external">https://www.zhihu.com/question/23645117/answer/124708083</a><br>
-&#x6765;&#x6E90;&#xFF1A;&#x77E5;&#x4E4E;<br>
-&#x8457;&#x4F5C;&#x6743;&#x5F52;&#x4F5C;&#x8005;&#x6240;&#x6709;&#xFF0C;&#x8F6C;&#x8F7D;&#x8BF7;&#x8054;&#x7CFB;&#x4F5C;&#x8005;&#x83B7;&#x5F97;&#x6388;&#x6743;&#x3002;</p>
-</blockquote>
-<h2 id="&#x524D;&#x8A00;"><a class="header-anchor" href="#&#x524D;&#x8A00;"></a>&#x524D;&#x8A00;</h2>
-<p>&#x6211;&#x7684; Phd &#x7814;&#x7A76;&#x65B9;&#x5411;&#x662F;&#x5206;&#x5E03;&#x5F0F;&#x7CFB;&#x7EDF;&#xFF0C;&#x6211;&#x8001;&#x677F;&#x4E5F;&#x662F;&#x641E;&#x5206;&#x5E03;&#x5F0F;&#x7CFB;&#x7EDF;&#x51FA;&#x8EAB;&#xFF0C;&#x6211;&#x4EEC;&#x5B9E;&#x9A8C;&#x5BA4;&#x5728;&#x8FD9;&#x65B9;&#x9762;&#x7684;&#x79EF;&#x7D2F;&#x8FD8;&#x7B97;&#x4E0D;&#x9519;&#xFF0C;&#x6240;&#x4EE5;&#x501F;&#x6B64;&#x95EE;&#x9898;&#x8C08;&#x8C08;&#x81EA;&#x5DF1;&#x7684;&#x770B;&#x6CD5;&#x3002;&#x9996;&#x5148;&#x9700;&#x8981;&#x8BF4;&#x660E;&#x7684;&#x662F;&#xFF0C;&#x5206;&#x5E03;&#x5F0F;&#x7CFB;&#x7EDF;&#x662F;&#x4E00;&#x4E2A;&#x590D;&#x6742;&#x4E14;&#x5BBD;&#x6CDB;&#x7684;&#x7814;&#x7A76;&#x9886;&#x57DF;&#xFF0C;&#x5B66;&#x4E60;&#x4E00;&#x4E24;&#x95E8;&#x5728;&#x7EBF;&#x8BFE;&#x7A0B;&#xFF0C;&#x770B;&#x4E00;&#x4E24;&#x672C;&#x4E66;&#x53EF;&#x80FD;&#x90FD;&#x662F;&#x4E0D;&#x80FD;&#x5B8C;&#x5168;&#x8986;&#x76D6;&#x5176;&#x6240;&#x6709;&#x5185;&#x5BB9;&#x7684;&#x3002;&#x4ECB;&#x4E8E;&#x8FD9;&#x7BC7;&#x6587;&#x7AE0;&#x662F;&#x5F15;&#x5BFC;&#x521D;&#x5B66;&#x8005;&#x5165;&#x95E8;&#xFF0C;&#x6240;&#x4EE5;&#x6211;&#x4E2A;&#x4EBA;&#x89C9;&#x5F97;&#x4E3A;&#x521D;&#x5B66;&#x8005;&#x4ECB;&#x7ECD;&#x4E00;&#x4E0B;&#x5F53;&#x524D;&#x5206;&#x5E03;&#x5F0F;&#x7CFB;&#x7EDF;&#x9886;&#x57DF;&#x7684;&#x5168;&#x8C8C;&#xFF0C;&#x4E5F;&#x8BB8;&#x6BD4;&#x76F4;&#x63A5;&#x63A8;&#x8350;&#x8BBA;&#x6587;&#x548C;&#x8BFE;&#x7A0B;&#x66F4;&#x6709;&#x5E2E;&#x52A9;&#x3002;&#x5F53;&#x521D;&#x5B66;&#x8005;&#x5BF9;&#x8FD9;&#x4E2A;&#x9886;&#x57DF;&#x5EFA;&#x7ACB;&#x8D77;&#x4E00;&#x4E2A;&#x5927;&#x7684; Picture &#x4E4B;&#x540E;&#xFF0C;&#x53EF;&#x4EE5;&#x6839;&#x636E;&#x81EA;&#x5DF1;&#x7684;&#x5174;&#x8DA3;&#xFF0C;&#x6709;&#x9009;&#x62E9;&#x6027;&#x7684;&#x6DF1;&#x5165;&#x4E0D;&#x540C;&#x9886;&#x57DF;&#x8FDB;&#x884C;&#x8FDB;&#x4E00;&#x6B65;&#x7684;&#x5B66;&#x4E60;&#x3002;</p>
-<p>&#x8FD9;&#x7BC7;&#x6587;&#x7AE0;&#x4E3B;&#x8981;&#x8BD5;&#x56FE;&#x56DE;&#x7B54;&#x4EE5;&#x4E0B;&#x4E24;&#x4E2A;&#x4E2A;&#x95EE;&#x9898;&#xFF1A;</p>
-<ol>
-<li>&#x8FD1;&#x4E9B;&#x5E74;&#x5206;&#x5E03;&#x5F0F;&#x7CFB;&#x7EDF;&#x9886;&#x57DF;&#x90FD;&#x5728;&#x505A;&#x4E9B;&#x4EC0;&#x4E48;&#x3002;</li>
-<li>&#x4E3A;&#x4EC0;&#x4E48;&#x73B0;&#x5728;&#x6295;&#x5165;&#x5206;&#x5E03;&#x5F0F;&#x7CFB;&#x7EDF;&#x7684;&#x5B66;&#x4E60;&#x548C;&#x7814;&#x7A76;&#x662F;&#x503C;&#x5F97;&#x7684;&#x3002;</li>
-</ol>
-<p>&#x6211;&#x4F1A;&#x5C3D;&#x53EF;&#x80FD;&#x591A;&#x7684;&#x53BB;&#x4ECB;&#x7ECD;&#x66F4; &#x201C;&#x5B9E;&#x7528;&#x201D; &#x7684;&#x5206;&#x5E03;&#x5F0F;&#x7CFB;&#x7EDF;&#x77E5;&#x8BC6;&#x3002;</p>
-<p>&#x4EC0;&#x4E48;&#x662F;&#x5B9E;&#x7528;&#xFF1F;&#x4F8B;&#x5982;&#xFF1A;</p>
-<p>Paxos &#x662F;&#x5206;&#x5E03;&#x5F0F;&#x7CFB;&#x7EDF;&#x91CC;&#x4E00;&#x4E2A;&#x91CD;&#x8981;&#x800C;&#x4E14;&#x5B9E;&#x7528;&#x7684;&#x6280;&#x672F;&#x3002;<br>
-Consistent Hash &#x4E5F;&#x662F;&#x5206;&#x5E03;&#x5F0F;&#x7CFB;&#x7EDF;&#x91CC;&#x4E00;&#x4E2A;&#x91CD;&#x8981;&#x800C;&#x4E14;&#x5B9E;&#x7528;&#x7684;&#x6280;&#x672F;&#x3002;<br>
-MapReduce, Spark &#x7B49;&#x7B49;&#x90FD;&#x662F;&#x5F88;&#x5B9E;&#x7528;&#x7684;&#x7CFB;&#x7EDF;&#x3002;</p>
-<p>&#x4EC0;&#x4E48;&#x4E0D;&#x5B9E;&#x7528;&#xFF1F; &#x4F8B;&#x5982;&#xFF1A;</p>
-<p>Paxos &#x7B97;&#x6CD5;&#x7684;&#x6570;&#x5B66;&#x8BC1;&#x660E;&#x3002;&#xFF08;&#x6CE8;&#x610F;&#x6B64;&#x5904;&#x201C;&#x4E0D;&#x5B9E;&#x7528;&#x201D; &#x548C; &#x201C;&#x4E0D;&#x91CD;&#x8981;&#x201D;&#x7684;&#x533A;&#x522B;&#xFF09;</p>
-<p>&#x5F53;&#x7136;&#xFF0C;&#x5206;&#x5E03;&#x5F0F;&#x7CFB;&#x7EDF;&#x5B9E;&#x5728;&#x662F;&#x4E00;&#x4E2A;&#x592A;&#x5BBD;&#x6CDB;&#x7684;&#x8BDD;&#x9898;&#xFF0C;&#x672C;&#x4EBA;&#x624D;&#x758F;&#x5B66;&#x6D45;&#xFF0C;&#x56DE;&#x7B54;&#x4E5F;&#x4EC5;&#x4EC5;&#x53EF;&#x80FD;&#x4FA7;&#x91CD;&#x4E8E;&#x6211;&#x6240;&#x5173;&#x5FC3;&#x7684;&#x9886;&#x57DF;&#x548C;&#x65B9;&#x5411;&#xFF0C;&#x5F88;&#x591A;&#x5730;&#x65B9;&#x90FD;&#x4E0D;&#x80FD;&#x9762;&#x9762;&#x4FF1;&#x5230;&#x3002;&#x6240;&#x4EE5;&#x5728;&#x6B64;&#x53EA;&#x80FD;&#x629B;&#x7816;&#x5F15;&#x7389;&#xFF0C; &#x873B;&#x8713;&#x70B9;&#x6C34;&#xFF0C;&#x6B22;&#x8FCE;&#x5927;&#x5BB6;&#x63D0;&#x51FA;&#x5B9D;&#x8D35;&#x610F;&#x89C1;&#xFF0C;&#x6211;&#x4E5F;&#x4F1A;&#x53CA;&#x65F6;&#x5BF9;&#x6587;&#x7AE0;&#x8FDB;&#x884C;&#x4FEE;&#x6539;&#x548C;&#x8865;&#x5145;&#x3002;</p>
-<h2 id="&#x5206;&#x5E03;&#x5F0F;&#x7CFB;&#x7EDF;&#x8FD1;&#x4E9B;&#x5E74;&#x90FD;&#x5728;&#x505A;&#x4E9B;&#x4EC0;&#x4E48;&#xFF1F;"><a class="header-anchor" href="#&#x5206;&#x5E03;&#x5F0F;&#x7CFB;&#x7EDF;&#x8FD1;&#x4E9B;&#x5E74;&#x90FD;&#x5728;&#x505A;&#x4E9B;&#x4EC0;&#x4E48;&#xFF1F;"></a>&#x5206;&#x5E03;&#x5F0F;&#x7CFB;&#x7EDF;&#x8FD1;&#x4E9B;&#x5E74;&#x90FD;&#x5728;&#x505A;&#x4E9B;&#x4EC0;&#x4E48;&#xFF1F;</h2>
-<p>&#x5206;&#x5E03;&#x5F0F;&#x7CFB;&#x7EDF;&#x662F;&#x4E00;&#x4E2A;&#x53E4;&#x8001;&#x800C;&#x5BBD;&#x6CDB;&#x7684;&#x8BDD;&#x9898;&#xFF0C;&#x800C;&#x8FD1;&#x51E0;&#x5E74;&#x56E0;&#x4E3A; &#x201C;&#x5927;&#x6570;&#x636E;&#x201D; &#x6982;&#x5FF5;&#x7684;&#x5174;&#x8D77;&#xFF0C;&#x53C8;&#x7115;&#x53D1;&#x51FA;&#x4E86;&#x65B0;&#x7684;&#x9752;&#x6625;&#x4E0E;&#x6D3B;&#x529B;&#x3002;&#x9664;&#x6B64;&#x4E4B;&#x5916;&#xFF0C;&#x5206;&#x5E03;&#x5F0F;&#x7CFB;&#x7EDF;&#x4E5F;&#x662F;&#x4E00;&#x95E8;&#x7406;&#x8BBA;&#x6A21;&#x578B;&#x4E0E;&#x5DE5;&#x7A0B;&#x6280;&#x6CD5;&#x5E76;&#x91CD;&#x7684;&#x5B66;&#x79D1;&#x5185;&#x5BB9;&#x3002;&#x76F8;&#x6BD4;&#x4E8E;&#x673A;&#x5668;&#x5B66;&#x4E60;&#x8FD9;&#x6837;&#x7684;&#x7814;&#x7A76;&#x65B9;&#x5411;&#xFF0C;&#x5B66;&#x4E60;&#x5206;&#x5E03;&#x5F0F;&#x7CFB;&#x7EDF;&#x7684;&#x540C;&#x5B66;&#x5F80;&#x5F80;&#x4F1A;&#x611F;&#x89C9;&#xFF1A;&#x201C;&#x5165;&#x95E8;&#x5BB9;&#x6613;&#xFF0C;&#x6DF1;&#x5165;&#x96BE;&#x201D;&#x3002;&#x7684;&#x786E;&#xFF0C;&#x5B66;&#x4E60;&#x5206;&#x5E03;&#x5F0F;&#x7CFB;&#x7EDF;&#x51E0;&#x4E4E;&#x4E0D;&#x9700;&#x8981;&#x592A;&#x591A;&#x6570;&#x5B66;&#x77E5;&#x8BC6;&#xFF08;&#x76F8;&#x6BD4;&#x4E8E;&#x673A;&#x5668;&#x5B66;&#x4E60;&#xFF09;&#xFF0C;&#x8FD9;&#x4E5F;&#x662F;&#x4E3A;&#x4EC0;&#x4E48;&#x4F1A;&#x9020;&#x6210; &#x201C;&#x5165;&#x95E8;&#x5BB9;&#x6613;&#x201D; &#x7684;&#x9519;&#x89C9;&#x3002;&#x7136;&#x800C;&#x4E00;&#x65E6;&#x6DF1;&#x5165;&#x4E0B;&#x53BB;&#xFF0C;&#x5F80;&#x5F80;&#x9700;&#x8981;&#x6211;&#x4EEC;&#x53BB;&#x4F53;&#x4F1A; system &#x7814;&#x7A76;&#x7684; &#x201C;&#x7B80;&#x6D01;&#x201D; &#x4E0E; &#x201C;&#x7F8E;&#x201D;&#xFF0C;&#x6B63;&#x5982;&#x697C;&#x4E0A; &#x674E;&#x6C90; &#x7684;&#x56DE;&#x7B54;&#x4E2D;&#x8BF4;&#x7684;&#x90A3;&#x6837;&#xFF0C;&#x7CFB;&#x7EDF;&#x5DE5;&#x4F5C;&#x662F; &#x201C;&#x827A;&#x672F;&#x201D; &#x800C;&#x4E0D;&#x662F; &#x201C;&#x79D1;&#x5B66;&#x201D; &#xFF0C;&#x8FD9;&#x4E00;&#x70B9;&#x6211;&#x89C9;&#x5F97;&#x662F;&#x7CFB;&#x7EDF;&#x7814;&#x7A76;&#x5DE5;&#x4F5C;&#x6700;&#x96BE;&#xFF0C;&#x540C;&#x65F6;&#x4E5F;&#x662F;&#x6700;&#x7CBE;&#x534E;&#x7684;&#x5730;&#x65B9;&#x3002;&#x603B;&#x4E4B;&#x628A;&#x63E1;&#x4E00;&#x70B9;&#x539F;&#x5219;&#xFF1A;&#x597D;&#x7684;&#x7CFB;&#x7EDF;&#x7814;&#x7A76;&#x5DE5;&#x4F5C;&#xFF0C;&#x5C24;&#x5176;&#x662F;&#x5206;&#x5E03;&#x5F0F;&#x7CFB;&#x7EDF;&#x7814;&#x7A76;&#xFF0C;&#x4E00;&#x5B9A;&#x662F;&#x5C3D;&#x53EF;&#x80FD;&#x5730;&#x7528;&#x6700;&#x7B80;&#x5355;&#x3001;&#x6700;&#x76F4;&#x89C2;&#x7684;&#x65B9;&#x6CD5;&#x53BB;&#x89E3;&#x51B3;&#x5B9E;&#x9645;&#x7684;&#x95EE;&#x9898;&#xFF08;&#x770B;&#x770B; MapReduce &#x5C31;&#x77E5;&#x9053;&#x4E86;&#xFF09;&#xFF0C;&#x56E0;&#x4E3A;&#x7B80;&#x5355;&#x5C31;&#x610F;&#x5473;&#x7740;&#x5B9E;&#x7528;&#x3002;</p>
-<p>&#x603B;&#x7684;&#x6765;&#x8BF4;&#xFF0C;&#x5206;&#x5E03;&#x5F0F;&#x7CFB;&#x7EDF;&#x8981;&#x505A;&#x7684;&#x4EFB;&#x52A1;&#x5C31;&#x662F;&#x628A;&#x591A;&#x53F0;&#x673A;&#x5668;&#x6709;&#x673A;&#x7684;&#x7EC4;&#x5408;&#x3001;&#x8FDE;&#x63A5;&#x8D77;&#x6765;&#xFF0C;&#x8BA9;&#x5176;&#x534F;&#x540C;&#x5B8C;&#x6210;&#x4E00;&#x4EF6;&#x4EFB;&#x52A1;&#xFF0C;&#x53EF;&#x4EE5;&#x662F;&#x8BA1;&#x7B97;&#x4EFB;&#x52A1;&#xFF0C;&#x4E5F;&#x53EF;&#x4EE5;&#x662F;&#x5B58;&#x50A8;&#x4EFB;&#x52A1;&#x3002;&#x5982;&#x679C;&#x4E00;&#x5B9A;&#x8981;&#x7ED9;&#x8FD1;&#x4E9B;&#x5E74;&#x7684;&#x5206;&#x5E03;&#x5F0F;&#x7CFB;&#x7EDF;&#x7814;&#x7A76;&#x505A;&#x4E00;&#x4E2A;&#x5206;&#x7C7B;&#x7684;&#x8BDD;&#xFF0C;&#x6211;&#x4E2A;&#x4EBA;&#x8BA4;&#x4E3A;&#x5927;&#x6982;&#x53EF;&#x4EE5;&#x5305;&#x62EC;&#x4E09;&#x5927;&#x90E8;&#x5206;&#xFF1A;</p>
-<ol>
-<li>&#x5206;&#x5E03;&#x5F0F;&#x5B58;&#x50A8;&#x7CFB;&#x7EDF;</li>
-<li>&#x5206;&#x5E03;&#x5F0F;&#x8BA1;&#x7B97;&#x7CFB;&#x7EDF;</li>
-<li>&#x5206;&#x5E03;&#x5F0F;&#x7BA1;&#x7406;&#x7CFB;&#x7EDF;</li>
-</ol>
-<p>&#x8FD1;&#x5341;&#x5E74;&#x6765;&#x5728;&#x8FD9;&#x4E09;&#x4E2A;&#x65B9;&#x5411;&#x4E0A;&#xFF0C;&#x6BEB;&#x65E0;&#x7591;&#x95EE;&#xFF0C; Google &#x90FD;&#x662F;&#x5F00;&#x521B;&#x8005;&#xFF0C;&#x751A;&#x81F3;&#x5F88;&#x591A;&#x4E1A;&#x5185;&#x4EBA;&#x58EB;&#x90FD;&#x8BF4;&#xFF0C;&#x8FD9;&#x5341;&#x5E74;&#x662F;&#x5916;&#x754C;&#x8FFD;&#x968F;&#x8C37;&#x6B4C;&#x6280;&#x672F;&#x7684;&#x5341;&#x5E74;&#x3002;&#x6211;&#x4EEC;&#x4E4B;&#x524D;&#x8BF4;&#x5230;&#xFF0C;&#x5206;&#x5E03;&#x5F0F;&#x7CFB;&#x7EDF;&#x7684;&#x7814;&#x7A76;&#x662F;&#x4E00;&#x95E8;&#x7531;&#x5B9E;&#x9645;&#x95EE;&#x9898;&#x9A71;&#x52A8;&#x7684;&#x7814;&#x7A76;&#xFF0C;&#x800C; google &#x5219;&#x662F;&#x6700;&#x5148;&#x9700;&#x8981;&#x9762;&#x5BF9;&#x8FD9;&#x4E9B;&#x5B9E;&#x9645;&#x95EE;&#x9898;&#x7684;&#x516C;&#x53F8;&#x3002;&#x4E0B;&#x9762;&#x6211;&#x4EEC;&#x5206;&#x522B;&#x770B;&#x770B;&#x8FD9;&#x4E09;&#x4E2A;&#x65B9;&#x9762;&#x5DE5;&#x4E1A;&#x754C;&#x4EE5;&#x53CA;&#x5B66;&#x672F;&#x754C;&#x8FD9;&#x51E0;&#x5E74;&#x90FD;&#x5728;&#x505A;&#x4E9B;&#x4EC0;&#x4E48;&#x3002;</p>
-<h2 id="&#x5206;&#x5E03;&#x5F0F;&#x5B58;&#x50A8;&#x7CFB;&#x7EDF;"><a class="header-anchor" href="#&#x5206;&#x5E03;&#x5F0F;&#x5B58;&#x50A8;&#x7CFB;&#x7EDF;"></a>&#x5206;&#x5E03;&#x5F0F;&#x5B58;&#x50A8;&#x7CFB;&#x7EDF;</h2>
-<p>&#x5206;&#x5E03;&#x5F0F;&#x5B58;&#x50A8;&#x7CFB;&#x7EDF;&#x662F;&#x4E00;&#x4E2A;&#x975E;&#x5E38;&#x53E4;&#x8001;&#x7684;&#x8BDD;&#x9898;&#xFF0C;&#x540C;&#x65F6;&#x4E5F;&#x662F;&#x5206;&#x5E03;&#x5F0F;&#x7CFB;&#x7EDF;&#x91CC;&#x6700;&#x96BE;&#xFF0C;&#x6700;&#x590D;&#x6742;&#xFF0C;&#x6D89;&#x53CA;&#x9762;&#x6700;&#x5E7F;&#x7684;&#x95EE;&#x9898;&#x3002; &#x5F80;&#x7EC6;&#x4E86;&#x5206;&#xFF0C;&#x5206;&#x5E03;&#x5F0F;&#x5B58;&#x50A8;&#x7CFB;&#x7EDF;&#x5927;&#x6982;&#x53EF;&#x4EE5;&#x5206;&#x4E3A;&#x56DB;&#x4E2A;&#x5B50;&#x65B9;&#x5411;&#xFF1A;</p>
-<ol>
-<li>&#x7ED3;&#x6784;&#x5316;&#x5B58;&#x50A8;</li>
-<li>&#x975E;&#x7ED3;&#x6784;&#x5316;&#x5B58;&#x50A8;</li>
-<li>&#x534A;&#x7ED3;&#x6784;&#x5316;&#x5B58;&#x50A8;</li>
-<li>In-memory &#x5B58;&#x50A8;</li>
-</ol>
-<p>&#x9664;&#x4E86;&#x8FD9;&#x56DB;&#x4E2A;&#x5B50;&#x65B9;&#x5411;&#x4E4B;&#x5916;&#xFF0C;&#x5206;&#x5E03;&#x5F0F;&#x5B58;&#x50A8;&#x7CFB;&#x7EDF;&#x8FD8;&#x6709;&#x4E00;&#x7CFB;&#x5217;&#x7684;&#x7406;&#x8BBA;&#x3001;&#x7B97;&#x6CD5;&#x3001;&#x6280;&#x672F;&#x4F5C;&#x4E3A;&#x652F;&#x6491;&#xFF1A;&#x4F8B;&#x5982; Paxos, CAP, ConsistentHash, Timing (&#x65F6;&#x949F;), 2PC, 3PC &#x7B49;&#x7B49;&#xFF0C;&#x8FD9;&#x4E9B;&#x5185;&#x5BB9;&#x6211;&#x4EEC;&#x4F1A;&#x5728;&#x540E;&#x9762;&#x63D0;&#x5230;&#x3002;&#x73B0;&#x5728;&#xFF0C;&#x6211;&#x4EEC;&#x5148;&#x6765;&#x770B;&#x770B;&#x4E0A;&#x8FF0;&#x56DB;&#x4E2A;&#x5B50;&#x65B9;&#x5411;&#x5927;&#x81F4;&#x90FD;&#x5728;&#x5E72;&#x4E9B;&#x4EC0;&#x4E48;&#x3002;</p>
-<h3 id="&#x7ED3;&#x6784;&#x5316;&#x5B58;&#x50A8;"><a class="header-anchor" href="#&#x7ED3;&#x6784;&#x5316;&#x5B58;&#x50A8;"></a>&#x7ED3;&#x6784;&#x5316;&#x5B58;&#x50A8;</h3>
-<p>&#x7ED3;&#x6784;&#x5316;&#x5B58;&#x50A8;&#xFF08;structured storage systems&#xFF09;&#x7684;&#x5386;&#x53F2;&#x975E;&#x5E38;&#x53E4;&#x8001;&#xFF0C;&#x5178;&#x578B;&#x7684;&#x573A;&#x666F;&#x5C31;&#x662F;&#x4E8B;&#x52A1;&#x5904;&#x7406;&#x7CFB;&#x7EDF;&#x6216;&#x8005;&#x5173;&#x7CFB;&#x578B;&#x6570;&#x636E;&#x5E93;&#xFF08;RDBMS&#xFF09;&#x3002;&#x4F20;&#x7EDF;&#x7684;&#x7ED3;&#x6784;&#x5316;&#x5B58;&#x50A8;&#x90FD;&#x662F;&#x4ECE;&#x5355;&#x673A;&#x505A;&#x8D77;&#x7684;&#xFF0C;&#x6BD4;&#x5982;&#x5927;&#x5BB6;&#x8033;&#x719F;&#x80FD;&#x8BE6;&#x7684; MySQL&#x3002;&#x6709;&#x53E5;&#x8BDD;&#x8BF4;&#xFF1A;MySQL&#x7684;&#x6210;&#x957F;&#x53F2;&#x5C31;&#x662F;&#x4E92;&#x8054;&#x7F51;&#x7684;&#x6210;&#x957F;&#x53F2;&#x3002;&#x8FD9;&#x4E00;&#x70B9;&#x4E5F;&#x4E0D;&#x4E3A;&#x8FC7;&#x3002;&#x9664;&#x4E86; MySQL &#x4E4B;&#x5916;&#xFF0C;PostgreSQL &#x4E5F;&#x662F;&#x8FD1;&#x51E0;&#x5E74;&#x6765;&#x52BF;&#x5934;&#x975E;&#x5E38;&#x5F3A;&#x52B2;&#x7684;&#x4E00;&#x4E2A; RDBMS. &#x6211;&#x4EEC;&#x53D1;&#x73B0;&#xFF0C;&#x4F20;&#x7EDF;&#x7684;&#x7ED3;&#x6784;&#x5316;&#x5B58;&#x50A8;&#x7CFB;&#x7EDF;&#x5F3A;&#x8C03;&#x7684;&#x662F;&#xFF1A;&#xFF08;1&#xFF09;&#x7ED3;&#x6784;&#x5316;&#x7684;&#x6570;&#x636E;&#xFF08;&#x4F8B;&#x5982;&#x5173;&#x7CFB;&#x8868;&#xFF09;&#x3002;&#xFF08;2&#xFF09;&#x5F3A;&#x4E00;&#x81F4;&#x6027; &#xFF08;&#x4F8B;&#x5982;&#xFF0C;&#x94F6;&#x884C;&#x7CFB;&#x7EDF;&#xFF0C;&#x7535;&#x5546;&#x7CFB;&#x7EDF;&#x7B49;&#x573A;&#x666F;&#xFF09;&#xFF08;3&#xFF09;&#x968F;&#x673A;&#x8BBF;&#x95EE;&#xFF08;&#x7D22;&#x5F15;&#xFF0C;&#x589E;&#x5220;&#x67E5;&#x6539;&#xFF0C;SQL &#x8BED;&#x8A00;&#xFF09;&#x3002;&#x7136;&#x800C;&#xFF0C;&#x6B63;&#x662F;&#x7531;&#x4E8E;&#x8FD9;&#x4E9B;&#x6027;&#x8D28;&#x548C;&#x9650;&#x5236;&#xFF0C;&#x7ED3;&#x6784;&#x5316;&#x5B58;&#x50A8;&#x7CFB;&#x7EDF;&#x7684;&#x53EF;&#x6269;&#x5C55;&#x6027;&#x901A;&#x5E38;&#x90FD;&#x4E0D;&#x662F;&#x5F88;&#x597D;&#xFF0C;&#x8FD9;&#x5728;&#x4E00;&#x5B9A;&#x7A0B;&#x5EA6;&#x4E0A;&#x9650;&#x5236;&#x4E86;&#x7ED3;&#x6784;&#x5316;&#x5B58;&#x50A8;&#x5728;&#x5927;&#x6570;&#x636E;&#x73AF;&#x5883;&#x4E0B;&#x7684;&#x8868;&#x73B0;&#x3002;&#x968F;&#x7740;&#x6469;&#x5C14;&#x5B9A;&#x5F8B;&#x9762;&#x4E34;&#x7684;&#x74F6;&#x9888;&#xFF0C;&#x4F20;&#x7EDF;&#x7684;&#x5355;&#x673A;&#x5173;&#x7CFB;&#x578B;&#x6570;&#x636E;&#x5E93;&#x7CFB;&#x7EDF;&#x9762;&#x4E34;&#x7740;&#x5DE8;&#x5927;&#x7684;&#x6311;&#x6218;&#x3002;&#x4E0D;&#x8FC7;&#x771F;&#x7684;&#x6CA1;&#x529E;&#x6CD5;&#x4E86;&#x5417;&#xFF1F;&#x5728;&#x6B64;&#x6211;&#x4EEC;&#x5148;&#x57CB;&#x4E0B;&#x4E00;&#x4E2A;&#x4F0F;&#x7B14;&#xFF1A;&#xFF09;</p>
-<h3 id="&#x975E;&#x7ED3;&#x6784;&#x5316;&#x5B58;&#x50A8;"><a class="header-anchor" href="#&#x975E;&#x7ED3;&#x6784;&#x5316;&#x5B58;&#x50A8;"></a>&#x975E;&#x7ED3;&#x6784;&#x5316;&#x5B58;&#x50A8;</h3>
-<p>&#x975E;&#x7ED3;&#x6784;&#x5316;&#x5B58;&#x50A8;&#xFF08;no-structed storage systems). &#x548C;&#x7ED3;&#x6784;&#x5316;&#x5B58;&#x50A8;&#x4E0D;&#x540C;&#x7684;&#x662F;&#xFF0C;&#x975E;&#x7ED3;&#x6784;&#x5316;&#x5B58;&#x50A8;&#x5F3A;&#x8C03;&#x7684;&#x662F;&#x9AD8;&#x53EF;&#x6269;&#x5C55;&#x6027;&#xFF0C;&#x5178;&#x578B;&#x7684;&#x7CFB;&#x7EDF;&#x5C31;&#x662F;&#x5206;&#x5E03;&#x5F0F;&#x6587;&#x4EF6;&#x7CFB;&#x7EDF;&#x3002;&#x5206;&#x5E03;&#x5F0F;&#x6587;&#x4EF6;&#x7CFB;&#x7EDF;&#x4E5F;&#x662F;&#x4E00;&#x4E2A;&#x53E4;&#x8001;&#x7684;&#x7814;&#x7A76;&#x8BDD;&#x9898;&#xFF0C;&#x6BD4;&#x5982; 70 &#x5E74;&#x4EE3;&#x7684; Xerox Alto, 80 &#x5E74;&#x4EE3;&#x7684; NFS, AFS, 90 &#x5E74;&#x4EE3; xFS &#x7B49;&#x7B49;&#x3002;&#x7136;&#x800C;&#xFF0C;&#x8FD9;&#x4E9B;&#x65E9;&#x671F;&#x7684;&#x5206;&#x5E03;&#x5F0F;&#x6587;&#x4EF6;&#x7CFB;&#x7EDF;&#x53EA;&#x662F;&#x8D77;&#x5230;&#x4E86;&#x7F51;&#x7EDC;&#x78C1;&#x76D8;&#x7684;&#x4F5C;&#x7528;, &#x5176;&#x6700;&#x5927;&#x7684;&#x95EE;&#x9898;&#x5C31;&#x662F;&#x4E0D;&#x652F;&#x6301; &#x5BB9;&#x9519; &#xFF08;fault tolerance&#xFF09;&#x548C; &#x9519;&#x8BEF;&#x6062;&#x590D; &#xFF08;fault recovery&#xFF09;&#x3002;&#x800C; Google &#x5728; 2003 &#x5E74; SOSP &#x4E0A;&#x63A8;&#x51FA;&#x7684; GFS (google file system) &#x5219;&#x662F;&#x505A;&#x51FA;&#x4E86;&#x91CC;&#x7A0B;&#x7891;&#x7684;&#x4E00;&#x6B65;&#xFF0C;&#x5176;&#x5F00;&#x6E90;&#x5B9E;&#x73B0;&#x5BF9;&#x5E94;&#x4E3A; HDFS. GFS &#x7684;&#x4E3B;&#x8981;&#x601D;&#x60F3;&#x5305;&#x62EC;&#xFF1A;</p>
-<p>&#xFF08;1&#xFF09;&#x7528; master &#x6765;&#x7BA1;&#x7406; metadata&#x3002;<br>
-&#xFF08;2&#xFF09;&#x6587;&#x4EF6;&#x4F7F;&#x7528; 64MB &#x7684; chunks &#x6765;&#x5B58;&#x50A8;&#xFF0C;&#x5E76;&#x4E14;&#x5728;&#x4E0D;&#x540C;&#x7684; server &#x4E0A;&#x4FDD;&#x5B58;&#x591A;&#x4E2A;&#x526F;&#x672C;&#x3002;<br>
-&#xFF08;3&#xFF09;&#x81EA;&#x52A8;&#x5BB9;&#x9519;&#xFF0C;&#x81EA;&#x52A8;&#x9519;&#x8BEF;&#x6062;&#x590D;&#x3002;</p>
-<p>Google &#x8BBE;&#x8BA1; gfs &#x6700;&#x521D;&#x7684;&#x76EE;&#x7684;&#x662F;&#x4E3A;&#x4E86;&#x5B58;&#x50A8;&#x6D77;&#x91CF;&#x7684;&#x65E5;&#x5FD7;&#x6587;&#x4EF6;&#x4EE5;&#x53CA;&#x7F51;&#x9875;&#x7B49;&#x6587;&#x672C;&#x4FE1;&#x606F;&#xFF0C;&#x5E76;&#x4E14;&#x5BF9;&#x5176;&#x8FDB;&#x884C;&#x6279;&#x91CF;&#x5904;&#x7406;&#xFF08;&#x4F8B;&#x5982;&#x914D;&#x5408; mapreduce &#x4E3A;&#x6587;&#x6863;&#x5EFA;&#x7ACB;&#x5012;&#x6392;&#x7D22;&#x5F15;&#xFF0C;&#x8BA1;&#x7B97;&#x7F51;&#x9875; PageRank &#x7B49;&#xFF09;&#x3002;&#x548C;&#x7ED3;&#x6784;&#x5316;&#x5B58;&#x50A8;&#x7CFB;&#x7EDF;&#x76F8;&#x6BD4;&#xFF0C;&#x867D;&#x7136;&#x5206;&#x5E03;&#x5F0F;&#x6587;&#x4EF6;&#x7CFB;&#x7EDF;&#x7684;&#x53EF;&#x6269;&#x5C55;&#x6027;&#xFF0C;&#x541E;&#x5410;&#x7387;&#x90FD;&#x975E;&#x5E38;&#x597D;&#xFF0C;&#x4F46;&#x662F;&#x51E0;&#x4E4E;&#x65E0;&#x6CD5;&#x652F;&#x6301;&#x968F;&#x673A;&#x8BBF;&#x95EE;&#xFF08;random access&#xFF09;&#x64CD;&#x4F5C;&#xFF0C;&#x901A;&#x5E38;&#x53EA;&#x80FD;&#x8FDB;&#x884C;&#x6587;&#x4EF6;&#x8FDB;&#x884C;&#x8FFD;&#x52A0;&#xFF08;append&#xFF09;&#x64CD;&#x4F5C;&#x3002;&#x800C;&#x8FD9;&#x6837;&#x7684;&#x9650;&#x5236;&#x4F7F;&#x5F97;&#x975E;&#x7ED3;&#x6784;&#x5316;&#x5B58;&#x50A8;&#x7CFB;&#x7EDF;&#x5F88;&#x96BE;&#x9762;&#x5BF9;&#x90A3;&#x4E9B;&#x4F4E;&#x5EF6;&#x65F6;&#xFF0C;&#x5B9E;&#x65F6;&#x6027;&#x8F83;&#x5F3A;&#x7684;&#x5E94;&#x7528;&#x3002;</p>
-<h3 id="&#x534A;&#x7ED3;&#x6784;&#x5316;&#x5B58;&#x50A8;"><a class="header-anchor" href="#&#x534A;&#x7ED3;&#x6784;&#x5316;&#x5B58;&#x50A8;"></a>&#x534A;&#x7ED3;&#x6784;&#x5316;&#x5B58;&#x50A8;</h3>
-<p>&#x534A;&#x7ED3;&#x6784;&#x5316;&#x5B58;&#x50A8;&#xFF08;semi-structure storage systems&#xFF09;&#x7684;&#x63D0;&#x51FA;&#x4FBF;&#x662F;&#x4E3A;&#x4E86;&#x89E3;&#x51B3;&#x7ED3;&#x975E;&#x6784;&#x5316;&#x5B58;&#x50A8;&#x7CFB;&#x7EDF;&#x968F;&#x673A;&#x8BBF;&#x95EE;&#x6027;&#x80FD;&#x5DEE;&#x7684;&#x95EE;&#x9898;&#x3002;&#x6211;&#x4EEC;&#x901A;&#x5E38;&#x4F1A;&#x542C;&#x5230;&#x4E00;&#x4E9B;&#x6D41;&#x884C;&#x7684;&#x540D;&#x8BCD;&#xFF0C;&#x6BD4;&#x5982; NoSQL, Key-Value Store, &#x751A;&#x81F3;&#x5305;&#x62EC;&#x5BF9;&#x8C61;&#x5B58;&#x50A8;&#xFF0C;&#x4F8B;&#x5982; protobuf&#xFF0C;thrift &#x7B49;&#x7B49;&#x3002;&#x8FD9;&#x4E9B;&#x90FD;&#x5C5E;&#x4E8E;&#x534A;&#x7ED3;&#x6784;&#x5316;&#x5B58;&#x50A8;&#x7814;&#x7A76;&#x7684;&#x9886;&#x57DF;&#xFF0C;&#x5176;&#x4E2D;&#x4EE5; NoSQL &#x8FD1;&#x51E0;&#x5E74;&#x7684;&#x53D1;&#x5C55;&#x52BF;&#x5934;&#x5C24;&#x4E3A;&#x5F3A;&#x52B2;&#x3002;NoSQL &#x7CFB;&#x7EDF;&#x65E2;&#x6709;&#x5206;&#x5E03;&#x5F0F;&#x6587;&#x4EF6;&#x7CFB;&#x7EDF;&#x6240;&#x5177;&#x6709;&#x7684;&#x53EF;&#x6269;&#x5C55;&#x6027;&#xFF0C;&#x53C8;&#x6709;&#x7ED3;&#x6784;&#x5316;&#x5B58;&#x50A8;&#x7CFB;&#x7EDF;&#x7684;&#x968F;&#x673A;&#x8BBF;&#x95EE;&#x80FD;&#x529B; &#xFF08;&#x4F8B;&#x5982;&#x968F;&#x673A;update, read &#x64CD;&#x4F5C;&#xFF09;&#xFF0C;&#x7CFB;&#x7EDF;&#x5728;&#x8BBE;&#x8BA1;&#x65F6;&#x901A;&#x5E38;&#x9009;&#x62E9;&#x7B80;&#x5355;&#x952E;&#x503C;&#xFF08;K-V&#xFF09;&#x8FDB;&#x884C;&#x5B58;&#x50A8;&#xFF0C;&#x629B;&#x5F03;&#x4E86;&#x4F20;&#x7EDF; RDBMS &#x91CC;&#x590D;&#x6742; SQL &#x67E5;&#x8BE2;&#x4EE5;&#x53CA; ACID &#x4E8B;&#x52A1;&#x3002;&#x8FD9;&#x6837;&#x505A;&#x53EF;&#x4EE5;&#x6362;&#x53D6;&#x7CFB;&#x7EDF;&#x6700;&#x5927;&#x7684;&#x9650;&#x5EA6;&#x7684;&#x53EF;&#x6269;&#x5C55;&#x6027;&#x548C;&#x7075;&#x6D3B;&#x6027;&#x3002;&#x5728; NoSQL &#x91CC;&#x6BD4;&#x8F83;&#x6709;&#x540D;&#x7CFB;&#x7EDF;&#x5305;&#x62EC;&#xFF1A;Google &#x7684; Bigtable, Amazon &#x7684; Dynamo, &#x4EE5;&#x53CA;&#x5F00;&#x6E90;&#x754C;&#x5927;&#x540D;&#x9F0E;&#x9F0E;&#x7684; HBase&#xFF0C;Cassandra &#x7B49;. &#x901A;&#x5E38;&#x8FD9;&#x4E9B; NoSQL &#x7CFB;&#x7EDF;&#x5E95;&#x5C42;&#x90FD;&#x662F;&#x57FA;&#x4E8E;&#x6BD4;&#x8F83;&#x6210;&#x719F;&#x7684;&#x5B58;&#x50A8;&#x5F15;&#x64CE;&#xFF0C;&#x6BD4;&#x5982; Bigtable &#x5C31;&#x662F;&#x57FA;&#x4E8E; LevelDB ( jeff dean &#x5199;&#x7684;&#xFF0C;&#x975E;&#x5E38;&#x597D;&#x7684; C++ &#x6E90;&#x7801;&#x6559;&#x7A0B;) &#xFF0C;&#x5E95;&#x5C42;&#x6570;&#x636E;&#x7ED3;&#x6784;&#x91C7;&#x7528; LSM-Tree. &#x9664;&#x4E86; LSM-Tree &#x4E4B;&#x5916; B-Tree &#xFF08;B+Tree&#xFF09;&#x4E5F;&#x662F;&#x5F88;&#x6210;&#x719F;&#x7684;&#x5B58;&#x50A8;&#x5F15;&#x64CE;&#x6570;&#x636E;&#x7ED3;&#x6784;&#x3002;</p>
-<h3 id="in-memory-&#x5B58;&#x50A8;"><a class="header-anchor" href="#in-memory-&#x5B58;&#x50A8;"></a>In-memory &#x5B58;&#x50A8;</h3>
-<p>In-memory &#x5B58;&#x50A8;&#xFF0C;&#x968F;&#x7740;&#x4E1A;&#x52A1;&#x7684;&#x5E76;&#x53D1;&#x8D8A;&#x6765;&#x8D8A;&#x9AD8;&#xFF0C;&#x5B58;&#x50A8;&#x7CFB;&#x7EDF;&#x5BF9;&#x4F4E;&#x5EF6;&#x8FDF;&#x7684;&#x8981;&#x6C42;&#x4E5F;&#x8D8A;&#x6765;&#x8D8A;&#x9AD8;&#x3002; &#x540C;&#x65F6;&#x7531;&#x4E8E;&#x6469;&#x5C14;&#x5B9A;&#x5F8B;&#x4EE5;&#x53CA;&#x5185;&#x5B58;&#x7684;&#x4EF7;&#x683C;&#x4E0D;&#x65AD;&#x4E0B;&#x964D;&#xFF0C;&#x57FA;&#x4E8E;&#x5185;&#x5B58;&#x7684;&#x5B58;&#x50A8;&#x7CFB;&#x7EDF;&#x4E5F;&#x5F00;&#x59CB;&#x666E;&#x53CA;&#x3002; In-memory &#x5B58;&#x50A8;&#x987E;&#x540D;&#x601D;&#x4E49;&#x5C31;&#x662F;&#x5C06;&#x6570;&#x636E;&#x5B58;&#x50A8;&#x5728;&#x5185;&#x5B58;&#x4E2D;, &#x4ECE;&#x800C;&#x83B7;&#x5F97;&#x8BFB;&#x5199;&#x7684;&#x9AD8;&#x6027;&#x80FD;&#x3002;&#x6BD4;&#x8F83;&#x6709;&#x540D;&#x7684;&#x7CFB;&#x7EDF;&#x5305;&#x62EC; memcahed &#xFF0C;&#x4EE5;&#x53CA; Redis&#x3002; &#x8FD9;&#x4E9B;&#x57FA;&#x4E8E; K-V &#x952E;&#x503C;&#x7CFB;&#x7EDF;&#x7684;&#x4E3B;&#x8981;&#x76EE;&#x7684;&#x662F;&#x4E3A;&#x57FA;&#x4E8E;&#x78C1;&#x76D8;&#x7684;&#x5B58;&#x50A8;&#x7CFB;&#x7EDF;&#x505A; cache&#x3002;&#x8FD8;&#x6709;&#x4E00;&#x4E9B;&#x504F;&#x5411;&#x4E8E;&#x5185;&#x5B58;&#x8BA1;&#x7B97;&#x7684;&#x7CFB;&#x7EDF;&#xFF0C;&#x6BD4;&#x5982;&#x53EF;&#x4EE5;&#x8FFD;&#x6EAF;&#x5230;&#x666E;&#x6797;&#x65AF;&#x987F; Kai Lee &#x6559;&#x6388;&#x65E9;&#x671F;&#x7684;&#x7814;&#x7A76;&#x5DE5;&#x4F5C; distributed shared memory ( DSM )&#xFF0C;&#x65AF;&#x5766;&#x798F;&#x7684; RamCloud&#xFF0C; &#x4EE5;&#x53CA;&#x6700;&#x8FD1;&#x6BD4;&#x8F83;&#x706B;&#x7684;&#x57FA;&#x4E8E; lineage &#x6280;&#x672F;&#x7684; tachyon (Alluxio) &#x9879;&#x76EE;&#xFF08;Spark&#x751F;&#x6001;&#x7CFB;&#x7EDF;&#x5B50;&#x9879;&#x76EE;&#xFF09;&#x7B49;&#x7B49;&#x3002;</p>
-<h3 id="newsql"><a class="header-anchor" href="#newsql"></a>NewSQL</h3>
-<p>&#x6211;&#x4EEC;&#x5728;&#x4ECB;&#x7ECD;&#x7ED3;&#x6784;&#x5316;&#x5B58;&#x50A8;&#x65F6;&#x8BF4;&#x5230;&#xFF0C;&#x5355;&#x673A; RDBMS &#x7CFB;&#x7EDF;&#x5728;&#x53EF;&#x6269;&#x5C55;&#x6027;&#x4E0A;&#x9762;&#x4E34;&#x7740;&#x5DE8;&#x5927;&#x7684;&#x6311;&#x6218;&#xFF0C;&#x7136;&#x800C; NoSQL &#x4E0D;&#x80FD;&#x5F88;&#x597D;&#x7684;&#x652F;&#x6301;&#x5173;&#x7CFB;&#x6A21;&#x578B;&#x3002;&#x90A3;&#x662F;&#x4E0D;&#x662F;&#x6709;&#x4E00;&#x79CD;&#x7CFB;&#x7EDF;&#x80FD;&#x517C;&#x5907; RDBMS &#x7684;&#x7279;&#x6027;&#xFF08;&#x4F8B;&#x5982;&#xFF1A;&#x5B8C;&#x6574;&#x7684; SQL &#x652F;&#x6301;&#xFF0C;ACID &#x4E8B;&#x52A1;&#x652F;&#x6301;&#xFF09;&#xFF0C;&#x53C8;&#x80FD;&#x50CF; NoSQL &#x7CFB;&#x7EDF;&#x90A3;&#x6837;&#x5177;&#x6709;&#x5F3A;&#x5927;&#x7684;&#x53EF;&#x6269;&#x5C55;&#x80FD;&#x529B;&#x5462;&#xFF1F; 2012 &#x5E74; Google &#x5728; OSDI &#x4E0A;&#x53D1;&#x8868;&#x7684; Spanner&#xFF0C;&#x4EE5;&#x53CA; 2013 &#x5E74;&#x5728; SIGMOD &#x53D1;&#x8868;&#x7684; F1, &#x8BA9;&#x4E1A;&#x754C;&#x7B2C;&#x4E00;&#x6B21;&#x770B;&#x5230;&#x4E86;&#x5173;&#x7CFB;&#x6A21;&#x578B;&#x548C; NoSQL &#x5728;&#x8D85;&#x5927;&#x89C4;&#x6A21;&#x6570;&#x636E;&#x4E2D;&#x5FC3;&#x4E0A;&#x878D;&#x5408;&#x7684;&#x53EF;&#x80FD;&#x6027;&#x3002;&#x4E0D;&#x8FC7;&#x7531;&#x4E8E;&#x8FD9;&#x4E9B;&#x7CFB;&#x7EDF;&#x90FD;&#x592A;&#x8FC7;&#x4E8E;&#x9ED1;&#x79D1;&#x6280;&#x4E86;&#xFF0C;&#x6CA1;&#x6709;&#x5927;&#x516C;&#x53F8;&#x652F;&#x6301;&#x5E94;&#x8BE5;&#x662F;&#x505A;&#x4E0D;&#x51FA;&#x6765;&#x7684;&#x3002;&#x6BD4;&#x5982; Spanner &#x91CC;&#x7528;&#x4E86;&#x539F;&#x5B50;&#x949F;&#x8FD9;&#x6837;&#x7684;&#x9ED1;&#x79D1;&#x6280;&#x6765;&#x89E3;&#x51B3;&#x65F6;&#x949F;&#x540C;&#x6B65;&#x95EE;&#x9898;&#xFF0C;&#x6253;&#x7834;&#x5149;&#x901F;&#x4F20;&#x8F93;&#x7684;&#x9650;&#x5236;&#x3002;&#x5728;&#x8FD9;&#x91CC;&#x53EA;&#x80FD;&#x5BF9; google &#x8868;&#x793A;&#x819C;&#x62DC;&#x3002;</p>
-<p>&#x6211;&#x4EEC;&#x5728;&#x4E4B;&#x524D;&#x63D0;&#x5230;&#xFF0C;&#x5206;&#x5E03;&#x5F0F;&#x5B58;&#x50A8;&#x7CFB;&#x7EDF;&#x6709;&#x4E00;&#x7CFB;&#x5217;&#x7684;&#x7406;&#x8BBA;&#x3001;&#x7B97;&#x6CD5;&#x3001;&#x6280;&#x672F;&#x4F5C;&#x4E3A;&#x652F;&#x6491;&#xFF1A;&#x4F8B;&#x5982; Paxos, CAP, Consistent Hash, Timing (&#x65F6;&#x949F;), 2PC, 3PC &#x7B49;&#x7B49;&#x3002;&#x90A3;&#x4E48;&#x5982;&#x4F55;&#x638C;&#x63E1;&#x597D;&#x8FD9;&#x4E9B;&#x6280;&#x672F;&#x5462;&#xFF1F;&#x4EE5;&#x6211;&#x4E2A;&#x4EBA;&#x7684;&#x7ECF;&#x9A8C;&#xFF0C;&#x638C;&#x63E1;&#x8FD9;&#x4E9B;&#x5185;&#x5BB9;&#x4E00;&#x5B9A;&#x8981;&#x7406;&#x89E3;&#x5176;&#x5BF9;&#x5E94;&#x7684;&#x4E0A;&#x4E0B;&#x6587;&#x3002;&#x4EC0;&#x4E48;&#x610F;&#x601D;&#x5462;&#xFF1F;&#x5C31;&#x662F;&#x4E00;&#x5B9A;&#x8981;&#x53BB;&#x601D;&#x8003;&#x4E3A;&#x4EC0;&#x4E48;&#x5728;&#x5F53;&#x4E0B;&#x73AF;&#x5883;&#x9700;&#x8981;&#x67D0;&#x9879;&#x6280;&#x672F;&#xFF0C;&#x5982;&#x679C;&#x6CA1;&#x6709;&#x8FD9;&#x4E2A;&#x6280;&#x672F;&#x7528;&#x5176;&#x5B83;&#x6280;&#x672F;&#x66FF;&#x4EE3;&#x662F;&#x5426;&#x53EF;&#x884C;&#xFF0C;&#x800C;&#x4E0D;&#x662F;&#x4E00;&#x5473;&#x7684;&#x9677;&#x5165;&#x5927;&#x91CF;&#x7684;&#x7EC6;&#x8282;&#x4E4B;&#x4E2D;&#x3002;&#x4F8B;&#x5982;&#xFF1A;&#x5982;&#x4F55;&#x638C;&#x63E1;&#x597D; Paxos? Paxos&#x672C;&#x8D28;&#x4E0A;&#x6765;&#x8BF4;&#x662F;&#x4E00;&#x4E2A;&#x4E09;&#x9636;&#x6BB5;&#x63D0;&#x4EA4;&#xFF0C;&#x66F4; high level &#x8BB2;&#x662F;&#x4E00;&#x4E2A;&#x5206;&#x5E03;&#x5F0F;&#x9501;&#x3002;&#x7406;&#x89E3;paxos&#x5FC5;&#x987B;&#x4E00;&#x6B65;&#x4E00;&#x6B65;&#x4ECE;&#x6700;&#x7B80;&#x5355;&#x7684;&#x573A;&#x666F;&#x51FA;&#x53D1;&#xFF0C;&#x6BD4;&#x5982;&#x4ECE;&#x6700;&#x7B80;&#x5355;&#x7684; master-backup &#x51FA;&#x53D1;&#xFF0C;&#x53D1;&#x73B0;&#x4E0D;&#x884C;&#xFF0C;&#x884D;&#x751F;&#x51FA;&#x591A;&#x6570;&#x6D3E;&#x8BFB;&#x5199;&#xFF0C;&#x53D1;&#x73B0;&#x8FD8;&#x662F;&#x4E0D;&#x884C;&#xFF0C;&#x518D;&#x5230; paxos. &#x4E4B;&#x540E;&#x518D;&#x4E86;&#x89E3;&#x5176;&#x53D8;&#x79CD;&#xFF0C;&#x6BD4;&#x5982; fast paxos, multi-paxos. &#x540C;&#x7406;&#x4E3A;&#x4EC0;&#x4E48;&#x9700;&#x8981; Consistent Hash, &#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x5148;&#x601D;&#x8003;&#x5982;&#x679C;&#x7528;&#x7B80;&#x5355;range partition &#x5212;&#x5206;&#x6570;&#x636E;&#x6709;&#x4EC0;&#x4E48;&#x95EE;&#x9898;&#x3002;&#x518D;&#x6BD4;&#x5982;&#x5B66;&#x4E60; 2pc, 3pc &#x8FD9;&#x6837;&#x7684;&#x6280;&#x672F;&#x65F6;&#xFF0C;&#x53EF;&#x4EE5;&#x60F3;&#x60F3;&#x4ED6;&#x4EEC;&#x548C;paxos &#x6709;&#x4EC0;&#x4E48;&#x5173;&#x7CFB;&#xFF0C;&#x80FD;&#x5426;&#x66FF;&#x4EE3; paxos&#x3002;</p>
-<p>&#x4EE5;&#x4E0A;&#x662F;&#x6211;&#x5173;&#x4E8E;&#x5206;&#x5E03;&#x5F0F;&#x5B58;&#x50A8;&#x7CFB;&#x7EDF;&#x5185;&#x5BB9;&#x7684;&#x4E00;&#x4E9B;&#x603B;&#x7ED3;&#xFF0C;&#x63A8;&#x8350;&#x4E00;&#x4E9B;&#x76F8;&#x5173;&#x7684;&#x8BBA;&#x6587; &#xFF0C;&#x6709;&#x5174;&#x8DA3;&#x7684;&#x8BFB;&#x8005;&#x53EF;&#x4EE5;&#x770B;&#x770B;&#xFF1A;</p>
-<ul>
-<li><a href="http://www.eecg.toronto.edu/~ashvin/courses/ece1746/2003/reading/ghemawat-sosp03.pdf" target="_blank" rel="external">The Google File System</a></li>
-<li><a href="http://lintool.github.io/UMD-courses/bigdata-2015-Spring/content/ChangFay_etal_OSDI2006.pdf" target="_blank" rel="external">Bigtable: A Distributed Storage System for Structured Data.</a></li>
-<li><a href="http://www.allthingsdistributed.com/files/amazon-dynamo-sosp2007.pdf" target="_blank" rel="external">Dynamo: Amazon&#x2019;s Highly Available Key-value &#x2026; </a></li>
-<li><a href="http://lintool.github.io/UMD-courses/bigdata-2015-Spring/content/Khurana_etal_2012.pdf" target="_blank" rel="external">Introduction to HBase Schema Design</a></li>
-<li><a href="http://lintool.github.io/UMD-courses/bigdata-2015-Spring/content/Abadi_2012.pdf" target="_blank" rel="external">Consistency Tradeoffs in Modern Distributed Database System Design</a></li>
-<li><a href="https://www.usenix.org/conference/osdi12/technical-sessions/presentation/corbett" target="_blank" rel="external">Spanner: Google&#x2019;s Globally-Distributed Database</a></li>
-<li><a href="http://datascienceassn.org/sites/default/files/F1%20A%20Distributed%20SQL%20Database%20That%20Scales.pdf" target="_blank" rel="external">F1: A Distributed SQL Database That Scales</a></li>
-<li><a href="https://people.eecs.berkeley.edu/~haoyuan/papers/2014_socc_tachyon.pdf" target="_blank" rel="external">Tachyon: Reliable, Memory Speed Storage for Cluster Computing</a></li>
-<li><a href="http://www.snia.org/sites/default/files/JohnOusterhout_RAMCloud.pdf" target="_blank" rel="external">RAMCloud and the Low- Latency Datacenter</a></li>
-<li><a href="https://www.cs.cornell.edu/projects/ladis2009/papers/lakshman-ladis2009.pdf" target="_blank" rel="external">Cassandra - A Decentralized Structured Storage System</a></li>
-<li><a href="http://homes.cs.washington.edu/~billhowe/mapreduce_a_major_step_backwards.html" target="_blank" rel="external">MapReduce: A major step backwards</a></li>
-<li><a href="http://lintool.github.io/UMD-courses/bigdata-2015-Spring/content/Stonebraker_etal_CACM2010.pdf" target="_blank" rel="external">MapReduce and Parallel DBMSs: Friends or Foes?</a></li>
-<li><a href="http://www.cs.cmu.edu/~pavlo/courses/fall2013/static/slides/mapreduce.pdf" target="_blank" rel="external">A comparison of approaches to large scale data analysis</a></li>
-</ul>
-<h2 id="&#x5206;&#x5E03;&#x5F0F;&#x8BA1;&#x7B97;&#x7CFB;&#x7EDF;"><a class="header-anchor" href="#&#x5206;&#x5E03;&#x5F0F;&#x8BA1;&#x7B97;&#x7CFB;&#x7EDF;"></a>&#x5206;&#x5E03;&#x5F0F;&#x8BA1;&#x7B97;&#x7CFB;&#x7EDF;</h2>
-<p>&#x804A;&#x5B8C;&#x4E86;&#x5206;&#x5E03;&#x5F0F;&#x5B58;&#x50A8;&#x7CFB;&#x7EDF;&#xFF0C;&#x8BA9;&#x6211;&#x4EEC;&#x6765;&#x804A;&#x804A;&#x5206;&#x5E03;&#x5F0F;&#x8BA1;&#x7B97;&#x7CFB;&#x7EDF; &#xFF1A;&#xFF09; &#x9996;&#x5148;&#x89E3;&#x51B3;&#x4E00;&#x4E2A;&#x5F88;&#x591A;&#x521D;&#x5B66;&#x5206;&#x5E03;&#x5F0F;&#x8BA1;&#x7B97;&#x7684;&#x540C;&#x5B66;&#x7684;&#x7591;&#x60D1;&#xFF1A;&#x5206;&#x5E03;&#x5F0F;&#x8BA1;&#x7B97;&#x548C;&#x5E76;&#x884C;&#x8BA1;&#x7B97;&#x662F;&#x4E00;&#x56DE;&#x4E8B;&#x5417;&#xFF1F;&#x6700;&#x521D;&#x6211;&#x4E5F;&#x6709;&#x8FD9;&#x6837;&#x7684;&#x7591;&#x60D1;&#xFF0C;&#x800C;&#x73B0;&#x5728;&#x6211;&#x7684;&#x7406;&#x89E3;&#x662F;&#x8FD9;&#x6837;&#x7684;&#xFF1A;</p>
-<p>&#x4F20;&#x7EDF;&#x7684;&#x5E76;&#x884C;&#x8BA1;&#x7B97;&#x8981;&#x7684;&#x662F;&#xFF1A;&#x6295;&#x5165;&#x66F4;&#x591A;&#x673A;&#x5668;&#xFF0C;&#x6570;&#x636E;&#x5927;&#x5C0F;&#x4E0D;&#x53D8;&#xFF0C;&#x8BA1;&#x7B97;&#x901F;&#x5EA6;&#x66F4;&#x5FEB;&#x3002;<br>
-&#x5206;&#x5E03;&#x5F0F;&#x8BA1;&#x7B97;&#x8981;&#x6C42;&#xFF1A;&#x6295;&#x5165;&#x66F4;&#x591A;&#x7684;&#x673A;&#x5668;&#xFF0C;&#x80FD;&#x5904;&#x7406;&#x66F4;&#x5927;&#x7684;&#x6570;&#x636E;&#x3002;</p>
-<p>&#x6362;&#x53E5;&#x8BDD;&#x8BF4;&#x4E8C;&#x8005;&#x7684;&#x51FA;&#x53D1;&#x70B9;&#x4ECE;&#x4E00;&#x5F00;&#x59CB;&#x5C31;&#x4E0D;&#x540C;&#xFF0C;&#x4E00;&#x4E2A;&#x5F3A;&#x8C03; high performance, &#x4E00;&#x4E2A;&#x5F3A;&#x8C03; scalability. &#x4E3E;&#x4F8B;&#x6765;&#x8BF4;&#xFF0C;MapReduce &#x7ED9;&#x4E1A;&#x754C;&#x5E26;&#x6765;&#x7684;&#x771F;&#x6B63;&#x7684;&#x601D;&#x8003;&#x662F;&#x4EC0;&#x4E48;&#xFF1F;&#x5176;&#x5B9E;&#x662F;&#x7ED9;&#x6211;&#x4EEC;&#x666E;&#x53CA;&#x4E86; google &#x8FD9;&#x6837;&#x7EA7;&#x522B;&#x7684;&#x516C;&#x53F8;&#x5BF9;&#x771F;&#x6B63;&#x610F;&#x4E49;&#x4E0A;&#x7684;&#x300C;&#x5927;&#x6570;&#x636E;&#x300D;&#x7684;&#x7406;&#x89E3;&#x3002;&#x56E0;&#x4E3A;&#x5728; 04 &#x5E74;&#x8BBA;&#x6587;&#x51FA;&#x6765;&#x4E4B;&#x524D;&#xFF0C;&#x641E;&#x5E76;&#x884C;&#x8BA1;&#x7B97;&#x7684;&#x4EBA;&#x538B;&#x6839;&#x8FDE; &#x300C;&#x5BB9;&#x9519;&#x300D;&#x7684;&#x6982;&#x5FF5;&#x90FD;&#x6CA1;&#x6709;&#x3002;&#x6362;&#x53E5;&#x8BDD;&#x8BF4;&#xFF0C;&#x5206;&#x5E03;&#x5F0F;&#x8BA1;&#x7B97;&#x6700;&#x4E3A;&#x6838;&#x5FC3;&#x7684;&#x90E8;&#x5206;&#x5C31;&#x662F;&#x300C;&#x5BB9;&#x9519;&#x300D;&#xFF0C;&#x6CA1;&#x6709;&#x5BB9;&#x9519;&#xFF0C;&#x5206;&#x5E03;&#x5F0F;&#x8BA1;&#x7B97;&#x6839;&#x672C;&#x65E0;&#x4ECE;&#x8C08;&#x8D77;&#x3002;MapReduce &#x7EDF;&#x8981;&#x505A;&#x6210;&#x8FD9;&#x4E2A;&#x6837;&#x5B50;&#xFF08;map &#xFF0B; reduce&#xFF09;&#xFF0C;&#x5176;&#x5B9E;&#x5C31;&#x662F;&#x4E3A;&#x4E86;&#x5BB9;&#x9519;&#x3002;</p>
-<p>&#x7136;&#x800C;&#x5F88;&#x591A;&#x521D;&#x5B66;&#x5206;&#x5E03;&#x5F0F;&#x8BA1;&#x7B97;&#x7684;&#x540C;&#x5B66;&#x5BF9;&#x5BB9;&#x9519;&#x7684;&#x6982;&#x5FF5;&#x591A;&#x591A;&#x5C11;&#x5C11;&#x662F;&#x6709;&#x8BEF;&#x89E3;&#x7684;&#x3002;&#x5305;&#x62EC;&#x6211;&#x5728;&#x521D;&#x5B66; mapreduce &#x7684;&#x65F6;&#x5019;&#x4E5F;&#x4F1A;&#x601D;&#x8003;&#xFF1A;&#x597D;&#x597D;&#x7684;&#x8BA1;&#x7B97;&#x600E;&#x4E48;&#x5C31;&#x4F1A;&#x51FA;&#x9519;&#x4E86;&#x5462;&#xFF1F;&#x4E00;&#x65B9;&#x9762;&#xFF0C;&#x7531;&#x4E8E;&#x786C;&#x4EF6;&#x7684;&#x8001;&#x5316;&#xFF0C;&#x6709;&#x53EF;&#x80FD;&#x4F1A;&#x5BFC;&#x81F4;&#x67D0;&#x53F0;&#x5B58;&#x50A8;&#x8BBE;&#x5907;&#x6CA1;&#x6709;&#x542F;&#x52A8;&#x8D77;&#x6765;&#xFF0C;&#x67D0;&#x53F0;&#x673A;&#x5668;&#x7684;&#x7F51;&#x5361;&#x574F;&#x4E86;&#xFF0C;&#x751A;&#x81F3;&#x4E8E;&#x8BA1;&#x7B97;&#x8FD0;&#x884C;&#x8FC7;&#x7A0B;&#x4E2D;&#x65AD;&#x7535;&#x4E86;&#xFF0C;&#x8FD9;&#x4E9B;&#x90FD;&#x662F;&#x6709;&#x53EF;&#x80FD;&#x7684;&#x3002;&#x7136;&#x800C;&#x6700;&#x5E73;&#x51E1;&#x53D1;&#x751F;&#x7684;&#x9519;&#x8BEF;&#x662F;&#x8BA1;&#x7B97;&#x8FDB;&#x7A0B;&#x88AB;&#x6740;&#x6389;&#x3002;&#x56E0;&#x4E3A; google &#x7684;&#x8FD0;&#x884C;&#x73AF;&#x5883;&#x662F;&#x5171;&#x6709;&#x96C6;&#x7FA4;&#xFF0C;&#x4EFB;&#x4F55;&#x4E00;&#x4E2A;&#x6743;&#x9650;&#x66F4;&#x9AD8;&#x7684;&#x8FDB;&#x7A0B;&#x90FD;&#x53EF;&#x80FD; kill &#x6389;&#x4F60;&#x7684;&#x8BA1;&#x7B97;&#x8FDB;&#x7A0B;&#x3002;&#x8BBE;&#x60F3;&#x5728;&#x4E00;&#x4E2A;&#x62E5;&#x6709;&#x51E0;&#x5343;&#x53F0;&#x673A;&#x5668;&#x7684;&#x96C6;&#x7FA4;&#x4E2D;&#x8FD0;&#x884C;&#xFF0C;&#x4E00;&#x4E2A;&#x8FDB;&#x7A0B;&#x90FD;&#x4E0D;&#x88AB; kill &#x6389;&#x7684;&#x6982;&#x7387;&#x51E0;&#x4E4E;&#x4E3A;&#x96F6;&#x3002;&#x5177;&#x4F53;&#x7684;&#x5BB9;&#x9519;&#x673A;&#x5236;&#x6211;&#x4EEC;&#x4F1A;&#x5728;&#x540E;&#x9762;&#x4ECB;&#x7ECD;&#x5177;&#x4F53;&#x7684;&#x7CFB;&#x7EDF;&#x65F6;&#x63D0;&#x5230;&#x3002;</p>
-<p>&#x53E6;&#x4E00;&#x4E2A;&#x6709;&#x610F;&#x601D;&#x7684;&#x8BDD;&#x9898;&#x662F;&#xFF0C;&#x968F;&#x7740;&#x673A;&#x5668;&#x5B66;&#x4E60;&#x6280;&#x672F;&#x7684;&#x5174;&#x8D77;&#xFF0C;&#x8D8A;&#x6765;&#x8D8A;&#x591A;&#x7684;&#x5206;&#x5E03;&#x5F0F;&#x8BA1;&#x7B97;&#x7CFB;&#x7EDF;&#x662F;&#x4E3A;&#x4E86;&#x673A;&#x5668;&#x5B66;&#x4E60;&#x8FD9;&#x6837;&#x7684;&#x5E94;&#x7528;&#x8BBE;&#x8BA1;&#x7684;&#xFF0C;&#x8FD9;&#x4E5F;&#x662F;&#x6211;&#x6BD4;&#x8F83;&#x5173;&#x6CE8;&#x7684;&#x7814;&#x7A76;&#x9886;&#x57DF;&#xFF0C;&#x4E5F;&#x4F1A;&#x5728;&#x540E;&#x9762;&#x91CD;&#x70B9;&#x8C08;&#x5230;&#x3002;</p>
-<p>&#x5982;&#x540C;&#x5206;&#x5E03;&#x5F0F;&#x5B58;&#x50A8;&#x7CFB;&#x7EDF;&#x4E00;&#x6837;&#xFF0C;&#x6211;&#x5BF9;&#x5206;&#x5E03;&#x5F0F;&#x8BA1;&#x7B97;&#x7CFB;&#x7EDF;&#x4E5F;&#x505A;&#x4E86;&#x4E00;&#x4E2A;&#x5206;&#x7C7B;&#xFF0C;&#x5982;&#x4E0B;&#xFF1A;</p>
-<ol>
-<li>&#x4F20;&#x7EDF;&#x57FA;&#x4E8E;msg&#x7684;&#x7CFB;&#x7EDF;</li>
-<li>MapReduce-like &#x7CFB;&#x7EDF;</li>
-<li>&#x56FE;&#x8BA1;&#x7B97;&#x7CFB;&#x7EDF;</li>
-<li>&#x57FA;&#x4E8E;&#x72B6;&#x6001;&#xFF08;state&#xFF09;&#x7684;&#x7CFB;&#x7EDF;</li>
-<li>Streaming &#x7CFB;&#x7EDF;</li>
-</ol>
-<p>&#x5F53;&#x7136;&#x4E0D;&#x540C;&#x7684;&#x4EBA;&#x53EF;&#x80FD;&#x4F1A;&#x6709;&#x4E0D;&#x540C;&#x7684;&#x5206;&#x7C7B;&#x65B9;&#x6CD5;&#xFF0C;&#x4E0D;&#x8FC7;&#x5927;&#x540C;&#x5C0F;&#x5F02;&#x3002;&#x6211;&#x4EEC;&#x63A5;&#x4E0B;&#x6765;&#x804A;&#x804A;&#x8FD9;&#x4E9B;&#x7CFB;&#x7EDF;&#x90FD;&#x5728;&#x5E72;&#x4E9B;&#x4EC0;&#x4E48;&#x3002;</p>
-<h3 id="&#x4F20;&#x7EDF;&#x57FA;&#x4E8E;msg&#x7684;&#x7CFB;&#x7EDF;"><a class="header-anchor" href="#&#x4F20;&#x7EDF;&#x57FA;&#x4E8E;msg&#x7684;&#x7CFB;&#x7EDF;"></a>&#x4F20;&#x7EDF;&#x57FA;&#x4E8E;msg&#x7684;&#x7CFB;&#x7EDF;</h3>
-<p>&#x8FD9;&#x7C7B;&#x7CFB;&#x7EDF;&#x91CC;&#x6BD4;&#x8F83;&#x6709;&#x4EE3;&#x8868;&#x6027;&#x7684;&#x5C31;&#x662F; MPI &#xFF08;message passing interface&#xFF09;. &#x76EE;&#x524D;&#x6BD4;&#x8F83;&#x6D41;&#x884C;&#x7684;&#x4E24;&#x4E2A; MPI &#x5B9E;&#x73B0;&#x662F; mpich2 &#x548C; openmpi . MPI &#x8FD9;&#x4E2A;&#x6846;&#x67B6;&#x975E;&#x5E38;&#x7075;&#x6D3B;&#xFF0C;&#x5BF9;&#x7A0B;&#x5E8F;&#x7684;&#x7ED3;&#x6784;&#x51E0;&#x4E4E;&#x6CA1;&#x6709;&#x592A;&#x591A;&#x7EA6;&#x675F;&#xFF0C;&#x4EE5;&#x81F3;&#x4E8E;&#x5927;&#x5BB6;&#x6709;&#x65F6;&#x628A; MPI &#x79F0;&#x4E3A;&#x4E00;&#x7EC4;&#x63A5;&#x53E3; API, &#x800C;&#x4E0D;&#x662F;&#x7CFB;&#x7EDF;&#x6846;&#x67B6;&#x3002;&#x5728;&#x8FD9;&#x4E9B; API &#x91CC;&#x6700;&#x5E38;&#x7528;&#x7684;&#x4E24;&#x4E2A;&#x5C31;&#x662F; send &#x548C; recv &#x63A5;&#x53E3;&#xFF08;&#x8FD8;&#x6709;&#x4E00;&#x7CFB;&#x5217;&#x975E;&#x963B;&#x585E;&#x6269;&#x5C55;&#x63A5;&#x53E3;&#xFF0C;&#x4F8B;&#x5982;&#xFF1A;Isend, Irecv &#x7B49;&#xFF09;&#x3002;MPI &#x9664;&#x4E86;&#x63D0;&#x4F9B;&#x6D88;&#x606F;&#x4F20;&#x9012;&#x63A5;&#x53E3;&#x4E4B;&#x5916;&#xFF0C;&#x5176;&#x6846;&#x67B6;&#x8FD8;&#x5B9E;&#x73B0;&#x4E86;&#x8D44;&#x6E90;&#x7BA1;&#x7406;&#x548C;&#x5206;&#x914D;&#xFF0C;&#x4EE5;&#x53CA;&#x8C03;&#x5EA6;&#x7684;&#x529F;&#x80FD;&#x3002;&#x9664;&#x6B64;&#x4E4B;&#x5916;&#xFF0C;MPI &#x5728;&#x9AD8;&#x6027;&#x80FD;&#x8BA1;&#x7B97;&#x91CC;&#x4E5F;&#x88AB;&#x5E7F;&#x6CDB;&#x4F7F;&#x7528;&#xFF0C;&#x901A;&#x5E38;&#x53EF;&#x4EE5;&#x548C; Infiniband &#x8FD9;&#x6837;&#x7684;&#x9AD8;&#x901F;&#x7F51;&#x7EDC;&#x65E0;&#x7F1D;&#x7ED3;&#x5408;&#x3002;</p>
-<p>&#x9664;&#x4E86; send &#x548C; recv &#x63A5;&#x53E3;&#x4E4B;&#x5916;&#xFF0C;MPI &#x4E2D;&#x53E6;&#x4E00;&#x4E2A;&#x63A5;&#x53E3;&#x4E5F;&#x503C;&#x5F97;&#x6CE8;&#x610F;&#xFF0C;&#x90A3;&#x5C31;&#x662F; AllReduce. &#x8FD9;&#x4E2A;&#x63A5;&#x53E3;&#x5728;&#x5F88;&#x591A;&#x673A;&#x5668;&#x5B66;&#x4E60;&#x7CFB;&#x7EDF;&#x5F00;&#x53D1;&#x91CC;&#x90FD;&#x5F88;&#x7528;&#x3002;&#x56E0;&#x4E3A;&#x5F88;&#x591A;&#x5E76;&#x884C;&#x673A;&#x5668;&#x5B66;&#x4E60;&#x7CFB;&#x7EDF;&#x90FD;&#x662F;&#x5404;&#x4E2A;&#x8FDB;&#x7A0B;&#x5206;&#x522B;&#x8BAD;&#x7EC3;&#x6A21;&#x578B;&#xFF0C;&#x7136;&#x540E;&#x518D;&#x5408;&#x9002;&#x7684;&#x65F6;&#x5019;&#xFF08;&#x4F8B;&#x5982;&#x4E00;&#x8F6E;&#x8FED;&#x4EE3;&#x7ED3;&#x675F;&#xFF09;&#x5927;&#x5BB6;&#x540C;&#x6B65;&#x4E00;&#x4E0B;&#x7B54;&#x6848;&#xFF0C;&#x8FBE;&#x6210;&#x5171;&#x8BC6;&#xFF0C;&#x7136;&#x540E;&#x7EE7;&#x7EED;&#x8FED;&#x4EE3;&#x3002;&#x8FD9;&#x4E2A; &#x201C;&#x8FBE;&#x6210;&#x5171;&#x8BC6;&#x201D; &#x7684;&#x64CD;&#x4F5C;&#x5F80;&#x5F80;&#x53EF;&#x4EE5;&#x5F88;&#x65B9;&#x4FBF;&#x7684;&#x901A;&#x8FC7; AllReduce &#x6765;&#x5B8C;&#x6210;&#x3002; AllReduce &#x63A5;&#x53E3;&#x5177;&#x6709;&#x4E24;&#x4E2A;&#x4F18;&#x70B9;&#xFF1A;1. &#x9AD8;&#x6548;&#x3002; 2. &#x5B9E;&#x7528;&#x7B80;&#x5355;&#x3002; &#x5148;&#x8BF4;&#x8BF4;&#x4E3A;&#x4EC0;&#x4E48;&#x4F7F;&#x7528;&#x7B80;&#x5355;&#x3002;&#x4F7F;&#x7528; AllReduce &#x901A;&#x5E38;&#x53EA;&#x9700;&#x8981;&#x5728;&#x5355;&#x673A;&#x6838;&#x5FC3;&#x6E90;&#x7801;&#x91CC;&#x52A0;&#x5165; AllReduce &#x4E00;&#x884C;&#x4EE3;&#x7801;&#xFF0C;&#x5C31;&#x80FD;&#x5B8C;&#x6210;&#x5E76;&#x884C;&#x5316;&#x7684;&#x529F;&#x80FD;&#x3002;&#x8BF4; AllReduce &#x9AD8;&#x6548;&#x7684;&#x539F;&#x56E0;&#x662F;&#x56E0;&#x4E3A;&#x5176;&#x5E95;&#x5C42;&#x6D88;&#x606F;&#x4F20;&#x9012;&#x4F7F;&#x7528;&#x4E86; tree aggregation&#xFF0C;&#x5C3D;&#x53EF;&#x80FD;&#x7684;&#x5C06;&#x8BA1;&#x7B97;&#x5206;&#x644A;&#x5230;&#x6BCF;&#x4E00;&#x4E2A;&#x8282;&#x70B9;&#x3002;</p>
-<p>&#x53EF;&#x662F;&#xFF0C;&#x65E2;&#x7136; AllReduce &#x8FD9;&#x4E48;&#x597D;&#xFF0C;&#x4E3A;&#x4EC0;&#x4E48;&#x5728;&#x5B9E;&#x9645;&#x5927;&#x5927;&#x89C4;&#x6A21;&#x8BA1;&#x7B97;&#x4E2D;&#x5F88;&#x5C11;&#x770B;&#x5230;&#x5462;&#xFF1F;&#x539F;&#x56E0;&#x5F88;&#x7B80;&#x5355;&#xFF0C;&#x5C31;&#x662F;&#x56E0;&#x4E3A; MPI &#x4E0D;&#x652F;&#x6301;&#x5BB9;&#x9519;&#xFF0C;&#x6240;&#x4EE5;&#x5F88;&#x96BE;&#x6269;&#x5C55;&#x5230;&#x5927;&#x89C4;&#x6A21;&#x96C6;&#x7FA4;&#x4E4B;&#x4E0A;&#x3002;&#x4E0D;&#x8FC7;&#x6700;&#x8FD1;&#x9648;&#x5929;&#x5947;&#x5199;&#x4E86;&#x4E00;&#x4E2A;&#x652F;&#x6301;&#x5BB9;&#x9519;&#x7684; allreduce &#x63A5;&#x53E3;&#xFF0C;&#x53EB;rabit&#xFF0C;&#x6709;&#x5174;&#x8DA3;&#x7684;&#x540C;&#x5B66;&#x53EF;&#x4EE5;&#x5173;&#x6CE8;&#x4E00;&#x4E0B;&#x3002; &#x5927;&#x540D;&#x9F0E;&#x9F0E;&#x7684; xgboost &#x5E95;&#x5C42;&#x7684;&#x5206;&#x5E03;&#x5F0F;&#x63A5;&#x53E3;&#x5C31;&#x662F; rabit.</p>
-<h3 id="mapreduce-like-&#x7CFB;&#x7EDF;"><a class="header-anchor" href="#mapreduce-like-&#x7CFB;&#x7EDF;"></a>MapReduce-like &#x7CFB;&#x7EDF;</h3>
-<p>&#x8FD9;&#x4E00;&#x7C7B;&#x7CFB;&#x7EDF;&#x53C8;&#x53EB;&#x4F5C; dataflow &#x7CFB;&#x7EDF;&#xFF0C;&#x5176;&#x4E2D;&#x4EE5; MapReduce (Hadoop) &#x548C; Spark &#x4E3A;&#x4EE3;&#x8868;&#x3002;&#x5176;&#x5B9E;&#x5728;&#x5B66;&#x672F;&#x754C;&#x5F88;&#x6709;&#x5F88;&#x591A;&#x7C7B;&#x4F3C;&#x7684;&#x7CFB;&#x7EDF;&#x4F8B;&#x5982; Dryad, FlumeJava, Twister &#x7B49;&#x7B49;&#x3002;&#x8FD9;&#x4E00;&#x7C7B;&#x7CFB;&#x7EDF;&#x7684;&#x7279;&#x70B9;&#x662F;&#x5C06;&#x8BA1;&#x7B97;&#x62BD;&#x8C61;&#x6210;&#x4E3A; high-level operator, &#x4F8B;&#x5982;&#x50CF; map&#xFF0C;reduce&#xFF0C;filter &#x8FD9;&#x6837;&#x7684;&#x51FD;&#x6570;&#x5F0F;&#x7B97;&#x5B50;&#xFF0C;&#x7136;&#x540E;&#x5C06;&#x7B97;&#x5B50;&#x7EC4;&#x5408;&#x6210; DAG &#xFF0C;&#x7136;&#x540E;&#x7531;&#x540E;&#x7AEF;&#x7684;&#x8C03;&#x5EA6;&#x5F15;&#x64CE;&#x8FDB;&#x884C;&#x5E76;&#x884C;&#x5316;&#x8C03;&#x5EA6;&#x3002;&#x5176;&#x4E2D;&#xFF0C;MapReduce &#x7CFB;&#x7EDF;&#x5C5E;&#x4E8E;&#x6BD4;&#x8F83;&#x7B80;&#x5355;&#x7684; DAG&#xFF0C;&#x53EA;&#x6709; map &#x548C; reduce &#x4E24;&#x5C42;&#x8282;&#x70B9;&#x3002;MapReduce &#x8FD9;&#x6837;&#x7684;&#x7CFB;&#x7EDF;&#x4E4B;&#x6240;&#x4EE5;&#x53EF;&#x4EE5;&#x6269;&#x5C55;&#x5230;&#x8D85;&#x5927;&#x89C4;&#x6A21;&#x7684;&#x96C6;&#x7FA4;&#x4E0A;&#x8FD0;&#x884C;&#xFF0C;&#x5C31;&#x662F;&#x56E0;&#x4E3A;&#x5176;&#x5B8C;&#x5907;&#x7684;&#x5BB9;&#x9519;&#x673A;&#x5236;&#x3002;&#x5728; Hadoop &#x793E;&#x533A;&#x8FD8;&#x6709;&#x5F88;&#x591A;&#x57FA;&#x4E8E; mapreduce &#x6846;&#x67B6;&#x7684;&#x884D;&#x751F;&#x4EA7;&#x54C1;&#xFF0C;&#x6BD4;&#x5982; Hive (&#x5E76;&#x884C;&#x6570;&#x636E;&#x5E93;OLAP), Pig&#xFF08;&#x4EA4;&#x4E92;&#x5F0F;&#x6570;&#x636E;&#x64CD;&#x4F5C;&#xFF09;&#x7B49;&#x7B49;&#x3002;</p>
-<p>MapReduce-like &#x7684;&#x7F16;&#x7A0B;&#x98CE;&#x683C;&#x548C; MPI &#x622A;&#x7136;&#x76F8;&#x53CD;&#x3002;MapReduce&#x5BF9;&#x7A0B;&#x5E8F;&#x7684;&#x7ED3;&#x6784;&#x6709;&#x4E25;&#x683C;&#x7684;&#x7EA6;&#x675F;&#x2014;&#x2014;&#x8BA1;&#x7B97;&#x8FC7;&#x7A0B;&#x5FC5;&#x987B;&#x80FD;&#x5728;&#x4E24;&#x4E2A;&#x51FD;&#x6570;&#x4E2D;&#x63CF;&#x8FF0;&#xFF1A;map &#x548C; reduce&#xFF1B;&#x8F93;&#x5165;&#x548C;&#x8F93;&#x51FA;&#x6570;&#x636E;&#x90FD;&#x5FC5;&#x987B;&#x662F;&#x4E00;&#x4E2A;&#x4E00;&#x4E2A;&#x7684; records&#xFF1B;&#x4EFB;&#x52A1;&#x4E4B;&#x95F4;&#x4E0D;&#x80FD;&#x901A;&#x4FE1;&#xFF0C;&#x6574;&#x4E2A;&#x8BA1;&#x7B97;&#x8FC7;&#x7A0B;&#x4E2D;&#x552F;&#x4E00;&#x7684;&#x901A;&#x4FE1;&#x673A;&#x4F1A;&#x662F; map phase &#x548C; reduce phase &#x4E4B;&#x95F4;&#x7684; shuffuling phase&#xFF0C;&#x8FD9;&#x662F;&#x5728;&#x6846;&#x67B6;&#x63A7;&#x5236;&#x4E0B;&#x7684;&#xFF0C;&#x800C;&#x4E0D;&#x662F;&#x5E94;&#x7528;&#x4EE3;&#x7801;&#x63A7;&#x5236;&#x7684;&#x3002;&#x56E0;&#x4E3A;&#x6709;&#x4E86;&#x4E25;&#x683C;&#x7684;&#x63A7;&#x5236;&#xFF0C;&#x7CFB;&#x7EDF;&#x6846;&#x67B6;&#x5728;&#x4EFB;&#x4F55;&#x65F6;&#x5019;&#x51FA;&#x9519;&#x90FD;&#x53EF;&#x4EE5;&#x4ECE;&#x4E0A;&#x4E00;&#x4E2A;&#x72B6;&#x6001;&#x6062;&#x590D;&#x3002;Spark &#x7684; RDD &#x5219;&#x662F;&#x5229;&#x7528; Lineage&#xFF0C;&#x53EF;&#x4EE5;&#x8BA9;&#x6570;&#x636E;&#x5728;&#x5185;&#x5B58;&#x4E2D;&#x5B8C;&#x6210;&#x8F6C;&#x6362;&#x3002;</p>
-<p>&#x7531;&#x4E8E;&#x826F;&#x597D;&#x7684;&#x6269;&#x5C55;&#x6027;&#xFF0C;&#x8BB8;&#x591A;&#x4EBA;&#x90FD;&#x673A;&#x5668;&#x5B66;&#x4E60;&#x7B97;&#x6CD5;&#x7684;&#x5E76;&#x884C;&#x5316;&#x4EFB;&#x52A1;&#x653E;&#x5728;&#x4E86;&#x8FD9;&#x4E9B;&#x5E73;&#x53F0;&#x4E4B;&#x4E0A;&#x3002;&#x6BD4;&#x8F83;&#x6709;&#x540D;&#x7684;&#x5E93;&#x5305;&#x62EC; Mahout &#xFF08;&#x57FA;&#x4E8E;Hadoop&#xFF09;, &#x4EE5;&#x53CA; MLI &#xFF08;&#x57FA;&#x4E8E; Spark) . &#x7136;&#x800C;&#x8FD9;&#x4E9B;&#x7CFB;&#x7EDF;&#x6700;&#x5927;&#x7F3A;&#x70B9;&#x6709;&#x4E24;&#x70B9;&#xFF1A;</p>
-<ol>
-<li>
-<p>&#x8FD9;&#x4E9B;&#x7CFB;&#x7EDF;&#x6240;&#x80FD;&#x652F;&#x6301;&#x7684;&#x673A;&#x5668;&#x5B66;&#x4E60;&#x6A21;&#x578B;&#x901A;&#x5E38;&#x90FD;&#x4E0D;&#x662F;&#x5F88;&#x5927;&#x3002;&#x5BFC;&#x81F4;&#x8FD9;&#x4E2A;&#x95EE;&#x9898;&#x7684;&#x4E3B;&#x8981;&#x539F;&#x56E0;&#x662F;&#x8FD9;&#x7CFB;&#x7EDF;&#x5728; push back &#x673A;&#x5668;&#x5B66;&#x4E60;&#x6A21;&#x578B;&#x65F6;&#x90FD;&#x662F;&#x7C97;&#x7C92;&#x5EA6;&#x7684;&#x628A;&#x6574;&#x4E2A;&#x6A21;&#x578B;&#x8FDB;&#x884C;&#x56DE;&#x4F20;&#xFF0C;&#x5BFC;&#x81F4;&#x4E86;&#x7F51;&#x7EDC;&#x901A;&#x4FE1;&#x7684;&#x74F6;&#x9888;&#x3002;&#x6709;&#x4E9B;&#x673A;&#x5668;&#x5B66;&#x4E60;&#x7684;&#x6A21;&#x578B;&#x53EF;&#x4EE5;&#x5927;&#x5230;&#x65E0;&#x6CD5;&#x60F3;&#x8C61;&#xFF0C;&#x6BD4;&#x5982;&#x6211;&#x4EEC;&#x7528; Field-aware factorization machine &#xFF08;FFM&#xFF09;&#x505A; criteo &#x7684; ctr prediction &#x65F6;&#x6A21;&#x578B;&#x5927;&#x5C0F;&#x53EF;&#x4EE5;&#x8FBE;&#x5230;100 GB.</p>
-</li>
-<li>
-<p>&#x4E25;&#x683C;&#x7684; BSP &#x540C;&#x6B65;&#x8BA1;&#x7B97;&#x4F7F;&#x5F97;&#x96C6;&#x7FA4;&#x7684;&#x6548;&#x7387;&#x53D8;&#x7684;&#x5F88;&#x4F4E;&#x3002;&#x4E5F;&#x5C31;&#x662F;&#x8BF4;&#x7CFB;&#x7EDF;&#x5F88;&#x5BB9;&#x6613;&#x53D7;&#x5230;straggle&#x7684;&#x5F71;&#x54CD;&#x3002;</p>
-</li>
-</ol>
-<h3 id="&#x56FE;&#x8BA1;&#x7B97;&#x7CFB;&#x7EDF;"><a class="header-anchor" href="#&#x56FE;&#x8BA1;&#x7B97;&#x7CFB;&#x7EDF;"></a>&#x56FE;&#x8BA1;&#x7B97;&#x7CFB;&#x7EDF;</h3>
-<p>&#x56FE;&#x8BA1;&#x7B97;&#x7CFB;&#x7EDF;&#x662F;&#x5206;&#x5E03;&#x5F0F;&#x8BA1;&#x7B97;&#x91CC;&#x53E6;&#x4E00;&#x4E2A;&#x5206;&#x652F;&#xFF0C;&#x8FD9;&#x4E9B;&#x7CFB;&#x7EDF;&#x90FD;&#x662F;&#x628A;&#x8BA1;&#x7B97;&#x8FC7;&#x7A0B;&#x62BD;&#x8C61;&#x6210;&#x56FE;&#xFF0C;&#x7136;&#x540E;&#x5728;&#x4E0D;&#x540C;&#x8282;&#x70B9;&#x5206;&#x5E03;&#x5F0F;&#x6267;&#x884C;&#xFF0C;&#x4F8B;&#x5982; PageRank &#x8FD9;&#x6837;&#x7684;&#x4EFB;&#x52A1;&#xFF0C;&#x5F88;&#x9002;&#x5408;&#x7528;&#x56FE;&#x8BA1;&#x7B97;&#x7CFB;&#x7EDF;&#x6765;&#x8868;&#x793A;&#x3002;&#x6700;&#x65E9;&#x6210;&#x540D;&#x7684;&#x56FE;&#x8BA1;&#x7B97;&#x7CFB;&#x7EDF;&#x5F53;&#x5C5E; Google &#x7684; pregel&#xFF0C;&#x8BE5;&#x7CFB;&#x7EDF;&#x91C7;&#x7528; BSP &#x6A21;&#x578B;&#xFF0C;&#x8BA1;&#x7B97;&#x4EE5; vectex &#x4E3A;&#x4E2D;&#x5FC3;&#x3002;&#x968F;&#x540E;&#x53C8;&#x6709;&#x4E00;&#x7CFB;&#x5217;&#x56FE;&#x8BA1;&#x7B97;&#x6846;&#x67B6;&#x63A8;&#x51FA;&#xFF0C;&#x4F8B;&#x5982;&#xFF1A;GPS &#xFF08;&#x5BF9; Pregel &#x505A;&#x4E86;&#x4F18;&#x5316;&#xFF0C;&#x9664;&#x4E86;vectex-centric computation&#xFF0C;&#x8FD8;&#x6709; global computation&#xFF0C;&#x52A8;&#x6001;&#x8C03;&#x6574;&#x5206;&#x533A;&#x7B49;&#x7B49;&#x3002;&#xFF09;Giraph / Hama &#x90FD;&#x662F;&#x57FA;&#x4E8E; Hadoop &#x7684; Apache &#x7684;&#x5F00;&#x6E90; BSP &#x56FE;&#x8BA1;&#x7B97;&#x9879;&#x76EE;&#x3002;</p>
-<p>&#x9664;&#x4E86;&#x540C;&#x6B65;&#xFF08;BSP&#xFF09;&#x56FE;&#x8BA1;&#x7B97;&#x7CFB;&#x7EDF;&#x4E4B;&#x5916;&#xFF0C;&#x5F02;&#x6B65;&#x56FE;&#x8BA1;&#x7B97;&#x7CFB;&#x7EDF;&#x91CC;&#x7684;&#x4F7C;&#x4F7C;&#x8005;&#x5F53;&#x5C5E; GraphLab&#xFF0C;&#x8BE5;&#x7CFB;&#x7EDF;&#x63D0;&#x51FA;&#x4E86; GAS &#x7684;&#x7F16;&#x7A0B;&#x6A21;&#x578B;&#x3002;&#x76EE;&#x524D;&#x8FD9;&#x4E2A;&#x9879;&#x76EE;&#x5DF2;&#x7ECF;&#x8BE5;&#x540D;&#x4E3A; dato.&#xFF0C;&#x4E13;&#x95E8;&#x63A8;&#x5E7F;&#x57FA;&#x4E8E;&#x56FE;&#x7684;&#x5927;&#x89C4;&#x6A21;&#x673A;&#x5668;&#x5B66;&#x4E60;&#x7CFB;&#x7EDF;&#x3002;</p>
-<h3 id="&#x57FA;&#x4E8E;&#x72B6;&#x6001;-state-&#x7684;&#x7CFB;&#x7EDF;"><a class="header-anchor" href="#&#x57FA;&#x4E8E;&#x72B6;&#x6001;-state-&#x7684;&#x7CFB;&#x7EDF;"></a>&#x57FA;&#x4E8E;&#x72B6;&#x6001;&#xFF08;state&#xFF09;&#x7684;&#x7CFB;&#x7EDF;</h3>
-<p>&#x8FD9;&#x4E00;&#x7C7B;&#x7CFB;&#x7EDF;&#x4E3B;&#x8981;&#x5305;&#x62EC; 2010 &#x5E74; OSDI &#x4E0A;&#x63A8;&#x51FA;&#x7684; Piccolo, &#x4EE5;&#x53CA;&#x540E;&#x6765; 2012 &#x5E74; nips &#x4E0A; Google &#x63A8;&#x51FA;&#x7684; distbelief&#xFF0C;&#x518D;&#x5230;&#x540E;&#x6765;&#x88AB;&#x673A;&#x5668;&#x7CFB;&#x5B66;&#x4E60;&#x9886;&#x57DF;&#x5E7F;&#x6CDB;&#x5E94;&#x7528;&#x7684; Parameter Server &#x67B6;&#x6784;&#x3002;&#x8FD9;&#x91CC;&#x6211;&#x4EEC;&#x91CD;&#x70B9;&#x4ECB;&#x7ECD;&#x4E00;&#x4E0B; Parameter Server &#x8FD9;&#x4E2A;&#x67B6;&#x6784;&#x3002;</p>
-<p>&#x6211;&#x4EEC;&#x4E4B;&#x524D;&#x8BF4;&#xFF0C;MPI &#x7531;&#x4E8E;&#x4E0D;&#x652F;&#x6301;&#x5BB9;&#x9519;&#x6240;&#x4EE5;&#x5F88;&#x96BE;&#x6269;&#x5C55;&#x81F3;&#x5927;&#x89C4;&#x6A21;&#x96C6;&#x7FA4;&#x4E4B;&#x4E2D;&#xFF1B;MapReduce &#x7CFB;&#x7EDF;&#x65E0;&#x6CD5;&#x652F;&#x6301;&#x5927;&#x6A21;&#x578B;&#x673A;&#x5668;&#x5B66;&#x4E60;&#x5E94;&#x7528;&#xFF0C;&#x5E76;&#x4E14;&#x8282;&#x70B9;&#x540C;&#x6B65;&#x6548;&#x7387;&#x8F83;&#x4F4E;&#x3002;&#x7528;&#x56FE;&#x62BD;&#x8C61;&#x6765;&#x505A;&#x673A;&#x5668;&#x5B66;&#x4E60;&#x4EFB;&#x52A1;&#xFF0C;&#x5F88;&#x591A;&#x95EE;&#x9898;&#x90FD;&#x4E0D;&#x80FD;&#x5F88;&#x597D;&#x7684;&#x6C42;&#x89E3;&#xFF0C;&#x6BD4;&#x5982;&#x6DF1;&#x5EA6;&#x5B66;&#x4E60;&#x4E2D;&#x7684;&#x591A;&#x5C42;&#x7ED3;&#x6784;&#x3002;&#x800C; Parameter Server &#x8FD9;&#x79CD; state-centric &#x6A21;&#x578B;&#x5219;&#x628A;&#x673A;&#x5668;&#x5B66;&#x4E60;&#x7684;&#x6A21;&#x578B;&#x5B58;&#x50A8;&#x53C2;&#x6570;&#x4E0A;&#x5347;&#x4E3A;&#x4E3B;&#x8981;&#x7EC4;&#x4EF6;&#xFF0C;&#x5E76;&#x4E14;&#x91C7;&#x7528;&#x5F02;&#x6B65;&#x673A;&#x5236;&#x63D0;&#x5347;&#x5904;&#x7406;&#x80FD;&#x529B;&#x3002;&#x53C2;&#x6570;&#x670D;&#x52A1;&#x5668;&#x7684;&#x6982;&#x5FF5;&#x6700;&#x65E9;&#x6765;&#x81EA;&#x4E8E; Alex Smola &#x4E8E; 2010 &#x5E74;&#x63D0;&#x51FA;&#x7684;&#x5E76;&#x884C; LDA &#x67B6;&#x6784;&#x3002;&#x5B83;&#x901A;&#x8FC7;&#x91C7;&#x7528;&#x5206;&#x5E03;&#x5F0F;&#x7684; memcached &#x4F5C;&#x4E3A;&#x5B58;&#x653E;&#x53C2;&#x6570;&#x7684;&#x5B58;&#x50A8;&#xFF0C;&#x8FD9;&#x6837;&#x5C31;&#x63D0;&#x4F9B;&#x4E86;&#x6709;&#x6548;&#x7684;&#x673A;&#x5236;&#x4F5C;&#x7528;&#x4E8E;&#x4E0D;&#x540C;worker&#x8282;&#x70B9;&#x540C;&#x6B65;&#x6A21;&#x578B;&#x53C2;&#x6570;&#x3002; Google &#x7684; jeff dean &#x5728; 2012 &#x5E74;&#x8FDB;&#x4E00;&#x6B65;&#x63D0;&#x51FA;&#x4E86;&#x7B2C;&#x4E00;&#x4EE3; Google Brain &#x5927;&#x89C4;&#x6A21;&#x795E;&#x7ECF;&#x7F51;&#x7EDC;&#x7684;&#x89E3;&#x51B3;&#x65B9;&#x6848; Distbelief. &#x5728;&#x540E;&#x6765;&#x7684; CMU &#x7684; Eric xing &#x4EE5;&#x53CA;&#x767E;&#x5EA6;&#x5C11;&#x5E05; &#x674E;&#x6C90; &#x90FD;&#x63D0;&#x51FA;&#x4E86;&#x66F4;&#x901A;&#x7528;&#x7684; Parameter server &#x67B6;&#x6784;&#x3002;</p>
-<p>&#x5982;&#x679C;&#x8981;&#x6DF1;&#x5165; Parameter server &#x7CFB;&#x7EDF;&#x7684;&#x8BBE;&#x8BA1;&#xFF0C;&#x9700;&#x8981;&#x4E00;&#x4E9B;&#x673A;&#x5668;&#x5B66;&#x4E60;&#x7684;&#x80CC;&#x666F;&#xFF0C;&#x6BD4;&#x5982;&#x4EC0;&#x4E48;&#x662F; ssp &#x534F;&#x8BAE;&#xFF0C; &#x5728;&#x6B64;&#x6211;&#x4EEC;&#x5C31;&#x4E0D;&#x8BE6;&#x7EC6;&#x8BA8;&#x8BBA;&#x4E86;&#x3002;</p>
-<p>Streaming &#x7CFB;&#x7EDF;. Streaming &#x7CFB;&#x7EDF;&#x542C;&#x540D;&#x5B57;&#x5C31;&#x80FD;&#x770B;&#x51FA;&#x6765;&#x662F;&#x4E3A;&#x6D41;&#x5F0F;&#x6570;&#x636E;&#x63D0;&#x4F9B;&#x670D;&#x52A1;&#x7684;&#x3002;&#x5176;&#x4E2D;&#x6BD4;&#x8F83;&#x6709;&#x540D;&#x7684;&#x7CFB;&#x7EDF;&#x5305;&#x62EC; Storm, Spark Streaming, Flink &#x7B49;&#x7B49;&#x3002;&#x7531;&#x4E8E;&#x672C;&#x4EBA;&#x5BF9;&#x8FD9;&#x4E2A;&#x9886;&#x57DF;&#x5E76;&#x4E0D;&#x662F;&#x5F88;&#x719F;&#xFF0C;&#x5C31;&#x4E0D;&#x8BE6;&#x7EC6;&#x4ECB;&#x7ECD;&#x4E86;&#x3002;</p>
-<p>&#x4EE5;&#x4E0A;&#x662F;&#x6211;&#x5BF9;&#x5206;&#x5E03;&#x5F0F;&#x8BA1;&#x7B97;&#x7CFB;&#x7EDF;&#x7684;&#x4E00;&#x4E9B;&#x4ECB;&#x7ECD;&#xFF0C;&#x5176;&#x5B9E;&#x6BCF;&#x4E00;&#x4E2A;&#x65B9;&#x5411;&#x6DF1;&#x5165;&#x4E0B;&#x53BB;&#x90FD;&#x662F;&#x4E00;&#x4E2A;&#x7814;&#x7A76;&#x9886;&#x57DF;&#xFF0C;&#x5728;&#x6B64;&#x63A8;&#x8350;&#x4E00;&#x4E9B;&#x8BBA;&#x6587;&#xFF1A;</p>
-<ul>
-<li><a href="http://research.google.com/archive/mapreduce-osdi04.pdf" target="_blank" rel="external">MapReduce: Simplified Data Processing on Large Clusters</a></li>
-<li><a href="http://www-bcf.usc.edu/~minlanyu/teach/csci599-fall12/papers/nsdi_spark.pdf" target="_blank" rel="external">Resilient Distributed Datasets</a></li>
-<li><a href="https://www.cs.cmu.edu/~muli/file/parameter_server_osdi14.pdf" target="_blank" rel="external">Scaling Distributed Machine Learning with the Parameter Server</a></li>
-<li><a href="http://vldb.org/pvldb/vol5/p716_yuchenglow_vldb2012.pdf" target="_blank" rel="external">Distributed GraphLab: A Framework for Machine Learning</a></li>
-<li><a href="https://www.usenix.org/legacy/event/osdi10/tech/full_papers/Power.pdf" target="_blank" rel="external">Piccolo: Building Fast, Distributed Programs with Partitioned &#x2026;</a></li>
-<li><a href="https://www.cs.cmu.edu/~./seunghak/petuum_kdd15.pdf" target="_blank" rel="external">Petuum: A New Platform for Distributed Machine Learning on Big Data</a></li>
-<li><a href="https://stanford.edu/~rezab/sparkclass/slides/td_streaming.pdf" target="_blank" rel="external">Spark Streaming</a></li>
-<li><a href="https://www.microsoft.com/en-us/research/publication/dryad-distributed-data-parallel-programs-from-sequential-building-blocks/" target="_blank" rel="external">Dryad: Distributed Data-parallel Programs from Sequential Building &#x2026;</a></li>
-<li><a href="https://papers.nips.cc/paper/4687-large-scale-distributed-deep-networks.pdf" target="_blank" rel="external">Large Scale Distributed Deep Networks - NIPS Proceedings</a></li>
-</ul>
-<h2 id="&#x5206;&#x5E03;&#x5F0F;&#x7BA1;&#x7406;&#x7CFB;&#x7EDF;"><a class="header-anchor" href="#&#x5206;&#x5E03;&#x5F0F;&#x7BA1;&#x7406;&#x7CFB;&#x7EDF;"></a>&#x5206;&#x5E03;&#x5F0F;&#x7BA1;&#x7406;&#x7CFB;&#x7EDF;</h2>
-<p>&#xFF08;&#x672A;&#x5B8C;&#x5F85;&#x7EED;&#xFF09;</p>]]></content>
-    
-    <summary type="html">
-    
-      分布式系统（distributed system）是建立在网络之上的软件系统。正是因为软件的特性，所以分布式系统具有高度的内聚性和透明性。分布式系统对外提供无状态节点，内部实现具体有状态或者无状态节点逻辑，节点既可以是提供服务，也可以是存储数据。分布式系统隐含的共同特征是：场地分布、数据分布、硬件平台多样化、操作系统多样化、应用平台多样化。
-    
-    </summary>
-    
-      <category term="晨读" scheme="http://ngudream.com/categories/%E6%99%A8%E8%AF%BB/"/>
-    
-      <category term="服务器" scheme="http://ngudream.com/categories/%E6%99%A8%E8%AF%BB/%E6%9C%8D%E5%8A%A1%E5%99%A8/"/>
-    
-    
-      <category term="Distributed" scheme="http://ngudream.com/tags/Distributed/"/>
-    
-      <category term="System" scheme="http://ngudream.com/tags/System/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Observable.flatmap源码分析</title>
-    <link href="http://ngudream.com/2016/10/01/rxjava-flatmap/"/>
-    <id>http://ngudream.com/2016/10/01/rxjava-flatmap/</id>
-    <published>2016-10-01T05:53:19.000Z</published>
-    <updated>2017-01-15T07:58:44.454Z</updated>
-    
-    <content type="html"><![CDATA[<p>FlatMap&#x64CD;&#x4F5C;&#x7B26;&#x4F7F;&#x7528;&#x4E00;&#x4E2A;&#x6307;&#x5B9A;&#x7684;&#x51FD;&#x6570;&#x5BF9;&#x539F;&#x59CB;Observable&#x53D1;&#x5C04;&#x7684;&#x6BCF;&#x4E00;&#x9879;&#x6570;&#x636E;&#x6267;&#x884C;&#x53D8;&#x6362;&#x64CD;&#x4F5C;&#xFF0C;&#x8FD9;&#x4E2A;&#x51FD;&#x6570;&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;&#x672C;&#x8EAB;&#x4E5F;&#x53D1;&#x5C04;&#x6570;&#x636E;&#x7684;Observable&#xFF0C;&#x7136;&#x540E;FlatMap&#x5408;&#x5E76;&#x8FD9;&#x4E9B;Observables&#x53D1;&#x5C04;&#x7684;&#x6570;&#x636E;&#xFF0C;&#x6700;&#x540E;&#x5C06;&#x5408;&#x5E76;&#x540E;&#x7684;&#x7ED3;&#x679C;&#x5F53;&#x505A;&#x5B83;&#x81EA;&#x5DF1;&#x7684;&#x6570;&#x636E;&#x5E8F;&#x5217;&#x53D1;&#x5C04;&#x3002;&#x7B80;&#x5355;&#x7684;&#x8BF4;&#xFF0C;&#x5C31;&#x662F;flatMap()&#x7684;&#x4F5C;&#x7528;&#x662F;&#x8F93;&#x5165;&#x4E00;&#x4E2A;Observable&#xFF0C;&#x518D;&#x8F93;&#x51FA;&#x4E00;&#x4E2A;&#x7ECF;&#x8FC7;&#x7279;&#x5B9A;&#x53D8;&#x6362;&#x7684;Observable&#x3002;</p>
-<div align="center">
-<a href="https://github.com/ReactiveX/RxJava/blob/1.x/src/main/java/rx/Observable.java" target="_blank" rel="external">
-<img data-original="/2016/10/01/rxjava-flatmap/flatmap.jpg" class="lazy"></a>
-</div>
-<h2 id="&#x4F5C;&#x7528;&#x7B80;&#x4ECB;"><a class="header-anchor" href="#&#x4F5C;&#x7528;&#x7B80;&#x4ECB;"></a>&#x4F5C;&#x7528;&#x7B80;&#x4ECB;</h2>
-<blockquote>
-<p>FlatMap&#x5C06;&#x4E00;&#x4E2A;&#x53D1;&#x5C04;&#x6570;&#x636E;&#x7684;Observable&#x53D8;&#x6362;&#x4E3A;&#x591A;&#x4E2A;Observables&#xFF0C;&#x7136;&#x540E;&#x5C06;&#x5B83;&#x4EEC;&#x53D1;&#x5C04;&#x7684;&#x6570;&#x636E;&#x5408;&#x5E76;&#x540E;&#x653E;&#x8FDB;&#x4E00;&#x4E2A;&#x5355;&#x72EC;&#x7684;Observable<br>
-FlatMap&#x64CD;&#x4F5C;&#x7B26;&#x4F7F;&#x7528;&#x4E00;&#x4E2A;&#x6307;&#x5B9A;&#x7684;&#x51FD;&#x6570;&#x5BF9;&#x539F;&#x59CB;Observable&#x53D1;&#x5C04;&#x7684;&#x6BCF;&#x4E00;&#x9879;&#x6570;&#x636E;&#x6267;&#x884C;&#x53D8;&#x6362;&#x64CD;&#x4F5C;&#xFF0C;&#x8FD9;&#x4E2A;&#x51FD;&#x6570;&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;&#x672C;&#x8EAB;&#x4E5F;&#x53D1;&#x5C04;&#x6570;&#x636E;&#x7684;Observable&#xFF0C;&#x7136;&#x540E;FlatMap&#x5408;&#x5E76;&#x8FD9;&#x4E9B;Observables&#x53D1;&#x5C04;&#x7684;&#x6570;&#x636E;&#xFF0C;&#x6700;&#x540E;&#x5C06;&#x5408;&#x5E76;&#x540E;&#x7684;&#x7ED3;&#x679C;&#x5F53;&#x505A;&#x5B83;&#x81EA;&#x5DF1;&#x7684;&#x6570;&#x636E;&#x5E8F;&#x5217;&#x53D1;&#x5C04;&#x3002;</p>
-</blockquote>
-<p>&#x5982;&#x4E0B;&#x4EE3;&#x7801;&#xFF0C;&#x6211;&#x4EEC;&#x7528;&#x4E00;&#x4E2A;boolean&#x578B;&#x7684;input&#x4F5C;&#x4E3A;&#x8F93;&#x5165;&#xFF0C;&#x7136;&#x540E;&#x7ECF;&#x8FC7;&#x5224;&#x65AD;&#xFF0C;&#x5982;&#x679C;&#x4E3A;true&#xFF0C;&#x5219;&#x8F93;&#x51FA;&#x4E00;&#x4E2A;List&lt;string&gt;&#x7684;Observable.just(list)&#xFF0C;&#x5982;&#x679C;&#x4E3A;false&#xFF0C;&#x5219;&#x76F4;&#x63A5;&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;&#x7A7A;&#x503C;null&#x7684;Observable.just(null)&#x3002;</p>
-<pre><code>boolean input = true;
-        Observable.just(input)
-                .flatMap(new Func1&lt;Boolean, Observable&lt;List&lt;String&gt;&gt;&gt;() {
-                    @Override
-                    public Observable&lt;List&lt;String&gt;&gt; call(Boolean result) {
-                        if(result){
-                            List&lt;String&gt; list = new ArrayList&lt;String&gt;();
-                            return Observable.just(list);
-                        } else {
-                            return Observable.just(null);
-                        }
-                    }
-                })
-                .subscribe(new Observer&lt;List&lt;String&gt;&gt;() {
-                    @Override
-                    public void onCompleted() {
-
-                    }
-
-                    @Override
-                    public void onError(Throwable e) {
-
-                    }
-
-                    @Override
-                    public void onNext(List&lt;String&gt; list) {
-
-                    }
-                });
-</code></pre>
-<h2 id="flatmap&#x7684;&#x521B;&#x5EFA;"><a class="header-anchor" href="#flatmap&#x7684;&#x521B;&#x5EFA;"></a>flatmap&#x7684;&#x521B;&#x5EFA;</h2>
-<p>flatmap&#x5E76;&#x6CA1;&#x6709;&#x76F4;&#x63A5;Observable.flatMap()&#x7684;&#x9759;&#x6001;&#x65B9;&#x6CD5;&#xFF0C;&#x90FD;&#x662F;&#x9700;&#x8981;&#x5148;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;Observable&#xFF0C;&#x7136;&#x540E;&#x518D;&#x8C03;&#x7528;flatMap()&#x65B9;&#x6CD5;&#x3002;&#x5B83;&#x4EEC;&#x7684;&#x8F93;&#x5165;&#x53C2;&#x6570;&#x662F;&#x4E00;&#x81F4;&#x7684;&#xFF0C;&#x5728;&#x8FD9;&#x91CC;&#x90FD;&#x662F;Object&#x3002;</p>
-<pre><code>Observable.create(new Observable.OnSubscribe&lt;Object&gt;() {//&#x5148;&#x5EFA;&#x4E00;&#x4E2A;Observable
-            @Override
-            public void call(Subscriber&lt;? super Object&gt; subscriber) {
-
-            }
-        })
-                .flatMap(new Func1&lt;Object, Observable&lt;?&gt;&gt;() {//&#x8C03;&#x7528;flatMap&#x65B9;&#x6CD5;
-                    @Override
-                    public Observable&lt;?&gt; call(Object o) {
-                        return null;
-                    }
-                })
-</code></pre>
-<p>flatMap&#x65B9;&#x6CD5;&#x5185;&#x90E8;&#x5206;&#x4E24;&#x6761;&#x8DEF;&#x8D70;&#xFF0C;&#x4E00;&#x6761;&#x662F;ScalarSynchronousObservable&#xFF0C;&#x4E00;&#x6761;&#x662F;&#x8C03;&#x7528;merge&#x65B9;&#x6CD5;&#x3002;</p>
-<pre><code>/**
-     * Returns an Observable that emits items based on applying a function that you supply to each item emitted
-     * by the source Observable, where that function returns an Observable, and then merging those resulting
-     */
-public final &lt;R&gt; Observable&lt;R&gt; flatMap(Func1&lt;? super T, ? extends Observable&lt;? extends R&gt;&gt; func) {
-        if (getClass() == ScalarSynchronousObservable.class) {
-            return ((ScalarSynchronousObservable&lt;T&gt;)this).scalarFlatMap(func);
-        }
-        return merge(map(func));
-    }
-</code></pre>
-<h3 id="scalarsynchronousobservable-&#x65B9;&#x5F0F;"><a class="header-anchor" href="#scalarsynchronousobservable-&#x65B9;&#x5F0F;"></a>ScalarSynchronousObservable &#x65B9;&#x5F0F;</h3>
-<p>flatmap&#x65B9;&#x6CD5;&#x4F1A;&#x5148;&#x5224;&#x65AD;&#x5F53;&#x524D;&#x7684;Observable&#x662F;&#x4E0D;&#x662F;ScalarSynchronousObservable(&#x7EE7;&#x627F;&#x81EA;Observable&lt;T&gt;)&#x7C7B;&#x578B;&#x7684;&#xFF0C;&#x5982;&#x679C;&#x662F;&#x5219;&#x4F1A;&#x76F4;&#x63A5;&#x6267;&#x884C;&#x5B83;&#x7684;scalarFlatMap&#x65B9;&#x6CD5;&#xFF0C;&#x89C1;&#x4E0A;&#x9762;&#x7684;&#x4EE3;&#x7801;&#x3002;&#x800C;scalarFlatMap&#x53C8;&#x505A;&#x4E86;&#x4EC0;&#x4E48;&#x5462;&#xFF1F;&#x5148;&#x770B;&#x4EE3;&#x7801;&#xFF1A;</p>
-<pre><code>public &lt;R&gt; Observable&lt;R&gt; scalarFlatMap(final Func1&lt;? super T, ? extends Observable&lt;? extends R&gt;&gt; func) {
-        return create(new OnSubscribe&lt;R&gt;() {
-            @Override
-            public void call(final Subscriber&lt;? super R&gt; child) {
-                Observable&lt;? extends R&gt; o = func.call(t);
-                if (o.getClass() == ScalarSynchronousObservable.class) {
-                    child.onNext(((ScalarSynchronousObservable&lt;? extends R&gt;)o).t);
-                    child.onCompleted();
-                } else {
-                    o.unsafeSubscribe(new Subscriber&lt;R&gt;(child) {
-                        @Override
-                        public void onNext(R v) {
-                            child.onNext(v);
-                        }
-                        @Override
-                        public void onError(Throwable e) {
-                            child.onError(e);
-                        }
-                        @Override
-                        public void onCompleted() {
-                            child.onCompleted();
-                        }
-                    });
-                }
-            }
-        });
-    }
-</code></pre>
-<p>&#x5B83;&#x5C31;&#x662F;&#x76F4;&#x63A5;return&#x4E00;&#x4E2A;Observable&#xFF0C;&#x4E0A;&#x9762;&#x63D0;&#x5230;&#x8FC7;&#xFF0C;&#x5B83;&#x662F;&#x7EE7;&#x627F;&#x81EA;Observable&lt;T&gt;&#xFF0C;&#x8FD9;&#x91CC;&#x8C03;&#x7528;&#x7684;create()&#x65B9;&#x6CD5;&#x5C31;&#x662F;&#x8C03;&#x7528;&#x7236;&#x7C7B;&#x7684;create&#x65B9;&#x6CD5;&#xFF1A;</p>
-<pre><code>public final static &lt;T&gt; Observable&lt;T&gt; create(OnSubscribe&lt;T&gt; f) {
-        return new Observable&lt;T&gt;(hook.onCreate(f));
-    }
-</code></pre>
-<h3 id="merge&#x65B9;&#x5F0F;"><a class="header-anchor" href="#merge&#x65B9;&#x5F0F;"></a>merge&#x65B9;&#x5F0F;</h3>
-<p>&#x5982;&#x679C;&#x5F53;&#x524D;Observable&#x4E0D;&#x662F;ScalarSynchronousObservable&#x7C7B;&#x578B;&#x7684;&#xFF0C;&#x5219;&#x8C03;&#x7528;Observable&#x7684;merge&#x65B9;&#x6CD5;&#xFF1A;merge(map(func))&#xFF0C;&#x5B83;&#x7684;&#x53C2;&#x6570;&#x662F;&#x4E00;&#x4E2A;map&#x4EA7;&#x751F;&#x7684;Observable&#xFF0C;&#x4EE3;&#x7801;&#x5982;&#x4E0B;&#xFF1A;</p>
-<pre><code>public final &lt;R&gt; Observable&lt;R&gt; map(Func1&lt;? super T, ? extends R&gt; func) {
-        return lift(new OperatorMap&lt;T, R&gt;(func));
-    }
-</code></pre>
-<p>&#x6211;&#x4EEC;&#x770B;&#x5230;&#xFF0C;map&#x91CC;&#x9762;&#x53C8;&#x8C03;&#x7528;&#x4E86;lift&#x65B9;&#x6CD5;&#xFF0C;&#x5B83;&#x662F;RxJava&#x4E2D;&#x5B9E;&#x73B0;&#x81EA;&#x5B9A;&#x4E49;Operator&#x7684;&#x5173;&#x952E;&#xFF0C;&#x5B9E;&#x8D28;&#x662F;&#x5BF9;&#x81EA;&#x5B9A;&#x4E49;&#x4E8B;&#x4EF6;&#x5E8F;&#x5217;&#x7684;&#x5904;&#x7406;&#x548C;&#x518D;&#x53D1;&#x9001;&#xFF0C;&#x7FFB;&#x770B;&#x6E90;&#x7801;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x77E5;&#x9053;&#xFF0C;&#x5728;RxJava&#x4E2D;&#xFF0C;&#x5BF9;&#x4E8B;&#x4EF6;&#x7684;&#x5904;&#x7406;&#x53D1;&#x9001;&#x90FD;&#x662F;&#x57FA;&#x4E8E;&#x540C;&#x4E00;&#x4E2A;&#x57FA;&#x7840;&#x7684;&#x53D8;&#x6362;&#x65B9;&#x6CD5;lift()&#x3002;</p>
-<pre><code>/**
-     * Lifts a function to the current Observable and returns a new Observable that when subscribed to will pass
-     * the values of the current Observable through the Operator function.
-     */
-    public final &lt;R&gt; Observable&lt;R&gt; lift(final Operator&lt;? extends R, ? super T&gt; operator) {
-        return new Observable&lt;R&gt;(new OnSubscribe&lt;R&gt;() {
-            @Override
-            public void call(Subscriber&lt;? super R&gt; o) {
-                try {
-                    Subscriber&lt;? super T&gt; st = hook.onLift(operator).call(o);//&#x4EA7;&#x751F;&#x64CD;&#x4F5C;&#x7684;&#x5173;&#x952E;
-                    try {
-                        // new Subscriber created and being subscribed with so &apos;onStart&apos; it
-                        st.onStart();
-                        onSubscribe.call(st);
-                    } catch (Throwable e) {
-                        // localized capture of errors rather than it skipping all operators
-                        // and ending up in the try/catch of the subscribe method which then
-                        // prevents onErrorResumeNext and other similar approaches to error handling
-                        if (e instanceof OnErrorNotImplementedException) {
-                            throw (OnErrorNotImplementedException) e;
-                        }
-                        st.onError(e);
-                    }
-                } catch (Throwable e) {
-                    if (e instanceof OnErrorNotImplementedException) {
-                        throw (OnErrorNotImplementedException) e;
-                    }
-                    // if the lift function failed all we can do is pass the error to the final Subscriber
-                    // as we don&apos;t have the operator available to us
-                    o.onError(e);
-                }
-            }
-        });
-    }
-</code></pre>
-<p>&#x4ECE;&#x6E90;&#x7801;&#x53EF;&#x4EE5;&#x770B;&#x5230;&#xFF0C;&#x5B83;&#x5B9E;&#x8D28;&#x662F;&#x65B0;new&#x4E00;&#x4E2A;Observable&#x8FD4;&#x56DE;&#x3002;call()&#x65B9;&#x6CD5;&#x9996;&#x5148;&#x662F;&#x53D6;&#x4E00;&#x4E2A;Subscriber&#xFF0C;&#x5373;&#x4E00;&#x4E2A;Operator&#x3002;</p>
-<pre><code>Subscriber&lt;? super T&gt; st = hook.onLift(operator).call(o);
-</code></pre>
-<p>Operator&#x7684;&#x5B9E;&#x73B0;&#x7C7B;&#x4E3B;&#x8981;&#x6709;&#x4EE5;&#x4E0B;&#x8FD9;&#x4E9B;&#xFF08;&#x957F;&#x957F;&#x7684;&#x5217;&#x8868;&#x554A;&#xFF01;&#xFF01;&#xFF01;&#xFF09;&#xFF1A;</p>
-<ul>
-<li>OperatorAll (rx.internal.operators) OperatorAny (rx.internal.operators)</li>
-<li>OperatorAsObservable (rx.internal.operators)</li>
-<li>OperatorBufferWithSingleObservable (rx.internal.operators)</li>
-<li>OperatorBufferWithSize (rx.internal.operators)</li>
-<li>OperatorBufferWithStartEndObservable (rx.internal.operators)</li>
-<li>OperatorBufferWithTime (rx.internal.operators)</li>
-<li>OperatorCast (rx.internal.operators)</li>
-<li>OperatorConcat (rx.internal.operators)</li>
-<li>OperatorDebounceWithSelector (rx.internal.operators)</li>
-<li>OperatorDebounceWithTime (rx.internal.operators)</li>
-<li>OperatorDelay (rx.internal.operators)</li>
-<li>OperatorDelayWithSelector (rx.internal.operators)</li>
-<li>OperatorDematerialize (rx.internal.operators)</li>
-<li>OperatorDistinct (rx.internal.operators)</li>
-<li>OperatorDistinctUntilChanged (rx.internal.operators)</li>
-<li>OperatorDoOnEach (rx.internal.operators)</li>
-<li>OperatorDoOnRequest (rx.internal.operators)</li>
-<li>OperatorDoOnSubscribe (rx.internal.operators)</li>
-<li>OperatorDoOnUnsubscribe (rx.internal.operators)</li>
-<li>OperatorElementAt (rx.internal.operators)</li>
-<li>OperatorFilter (rx.internal.operators)</li>
-<li>OperatorFinally (rx.internal.operators)</li>
-<li>OperatorGroupBy (rx.internal.operators)</li>
-<li>OperatorIgnoreElements (rx.internal.operators)</li>
-<li>OperatorMap (rx.internal.operators)</li>
-<li>OperatorMapNotification (rx.internal.operators)</li>
-<li>OperatorMapPair (rx.internal.operators)</li>
-<li>OperatorMaterialize (rx.internal.operators)</li>
-<li>OperatorMerge (rx.internal.operators)</li>
-<li>OperatorObserveOn (rx.internal.operators)</li>
-<li>OperatorOnBackpressureBlock (rx.internal.operators)</li>
-<li>OperatorOnBackpressureBuffer (rx.internal.operators)</li>
-<li>OperatorOnBackpressureDrop (rx.internal.operators)</li>
-<li>OperatorOnBackpressureLatest (rx.internal.operators)</li>
-<li>OperatorOnErrorResumeNextViaFunction (rx.internal.operators)</li>
-<li>OperatorOnErrorResumeNextViaObservable (rx.internal.operators)</li>
-<li>OperatorOnErrorReturn (rx.internal.operators)</li>
-<li>OperatorOnExceptionResumeNextViaObservable (rx.internal.operators)</li>
-<li>OperatorRetryWithPredicate (rx.internal.operators)</li>
-<li>OperatorSampleWithObservable (rx.internal.operators)</li>
-<li>OperatorSampleWithTime (rx.internal.operators)</li>
-<li>OperatorScan (rx.internal.operators)</li>
-<li>OperatorSerialize (rx.internal.operators)</li>
-<li>OperatorSingle (rx.internal.operators)</li>
-<li>OperatorSkip (rx.internal.operators)</li>
-<li>OperatorSkipLast (rx.internal.operators)</li>
-<li>OperatorSkipLastTimed (rx.internal.operators)</li>
-<li>OperatorSkipTimed (rx.internal.operators)</li>
-<li>OperatorSkipUntil (rx.internal.operators)</li>
-<li>OperatorSkipWhile (rx.internal.operators)</li>
-<li>OperatorSubscribeOn (rx.internal.operators)</li>
-<li>OperatorSwitch (rx.internal.operators)</li>
-<li>OperatorSwitchIfEmpty (rx.internal.operators)</li>
-<li>OperatorTake (rx.internal.operators)</li>
-<li>OperatorTakeLast (rx.internal.operators)</li>
-<li>OperatorTakeLastOne (rx.internal.operators)</li>
-<li>OperatorTakeLastTimed (rx.internal.operators)</li>
-<li>OperatorTakeTimed (rx.internal.operators)</li>
-<li>OperatorTakeUntil (rx.internal.operators)</li>
-<li>OperatorTakeUntilPredicate (rx.internal.operators)</li>
-<li>OperatorTakeWhile (rx.internal.operators)</li>
-<li>OperatorThrottleFirst (rx.internal.operators)</li>
-<li>OperatorTimeInterval (rx.internal.operators)</li>
-<li>OperatorTimeoutBase (rx.internal.operators)</li>
-<li>OperatorTimestamp (rx.internal.operators)</li>
-<li>OperatorToMap (rx.internal.operators)</li>
-<li>OperatorToMultimap (rx.internal.operators)</li>
-<li>OperatorToObservableList (rx.internal.operators)</li>
-<li>OperatorToObservableSortedList (rx.internal.operators)</li>
-<li>OperatorUnsubscribeOn (rx.internal.operators)</li>
-<li>OperatorWindowWithObservable (rx.internal.operators)</li>
-<li>OperatorWindowWithObservableFactory (rx.internal.operators)</li>
-<li>OperatorWindowWithSize (rx.internal.operators)</li>
-<li>OperatorWindowWithStartEndObservable (rx.internal.operators)</li>
-<li>OperatorWindowWithTime (rx.internal.operators)</li>
-<li>OperatorWithLatestFrom (rx.internal.operators)</li>
-<li>OperatorZip (rx.internal.operators)</li>
-<li>OperatorZipIterable (rx.internal.operators)</li>
-</ul>
-<p>&#x6211;&#x4EEC;&#x4EE5;OperatorDoOnSubscribe&#x4E3A;&#x4F8B;&#xFF0C;&#x770B;&#x4E00;&#x4E0B;call&#x65B9;&#x6CD5;&#x7684;&#x6E90;&#x7801;&#x3002;&#x5B83;&#x8FD8;&#x662F;&#x6BD4;&#x8F83;&#x7B80;&#x5355;&#x7684;&#xFF0C;&#x5C31;&#x662F;&#x76F4;&#x63A5;&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;Subscriber&#x3002;</p>
-<pre><code>//OperatorDoOnSubscribe.call():
-@Override
-    public Subscriber&lt;? super T&gt; call(final Subscriber&lt;? super T&gt; child) {
-        subscribe.call();
-        // Pass through since this operator is for notification only, there is
-        // no change to the stream whatsoever.
-        return Subscribers.wrap(child);
-    }
-
-//Subscribers.wrap()
-public static &lt;T&gt; Subscriber&lt;T&gt; wrap(final Subscriber&lt;? super T&gt; subscriber) {
-        return new Subscriber&lt;T&gt;(subscriber) {
-
-            @Override
-            public void onCompleted() {
-                subscriber.onCompleted();
-            }
-
-            @Override
-            public void onError(Throwable e) {
-                subscriber.onError(e);
-            }
-
-            @Override
-            public void onNext(T t) {
-                subscriber.onNext(t);
-            }
-
-        };
-    }
-</code></pre>
-<p>&#x6211;&#x4EEC;&#x518D;&#x56DE;&#x5934;&#x770B;&#x4E00;&#x4E0B;merge&#x65B9;&#x6CD5;&#x7684;&#x6E90;&#x7801;&#xFF1A;</p>
-<pre><code>public final static &lt;T&gt; Observable&lt;T&gt; merge(Observable&lt;? extends Observable&lt;? extends T&gt;&gt; source) {
-        if (source.getClass() == ScalarSynchronousObservable.class) {
-            return ((ScalarSynchronousObservable&lt;T&gt;)source).scalarFlatMap((Func1)UtilityFunctions.identity());
-        }
-        return source.lift(OperatorMerge.&lt;T&gt;instance(false));
-    }
-</code></pre>
-<p>&#x53D1;&#x73B0;&#x6CA1;&#x6709;&#xFF0C;&#x5B83;&#x4E5F;&#x662F;&#x8C03;&#x7528;&#x4E86;Observable&#x7684;lift&#x65B9;&#x6CD5;&#xFF0C;&#x6B63;&#x50CF;&#x4E0A;&#x9762;&#x6240;&#x8BF4;&#x7684;&#xFF0C;lift&#x662F;&#x4EA7;&#x751F;&#x64CD;&#x4F5C;&#x7684;&#x57FA;&#x7840;&#x3002;</p>
-<h2 id="func1&#x53C2;&#x6570;"><a class="header-anchor" href="#func1&#x53C2;&#x6570;"></a>Func1&#x53C2;&#x6570;</h2>
-<p>RxJava&#x6709;&#x4E00;&#x7CFB;&#x5217;&#x7684;(Func+&#x6570;&#x5B57;)&#x7684;&#x63A5;&#x53E3;&#xFF0C;Func1&#x5C31;&#x662F;&#x5176;&#x4E2D;&#x4E00;&#x4E2A;&#xFF0C;&#x5B83;&#x7EE7;&#x627F;&#x81EA;Function&#x7C7B;&#xFF0C;&#x5E76;&#x63D0;&#x4F9B;&#x4E86;&#x4E00;&#x4E2A;&#x6CDB;&#x578B;&#x7684;call&#x65B9;&#x6CD5;&#xFF0C;&#x5C31;&#x662F;&#x4E00;&#x4E2A;&#x64CD;&#x4F5C;&#x903B;&#x8F91;&#xFF0C;&#x5C31;&#x50CF;Runnable&#x7684;run&#x65B9;&#x6CD5;&#x4E00;&#x6837;&#xFF0C;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x5728;&#x5B83;&#x91CC;&#x9762;&#x6267;&#x884C;&#x81EA;&#x5DF1;&#x5B9A;&#x4E49;&#x7684;&#x903B;&#x8F91;&#x3002;</p>
-<pre><code>/**
- * Represents a function with one argument.
- */
-public interface Func1&lt;T, R&gt; extends Function {
-    R call(T t);
-}
-</code></pre>
-<p>&#x5B9E;&#x73B0;Func1&#x8FD9;&#x4E2A;&#x63A5;&#x53E3;&#x7684;&#x7C7B;&#x4E5F;&#x5F88;&#x591A;&#xFF0C;&#x6211;&#x5C31;&#x4E0D;&#x4E00;&#x4E00;&#x5217;&#x4E3E;&#x4E86;&#x3002;&#x4E3E;&#x4E2A;&#x4F8B;&#x5B50;&#xFF0C;&#x6BD4;&#x5982;OperatorObserveOn (rx.internal.operators)&#x7C7B;&#xFF0C;&#x5B83;&#x5B9E;&#x73B0;&#x4E86;Operator&lt;T, T&gt;&#xFF0C;&#x800C;Operator&lt;T, T&gt;&#x53C8;&#x662F;&#x7EE7;&#x627F;&#x81EA;Func1&lt;Subscriber&lt;? super R&gt;, Subscriber&lt;? super T&gt;&gt;&#x7684;&#x3002;</p>
-<p>&#x5728;flatmap&#x4E2D;&#xFF0C;Func1&#x9700;&#x8981;&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;Observable&#x3002;</p>
-<h2 id="&#x603B;&#x7ED3;"><a class="header-anchor" href="#&#x603B;&#x7ED3;"></a>&#x603B;&#x7ED3;</h2>
-<p>flatMap()&#x64CD;&#x4F5C;&#x7B26;&#x4F7F;&#x7528;&#x539F;&#x672C;&#x4F1A;&#x88AB;&#x539F;&#x59CB;Observable&#xFF08;&#x5373;create/just&#x7B49;&#x4EA7;&#x751F;&#x7684;&#xFF09;&#x53D1;&#x9001;&#x7684;&#x4E8B;&#x4EF6;&#xFF0C;&#x6765;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x65B0;&#x7684;Observable&#xFF0C;&#x7136;&#x540E;&#x5C06;&#x5B83;&#x53D1;&#x9001;&#x51FA;&#x6765;&#x3002;&#x8FD9;&#x4E2A;Observable&#x53EF;&#x4EE5;&#x662F;&#x6211;&#x4EEC;&#x5B9A;&#x4E49;&#x4E00;&#x4E2A;&#x7684;&#x5355;&#x64CD;&#x4F5C;&#x7ED3;&#x679C;&#xFF0C;&#x4E5F;&#x53EF;&#x4EE5;&#x662F;&#x4E00;&#x7CFB;&#x5217;&#x64CD;&#x4F5C;&#x7684;&#x5408;&#x96C6;&#xFF0C;&#x8FD8;&#x53EF;&#x4EE5;&#x662F;&#x4E00;&#x4E2A;exception: return Observable.error(new Throwable(&#x201C;it is an exception&#x201D;))&#x3002;</p>
-<p>&#x4F46;&#x6709;&#x4E00;&#x70B9;&#x6211;&#x4EEC;&#x5F97;&#x8BB0;&#x4F4F;&#xFF0C;flatMap&#x5BF9;&#x8FD9;&#x4E9B;Observables&#x53D1;&#x5C04;&#x7684;&#x6570;&#x636E;&#x505A;&#x7684;&#x662F;&#x5408;&#x5E76;(merge)&#x64CD;&#x4F5C;&#xFF0C;&#x56E0;&#x6B64;&#x5B83;&#x4EEC;&#x53EF;&#x80FD;&#x662F;&#x4EA4;&#x9519;&#x7684;&#xFF1B;&#x5982;&#x679C;&#x60F3;&#x6309;&#x7167;&#x4E25;&#x683C;&#x7684;&#x987A;&#x5E8F;&#x53D1;&#x5C04;&#x4F20;&#x5165;&#x7684;&#x6570;&#x636E;&#xFF0C;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;ConcatMap&#x3002;</p>
-<p>flatMap</p>
-<ul>
-<li>[flatMap(Func1)](<a href="http://reactivex.io/RxJava/javadoc/rx/Observable.html#flatMap(rx.functions.Func1)" target="_blank" rel="external">http://reactivex.io/RxJava/javadoc/rx/Observable.html#flatMap(rx.functions.Func1)</a></li>
-<li>[flatMap(Func1,int)](<a href="http://reactivex.io/RxJava/javadoc/rx/Observable.html#flatMap(rx.functions.Func1,%20int)" target="_blank" rel="external">http://reactivex.io/RxJava/javadoc/rx/Observable.html#flatMap(rx.functions.Func1, int)</a></li>
-</ul>
-<p>concatMap</p>
-<ul>
-<li>[concatMap(Func1)](<a href="http://reactivex.io/RxJava/javadoc/rx/Observable.html#concatMap(rx.functions.Func1)" target="_blank" rel="external">http://reactivex.io/RxJava/javadoc/rx/Observable.html#concatMap(rx.functions.Func1)</a></li>
-</ul>
-<p>flatMapIterable</p>
-<ul>
-<li>[flatMapIterable(Func1)](<a href="http://reactivex.io/RxJava/javadoc/rx/Observable.html#flatMapIterable(rx.functions.Func1)" target="_blank" rel="external">http://reactivex.io/RxJava/javadoc/rx/Observable.html#flatMapIterable(rx.functions.Func1)</a></li>
-<li>[flatMapIterable(Func1,Func2))](<a href="http://reactivex.io/RxJava/javadoc/rx/Observable.html#flatMapIterable(rx.functions.Func1,%20rx.functions.Func2)" target="_blank" rel="external">http://reactivex.io/RxJava/javadoc/rx/Observable.html#flatMapIterable(rx.functions.Func1, rx.functions.Func2)</a></li>
-</ul>
-<p>switchMap</p>
-<ul>
-<li>[switchMap(Func1)](<a href="http://reactivex.io/RxJava/javadoc/rx/Observable.html#switchMap(rx.functions.Func1)" target="_blank" rel="external">http://reactivex.io/RxJava/javadoc/rx/Observable.html#switchMap(rx.functions.Func1)</a></li>
-</ul>
-<p><a href="http://ngudream.com/2016/10/25/rxjava-map/">Observable.map&#x6E90;&#x7801;&#x5206;&#x6790;</a></p>
-<div style="text-align:center"><span style="float:left;margin-top:50px;padding-left:50px">&#x4EC0;&#x4E48;&#x9B3C;&#xFF1F;&#x56FD;&#x5E86;&#x8282;&#x8FD8;&#x5728;&#x64B8;&#x4EE3;&#x7801;&#xFF1F;&#x75AF;&#x4E86;......</span><img class="pic lazy" data-original="/2016/10/01/rxjava-flatmap/97048379699009072.jpg" alt="(&#xFF1B;&#x2032;&#x2312;`)"></div>
-<div style="text-align:center"><span style="float:left;margin-top:50px;padding-left:50px">
-&#x660E;&#x5929;&#x5C31;&#x56DE;&#x5BB6;&#x4E86;</span><img class="pic lazy" data-original="/2016/10/01/rxjava-flatmap/20798236092653293.jpg" alt="(&#xE51;&#xFFEB;&#x72B;&#xFFE9;)"></div>]]></content>
-    
-    <summary type="html">
-    
-      FlatMap操作符使用一个指定的函数对原始Observable发射的每一项数据执行变换操作，这个函数返回一个本身也发射数据的Observable，然后FlatMap合并这些Observables发射的数据，最后将合并后的结果当做它自己的数据序列发射。简单的说，就是flatMap()的作用是输入一个Observable，再输出一个经过特定变换的Observable。
-    
-    </summary>
-    
-      <category term="移动开发" scheme="http://ngudream.com/categories/%E7%A7%BB%E5%8A%A8%E5%BC%80%E5%8F%91/"/>
-    
-    
-      <category term="RxJava" scheme="http://ngudream.com/tags/RxJava/"/>
     
   </entry>
   

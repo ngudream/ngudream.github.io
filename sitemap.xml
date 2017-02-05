@@ -2,6 +2,27 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://ngudream.com/2017/02/05/android-airbnb-lottie/</loc>
+    
+    <lastmod>2017-02-05T14:49:54.326Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://ngudream.com/2016/11/21/android-mvp-rxjava-practice/</loc>
+    
+    <lastmod>2017-02-05T14:41:31.732Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://ngudream.com/2017/02/05/android-dexclassloader/</loc>
+    
+    <lastmod>2017-02-05T14:22:27.156Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://ngudream.com/2016/09/22/rxjava-samples/</loc>
     
     <lastmod>2017-02-05T13:02:32.394Z</lastmod>
@@ -425,13 +446,6 @@
     <loc>http://ngudream.com/2016/11/01/android-network-base-structure/</loc>
     
     <lastmod>2017-01-15T07:58:44.343Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://ngudream.com/2016/11/21/android-mvp-rxjava-practice/</loc>
-    
-    <lastmod>2017-01-15T07:58:44.340Z</lastmod>
     
   </url>
   
