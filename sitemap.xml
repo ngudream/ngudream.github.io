@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://ngudream.com/2016/09/22/rxjava-samples/</loc>
+    
+    <lastmod>2017-02-05T13:02:32.394Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://ngudream.com/2017/01/24/n-hexo-blog/</loc>
     
     <lastmod>2017-02-04T15:29:35.336Z</lastmod>
@@ -131,13 +138,6 @@
     <loc>http://ngudream.com/2016/11/24/rxjava-thread-switch-theory/</loc>
     
     <lastmod>2017-01-15T07:58:44.465Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://ngudream.com/2016/09/22/rxjava-samples/</loc>
-    
-    <lastmod>2017-01-15T07:58:44.462Z</lastmod>
     
   </url>
   

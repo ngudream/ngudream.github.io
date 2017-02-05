@@ -4,6 +4,26 @@
 
     
   <url>
+    <loc>http://ngudream.com/2016/09/22/rxjava-samples/</loc>
+    <lastmod>2017-02-05T13:02:32.394Z</lastmod>
+    <data>
+        <display>
+        <title>RxJava常见的使用场景收集</title>
+        <pubTime>2016-09-22T14:15:11.000Z</pubTime>
+        
+        <tag>RxJava</tag>
+         
+         
+           
+             
+              <breadCrumb title="移动开发" url="http://ngudream.com/categories/%E7%A7%BB%E5%8A%A8%E5%BC%80%E5%8F%91/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://ngudream.com/2017/01/24/n-hexo-blog/</loc>
     <lastmod>2017-02-04T15:29:35.336Z</lastmod>
     <data>
@@ -356,26 +376,6 @@
         <display>
         <title>RxJava线程切换原理</title>
         <pubTime>2016-11-24T14:13:27.000Z</pubTime>
-        
-        <tag>RxJava</tag>
-         
-         
-           
-             
-              <breadCrumb title="移动开发" url="http://ngudream.com/categories/%E7%A7%BB%E5%8A%A8%E5%BC%80%E5%8F%91/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://ngudream.com/2016/09/22/rxjava-samples/</loc>
-    <lastmod>2017-01-15T07:58:44.462Z</lastmod>
-    <data>
-        <display>
-        <title>RxJava常见的使用场景收集</title>
-        <pubTime>2016-09-22T14:15:11.000Z</pubTime>
         
         <tag>RxJava</tag>
          
