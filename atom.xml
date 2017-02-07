@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://ngudream.com/"/>
-  <updated>2017-02-05T14:49:54.326Z</updated>
+  <updated>2017-02-07T14:56:23.013Z</updated>
   <id>http://ngudream.com/</id>
   
   <author>
@@ -14,6 +14,233 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>WebView异步加载自定义CSS/JS</title>
+    <link href="http://ngudream.com/2017/02/08/android-webview-asyncload-css-js/"/>
+    <id>http://ngudream.com/2017/02/08/android-webview-asyncload-css-js/</id>
+    <published>2017-02-07T16:27:01.000Z</published>
+    <updated>2017-02-07T14:56:23.013Z</updated>
+    
+    <content type="html"><![CDATA[<p>&#x8FD1;&#x6765;&#x63A5;&#x5230;&#x4E00;&#x4E2A;&#x9700;&#x6C42;&#xFF0C;&#x5C31;&#x662F; webview &#x8981;&#x52A8;&#x6001;&#x52A0;&#x8F7D; css &#x6587;&#x4EF6;&#xFF0C;&#x66FF;&#x6362; html &#x6587;&#x4EF6;&#x539F;&#x6765;&#x7684;&#xFF0C;&#x8FBE;&#x5230;&#x5B9A;&#x5236;&#x754C;&#x9762;&#x7684;&#x76EE;&#x7684;&#x3002;&#x81EA;&#x5DF1;&#x505A;demo &#x8BD5;&#x9A8C;&#x8BC1;&#x4E86;&#x4E00;&#x4E0B;&#xFF0C;webview &#x672C;&#x8EAB;&#x63D0;&#x4F9B;&#x8FD9;&#x6837;&#x7684;&#x63A5;&#x53E3;&#xFF0C;&#x53EF;&#x4EE5;&#x8FBE;&#x5230;&#x8981;&#x6C42;&#x3002;&#x4E3B;&#x8981;&#x5C31;&#x662F;&#x4F7F;&#x7528; webview &#x7684; shouldInterceptRequest &#x63A5;&#x53E3;&#xFF0C;&#x62E6;&#x622A;&#x8BF7;&#x6C42;&#x3002;</p>
+<h2 id="&#x62E6;&#x622A;&#x63A5;&#x53E3;"><a class="header-anchor" href="#&#x62E6;&#x622A;&#x63A5;&#x53E3;"></a>&#x62E6;&#x622A;&#x63A5;&#x53E3;</h2>
+<p>WebView &#x8C03;&#x7528; loadUrl &#x540E;&#xFF0C;&#x4F1A;&#x9996;&#x5148;&#x6839;&#x636E;&#x4F20;&#x5165;&#x7684;URL&#x83B7;&#x53D6;&#x54CD;&#x5E94;&#xFF0C;&#x7136;&#x540E;&#x518D;&#x5C06;&#x54CD;&#x5E94;&#x663E;&#x793A;&#x5230;&#x9875;&#x9762;&#x4E0A;&#x3002;&#x6839;&#x636E;&#x8FD9;&#x4E2A;&#x539F;&#x7406;&#xFF0C;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x5728;&#x83B7;&#x53D6;&#x54CD;&#x5E94;&#x8FC7;&#x7A0B;&#x4E2D;&#x91CD;&#x65B0;&#x6539;&#x53D8;&#x8BF7;&#x6C42;URL&#x6216;&#x8005;&#x76F4;&#x63A5;&#x5C06;&#x54CD;&#x5E94;&#x66FF;&#x6362;&#x3002;&#x8981;&#x60F3;&#x62E6;&#x622A; WebView &#x52A0;&#x8F7D;&#x7F51;&#x9875;&#x6211;&#x4EEC;&#x5FC5;&#x987B;&#x91CD;&#x5199; WebViewClient &#x7C7B;&#xFF0C;&#x5728; WebViewClient &#x7C7B;&#x4E2D;&#x6211;&#x4EEC;&#x91CD;&#x5199; <strong>shouldInterceptRequest()</strong> &#x65B9;&#x6CD5;&#x3002;</p>
+<p>&#x901A;&#x8FC7;&#x67E5;&#x770B; WebViewClient &#x7684;&#x6E90;&#x7801;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x53D1;&#x73B0;&#xFF0C;&#x6709;&#x4E24;&#x4E2A;&#x540C;&#x540D;&#x65B9;&#x6CD5;&#xFF0C;&#x5206;&#x522B;&#x662F;&#xFF1A;</p>
+<pre><code>/**
+     * Notify the host application of a resource request and allow the
+     * application to return the data.  If the return value is null, the WebView
+     * will continue to load the resource as usual.  Otherwise, the return
+     * response and data will be used.  NOTE: This method is called on a thread
+     * other than the UI thread so clients should exercise caution
+     * when accessing private data or the view system.
+     *
+     * @param view The {@link android.webkit.WebView} that is requesting the
+     *             resource.
+     * @param url The raw url of the resource.
+     * @return A {@link android.webkit.WebResourceResponse} containing the
+     *         response information or null if the WebView should load the
+     *         resource itself.
+     * @deprecated Use {@link #shouldInterceptRequest(WebView, WebResourceRequest)
+     *             shouldInterceptRequest(WebView, WebResourceRequest)} instead.
+     */
+    @Deprecated
+    public WebResourceResponse shouldInterceptRequest(WebView view,
+            String url) {
+        return null;
+    }
+</code></pre>
+<p>&#x548C;&#x53E6;&#x5916;&#x4E00;&#x4E2A;&#xFF1A;</p>
+<pre><code>/**
+     * Notify the host application of a resource request and allow the
+     * application to return the data.  If the return value is null, the WebView
+     * will continue to load the resource as usual.  Otherwise, the return
+     * response and data will be used.  NOTE: This method is called on a thread
+     * other than the UI thread so clients should exercise caution
+     * when accessing private data or the view system.
+     *
+     * @param view The {@link android.webkit.WebView} that is requesting the
+     *             resource.
+     * @param request Object containing the details of the request.
+     * @return A {@link android.webkit.WebResourceResponse} containing the
+     *         response information or null if the WebView should load the
+     *         resource itself.
+     */
+    public WebResourceResponse shouldInterceptRequest(WebView view,
+            WebResourceRequest request) {
+        return shouldInterceptRequest(view, request.getUrl().toString());
+    }
+</code></pre>
+<p>&#x7B2C;&#x4E00;&#x4E2A;&#x5DF2;&#x7ECF;@Deprecated&#xFF0C;&#x5373;&#x5728; SDK API 20 &#x53CA;&#x4EE5;&#x4E0B;&#x7684;&#x4F1A;&#x6267;&#x884C;&#x65B9;&#x6CD5;1&#xFF0C;SDK API 20 &#x4EE5;&#x4E0A;&#x7684;&#x4F1A;&#x6267;&#x884C;&#x65B9;&#x6CD5;2&#x3002;</p>
+<h2 id="demo-&#x5B9E;&#x4F8B;"><a class="header-anchor" href="#demo-&#x5B9E;&#x4F8B;"></a>demo &#x5B9E;&#x4F8B;</h2>
+<p>&#x6211;&#x4EEC;&#x7528;&#x4E00;&#x4E2A; map &#x6765;&#x4F20;&#x5F02;&#x6B65;&#x52A0;&#x8F7D;&#x7684; css&#x3001;js &#x6587;&#x4EF6;&#xFF0C;key&#x4E3A;&#x6587;&#x4EF6;&#x540D;(&#x4E0E;&#x73B0;&#x6709;html&#x6587;&#x4EF6;&#x4E0A;&#x52A0;&#x8F7D;&#x7684;&#x4E00;&#x81F4;&#xFF0C;&#x65B9;&#x4FBF;&#x5224;&#x65AD;)&#xFF0C;value&#x4E3A;&#x7EDD;&#x5BF9;&#x8DEF;&#x5F84;&#x3002;<br>
+map &#x662F;&#x4E0D;&#x80FD;&#x76F4;&#x63A5;&#x7528; intent &#x4F20;&#x8F93;&#x7684;&#xFF0C;&#x6240;&#x4EE5;&#x6211;&#x4EEC;&#x5C01;&#x88C5;&#x4E00;&#x4E2A;&#x5B9E;&#x73B0;&#x4E86; Serializable &#x63A5;&#x53E3;&#x7684;&#x7C7B;&#xFF0C;&#x7528;&#x6765;&#x4F20;&#x76F8;&#x5E94;&#x7684;&#x53C2;&#x6570;&#x3002;</p>
+<pre><code>/**
+ * Created on 17-2-8.
+ */
+public class SerializableMap implements Serializable {
+
+    private Map&lt;String, String&gt; map;
+
+    public Map&lt;String, String&gt; getMap() {
+        return map;
+    }
+
+    public void setMap(Map&lt;String, String&gt; map) {
+        this.map = map;
+    }
+}
+</code></pre>
+<p>&#x4E0B;&#x9762;&#xFF0C;&#x6211;&#x4EEC;&#x5C06;&#x5B9E;&#x73B0;&#x4FEE;&#x6539;&#x6253;&#x5F00;&#x9875;&#x9762;&#x7684;&#x80CC;&#x666F;&#x8272;&#x3002;&#x9875;&#x9762;&#x7684;&#x539F;&#x59CB;&#x80CC;&#x666F;&#x5982;&#x4E0B;&#x56FE;&#xFF1A;</p>
+<div align="center">
+<img style="width:300px;height:300px" data-original="/2017/02/08/android-webview-asyncload-css-js/original.jpg" class="lazy">
+</div>
+<p>&#x6211;&#x4EEC;&#x8981;&#x5C06;&#x9875;&#x9762;&#x7684;&#x80CC;&#x666F;&#x53D8;&#x6210;&#x7EA2;&#x8272;&#xFF0C;&#x9996;&#x5148;&#x4FEE;&#x6539;&#x4E00;&#x4E0B; css &#x6587;&#x4EF6;&#x7684; body &#x80CC;&#x666F;&#xFF1A;</p>
+<pre><code>body {
+    background: red !important;
+}
+</code></pre>
+<p>&#x9996;&#x5148;&#x6253;&#x5F00;&#x4E00;&#x4E2A;&#x9875;&#x9762;&#xFF1A;</p>
+<pre><code>//&#x5C01;&#x88C5;&#x5F02;&#x6B65;&#x52A0;&#x8F7D;&#x7684;css
+Map&lt;String, String&gt; map = new HashMap&lt;&gt;();
+        map.put(&quot;style.css&quot;, &quot;file:///android_asset/style.css&quot;);
+        
+Intent intent = new Intent(MzAccountManager.getInstance().getContext(), HtmlLoginActivity.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        if(map != null &amp;&amp; map.size() &gt; 0){
+            SerializableMap serializableMap = new SerializableMap();
+            serializableMap.setMap(map);
+            Bundle bundle = new Bundle();
+            bundle.putSerializable(&quot;map&quot;, serializableMap);//&#x4F20;&#x7ED9;activity
+            intent.putExtras(bundle);
+        }
+        getContext().startActivity(intent);
+</code></pre>
+<p>&#x7136;&#x540E;&#x5728; activity &#x91CC;&#x9762;&#x53D6;&#x51FA;&#x6765;&#x4F7F;&#x7528;&#x5373;&#x53EF;&#xFF1A;</p>
+<pre><code>/**
+     * &#x52A0;&#x8F7D;&#x81EA;&#x5B9A;&#x4E49;&#x7684;css/js
+     */
+    private Map mExtraCssJsMap;
+    
+    SerializableMap serializableMap = (SerializableMap) intent.getSerializableExtra(&quot;map&quot;);
+                if(serializableMap != null){
+                    mExtraCssJsMap = serializableMap.getMap();
+                }
+</code></pre>
+<p>&#x63A5;&#x4E0B;&#x6765;&#x6211;&#x4EEC;&#x91CD;&#x8F7D; shouldInterceptRequest &#x63A5;&#x53E3;&#xFF0C;&#x9996;&#x5148;&#x5B9E;&#x73B0; SDK 20 &#x7248;&#x672C;&#x4EE5;&#x4E0A;&#x7684;&#xFF1A;</p>
+<pre><code>private class AccountWebViewClient extends WebViewClient {
+
+        public AccountWebViewClient() {
+        }
+
+        @Override
+        public void onReceivedSslError(WebView view, SslErrorHandler handler, SslError error) {
+//            handleSslError(handler);
+            handler.proceed();//&#x9047;&#x5230;&#x8BC1;&#x4E66;&#x95EE;&#x9898;&#x65F6;&#xFF0C;&#x7EE7;&#x7EED;&#x6267;&#x884C;
+        }
+
+        @TargetApi(Build.VERSION_CODES.LOLLIPOP)
+        @Override
+        public WebResourceResponse shouldInterceptRequest(WebView view, WebResourceRequest request) {
+            String url = request.getUrl().toString();
+            if(mExtraCssJsMap != null &amp;&amp; mExtraCssJsMap.size() &gt; 0){
+                Iterator&lt;Map.Entry&lt;String, String&gt;&gt; iterator = mExtraCssJsMap.entrySet().iterator();
+                while (iterator.hasNext()){
+                    Map.Entry&lt;String, String&gt; entry = iterator.next();
+                    String key = entry.getKey();
+                    String value = entry.getValue();
+                    if(url.contains(key)){
+                        WebResourceResponse response = null;
+                        File fileCss = new File(value);
+                        if(fileCss.exists()){
+                            try {
+                                InputStream inputStream = new FileInputStream(fileCss);//&#x8BFB;&#x53D6;&#x6587;&#x4EF6;&#xFF0C;&#x8FD4;&#x56DE;&#x81EA;&#x5B9A;&#x4E49;&#x7684; response
+                                response = new WebResourceResponse(&quot;text/css&quot;, &quot;UTF-8&quot;, inputStream);
+                            } catch (Exception e) {
+                                e.printStackTrace();
+                            }
+                        } else {
+                            try {
+                                response = new WebResourceResponse(&quot;text/css&quot;, &quot;UTF-8&quot;, getAssets().open(key));
+                            } catch (IOException e) {
+                                e.printStackTrace();
+                            }
+                        }
+                        if(response != null){
+                            return response;
+                        }
+                    }
+                }
+            }
+            return super.shouldInterceptRequest(view, request);
+        }
+    }
+</code></pre>
+<p>&#x5176;&#x5B9E; SDK 20 &#x4EE5;&#x4E0B;&#x7684;&#x5B9E;&#x73B0;&#x662F;&#x5DEE;&#x4E0D;&#x591A;&#x7684;&#xFF0C;&#x5C31;&#x662F;&#x91CD;&#x8F7D;&#x7684;&#x65B9;&#x6CD5;&#x4E0D;&#x4E00;&#x6837;&#x800C;&#x5DF2;&#xFF1A;</p>
+<pre><code>private class AccountWebViewClient extends WebViewClient {
+
+        public AccountWebViewClient() {
+        }
+
+        @Override
+        public void onReceivedSslError(WebView view, SslErrorHandler handler, SslError error) {
+//            handleSslError(handler);
+            handler.proceed();//&#x9047;&#x5230;&#x8BC1;&#x4E66;&#x95EE;&#x9898;&#x65F6;&#xFF0C;&#x7EE7;&#x7EED;&#x6267;&#x884C;
+        }
+
+        @Override
+        public WebResourceResponse shouldInterceptRequest(WebView view, String url) {
+            if(mExtraCssJsMap != null &amp;&amp; mExtraCssJsMap.size() &gt; 0){
+                Iterator&lt;Map.Entry&lt;String, String&gt;&gt; iterator = mExtraCssJsMap.entrySet().iterator();
+                while (iterator.hasNext()){
+                    Map.Entry&lt;String, String&gt; entry = iterator.next();
+                    String key = entry.getKey();
+                    String value = entry.getValue();
+                    if(url.contains(key)){
+                        WebResourceResponse response = null;
+                        File fileCss = new File(value);
+                        if(fileCss.exists()){
+                            try {
+                                InputStream inputStream = new FileInputStream(fileCss);
+                                response = new WebResourceResponse(&quot;text/css&quot;, &quot;UTF-8&quot;, inputStream);
+                            } catch (Exception e) {
+                                e.printStackTrace();
+                            }
+                        } else {
+                            try {
+                                response = new WebResourceResponse(&quot;text/css&quot;, &quot;UTF-8&quot;, getAssets().open(key));
+                            } catch (IOException e) {
+                                e.printStackTrace();
+                            }
+                        }
+                        if(response != null){
+                            return response;
+                        }
+                    }
+                }
+            }
+            return super.shouldInterceptRequest(view, url);
+        }
+    }
+</code></pre>
+<p>&#x901A;&#x8FC7;&#x62E6;&#x622A;&#x8BF7;&#x6C42;&#xFF0C;&#x5F02;&#x6B65;&#x52A0;&#x8F7D;&#x6211;&#x4EEC;&#x81EA;&#x5DF1;&#x5B9A;&#x4E49;&#x7684; style.css &#x6587;&#x4EF6;&#xFF0C;&#x6253;&#x5F00;&#x9875;&#x9762;&#x53EF;&#x4EE5;&#x770B;&#x5230;&#xFF0C;&#x9875;&#x9762;&#x7684;&#x80CC;&#x666F;&#x8272;&#x5DF2;&#x7ECF;&#x53D8;&#x6210;&#x4E86;&#x7EA2;&#x8272;&#xFF1A;</p>
+<div align="center">
+<img style="width:300px;height:300px" data-original="/2017/02/08/android-webview-asyncload-css-js/red.jpg" class="lazy">
+</div>
+<p>&#x5927;&#x5BB6;&#x53EF;&#x4EE5;&#x53C2;&#x8003;&#x4E0B;&#x9762;&#x8FD9;&#x4E2A;&#x6587;&#x7AE0;&#xFF0C;&#x6BD4;&#x8F83;&#x8BE6;&#x7EC6;&#x7684;&#x5B9E;&#x73B0;&#xFF1A;<br>
+<a href="http://stackoverflow.com/questions/8273991/webview-shouldinterceptrequest-example" target="_blank" rel="external">webview-shouldinterceptrequest-example</a></p>]]></content>
+    
+    <summary type="html">
+    
+      Android WebView 如何动态改变一个 html 页面原有样式？可以通过拦截请求，在加载 html 文件原有的 css/jss 文件前，将它们替换成自定义的新文件，这个具体要用到的就是 webview 的 shouldInterceptRequest 接口，重载此接口，然后返回重新生成的响应。
+    
+    </summary>
+    
+      <category term="移动开发" scheme="http://ngudream.com/categories/%E7%A7%BB%E5%8A%A8%E5%BC%80%E5%8F%91/"/>
+    
+    
+      <category term="Android" scheme="http://ngudream.com/tags/Android/"/>
+    
+  </entry>
   
   <entry>
     <title>Android Airbnb Lottie 复杂动画</title>
@@ -4126,98 +4353,6 @@ Android&#x4E0A;&#x6700;&#x8BA9;&#x4EBA;&#x5934;&#x75BC;&#x7684;&#x83AB;&#x8FC7;&
     <summary type="html">
     
       &lt;p&gt;&amp;#x6536;&amp;#x96C6;&amp;#x5E73;&amp;#x65F6;&amp;#x7B14;&amp;#x8005;&amp;#x9047;&amp;#x5230;&amp;#x7684;&amp;#x5F00;&amp;#x6E90;&amp;#x7B2C;&amp;#x4E09;&amp;#x65B9;View&amp;#xFF0C;&amp;#x65B9;&amp;#x4FBF;&amp;#x4EE5;&amp;#x540E;&amp;#x81EA;&amp;#x5DF1;&amp;#x67E5;&amp;#x770B;&amp;#x3002;&amp;#x66F4;&amp;#x4F55;&amp;#x51B5;&amp;#xFF0C;&amp;#x7B14;&amp;#x8005;&amp;#x662F;&amp;#x6BD4;&amp;#x8F83;&amp;#x63D0;&amp;#x5021;&amp;#x4E0D;&amp;#x8981;&amp;#x91CD;&amp;#x590D;&amp;#x9020;&amp;#x8F6E;&amp;#x5B50;&amp;#x7684;&amp;#xFF0C;&amp;#x6240;&amp;#x4EE5;&amp;#x6536;&amp;#x96C6;&amp;#x3001;&amp;#x4E86;&amp;#x89E3;&amp;#x5F53;&amp;#x4E0B;&amp;#x6BD4;&amp;#x8F83;&amp;#x6D41;&amp;#x884C;&amp;#x7684;Android&amp;#x5F00;&amp;#x6E90;&amp;#x9879;&amp;#x76EE;&amp;#x662F;&amp;#x5F88;&amp;#x6709;&amp;#x5FC5;&amp;#x8981;&amp;#x3002;&amp;#x5982;&amp;#x679C;&amp;#x5229;&amp;#x7528;&amp;#x597D;&amp;#x4E86;&amp;#x8FD9;&amp;#x4E9B;&amp;#x9879;&amp;#x76EE;&amp;#xFF0C;&amp;#x8BF4;&amp;#x4E0D;&amp;#x5B9A;&amp;#x4F1A;&amp;#x8BA9;&amp;#x4F60;&amp;#x7684;&amp;#x9879;&amp;#x76EE;&amp;#x4E8B;&amp;#x534A;&amp;#x529F;&amp;#x500D;&amp;#x6216;&amp;#x773C;&amp;#x524D;&amp;#x4E00;&amp;#x4EAE;&amp;#x3002;&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="移动开发" scheme="http://ngudream.com/categories/%E7%A7%BB%E5%8A%A8%E5%BC%80%E5%8F%91/"/>
-    
-    
-      <category term="Android" scheme="http://ngudream.com/tags/Android/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>ListView停止滚动</title>
-    <link href="http://ngudream.com/2016/10/08/android-listview-stopscroll/"/>
-    <id>http://ngudream.com/2016/10/08/android-listview-stopscroll/</id>
-    <published>2016-10-08T11:57:18.000Z</published>
-    <updated>2017-01-15T07:58:44.334Z</updated>
-    
-    <content type="html"><![CDATA[<div style="margin-top:-16px;margin-bottom:-16px"><a href="https://github.com/ReactiveX/RxJava" target="_blank" rel="external"><img class="pic lazy" data-original="/2016/10/08/android-listview-stopscroll/stop.jpg" style="float:left; width:100px; height:56px; margin-right:16px" alt=""></a>
-<span>Android&#x4E2D;&#xFF0C;&#x5982;&#x679C;&#x60F3;&#x505C;&#x6B62;ListView&#x4E2D;&#x7684;&#x6ED1;&#x52A8;&#xFF0C;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x4E0B;&#x9762;&#x7684;&#x65B9;&#x6CD5;&#x6765;&#x5B9E;&#x73B0;&#xFF0C;&#x4E3B;&#x8981;&#x662F;&#x901A;&#x8FC7;&#x53CD;&#x5C04;&#x7236;&#x7C7B;AbsListView&#x7684;&#x8C03;&#x7528;endFling&#x65B9;&#x6CD5;&#x6765;&#x5B9E;&#x73B0;&#x3002;</span></div>
-<a id="more"></a>
-<p><a href="http://grepcode.com/file/repository.grepcode.com/java/ext/com.google.android/android/5.1.1_r1/android/widget/ListView.java#ListView" target="_blank" rel="external">ListView&#x6E90;&#x7801;</a></p>
-<p>&#x901A;&#x8FC7;AbsListView&#x7684;<a href="http://grepcode.com/file/repository.grepcode.com/java/ext/com.google.android/android/5.1.1_r1/android/widget/AbsListView.java#AbsListView" target="_blank" rel="external">&#x6E90;&#x7801;</a>&#xFF0C;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x77E5;&#x9053;&#xFF0C;&#x662F;&#x901A;&#x8FC7;&#x4E0B;&#x9762;&#x7684;&#x65B9;&#x6CD5;&#x6765;&#x505C;&#x6B62;&#x5176;&#x6ED1;&#x52A8;&#x7684;&#xFF0C;&#x90A3;&#x6211;&#x4EEC;&#x5C31;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x4F7F;&#x7528;java&#x7684;&#x53CD;&#x5C04;&#x6765;&#x5728;&#x9002;&#x5F53;&#x7684;&#x65F6;&#x5019;&#x8C03;&#x7528;&#x6B64;&#x65B9;&#x6CD5;&#x3002;</p>
-<pre><code>void More ...endFling() {
-    mTouchMode = TOUCH_MODE_REST;
-
-    removeCallbacks(this);
-    removeCallbacks(mCheckFlywheel);
-
-    reportScrollStateChange(OnScrollListener.SCROLL_STATE_IDLE);
-    clearScrollingCache();//&#x6E05;&#x9664;cache&#xFF0C;&#x8981;&#x4EE5;&#x5C06;scrollingCache&#x548C;animateCache&#x8BBE;&#x7F6E;&#x4E3A;false
-    mScroller.abortAnimation();
-
-    if (mFlingStrictSpan != null) {
-        mFlingStrictSpan.finish();
-        mFlingStrictSpan = null;
-    }
-}
-</code></pre>
-<p>&#x770B;&#x6E90;&#x7801;&#xFF0C;&#x5B83;&#x91CC;&#x9762;&#x4E5F;&#x6709;&#x5F88;&#x591A;&#x5730;&#x65B9;&#xFF0C;&#x8C03;&#x7528;&#x6B64;&#x65B9;&#x6CD5;&#xFF0C;&#x6BD4;&#x5982;&#x4E0B;&#x9762;&#x7684;&#x5E73;&#x7A33;&#x6ED1;&#x52A8;&#x65B9;&#x6CD5;smoothScrollBy&#xFF1A;</p>
-<pre><code>void More ...smoothScrollBy(int distance, int duration, boolean linear) {
-if (mFlingRunnable == null) {
-    mFlingRunnable = new FlingRunnable();
-}
-
-// No sense starting to scroll if we&apos;re not going anywhere
-final int firstPos = mFirstPosition;
-final int childCount = getChildCount();
-final int lastPos = firstPos + childCount;
-final int topLimit = getPaddingTop();
-final int bottomLimit = getHeight() - getPaddingBottom();
-
-if (distance == 0 || mItemCount == 0 || childCount == 0 ||
-        (firstPos == 0 &amp;&amp; getChildAt(0).getTop() == topLimit &amp;&amp; distance &lt; 0) ||
-        (lastPos == mItemCount &amp;&amp;
-                getChildAt(childCount - 1).getBottom() == bottomLimit &amp;&amp; distance &gt; 0)) {
-    mFlingRunnable.endFling();//&#x505C;&#x6B62;&#x6ED1;&#x52A8;
-    if (mPositionScroller != null) {
-        mPositionScroller.stop();
-    }
-} else {
-    reportScrollStateChange(OnScrollListener.SCROLL_STATE_FLING);
-    mFlingRunnable.startScroll(distance, duration, linear);
-}
-}
-</code></pre>
-<p>&#x5B8C;&#x6574;&#x8C03;&#x7528;&#x793A;&#x4F8B;&#xFF1A;</p>
-<pre><code>public class MyListView extends ListView{
-
-        public MyListView(Context context) {
-            super(context);
-        }
-
-        /**
-         * &#x505C;&#x6B62;&#x6ED1;&#x52A8;
-         */
-        public void stopScroll() {
-            try {
-                Field flingEndField = AbsListView.class.getDeclaredField(&quot;mFlingRunnable&quot; );
-                flingEndField.setAccessible(true);
-                Method flingEndMethod = flingEndField .getType().getDeclaredMethod(&quot;endFling&quot;);
-                flingEndMethod.setAccessible(true);
-                flingEndMethod.invoke(flingEndField.get(this));
-            } catch (Exception e) {
-            }
-        }
-    }
-</code></pre>]]></content>
-    
-    <summary type="html">
-    
-      &lt;div style=&quot;margin-top:-16px;margin-bottom:-16px&quot;&gt;&lt;a href=&quot;https://github.com/ReactiveX/RxJava&quot;&gt;&lt;img class=&quot;pic lazy&quot; data-original=&quot;/2016/10/08/android-listview-stopscroll/stop.jpg&quot; style=&quot;float:left; width:100px; height:56px; margin-right:16px&quot; alt=&quot;&quot;&gt;&lt;/a&gt;
-&lt;span&gt;Android&amp;#x4E2D;&amp;#xFF0C;&amp;#x5982;&amp;#x679C;&amp;#x60F3;&amp;#x505C;&amp;#x6B62;ListView&amp;#x4E2D;&amp;#x7684;&amp;#x6ED1;&amp;#x52A8;&amp;#xFF0C;&amp;#x6211;&amp;#x4EEC;&amp;#x53EF;&amp;#x4EE5;&amp;#x901A;&amp;#x8FC7;&amp;#x4E0B;&amp;#x9762;&amp;#x7684;&amp;#x65B9;&amp;#x6CD5;&amp;#x6765;&amp;#x5B9E;&amp;#x73B0;&amp;#xFF0C;&amp;#x4E3B;&amp;#x8981;&amp;#x662F;&amp;#x901A;&amp;#x8FC7;&amp;#x53CD;&amp;#x5C04;&amp;#x7236;&amp;#x7C7B;AbsListView&amp;#x7684;&amp;#x8C03;&amp;#x7528;endFling&amp;#x65B9;&amp;#x6CD5;&amp;#x6765;&amp;#x5B9E;&amp;#x73B0;&amp;#x3002;&lt;/span&gt;&lt;/div&gt;
     
     </summary>
     
