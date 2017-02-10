@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://ngudream.com/2017/01/24/n-hexo-blog/</loc>
+    
+    <lastmod>2017-02-10T13:28:18.891Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://ngudream.com/2017/02/09/linux-ip-switch-shell/</loc>
     
     <lastmod>2017-02-09T12:47:30.270Z</lastmod>
@@ -40,13 +47,6 @@
     <loc>http://ngudream.com/2016/09/22/rxjava-samples/</loc>
     
     <lastmod>2017-02-05T13:02:32.394Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://ngudream.com/2017/01/24/n-hexo-blog/</loc>
-    
-    <lastmod>2017-02-04T15:29:35.336Z</lastmod>
     
   </url>
   
