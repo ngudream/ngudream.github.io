@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://ngudream.com/2017/02/08/android-webview-asyncload-css-js/</loc>
+    
+    <lastmod>2017-02-14T13:15:50.739Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://ngudream.com/2017/01/24/n-hexo-blog/</loc>
     
     <lastmod>2017-02-10T13:28:18.891Z</lastmod>
@@ -12,13 +19,6 @@
     <loc>http://ngudream.com/2017/02/09/linux-ip-switch-shell/</loc>
     
     <lastmod>2017-02-09T12:47:30.270Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://ngudream.com/2017/02/08/android-webview-asyncload-css-js/</loc>
-    
-    <lastmod>2017-02-07T14:56:23.013Z</lastmod>
     
   </url>
   
