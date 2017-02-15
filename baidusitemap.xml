@@ -4,6 +4,50 @@
 
     
   <url>
+    <loc>http://ngudream.com/2016/02/20/webrtc-pjsip-timer/</loc>
+    <lastmod>2017-02-15T14:42:07.217Z</lastmod>
+    <data>
+        <display>
+        <title>PJSIP 协议栈中定时器的实现详解</title>
+        <pubTime>2016-02-20T14:37:08.000Z</pubTime>
+        
+        <tag>WebRTC</tag>
+         
+        <tag>PJSIP</tag>
+         
+         
+           
+             
+              <breadCrumb title="通信" url="http://ngudream.com/categories/%E9%80%9A%E4%BF%A1/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://ngudream.com/2016/01/20/webrtc-pjsip/</loc>
+    <lastmod>2017-02-15T14:38:54.480Z</lastmod>
+    <data>
+        <display>
+        <title>WebRTC视频解析-PJSIP</title>
+        <pubTime>2016-01-20T11:34:39.000Z</pubTime>
+        
+        <tag>WebRTC</tag>
+         
+        <tag>PJSIP</tag>
+         
+         
+           
+             
+              <breadCrumb title="通信" url="http://ngudream.com/categories/%E9%80%9A%E4%BF%A1/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://ngudream.com/2017/02/08/android-webview-asyncload-css-js/</loc>
     <lastmod>2017-02-14T13:15:50.739Z</lastmod>
     <data>
@@ -235,26 +279,6 @@
         <display>
         <title>WebRTC音视频引擎研究--整体架构分析</title>
         <pubTime>2016-01-18T11:40:20.000Z</pubTime>
-        
-        <tag>WebRTC</tag>
-         
-         
-           
-             
-              <breadCrumb title="通信" url="http://ngudream.com/categories/%E9%80%9A%E4%BF%A1/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://ngudream.com/2016/01/20/webrtc-pjsip/</loc>
-    <lastmod>2017-01-15T07:58:44.497Z</lastmod>
-    <data>
-        <display>
-        <title>WebRTC视频解析-PJSIP</title>
-        <pubTime>2016-01-20T11:34:39.000Z</pubTime>
         
         <tag>WebRTC</tag>
          
