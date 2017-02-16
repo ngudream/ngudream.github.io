@@ -2,6 +2,41 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://ngudream.com/2016/11/13/android-view-draw-theory/</loc>
+    
+    <lastmod>2017-02-16T13:16:46.221Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://ngudream.com/2017/01/24/n-hexo-blog/</loc>
+    
+    <lastmod>2017-02-16T13:12:12.236Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://ngudream.com/2017/01/14/android-change-app-launcher-icon-dynamically/</loc>
+    
+    <lastmod>2017-02-16T12:30:57.519Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://ngudream.com/2016/12/12/android-mvp-rxjava-practice/</loc>
+    
+    <lastmod>2017-02-16T12:17:01.807Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://ngudream.com/2016/12/26/rxjava-thread-switch-theory/</loc>
+    
+    <lastmod>2017-02-16T12:16:34.938Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://ngudream.com/2016/02/20/webrtc-pjsip-timer/</loc>
     
     <lastmod>2017-02-15T14:42:07.217Z</lastmod>
@@ -23,13 +58,6 @@
   </url>
   
   <url>
-    <loc>http://ngudream.com/2017/01/24/n-hexo-blog/</loc>
-    
-    <lastmod>2017-02-10T13:28:18.891Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://ngudream.com/2017/02/09/linux-ip-switch-shell/</loc>
     
     <lastmod>2017-02-09T12:47:30.270Z</lastmod>
@@ -40,13 +68,6 @@
     <loc>http://ngudream.com/2017/02/05/android-airbnb-lottie/</loc>
     
     <lastmod>2017-02-05T14:49:54.326Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://ngudream.com/2016/11/21/android-mvp-rxjava-practice/</loc>
-    
-    <lastmod>2017-02-05T14:41:31.732Z</lastmod>
     
   </url>
   
@@ -173,13 +194,6 @@
     <loc>http://ngudream.com/2016/10/31/rxjava-thread-switch/</loc>
     
     <lastmod>2017-01-15T07:58:44.475Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://ngudream.com/2016/11/24/rxjava-thread-switch-theory/</loc>
-    
-    <lastmod>2017-01-15T07:58:44.465Z</lastmod>
     
   </url>
   

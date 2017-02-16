@@ -4,6 +4,108 @@
 
     
   <url>
+    <loc>http://ngudream.com/2016/11/13/android-view-draw-theory/</loc>
+    <lastmod>2017-02-16T13:16:46.221Z</lastmod>
+    <data>
+        <display>
+        <title>深入理解Android之View的绘制流程</title>
+        <pubTime>2016-11-13T15:19:04.000Z</pubTime>
+        
+        <tag>Android</tag>
+         
+         
+           
+             
+              <breadCrumb title="移动开发" url="http://ngudream.com/categories/%E7%A7%BB%E5%8A%A8%E5%BC%80%E5%8F%91/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://ngudream.com/2017/01/24/n-hexo-blog/</loc>
+    <lastmod>2017-02-16T13:12:12.236Z</lastmod>
+    <data>
+        <display>
+        <title>笔者博客源代码</title>
+        <pubTime>2017-01-24T09:35:19.000Z</pubTime>
+        
+        <tag>Hexo</tag>
+         
+         
+           
+             
+              <breadCrumb title="服务器" url="http://ngudream.com/categories/%E6%9C%8D%E5%8A%A1%E5%99%A8/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://ngudream.com/2017/01/14/android-change-app-launcher-icon-dynamically/</loc>
+    <lastmod>2017-02-16T12:30:57.519Z</lastmod>
+    <data>
+        <display>
+        <title>Android 利用 <activity-alias> 动态改变 App 桌面图标</title>
+        <pubTime>2017-01-14T12:10:28.000Z</pubTime>
+        
+        <tag>Android</tag>
+         
+         
+           
+             
+              <breadCrumb title="移动开发" url="http://ngudream.com/categories/%E7%A7%BB%E5%8A%A8%E5%BC%80%E5%8F%91/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://ngudream.com/2016/12/12/android-mvp-rxjava-practice/</loc>
+    <lastmod>2017-02-16T12:17:01.807Z</lastmod>
+    <data>
+        <display>
+        <title>响应式MVP架构todo-mvp-rxjava实践</title>
+        <pubTime>2016-12-12T15:08:01.000Z</pubTime>
+        
+        <tag>Android</tag>
+         
+        <tag>RxJava</tag>
+         
+         
+           
+             
+              <breadCrumb title="移动开发" url="http://ngudream.com/categories/%E7%A7%BB%E5%8A%A8%E5%BC%80%E5%8F%91/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://ngudream.com/2016/12/26/rxjava-thread-switch-theory/</loc>
+    <lastmod>2017-02-16T12:16:34.938Z</lastmod>
+    <data>
+        <display>
+        <title>RxJava线程切换原理</title>
+        <pubTime>2016-12-26T14:13:27.000Z</pubTime>
+        
+        <tag>RxJava</tag>
+         
+         
+           
+             
+              <breadCrumb title="移动开发" url="http://ngudream.com/categories/%E7%A7%BB%E5%8A%A8%E5%BC%80%E5%8F%91/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://ngudream.com/2016/02/20/webrtc-pjsip-timer/</loc>
     <lastmod>2017-02-15T14:42:07.217Z</lastmod>
     <data>
@@ -68,26 +170,6 @@
 
     
   <url>
-    <loc>http://ngudream.com/2017/01/24/n-hexo-blog/</loc>
-    <lastmod>2017-02-10T13:28:18.891Z</lastmod>
-    <data>
-        <display>
-        <title>笔者博客源代码</title>
-        <pubTime>2017-01-24T09:35:19.000Z</pubTime>
-        
-        <tag>Hexo</tag>
-         
-         
-           
-             
-              <breadCrumb title="服务器" url="http://ngudream.com/categories/%E6%9C%8D%E5%8A%A1%E5%99%A8/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>http://ngudream.com/2017/02/09/linux-ip-switch-shell/</loc>
     <lastmod>2017-02-09T12:47:30.270Z</lastmod>
     <data>
@@ -120,28 +202,6 @@
         <pubTime>2017-02-05T14:27:31.000Z</pubTime>
         
         <tag>Android</tag>
-         
-         
-           
-             
-              <breadCrumb title="移动开发" url="http://ngudream.com/categories/%E7%A7%BB%E5%8A%A8%E5%BC%80%E5%8F%91/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://ngudream.com/2016/11/21/android-mvp-rxjava-practice/</loc>
-    <lastmod>2017-02-05T14:41:31.732Z</lastmod>
-    <data>
-        <display>
-        <title>响应式MVP架构todo-mvp-rxjava实践</title>
-        <pubTime>2016-11-21T15:08:01.000Z</pubTime>
-        
-        <tag>Android</tag>
-         
-        <tag>RxJava</tag>
          
          
            
@@ -486,26 +546,6 @@
         <display>
         <title>RxJava线程切换</title>
         <pubTime>2016-10-31T12:56:42.000Z</pubTime>
-        
-        <tag>RxJava</tag>
-         
-         
-           
-             
-              <breadCrumb title="移动开发" url="http://ngudream.com/categories/%E7%A7%BB%E5%8A%A8%E5%BC%80%E5%8F%91/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://ngudream.com/2016/11/24/rxjava-thread-switch-theory/</loc>
-    <lastmod>2017-01-15T07:58:44.465Z</lastmod>
-    <data>
-        <display>
-        <title>RxJava线程切换原理</title>
-        <pubTime>2016-11-24T14:13:27.000Z</pubTime>
         
         <tag>RxJava</tag>
          
