@@ -2,23 +2,23 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://ngudream.com/2016/11/13/android-view-draw-theory/</loc>
-    
-    <lastmod>2017-02-16T13:16:46.221Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://ngudream.com/2017/01/24/n-hexo-blog/</loc>
     
-    <lastmod>2017-02-16T13:12:12.236Z</lastmod>
+    <lastmod>2017-02-18T04:14:46.711Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://ngudream.com/2017/01/14/android-change-app-launcher-icon-dynamically/</loc>
     
-    <lastmod>2017-02-16T12:30:57.519Z</lastmod>
+    <lastmod>2017-02-17T15:51:27.940Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://ngudream.com/2016/11/13/android-view-draw-theory/</loc>
+    
+    <lastmod>2017-02-16T13:16:46.221Z</lastmod>
     
   </url>
   
