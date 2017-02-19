@@ -2,6 +2,20 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://ngudream.com/2017/01/14/android-change-app-launcher-icon-dynamically/</loc>
+    
+    <lastmod>2017-02-19T03:26:13.289Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://ngudream.com/2017/02/05/android-dexclassloader/</loc>
+    
+    <lastmod>2017-02-19T02:46:37.388Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://ngudream.com/2016/06/18/png-gif-transparency/</loc>
     
     <lastmod>2017-02-18T10:26:00.361Z</lastmod>
@@ -12,13 +26,6 @@
     <loc>http://ngudream.com/2017/01/24/n-hexo-blog/</loc>
     
     <lastmod>2017-02-18T04:14:46.711Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://ngudream.com/2017/01/14/android-change-app-launcher-icon-dynamically/</loc>
-    
-    <lastmod>2017-02-17T15:51:27.940Z</lastmod>
     
   </url>
   
@@ -75,13 +82,6 @@
     <loc>http://ngudream.com/2017/02/05/android-airbnb-lottie/</loc>
     
     <lastmod>2017-02-05T14:49:54.326Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://ngudream.com/2017/02/05/android-dexclassloader/</loc>
-    
-    <lastmod>2017-02-05T14:22:27.156Z</lastmod>
     
   </url>
   
