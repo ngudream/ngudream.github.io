@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://ngudream.com/"/>
-  <updated>2017-02-09T12:47:30.270Z</updated>
+  <updated>2017-02-19T14:41:06.256Z</updated>
   <id>http://ngudream.com/</id>
   
   <author>
@@ -20,13 +20,14 @@
     <link href="http://ngudream.com/2017/02/09/linux-ip-switch-shell/"/>
     <id>http://ngudream.com/2017/02/09/linux-ip-switch-shell/</id>
     <published>2017-02-09T12:43:41.000Z</published>
-    <updated>2017-02-09T12:47:30.270Z</updated>
+    <updated>2017-02-19T14:41:06.256Z</updated>
     
     <content type="html"><![CDATA[<blockquote>
 <p>&#x8F6C;&#x8F7D;&#x81EA;&#xFF1A;<a href="http://diaocow.iteye.com/blog/1674074" target="_blank" rel="external">http://diaocow.iteye.com/blog/1674074</a></p>
 </blockquote>
 <p>&#x5728;web&#x5F00;&#x53D1;&#x4E2D;&#xFF0C;&#x6211;&#x4EEC;&#x7ECF;&#x5E38;&#x9700;&#x8981;&#x5207;&#x6362;hosts&#x7ED1;&#x5B9A;&#xFF0C;&#x6BD4;&#x8F83;&#x597D;&#x7528;&#x5DE5;&#x5177;&#x706B;&#x72D0;&#x63D2;&#x4EF6;&#xFF1A;hostAdmin.</p>
 <p>&#x4ECA;&#x5929;&#x7A81;&#x53D1;&#x5947;&#x60F3;&#xFF08;&#x6700;&#x8FD1;&#x770B;&#x4E86;&#x5F88;&#x591A; shell&#xFF0C;&#x4E5F;&#x60F3;&#x953B;&#x70BC;&#x4E00;&#x4E0B;&#xFF09;&#xFF0C;&#x4EFF;&#x7167; hostAdmin &#x5199;&#x4E86;&#x4E00;&#x4E2A; shell &#x811A;&#x672C;&#xFF0C;&#x76EE;&#x524D;&#x8FD0;&#x884C;&#x826F;&#x597D;&#x3002;</p>
+<h2 id="&#x6E90;&#x7801;"><a class="header-anchor" href="#&#x6E90;&#x7801;"></a>&#x6E90;&#x7801;</h2>
 <pre><code>#!/bin/bash
 
 ##############################
@@ -85,7 +86,7 @@ cat $HOSTS | while read line ; do
         isIp &quot;$line&quot;
 
         if [[ $start_flag == 1 &amp;&amp; $ip_result == 0 ]] ; then
-                # &#x53BB;&#x6389;&#x5F00;&#x5934;&#x7684;&#x6CE8;&#x91CA;&#x7B26; 
+                # &#x53BB;&#x6389;&#x5F00;&#x5934;&#x7684;&#x6CE8;&#x91CA;&#x7B26;
                 line=${line/#\#/}
         elif [[ $ip_result == 0 ]] ; then
                 # &#x5728;&#x884C;&#x5F00;&#x5934;&#x6DFB;&#x52A0;&#x6CE8;&#x91CA;&#x7B26;
@@ -102,11 +103,12 @@ cat $HOSTS_TEMP &gt; $HOSTS
 
 rm -rf $HOSTS_TEMP
 </code></pre>
+<h2 id="&#x8C03;&#x8BD5;"><a class="header-anchor" href="#&#x8C03;&#x8BD5;"></a>&#x8C03;&#x8BD5;</h2>
 <p>&#x73B0;&#x5728;&#x6211;&#x4EEC;&#x6765;&#x6D4B;&#x8BD5;&#x4E0B;&#x8FD9;&#x4E2A;&#x811A;&#x672C;&#xFF1A;</p>
 <p>&#x6211;&#x4EEC;&#x51C6;&#x5907;&#x4E0B;&#x6D4B;&#x8BD5;&#x6570;&#x636E;&#xFF08;&#x811A;&#x672C;&#x4E2D;&#x7684;HOSTS&#x53D8;&#x91CF;&#x6307;&#x5B9A;hosts&#x6587;&#x4EF6;&#xFF0C;&#x76EE;&#x524D;&#x6211;&#x4EEC;&#x6682;&#x5B9A;&#x4E49;&#x4E3A;testdata)&#xFF1A;</p>
-<pre><code>[diaocow@ubuntu]$ cat testdata 
+<pre><code>[diaocow@ubuntu]$ cat testdata
 ==offline
-72.51.30.13    offline.test1.com 
+72.51.30.13    offline.test1.com
 72.20.123.321  offline.test2.com
 
 ==offline
@@ -1029,11 +1031,11 @@ $(&quot;#img_right&quot;).remove();
   </entry>
   
   <entry>
-    <title>Android 利用 &lt;activity-alias&gt; 动态改变 App 桌面图标</title>
+    <title>Android 动态改变 App 桌面图标</title>
     <link href="http://ngudream.com/2017/01/14/android-change-app-launcher-icon-dynamically/"/>
     <id>http://ngudream.com/2017/01/14/android-change-app-launcher-icon-dynamically/</id>
     <published>2017-01-14T12:10:28.000Z</published>
-    <updated>2017-02-19T03:26:13.289Z</updated>
+    <updated>2017-02-19T15:09:46.555Z</updated>
     
     <content type="html"><![CDATA[<p><a href="https://developer.android.com/guide/topics/manifest/activity-alias-element.html" target="_blank" rel="external">activity-alias-element &#x5B98;&#x65B9;&#x6587;&#x6863;</a></p>
 <h2 id="&#x5199;&#x5728;&#x524D;&#x5934;"><a class="header-anchor" href="#&#x5199;&#x5728;&#x524D;&#x5934;"></a>&#x5199;&#x5728;&#x524D;&#x5934;</h2>

@@ -5,10 +5,10 @@
     
   <url>
     <loc>http://ngudream.com/2017/01/14/android-change-app-launcher-icon-dynamically/</loc>
-    <lastmod>2017-02-19T03:26:13.289Z</lastmod>
+    <lastmod>2017-02-19T15:09:46.555Z</lastmod>
     <data>
         <display>
-        <title>Android 利用 <activity-alias> 动态改变 App 桌面图标</title>
+        <title>Android 动态改变 App 桌面图标</title>
         <pubTime>2017-01-14T12:10:28.000Z</pubTime>
         
         <tag>Android</tag>
@@ -17,6 +17,30 @@
            
              
               <breadCrumb title="移动开发" url="http://ngudream.com/categories/%E7%A7%BB%E5%8A%A8%E5%BC%80%E5%8F%91/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://ngudream.com/2017/02/09/linux-ip-switch-shell/</loc>
+    <lastmod>2017-02-19T14:41:06.256Z</lastmod>
+    <data>
+        <display>
+        <title>Linux Shell 脚本切换 IP</title>
+        <pubTime>2017-02-09T12:43:41.000Z</pubTime>
+        
+        <tag>linux</tag>
+         
+        <tag>Shell</tag>
+         
+        <tag>IP</tag>
+         
+         
+           
+             
+              <breadCrumb title="编程" url="http://ngudream.com/categories/%E7%BC%96%E7%A8%8B/"/>
           
         </display>
     </data>
@@ -207,30 +231,6 @@
            
              
               <breadCrumb title="移动开发" url="http://ngudream.com/categories/%E7%A7%BB%E5%8A%A8%E5%BC%80%E5%8F%91/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://ngudream.com/2017/02/09/linux-ip-switch-shell/</loc>
-    <lastmod>2017-02-09T12:47:30.270Z</lastmod>
-    <data>
-        <display>
-        <title>Linux Shell 脚本切换 IP</title>
-        <pubTime>2017-02-09T12:43:41.000Z</pubTime>
-        
-        <tag>linux</tag>
-         
-        <tag>Shell</tag>
-         
-        <tag>IP</tag>
-         
-         
-           
-             
-              <breadCrumb title="编程" url="http://ngudream.com/categories/%E7%BC%96%E7%A8%8B/"/>
           
         </display>
     </data>
