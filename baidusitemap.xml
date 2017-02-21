@@ -4,6 +4,48 @@
 
     
   <url>
+    <loc>http://ngudream.com/2016/12/12/android-mvp-rxjava-practice/</loc>
+    <lastmod>2017-02-21T13:47:00.098Z</lastmod>
+    <data>
+        <display>
+        <title>响应式MVP架构todo-mvp-rxjava实践</title>
+        <pubTime>2016-12-12T15:08:01.000Z</pubTime>
+        
+        <tag>Android</tag>
+         
+        <tag>RxJava</tag>
+         
+         
+           
+             
+              <breadCrumb title="移动开发" url="http://ngudream.com/categories/%E7%A7%BB%E5%8A%A8%E5%BC%80%E5%8F%91/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://ngudream.com/2016/12/26/rxjava-thread-switch-theory/</loc>
+    <lastmod>2017-02-21T13:46:58.166Z</lastmod>
+    <data>
+        <display>
+        <title>RxJava线程切换原理</title>
+        <pubTime>2016-12-26T14:13:27.000Z</pubTime>
+        
+        <tag>RxJava</tag>
+         
+         
+           
+             
+              <breadCrumb title="移动开发" url="http://ngudream.com/categories/%E7%A7%BB%E5%8A%A8%E5%BC%80%E5%8F%91/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://ngudream.com/2017/01/14/android-change-app-launcher-icon-dynamically/</loc>
     <lastmod>2017-02-19T15:09:46.555Z</lastmod>
     <data>
@@ -120,48 +162,6 @@
         <pubTime>2016-11-13T15:19:04.000Z</pubTime>
         
         <tag>Android</tag>
-         
-         
-           
-             
-              <breadCrumb title="移动开发" url="http://ngudream.com/categories/%E7%A7%BB%E5%8A%A8%E5%BC%80%E5%8F%91/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://ngudream.com/2016/12/12/android-mvp-rxjava-practice/</loc>
-    <lastmod>2017-02-16T12:17:01.807Z</lastmod>
-    <data>
-        <display>
-        <title>响应式MVP架构todo-mvp-rxjava实践</title>
-        <pubTime>2016-12-12T15:08:01.000Z</pubTime>
-        
-        <tag>Android</tag>
-         
-        <tag>RxJava</tag>
-         
-         
-           
-             
-              <breadCrumb title="移动开发" url="http://ngudream.com/categories/%E7%A7%BB%E5%8A%A8%E5%BC%80%E5%8F%91/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://ngudream.com/2016/12/26/rxjava-thread-switch-theory/</loc>
-    <lastmod>2017-02-16T12:16:34.938Z</lastmod>
-    <data>
-        <display>
-        <title>RxJava线程切换原理</title>
-        <pubTime>2016-12-26T14:13:27.000Z</pubTime>
-        
-        <tag>RxJava</tag>
          
          
            
