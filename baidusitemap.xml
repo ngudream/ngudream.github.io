@@ -4,6 +4,46 @@
 
     
   <url>
+    <loc>http://ngudream.com/2016/08/22/golang-gc/</loc>
+    <lastmod>2017-02-22T14:54:39.120Z</lastmod>
+    <data>
+        <display>
+        <title>Golang GC 探究</title>
+        <pubTime>2016-08-22T14:42:30.000Z</pubTime>
+        
+        <tag>Golang</tag>
+         
+         
+           
+             
+              <breadCrumb title="编程" url="http://ngudream.com/categories/%E7%BC%96%E7%A8%8B/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://ngudream.com/2016/08/31/golang-socket/</loc>
+    <lastmod>2017-02-22T14:40:14.533Z</lastmod>
+    <data>
+        <display>
+        <title>Go语言基于Socket编写服务器端与客户端通信的实例</title>
+        <pubTime>2016-08-31T14:21:15.000Z</pubTime>
+        
+        <tag>Golang</tag>
+         
+         
+           
+             
+              <breadCrumb title="编程" url="http://ngudream.com/categories/%E7%BC%96%E7%A8%8B/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://ngudream.com/2016/12/12/android-mvp-rxjava-practice/</loc>
     <lastmod>2017-02-21T13:47:00.098Z</lastmod>
     <data>

@@ -2,6 +2,20 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://ngudream.com/2016/08/22/golang-gc/</loc>
+    
+    <lastmod>2017-02-22T14:54:39.120Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://ngudream.com/2016/08/31/golang-socket/</loc>
+    
+    <lastmod>2017-02-22T14:40:14.533Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://ngudream.com/2016/12/12/android-mvp-rxjava-practice/</loc>
     
     <lastmod>2017-02-21T13:47:00.098Z</lastmod>
