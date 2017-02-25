@@ -2,9 +2,16 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://ngudream.com/2017/02/05/android-airbnb-lottie/</loc>
+    
+    <lastmod>2017-02-25T11:33:35.546Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://ngudream.com/2016/07/30/okhttp-call-flow/</loc>
     
-    <lastmod>2017-02-25T06:25:25.190Z</lastmod>
+    <lastmod>2017-02-25T11:25:55.840Z</lastmod>
     
   </url>
   
@@ -110,13 +117,6 @@
     <loc>http://ngudream.com/2017/02/08/android-webview-asyncload-css-js/</loc>
     
     <lastmod>2017-02-14T13:15:50.739Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://ngudream.com/2017/02/05/android-airbnb-lottie/</loc>
-    
-    <lastmod>2017-02-05T14:49:54.326Z</lastmod>
     
   </url>
   

@@ -4,8 +4,28 @@
 
     
   <url>
+    <loc>http://ngudream.com/2017/02/05/android-airbnb-lottie/</loc>
+    <lastmod>2017-02-25T11:33:35.546Z</lastmod>
+    <data>
+        <display>
+        <title>Android Airbnb Lottie 复杂动画</title>
+        <pubTime>2017-02-05T14:27:31.000Z</pubTime>
+        
+        <tag>Android</tag>
+         
+         
+           
+             
+              <breadCrumb title="移动开发" url="http://ngudream.com/categories/%E7%A7%BB%E5%8A%A8%E5%BC%80%E5%8F%91/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://ngudream.com/2016/07/30/okhttp-call-flow/</loc>
-    <lastmod>2017-02-25T06:25:25.190Z</lastmod>
+    <lastmod>2017-02-25T11:25:55.840Z</lastmod>
     <data>
         <display>
         <title>OKHttp的请求流程</title>
@@ -324,26 +344,6 @@
         <display>
         <title>WebView异步加载自定义CSS/JS</title>
         <pubTime>2017-02-07T16:27:01.000Z</pubTime>
-        
-        <tag>Android</tag>
-         
-         
-           
-             
-              <breadCrumb title="移动开发" url="http://ngudream.com/categories/%E7%A7%BB%E5%8A%A8%E5%BC%80%E5%8F%91/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://ngudream.com/2017/02/05/android-airbnb-lottie/</loc>
-    <lastmod>2017-02-05T14:49:54.326Z</lastmod>
-    <data>
-        <display>
-        <title>Android Airbnb Lottie 复杂动画</title>
-        <pubTime>2017-02-05T14:27:31.000Z</pubTime>
         
         <tag>Android</tag>
          
