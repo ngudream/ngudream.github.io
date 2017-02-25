@@ -1729,7 +1729,7 @@ public void displayWelcomeMessage(String msg) {
     <link href="http://ngudream.com/2016/12/12/android-mvp-rxjava-practice/"/>
     <id>http://ngudream.com/2016/12/12/android-mvp-rxjava-practice/</id>
     <published>2016-12-12T15:08:01.000Z</published>
-    <updated>2017-02-21T13:47:00.098Z</updated>
+    <updated>2017-02-25T14:27:58.300Z</updated>
     
     <content type="html"><![CDATA[<div><a href="https://github.com/googlesamples/android-architecture" target="_blank" rel="external"><img class="pic lazy" data-original="/2016/12/12/android-mvp-rxjava-practice/pain.png" style="float:left; width:100px; height:66px; margin-right:16px" alt=""></a>
 <span>&#x5F88;&#x591A;&#x65F6;&#x5019;&#xFF0C;Activity&#x53EF;&#x80FD;&#x65E2;&#x627F;&#x62C5;UI&#x663E;&#x793A;&#x5DE5;&#x4F5C;&#xFF0C;&#x53C8;&#x627F;&#x62C5;&#x90E8;&#x5206;&#x4E1A;&#x52A1;&#x903B;&#x8F91;&#x5DE5;&#x4F5C;&#xFF0C;&#x751A;&#x81F3;&#x662F;&#x5404;&#x79CD;&#x7F51;&#x7EDC;&#x8BF7;&#x6C42;&#x3001;&#x56DE;&#x8C03;&#x7B49;&#xFF0C;&#x8FD9;&#x6837;&#x7684;&#x8BDD;Activity&#x7684;&#x4EE3;&#x7801;&#x4F1A;&#x5FEB;&#x901F;&#x81A8;&#x80C0;&#xFF0C;&#x6709;&#x65F6;&#x5019;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x770B;&#x5230;&#x51E0;&#x5343;&#x884C;&#x4EE3;&#x7801;&#x7684;Activity&#x3002;&#x4E00;&#x4E2A;&#x5230;&#x8FD9;&#x6837;&#x7684;&#x7C7B;&#x5C31;&#x662F;&#x6BD4;&#x8F83;&#x75DB;&#x82E6;&#x7684;&#x4E8B;&#x60C5;&#x3002;&#x90A3;&#x7528;&#x4EC0;&#x4E48;&#x529E;&#x6CD5;&#x89E3;&#x51B3;&#x5462;&#xFF1F;</span></div>
@@ -1756,6 +1756,39 @@ public void displayWelcomeMessage(String msg) {
 <img data-original="/2016/12/12/android-mvp-rxjava-practice/2.jpg" class="lazy">
 </div>
 <p>&#x5176;&#x4E2D;&#x7F51;&#x7EDC;&#x5C42;&#x4F7F;&#x7528;&#x4E86;OkHttp&#xFF0C;&#x901A;&#x8FC7;&#x54CD;&#x5E94;&#x5F0F;&#x7684;RxJava&#x4E0E;Presenter&#x4EA4;&#x4E92;&#xFF0C;&#x518D;&#x7531;Presenter&#x4E0E;&#x754C;&#x9762;&#x4EA4;&#x4E92;&#xFF0C;&#x5B9E;&#x73B0;&#x89E3;&#x85D5;&#xFF1B;&#x6570;&#x636E;&#x5E93;&#x5219;&#x9009;&#x62E9;&#x4E86;&#x6027;&#x80FD;&#x66F4;&#x9AD8;&#x3001;&#x7F16;&#x7A0B;&#x66F4;&#x7B80;&#x6D01;&#x4F18;&#x96C5;&#x7684;Realm&#xFF0C;&#x5B83;&#x4E0E;RxJava&#x914D;&#x5408;&#x4F7F;&#x7528;&#x4E5F;&#x66F4;&#x65B9;&#x4FBF;&#x5FEB;&#x6377;&#x3002;</p>
+<h2 id="&#x6A21;&#x5F0F;&#x6BD4;&#x8F83;"><a class="header-anchor" href="#&#x6A21;&#x5F0F;&#x6BD4;&#x8F83;"></a>&#x6A21;&#x5F0F;&#x6BD4;&#x8F83;</h2>
+<h3 id="mvp-&#x4E0E;-mvc"><a class="header-anchor" href="#mvp-&#x4E0E;-mvc"></a>MVP &#x4E0E; MVC</h3>
+<div align="center">
+<img data-original="/2016/12/12/android-mvp-rxjava-practice/20160120100717863.jpg" class="lazy">
+</div>
+<ul>
+<li>&#x5BF9;&#x4E8E;&#x539F;&#x751F;&#x7684;Android&#x9879;&#x76EE;&#x6765;&#x8BF4;&#xFF0C;layout.xml&#x91CC;&#x9762;&#x7684;xml&#x6587;&#x4EF6;&#x5C31;&#x5BF9;&#x5E94;&#x4E8E;MVC&#x7684;view&#x5C42;</li>
+<li>&#x5F53;&#x7528;&#x6237;&#x51FA;&#x53D1;&#x4E8B;&#x4EF6;&#x7684;&#x65F6;&#x5019;&#xFF0C;view&#x5C42;&#x4F1A;&#x53D1;&#x9001;&#x6307;&#x4EE4;&#x5230;controller&#x5C42;&#xFF0C;&#x63A5;&#x7740;controller&#x53BB;&#x901A;&#x77E5;model&#x5C42;&#x66F4;&#x65B0;&#x6570;&#x636E;&#xFF0C;model&#x5C42;&#x66F4;&#x65B0;&#x5B8C;&#x6570;&#x636E;&#x4EE5;&#x540E;&#x76F4;&#x63A5;&#x663E;&#x793A;&#x5728;view&#x5C42;&#x4E0A;&#xFF0C;&#x8FD9;&#x5C31;&#x662F;MVC&#x7684;&#x5DE5;&#x4F5C;&#x539F;&#x7406;&#x3002;</li>
+<li>MVP&#x4E2D;&#x628A;Layout&#x5E03;&#x5C40;&#x548C;Activity&#x4F5C;&#x4E3A;View&#x5C42;&#xFF0C;&#x589E;&#x52A0;&#x4E86;Presenter&#xFF0C;Presenter&#x5C42;&#x4E0E;Model&#x5C42;&#x8FDB;&#x884C;&#x4E1A;&#x52A1;&#x7684;&#x4EA4;&#x4E92;&#xFF0C;&#x5B8C;&#x6210;&#x540E;&#x518D;&#x4E0E;View&#x5C42;&#x4EA4;&#x4E92;&#xFF08;&#x4E5F;&#x5C31;&#x662F;Activity&#xFF09;&#x8FDB;&#x884C;&#x56DE;&#x8C03;&#x6765;&#x5237;&#x65B0;UI</li>
+<li>&#x5728;MVP&#x4E2D;View&#x5E76;&#x4E0D;&#x76F4;&#x63A5;&#x4F7F;&#x7528;Model&#xFF0C;&#x5B83;&#x4EEC;&#x4E4B;&#x95F4;&#x7684;&#x901A;&#x4FE1;&#x662F;&#x901A;&#x8FC7;Presenter (MVC&#x4E2D;&#x7684;Controller)&#x6765;&#x8FDB;&#x884C;&#x7684;&#xFF0C;&#x6240;&#x6709;&#x7684;&#x4EA4;&#x4E92;&#x90FD;&#x53D1;&#x751F;&#x5728;Presenter&#x5185;&#x90E8;</li>
+</ul>
+<h3 id="&#x4F18;&#x7F3A;&#x70B9;"><a class="header-anchor" href="#&#x4F18;&#x7F3A;&#x70B9;"></a>&#x4F18;&#x7F3A;&#x70B9;</h3>
+<h4 id="mvc"><a class="header-anchor" href="#mvc"></a>MVC</h4>
+<p>&#x4F18;&#x70B9;&#xFF1A;</p>
+<ol>
+<li>&#x9996;&#x5148;&#x5C31;&#x662F;&#x7406;&#x89E3;&#x6BD4;&#x8F83;&#x5BB9;&#x6613;&#xFF0C;&#x6280;&#x672F;&#x542B;&#x91CF;&#x4E0D;&#x9AD8;&#xFF0C;&#x8FD9;&#x5BF9;&#x5F00;&#x53D1;&#x548C;&#x7EF4;&#x62A4;&#x6765;&#x8BF4;&#x6210;&#x672C;&#x8F83;&#x4F4E;&#x4E5F;&#x6613;&#x4E8E;&#x7EF4;&#x62A4;&#x4E0E;&#x4FEE;&#x6539;&#x3002;</li>
+<li>&#x8026;&#x5408;&#x6027;&#x4E0D;&#x9AD8;&#xFF0C;&#x8868;&#x73B0;&#x5C42;&#x4E0E;&#x4E1A;&#x52A1;&#x5C42;&#x5206;&#x79BB;&#x5404;&#x53F8;&#x5176;&#x804C;&#xFF0C;&#x5BF9;&#x5F00;&#x53D1;&#x6765;&#x8BF4;&#x5F88;&#x6709;&#x5229;&#x3002;</li>
+</ol>
+<p>&#x7F3A;&#x70B9;&#xFF1A;</p>
+<ol>
+<li>Controller&#x5BF9;&#x5E94;&#x7684;&#x662F;Activity&#xFF0C;&#x800C;Activity&#x4E2D;&#x5374;&#x53C8;&#x5177;&#x6709;&#x64CD;&#x4F5C;UI&#x7684;&#x529F;&#x80FD;&#xFF0C;Activity&#x6240;&#x5728;&#x7684;Controller&#x662F;&#x975E;&#x5E38;&#x91CD;&#x7684;&#xFF0C;&#x5404;&#x5C42;&#x6B21;&#x4E4B;&#x95F4;&#x7684;&#x8026;&#x5408;&#x60C5;&#x51B5;&#x4E5F;&#x6BD4;&#x8F83;&#x4E25;&#x91CD;&#xFF0C;&#x4E0D;&#x65B9;&#x4FBF;&#x5355;&#x5143;&#x6D4B;&#x8BD5;&#x3002;</li>
+<li>MVC &#x6CA1;&#x6709;&#x5B8C;&#x5168;&#x89E3;&#x8026;&#xFF0C;view&#x5C42;&#x548C;model&#x5C42;&#x662F;&#x76F8;&#x4E92;&#x53EF;&#x77E5;&#x7684;&#x3002;</li>
+</ol>
+<h4 id="mvp"><a class="header-anchor" href="#mvp"></a>MVP</h4>
+<p>&#x4F18;&#x70B9;&#xFF1A;</p>
+<ol>
+<li>&#x4E0E;MVC&#x6700;&#x660E;&#x663E;&#x7684;&#x5DEE;&#x522B;&#x5C31;&#x662F;view&#x5C42;&#x548C;model&#x5C42;&#x4E0D;&#x518D;&#x76F8;&#x4E92;&#x53EF;&#x77E5;&#xFF0C;&#x5B8C;&#x5168;&#x7684;&#x89E3;&#x8026;&#x3002;</li>
+<li>&#x65B9;&#x4FBF;&#x6D4B;&#x8BD5;&#x9A71;&#x52A8;&#x5F00;&#x53D1;&#x3002;</li>
+<li>&#x4EE3;&#x7801;&#x590D;&#x7528;&#x5EA6;&#x8F83;&#x9AD8;&#x3002;</li>
+</ol>
+<h3 id="mvp-&#x4E0E;-mvvm"><a class="header-anchor" href="#mvp-&#x4E0E;-mvvm"></a>MVP &#x4E0E; MVVM</h3>
+<p>&#x4E0E;MVVM&#xFF08;Model-View-ViewModel&#xFF09;&#x7684;&#x533A;&#x522B;&#xFF1A;</p>
+<p>MVVM&#x4E0E;MVP&#x975E;&#x5E38;&#x76F8;&#x4F3C;&#xFF0C;&#x552F;&#x4E00;&#x533A;&#x522B;&#x662F;View&#x548C;Model&#x8FDB;&#x884C;&#x53CC;&#x5411;&#x7ED1;&#x5B9A;&#xFF0C;&#x4E24;&#x8005;&#x4E4B;&#x95F4;&#x6709;&#x4E00;&#x65B9;&#x53D1;&#x751F;&#x53D8;&#x5316;&#x5219;&#x4F1A;&#x53CD;&#x5E94;&#x5230;&#x53E6;&#x4E00;&#x65B9;&#x4E0A;&#x3002;MVVM&#x6A21;&#x5F0F;&#x6709;&#x70B9;&#x50CF;ListView&#x4E0E;Adapter&#x3001;&#x6570;&#x636E;&#x96C6;&#x7684;&#x5173;&#x7CFB;&#xFF0C;&#x5F53;&#x6570;&#x636E;&#x96C6;&#x53D1;&#x751F;&#x53D8;&#x5316;&#x65F6;&#xFF0C;&#x8C03;&#x7528;Adapter&#x7684;notifyDataSetChanged&#x4E4B;&#x540E;View&#x5C31;&#x76F4;&#x63A5;&#x66F4;&#x65B0;&#xFF0C;&#x540C;&#x65F6;&#x5B83;&#x4EEC;&#x4E4B;&#x95F4;&#x53C8;&#x6CA1;&#x6709;&#x8026;&#x5408;&#xFF0C;&#x4F7F;&#x5F97;ListView&#x53D8;&#x5F97;&#x66F4;&#x52A0;&#x7075;&#x6D3B;&#x3002;</p>
 <h2 id="&#x53C2;&#x8003;"><a class="header-anchor" href="#&#x53C2;&#x8003;"></a>&#x53C2;&#x8003;</h2>
 <ul>
 <li><a href="https://github.com/googlesamples/android-architecture/tree/todo-mvp-rxjava/" target="_blank" rel="external">TODO-MVP-RXJAVA</a></li>

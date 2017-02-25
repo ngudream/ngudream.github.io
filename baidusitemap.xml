@@ -4,6 +4,48 @@
 
     
   <url>
+    <loc>http://ngudream.com/2016/12/12/android-mvp-rxjava-practice/</loc>
+    <lastmod>2017-02-25T14:27:58.300Z</lastmod>
+    <data>
+        <display>
+        <title>响应式MVP架构todo-mvp-rxjava实践</title>
+        <pubTime>2016-12-12T15:08:01.000Z</pubTime>
+        
+        <tag>Android</tag>
+         
+        <tag>RxJava</tag>
+         
+         
+           
+             
+              <breadCrumb title="移动开发" url="http://ngudream.com/categories/%E7%A7%BB%E5%8A%A8%E5%BC%80%E5%8F%91/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://ngudream.com/2016/08/12/git-common-command/</loc>
+    <lastmod>2017-02-25T13:07:34.219Z</lastmod>
+    <data>
+        <display>
+        <title>Git常用命令备忘</title>
+        <pubTime>2016-08-12T14:32:28.000Z</pubTime>
+        
+        <tag>Git</tag>
+         
+         
+           
+             
+              <breadCrumb title="编程" url="http://ngudream.com/categories/%E7%BC%96%E7%A8%8B/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://ngudream.com/2017/02/05/android-airbnb-lottie/</loc>
     <lastmod>2017-02-25T11:33:35.546Z</lastmod>
     <data>
@@ -117,28 +159,6 @@
            
              
               <breadCrumb title="编程" url="http://ngudream.com/categories/%E7%BC%96%E7%A8%8B/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://ngudream.com/2016/12/12/android-mvp-rxjava-practice/</loc>
-    <lastmod>2017-02-21T13:47:00.098Z</lastmod>
-    <data>
-        <display>
-        <title>响应式MVP架构todo-mvp-rxjava实践</title>
-        <pubTime>2016-12-12T15:08:01.000Z</pubTime>
-        
-        <tag>Android</tag>
-         
-        <tag>RxJava</tag>
-         
-         
-           
-             
-              <breadCrumb title="移动开发" url="http://ngudream.com/categories/%E7%A7%BB%E5%8A%A8%E5%BC%80%E5%8F%91/"/>
           
         </display>
     </data>
@@ -1306,26 +1326,6 @@
         <pubTime>2016-09-04T03:58:50.000Z</pubTime>
         
         <tag>Golang</tag>
-         
-         
-           
-             
-              <breadCrumb title="编程" url="http://ngudream.com/categories/%E7%BC%96%E7%A8%8B/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://ngudream.com/2016/08/12/git-common-command/</loc>
-    <lastmod>2017-01-15T07:58:44.371Z</lastmod>
-    <data>
-        <display>
-        <title>Git常用命令备忘</title>
-        <pubTime>2016-08-12T14:32:28.000Z</pubTime>
-        
-        <tag>Git</tag>
          
          
            

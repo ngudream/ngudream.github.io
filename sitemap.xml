@@ -2,6 +2,20 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://ngudream.com/2016/12/12/android-mvp-rxjava-practice/</loc>
+    
+    <lastmod>2017-02-25T14:27:58.300Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://ngudream.com/2016/08/12/git-common-command/</loc>
+    
+    <lastmod>2017-02-25T13:07:34.219Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://ngudream.com/2017/02/05/android-airbnb-lottie/</loc>
     
     <lastmod>2017-02-25T11:33:35.546Z</lastmod>
@@ -40,13 +54,6 @@
     <loc>http://ngudream.com/2016/08/31/golang-socket/</loc>
     
     <lastmod>2017-02-22T14:40:14.533Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://ngudream.com/2016/12/12/android-mvp-rxjava-practice/</loc>
-    
-    <lastmod>2017-02-21T13:47:00.098Z</lastmod>
     
   </url>
   
@@ -446,13 +453,6 @@
     <loc>http://ngudream.com/2016/09/04/golang-zip-unzip/</loc>
     
     <lastmod>2017-01-15T07:58:44.374Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://ngudream.com/2016/08/12/git-common-command/</loc>
-    
-    <lastmod>2017-01-15T07:58:44.371Z</lastmod>
     
   </url>
   
