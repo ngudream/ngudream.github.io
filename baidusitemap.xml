@@ -4,6 +4,66 @@
 
     
   <url>
+    <loc>http://ngudream.com/2016/07/30/okhttp-call-flow/</loc>
+    <lastmod>2017-02-25T06:25:25.190Z</lastmod>
+    <data>
+        <display>
+        <title>OKHttp的请求流程</title>
+        <pubTime>2016-07-30T06:18:23.000Z</pubTime>
+        
+        <tag>OKHttp</tag>
+         
+         
+           
+             
+              <breadCrumb title="移动开发" url="http://ngudream.com/categories/%E7%A7%BB%E5%8A%A8%E5%BC%80%E5%8F%91/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://ngudream.com/2016/07/22/okhttp-call-cancel/</loc>
+    <lastmod>2017-02-25T06:24:38.990Z</lastmod>
+    <data>
+        <display>
+        <title>OKHttp 如何取消请求</title>
+        <pubTime>2016-07-22T13:09:01.000Z</pubTime>
+        
+        <tag>OKHttp</tag>
+         
+         
+           
+             
+              <breadCrumb title="移动开发" url="http://ngudream.com/categories/%E7%A7%BB%E5%8A%A8%E5%BC%80%E5%8F%91/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://ngudream.com/2016/07/25/okhttp-cache/</loc>
+    <lastmod>2017-02-25T05:47:36.714Z</lastmod>
+    <data>
+        <display>
+        <title>Okhttp----缓存的加入方式</title>
+        <pubTime>2016-07-25T12:39:20.000Z</pubTime>
+        
+        <tag>OKHttp</tag>
+         
+         
+           
+             
+              <breadCrumb title="移动开发" url="http://ngudream.com/categories/%E7%A7%BB%E5%8A%A8%E5%BC%80%E5%8F%91/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://ngudream.com/2016/08/22/golang-gc/</loc>
     <lastmod>2017-02-22T14:54:39.120Z</lastmod>
     <data>

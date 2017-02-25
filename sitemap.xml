@@ -2,6 +2,27 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://ngudream.com/2016/07/30/okhttp-call-flow/</loc>
+    
+    <lastmod>2017-02-25T06:25:25.190Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://ngudream.com/2016/07/22/okhttp-call-cancel/</loc>
+    
+    <lastmod>2017-02-25T06:24:38.990Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://ngudream.com/2016/07/25/okhttp-cache/</loc>
+    
+    <lastmod>2017-02-25T05:47:36.714Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://ngudream.com/2016/08/22/golang-gc/</loc>
     
     <lastmod>2017-02-22T14:54:39.120Z</lastmod>
