@@ -4,6 +4,66 @@
 
     
   <url>
+    <loc>http://ngudream.com/2017/02/26/android-app-is-foreground/</loc>
+    <lastmod>2017-02-26T05:09:25.208Z</lastmod>
+    <data>
+        <display>
+        <title>android 判断应用是否处于前台</title>
+        <pubTime>2017-02-26T04:25:59.000Z</pubTime>
+        
+        <tag>Android</tag>
+         
+         
+           
+             
+              <breadCrumb title="移动开发" url="http://ngudream.com/categories/%E7%A7%BB%E5%8A%A8%E5%BC%80%E5%8F%91/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://ngudream.com/2016/11/13/android-view-draw-theory/</loc>
+    <lastmod>2017-02-26T03:30:01.970Z</lastmod>
+    <data>
+        <display>
+        <title>深入理解Android之View的绘制流程</title>
+        <pubTime>2016-11-13T15:19:04.000Z</pubTime>
+        
+        <tag>Android</tag>
+         
+         
+           
+             
+              <breadCrumb title="移动开发" url="http://ngudream.com/categories/%E7%A7%BB%E5%8A%A8%E5%BC%80%E5%8F%91/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://ngudream.com/2016/07/25/okhttp-cache/</loc>
+    <lastmod>2017-02-26T02:59:48.917Z</lastmod>
+    <data>
+        <display>
+        <title>Okhttp--缓存的加入方式</title>
+        <pubTime>2016-07-25T12:39:20.000Z</pubTime>
+        
+        <tag>OKHttp</tag>
+         
+         
+           
+             
+              <breadCrumb title="移动开发" url="http://ngudream.com/categories/%E7%A7%BB%E5%8A%A8%E5%BC%80%E5%8F%91/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://ngudream.com/2016/12/12/android-mvp-rxjava-practice/</loc>
     <lastmod>2017-02-25T14:27:58.300Z</lastmod>
     <data>
@@ -92,26 +152,6 @@
         <display>
         <title>OKHttp 如何取消请求</title>
         <pubTime>2016-07-22T13:09:01.000Z</pubTime>
-        
-        <tag>OKHttp</tag>
-         
-         
-           
-             
-              <breadCrumb title="移动开发" url="http://ngudream.com/categories/%E7%A7%BB%E5%8A%A8%E5%BC%80%E5%8F%91/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://ngudream.com/2016/07/25/okhttp-cache/</loc>
-    <lastmod>2017-02-25T05:47:36.714Z</lastmod>
-    <data>
-        <display>
-        <title>Okhttp----缓存的加入方式</title>
-        <pubTime>2016-07-25T12:39:20.000Z</pubTime>
         
         <tag>OKHttp</tag>
          
@@ -287,26 +327,6 @@
            
              
               <breadCrumb title="服务器" url="http://ngudream.com/categories/%E6%9C%8D%E5%8A%A1%E5%99%A8/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://ngudream.com/2016/11/13/android-view-draw-theory/</loc>
-    <lastmod>2017-02-16T13:16:46.221Z</lastmod>
-    <data>
-        <display>
-        <title>深入理解Android之View的绘制流程</title>
-        <pubTime>2016-11-13T15:19:04.000Z</pubTime>
-        
-        <tag>Android</tag>
-         
-         
-           
-             
-              <breadCrumb title="移动开发" url="http://ngudream.com/categories/%E7%A7%BB%E5%8A%A8%E5%BC%80%E5%8F%91/"/>
           
         </display>
     </data>

@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://ngudream.com/"/>
-  <updated>2017-02-19T14:41:06.256Z</updated>
+  <updated>2017-02-26T05:09:25.208Z</updated>
   <id>http://ngudream.com/</id>
   
   <author>
@@ -14,6 +14,265 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>android 判断应用是否处于前台</title>
+    <link href="http://ngudream.com/2017/02/26/android-app-is-foreground/"/>
+    <id>http://ngudream.com/2017/02/26/android-app-is-foreground/</id>
+    <published>2017-02-26T04:25:59.000Z</published>
+    <updated>2017-02-26T05:09:25.208Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="&#x5224;&#x65AD;-app-&#x662F;&#x5426;&#x5904;&#x4E8E;&#x524D;&#x53F0;"><a class="header-anchor" href="#&#x5224;&#x65AD;-app-&#x662F;&#x5426;&#x5904;&#x4E8E;&#x524D;&#x53F0;"></a>&#x5224;&#x65AD; app &#x662F;&#x5426;&#x5904;&#x4E8E;&#x524D;&#x53F0;</h2>
+<h3 id="&#x65B9;&#x6CD5;1"><a class="header-anchor" href="#&#x65B9;&#x6CD5;1"></a>&#x65B9;&#x6CD5;1</h3>
+<p>&#x4F7F;&#x7528; RunningAppProcessInfo &#x7C7B;&#x63D0;&#x4F9B;&#x7684;&#x4FE1;&#x606F;&#x6765;&#x5224;&#x65AD;&#xFF0C;&#x4E3B;&#x8981;&#x662F;&#x4F9D;&#x636E;&#x8FDB;&#x7A0B;&#x7B49;&#x7EA7;&#x6765;&#x5224;&#x65AD;&#x3002;</p>
+<p>&#x8FDB;&#x7A0B;&#x7B49;&#x7EA7;&#x5206;5&#x7EA7;&#xFF1A;</p>
+<ul>
+<li>IMPORTANCE_FOREGROUND &#x6B63;&#x5904;&#x4E8E;activity resume&#x72B6;&#x6001;&#xFF0C;&#x6B63;&#x5904;&#x4E8E;bound&#x670D;&#x52A1;&#x4EA4;&#x4E92;&#x7684;&#x72B6;&#x6001;&#xFF0C;&#x6B63;&#x5904;&#x4E8E;&#x670D;&#x52A1;&#x5728;&#x524D;&#x53F0;&#x8FD0;&#x884C;&#x7684;&#x72B6;&#x6001;&#xFF08;StartForeGround&#xFF08;&#xFF09;&#x88AB;&#x8C03;&#x7528;&#xFF09;&#xFF0C;Service&#x751F;&#x547D;&#x5468;&#x671F;&#x6B63;&#x5728;&#x88AB;&#x6267;&#x884C;nCreate&#xFF08;&#xFF09;&#xFF0C;onStart&#xFF08;&#xFF09;&#xFF0C;onDestroy&#xFF08;&#xFF09;&#xFF09;&#xFF0C;BroadcastReceiver&#x6B63;&#x5728;&#x6267;&#x884C;onReceive&#xFF08;&#xFF09;&#x65B9;&#x6CD5;&#xFF0C; &#x6740;&#x6B7B;foreground&#x9700;&#x8981;&#x7528;&#x6237;&#x54CD;&#x5E94;&#xFF0C;&#x56E0;&#x4E3A;&#x8FD9;&#x4E2A;&#x5B89;&#x5168;&#x4F18;&#x5148;&#x7EA7;&#x662F;&#x6700;&#x9AD8;&#x7684;</li>
+<li>IMPORTANCE_VISIBLE activity&#x4E0D;&#x5728;&#x524D;&#x7AEF;&#x663E;&#x793A;&#xFF0C;&#x4F46;&#x4E5F;&#x6CA1;&#x6709;&#x5B8C;&#x5168;&#x9690;&#x85CF;&#xFF0C;&#x80FD;&#x591F;&#x770B;&#x5F97;&#x89C1;&#xFF0C;&#x6BD4;&#x5982;&#x5F39;&#x51FA;&#x4E00;&#x4E2A;&#x5BF9;&#x8BDD;&#x6846;&#xFF0C;&#x6CA1;&#x6709;&#x524D;&#x53F0;&#x7EC4;&#x4EF6;&#xFF0C;&#x4F46;&#x4ECD;&#x53EF;&#x88AB;&#x7528;&#x6237;&#x5728;&#x5C4F;&#x5E55;&#x4E0A;&#x6240;&#x89C1;&#x3002;</li>
+<li>IMPORTANCE_SERVICE &#x6B63;&#x5728;&#x8FD0;&#x884C;&#x7684;&#xFF0C;&#x4E0D;&#x5728;&#x4E0A;&#x8FF0;&#x4E24;&#x79CD;&#x72B6;&#x6001;&#x7684;service&#xFF0C;&#x662F;&#x7531; startService() &#x65B9;&#x6CD5;&#x542F;&#x52A8;&#x7684;&#x670D;&#x52A1;&#xFF0C;&#x5B83;&#x4E0D;&#x4F1A;&#x53D8;&#x6210;&#x4E0A;&#x8FF0;&#x4E24;&#x7C7B;&#x3002;</li>
+<li>IMPORTANCE_BACKGROUND &#x4E0D;&#x53EF;&#x89C1;&#x72B6;&#x6001;&#x7684;activity&#x8FDB;&#x7A0B;&#xFF0C;onstop&#x88AB;&#x8C03;&#x7528;</li>
+<li>IMPORTANCE_EMPTY &#x6CA1;&#x6709;&#x8FD0;&#x884C;&#x4EFB;&#x4F55;component&#x7684;&#x8FDB;&#x7A0B;&#xFF0C;&#x4FDD;&#x7559;&#x8FD9;&#x4E2A;&#x8FDB;&#x7A0B;&#x4E3B;&#x8981;&#x662F;&#x4E3A;&#x4E86;&#x7F13;&#x5B58;&#x7684;&#x9700;&#x8981;</li>
+</ul>
+<p>&#x5B9E;&#x73B0;&#x65B9;&#x6CD5;&#x5982;&#x4E0B;&#xFF1A;</p>
+<pre><code>/**
+     * &#x5E94;&#x7528;&#x662F;&#x5426;&#x5904;&#x4E8E;&#x524D;&#x53F0;
+     * @return
+     */
+    private boolean isAppForeground(){
+        ActivityManager manager = (ActivityManager) getSystemService(ACTIVITY_SERVICE);
+        List&lt;ActivityManager.RunningAppProcessInfo&gt; appProcessInfos = manager.getRunningAppProcesses();
+        if(appProcessInfos == null || appProcessInfos.isEmpty()){
+            return false;
+        }
+        for(ActivityManager.RunningAppProcessInfo info : appProcessInfos){
+            //&#x5F53;&#x524D;&#x5E94;&#x7528;&#x5904;&#x4E8E;&#x8FD0;&#x884C;&#x4E2D;&#xFF0C;&#x5E76;&#x4E14;&#x5728;&#x524D;&#x53F0;
+            if(info.processName.equals(getPackageName()) &amp;&amp; info.importance == ActivityManager.RunningAppProcessInfo.IMPORTANCE_FOREGROUND){
+                return true;
+            }
+        }
+        return false;
+    }
+</code></pre>
+<h3 id="&#x65B9;&#x6CD5;2"><a class="header-anchor" href="#&#x65B9;&#x6CD5;2"></a>&#x65B9;&#x6CD5;2</h3>
+<p>&#x4E3B;&#x8981;&#x662F;&#x5B9E;&#x73B0; ActivityLifecycleCallbacks &#x63A5;&#x53E3;&#xFF0C;&#x539F;&#x7406;&#x5C31;&#x662F;&#x6839;&#x636E; activity &#x7684;&#x751F;&#x547D;&#x5468;&#x671F;&#x7684;&#x53D8;&#x5316;&#xFF0C;&#x4F1A;&#x56DE;&#x8C03;&#x76F8;&#x5E94;&#x7684;&#x51FD;&#x6570;&#xFF0C;&#x8FD9;&#x6837;&#x6211;&#x4EEC;&#x5C31;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x8BB0;&#x5F55;&#x524D;&#x53F0; activity &#x7684;&#x6570;&#x91CF;&#x6765;&#x8FBE;&#x5230;&#x5224;&#x65AD;&#x5E94;&#x7528;&#x662F;&#x5426;&#x5904;&#x4E8E;&#x524D;&#x53F0;&#x7684;&#x76EE;&#x7684;&#x3002;</p>
+<p>&#x5B9E;&#x73B0;&#x65B9;&#x6CD5;&#x5982;&#x4E0B;&#xFF1A;</p>
+<pre><code>package com.meizu.rxjava.example;
+
+import android.app.Activity;
+import android.app.Application;
+import android.os.Bundle;
+
+/**
+ * Created by ngudream on 2017/2/26.
+ */
+public class MyApplication extends Application {
+
+    private MyActivitiesLife myActivitiesLife;
+
+    @Override
+    public void onCreate() {
+        super.onCreate();
+        registerActivityLifecycleCallbacks(myActivitiesLife);
+    }
+
+    private static class MyActivitiesLife implements ActivityLifecycleCallbacks{
+
+        private static int resumed;
+        private static int paused;
+
+        @Override
+        public void onActivityCreated(Activity activity, Bundle savedInstanceState) {
+        }
+
+        @Override
+        public void onActivityStarted(Activity activity) {
+        }
+
+        @Override
+        public void onActivityResumed(Activity activity) {
+            ++resumed;
+        }
+
+        @Override
+        public void onActivityPaused(Activity activity) {
+            ++paused;
+        }
+
+        @Override
+        public void onActivityStopped(Activity activity) {
+        }
+
+        @Override
+        public void onActivityDestroyed(Activity activity) {
+        }
+
+        @Override
+        public void onActivitySaveInstanceState(Activity activity, Bundle outState) {
+        }
+
+        /**
+         * &#x5224;&#x65AD;&#x5E94;&#x7528;&#x662F;&#x5426;&#x5728;&#x524D;&#x53F0;
+         * @return
+         */
+        public static boolean isAppForeground() {
+            return resumed &gt; paused;
+        }
+    }
+}
+
+</code></pre>
+<p>&#x5F53; resumed &#x72B6;&#x6001;&#x7684; activity&#xFF0C;&#x5373;&#x53EF;&#x89C1;&#x72B6;&#x6001;&#x7684; activity &#x7684;&#x6570;&#x91CF;&#x5927;&#x4E8E;&#x4E0D;&#x53EF;&#x89C1;&#x72B6;&#x6001;&#x7684; activity &#x7684;&#x6570;&#x91CF;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x6211;&#x4EEC;&#x5C31;&#x53EF;&#x4EE5;&#x8BA4;&#x4E3A;&#x5E94;&#x7528;&#x5904;&#x4E8E;&#x524D;&#x53F0;&#x3002;</p>
+<h2 id="&#x521B;&#x5EFA;&#x524D;&#x53F0;-service"><a class="header-anchor" href="#&#x521B;&#x5EFA;&#x524D;&#x53F0;-service"></a>&#x521B;&#x5EFA;&#x524D;&#x53F0; service</h2>
+<p>&#x524D;&#x53F0;&#x670D;&#x52A1;&#x662F;&#x90A3;&#x4E9B;&#x88AB;&#x8BA4;&#x4E3A;&#x7528;&#x6237;&#x77E5;&#x9053;&#x4E14;&#x5728;&#x7CFB;&#x7EDF;&#x5185;&#x5B58;&#x4E0D;&#x8DB3;&#x7684;&#x65F6;&#x5019;&#x4E0D;&#x5141;&#x8BB8;&#x7CFB;&#x7EDF;&#x6740;&#x6B7B;&#x7684;&#x670D;&#x52A1;&#x3002;&#x524D;&#x53F0;&#x670D;&#x52A1;&#x5FC5;&#x987B;&#x7ED9;&#x72B6;&#x6001;&#x680F;&#x63D0;&#x4F9B;&#x4E00;&#x4E2A;&#x901A;&#x77E5;&#xFF0C;&#x5373;&#x4F9D;&#x8D56;&#x901A;&#x77E5;&#x680F;&#x7684;&#x5B58;&#x5728;&#x6765;&#x4FDD;&#x8BC1;&#x670D;&#x52A1;&#x4E0D;&#x88AB;&#x6740;&#x6B7B;&#xFF0C;&#x76F4;&#x5230;&#x901A;&#x77E5;&#x88AB;&#x5173;&#x6389;&#x3002;</p>
+<p>&#x9996;&#x5148;&#x6211;&#x4EEC;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;service&#xFF1A;</p>
+<pre><code>package com.meizu.rxjava.example;
+
+import android.app.Service;
+import android.content.Intent;
+import android.os.IBinder;
+import android.support.annotation.Nullable;
+
+/**
+ * Created by ngudream on 2017/2/26.
+ */
+
+public class MyForegroundService extends Service {
+
+    @Override
+    public void onCreate() {
+        super.onCreate();
+    }
+
+    @Override
+    public int onStartCommand(Intent intent, int flags, int startId) {
+        return super.onStartCommand(intent, flags, startId);
+    }
+
+    @Nullable
+    @Override
+    public IBinder onBind(Intent intent) {
+        return null;
+    }
+}
+
+</code></pre>
+<p>&#x7136;&#x540E;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x901A;&#x77E5;&#x680F;&#x6D88;&#x606F;&#xFF1A;</p>
+<pre><code>/**
+     * &#x6784;&#x5EFA;&#x901A;&#x77E5;&#x680F;&#x6D88;&#x606F;
+     * @return
+     */
+    private Notification createNotification() {
+        Notification.Builder builder = new Notification.Builder(this.getApplicationContext()); //&#x83B7;&#x53D6;&#x4E00;&#x4E2A;Notification&#x6784;&#x9020;&#x5668;
+        Intent newIntent = new Intent(this, MainActivity.class);
+        builder.setContentIntent(PendingIntent.getActivity(this, 0, newIntent, 0))
+                .setContentTitle(&quot;&#x524D;&#x53F0; service &#x6807;&#x9898;&quot;)
+                .setContentText(&quot;&#x524D;&#x53F0; service &#x5185;&#x5BB9;&quot;)
+                .setLargeIcon(BitmapFactory.decodeResource(getResources(), R.mipmap.ic_launcher))
+                .setSmallIcon(R.mipmap.ic_launcher);
+        
+        return builder.build();
+    }
+</code></pre>
+<p>&#x90A3;&#x5728;&#x4EC0;&#x4E48;&#x65F6;&#x673A;&#x8C03;&#x7528;&#xFF08;&#x542F;&#x52A8;&#x524D;&#x53F0;&#x670D;&#x52A1;&#xFF09;&#x8FD9;&#x4E2A;&#x901A;&#x77E5;&#x680F;&#x6D88;&#x606F;&#x5462;&#xFF1F;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x5728; onStartCommand &#x65B9;&#x6CD5;&#x4E2D;&#x8C03;&#x7528;&#x3002;service &#x63D0;&#x4F9B;&#x4E86; startForeground &#x65B9;&#x6CD5;&#x3002;</p>
+<pre><code>@Override
+    public int onStartCommand(Intent intent, int flags, int startId) {
+        startForeground(FOREGROUND_SERVICE_ID, createNotification());
+        return super.onStartCommand(intent, flags, startId);
+    }
+</code></pre>
+<p>&#x5982;&#x4F55;&#x60F3;&#x505C;&#x6B62;&#x524D;&#x53F0;&#x670D;&#x52A1;&#xFF0C;&#x5373;&#x5220;&#x9664;&#x901A;&#x77E5;&#x680F;&#x6D88;&#x606F;&#xFF0C;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x5728; service &#x7684; onDestroy &#x65B9;&#x6CD5;&#x4E2D;&#x8C03;&#x7528; stopForeground &#x6765;&#x5B8C;&#x6210;&#xFF1A;</p>
+<pre><code>@Override
+    public void onDestroy() {
+        super.onDestroy();
+        stopForeground(true);
+    }
+</code></pre>
+<p>stopForeground &#x65B9;&#x6CD5;&#x7684;&#x539F;&#x578B;&#x5982;&#x4E0B;&#xFF0C;&#x53C2;&#x6570;&#x8868;&#x793A;&#x662F;&#x5426;&#x79FB;&#x9664;&#x901A;&#x77E5;&#x680F;&#x6D88;&#x606F;&#xFF1A;</p>
+<pre><code>/**
+     * Synonym for {@link #stopForeground(int)}.
+     * @param removeNotification If true, the {@link #STOP_FOREGROUND_REMOVE} flag
+     * will be supplied.
+     * @see #stopForeground(int)
+     * @see #startForeground(int, Notification)
+     */
+    public final void stopForeground(boolean removeNotification) {
+        stopForeground(removeNotification ? STOP_FOREGROUND_REMOVE : 0);
+    }
+</code></pre>
+<p>&#x6574;&#x4E2A; service &#x7684;&#x5B8C;&#x6574;&#x4EE3;&#x7801;&#x5982;&#x4E0B;&#xFF1A;</p>
+<pre><code>package com.meizu.rxjava.example;
+
+import android.app.Notification;
+import android.app.PendingIntent;
+import android.app.Service;
+import android.content.Intent;
+import android.graphics.BitmapFactory;
+import android.os.IBinder;
+import android.support.annotation.Nullable;
+
+/**
+ * Created by ngudream on 2017/2/26.
+ * &#x524D;&#x53F0;&#x670D;&#x52A1;&#x4F18;&#x5148;&#x7EA7;&#x6BD4;&#x8F83;&#x9AD8;&#xFF0C;&#x5728;&#x7CFB;&#x7EDF;&#x5185;&#x5B58;&#x4E0D;&#x8DB3;&#x7684;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;&#x4E0D;&#x4F1A;&#x88AB;&#x7CFB;&#x7EDF;&#x6740;&#x6B7B;
+ */
+
+public class MyForegroundService extends Service {
+
+    private final static int FOREGROUND_SERVICE_ID = 100;
+
+    @Override
+    public void onCreate() {
+        super.onCreate();
+    }
+
+    @Override
+    public int onStartCommand(Intent intent, int flags, int startId) {
+        startForeground(FOREGROUND_SERVICE_ID, createNotification());//&#x542F;&#x52A8;&#x524D;&#x53F0;&#x670D;&#x52A1;&#xFF0C;&#x5728;&#x901A;&#x77E5;&#x680F;&#x663E;&#x793A;&#x4E00;&#x4E2A;&#x6D88;&#x606F;
+        return super.onStartCommand(intent, flags, startId);
+    }
+
+    @Nullable
+    @Override
+    public IBinder onBind(Intent intent) {
+        return null;
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        stopForeground(true);//&#x505C;&#x6B62;&#x524D;&#x53F0;&#x670D;&#x52A1;&#x5E76;&#x4E14;&#x79FB;&#x9664;&#x901A;&#x77E5;&#x680F;
+    }
+
+    /**
+     * &#x6784;&#x5EFA;&#x901A;&#x77E5;&#x680F;&#x6D88;&#x606F;
+     * @return
+     */
+    private Notification createNotification() {
+        Notification.Builder builder = new Notification.Builder(this.getApplicationContext()); //&#x83B7;&#x53D6;&#x4E00;&#x4E2A;Notification&#x6784;&#x9020;&#x5668;
+        Intent newIntent = new Intent(this, MainActivity.class);
+        builder.setContentIntent(PendingIntent.getActivity(this, 0, newIntent, 0))
+                .setContentTitle(&quot;&#x524D;&#x53F0; service &#x6807;&#x9898;&quot;)
+                .setContentText(&quot;&#x524D;&#x53F0; service &#x5185;&#x5BB9;&quot;)
+                .setLargeIcon(BitmapFactory.decodeResource(getResources(), R.mipmap.ic_launcher))
+                .setSmallIcon(R.mipmap.ic_launcher);
+
+        return builder.build();
+    }
+}
+
+</code></pre>]]></content>
+    
+    <summary type="html">
+    
+      Android 中判断应用程序在前台还是在后台运行，我们可以通过 RunningAppProcessInfo，获取应用本身的优先等级去判断，也可能使用 ActivityLifecycleCallbacks，根据 activity 的生命周期去判断（Android 4.0 以上）。
+    
+    </summary>
+    
+      <category term="移动开发" scheme="http://ngudream.com/categories/%E7%A7%BB%E5%8A%A8%E5%BC%80%E5%8F%91/"/>
+    
+    
+      <category term="Android" scheme="http://ngudream.com/tags/Android/"/>
+    
+  </entry>
   
   <entry>
     <title>Linux Shell 脚本切换 IP</title>
@@ -2168,7 +2427,7 @@ public void displayWelcomeMessage(String msg) {
     <link href="http://ngudream.com/2016/11/13/android-view-draw-theory/"/>
     <id>http://ngudream.com/2016/11/13/android-view-draw-theory/</id>
     <published>2016-11-13T15:19:04.000Z</published>
-    <updated>2017-02-16T13:16:46.221Z</updated>
+    <updated>2017-02-26T03:30:01.970Z</updated>
     
     <content type="html"><![CDATA[<h2 id="&#x6982;&#x8FF0;"><a class="header-anchor" href="#&#x6982;&#x8FF0;"></a>&#x6982;&#x8FF0;</h2>
 <p>&#x672C;&#x7BC7;&#x6587;&#x7AE0;&#x4F1A;&#x4ECE;&#x6E90;&#x7801;&#xFF08;&#x57FA;&#x4E8E;Android 6.0&#xFF09;&#x89D2;&#x5EA6;&#x5206;&#x6790;Android&#x4E2D;View&#x7684;&#x7ED8;&#x5236;&#x6D41;&#x7A0B;&#xFF0C;&#x4FA7;&#x91CD;&#x4E8E;&#x5BF9;&#x6574;&#x4F53;&#x6D41;&#x7A0B;&#x7684;&#x5206;&#x6790;&#xFF0C;&#x5BF9;&#x4E00;&#x4E9B;&#x96BE;&#x4EE5;&#x7406;&#x89E3;&#x7684;&#x70B9;&#x52A0;&#x4EE5;&#x91CD;&#x70B9;&#x9610;&#x8FF0;&#xFF0C;&#x76EE;&#x7684;&#x662F;&#x628A;View&#x7ED8;&#x5236;&#x7684;&#x6574;&#x4E2A;&#x6D41;&#x7A0B;&#x628A;&#x63E1;&#x597D;&#xFF0C;&#x800C;&#x5BF9;&#x4E8E;&#x7279;&#x5B9A;&#x5B9E;&#x73B0;&#x7EC6;&#x8282;&#x5219;&#x53EF;&#x4EE5;&#x65E5;&#x540E;&#x518D;&#x5BF9;&#x76F8;&#x5E94;&#x6E90;&#x7801;&#x8FDB;&#x884C;&#x7814;&#x8BFB;&#x3002;<br>
@@ -2185,7 +2444,7 @@ public void displayWelcomeMessage(String msg) {
 <li>&#x4E0D;&#x4F1A;&#x89E6;&#x53D1;&#x5176;&#x5B83;&#x754C;&#x9762;&#x7684;&#x8F93;&#x5165;&#x4E8B;&#x4EF6;&#xFF1B;</li>
 </ul>
 <p>&#x5728;Android&#x7CFB;&#x7EDF;&#x4E2D;&#xFF0C;&#x7A97;&#x53E3;&#x662F;&#x72EC;&#x5360;&#x4E00;&#x4E2A;Surface&#x5B9E;&#x4F8B;&#x7684;&#x663E;&#x793A;&#x533A;&#x57DF;&#xFF0C;&#x6BCF;&#x4E2A;&#x7A97;&#x53E3;&#x7684;Surface&#x7531;WindowManagerService&#x5206;&#x914D;&#x3002;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x628A;Surface&#x770B;&#x4F5C;&#x4E00;&#x5757;&#x753B;&#x5E03;&#xFF0C;&#x5E94;&#x7528;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;Canvas&#x6216;OpenGL&#x5728;&#x5176;&#x4E0A;&#x9762;&#x4F5C;&#x753B;&#x3002;&#x753B;&#x597D;&#x4E4B;&#x540E;&#xFF0C;&#x901A;&#x8FC7;SurfaceFlinger&#x5C06;&#x591A;&#x5757;Surface&#x6309;&#x7167;&#x7279;&#x5B9A;&#x7684;&#x987A;&#x5E8F;&#xFF08;&#x5373;Z-order&#xFF09;&#x8FDB;&#x884C;&#x6DF7;&#x5408;&#xFF0C;&#x800C;&#x540E;&#x8F93;&#x51FA;&#x5230;FrameBuffer&#x4E2D;&#xFF0C;&#x8FD9;&#x6837;&#x7528;&#x6237;&#x754C;&#x9762;&#x5C31;&#x5F97;&#x4EE5;&#x663E;&#x793A;&#x3002;</p>
-<p>ndroid.view.Window&#x8FD9;&#x4E2A;&#x62BD;&#x8C61;&#x7C7B;&#x53EF;&#x4EE5;&#x770B;&#x505A;Android&#x4E2D;&#x5BF9;&#x7A97;&#x53E3;&#x8FD9;&#x4E00;&#x5B8F;&#x89C2;&#x6982;&#x5FF5;&#x6240;&#x505A;&#x7684;&#x7EA6;&#x5B9A;&#xFF0C;&#x800C;PhoneWindow&#x8FD9;&#x4E2A;&#x7C7B;&#x662F;Framework&#x4E3A;&#x6211;&#x4EEC;&#x63D0;&#x4F9B;&#x7684;Android&#x7A97;&#x53E3;&#x6982;&#x5FF5;&#x7684;&#x5177;&#x4F53;&#x5B9E;&#x73B0;&#x3002;&#x63A5;&#x4E0B;&#x6765;&#x6211;&#x4EEC;&#x5148;&#x6765;&#x4ECB;&#x7ECD;&#x4E00;&#x4E0B;android.view.Window&#x8FD9;&#x4E2A;&#x62BD;&#x8C61;&#x7C7B;&#x3002;</p>
+<p>Android.view.Window&#x8FD9;&#x4E2A;&#x62BD;&#x8C61;&#x7C7B;&#x53EF;&#x4EE5;&#x770B;&#x505A;Android&#x4E2D;&#x5BF9;&#x7A97;&#x53E3;&#x8FD9;&#x4E00;&#x5B8F;&#x89C2;&#x6982;&#x5FF5;&#x6240;&#x505A;&#x7684;&#x7EA6;&#x5B9A;&#xFF0C;&#x800C;PhoneWindow&#x8FD9;&#x4E2A;&#x7C7B;&#x662F;Framework&#x4E3A;&#x6211;&#x4EEC;&#x63D0;&#x4F9B;&#x7684;Android&#x7A97;&#x53E3;&#x6982;&#x5FF5;&#x7684;&#x5177;&#x4F53;&#x5B9E;&#x73B0;&#x3002;&#x63A5;&#x4E0B;&#x6765;&#x6211;&#x4EEC;&#x5148;&#x6765;&#x4ECB;&#x7ECD;&#x4E00;&#x4E0B;android.view.Window&#x8FD9;&#x4E2A;&#x62BD;&#x8C61;&#x7C7B;&#x3002;</p>
 <p>&#x8FD9;&#x4E2A;&#x62BD;&#x8C61;&#x7C7B;&#x5305;&#x542B;&#x4E86;&#x4E09;&#x4E2A;&#x6838;&#x5FC3;&#x7EC4;&#x4EF6;&#xFF1A;</p>
 <ul>
 <li>WindowManager.LayoutParams: &#x7A97;&#x53E3;&#x7684;&#x5E03;&#x5C40;&#x53C2;&#x6570;&#xFF1B;</li>
@@ -2496,7 +2755,7 @@ public final void measure(int widthMeasureSpec, int heightMeasureSpec) {
 </code></pre>
 <p>&#x4ECE;measure()&#x65B9;&#x6CD5;&#x7684;&#x6E90;&#x7801;&#x4E2D;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x77E5;&#x9053;&#xFF0C;&#x53EA;&#x6709;&#x4EE5;&#x4E0B;&#x4E24;&#x79CD;&#x60C5;&#x51B5;&#x4E4B;&#x4E00;&#xFF0C;&#x624D;&#x4F1A;&#x8FDB;&#x884C;&#x5B9E;&#x9645;&#x7684;&#x6D4B;&#x91CF;&#x5DE5;&#x4F5C;&#xFF1A;</p>
 <ul>
-<li>orceLayout&#x4E3A;true&#xFF1A;&#x8FD9;&#x8868;&#x793A;&#x5F3A;&#x5236;&#x91CD;&#x65B0;&#x5E03;&#x5C40;&#xFF0C;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;View.requestLayout()&#x6765;&#x5B9E;&#x73B0;&#xFF1B;</li>
+<li>forceLayout&#x4E3A;true&#xFF1A;&#x8FD9;&#x8868;&#x793A;&#x5F3A;&#x5236;&#x91CD;&#x65B0;&#x5E03;&#x5C40;&#xFF0C;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;View.requestLayout()&#x6765;&#x5B9E;&#x73B0;&#xFF1B;</li>
 <li>needsLayout&#x4E3A;true&#xFF0C;&#x8FD9;&#x9700;&#x8981;specChanged&#x4E3A;true&#xFF08;&#x8868;&#x793A;&#x672C;&#x6B21;&#x4F20;&#x5165;&#x7684;MeasureSpec&#x4E0E;&#x4E0A;&#x6B21;&#x4F20;&#x5165;&#x7684;&#x4E0D;&#x540C;&#xFF09;&#xFF0C;&#x5E76;&#x4E14;&#x4EE5;&#x4E0B;&#x4E09;&#x4E2A;&#x6761;&#x4EF6;&#x4E4B;&#x4E00;&#x6210;&#x7ACB;&#xFF1A;
 <ul>
 <li>sAlwaysRemeasureExactly&#x4E3A;true: &#x8BE5;&#x53D8;&#x91CF;&#x9ED8;&#x8BA4;&#x4E3A;false&#xFF1B;</li>
@@ -4567,446 +4826,6 @@ having&#xA0;count(id)&#xA0;&gt;&#xA0;1
     
     
       <category term="MySql" scheme="http://ngudream.com/tags/MySql/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Picasso的基本使用</title>
-    <link href="http://ngudream.com/2016/10/10/android-picasso-use/"/>
-    <id>http://ngudream.com/2016/10/10/android-picasso-use/</id>
-    <published>2016-10-10T11:39:48.000Z</published>
-    <updated>2017-01-15T07:58:44.348Z</updated>
-    
-    <content type="html"><![CDATA[<div><a href="https://github.com/square/picasso" target="_blank" rel="external"><img class="pic lazy" data-original="/2016/10/10/android-picasso-use/picasso-mainimage.jpg" style="float:left; width:100px; height:56px; margin-right:16px" alt="Picasso"></a>
-<span>&#x7B14;&#x8005;&#x5728;&#x9879;&#x76EE;&#x91CC;&#x9762;&#xFF0C;&#x5BF9;&#x56FE;&#x7247;&#x7684;&#x52A0;&#x8F7D;&#x4E00;&#x822C;&#x4F7F;&#x7528;&#x7684;&#x662F;Picasso&#x6216;&#x8005;Glide&#xFF0C;&#x4ECA;&#x5929;&#x9996;&#x5148;&#x4ECB;&#x7ECD;&#x7684;&#x662F;Picasso&#xFF0C;&#x540E;&#x7EED;&#x518D;&#x4ECB;&#x7ECD;Glide&#x3002;Picasso&#x662F;Square&#x516C;&#x53F8;&#x5F00;&#x6E90;&#x7684;&#x4E00;&#x4E2A;Android&#x56FE;&#x7247;&#x52A0;&#x8F7D;&#x548C;&#x7F13;&#x5B58;&#x5E93;&#xFF0C;&#x901A;&#x8FC7;&#x5B83;&#xFF0C;&#x53EA;&#x9700;&#x8981;&#x7B80;&#x5355;&#x7684;&#x4E00;&#x884C;&#x4EE3;&#x7801;&#x5373;&#x53EF;&#x5B9E;&#x73B0;&#x56FE;&#x7247;&#x4E0B;&#x8F7D;&#x548C;&#x7F13;&#x5B58;&#x529F;&#x80FD;&#x3002;&#x5B83;&#x7684;github&#x9879;&#x76EE;&#x5730;&#x5740;&#x4E3A;&#xFF1A;<a href="https://github.com/square/picasso" target="_blank" rel="external">https://github.com/square/picasso</a></span></div>
-<a id="more"></a>
-<p>Picass&#x6D41;&#x7A0B;&#x56FE;&#xFF1A;</p>
-<div style="text-align:center">
-<img data-original="/2016/10/10/android-picasso-use/picasso.jpg" class="lazy">
-</div>
-<h2 id="&#x57FA;&#x672C;&#x914D;&#x7F6E;"><a class="header-anchor" href="#&#x57FA;&#x672C;&#x914D;&#x7F6E;"></a>&#x57FA;&#x672C;&#x914D;&#x7F6E;</h2>
-<p>&#x5982;&#x679C;&#x5927;&#x5BB6;&#x4F7F;&#x7528;AndroidStudio&#x7684;&#x8BDD;&#xFF0C;&#x53EF;&#x4EE5;&#x76F4;&#x63A5;compile:</p>
-<pre><code>compile &apos;com.squareup.picasso:picasso:2.5.2&apos;
-</code></pre>
-<p>&#x5F53;&#x7136;&#xFF0C;&#x5982;&#x679C;&#x8FD8;&#x5728;&#x4F7F;&#x7528;eclipse&#xFF0C;&#x5B83;&#x4E5F;&#x63D0;&#x4F9B;&#x4E86;&#x76F8;&#x5E94;&#x7684;jar&#x5305;&#x4E0B;&#x8F7D;&#xFF1A;<br>
-<a href="https://search.maven.org/remote_content?g=com.squareup.picasso&amp;a=picasso&amp;v=LATEST" target="_blank" rel="external">Picasso Jar</a></p>
-<p>&#x8FD8;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;maven&#x7684;&#x65B9;&#x5F0F;&#xFF1A;</p>
-<pre><code>&lt;dependency&gt;
-  &lt;groupId&gt;com.squareup.picasso&lt;/groupId&gt;
-  &lt;artifactId&gt;picasso&lt;/artifactId&gt;
-  &lt;version&gt;2.5.2&lt;/version&gt;
-&lt;/dependency&gt;
-</code></pre>
-<p>&#x56E0;&#x4E3A;&#x5728;Picasso&#x8FDB;&#x884C;build&#x65F6;&#xFF0C;&#x521B;&#x5EFA;Downloader&#x65F6;&#xFF0C;&#x4F1A;&#x7528;&#x53CD;&#x5C04;&#x53BB;&#x68C0;&#x6D4B;&#x662F;&#x5426;&#x9879;&#x76EE;&#x4E2D;&#x4F7F;&#x7528;&#x4E86;okhttp&#xFF0C;&#x5982;&#x679C;&#x9879;&#x76EE;&#x96C6;&#x6210;&#x4E86;okhttp&#xFF0C;&#x5219;&#x7528;okhttp&#x53BB;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;OkHttpDownloader.java&#x4E0B;&#x8F7D;&#x5668;&#xFF0C;&#x6240;&#x4EE5;&#x5F53;&#x4F60;&#x5BF9;&#x9879;&#x76EE;&#x4EE3;&#x7801;&#x6DF7;&#x6DC6;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x9700;&#x8981;&#x6DFB;&#x52A0;ProGuard&#x89C4;&#x5219;&#xFF1A;</p>
-<pre><code>-dontwarn com.squareup.okhttp.**
-</code></pre>
-<p>&#x5177;&#x4F53;&#x53EF;&#x4EE5;&#x770B;<a href="https://github.com/square/picasso/blob/master/picasso/src/main/java/com/squareup/picasso/OkHttp3Downloader.java" target="_blank" rel="external">OkHttp3Downloader.java</a></p>
-<h2 id="&#x4F7F;&#x7528;&#x65B9;&#x6CD5;"><a class="header-anchor" href="#&#x4F7F;&#x7528;&#x65B9;&#x6CD5;"></a>&#x4F7F;&#x7528;&#x65B9;&#x6CD5;</h2>
-<h3 id="picasso&#x7684;&#x57FA;&#x672C;&#x4F7F;&#x7528;"><a class="header-anchor" href="#picasso&#x7684;&#x57FA;&#x672C;&#x4F7F;&#x7528;"></a>Picasso&#x7684;&#x57FA;&#x672C;&#x4F7F;&#x7528;</h3>
-<p>&#x6211;&#x4EEC;&#x53EA;&#x9700;&#x8981;&#x4E00;&#x53E5;&#x8BDD;&#xFF08;&#x4F7F;&#x7528;&#x94FE;&#x5F0F;&#x8C03;&#x7528;&#xFF09;&#xFF0C;&#x5373;&#x53EF;&#x5B8C;&#x6210;&#x5F02;&#x6B65;&#x52A0;&#x8F7D;&#x56FE;&#x7247;&#xFF1A;</p>
-<pre><code>Picasso.with(imageView.getContext()).load(url).into(imageView);
-</code></pre>
-<p>&#x5B83;&#x7684;load&#x65B9;&#x6CD5;&#x63D0;&#x4F9B;&#x4E86;&#x56DB;&#x79CD;&#x5F62;&#x5F0F;&#xFF0C;&#x6BCF;&#x4E2A;&#x90FD;&#x662F;&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;RequestCreator&#xFF1A;</p>
-<ul>
-<li>load(Uri uri)</li>
-<li>load(String path)</li>
-<li>load(File file)</li>
-<li>load(int resourceId)</li>
-</ul>
-<p>&#x4ECE;&#x53C2;&#x6570;&#x6211;&#x4EEC;&#x5C31;&#x53EF;&#x4EE5;&#x770B;&#x51FA;&#xFF0C;&#x6709;&#x7684;&#x662F;&#x52A0;&#x8F7D;&#x672C;&#x5730;&#x7684;&#xFF0C;&#x6709;&#x7684;&#x662F;&#x4ECE;&#x7F51;&#x7EDC;&#x4E0A;&#x53D6;&#x7684;&#x3002;</p>
-<h3 id="picasso&#x52A0;&#x8F7D;&#x7F51;&#x7EDC;&#x56FE;&#x7247;"><a class="header-anchor" href="#picasso&#x52A0;&#x8F7D;&#x7F51;&#x7EDC;&#x56FE;&#x7247;"></a>Picasso&#x52A0;&#x8F7D;&#x7F51;&#x7EDC;&#x56FE;&#x7247;</h3>
-<p>&#x52A0;&#x8F7D;&#x7F51;&#x7EDC;&#x56FE;&#x7247;&#xFF0C;&#x53EA;&#x9700;&#x8981;&#x5728;load&#x7684;&#x53C2;&#x6570;&#x91CC;&#x4F20;&#x5165;&#x4E00;&#x4E2A;url&#x5C31;&#x884C;&#xFF1A;</p>
-<pre><code>Picasso.with(imageView.getContext())
-                 .load(url)
-                 .error(R.drawable.photo_holder_72dp)
-                 .into(imageView);
-</code></pre>
-<p>error&#x65B9;&#x6CD5;&#x8BBE;&#x7F6E;&#x4E00;&#x4E2A;&#x672C;&#x5730;&#x56FE;&#x7247;&#xFF0C;&#x5F53;&#x7F51;&#x7EDC;&#x52A0;&#x8F7D;&#x51FA;&#x9519;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x5C31;&#x4F1A;&#x663E;&#x793A;&#x8FD9;&#x5F20;&#x672C;&#x5730;&#x7684;&#x56FE;&#x7247;&#x3002;</p>
-<p>&#x8FD9;&#x6837;&#x7684;&#x52A0;&#x8F7D;&#xFF0C;&#x4E00;&#x8FDB;&#x5165;&#x9875;&#x9762;&#x65F6;&#xFF0C;&#x6211;&#x4EEC;&#x662F;&#x770B;&#x4E0D;&#x5230;imageview&#x4E0A;&#x663E;&#x793A;&#x6709;&#x56FE;&#x7247;&#x7684;&#xFF0C;&#x4E3A;&#x4E86;&#x66F4;&#x53CB;&#x597D;&#x7684;&#x663E;&#x793A;&#x6548;&#x679C;&#xFF0C;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x5B83;&#x7684;placeholder&#x65B9;&#x6CD5;&#xFF0C;&#x5148;&#x8BBE;&#x7F6E;&#x4E00;&#x5F20;&#x9ED8;&#x8BA4;&#x7684;&#x56FE;&#x7247;&#xFF0C;&#x7B49;&#x7F51;&#x7EDC;&#x52A0;&#x8F7D;&#x5B8C;&#x6210;&#x540E;&#x518D;&#x663E;&#x793A;&#x65B0;&#x7684;&#x56FE;&#x7247;&#x3002;</p>
-<pre><code>Picasso.with(imageView.getContext())
-                        .load(url)
-                        .placeholder(R.drawable.photo_holder_72dp)
-                        .error(R.drawable.photo_holder_72dp)
-                        .networkPolicy(NetworkPolicy.NO_CACHE, NetworkPolicy.NO_STORE)
-                        .into(imageView);
-</code></pre>
-<p>&#x52A0;&#x8F7D;&#x7F51;&#x7EDC;&#x56FE;&#x7247;&#xFF0C;&#x5E76;&#x4E14;&#x8BBE;&#x7F6E;&#x4E86;&#x4E0D;&#x68C0;&#x67E5;&#x786C;&#x76D8;&#x4E2D;&#x662F;&#x5426;&#x5B58;&#x5728;&#xFF0C;&#x6700;&#x540E;&#x7684;&#x4E0B;&#x8F7D;&#x56FE;&#x7247;&#x7ED3;&#x679C;&#x4E5F;&#x4E0D;&#x4FDD;&#x5B58;&#x5728;&#x786C;&#x76D8;&#x4E2D;&#x3002;&#x5BF9;&#x4E8E;&#x672C;&#x5730;&#x786C;&#x76D8;&#x7F13;&#x5B58;&#xFF0C;&#x5982;&#x679C;&#x7528;okhttp&#xFF0C;&#x53EF;&#x4EE5;&#x8BBE;&#x8FD9;&#x4E24;&#x8005;&#xFF0C;&#x5982;&#x679C;&#x662F;&#x9ED8;&#x8BA4;&#x7684;downloader&#xFF0C;&#x53EA;&#x80FD;&#x8BBE;&#x7F6E;NO_CACHE&#xFF1A;</p>
-<pre><code>/** Skips checking the disk cache and forces loading through the network. */
-  NO_CACHE(1 &lt;&lt; 0),
-
-  /**
-   * Skips storing the result into the disk cache.
-   * &lt;p&gt;
-   * &lt;em&gt;Note&lt;/em&gt;: At this time this is only supported if you are using OkHttp.
-   */
-  NO_STORE(1 &lt;&lt; 1),
-
-  /** Forces the request through the disk cache only, skipping network. */
-  OFFLINE(1 &lt;&lt; 2);
-</code></pre>
-<h3 id="picasso&#x5E38;&#x7528;&#x8BBE;&#x7F6E;"><a class="header-anchor" href="#picasso&#x5E38;&#x7528;&#x8BBE;&#x7F6E;"></a>Picasso&#x5E38;&#x7528;&#x8BBE;&#x7F6E;</h3>
-<p>1&#x3001; &#x5982;&#x679C;&#x60F3;&#x6309;&#x7B49;&#x6BD4;&#x4F8B;&#x7684;&#x538B;&#x7F29;&#x56FE;&#x7247;&#xFF0C;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;fit()&#x65B9;&#x6CD5;&#x3002;</p>
-<pre><code>Picasso.with(imageView.getContext())
-                        .load(url)
-                        .fit()
-                        .into(imageView);
-</code></pre>
-<p>2&#x3001; &#x5982;&#x679C;&#x60F3;&#x6309;&#x7279;&#x5B9A;&#x503C;&#x53BB;&#x538B;&#x7F29;&#x56FE;&#x7247;&#xFF0C;&#x53EF;&#x7528;&#x4F7F;&#x7528;resize()&#x65B9;&#x6CD5;&#x3002;</p>
-<pre><code>Picasso.with(imageView.getContext())
-                        .load(url)
-                        .resize(100, 100)
-                        .into(imageView);
-</code></pre>
-<p>3&#x3001; &#x5982;&#x679C;&#x60F3;&#x65CB;&#x8F6C;&#x56FE;&#x7247;&#xFF0C;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;rotate()&#x65B9;&#x6CD5;&#x3002;</p>
-<pre><code>Picasso.with(imageView.getContext())
-                        .load(url)
-                        .rotate(180)
-                        .into(imageView);
-</code></pre>
-<p>4&#x3001; &#x6211;&#x4EEC;&#x8FD8;&#x53EF;&#x4EE5;&#x8BBE;&#x7F6E;&#x56FE;&#x7247;&#x7684;&#x663E;&#x793A;&#x62C9;&#x4F38;&#x6837;&#x5F0F;&#x4E3A;&#x7531;&#x4E2D;&#x95F4;&#x5411;&#x5916;&#xFF0C;&#x5373;ImageView&#x7684;scaleType&#x7684;centerCrop&#x3002;</p>
-<pre><code>Picasso.with(imageView.getContext())
-                        .load(url)
-                        .centerCrop()
-                        .into(imageView);
-</code></pre>
-<p>5&#x3001; Picasso&#x5E76;&#x6CA1;&#x6709;&#x76F4;&#x63A5;&#x4F7F;&#x7528;&#x4F20;&#x5165;&#x7684;context&#xFF0C;&#x800C;&#x662F;&#x901A;&#x8FC7;&#x5B83;&#x83B7;&#x53D6;ApplicationContext&#xFF0C;&#x56E0;&#x4E3A;&#x5B83;&#x5185;&#x90E8;&#x4F7F;&#x7528;&#x4E86;&#x5355;&#x4F8B;&#x6A21;&#x5F0F;&#xFF0C;&#x8FD9;&#x6837;&#x53EF;&#x4EE5;&#x9632;&#x6B62;&#x5185;&#x5B58;&#x6CC4;&#x6F0F;&#x3002;</p>
-<pre><code>public static Picasso with(Context context) {
-    if (singleton == null) {
-      synchronized (Picasso.class) {
-        if (singleton == null) {
-          singleton = new Builder(context).build();
-        }
-      }
-    }
-    return singleton;
-  }
-
-// Start building a new {@link Picasso} instance.
-    public Builder(Context context) {
-      if (context == null) {
-        throw new IllegalArgumentException(&quot;Context must not be null.&quot;);
-      }
-      this.context = context.getApplicationContext();
-    }
-</code></pre>
-<p>6&#x3001; Picasso&#x8FD8;&#x53EF;&#x4EE5;&#x8C03;&#x8282;&#x52A0;&#x8F7D;&#x56FE;&#x7247;&#x7684;&#x4F18;&#x5148;&#x987A;&#x5E8F;</p>
-<p>&#x5B83;&#x63D0;&#x4F9B;&#x4E86;&#x4E09;&#x79CD;&#x4F18;&#x5148;&#x7EA7;&#xFF1A;HIGH&#xFF0C;MEDIUM&#xFF0C;LOW&#x3002;&#x9ED8;&#x8BA4;&#x4E0D;&#x8BBE;&#x7F6E;&#x7684;&#x8BDD;&#xFF0C;&#x5C31;&#x662F;MEDIUM&#x7EA7;&#x522B;&#x3002;</p>
-<pre><code>Picasso.with(imageView.getContext())
-                        .load(url)
-                        .priority(Picasso.Priority.HIGH)
-                        .into(imageView);
-</code></pre>
-<h3 id="picasso&#x5B9E;&#x4F8B;"><a class="header-anchor" href="#picasso&#x5B9E;&#x4F8B;"></a>Picasso&#x5B9E;&#x4F8B;</h3>
-<p>&#x4E0B;&#x9762;&#x6211;&#x4EEC;&#x6765;&#x770B;&#x4E00;&#x4E2A;&#x5B9E;&#x4F8B;&#xFF1A;</p>
-<pre><code>
-@Override
-        public View getView(final int position, View convertView, ViewGroup container) {
-            // TODO Auto-generated method stub
-            final ViewHolder holder;
-            final BannerItem item = getItem(position);
-            if (convertView == null) {
-                holder = new ViewHolder();
-                convertView = LayoutInflater.from(container.getContext()).inflate(R.layout.account_banner, container, false);
-                holder.mImageView = (ImageView)convertView.findViewById(R.id.iv_banner);
-                convertView.setTag(holder);
-            } else {
-                holder = (ViewHolder) convertView.getTag();
-            }
-            if (mImageLoader != null) {
-                mImageLoader.loadImage(holder.mImageView, item.getUrl());//&#x4E0B;&#x8F7D;&#x56FE;&#x7247;
-            }
-            holder.mImageView.setOnClickListener(new OnClickListener() {
-
-                @Override
-                public void onClick(View v) {
-                    // TODO Auto-generated method stub
-                }
-            });
-            return convertView;
-        }
-
-//&#x4E0B;&#x8F7D;&#x56FE;&#x7247;&#x63A5;&#x53E3;
-public interface ImageLoader {
-        void loadImage(ImageView imageView, String url);
-    }
-
-//&#x8BBE;&#x7F6E;imageview&#x7684;&#x56FE;&#x7247;&#x4E0B;&#x8F7D;&#x5668;
-setImageLoadder(new ImageLoader(){
-            @Override
-            public void loadImage(ImageView imageView, String url) {
-                Picasso.with(imageView.getContext())
-                        .load(url)
-						.placeholder(R.drawable.photo_holder_72dp)
-                        .error(R.drawable.photo_holder_72dp)
-                        .centerCrop()
-                        .into(imageView);
-
-            }
-        });
-</code></pre>
-<h2 id="picasso-&#x5185;&#x5B58;"><a class="header-anchor" href="#picasso-&#x5185;&#x5B58;"></a>Picasso &#x5185;&#x5B58;</h2>
-<p>&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x4F7F;&#x7528;&#x4EE5;&#x4E0B;&#x51E0;&#x70B9;&#x6765;&#x5C3D;&#x53EF;&#x80FD;&#x7684;&#x51CF;&#x5C11;&#x5185;&#x5B58;&#x6D88;&#x8017;&#x3002;</p>
-<h3 id="&#x5927;&#x56FE;&#x4E0D;&#x4F7F;&#x7528;memory-cache"><a class="header-anchor" href="#&#x5927;&#x56FE;&#x4E0D;&#x4F7F;&#x7528;memory-cache"></a>&#x5927;&#x56FE;&#x4E0D;&#x4F7F;&#x7528;memory cache</h3>
-<p>&#x7531;&#x4E8E;Picasso&#x9ED8;&#x8BA4;&#x4F1A;&#x4F7F;&#x7528;&#x8BBE;&#x5907;&#x7684;15%&#x7684;&#x5185;&#x5B58;&#x4F5C;&#x4E3A;&#x5185;&#x5B58;&#x56FE;&#x7247;&#x7F13;&#x5B58;&#xFF0C;&#x5BF9;&#x4E8E;&#x6BD4;&#x8F83;&#x5927;&#x7684;&#x56FE;&#x7247;&#xFF0C;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x8003;&#x8651;&#x4E0D;&#x5C06;&#x5B83;&#x7F13;&#x5B58;&#x5728;&#x5185;&#x5B58;&#x4E2D;&#xFF0C;&#x7528;&#x5B8C;&#x5C31;&#x53CA;&#x65F6;&#x56DE;&#x6536;&#xFF0C;&#x9700;&#x8981;&#x7528;&#x7684;&#x65F6;&#x5019;&#x518D;&#x52A0;&#x8F7D;&#xFF0C;&#x8FD9;&#x6837;&#x53EF;&#x4EE5;&#x5927;&#x5927;&#x51CF;&#x5C11;&#x5185;&#x5B58;&#x6D88;&#x8017;&#x3002;</p>
-<blockquote>
-<p>Android&#x4E2D;&#x4E00;&#x5F20;&#x56FE;&#x7247;&#xFF08;BitMap&#xFF09;&#x5360;&#x7528;&#x7684;&#x5185;&#x5B58;&#x4E3B;&#x8981;&#x548C;&#x4EE5;&#x4E0B;&#x51E0;&#x4E2A;&#x56E0;&#x6570;&#x6709;&#x5173;&#xFF1A;&#x56FE;&#x7247;&#x957F;&#x5EA6;&#xFF0C;&#x56FE;&#x7247;&#x5BBD;&#x5EA6;&#xFF0C;&#x5355;&#x4F4D;&#x50CF;&#x7D20;&#x5360;&#x7528;&#x7684;&#x5B57;&#x8282;&#x6570;&#x3002;&#x4E00;&#x5F20;&#x56FE;&#x7247;&#xFF08;BitMap&#xFF09;&#x5360;&#x7528;&#x7684;&#x5185;&#x5B58;=&#x56FE;&#x7247;&#x957F;&#x5EA6;<em>&#x56FE;&#x7247;&#x5BBD;&#x5EA6;</em>&#x5355;&#x4F4D;&#x50CF;&#x7D20;&#x5360;&#x7528;&#x7684;&#x5B57;&#x8282;&#x6570;&#x3002;</p>
-</blockquote>
-<p>&#x867D;&#x7136;Picasso&#x4F7F;&#x7528;&#x4E86;LruCache&#xFF0C;&#x4F46;&#x662F;&#x5927;&#x56FE;&#x5B58;&#x5728;&#x5185;&#x5B58;&#x8FD8;&#x662F;&#x6CA1;&#x5FC5;&#x8981;&#x7684;&#x3002;<br>
-<a href="https://github.com/square/picasso/blob/master/picasso/src/main/java/com/squareup/picasso/LruCache.java" target="_blank" rel="external">LruCache.java</a></p>
-<pre><code>Picasso.with(imageView.getContext())
-                        .load(url)
-                        .memoryPolicy(MemoryPolicy.NO_CACHE, MemoryPolicy.NO_STORE)
-                        .into(imageView);
-</code></pre>
-<p>&#x5BF9;&#x4E8E;&#x5927;&#x56FE;&#x8BF7;&#x6C42;&#xFF0C;memoryPolicy&#x5185;&#x5B58;&#x5B58;&#x50A8;&#x89C4;&#x5219;&#xFF0C;&#x6709;&#x4E24;&#x79CD;&#xFF0C;&#x5982;&#x4E0A;&#x8BBE;&#x7F6E;&#x4E86;&#x4E0D;&#x5728;&#x5185;&#x5B58;&#x7F13;&#x5B58;&#x4E2D;&#x67E5;&#x627E;&#xFF0C;&#x4E5F;&#x4E0D;&#x5C06;&#x6700;&#x7EC8;&#x7ED3;&#x679C;&#x5B58;&#x50A8;&#x4E8E;&#x5185;&#x5B58;&#x3002;</p>
-<pre><code>/** Skips memory cache lookup when processing a request. */
-  NO_CACHE(1 &lt;&lt; 0),
-  /**
-   * Skips storing the final result into memory cache. Useful for one-off requests
-   * to avoid evicting other bitmaps from the cache.
-   */
-  NO_STORE(1 &lt;&lt; 1);
-</code></pre>
-<h3 id="&#x5217;&#x8868;&#x9875;&#x6ED1;&#x52A8;&#x4F18;&#x5316;"><a class="header-anchor" href="#&#x5217;&#x8868;&#x9875;&#x6ED1;&#x52A8;&#x4F18;&#x5316;"></a>&#x5217;&#x8868;&#x9875;&#x6ED1;&#x52A8;&#x4F18;&#x5316;</h3>
-<p>tag(Object object) &#x53EF;&#x4EE5;&#x63A5;&#x53D7;java&#x4EFB;&#x4F55;&#x7C7B;&#x578B;&#x7684;&#x53C2;&#x6570;&#x3002;&#x56E0;&#x800C;&#xFF0C;&#x4F60;&#x53EF;&#x4EE5;&#x6839;&#x636E;&#x4EFB;&#x4F55;&#x903B;&#x8F91;&#x6765;build your image groups&#x3002;&#x4F60;&#x6709;&#x4EE5;&#x4E0B;&#x9009;&#x62E9;&#xFF1A;</p>
-<ul>
-<li>&#x4F7F;&#x7528;pauseTag()pause &#x8BF7;&#x6C42;</li>
-<li>&#x4F7F;&#x7528;resumeTag() resume&#x8BF7;&#x6C42;</li>
-<li>&#x4F7F;&#x7528;cancelTag() cancel&#x8BF7;&#x6C42;</li>
-</ul>
-<p>&#x57FA;&#x672C;&#x4E0A;&#xFF0C;&#x65E0;&#x8BBA;&#x4F60;&#x4F55;&#x65F6;&#x9700;&#x8981;pause &#x6216;&#x8005;cancel&#x52A0;&#x8F7D;&#x4E00;&#x5F20;&#x6216;&#x591A;&#x5F20;&#x56FE;&#x7247;&#xFF0C;&#x4F7F;&#x7528;tag&#xFF0C;&#x5E76;&#x4E14;&#x8C03;&#x7528;&#x76F8;&#x5E94;&#x7684;&#x65B9;&#x6CD5;&#x3002;&#x8FD9;&#x542C;&#x8D77;&#x6765;&#x53EF;&#x80FD;&#x6709;&#x70B9;&#x62BD;&#x8C61;&#xFF0C;&#x8BA9;&#x6211;&#x4EEC;&#x770B;&#x4E2A;&#x4F8B;&#x5B50;&#x3002;</p>
-<p>picasso&#x53EF;&#x4EE5;&#x5BF9;&#x591A;&#x4E2A;&#x52A0;&#x8F7D;&#x8BF7;&#x6C42;&#x8BBE;&#x7F6E;&#x76F8;&#x540C;&#x7684;tag&#xFF0C;&#x5373;</p>
-<pre><code>Object tag = new Object();
-</code></pre>
-<pre><code>Picasso.with(imageView.getContext())
-                        .load(url)
-                        .tag(tag)
-                        .into(imageView);
-</code></pre>
-<p>&#x4F8B;&#x5982;&#x5728;RecyclerView&#x6ED1;&#x52A8;&#x65F6;&#x76D1;&#x542C;&#xFF0C;&#x5904;&#x7406;&#x4E0D;&#x540C;&#x7684;&#x8868;&#x73B0;&#xFF1A;</p>
-<pre><code>mRecyclerView.addOnScrollListener(new RecyclerView.OnScrollListener() {
-                    @Override
-                    public void onScrollStateChanged(RecyclerView recyclerView, int newState) {
-                        if (newState == RecyclerView.SCROLL_STATE_IDLE) {
-                            Picasso.with(context).resumeTag(tag);
-                        } else {
-                            Picasso.with(context).pauseTag(tag);
-                        }
-                    }
-                });
-</code></pre>
-<p>&#x7528;&#x6237;&#x901A;&#x8FC7;&#x5FEB;&#x901F;&#x7684;&#x4E0B;&#x6ED1;&#x5217;&#x8868;&#x6765;&#x67E5;&#x627E;&#x4E00;&#x6761;&#x65E7;&#x7684;&#x6D88;&#x606F;&#x3002;RecyclerView &#x662F;&#x5FEB;&#x901F;&#x7684;&#x56DE;&#x6536;&#x5229;&#x7528;items&#x7684;&#x3002;&#x5982;&#x679C;&#x4F60;&#x80FD;&#x6B63;&#x786E;&#x7684;&#x5B9E;&#x73B0;adapter&#xFF0C;&#x6ED1;&#x52A8;RecyclerView&#x7684;&#x65F6;&#x5019;&#x90A3;&#x5C06;&#x975E;&#x5E38;&#x6D41;&#x7545;&#x3002;&#x7136;&#x800C;&#xFF0C;Picasso&#x5C06;&#x4F1A;&#x5C1D;&#x8BD5;&#x4E3A;&#x6BCF;&#x4E00;&#x884C;&#x90FD;&#x5F00;&#x59CB;&#x4E00;&#x4E2A;&#x65B0;&#x7684;&#x8BF7;&#x6C42;&#xFF0C;&#x4F46;&#x662F;&#x5B83;&#x53C8;&#x7ACB;&#x5373;&#x53D6;&#x6D88;&#x8FD9;&#x4E2A;&#x8BF7;&#x6C42;&#x3002;&#x56E0;&#x4E3A;&#x7528;&#x6237;&#x6ED1;&#x52A8;listview&#x592A;&#x5FEB;&#x4E86;&#x3002;</p>
-<p>&#x5F53;RecyclerView&#x7684;&#x6ED1;&#x52A8;&#x72B6;&#x6001;&#x53D8;&#x6210;fling&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x4ED6;&#x5C06;&#x4F1A;&#x53D6;&#x6D88;&#x6240;&#x6709;&#x7684;&#x8BF7;&#x6C42;,&#x8FD9;&#x5C06;&#x662F;&#x975E;&#x5E38;&#x9AD8;&#x6548;&#x7684;&#x3002;&#x7528;&#x6237;&#x4E0D;&#x4F1A;&#x6CE8;&#x610F;&#x5230;&#x4EFB;&#x4F55;&#x53D8;&#x5316;&#xFF0C;&#x4F46;&#x662F;&#x4F60;&#x7684;app&#x5374;&#x6709;&#x6548;&#x7684;&#x51CF;&#x5C11;&#x4E86;&#x5927;&#x91CF;&#x7684;&#x8BF7;&#x6C42;&#x3002;</p>
-<p>&#x5F53;RecyclerView&#x7684;&#x6ED1;&#x52A8;&#x72B6;&#x6001;&#x53D8;&#x6210;fling&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x4ED6;&#x5C06;&#x4F1A;&#x53D6;&#x6D88;&#x6240;&#x6709;&#x7684;&#x8BF7;&#x6C42;&#x3002;&#x5F53;&#x6ED1;&#x52A8;&#x72B6;&#x6001;&#x53D8;&#x6210;idle&#x6216;&#x8005;&#x6B63;&#x5E38;&#x7684;&#x6ED1;&#x52A8;&#x4F4D;&#x7F6E;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x4ED6;&#x91CD;&#x65B0;&#x5F00;&#x59CB;&#x8BF7;&#x6C42;&#x3002;&#xFF08;resume the request&#xFF09;</p>
-<h3 id="recyclableimageview"><a class="header-anchor" href="#recyclableimageview"></a>RecyclableImageView</h3>
-<p>&#x91CD;&#x5199;ImageView&#x7684;onDetachedFromWindow&#x65B9;&#x6CD5;&#xFF0C;&#x5728;&#x5B83;&#x4ECE;&#x5C4F;&#x5E55;&#x4E2D;&#x6D88;&#x5931;&#x65F6;&#x56DE;&#x8C03;&#xFF0C;&#x53BB;&#x6389;drawable&#x5F15;&#x7528;&#xFF0C;&#x80FD;&#x52A0;&#x5FEB;&#x5185;&#x5B58;&#x7684;&#x56DE;&#x6536;&#x3002;</p>
-<pre><code>public class RecyclerImageView extends ImageView {
-        @Override
-        protected void onDetachedFromWindow() {
-            super.onDetachedFromWindow();
-            setImageDrawable(null);
-        }
-    }
-</code></pre>
-<h3 id="rgb-565"><a class="header-anchor" href="#rgb-565"></a>RGB_565</h3>
-<p>&#x56E0;&#x4E3A;RGB_565&#x5448;&#x73B0;&#x7ED3;&#x679C;&#x4E0E;ARGB_8888&#x63A5;&#x8FD1;&#xFF0C;&#x6240;&#x4EE5;&#x5BF9;&#x4E8E;&#x4E0D;&#x900F;&#x660E;&#x7684;&#x56FE;&#x7247;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;RGB_565&#x6765;&#x4F18;&#x5316;&#x5185;&#x5B58;&#x3002;</p>
-<pre><code>Picasso.with(imageView.getContext())
-                        .load(url)
-                        .config(Bitmap.Config.RGB_565)
-                        .into(imageView);
-</code></pre>
-<p>&#x9ED8;&#x8BA4;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;Android&#x4F7F;&#x7528;ARGB_8888</p>
-<pre><code>Android&#x4E2D;&#x6709;&#x56DB;&#x79CD;&#xFF0C;&#x5206;&#x522B;&#x662F;&#xFF1A;
-ALPHA_8&#xFF1A;&#x6BCF;&#x4E2A;&#x50CF;&#x7D20;&#x5360;&#x7528;1byte&#x5185;&#x5B58;
-ARGB_4444:&#x6BCF;&#x4E2A;&#x50CF;&#x7D20;&#x5360;&#x7528;2byte&#x5185;&#x5B58;
-ARGB_8888:&#x6BCF;&#x4E2A;&#x50CF;&#x7D20;&#x5360;&#x7528;4byte&#x5185;&#x5B58;
-RGB_565:&#x6BCF;&#x4E2A;&#x50CF;&#x7D20;&#x5360;&#x7528;2byte&#x5185;&#x5B58;
-</code></pre>
-<h2 id="picasso&#x6E05;&#x7F13;&#x5B58;"><a class="header-anchor" href="#picasso&#x6E05;&#x7F13;&#x5B58;"></a>Picasso&#x6E05;&#x7F13;&#x5B58;</h2>
-<p>&#x65B0;&#x7248;&#x672C;&#x7684;Picasso&#x5DF2;&#x7ECF;&#x4E0D;&#x652F;&#x6301;&#x4EE5;&#x4E0B;&#x65B9;&#x6CD5;&#x6E05;&#x7F13;&#x5B58;&#x4E86;&#xFF1A;</p>
-<pre><code>Picasso.with(context).invalidate(imagePath);
-</code></pre>
-<p>&#x4F46;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x4E0B;&#x9762;&#x7684;&#x65B9;&#x6CD5;&#x6765;&#x6E05;&#x7F13;&#x5B58;</p>
-<p><strong>1&#x3001;&#x6E05;&#x9664;&#x81EA;&#x5DF1;&#x5E94;&#x7528;&#x7684;cache&#x76EE;&#x5F55;</strong></p>
-<pre><code>/**
- * Deletes a directory tree recursively.
- */
-public static void deleteDirectoryTree(File fileOrDirectory) {
-    if (fileOrDirectory.isDirectory()) {
-        for (File child : fileOrDirectory.listFiles()) {
-            deleteDirectoryTree(child);
-        }
-    }
-
-    fileOrDirectory.delete();
-}
-</code></pre>
-<p><strong>2&#x3001;&#x901A;&#x8FC7;&#x81EA;&#x5DF1;&#x8BBE;&#x7F6E;downloader&#xFF0C;&#x4EE5;&#x4FBF;&#x8C03;&#x7528;&#x5B83;&#x7684;shutdown&#x65B9;&#x6CD5;&#xFF0C;&#x8FBE;&#x5230;&#x6E05;&#x9664;&#x7F13;&#x5B58;&#x7684;&#x76EE;&#x7684;&#x3002;</strong></p>
-<pre><code>public static class PicassoUtil {
-        private static Picasso sInstance;
-        private static OkHttpDownloader sDownloader;
-        public  static Picasso getPicasso(Context context){
-            if(sInstance == null) {
-                sDownloader = new OkHttpDownloader(context);
-                Picasso.Builder builder = new Picasso.Builder(context);
-                builder.downloader(sDownloader);
-                sInstance = builder.build();
-            }
-            return sInstance;
-        }
-        public static void clearCache(){
-            if(sDownloader != null){
-                sDownloader.shutdown();
-            }
-        }
-    }
-</code></pre>
-<p><strong>3&#x3001;&#x81EA;&#x5DF1;&#x8BBE;&#x7F6E;Picasso.LruCache</strong></p>
-<pre><code>Picasso.Builder builder = new Picasso.Builder(this);
-LruCache picassoCache = new LruCache(this);
-builder.memoryCache(picassoCache);
-Picasso.setSingletonInstance(builder.build());
-//&#x9700;&#x8981;&#x6E05;&#x9664;&#x7F13;&#x5B58;&#x65F6;&#x8C03;&#x7528;
-picassoCache.clear();
-</code></pre>
-<p><strong>4&#x3001;&#x7F51;&#x53CB;&#x63D0;&#x4F9B;&#x7684;&#x901A;&#x8FC7;&#x81EA;&#x5B9A;&#x4E49;&#x7684;LurCache&#x6765;&#x7BA1;&#x7406;&#x5185;&#x5B58;&#xFF0C;&#x652F;&#x6301;&#x6839;&#x636E;bitmap&#x7684;key&#x5220;&#x9664;&#x6307;&#x5B9A;bitmap&#x3002;</strong></p>
-<p>PicassoTools:</p>
-<pre><code>public class PicassoTools {
-    private static Picasso picasso = null;
-    private static CustomLruCache lruCache = null;
-
-    private static CustomLruCache getCache() {
-        if (lruCache == null)
-            lruCache = new CustomLruCache(MainApp.getAppContext());
-        return lruCache;
-    }
-
-    public static Picasso getPicasso() {
-        if (picasso == null)
-            picasso = new Picasso.Builder(MainApp.getAppContext()).memoryCache(getCache()).build();
-        return picasso;
-    }
-
-    public static void clear(Uri uri) {
-        getCache().remove(getKey(uri));
-    }
-
-    public static void clearCache() {
-        getCache().clear();
-        // Picasso.with(MainApp.getAppContext()).cache.clear();
-    }
-
-    public static void clearCache(Context c) {
-        getCache().clear();
-        // Picasso.with(c).cache.clear();
-    }
-
-    private static final int KEY_PADDING = 50; // Determined by exact science.
-
-    private static String getKey(Uri uri) {
-        return getKey(uri, null, 0, 0, false, false, null);
-    }
-
-    private static String getKey(Uri uri, Integer resourceId, int targetWidth, int targetHeight, boolean centerCrop, boolean centerInside, List&lt;Transformation&gt; transformations) {
-        StringBuilder builder = new StringBuilder();
-        if (uri != null) {
-            String path = uri.toString();
-            builder.ensureCapacity(path.length() + KEY_PADDING);
-            builder.append(path);
-        } else {
-            builder.ensureCapacity(KEY_PADDING);
-            builder.append(resourceId);
-        }
-        builder.append(&apos;\n&apos;);
-
-        if (targetWidth != 0) {
-            builder.append(&quot;resize:&quot;).append(targetWidth).append(&apos;x&apos;).append(targetHeight);
-            builder.append(&apos;\n&apos;);
-        }
-        if (centerCrop) {
-            builder.append(&quot;centerCrop\n&quot;);
-        } else if (centerInside) {
-            builder.append(&quot;centerInside\n&quot;);
-        }
-
-        if (transformations != null) {
-            // noinspection ForLoopReplaceableByForEach
-            for (int i = 0, count = transformations.size(); i &lt; count; i++) {
-                builder.append(transformations.get(i).key());
-                builder.append(&apos;\n&apos;);
-            }
-        }
-
-        return builder.toString();
-    }
-}
-</code></pre>
-<p>CustomLruCache:</p>
-<pre><code>public class CustomLruCache extends LruCache {
-    public CustomLruCache(Context context) {
-        super(context);
-    }
-
-    public CustomLruCache(int value) {
-        super(value);
-    }
-
-    @Override
-    public Bitmap get(String key) {
-        L.d(this, key);
-        return super.get(key);
-    }
-
-    public void remove(String key) {
-        try {
-            Bitmap value = map.remove(key);
-
-            Field fieldSize = LruCache.class.getDeclaredField(&quot;size&quot;);
-            fieldSize.setAccessible(true);
-            Integer size = (Integer) fieldSize.get(this);
-            size -= Utils.getBitmapBytes(value);
-            fieldSize.set(this, size);
-
-            Field fieldEvictionCount = LruCache.class.getDeclaredField(&quot;evictionCount&quot;);
-            fieldEvictionCount.setAccessible(true);
-            Integer evictionCount = (Integer) fieldEvictionCount.get(this);
-            evictionCount++;
-            fieldEvictionCount.set(this, evictionCount);
-
-        } catch (IllegalArgumentException e) {
-            L.e(this, e);
-        } catch (IllegalAccessException e) {
-            L.e(this, e);
-        } catch (NoSuchFieldException e) {
-            L.e(this, e);
-        }
-    }
-}
-</code></pre>
-<h2 id="&#x53C2;&#x8003;"><a class="header-anchor" href="#&#x53C2;&#x8003;"></a>&#x53C2;&#x8003;</h2>
-<ol>
-<li><a href="http://blog.csdn.net/u011337574/article/details/51586714" target="_blank" rel="external">http://blog.csdn.net/u011337574/article/details/51586714</a></li>
-<li><a href="http://www.jianshu.com/p/6b746c904a49" target="_blank" rel="external">http://www.jianshu.com/p/6b746c904a49</a></li>
-<li><a href="http://stackoverflow.com/questions/27502659/clear-cache-memory-of-picasso" target="_blank" rel="external">Clear Cache memory of Picasso</a></li>
-<li><a href="https://github.com/square/picasso/issues/1104" target="_blank" rel="external">JakeWharton&#x7684;&#x907F;&#x514D;OOM&#x5EFA;&#x8BAE;</a></li>
-<li><a href="http://stackoverflow.com/questions/23928019/picasso-and-context" target="_blank" rel="external">Picasso and Context</a></li>
-<li><a href="http://stackoverflow.com/questions/27502659/clear-cache-memory-of-picasso" target="_blank" rel="external">clear-cache-memory-of-picasso</a></li>
-<li><a href="http://stackoverflow.com/questions/22243417/android-picasso-clear-cache" target="_blank" rel="external">android-picasso-clear-cache</a></li>
-</ol>]]></content>
-    
-    <summary type="html">
-    
-      &lt;div&gt;&lt;a href=&quot;https://github.com/square/picasso&quot;&gt;&lt;img class=&quot;pic lazy&quot; data-original=&quot;/2016/10/10/android-picasso-use/picasso-mainimage.jpg&quot; style=&quot;float:left; width:100px; height:56px; margin-right:16px&quot; alt=&quot;Picasso&quot;&gt;&lt;/a&gt;
-&lt;span&gt;&amp;#x7B14;&amp;#x8005;&amp;#x5728;&amp;#x9879;&amp;#x76EE;&amp;#x91CC;&amp;#x9762;&amp;#xFF0C;&amp;#x5BF9;&amp;#x56FE;&amp;#x7247;&amp;#x7684;&amp;#x52A0;&amp;#x8F7D;&amp;#x4E00;&amp;#x822C;&amp;#x4F7F;&amp;#x7528;&amp;#x7684;&amp;#x662F;Picasso&amp;#x6216;&amp;#x8005;Glide&amp;#xFF0C;&amp;#x4ECA;&amp;#x5929;&amp;#x9996;&amp;#x5148;&amp;#x4ECB;&amp;#x7ECD;&amp;#x7684;&amp;#x662F;Picasso&amp;#xFF0C;&amp;#x540E;&amp;#x7EED;&amp;#x518D;&amp;#x4ECB;&amp;#x7ECD;Glide&amp;#x3002;Picasso&amp;#x662F;Square&amp;#x516C;&amp;#x53F8;&amp;#x5F00;&amp;#x6E90;&amp;#x7684;&amp;#x4E00;&amp;#x4E2A;Android&amp;#x56FE;&amp;#x7247;&amp;#x52A0;&amp;#x8F7D;&amp;#x548C;&amp;#x7F13;&amp;#x5B58;&amp;#x5E93;&amp;#xFF0C;&amp;#x901A;&amp;#x8FC7;&amp;#x5B83;&amp;#xFF0C;&amp;#x53EA;&amp;#x9700;&amp;#x8981;&amp;#x7B80;&amp;#x5355;&amp;#x7684;&amp;#x4E00;&amp;#x884C;&amp;#x4EE3;&amp;#x7801;&amp;#x5373;&amp;#x53EF;&amp;#x5B9E;&amp;#x73B0;&amp;#x56FE;&amp;#x7247;&amp;#x4E0B;&amp;#x8F7D;&amp;#x548C;&amp;#x7F13;&amp;#x5B58;&amp;#x529F;&amp;#x80FD;&amp;#x3002;&amp;#x5B83;&amp;#x7684;github&amp;#x9879;&amp;#x76EE;&amp;#x5730;&amp;#x5740;&amp;#x4E3A;&amp;#xFF1A;&lt;a href=&quot;https://github.com/square/picasso&quot;&gt;https://github.com/square/picasso&lt;/a&gt;&lt;/span&gt;&lt;/div&gt;
-    
-    </summary>
-    
-      <category term="移动开发" scheme="http://ngudream.com/categories/%E7%A7%BB%E5%8A%A8%E5%BC%80%E5%8F%91/"/>
-    
-    
-      <category term="Android" scheme="http://ngudream.com/tags/Android/"/>
-    
-      <category term="Picasso" scheme="http://ngudream.com/tags/Picasso/"/>
     
   </entry>
   
