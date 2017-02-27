@@ -4,6 +4,26 @@
 
     
   <url>
+    <loc>http://ngudream.com/2017/02/27/rxjava-only-flatmap/</loc>
+    <lastmod>2017-02-27T15:46:18.250Z</lastmod>
+    <data>
+        <display>
+        <title>只能用 flatmap 而不能用 map 的场景</title>
+        <pubTime>2017-02-27T14:02:35.000Z</pubTime>
+        
+        <tag>RxJava</tag>
+         
+         
+           
+             
+              <breadCrumb title="移动开发" url="http://ngudream.com/categories/%E7%A7%BB%E5%8A%A8%E5%BC%80%E5%8F%91/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://ngudream.com/2017/02/26/android-app-is-foreground/</loc>
     <lastmod>2017-02-26T05:09:25.208Z</lastmod>
     <data>
