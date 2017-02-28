@@ -2,9 +2,16 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://ngudream.com/2017/02/28/android-animation-theory/</loc>
+    
+    <lastmod>2017-02-28T15:54:32.200Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://ngudream.com/2017/02/27/rxjava-only-flatmap/</loc>
     
-    <lastmod>2017-02-27T15:46:18.250Z</lastmod>
+    <lastmod>2017-02-28T15:50:43.735Z</lastmod>
     
   </url>
   

@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://ngudream.com/"/>
-  <updated>2017-02-27T15:46:18.250Z</updated>
+  <updated>2017-02-28T15:54:32.200Z</updated>
   <id>http://ngudream.com/</id>
   
   <author>
@@ -16,11 +16,282 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>Android 三种常用动画分析</title>
+    <link href="http://ngudream.com/2017/02/28/android-animation-theory/"/>
+    <id>http://ngudream.com/2017/02/28/android-animation-theory/</id>
+    <published>2017-02-28T13:59:14.000Z</published>
+    <updated>2017-02-28T15:54:32.200Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="&#x539F;&#x7406;"><a class="header-anchor" href="#&#x539F;&#x7406;"></a>&#x539F;&#x7406;</h2>
+<h3 id="timeinterpolator&#x548C;typeevaluator"><a class="header-anchor" href="#timeinterpolator&#x548C;typeevaluator"></a>TimeInterpolator&#x548C;TypeEvaluator</h3>
+<ul>
+<li>TimeInterpolator&#x4E2D;&#x6587;&#x7FFB;&#x8BD1;&#x4E3A;&#x65F6;&#x95F4;&#x63D2;&#x503C;&#x5668;&#xFF0C;&#x5B83;&#x7684;&#x4F5C;&#x7528;&#x662F;&#x6839;&#x636E;&#x65F6;&#x95F4;&#x6D41;&#x901D;&#x7684;&#x767E;&#x5206;&#x6BD4;&#x6765;&#x8BA1;&#x7B97;&#x51FA;&#x5F53;&#x524D;&#x5C5E;&#x6027;&#x503C;&#x6539;&#x53D8;&#x7684;&#x767E;&#x5206;&#x6BD4;&#xFF0C;&#x7CFB;&#x7EDF;&#x9884;&#x7F6E;&#x7684;&#x6709;LinearInterpolator&#xFF08;&#x7EBF;&#x6027;&#x63D2;&#x503C;&#x5668;&#xFF1A;&#x5300;&#x901F;&#x52A8;&#x753B;&#xFF09;&#x3001;AccelerateDecelerateInterpolator&#xFF08;&#x52A0;&#x901F;&#x51CF;&#x901F;&#x63D2;&#x503C;&#x5668;&#xFF1A;&#x52A8;&#x753B;&#x4E24;&#x5934;&#x6162;&#x4E2D;&#x95F4;&#x5FEB;&#xFF09;&#x548C;DecelerateInterpolator&#xFF08;&#x51CF;&#x901F;&#x63D2;&#x503C;&#x5668;&#xFF1A;&#x52A8;&#x753B;&#x8D8A;&#x6765;&#x8D8A;&#x6162;&#xFF09;&#x7B49;&#xFF1B;</li>
+<li>TypeEvaluator&#x7684;&#x4E2D;&#x6587;&#x7FFB;&#x8BD1;&#x4E3A;&#x7C7B;&#x578B;&#x4F30;&#x503C;&#x7B97;&#x6CD5;&#xFF0C;&#x5B83;&#x7684;&#x4F5C;&#x7528;&#x662F;&#x6839;&#x636E;&#x5F53;&#x524D;&#x5C5E;&#x6027;&#x6539;&#x53D8;&#x7684;&#x767E;&#x5206;&#x6BD4;&#x6765;&#x8BA1;&#x7B97;&#x6539;&#x53D8;&#x540E;&#x7684;&#x5C5E;&#x6027;&#x503C;&#xFF0C;&#x7CFB;&#x7EDF;&#x9884;&#x7F6E;&#x7684;&#x6709;IntEvaluator&#xFF08;&#x9488;&#x5BF9;&#x6574;&#x578B;&#x5C5E;&#x6027;&#xFF09;&#x3001;FloatEvaluator&#xFF08;&#x9488;&#x5BF9;&#x6D6E;&#x70B9;&#x578B;&#x5C5E;&#x6027;&#xFF09;&#x548C;ArgbEvaluator&#xFF08;&#x9488;&#x5BF9;Color&#x5C5E;&#x6027;&#xFF09;&#x3002;&#x53EF;&#x80FD;&#x8FD9;&#x4E48;&#x8BF4;&#x8FD8;&#x6709;&#x70B9;&#x6666;&#x6DA9;&#xFF0C;&#x6CA1;&#x5173;&#x7CFB;&#xFF0C;&#x4E0B;&#x9762;&#x7ED9;&#x51FA;&#x4E00;&#x4E2A;&#x5B9E;&#x4F8B;&#x5C31;&#x5F88;&#x597D;&#x7406;&#x89E3;&#x4E86;&#x3002;</li>
+</ul>
+<div align="center">
+<img data-original="/2017/02/28/android-animation-theory/animation-linear.png" class="lazy">
+</div>
+<p>&#x770B;&#x4E0A;&#x8FF0;&#x52A8;&#x753B;&#xFF0C;&#x5F88;&#x663E;&#x7136;&#x4E0A;&#x8FF0;&#x52A8;&#x753B;&#x662F;&#x4E00;&#x4E2A;&#x5300;&#x901F;&#x52A8;&#x753B;&#xFF0C;&#x5176;&#x91C7;&#x7528;&#x4E86;&#x7EBF;&#x6027;&#x63D2;&#x503C;&#x5668;&#x548C;&#x6574;&#x578B;&#x4F30;&#x503C;&#x7B97;&#x6CD5;&#xFF0C;&#x5728;40ms&#x5185;&#xFF0C;View&#x7684;x&#x5C5E;&#x6027;&#x5B9E;&#x73B0;&#x4ECE;0&#x5230;40&#x7684;&#x53D8;&#x6362;&#xFF0C;&#x7531;&#x4E8E;&#x52A8;&#x753B;&#x7684;&#x9ED8;&#x8BA4;&#x5237;&#x65B0;&#x7387;&#x4E3A;10ms/&#x5E27;&#xFF0C;&#x6240;&#x4EE5;&#x8BE5;&#x52A8;&#x753B;&#x5C06;&#x5206;5&#x5E27;&#x8FDB;&#x884C;&#xFF0C;&#x6211;&#x4EEC;&#x6765;&#x8003;&#x8651;&#x7B2C;&#x4E09;&#x5E27;&#xFF08;x=20 t=20ms&#xFF09;&#xFF0C;&#x5F53;&#x65F6;&#x95F4;t=20ms&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x65F6;&#x95F4;&#x6D41;&#x901D;&#x7684;&#x767E;&#x5206;&#x6BD4;&#x662F;0.5 (20/40=0.5)&#xFF0C;&#x610F;&#x5473;&#x8FD9;&#x73B0;&#x5728;&#x65F6;&#x95F4;&#x8FC7;&#x4E86;&#x4E00;&#x534A;&#xFF0C;&#x90A3;x&#x5E94;&#x8BE5;&#x6539;&#x53D8;&#x591A;&#x5C11;&#x5462;&#xFF0C;&#x8FD9;&#x4E2A;&#x5C31;&#x7531;&#x63D2;&#x503C;&#x5668;&#x548C;&#x4F30;&#x503C;&#x7B97;&#x6CD5;&#x6765;&#x786E;&#x5B9A;&#x3002;&#x62FF;&#x7EBF;&#x6027;&#x63D2;&#x503C;&#x5668;&#x6765;&#x8BF4;&#xFF0C;&#x5F53;&#x65F6;&#x95F4;&#x6D41;&#x901D;&#x4E00;&#x534A;&#x7684;&#x65F6;&#x5019;&#xFF0C;x&#x7684;&#x53D8;&#x6362;&#x4E5F;&#x5E94;&#x8BE5;&#x662F;&#x4E00;&#x534A;&#xFF0C;&#x5373;x&#x7684;&#x6539;&#x53D8;&#x662F;0.5&#xFF0C;&#x4E3A;&#x4EC0;&#x4E48;&#x5462;&#xFF1F;&#x56E0;&#x4E3A;&#x5B83;&#x662F;&#x7EBF;&#x6027;&#x63D2;&#x503C;&#x5668;&#xFF0C;&#x662F;&#x5B9E;&#x73B0;&#x5300;&#x901F;&#x52A8;&#x753B;&#x7684;&#xFF0C;&#x4E0B;&#x9762;&#x770B;&#x5B83;&#x7684;&#x6E90;&#x7801;&#xFF1A;</p>
+<pre><code>public class LinearInterpolator implements Interpolator {  
+  
+    public LinearInterpolator() {  
+    }  
+      
+    public LinearInterpolator(Context context, AttributeSet attrs) {  
+    }  
+      
+    public float getInterpolation(float input) {  
+        return input;  
+    }  
+}  
+</code></pre>
+<p>&#x5F88;&#x663E;&#x7136;&#xFF0C;&#x7EBF;&#x6027;&#x63D2;&#x503C;&#x5668;&#x7684;&#x8FD4;&#x56DE;&#x503C;&#x548C;&#x8F93;&#x5165;&#x503C;&#x4E00;&#x6837;&#xFF0C;&#x56E0;&#x6B64;&#x63D2;&#x503C;&#x5668;&#x8FD4;&#x56DE;&#x7684;&#x503C;&#x662F;0.5&#xFF0C;&#x8FD9;&#x610F;&#x5473;&#x7740;x&#x7684;&#x6539;&#x53D8;&#x662F;0.5&#xFF0C;&#x8FD9;&#x4E2A;&#x65F6;&#x5019;&#x63D2;&#x503C;&#x5668;&#x7684;&#x5DE5;&#x4F5C;&#x5C31;&#x5B8C;&#x6210;&#x4E86;&#x3002;</p>
+<p>&#x5177;&#x4F53;x&#x53D8;&#x6210;&#x4E86;&#x4EC0;&#x4E48;&#x503C;&#xFF0C;&#x8FD9;&#x4E2A;&#x9700;&#x8981;&#x4F30;&#x503C;&#x7B97;&#x6CD5;&#x6765;&#x786E;&#x5B9A;&#xFF0C;&#x6211;&#x4EEC;&#x6765;&#x770B;&#x770B;&#x6574;&#x578B;&#x4F30;&#x503C;&#x7B97;&#x6CD5;&#x7684;&#x6E90;&#x7801;&#xFF1A;</p>
+<pre><code>public class IntEvaluator implements TypeEvaluator&lt;Integer&gt; {  
+  
+    public Integer evaluate(float fraction, Integer startValue, Integer endValue) {  
+        int startInt = startValue;  
+        return (int)(startInt + fraction * (endValue - startInt));  
+    }  
+}  
+</code></pre>
+<p>&#x4E0A;&#x8FF0;&#x7B97;&#x6CD5;&#x5F88;&#x7B80;&#x5355;&#xFF0C;evaluate&#x7684;&#x4E09;&#x4E2A;&#x53C2;&#x6570;&#x5206;&#x522B;&#x8868;&#x793A;&#xFF1A;&#x4F30;&#x503C;&#x5C0F;&#x6570;&#x3001;&#x5F00;&#x59CB;&#x503C;&#x548C;&#x7ED3;&#x675F;&#x503C;&#xFF0C;&#x5BF9;&#x5E94;&#x4E8E;&#x6211;&#x4EEC;&#x7684;&#x4F8B;&#x5B50;&#x5C31;&#x5206;&#x522B;&#x662F;&#xFF1A;0.5&#xFF0C;0&#xFF0C;40&#x3002;&#x6839;&#x636E;&#x4E0A;&#x8FF0;&#x7B97;&#x6CD5;&#xFF0C;&#x6574;&#x578B;&#x4F30;&#x503C;&#x8FD4;&#x56DE;&#x7ED9;&#x6211;&#x4EEC;&#x7684;&#x7ED3;&#x679C;&#x662F;20&#xFF0C;&#x8FD9;&#x5C31;&#x662F;&#xFF08;x=20 t=20ms&#xFF09;&#x7684;&#x7531;&#x6765;&#x3002;</p>
+<p>&#x8BF4;&#x660E;&#xFF1A;&#x5C5E;&#x6027;&#x52A8;&#x753B;&#x8981;&#x6C42;&#x8BE5;&#x5C5E;&#x6027;&#x6709;set&#x65B9;&#x6CD5;&#x548C;get&#x65B9;&#x6CD5;&#xFF08;&#x53EF;&#x9009;&#xFF09;&#xFF1B;&#x63D2;&#x503C;&#x5668;&#x548C;&#x4F30;&#x503C;&#x7B97;&#x6CD5;&#x9664;&#x4E86;&#x7CFB;&#x7EDF;&#x63D0;&#x4F9B;&#x7684;&#x5916;&#xFF0C;&#x6211;&#x4EEC;&#x8FD8;&#x53EF;&#x4EE5;&#x81EA;&#x5B9A;&#x4E49;&#xFF0C;&#x5B9E;&#x73B0;&#x65B9;&#x5F0F;&#x4E5F;&#x5F88;&#x7B80;&#x5355;&#xFF0C;&#x56E0;&#x4E3A;&#x63D2;&#x503C;&#x5668;&#x548C;&#x4F30;&#x503C;&#x7B97;&#x6CD5;&#x90FD;&#x662F;&#x4E00;&#x4E2A;&#x63A5;&#x53E3;&#xFF0C;&#x4E14;&#x5185;&#x90E8;&#x90FD;&#x53EA;&#x6709;&#x4E00;&#x4E2A;&#x65B9;&#x6CD5;&#xFF0C;&#x6211;&#x4EEC;&#x53EA;&#x8981;&#x6D3E;&#x751F;&#x4E00;&#x4E2A;&#x7C7B;&#x5B9E;&#x73B0;&#x63A5;&#x53E3;&#x5C31;&#x53EF;&#x4EE5;&#x4E86;&#xFF0C;&#x7136;&#x540E;&#x4F60;&#x5C31;&#x53EF;&#x4EE5;&#x505A;&#x51FA;&#x5343;&#x5947;&#x767E;&#x602A;&#x7684;&#x52A8;&#x753B;&#x6548;&#x679C;&#x3002;&#x5177;&#x4F53;&#x4E00;&#x70B9;&#x5C31;&#x662F;&#xFF1A;&#x81EA;&#x5B9A;&#x4E49;&#x63D2;&#x503C;&#x5668;&#x9700;&#x8981;&#x5B9E;&#x73B0;Interpolator&#x6216;&#x8005;TimeInterpolator&#xFF0C;&#x81EA;&#x5B9A;&#x4E49;&#x4F30;&#x503C;&#x7B97;&#x6CD5;&#x9700;&#x8981;&#x5B9E;&#x73B0;TypeEvaluator&#x3002;&#x8FD8;&#x6709;&#x5C31;&#x662F;&#x5982;&#x679C;&#x4F60;&#x5BF9;&#x5176;&#x4ED6;&#x7C7B;&#x578B;&#xFF08;&#x975E;int&#x3001;float&#x3001;color&#xFF09;&#x505A;&#x52A8;&#x753B;&#xFF0C;&#x4F60;&#x5FC5;&#x987B;&#x8981;&#x81EA;&#x5B9A;&#x4E49;&#x7C7B;&#x578B;&#x4F30;&#x503C;&#x7B97;&#x6CD5;&#x3002;</p>
+<h2 id="frame-animation"><a class="header-anchor" href="#frame-animation"></a>Frame Animation</h2>
+<p>Frame&#x52A8;&#x753B;&#x662F;&#x4E00;&#x5E27;&#x4E00;&#x5E27;&#x7684;&#x7ED8;&#x5236;&#x51FA;&#x6765;&#x7684;&#xFF0C;&#x662F;&#x4E00;&#x7CFB;&#x5217;&#x56FE;&#x7247;&#x6309;&#x7167;&#x4E00;&#x5B9A;&#x7684;&#x987A;&#x5E8F;&#x5C55;&#x793A;&#x7684;&#x8FC7;&#x7A0B;&#xFF0C;&#x548C;&#x653E;&#x7535;&#x5F71;&#x7684;&#x673A;&#x5236;&#x5F88;&#x76F8;&#x4F3C;&#xFF0C;&#x6211;&#x4EEC;&#x79F0;&#x4E3A;&#x9010;&#x5E27;&#x52A8;&#x753B;&#x3002;Frame&#x52A8;&#x753B;&#x53EF;&#x4EE5;&#x88AB;&#x5B9A;&#x4E49;&#x5728;XML&#x6587;&#x4EF6;&#x4E2D;&#xFF0C;&#x4E5F;&#x53EF;&#x4EE5;&#x5B8C;&#x5168;&#x7F16;&#x7801;&#x5B9E;&#x73B0;&#x3002;</p>
+<p>&#x6B63;&#x5982;&#x4E0A;&#x9762;&#x6240;&#x8BF4;&#xFF0C;&#x5E27;&#x52A8;&#x753B;&#x5C31;&#x50CF;&#x7535;&#x5F71;&#x4E00;&#x6837;&#xFF0C;&#x6BCF;&#x4E00;&#x5E27;&#x5C31;&#x662F;&#x4E00;&#x5F20;&#x56FE;&#x7247;&#xFF0C;&#x56E0;&#x6B64;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x81EA;&#x5B9A;&#x4E49;&#x5E27;&#x52A8;&#x753B;&#x7684;&#x9996;&#x8981;&#x6761;&#x4EF6;&#x5C31;&#x662F;&#x5EFA;&#x7ACB;&#x56FE;&#x7247;&#x5E8F;&#x5217;&#x3002;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x7528;&#x5B83;&#x6765;&#x6A21;&#x62DF;&#x7B80;&#x5355;&#x7684; gif &#x52A8;&#x56FE;&#x3002;</p>
+<p>&#x5E27;&#x52A8;&#x753B;&#x6709;&#x4E24;&#x79CD;&#x5B9E;&#x73B0;&#x65B9;&#x5F0F;&#xFF0C;&#x4E00;&#x79CD;&#x662F;&#x4F7F;&#x7528;XML&#x6587;&#x4EF6;&#xFF0C;&#x53E6;&#x4E00;&#x79CD;&#x662F;&#x4F7F;&#x7528; AnimationDrawable &#x7C7B;&#xFF0C;&#x5728;&#x4EE3;&#x7801;&#x91CC;&#x9762;&#x5B9E;&#x73B0;&#x52A8;&#x753B;&#x3002;</p>
+<p><strong>AnimationDrawable&#x5E38;&#x89C1;api:</strong></p>
+<ul>
+<li>void start()  &#x5F00;&#x59CB;&#x64AD;&#x653E;&#x52A8;&#x753B;</li>
+<li>void stop()  &#x505C;&#x6B62;&#x64AD;&#x653E;&#x52A8;&#x753B;</li>
+<li>addFrame(Drawable frame, int duration) -  &#x6DFB;&#x52A0;&#x4E00;&#x5E27;&#xFF0C;&#x5E76;&#x8BBE;&#x7F6E;&#x8BE5;&#x5E27;&#x663E;&#x793A;&#x7684;&#x6301;&#x7EED;&#x65F6;&#x95F4;</li>
+<li>void setOneShoe(boolean flag) - false&#x4E3A;&#x5FAA;&#x73AF;&#x64AD;&#x653E;&#xFF0C;true&#x4E3A;&#x4EC5;&#x64AD;&#x653E;&#x4E00;&#x6B21;</li>
+<li>boolean isRunning()  &#x662F;&#x5426;&#x6B63;&#x5728;&#x64AD;&#x653E;</li>
+</ul>
+<h3 id="xml&#x5B9E;&#x73B0;&#x65B9;&#x5F0F;"><a class="header-anchor" href="#xml&#x5B9E;&#x73B0;&#x65B9;&#x5F0F;"></a>XML&#x5B9E;&#x73B0;&#x65B9;&#x5F0F;</h3>
+<p>XML&#x5B9E;&#x73B0;&#x65B9;&#x5F0F;&#x53C8;&#x5206;&#x4E24;&#x79CD;&#xFF0C;&#x4E00;&#x79CD;&#x662F; Animation-list&#xFF0C;&#x53E6;&#x4E00;&#x79CD;&#x662F; Animated-selector&#x3002;</p>
+<p>&#x54B1;&#x4EEC;&#x5148;&#x6765;&#x770B;&#x7B2C;&#x4E00;&#x79CD; Animation-list &#x7684;&#x65B9;&#x5F0F;&#xFF0C;&#x6211;&#x4EEC;&#x5728;&#x5DE5;&#x7A0B; res &#x76EE;&#x5F55;&#x4E0B;&#x65B0;&#x5EFA; drawable &#x6587;&#x4EF6;&#x5939;&#xFF08;&#x6CE8;&#x610F;&#xFF0C;animation-list&#x4E0D;&#x662F;&#x653E;&#x5728; anim &#x6587;&#x4EF6;&#x5939;&#x4E0B;&#xFF09;&#xFF0C;&#x7136;&#x540E;&#x65B0;&#x5EFA;&#x4E00;&#x4E2A; animation_list_test.xml &#x6587;&#x4EF6;&#xFF0C;&#x5185;&#x5BB9;&#x5982;&#x4E0B;&#xFF1A;</p>
+<pre><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
+&lt;animation-list xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;
+    android:oneshot=&quot;false&quot;&gt; &lt;!-- &#x662F;&#x5426;&#x53EA;&#x5C55;&#x793A;&#x4E00;&#x904D; --&gt;
+    &lt;item
+        android:drawable=&quot;@mipmap/a1&quot;
+        android:duration=&quot;150&quot;&gt;&lt;/item&gt;
+    &lt;item
+        android:drawable=&quot;@mipmap/a2&quot;
+        android:duration=&quot;150&quot;&gt;&lt;/item&gt;
+    &lt;item
+        android:drawable=&quot;@mipmap/a3&quot;
+        android:duration=&quot;150&quot;&gt;&lt;/item&gt;
+    &lt;item
+        android:drawable=&quot;@mipmap/a1&quot;
+        android:duration=&quot;150&quot;&gt;&lt;/item&gt;
+&lt;/animation-list&gt;
+</code></pre>
+<p>MainActivity.java&#xFF1A;</p>
+<pre><code>public class MainActivity extends AppCompatActivity implements View.OnClickListener{
+
+    private final String TAG = MainActivity.class.getSimpleName();
+
+    private ImageView mIVTest;
+    private AnimationDrawable mAnimDrawable;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        mIVTest = (ImageView) findViewById(R.id.iv_test);
+        mAnimDrawable = (AnimationDrawable) mIVTest.getBackground();
+    }
+
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()){
+            case R.id.btn_start_animation:
+                mAnimDrawable.start();
+                break;
+            case R.id.btn_stop_animation:
+                mAnimDrawable.stop();
+                break;
+        }
+    }
+}
+</code></pre>
+<p>&#x5E03;&#x5C40;&#x6587;&#x4EF6; activity_main.xml&#xFF1A;</p>
+<pre><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
+&lt;RelativeLayout xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;
+    xmlns:tools=&quot;http://schemas.android.com/tools&quot;
+    android:layout_width=&quot;match_parent&quot;
+    android:layout_height=&quot;match_parent&quot;
+    android:paddingBottom=&quot;@dimen/activity_vertical_margin&quot;
+    android:paddingLeft=&quot;@dimen/activity_horizontal_margin&quot;
+    android:paddingRight=&quot;@dimen/activity_horizontal_margin&quot;
+    android:paddingTop=&quot;@dimen/activity_vertical_margin&quot;
+    tools:context=&quot;com.meizu.rxjava.example.MainActivity&quot;&gt;
+
+    &lt;TextView
+        android:layout_width=&quot;wrap_content&quot;
+        android:layout_height=&quot;wrap_content&quot;
+        android:text=&quot;Hello World!&quot; /&gt;
+
+    &lt;ImageView
+        android:id=&quot;@+id/iv_test&quot;
+        android:layout_width=&quot;120dp&quot;
+        android:layout_height=&quot;120dp&quot;
+        android:layout_centerInParent=&quot;true&quot;
+        android:background=&quot;@drawable/animator_selector&quot; /&gt;
+
+    &lt;Button
+        android:id=&quot;@+id/btn_start_animation&quot;
+        android:layout_width=&quot;match_parent&quot;
+        android:layout_height=&quot;wrap_content&quot;
+        android:onClick=&quot;onClick&quot;
+        android:text=&quot;&#x5F00;&#x59CB;&#x52A8;&#x753B;&quot; /&gt;
+
+    &lt;Button
+        android:id=&quot;@+id/btn_stop_animation&quot;
+        android:layout_width=&quot;match_parent&quot;
+        android:layout_height=&quot;wrap_content&quot;
+        android:layout_below=&quot;@+id/btn_start_animation&quot;
+	android:layout_marginTop=&quot;16dp&quot;
+        android:onClick=&quot;onClick&quot;
+        android:text=&quot;&#x7ED3;&#x675F;&#x52A8;&#x753B;&quot; /&gt;
+&lt;/RelativeLayout&gt;
+
+</code></pre>
+<p>&#x6700;&#x540E;&#x5448;&#x73B0;&#x7684;&#x52A8;&#x753B;&#x5982;&#x4E0B;&#x56FE;&#xFF1A;</p>
+<div align="center">
+<img data-original="/2017/02/28/android-animation-theory/animation-list.gif" class="lazy">
+</div>
+<p>&#x63A5;&#x7740;&#x6765;&#x770B;&#x7B2C;&#x4E8C;&#x79CD;&#x5B9E;&#x73B0;&#xFF0C;&#x5373; Animated-Selector &#x65B9;&#x5F0F;&#xFF0C;&#x5728; drawable &#x76EE;&#x5F55;&#x4E0B;&#x65B0;&#x5EFA;&#x4E00;&#x4E2A; animator_selector.xml &#x6587;&#x4EF6;&#xFF0C;&#x5185;&#x5BB9;&#x5982;&#x4E0B;&#xFF1A;</p>
+<pre><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
+&lt;animated-selector xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;&gt;
+    &lt;item
+        android:id=&quot;@+id/state_on&quot;
+        android:drawable=&quot;@mipmap/a1&quot;
+        android:state_checked=&quot;false&quot; /&gt;
+
+    &lt;item
+        android:id=&quot;@+id/state_off&quot;
+        android:state_checked=&quot;true&quot;
+        android:drawable=&quot;@mipmap/a2&quot; /&gt;
+
+    &lt;transition
+        android:fromId=&quot;@id/state_on&quot;
+        android:toId=&quot;@id/state_off&quot;&gt;
+        &lt;animation-list&gt;
+            &lt;item
+                android:drawable=&quot;@mipmap/a1&quot;
+                android:duration=&quot;150&quot; /&gt;
+            &lt;item
+                android:drawable=&quot;@mipmap/a2&quot;
+                android:duration=&quot;150&quot; /&gt;
+            &lt;item
+                android:drawable=&quot;@mipmap/a3&quot;
+                android:duration=&quot;150&quot; /&gt;
+            &lt;item
+                android:drawable=&quot;@mipmap/a4&quot;
+                android:duration=&quot;150&quot; /&gt;
+        &lt;/animation-list&gt;
+    &lt;/transition&gt;
+&lt;/animated-selector&gt;
+</code></pre>
+<p>MainActivity.java&#xFF1A;</p>
+<pre><code>private ImageView mIVTest;
+    private static final int[] STATE_CHECKED = new int[]{android.R.attr.state_checked};
+    private static final int[] STATE_UNCHECKED = new int[]{};
+    private boolean mIsChecked;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        mIVTest = (ImageView) findViewById(R.id.iv_test);
+        mIVTest.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (mIsChecked) {
+                    mIVTest.setImageState(STATE_UNCHECKED, true);
+                    mIsChecked = false;
+                } else {
+                    mIVTest.setImageState(STATE_CHECKED, true);
+                    mIsChecked = true;
+                }
+            }
+        });
+    }
+</code></pre>
+<p>&#x70B9;&#x51FB;&#x56FE;&#x7247;&#xFF0C;&#x6211;&#x4EEC;&#x5C31;&#x53EF;&#x4EE5;&#x770B;&#x5230;&#x52A8;&#x753B;&#x4E86;&#x3002;</p>
+<h3 id="&#x52A8;&#x6001;&#x4EE3;&#x7801;&#x5B9E;&#x73B0;"><a class="header-anchor" href="#&#x52A8;&#x6001;&#x4EE3;&#x7801;&#x5B9E;&#x73B0;"></a>&#x52A8;&#x6001;&#x4EE3;&#x7801;&#x5B9E;&#x73B0;</h3>
+<p>&#x52A8;&#x6001;&#x5B9E;&#x73B0;&#x5C31;&#x662F;&#x5C06;&#x8D44;&#x6E90;&#x6587;&#x4EF6;&#x91CC;&#x9762;&#x7684;&#x56FE;&#x7247;&#x6309;&#x987A;&#x5E8F;&#x7684;&#x4EE5;&#x5E27;&#x7684;&#x5F62;&#x5F0F;&#x6DFB;&#x52A0;&#x5230; AnimationDrawable &#x4E2D;&#xFF0C;&#x7136;&#x540E;&#x64AD;&#x653E;&#x3002;</p>
+<pre><code>public class MainActivity extends AppCompatActivity implements View.OnClickListener{
+
+    private final String TAG = MainActivity.class.getSimpleName();
+
+    private ImageView mIVTest;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        mIVTest = (ImageView) findViewById(R.id.iv_test);
+    }
+
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()){
+            case R.id.btn_start_animation:
+                playAnimation();
+                break;
+            case R.id.btn_stop_animation:
+                break;
+        }
+    }
+
+    /**
+     * &#x52A8;&#x6001;&#x4EE3;&#x7801;&#x5236;&#x4F5C;&#x5E27;&#x52A8;&#x753B;
+     */
+    private void playAnimation(){
+        AnimationDrawable ad = new AnimationDrawable();
+        for(int i = 1; i &lt; 5; i++){
+            int resId = getResources().getIdentifier(&quot;a&quot; + i, &quot;mipmap&quot;, getPackageName());
+            Drawable drawable = getResources().getDrawable(resId);
+            ad.addFrame(drawable, 150);//&#x6DFB;&#x52A0;&#x5E27;
+        }
+        ad.setOneShot(false);//&#x52A8;&#x753B;&#x91CD;&#x590D;&#x8FD0;&#x884C;
+        mIVTest.setImageDrawable(ad);
+        ad.start();
+    }
+}
+</code></pre>
+<h2 id="tween-animation"><a class="header-anchor" href="#tween-animation"></a>Tween Animation</h2>
+<p>&#x662F;&#x5BF9;&#x67D0;&#x4E2A;View&#x8FDB;&#x884C;&#x4E00;&#x7CFB;&#x5217;&#x7684;&#x52A8;&#x753B;&#x7684;&#x64CD;&#x4F5C;&#xFF0C;&#x5305;&#x62EC;&#x6DE1;&#x5165;&#x6DE1;&#x51FA;&#xFF08;Alpha&#xFF09;&#xFF0C;&#x7F29;&#x653E;&#xFF08;Scale&#xFF09;&#xFF0C;&#x5E73;&#x79FB;&#xFF08;Translate&#xFF09;&#xFF0C;&#x65CB;&#x8F6C;&#xFF08;Rotate&#xFF09;&#x56DB;&#x79CD;&#x6A21;&#x5F0F;&#x3002;&#x539F;&#x7406;&#x662F;&#x7ED9;&#x51FA;&#x4E24;&#x4E2A;&#x5173;&#x952E;&#x5E27;&#xFF0C;&#x901A;&#x8FC7;&#x4E00;&#x4E9B;&#x7B97;&#x6CD5;&#x5C06;&#x7ED9;&#x5B9A;&#x5C5E;&#x6027;&#x503C;&#x5728;&#x7ED9;&#x5B9A;&#x7684;&#x65F6;&#x95F4;&#x5185;&#x5728;&#x4E24;&#x4E2A;&#x5173;&#x952E;&#x5E27;&#x95F4;&#x6E10;&#x53D8;&#x3002;</p>
+<p>&#x660E;&#x5929;&#x5F85;&#x7EED;&#x2026;</p>
+<h2 id="&#x53C2;&#x8003;"><a class="header-anchor" href="#&#x53C2;&#x8003;"></a>&#x53C2;&#x8003;</h2>
+<ul>
+<li><a href="http://blog.csdn.net/singwhatiwanna/article/details/17639987" target="_blank" rel="external">http://blog.csdn.net/singwhatiwanna/article/details/17639987</a></li>
+</ul>]]></content>
+    
+    <summary type="html">
+    
+      Android 平台提供了一套完整的动画框架，使得应用开发者可以用它来实现各种动画效果。比如：按扭的弹入弹出效果、Activity 的切换动画、文本图片的旋转效果等。本文将介绍 Android 的三种动画，帧动画、补间动画、属性动画，介绍它们的原理和使用举例。
+    
+    </summary>
+    
+      <category term="移动开发" scheme="http://ngudream.com/categories/%E7%A7%BB%E5%8A%A8%E5%BC%80%E5%8F%91/"/>
+    
+    
+      <category term="Android" scheme="http://ngudream.com/tags/Android/"/>
+    
+  </entry>
+  
+  <entry>
     <title>只能用 flatmap 而不能用 map 的场景</title>
     <link href="http://ngudream.com/2017/02/27/rxjava-only-flatmap/"/>
     <id>http://ngudream.com/2017/02/27/rxjava-only-flatmap/</id>
-    <published>2017-02-27T14:02:35.000Z</published>
-    <updated>2017-02-27T15:46:18.250Z</updated>
+    <published>2017-02-27T15:02:35.000Z</published>
+    <updated>2017-02-28T15:50:43.735Z</updated>
     
     <content type="html"><![CDATA[<p>&#x9047;&#x5230;&#x4E00;&#x4E2A;&#x95EE;&#x9898;&#xFF0C;&#x95EE;&#xFF1A;&#x8BF7;&#x4E3E;&#x4E2A;&#x53EA;&#x80FD;&#x4F7F;&#x7528;flatmap&#x800C;&#x4E0D;&#x80FD;&#x4F7F;&#x7528;map&#x7684;&#x4F8B;&#x5B50;&#xFF1F;&#x7B14;&#x8005;&#x5F53;&#x65F6;&#x601D;&#x8003;&#x4E86;&#x4E00;&#x4E0B;&#xFF0C;&#x5934;&#x8111;&#x53D1;&#x70ED;&#xFF0C;&#x6CA1;&#x6709;&#x601D;&#x8003;&#x5B8C;&#x6574;&#x5440;&#xFF01;&#xFF01;&#xFF01;</p>
 <h2 id="&#x533A;&#x522B;"><a class="header-anchor" href="#&#x533A;&#x522B;"></a>&#x533A;&#x522B;</h2>
@@ -4639,204 +4910,6 @@ suggestion1Stream.subscribe(function(suggestion) {
     
     
       <category term="RxJava" scheme="http://ngudream.com/tags/RxJava/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Java编译时与运行时</title>
-    <link href="http://ngudream.com/2016/10/12/java-compile-running/"/>
-    <id>http://ngudream.com/2016/10/12/java-compile-running/</id>
-    <published>2016-10-12T14:50:17.000Z</published>
-    <updated>2017-01-15T07:58:44.409Z</updated>
-    
-    <content type="html"><![CDATA[<div style="margin-top:-16px"><img class="pic lazy" data-original="/2016/10/12/java-compile-running/javacompiler.png" style="float:left; width:100px; height:56px; margin-right:16px" alt="">
-<span>&#x5728;&#x5F00;&#x53D1;&#x548C;&#x8BBE;&#x8BA1;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x6211;&#x4EEC;&#x9700;&#x8981;&#x8003;&#x8651;&#x7F16;&#x8BD1;&#x65F6;&#xFF0C;&#x8FD0;&#x884C;&#x65F6;&#x4EE5;&#x53CA;&#x6784;&#x5EFA;&#x65F6;&#x8FD9;&#x4E09;&#x4E2A;&#x6982;&#x5FF5;&#x3002;&#x7406;&#x89E3;&#x8FD9;&#x51E0;&#x4E2A;&#x6982;&#x5FF5;&#x53EF;&#x4EE5;&#x66F4;&#x597D;&#x5730;&#x5E2E;&#x52A9;&#x4F60;&#x53BB;&#x4E86;&#x89E3;&#x4E00;&#x4E9B;&#x57FA;&#x672C;&#x7684;&#x539F;&#x7406;&#x3002;&#x4E0B;&#x9762;&#x662F;&#x521D;&#x5B66;&#x8005;&#x664B;&#x7EA7;&#x4E2D;&#x7EA7;&#x6C34;&#x5E73;&#x9700;&#x8981;&#x77E5;&#x9053;&#x7684;&#x4E00;&#x4E9B;&#x95EE;&#x9898;&#x3002;</span></div>
-<a id="more"></a>
-<blockquote>
-<p>&#x6765;&#x6E90;&#xFF1A;<a href="">Java&#x540E;&#x7AEF;&#x6280;&#x672F;</a><br>
-&#x6587;&#x7AE0;&#x94FE;&#x63A5;&#xFF1A;<a href="http://www.toutiao.com/a6340200038689407490/?tt_from=mobile_qq&amp;utm_campaign=client_share&amp;app=news_article&amp;utm_source=mobile_qq&amp;iid=5662400977&amp;utm_medium=toutiao_android" target="_blank" rel="external">Java &#x9762;&#x8BD5;&#x9898;&#x95EE;&#x4E0E;&#x7B54;&#xFF1A;&#x7F16;&#x8BD1;&#x65F6;&#x4E0E;&#x8FD0;&#x884C;&#x65F6;</a></p>
-</blockquote>
-<div align="center">
-<img data-original="/2016/10/12/java-compile-running/640.jpg" class="lazy">
-</div>
-<p><strong>Q.&#x4E0B;&#x9762;&#x7684;&#x4EE3;&#x7801;&#x7247;&#x6BB5;&#x4E2D;&#xFF0C;&#x884C;A&#x548C;&#x884C;B&#x6240;&#x6807;&#x8BC6;&#x7684;&#x4EE3;&#x7801;&#x6709;&#x4EC0;&#x4E48;&#x533A;&#x522B;&#x5462;&#xFF1F;</strong></p>
-<pre><code>public class ConstantFolding {
-    static final int number1 = 5;
-    static final int number2 = 6;
-    static int number3 = 5;
-    static int number4= 6;
-    public static void main(String[ ] args) {
-        int product1 = number1 * number2; //line A
-        int product2 = number3 * number4; //line B
-    }
-}
-</code></pre>
-<p>A.&#x5728;&#x884C;A&#x7684;&#x4EE3;&#x7801;&#x4E2D;&#xFF0C;product&#x7684;&#x503C;&#x662F;&#x5728;&#x7F16;&#x8BD1;&#x671F;&#x8BA1;&#x7B97;&#x7684;&#xFF0C;&#x884C;B&#x5219;&#x662F;&#x5728;&#x8FD0;&#x884C;&#x65F6;&#x8BA1;&#x7B97;&#x7684;&#x3002;&#x5982;&#x679C;&#x4F60;&#x4F7F;&#x7528;Java&#x53CD;&#x7F16;&#x8BD1;&#x5668;&#xFF08;&#x4F8B;&#x5982;&#xFF0C;jd-gui&#xFF09;&#x6765;&#x53CD;&#x7F16;&#x8BD1;ConstantFolding.class&#x6587;&#x4EF6;&#x7684;&#x8BDD;&#xFF0C;&#x90A3;&#x4E48;&#x4F60;&#x5C31;&#x4F1A;&#x4ECE;&#x4E0B;&#x9762;&#x7684;&#x7ED3;&#x679C;&#x91CC;&#x5F97;&#x5230;&#x7B54;&#x6848;&#x3002;</p>
-<pre><code>public class ConstantFolding{
-    static final int number1 = 5;
-    static final int number2 = 6;
-    static int number3 = 5;
-    static int number4 = 6;
-    public static void main(String[ ] args)
-    {
-        int product1 = 30;
-        int product2 = number3 * number4;
-    }
-}
-</code></pre>
-<p>&#x5E38;&#x91CF;&#x6298;&#x53E0;&#x662F;&#x4E00;&#x79CD;Java&#x7F16;&#x8BD1;&#x5668;&#x4F7F;&#x7528;&#x7684;&#x4F18;&#x5316;&#x6280;&#x672F;&#x3002;&#x7531;&#x4E8E;final&#x53D8;&#x91CF;&#x7684;&#x503C;&#x4E0D;&#x4F1A;&#x6539;&#x53D8;&#xFF0C;&#x56E0;&#x6B64;&#x5C31;&#x53EF;&#x4EE5;&#x5BF9;&#x5B83;&#x4EEC;&#x4F18;&#x5316;&#x3002;Java&#x53CD;&#x7F16;&#x8BD1;&#x5668;&#x548C;javap&#x547D;&#x4EE4;&#x90FD;&#x662F;&#x67E5;&#x770B;&#x7F16;&#x8BD1;&#x540E;&#x7684;&#x4EE3;&#x7801;&#xFF08;&#x4F8B;&#x5982;&#xFF0C;&#x5B57;&#x8282;&#x7801;&#xFF09;&#x7684;&#x5229;&#x5668;&#x3002;</p>
-<p><strong>Q.&#x4F60;&#x80FD;&#x60F3;&#x51FA;&#x9664;&#x4E86;&#x4EE3;&#x7801;&#x4F18;&#x5316;&#x5916;&#xFF0C;&#x5728;&#x4EC0;&#x4E48;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;&#x67E5;&#x770B;&#x7F16;&#x8BD1;&#x8FC7;&#x7684;&#x4EE3;&#x7801;&#x662F;&#x5F88;&#x6709;&#x5E2E;&#x52A9;&#x7684;&#xFF1F;</strong></p>
-<p>A.Java&#x91CC;&#x7684;&#x6CDB;&#x578B;&#x662F;&#x5728;&#x7F16;&#x8BD1;&#x65F6;&#x6784;&#x9020;&#x7684;&#xFF0C;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x67E5;&#x770B;&#x7F16;&#x8BD1;&#x540E;&#x7684;class&#x6587;&#x4EF6;&#x6765;&#x7406;&#x89E3;&#x6CDB;&#x578B;&#xFF0C;&#x4E5F;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x67E5;&#x770B;&#x5B83;&#x6765;&#x89E3;&#x51B3;&#x6CDB;&#x578B;&#x76F8;&#x5173;&#x7684;&#x95EE;&#x9898;&#x3002;</p>
-<p><strong>Q.&#x4E0B;&#x9762;&#x54EA;&#x4E9B;&#x662F;&#x53D1;&#x751F;&#x5728;&#x7F16;&#x8BD1;&#x65F6;&#xFF0C;&#x8FD0;&#x884C;&#x65F6;&#xFF0C;&#x6216;&#x8005;&#x4E24;&#x8005;&#x90FD;&#x6709;&#xFF1F;</strong></p>
-<p>1&#x3001;&#x65B9;&#x6CD5;&#x91CD;&#x8F7D;</p>
-<p>&#x8FD9;&#x4E2A;&#x662F;&#x53D1;&#x751F;&#x5728;&#x7F16;&#x8BD1;&#x65F6;&#x7684;&#x3002;&#x65B9;&#x6CD5;&#x91CD;&#x8F7D;&#x4E5F;&#x88AB;&#x79F0;&#x4E3A;&#x7F16;&#x8BD1;&#x65F6;&#x591A;&#x6001;&#xFF0C;&#x56E0;&#x4E3A;&#x7F16;&#x8BD1;&#x5668;&#x53EF;&#x4EE5;&#x6839;&#x636E;&#x53C2;&#x6570;&#x7684;&#x7C7B;&#x578B;&#x6765;&#x9009;&#x62E9;&#x4F7F;&#x7528;&#x54EA;&#x4E2A;&#x65B9;&#x6CD5;&#x3002;</p>
-<pre><code>public class{
-    // method #1
-    public static void evaluate(String param1);
-    // method #2
-    public static void evaluate(int param1);
-}
-</code></pre>
-<p>&#x5982;&#x679C;&#x7F16;&#x8BD1;&#x5668;&#x8981;&#x7F16;&#x8BD1;&#x4E0B;&#x9762;&#x7684;&#x8BED;&#x53E5;&#x7684;&#x8BDD;&#xFF1A;</p>
-<p>evaluate(&#x201C;My Test Argument passed to param1&#x201D;);</p>
-<p>&#x5B83;&#x4F1A;&#x6839;&#x636E;&#x4F20;&#x5165;&#x7684;&#x53C2;&#x6570;&#x662F;&#x5B57;&#x7B26;&#x4E32;&#x5E38;&#x91CF;&#xFF0C;&#x751F;&#x6210;&#x8C03;&#x7528;#1&#x65B9;&#x6CD5;&#x7684;&#x5B57;&#x8282;&#x7801;</p>
-<p>2&#x3001;&#x65B9;&#x6CD5;&#x8986;&#x76D6;</p>
-<p>&#x8FD9;&#x4E2A;&#x662F;&#x5728;&#x8FD0;&#x884C;&#x65F6;&#x53D1;&#x751F;&#x7684;&#x3002;&#x65B9;&#x6CD5;&#x91CD;&#x8F7D;&#x88AB;&#x79F0;&#x4E3A;&#x8FD0;&#x884C;&#x65F6;&#x591A;&#x6001;&#xFF0C;&#x56E0;&#x4E3A;&#x5728;&#x7F16;&#x8BD1;&#x671F;&#x7F16;&#x8BD1;&#x5668;&#x4E0D;&#x77E5;&#x9053;&#x5E76;&#x4E14;&#x6CA1;&#x6CD5;&#x77E5;&#x9053;&#x8BE5;&#x53BB;&#x8C03;&#x7528;&#x54EA;&#x4E2A;&#x65B9;&#x6CD5;&#x3002;JVM&#x4F1A;&#x5728;&#x4EE3;&#x7801;&#x8FD0;&#x884C;&#x7684;&#x65F6;&#x5019;&#x505A;&#x51FA;&#x51B3;&#x5B9A;&#x3002;</p>
-<pre><code>public class A {
-    public int compute(int input) { //method #3
-        return 3 * input;
-    }
-}
-public class B extends A {
-    @Override
-    public int compute(int input) { //method #4
-        return 4 * input;
-    }
-}
-</code></pre>
-<p>&#x5B50;&#x7C7B;B&#x4E2D;&#x7684;compute(&#x2026;)&#x65B9;&#x6CD5;&#x91CD;&#x5199;&#x4E86;&#x7236;&#x7C7B;&#x7684;compute(&#x2026;)&#x65B9;&#x6CD5;&#x3002;&#x5982;&#x679C;&#x7F16;&#x8BD1;&#x5668;&#x9047;&#x5230;&#x4E0B;&#x9762;&#x7684;&#x4EE3;&#x7801;&#xFF1A;</p>
-<pre><code>public int evaluate(A reference, int arg2) {
-    int result = reference.compute(arg2);
-}
-</code></pre>
-<p>&#x7F16;&#x8BD1;&#x5668;&#x662F;&#x6CA1;&#x6CD5;&#x77E5;&#x9053;&#x4F20;&#x5165;&#x7684;&#x53C2;&#x6570;reference&#x7684;&#x7C7B;&#x578B;&#x662F;A&#x8FD8;&#x662F;B&#x3002;&#x56E0;&#x6B64;&#xFF0C;&#x53EA;&#x80FD;&#x591F;&#x5728;&#x8FD0;&#x884C;&#x65F6;&#xFF0C;&#x6839;&#x636E;&#x8D4B;&#x7ED9;&#x8F93;&#x5165;&#x53D8;&#x91CF;&#x201C;reference&#x201D;&#x7684;&#x5BF9;&#x8C61;&#x7684;&#x7C7B;&#x578B;&#xFF08;&#x4F8B;&#x5982;&#xFF0C;A&#x6216;&#x8005;B&#x7684;&#x5B9E;&#x4F8B;&#xFF09;&#x6765;&#x51B3;&#x5B9A;&#x8C03;&#x7528;&#x65B9;&#x6CD5;#3&#x8FD8;&#x662F;&#x65B9;&#x6CD5;#4.</p>
-<p>3&#x3001;&#x6CDB;&#x578B;&#xFF08;&#x53C8;&#x79F0;&#x7C7B;&#x578B;&#x68C0;&#x9A8C;&#xFF09;</p>
-<p>&#x8FD9;&#x4E2A;&#x662F;&#x53D1;&#x751F;&#x5728;&#x7F16;&#x8BD1;&#x671F;&#x7684;&#x3002;&#x7F16;&#x8BD1;&#x5668;&#x8D1F;&#x8D23;&#x68C0;&#x67E5;&#x7A0B;&#x5E8F;&#x4E2D;&#x7C7B;&#x578B;&#x7684;&#x6B63;&#x786E;&#x6027;&#xFF0C;&#x7136;&#x540E;&#x628A;&#x4F7F;&#x7528;&#x4E86;&#x6CDB;&#x578B;&#x7684;&#x4EE3;&#x7801;&#x7FFB;&#x8BD1;&#x6216;&#x8005;&#x91CD;&#x5199;&#x6210;&#x53EF;&#x4EE5;&#x6267;&#x884C;&#x5728;&#x5F53;&#x524D;JVM&#x4E0A;&#x7684;&#x975E;&#x6CDB;&#x578B;&#x4EE3;&#x7801;&#x3002;&#x8FD9;&#x4E2A;&#x6280;&#x672F;&#x88AB;&#x79F0;&#x4E3A;&#x201C;&#x7C7B;&#x578B;&#x64E6;&#x9664;&#x201C;&#x3002;&#x6362;&#x53E5;&#x8BDD;&#x6765;&#x8BF4;&#xFF0C;&#x7F16;&#x8BD1;&#x5668;&#x4F1A;&#x64E6;&#x9664;&#x6240;&#x6709;&#x5728;&#x5C16;&#x62EC;&#x53F7;&#x91CC;&#x7684;&#x7C7B;&#x578B;&#x4FE1;&#x606F;&#xFF0C;&#x6765;&#x4FDD;&#x8BC1;&#x548C;&#x7248;&#x672C;1.4.0&#x6216;&#x8005;&#x66F4;&#x65E9;&#x7248;&#x672C;&#x7684;JRE&#x7684;&#x517C;&#x5BB9;&#x6027;&#x3002;</p>
-<pre><code>List&lt;String&gt; myList = new ArrayList&lt;String&gt;(10);
-</code></pre>
-<p>&#x7F16;&#x8BD1;&#x540E;&#x6210;&#x4E3A;&#x4E86;&#xFF1A;</p>
-<pre><code>List myList = new ArrayList(10);
-</code></pre>
-<p>4&#x3001;&#x6CE8;&#x89E3;&#xFF08;Annotation&#xFF09;</p>
-<p>&#x4F60;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;&#x8FD0;&#x884C;&#x65F6;&#x6216;&#x8005;&#x7F16;&#x8BD1;&#x65F6;&#x7684;&#x6CE8;&#x89E3;&#x3002;</p>
-<pre><code>public class B extends A {
-    @Override
-    public int compute(int input){
-        return 4 * input;
-    }
-}
-</code></pre>
-<p>@Override&#x662F;&#x4E00;&#x4E2A;&#x7B80;&#x5355;&#x7684;&#x7F16;&#x8BD1;&#x65F6;&#x6CE8;&#x89E3;&#xFF0C;&#x5B83;&#x53EF;&#x4EE5;&#x7528;&#x6765;&#x6355;&#x83B7;&#x7C7B;&#x4F3C;&#x4E8E;&#x5728;&#x5B50;&#x7C7B;&#x4E2D;&#x628A;toString()&#x5199;&#x6210;tostring()&#x8FD9;&#x6837;&#x7684;&#x9519;&#x8BEF;&#x3002;&#x5728;Java 5&#x4E2D;&#xFF0C;&#x7528;&#x6237;&#x81EA;&#x5B9A;&#x4E49;&#x7684;&#x6CE8;&#x89E3;&#x53EF;&#x4EE5;&#x7528;&#x6CE8;&#x89E3;&#x5904;&#x7406;&#x5DE5;&#x5177;(Anotation Process Tool &#x2014;&#x2014;APT)&#x5728;&#x7F16;&#x8BD1;&#x65F6;&#x8FDB;&#x884C;&#x5904;&#x7406;&#x3002;&#x5230;&#x4E86;Java 6&#xFF0C;&#x8FD9;&#x4E2A;&#x529F;&#x80FD;&#x5DF2;&#x7ECF;&#x662F;&#x7F16;&#x8BD1;&#x5668;&#x7684;&#x4E00;&#x90E8;&#x5206;&#x4E86;&#x3002;</p>
-<pre><code>public class MyTest{
-    @Test
-    public void testEmptyness( ){
-        org.junit.Assert.assertTrue(getList( ).isEmpty( ));
-    }
-    private List getList( ){
-    }
-}
-</code></pre>
-<p>@Test&#x662F;JUnit&#x6846;&#x67B6;&#x7528;&#x6765;&#x5728;&#x8FD0;&#x884C;&#x65F6;&#x901A;&#x8FC7;&#x53CD;&#x5C04;&#x6765;&#x51B3;&#x5B9A;&#x8C03;&#x7528;&#x6D4B;&#x8BD5;&#x7C7B;&#x7684;&#x54EA;&#x4E2A;&#xFF08;&#x4E9B;&#xFF09;&#x65B9;&#x6CD5;&#x7684;&#x6CE8;&#x89E3;&#x3002;</p>
-<pre><code>@Test (timeout=100)
-public void testTimeout( ) {
-    while(true);
-}
-</code></pre>
-<p>&#x5982;&#x679C;&#x8FD0;&#x884C;&#x65F6;&#x95F4;&#x8D85;&#x8FC7;100ms&#x7684;&#x8BDD;&#xFF0C;&#x4E0A;&#x9762;&#x7684;&#x6D4B;&#x8BD5;&#x7528;&#x4F8B;&#x5C31;&#x4F1A;&#x5931;&#x8D25;&#x3002;</p>
-<pre><code>@Test (expected=IndexOutOfBoundsException.class)
-public void testOutOfBounds( ) {
-    new ArrayList&lt;Object&gt;( ).get(1);
-}
-</code></pre>
-<p>&#x5982;&#x679C;&#x4E0A;&#x9762;&#x7684;&#x4EE3;&#x7801;&#x5728;&#x8FD0;&#x884C;&#x65F6;&#x6CA1;&#x6709;&#x629B;&#x51FA;IndexOutOfBoundsException&#x6216;&#x8005;&#x629B;&#x51FA;&#x7684;&#x662F;&#x5176;&#x4ED6;&#x7684;&#x5F02;&#x5E38;&#x7684;&#x8BDD;&#xFF0C;&#x90A3;&#x4E48;&#x8FD9;&#x4E2A;&#x7528;&#x4F8B;&#x5C31;&#x4F1A;&#x5931;&#x8D25;&#x3002;&#x7528;&#x6237;&#x81EA;&#x5B9A;&#x4E49;&#x7684;&#x6CE8;&#x89E3;&#x53EF;&#x4EE5;&#x5728;&#x8FD0;&#x884C;&#x65F6;&#x901A;&#x8FC7;Java&#x53CD;&#x5C04;API&#x91CC;&#x65B0;&#x589E;&#x7684;AnnotatedElement&#x548C;&#x201D;Annotation&#x201D;&#x5143;&#x7D20;&#x63A5;&#x53E3;&#x6765;&#x5904;&#x7406;&#x3002;</p>
-<p>5&#x3001;&#x5F02;&#x5E38;&#xFF08;Exception&#xFF09;</p>
-<p>&#x4F60;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;&#x8FD0;&#x884C;&#x65F6;&#x5F02;&#x5E38;&#x6216;&#x8005;&#x7F16;&#x8BD1;&#x65F6;&#x5F02;&#x5E38;&#x3002;</p>
-<p>5.1&#x3001;&#x8FD0;&#x884C;&#x65F6;&#x5F02;&#x5E38;&#xFF08;RuntimeException&#xFF09;</p>
-<p>&#x4E5F;&#x79F0;&#x4F5C;&#x672A;&#x68C0;&#x6D4B;&#x7684;&#x5F02;&#x5E38;&#xFF08;unchecked exception&#xFF09;&#xFF0C;&#x8FD9;&#x8868;&#x793A;&#x8FD9;&#x79CD;&#x5F02;&#x5E38;&#x4E0D;&#x9700;&#x8981;&#x7F16;&#x8BD1;&#x5668;&#x6765;&#x68C0;&#x6D4B;&#x3002;RuntimeException&#x662F;&#x6240;&#x6709;&#x53EF;&#x4EE5;&#x5728;&#x8FD0;&#x884C;&#x65F6;&#x629B;&#x51FA;&#x7684;&#x5F02;&#x5E38;&#x7684;&#x7236;&#x7C7B;&#x3002;&#x4E00;&#x4E2A;&#x65B9;&#x6CD5;&#x9664;&#x8981;&#x6355;&#x83B7;&#x5F02;&#x5E38;&#x5916;&#xFF0C;&#x5982;&#x679C;&#x5B83;&#x6267;&#x884C;&#x7684;&#x65F6;&#x5019;&#x53EF;&#x80FD;&#x4F1A;&#x629B;&#x51FA;RuntimeException&#x7684;&#x5B50;&#x7C7B;&#xFF0C;&#x90A3;&#x4E48;&#x5B83;&#x5C31;&#x4E0D;&#x9700;&#x8981;&#x7528;throw&#x8BED;&#x53E5;&#x6765;&#x58F0;&#x660E;&#x629B;&#x51FA;&#x7684;&#x5F02;&#x5E38;&#x3002;<br>
-&#x4F8B;&#x5982;&#xFF1A;NullPointerException&#xFF0C;ArrayIndexOutOfBoundsException&#xFF0C;&#x7B49;&#x7B49;</p>
-<p>5.2&#x3001;&#x53D7;&#x68C0;&#x67E5;&#x5F02;&#x5E38;&#xFF08;checked exception&#xFF09;</p>
-<p>&#x90FD;&#x662F;&#x7F16;&#x8BD1;&#x5668;&#x5728;&#x7F16;&#x8BD1;&#x65F6;&#x8FDB;&#x884C;&#x6821;&#x9A8C;&#x7684;&#xFF0C;&#x901A;&#x8FC7;throws&#x8BED;&#x53E5;&#x6216;&#x8005;try{}cathch{} &#x8BED;&#x53E5;&#x5757;&#x6765;&#x5904;&#x7406;&#x68C0;&#x6D4B;&#x5F02;&#x5E38;&#x3002;&#x7F16;&#x8BD1;&#x5668;&#x4F1A;&#x5206;&#x6790;&#x54EA;&#x4E9B;&#x5F02;&#x5E38;&#x4F1A;&#x5728;&#x6267;&#x884C;&#x4E00;&#x4E2A;&#x65B9;&#x6CD5;&#x6216;&#x8005;&#x6784;&#x9020;&#x51FD;&#x6570;&#x7684;&#x65F6;&#x5019;&#x629B;&#x51FA;&#x3002;</p>
-<p>6&#x3001;&#x9762;&#x5411;&#x5207;&#x9762;&#x7684;&#x7F16;&#x7A0B;&#xFF08;Aspect Oriented Programming-AOP&#xFF09;</p>
-<p>&#x5207;&#x9762;&#x53EF;&#x4EE5;&#x5728;&#x7F16;&#x8BD1;&#x65F6;&#xFF0C;&#x8FD0;&#x884C;&#x65F6;&#x6216;&#xFF0C;&#x52A0;&#x8F7D;&#x65F6;&#x6216;&#x8005;&#x8FD0;&#x884C;&#x65F6;&#x7EC7;&#x5165;&#x3002;</p>
-<p>6.1&#x3001;&#x7F16;&#x8BD1;&#x671F;</p>
-<p>&#x7F16;&#x8BD1;&#x671F;&#x7EC7;&#x5165;&#x662F;&#x6700;&#x7B80;&#x5355;&#x7684;&#x65B9;&#x5F0F;&#x3002;&#x5982;&#x679C;&#x4F60;&#x62E5;&#x6709;&#x5E94;&#x7528;&#x7684;&#x4EE3;&#x7801;&#xFF0C;&#x4F60;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;AOP&#x7F16;&#x8BD1;&#x5668;&#xFF08;&#x4F8B;&#x5982;&#xFF0C;ajc &#x2013; AspectJ&#x7F16;&#x8BD1;&#x5668;&#xFF09;&#x5BF9;&#x6E90;&#x7801;&#x8FDB;&#x884C;&#x7F16;&#x8BD1;&#xFF0C;&#x7136;&#x540E;&#x8F93;&#x51FA;&#x7EC7;&#x5165;&#x5B8C;&#x6210;&#x7684;class&#x6587;&#x4EF6;&#x3002;AOP&#x7F16;&#x8BD1;&#x7684;&#x8FC7;&#x7A0B;&#x5305;&#x542B;&#x4E86;waver&#x7684;&#x8C03;&#x7528;&#x3002;&#x5207;&#x9762;&#x7684;&#x5F62;&#x5F0F;&#x53EF;&#x4EE5;&#x662F;&#x6E90;&#x7801;&#x7684;&#x5F62;&#x5F0F;&#x4E5F;&#x53EF;&#x4EE5;&#x662F;&#x4E8C;&#x8FDB;&#x5236;&#x7684;&#x5F62;&#x5F0F;&#x3002;&#x5982;&#x679C;&#x5207;&#x9762;&#x9700;&#x8981;&#x9488;&#x5BF9;&#x53D7;&#x5F71;&#x54CD;&#x7684;&#x7C7B;&#x8FDB;&#x884C;&#x7F16;&#x8BD1;&#xFF0C;&#x90A3;&#x4E48;&#x4F60;&#x5C31;&#x9700;&#x8981;&#x5728;&#x7F16;&#x8BD1;&#x671F;&#x7EC7;&#x5165;&#x4E86;&#x3002;</p>
-<p>6.2&#x3001;&#x7F16;&#x8BD1;&#x540E;</p>
-<p>&#x8FD9;&#x79CD;&#x65B9;&#x5F0F;&#x6709;&#x65F6;&#x5019;&#x4E5F;&#x88AB;&#x79F0;&#x4E3A;&#x4E8C;&#x8FDB;&#x5236;&#x7EC7;&#x5165;&#xFF0C;&#x5B83;&#x88AB;&#x7528;&#x6765;&#x7EC7;&#x5165;&#x5DF2;&#x6709;&#x7684;class&#x6587;&#x4EF6;&#x548C;jar&#x6587;&#x4EF6;&#x3002;&#x548C;&#x7F16;&#x8BD1;&#x65F6;&#x7EC7;&#x5165;&#x65B9;&#x5F0F;&#x76F8;&#x540C;&#xFF0C;&#x7528;&#x6765;&#x7EC7;&#x5165;&#x7684;&#x5207;&#x9762;&#x53EF;&#x4EE5;&#x662F;&#x6E90;&#x7801;&#x4E5F;&#x53EF;&#x4EE5;&#x662F;&#x4E8C;&#x8FDB;&#x5236;&#x7684;&#x5F62;&#x5F0F;&#xFF0C;&#x5E76;&#x4E14;&#x5B83;&#x4EEC;&#x81EA;&#x5DF1;&#x4E5F;&#x53EF;&#x4EE5;&#x88AB;&#x7EC7;&#x5165;&#x5207;&#x9762;&#x3002;</p>
-<p>6.3&#x3001;&#x88C5;&#x8F7D;&#x671F;</p>
-<p>&#x8FD9;&#x79CD;&#x7EC7;&#x5165;&#x662F;&#x4E00;&#x79CD;&#x4E8C;&#x8FDB;&#x5236;&#x7EC7;&#x5165;&#xFF0C;&#x5B83;&#x88AB;&#x5EF6;&#x8FDF;&#x5230;JVM&#x52A0;&#x8F7D;class&#x6587;&#x4EF6;&#x548C;&#x5B9A;&#x4E49;&#x7C7B;&#x7684;&#x65F6;&#x5019;&#x3002;&#x4E3A;&#x4E86;&#x652F;&#x6301;&#x8FD9;&#x79CD;&#x7EC7;&#x5165;&#x65B9;&#x5F0F;&#xFF0C;&#x9700;&#x8981;&#x663E;&#x5F0F;&#x5730;&#x7531;&#x8FD0;&#x884C;&#x65F6;&#x73AF;&#x5883;&#x6216;&#x8005;&#x901A;&#x8FC7;&#x4E00;&#x79CD;&#x201C;&#x7EC7;&#x5165;&#x4EE3;&#x7406;&#xFF08;weaving agent&#xFF09;&#x201C;&#x6765;&#x63D0;&#x4F9B;&#x4E00;&#x4E2A;&#x6216;&#x8005;&#x591A;&#x4E2A;&#x201C;&#x7EC7;&#x5165;&#x7C7B;&#x52A0;&#x8F7D;&#x5668;&#xFF08;weaving class loader&#xFF09;&#x201D;&#x3002;</p>
-<p>6.4&#x3001;&#x8FD0;&#x884C;&#x65F6;</p>
-<p>&#x5BF9;&#x5DF2;&#x7ECF;&#x52A0;&#x8F7D;&#x5230;JVM&#x91CC;&#x7684;&#x7C7B;&#x8FDB;&#x884C;&#x7EC7;&#x5165;</p>
-<p>7&#x3001;&#x5176;&#x4ED6;&#x5206;&#x7C7B;</p>
-<p>&#x7EE7;&#x627F; &#x2013; &#x53D1;&#x751F;&#x5728;&#x7F16;&#x8BD1;&#x65F6;&#xFF0C;&#x56E0;&#x4E3A;&#x5B83;&#x662F;&#x9759;&#x6001;&#x7684;</p>
-<p>&#x4EE3;&#x7406;&#x6216;&#x8005;&#x7EC4;&#x5408; &#x2013; &#x53D1;&#x751F;&#x5728;&#x8FD0;&#x884C;&#x65F6;&#xFF0C;&#x56E0;&#x4E3A;&#x5B83;&#x66F4;&#x52A0;&#x5177;&#x6709;&#x52A8;&#x6001;&#x6027;&#x548C;&#x7075;&#x6D3B;&#x6027;&#x3002;</p>
-<p><strong>Q.&#x4F60;&#x6709;&#x6CA1;&#x6709;&#x542C;&#x8BF4;&#x8FC7;&#x201C;&#x7EC4;&#x5408;&#x4F18;&#x4E8E;&#x7EE7;&#x627F;&#x201D;&#x8FD9;&#x6837;&#x7684;&#x8BF4;&#x6CD5;&#x5462;&#xFF1F;&#x5982;&#x679C;&#x542C;&#x8BF4;&#x8FC7;&#x7684;&#x8BDD;&#xFF0C;&#x90A3;&#x4E48;&#x4F60;&#x662F;&#x600E;&#x4E48;&#x7406;&#x89E3;&#x7684;&#x5462;&#xFF1F;</strong></p>
-<p>A.&#x7EE7;&#x627F;&#x662F;&#x4E00;&#x79CD;&#x591A;&#x6001;&#x5DE5;&#x5177;&#xFF0C;&#x800C;&#x4E0D;&#x662F;&#x4E00;&#x79CD;&#x4EE3;&#x7801;&#x590D;&#x7528;&#x5DE5;&#x5177;&#x3002;&#x6709;&#x4E9B;&#x5F00;&#x53D1;&#x8005;&#x559C;&#x6B22;&#x7528;&#x7EE7;&#x627F;&#x7684;&#x65B9;&#x5F0F;&#x6765;&#x5B9E;&#x73B0;&#x4EE3;&#x7801;&#x590D;&#x7528;&#xFF0C;&#x5373;&#x4F7F;&#x662F;&#x5728;&#x6CA1;&#x6709;&#x591A;&#x6001;&#x5173;&#x7CFB;&#x7684;&#x60C5;&#x51B5;&#x4E0B;&#x3002;&#x662F;&#x5426;&#x4F7F;&#x7528;&#x7EE7;&#x627F;&#x7684;&#x89C4;&#x5219;&#x662F;&#x7EE7;&#x627F;&#x53EA;&#x80FD;&#x7528;&#x5728;&#x7C7B;&#x4E4B;&#x95F4;&#x6709;&#x201C;&#x7236;&#x5B50;&#x201D;&#x5173;&#x7CFB;&#x7684;&#x60C5;&#x51B5;&#x4E0B;&#x3002;</p>
-<ol>
-<li>
-<p>&#x4E0D;&#x8981;&#x4EC5;&#x4EC5;&#x4E3A;&#x4E86;&#x4EE3;&#x7801;&#x590D;&#x7528;&#x800C;&#x7EE7;&#x627F;&#x3002;&#x5F53;&#x4F60;&#x4F7F;&#x7528;&#x7EC4;&#x5408;&#x6765;&#x5B9E;&#x73B0;&#x4EE3;&#x7801;&#x590D;&#x7528;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x662F;&#x4E0D;&#x4F1A;&#x4EA7;&#x751F;&#x7EE7;&#x627F;&#x5173;&#x7CFB;&#x7684;&#x3002;&#x8FC7;&#x5EA6;&#x4F7F;&#x7528;&#x7EE7;&#x627F;&#xFF08;&#x901A;&#x8FC7;&#x201C;extends&#x201D;&#x5173;&#x952E;&#x5B57;&#xFF09;&#x7684;&#x8BDD;&#xFF0C;&#x5982;&#x679C;&#x4FEE;&#x6539;&#x4E86;&#x7236;&#x7C7B;&#xFF0C;&#x4F1A;&#x635F;&#x574F;&#x6240;&#x6709;&#x7684;&#x5B50;&#x7C7B;&#x3002;&#x8FD9;&#x662F;&#x56E0;&#x4E3A;&#x5B50;&#x7C7B;&#x548C;&#x7236;&#x7C7B;&#x7684;&#x7D27;&#x8026;&#x5408;&#x5173;&#x7CFB;&#x662F;&#x5728;&#x7F16;&#x8BD1;&#x671F;&#x4EA7;&#x751F;&#x7684;&#x3002;</p>
-</li>
-<li>
-<p>&#x4E0D;&#x8981;&#x4EC5;&#x4EC5;&#x4E3A;&#x4E86;&#x591A;&#x6001;&#x800C;&#x7EE7;&#x627F;&#x3002;&#x5982;&#x679C;&#x4F60;&#x7684;&#x7C7B;&#x4E4B;&#x95F4;&#x6CA1;&#x6709;&#x7EE7;&#x627F;&#x5173;&#x7CFB;&#xFF0C;&#x5E76;&#x4E14;&#x4F60;&#x60F3;&#x8981;&#x5B9E;&#x73B0;&#x591A;&#x6001;&#xFF0C;&#x90A3;&#x4E48;&#x4F60;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x63A5;&#x53E3;&#x548C;&#x7EC4;&#x5408;&#x7684;&#x65B9;&#x5F0F;&#x6765;&#x5B9E;&#x73B0;&#xFF0C;&#x8FD9;&#x6837;&#x4E0D;&#x4EC5;&#x53EF;&#x4EE5;&#x5B9E;&#x73B0;&#x4EE3;&#x7801;&#x91CD;&#x7528;&#xFF0C;&#x540C;&#x65F6;&#x4E5F;&#x53EF;&#x4EE5;&#x5B9E;&#x73B0;&#x8FD0;&#x884C;&#x65F6;&#x7684;&#x7075;&#x6D3B;&#x6027;&#x3002;</p>
-</li>
-</ol>
-<p>&#x8FD9;&#x5C31;&#x662F;&#x4E3A;&#x4EC0;&#x4E48;&#xFF08;Gang of Four&#xFF09;&#x7684;&#x8BBE;&#x8BA1;&#x6A21;&#x5F0F;&#x91CC;&#x66F4;&#x503E;&#x5411;&#x4E8E;&#x4F7F;&#x7528;&#x7EC4;&#x5408;&#x800C;&#x4E0D;&#x662F;&#x7EE7;&#x627F;&#x7684;&#x539F;&#x56E0;&#x3002;&#x9762;&#x8BD5;&#x8005;&#x4F1A;&#x5728;&#x4F60;&#x7684;&#x7B54;&#x6848;&#x91CC;&#x7740;&#x91CD;&#x5173;&#x6CE8;&#x8FD9;&#x51E0;&#x4E2A;&#x8BCD;&#x8BED;&#x2014;&#x2014;&#x201C;&#x8026;&#x5408;&#x201D;&#xFF0C;&#x201C;&#x9759;&#x6001;&#x8FD8;&#x662F;&#x52A8;&#x6001;&#x201D;&#xFF0C;&#x4EE5;&#x53CA;&#x201C;&#x53D1;&#x751F;&#x5728;&#x7F16;&#x8BD1;&#x671F;&#x8FD8;&#x662F;&#x8FD0;&#x884C;&#x65F6;&#x201D;&#x3002;&#x8FD0;&#x884C;&#x65F6;&#x7684;&#x7075;&#x6D3B;&#x6027;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x7EC4;&#x5408;&#x6765;&#x5B9E;&#x73B0;&#xFF0C;&#x56E0;&#x4E3A;&#x7C7B;&#x53EF;&#x4EE5;&#x5728;&#x8FD0;&#x884C;&#x65F6;&#x52A8;&#x6001;&#x5730;&#x6839;&#x636E;&#x4E00;&#x4E2A;&#x7ED3;&#x679C;&#x6709;&#x6761;&#x4EF6;&#x6216;&#x8005;&#x65E0;&#x6761;&#x4EF6;&#x5730;&#x8FDB;&#x884C;&#x7EC4;&#x5408;&#x3002;&#x4F46;&#x662F;&#x7EE7;&#x627F;&#x5374;&#x662F;&#x9759;&#x6001;&#x7684;&#x3002;</p>
-<p><strong>Q.&#x4F60;&#x80FD;&#x591F;&#x901A;&#x8FC7;&#x5B9E;&#x4F8B;&#x6765;&#x533A;&#x522B;&#x7F16;&#x8BD1;&#x671F;&#x7EE7;&#x627F;&#x548C;&#x8FD0;&#x884C;&#x65F6;&#x7EE7;&#x627F;&#xFF0C;&#x4EE5;&#x53CA;&#x6307;&#x51FA;Java&#x652F;&#x6301;&#x54EA;&#x79CD;&#x5417;&#xFF1F;</strong></p>
-<p>A.&#x201C;&#x7EE7;&#x627F;&#x201D;&#x8868;&#x793A;&#x52A8;&#x4F5C;&#x548C;&#x5C5E;&#x6027;&#x4ECE;&#x4E00;&#x4E2A;&#x5BF9;&#x8C61;&#x4F20;&#x9012;&#x5230;&#x53E6;&#x5916;&#x4E00;&#x4E2A;&#x5BF9;&#x8C61;&#x7684;&#x573A;&#x666F;&#x3002;Java&#x8BED;&#x8A00;&#x672C;&#x8EAB;&#x53EA;&#x652F;&#x6301;&#x7F16;&#x8BD1;&#x671F;&#x7EE7;&#x627F;&#xFF0C;&#x5B83;&#x662F;&#x901A;&#x8FC7;&#x201C;extends&#x201D;&#x5173;&#x952E;&#x5B57;&#x6765;&#x4EA7;&#x751F;&#x5B50;&#x7C7B;&#x7684;&#x65B9;&#x5F0F;&#x5B9E;&#x73B0;&#x7684;&#xFF0C;&#x5982;&#x4E0B;&#x6240;&#x793A;&#xFF1A;</p>
-<pre><code>public class Parent {
-    public String saySomething( ) { return &#x201C;Parent is called&#x201D;;
-    }
-}
-public class Child extends Parent {
-    @Override
-    public String saySomething( ) {
-    return super.saySomething( ) + &#x201C;, Child is called&#x201D;;
-    }
-}
-</code></pre>
-<p>&#x201C;Child&#x201D;&#x7C7B;&#x7684;saySomething()&#x65B9;&#x6CD5;&#x7684;&#x8C03;&#x7528;&#x4F1A;&#x8FD4;&#x56DE;&#x201C;Parent is called&#xFF0C;Child is Called&#x201D;&#xFF0C;&#x56E0;&#x4E3A;&#xFF0C;&#x5B50;&#x7C7B;&#x7684;&#x8C03;&#x7528;&#x7EE7;&#x627F;&#x4E86;&#x7236;&#x7C7B;&#x7684;&#x201C;Parenet is called&#x201D;&#x3002;&#x5173;&#x952E;&#x5B57;&#x201C;super&#x201D;&#x662F;&#x7528;&#x6765;&#x8C03;&#x7528;&#x201C;Parent&#x201D;&#x7C7B;&#x7684;&#x65B9;&#x6CD5;&#x3002;&#x8FD0;&#x884C;&#x65F6;&#x7EE7;&#x627F;&#x8868;&#x793A;&#x5728;&#x8FD0;&#x884C;&#x65F6;&#x6784;&#x5EFA;&#x7236;/&#x5B50;&#x7C7B;&#x5173;&#x7CFB;&#x3002;Java&#x8BED;&#x8A00;&#x672C;&#x8EAB;&#x4E0D;&#x652F;&#x6301;&#x8FD0;&#x884C;&#x65F6;&#x7EE7;&#x627F;&#xFF0C;&#x4F46;&#x662F;&#x6709;&#x4E00;&#x79CD;&#x66FF;&#x4EE3;&#x7684;&#x65B9;&#x6848;&#x53EB;&#x505A;&#x201C;&#x4EE3;&#x7406;&#x201D;&#x6216;&#x8005;&#x201C;&#x7EC4;&#x5408;&#x201D;&#xFF0C;&#x5B83;&#x8868;&#x793A;&#x5728;&#x8FD0;&#x884C;&#x65F6;&#x7EC4;&#x4EF6;&#x4E00;&#x4E2A;&#x5C42;&#x6B21;&#x5BF9;&#x8C61;&#x7684;&#x5B50;&#x7C7B;&#x3002;&#x8FD9;&#x6837;&#x53EF;&#x4EE5;&#x6A21;&#x62DF;&#x8FD0;&#x884C;&#x65F6;&#x7EE7;&#x627F;&#x7684;&#x5B9E;&#x73B0;&#x3002;&#x5728;Java&#x91CC;&#xFF0C;&#x4EE3;&#x7406;&#x7684;&#x5178;&#x578B;&#x5B9E;&#x73B0;&#x65B9;&#x5F0F;&#x5982;&#x4E0B;&#xFF1A;</p>
-<pre><code>public class Parent {
-    public String saySomething( ) {
-        return &#x201C;Parent is called&#x201D;;
-    }
-}
-public class Child {
-    public String saySomething( ) {
-        return new Parent( ).saySomething( ) + &#x201C;, Child is called&#x201D;;
-    }
-}
-</code></pre>
-<p>&#x5B50;&#x7C7B;&#x4EE3;&#x7406;&#x4E86;&#x7236;&#x7C7B;&#x7684;&#x8C03;&#x7528;&#x3002;&#x7EC4;&#x5408;&#x53EF;&#x4EE5;&#x6309;&#x7167;&#x4E0B;&#x9762;&#x7684;&#x65B9;&#x5F0F;&#x6765;&#x5B9E;&#x73B0;&#xFF1A;</p>
-<pre><code>public class Child {
-    private Parent parent = null;
-    public Child( ){ this.parent = new Parent( );
-    }
-    public String saySomething( ) {
-        return this.parent.saySomething( ) + &#x201C;, Child is called&#x201D;;
-    }
-}
-</code></pre>]]></content>
-    
-    <summary type="html">
-    
-      &lt;div style=&quot;margin-top:-16px&quot;&gt;&lt;img class=&quot;pic lazy&quot; data-original=&quot;/2016/10/12/java-compile-running/javacompiler.png&quot; style=&quot;float:left; width:100px; height:56px; margin-right:16px&quot; alt=&quot;&quot;&gt;
-&lt;span&gt;&amp;#x5728;&amp;#x5F00;&amp;#x53D1;&amp;#x548C;&amp;#x8BBE;&amp;#x8BA1;&amp;#x7684;&amp;#x65F6;&amp;#x5019;&amp;#xFF0C;&amp;#x6211;&amp;#x4EEC;&amp;#x9700;&amp;#x8981;&amp;#x8003;&amp;#x8651;&amp;#x7F16;&amp;#x8BD1;&amp;#x65F6;&amp;#xFF0C;&amp;#x8FD0;&amp;#x884C;&amp;#x65F6;&amp;#x4EE5;&amp;#x53CA;&amp;#x6784;&amp;#x5EFA;&amp;#x65F6;&amp;#x8FD9;&amp;#x4E09;&amp;#x4E2A;&amp;#x6982;&amp;#x5FF5;&amp;#x3002;&amp;#x7406;&amp;#x89E3;&amp;#x8FD9;&amp;#x51E0;&amp;#x4E2A;&amp;#x6982;&amp;#x5FF5;&amp;#x53EF;&amp;#x4EE5;&amp;#x66F4;&amp;#x597D;&amp;#x5730;&amp;#x5E2E;&amp;#x52A9;&amp;#x4F60;&amp;#x53BB;&amp;#x4E86;&amp;#x89E3;&amp;#x4E00;&amp;#x4E9B;&amp;#x57FA;&amp;#x672C;&amp;#x7684;&amp;#x539F;&amp;#x7406;&amp;#x3002;&amp;#x4E0B;&amp;#x9762;&amp;#x662F;&amp;#x521D;&amp;#x5B66;&amp;#x8005;&amp;#x664B;&amp;#x7EA7;&amp;#x4E2D;&amp;#x7EA7;&amp;#x6C34;&amp;#x5E73;&amp;#x9700;&amp;#x8981;&amp;#x77E5;&amp;#x9053;&amp;#x7684;&amp;#x4E00;&amp;#x4E9B;&amp;#x95EE;&amp;#x9898;&amp;#x3002;&lt;/span&gt;&lt;/div&gt;
-    
-    </summary>
-    
-      <category term="编程" scheme="http://ngudream.com/categories/%E7%BC%96%E7%A8%8B/"/>
-    
-    
-      <category term="Java" scheme="http://ngudream.com/tags/Java/"/>
     
   </entry>
   

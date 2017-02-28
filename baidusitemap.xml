@@ -4,12 +4,32 @@
 
     
   <url>
+    <loc>http://ngudream.com/2017/02/28/android-animation-theory/</loc>
+    <lastmod>2017-02-28T15:54:32.200Z</lastmod>
+    <data>
+        <display>
+        <title>Android 三种常用动画分析</title>
+        <pubTime>2017-02-28T13:59:14.000Z</pubTime>
+        
+        <tag>Android</tag>
+         
+         
+           
+             
+              <breadCrumb title="移动开发" url="http://ngudream.com/categories/%E7%A7%BB%E5%8A%A8%E5%BC%80%E5%8F%91/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://ngudream.com/2017/02/27/rxjava-only-flatmap/</loc>
-    <lastmod>2017-02-27T15:46:18.250Z</lastmod>
+    <lastmod>2017-02-28T15:50:43.735Z</lastmod>
     <data>
         <display>
         <title>只能用 flatmap 而不能用 map 的场景</title>
-        <pubTime>2017-02-27T14:02:35.000Z</pubTime>
+        <pubTime>2017-02-27T15:02:35.000Z</pubTime>
         
         <tag>RxJava</tag>
          
