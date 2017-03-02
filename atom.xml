@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://ngudream.com/"/>
-  <updated>2017-02-28T15:54:32.200Z</updated>
+  <updated>2017-03-02T14:32:03.104Z</updated>
   <id>http://ngudream.com/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://ngudream.com/2017/02/28/android-animation-theory/"/>
     <id>http://ngudream.com/2017/02/28/android-animation-theory/</id>
     <published>2017-02-28T13:59:14.000Z</published>
-    <updated>2017-02-28T15:54:32.200Z</updated>
+    <updated>2017-03-02T14:32:03.104Z</updated>
     
     <content type="html"><![CDATA[<h2 id="&#x539F;&#x7406;"><a class="header-anchor" href="#&#x539F;&#x7406;"></a>&#x539F;&#x7406;</h2>
 <h3 id="timeinterpolator&#x548C;typeevaluator"><a class="header-anchor" href="#timeinterpolator&#x548C;typeevaluator"></a>TimeInterpolator&#x548C;TypeEvaluator</h3>
@@ -57,6 +57,20 @@
 </code></pre>
 <p>&#x4E0A;&#x8FF0;&#x7B97;&#x6CD5;&#x5F88;&#x7B80;&#x5355;&#xFF0C;evaluate&#x7684;&#x4E09;&#x4E2A;&#x53C2;&#x6570;&#x5206;&#x522B;&#x8868;&#x793A;&#xFF1A;&#x4F30;&#x503C;&#x5C0F;&#x6570;&#x3001;&#x5F00;&#x59CB;&#x503C;&#x548C;&#x7ED3;&#x675F;&#x503C;&#xFF0C;&#x5BF9;&#x5E94;&#x4E8E;&#x6211;&#x4EEC;&#x7684;&#x4F8B;&#x5B50;&#x5C31;&#x5206;&#x522B;&#x662F;&#xFF1A;0.5&#xFF0C;0&#xFF0C;40&#x3002;&#x6839;&#x636E;&#x4E0A;&#x8FF0;&#x7B97;&#x6CD5;&#xFF0C;&#x6574;&#x578B;&#x4F30;&#x503C;&#x8FD4;&#x56DE;&#x7ED9;&#x6211;&#x4EEC;&#x7684;&#x7ED3;&#x679C;&#x662F;20&#xFF0C;&#x8FD9;&#x5C31;&#x662F;&#xFF08;x=20 t=20ms&#xFF09;&#x7684;&#x7531;&#x6765;&#x3002;</p>
 <p>&#x8BF4;&#x660E;&#xFF1A;&#x5C5E;&#x6027;&#x52A8;&#x753B;&#x8981;&#x6C42;&#x8BE5;&#x5C5E;&#x6027;&#x6709;set&#x65B9;&#x6CD5;&#x548C;get&#x65B9;&#x6CD5;&#xFF08;&#x53EF;&#x9009;&#xFF09;&#xFF1B;&#x63D2;&#x503C;&#x5668;&#x548C;&#x4F30;&#x503C;&#x7B97;&#x6CD5;&#x9664;&#x4E86;&#x7CFB;&#x7EDF;&#x63D0;&#x4F9B;&#x7684;&#x5916;&#xFF0C;&#x6211;&#x4EEC;&#x8FD8;&#x53EF;&#x4EE5;&#x81EA;&#x5B9A;&#x4E49;&#xFF0C;&#x5B9E;&#x73B0;&#x65B9;&#x5F0F;&#x4E5F;&#x5F88;&#x7B80;&#x5355;&#xFF0C;&#x56E0;&#x4E3A;&#x63D2;&#x503C;&#x5668;&#x548C;&#x4F30;&#x503C;&#x7B97;&#x6CD5;&#x90FD;&#x662F;&#x4E00;&#x4E2A;&#x63A5;&#x53E3;&#xFF0C;&#x4E14;&#x5185;&#x90E8;&#x90FD;&#x53EA;&#x6709;&#x4E00;&#x4E2A;&#x65B9;&#x6CD5;&#xFF0C;&#x6211;&#x4EEC;&#x53EA;&#x8981;&#x6D3E;&#x751F;&#x4E00;&#x4E2A;&#x7C7B;&#x5B9E;&#x73B0;&#x63A5;&#x53E3;&#x5C31;&#x53EF;&#x4EE5;&#x4E86;&#xFF0C;&#x7136;&#x540E;&#x4F60;&#x5C31;&#x53EF;&#x4EE5;&#x505A;&#x51FA;&#x5343;&#x5947;&#x767E;&#x602A;&#x7684;&#x52A8;&#x753B;&#x6548;&#x679C;&#x3002;&#x5177;&#x4F53;&#x4E00;&#x70B9;&#x5C31;&#x662F;&#xFF1A;&#x81EA;&#x5B9A;&#x4E49;&#x63D2;&#x503C;&#x5668;&#x9700;&#x8981;&#x5B9E;&#x73B0;Interpolator&#x6216;&#x8005;TimeInterpolator&#xFF0C;&#x81EA;&#x5B9A;&#x4E49;&#x4F30;&#x503C;&#x7B97;&#x6CD5;&#x9700;&#x8981;&#x5B9E;&#x73B0;TypeEvaluator&#x3002;&#x8FD8;&#x6709;&#x5C31;&#x662F;&#x5982;&#x679C;&#x4F60;&#x5BF9;&#x5176;&#x4ED6;&#x7C7B;&#x578B;&#xFF08;&#x975E;int&#x3001;float&#x3001;color&#xFF09;&#x505A;&#x52A8;&#x753B;&#xFF0C;&#x4F60;&#x5FC5;&#x987B;&#x8981;&#x81EA;&#x5B9A;&#x4E49;&#x7C7B;&#x578B;&#x4F30;&#x503C;&#x7B97;&#x6CD5;&#x3002;</p>
+<h3 id="timeinterplator"><a class="header-anchor" href="#timeinterplator"></a>TimeInterplator</h3>
+<p>time interplator&#x5B9A;&#x4E49;&#x4E86;&#x5C5E;&#x6027;&#x503C;&#x53D8;&#x5316;&#x7684;&#x65B9;&#x5F0F;&#xFF0C;&#x5982;&#x7EBF;&#x6027;&#x5747;&#x5300;&#x6539;&#x53D8;&#xFF0C;&#x5F00;&#x59CB;&#x6162;&#x7136;&#x540E;&#x9010;&#x6E10;&#x5FEB;&#x7B49;&#x3002;&#x5728;Property Animation&#x4E2D;&#x662F;TimeInterplator&#xFF0C;&#x5728;View Animation&#x4E2D;&#x662F;Interplator&#xFF0C;&#x8FD9;&#x4E24;&#x4E2A;&#x662F;&#x4E00;&#x6837;&#x7684;&#xFF0C;&#x5728;3.0&#x4E4B;&#x524D;&#x53EA;&#x6709;Interplator&#xFF0C;3.0&#x4E4B;&#x540E;&#x5B9E;&#x73B0;&#x4EE3;&#x7801;&#x8F6C;&#x79FB;&#x81F3;&#x4E86; TimeInterplator&#x3002;Interplator&#x7EE7;&#x627F;&#x81EA;TimeInterplator&#xFF0C;&#x5185;&#x90E8;&#x6CA1;&#x6709;&#x4EFB;&#x4F55;&#x5176;&#x4ED6;&#x4EE3;&#x7801;&#x3002;</p>
+<ul>
+<li>AccelerateInterpolator&#x3000;&#x3000;&#x3000;&#x3000;&#x3000;     &#x52A0;&#x901F;&#xFF0C;&#x5F00;&#x59CB;&#x65F6;&#x6162;&#x4E2D;&#x95F4;&#x52A0;&#x901F;</li>
+<li>DecelerateInterpolator&#x3000;&#x3000;&#x3000; &#x3000;&#x3000;   &#x51CF;&#x901F;&#xFF0C;&#x5F00;&#x59CB;&#x65F6;&#x5FEB;&#x7136;&#x540E;&#x51CF;&#x901F;</li>
+<li>AccelerateDecelerateInterolator&#x3000;   &#x5148;&#x52A0;&#x901F;&#x540E;&#x51CF;&#x901F;&#xFF0C;&#x5F00;&#x59CB;&#x7ED3;&#x675F;&#x65F6;&#x6162;&#xFF0C;&#x4E2D;&#x95F4;&#x52A0;&#x901F;</li>
+<li>AnticipateInterpolator&#x3000;&#x3000;&#x3000;&#x3000;&#x3000;&#x3000;  &#x53CD;&#x5411; &#xFF0C;&#x5148;&#x5411;&#x76F8;&#x53CD;&#x65B9;&#x5411;&#x6539;&#x53D8;&#x4E00;&#x6BB5;&#x518D;&#x52A0;&#x901F;&#x64AD;&#x653E;</li>
+<li>AnticipateOvershootInterpolator&#x3000; &#x53CD;&#x5411;&#x52A0;&#x8D85;&#x8D8A;&#xFF0C;&#x5148;&#x5411;&#x76F8;&#x53CD;&#x65B9;&#x5411;&#x6539;&#x53D8;&#xFF0C;&#x518D;&#x52A0;&#x901F;&#x64AD;&#x653E;&#xFF0C;&#x4F1A;&#x8D85;&#x51FA;&#x76EE;&#x7684;&#x503C;&#x7136;&#x540E;&#x7F13;&#x6162;&#x79FB;&#x52A8;&#x81F3;&#x76EE;&#x7684;&#x503C;</li>
+<li>BounceInterpolator&#x3000;&#x3000;&#x3000;&#x8DF3;&#x8DC3;&#xFF0C;&#x5FEB;&#x5230;&#x76EE;&#x7684;&#x503C;&#x65F6;&#x503C;&#x4F1A;&#x8DF3;&#x8DC3;&#xFF0C;&#x5982;&#x76EE;&#x7684;&#x503C;100&#xFF0C;&#x540E;&#x9762;&#x7684;&#x503C;&#x53EF;&#x80FD;&#x4F9D;&#x6B21;&#x4E3A;85&#xFF0C;77&#xFF0C;70&#xFF0C;80&#xFF0C;90&#xFF0C;100</li>
+<li>CycleIinterpolator&#x3000;&#x3000;&#x3000;  &#x5FAA;&#x73AF;&#xFF0C;&#x52A8;&#x753B;&#x5FAA;&#x73AF;&#x4E00;&#x5B9A;&#x6B21;&#x6570;&#xFF0C;&#x503C;&#x7684;&#x6539;&#x53D8;&#x4E3A;&#x4E00;&#x6B63;&#x5F26;&#x51FD;&#x6570;&#xFF1A;Math.sin(2 * mCycles * Math.PI * input)</li>
+<li>LinearInterpolator&#x3000;&#x3000;&#x3000;&#x3000;&#x3000;&#x3000;&#x3000;&#x3000;  &#x7EBF;&#x6027;&#xFF0C;&#x7EBF;&#x6027;&#x5747;&#x5300;&#x6539;&#x53D8;</li>
+<li>OvershottInterpolator&#x3000;&#x3000;&#x3000;&#x3000;&#x3000;&#x3000;  &#x8D85;&#x8D8A;&#xFF0C;&#x6700;&#x540E;&#x8D85;&#x51FA;&#x76EE;&#x7684;&#x503C;&#x7136;&#x540E;&#x7F13;&#x6162;&#x6539;&#x53D8;&#x5230;&#x76EE;&#x7684;&#x503C;</li>
+<li>TimeInterpolator&#x3000;&#x3000;&#x3000;&#x3000;&#x3000;&#x3000;&#x3000;&#x3000;&#x3000; &#x4E00;&#x4E2A;&#x63A5;&#x53E3;&#xFF0C;&#x5141;&#x8BB8;&#x4F60;&#x81EA;&#x5B9A;&#x4E49;interpolator&#xFF0C;&#x4EE5;&#x4E0A;&#x51E0;&#x4E2A;&#x90FD;&#x662F;&#x5B9E;&#x73B0;&#x4E86;&#x8FD9;&#x4E2A;&#x63A5;&#x53E3;</li>
+</ul>
 <h2 id="frame-animation"><a class="header-anchor" href="#frame-animation"></a>Frame Animation</h2>
 <p>Frame&#x52A8;&#x753B;&#x662F;&#x4E00;&#x5E27;&#x4E00;&#x5E27;&#x7684;&#x7ED8;&#x5236;&#x51FA;&#x6765;&#x7684;&#xFF0C;&#x662F;&#x4E00;&#x7CFB;&#x5217;&#x56FE;&#x7247;&#x6309;&#x7167;&#x4E00;&#x5B9A;&#x7684;&#x987A;&#x5E8F;&#x5C55;&#x793A;&#x7684;&#x8FC7;&#x7A0B;&#xFF0C;&#x548C;&#x653E;&#x7535;&#x5F71;&#x7684;&#x673A;&#x5236;&#x5F88;&#x76F8;&#x4F3C;&#xFF0C;&#x6211;&#x4EEC;&#x79F0;&#x4E3A;&#x9010;&#x5E27;&#x52A8;&#x753B;&#x3002;Frame&#x52A8;&#x753B;&#x53EF;&#x4EE5;&#x88AB;&#x5B9A;&#x4E49;&#x5728;XML&#x6587;&#x4EF6;&#x4E2D;&#xFF0C;&#x4E5F;&#x53EF;&#x4EE5;&#x5B8C;&#x5168;&#x7F16;&#x7801;&#x5B9E;&#x73B0;&#x3002;</p>
 <p>&#x6B63;&#x5982;&#x4E0A;&#x9762;&#x6240;&#x8BF4;&#xFF0C;&#x5E27;&#x52A8;&#x753B;&#x5C31;&#x50CF;&#x7535;&#x5F71;&#x4E00;&#x6837;&#xFF0C;&#x6BCF;&#x4E00;&#x5E27;&#x5C31;&#x662F;&#x4E00;&#x5F20;&#x56FE;&#x7247;&#xFF0C;&#x56E0;&#x6B64;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x81EA;&#x5B9A;&#x4E49;&#x5E27;&#x52A8;&#x753B;&#x7684;&#x9996;&#x8981;&#x6761;&#x4EF6;&#x5C31;&#x662F;&#x5EFA;&#x7ACB;&#x56FE;&#x7247;&#x5E8F;&#x5217;&#x3002;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x7528;&#x5B83;&#x6765;&#x6A21;&#x62DF;&#x7B80;&#x5355;&#x7684; gif &#x52A8;&#x56FE;&#x3002;</p>
@@ -266,11 +280,210 @@
 }
 </code></pre>
 <h2 id="tween-animation"><a class="header-anchor" href="#tween-animation"></a>Tween Animation</h2>
-<p>&#x662F;&#x5BF9;&#x67D0;&#x4E2A;View&#x8FDB;&#x884C;&#x4E00;&#x7CFB;&#x5217;&#x7684;&#x52A8;&#x753B;&#x7684;&#x64CD;&#x4F5C;&#xFF0C;&#x5305;&#x62EC;&#x6DE1;&#x5165;&#x6DE1;&#x51FA;&#xFF08;Alpha&#xFF09;&#xFF0C;&#x7F29;&#x653E;&#xFF08;Scale&#xFF09;&#xFF0C;&#x5E73;&#x79FB;&#xFF08;Translate&#xFF09;&#xFF0C;&#x65CB;&#x8F6C;&#xFF08;Rotate&#xFF09;&#x56DB;&#x79CD;&#x6A21;&#x5F0F;&#x3002;&#x539F;&#x7406;&#x662F;&#x7ED9;&#x51FA;&#x4E24;&#x4E2A;&#x5173;&#x952E;&#x5E27;&#xFF0C;&#x901A;&#x8FC7;&#x4E00;&#x4E9B;&#x7B97;&#x6CD5;&#x5C06;&#x7ED9;&#x5B9A;&#x5C5E;&#x6027;&#x503C;&#x5728;&#x7ED9;&#x5B9A;&#x7684;&#x65F6;&#x95F4;&#x5185;&#x5728;&#x4E24;&#x4E2A;&#x5173;&#x952E;&#x5E27;&#x95F4;&#x6E10;&#x53D8;&#x3002;</p>
+<p>&#x662F;&#x5BF9;&#x67D0;&#x4E2A;View&#x8FDB;&#x884C;&#x4E00;&#x7CFB;&#x5217;&#x7684;&#x52A8;&#x753B;&#x7684;&#x64CD;&#x4F5C;&#xFF0C;&#x5305;&#x62EC;&#x6DE1;&#x5165;&#x6DE1;&#x51FA;&#xFF08;Alpha&#xFF09;&#xFF0C;&#x7F29;&#x653E;&#xFF08;Scale&#xFF09;&#xFF0C;&#x5E73;&#x79FB;&#xFF08;Translate&#xFF09;&#xFF0C;&#x65CB;&#x8F6C;&#xFF08;Rotate&#xFF09;&#x56DB;&#x79CD;&#x6A21;&#x5F0F;&#x3002;&#x539F;&#x7406;&#x662F;&#x7ED9;&#x51FA;&#x4E24;&#x4E2A;&#x5173;&#x952E;&#x5E27;&#xFF0C;&#x901A;&#x8FC7;&#x4E00;&#x4E9B;&#x7B97;&#x6CD5;&#x5C06;&#x7ED9;&#x5B9A;&#x7684;&#x5C5E;&#x6027;&#x503C;&#x5728;&#x7ED9;&#x5B9A;&#x7684;&#x65F6;&#x95F4;&#x5185;&#x5728;&#x4E24;&#x4E2A;&#x5173;&#x952E;&#x5E27;&#x4E4B;&#x95F4;&#x6E10;&#x53D8;&#x3002;&#x9700;&#x8981;&#x6CE8;&#x610F;&#x7684;&#x5C31;&#x662F;&#x8BE5;&#x52A8;&#x753B;&#x53EA;&#x80FD;&#x5E94;&#x7528;&#x4E8E;View&#x5BF9;&#x8C61;&#x3002;</p>
+<p>Android Tween &#x52A8;&#x753B;&#x5C31;&#x662F;&#x901A;&#x8FC7;ParentView &#x6765;&#x4E0D;&#x65AD;&#x8C03;&#x6574; ChildView &#x7684;&#x753B;&#x5E03;&#x5750;&#x6807;&#x7CFB;&#x6765;&#x5B9E;&#x73B0;&#x7684;&#xFF0C;&#x4E0B;&#x9762;&#x4EE5;&#x5E73;&#x79FB;&#x52A8;&#x753B;&#x6765;&#x505A;&#x793A;&#x4F8B;&#xFF0C;&#x5047;&#x8BBE;&#x5728;&#x52A8;&#x753B;&#x5F00;&#x59CB;&#x65F6; ChildView &#x5728; ParentView &#x4E2D;&#x7684;&#x521D;&#x59CB;&#x4F4D;&#x7F6E;&#x5728; (100,200) &#x5904;&#xFF0C;&#x8FD9;&#x65F6; ParentView &#x4F1A;&#x6839;&#x636E;&#x8FD9;&#x4E2A;&#x5750;&#x6807;&#x6765;&#x8BBE;&#x7F6E; ChildView &#x7684;&#x753B;&#x5E03;&#xFF0C;&#x5728; ParentView&#x7684; dispatchDraw &#x4E2D;&#x5B83;&#x53D1;&#x73B0; ChildView &#x6709;&#x4E00;&#x4E2A;&#x5E73;&#x79FB;&#x52A8;&#x753B;&#xFF0C;&#x800C;&#x4E14;&#x5F53;&#x524D;&#x7684;&#x5E73;&#x79FB;&#x4F4D;&#x7F6E;&#x662F; (100, 200)&#xFF0C;&#x4E8E;&#x662F;&#x5B83;&#x901A;&#x8FC7;&#x8C03;&#x7528;&#x753B;&#x5E03;&#x7684;&#x51FD;&#x6570;traslate(100, 200) &#x6765;&#x544A;&#x8BC9; ChildView &#x5728;&#x8FD9;&#x4E2A;&#x4F4D;&#x7F6E;&#x5F00;&#x59CB;&#x753B;&#xFF0C;&#x8FD9;&#x5C31;&#x662F;&#x52A8;&#x753B;&#x7684;&#x7B2C;&#x4E00;&#x5E27;&#x3002;&#x5982;&#x679C; ParentView &#x53D1;&#x73B0; ChildView &#x6709;&#x52A8;&#x753B;&#xFF0C;&#x5C31;&#x4F1A;&#x4E0D;&#x65AD;&#x7684;&#x8C03;&#x7528; invalidate() &#x8FD9;&#x4E2A;&#x51FD;&#x6570;&#xFF0C;&#x8FD9;&#x6837;&#x5C31;&#x4F1A;&#x5BFC;&#x81F4;&#x81EA;&#x5DF1;&#x4F1A;&#x4E0D;&#x65AD;&#x7684;&#x91CD;&#x753B;&#xFF0C;&#x5C31;&#x4F1A;&#x4E0D;&#x65AD;&#x7684;&#x8C03;&#x7528; dispatchDraw &#x8FD9;&#x4E2A;&#x51FD;&#x6570;&#xFF0C;&#x8FD9;&#x6837;&#x5C31;&#x4EA7;&#x751F;&#x4E86;&#x52A8;&#x753B;&#x7684;&#x540E;&#x7EED;&#x5E27;&#xFF0C;&#x5F53;&#x518D;&#x6B21;&#x8FDB;&#x5165; dispatchDraw &#x65F6;&#xFF0C;ParentView &#x6839;&#x636E;&#x5E73;&#x79FB;&#x52A8;&#x753B;&#x4EA7;&#x751F;&#x51FA;&#x7B2C;&#x4E8C;&#x5E27;&#x7684;&#x5E73;&#x79FB;&#x4F4D;&#x7F6E; (500, 200)&#xFF0C;&#x7136;&#x540E;&#x7EE7;&#x7EED;&#x6267;&#x884C;&#x4E0A;&#x8FF0;&#x64CD;&#x4F5C;&#xFF0C;&#x7136;&#x540E;&#x4EA7;&#x751F;&#x7B2C;&#x4E09;&#x5E27;&#xFF0C;&#x7B2C;&#x56DB;&#x5E27;&#xFF0C;&#x76F4;&#x5230;&#x52A8;&#x753B;&#x64AD;&#x5B8C;&#x3002;</p>
+<p>Tween Animation &#x4E2D;&#x4E3B;&#x8981;&#x5305;&#x542B;&#x4EE5;&#x4E0B;&#x51E0;&#x4E2A;&#x7C7B;&#xFF1A;</p>
+<ul>
+<li>ScaleAnimation		&#x5C3A;&#x5BF8;&#x5927;&#x5C0F;&#x7F29;&#x653E;</li>
+<li>AlphaAnimation		&#x6E10;&#x53D8;&#x900F;&#x660E;&#x5EA6;</li>
+<li>RotateAnimation		&#x753B;&#x9762;&#x65CB;&#x8F6C;</li>
+<li>TranslateAnimation	&#x4F4D;&#x7F6E;&#x79FB;&#x52A8;</li>
+<li>AnimationSet 			&#x52A8;&#x753B;&#x96C6;</li>
+</ul>
+<h3 id="scaleanimation"><a class="header-anchor" href="#scaleanimation"></a>ScaleAnimation</h3>
+<ul>
+<li>fromXScale &#x5C5E;&#x6027;&#x4E3A;&#x52A8;&#x753B;&#x8D77;&#x59CB;&#x65F6; X &#x5750;&#x6807;&#x4E0A;&#x7684;&#x4F38;&#x7F29;&#x5C3A;&#x5BF8;</li>
+<li>toXScale &#x5C5E;&#x6027;&#x4E3A;&#x52A8;&#x753B;&#x7ED3;&#x675F;&#x65F6; X &#x5750;&#x6807;&#x4E0A;&#x7684;&#x4F38;&#x7F29;&#x5C3A;&#x5BF8;</li>
+<li>fromYScale &#x5C5E;&#x6027;&#x4E3A;&#x52A8;&#x753B;&#x8D77;&#x59CB;&#x65F6; Y &#x5750;&#x6807;&#x4E0A;&#x7684;&#x4F38;&#x7F29;&#x5C3A;&#x5BF8;</li>
+<li>toYScale &#x5C5E;&#x6027;&#x4E3A;&#x52A8;&#x753B;&#x7ED3;&#x675F;&#x65F6; Y &#x5750;&#x6807;&#x4E0A;&#x7684;&#x4F38;&#x7F29;&#x5C3A;&#x5BF8;</li>
+</ul>
+<p>&#x8FD8;&#x53EF;&#x4EE5;&#x8BBE;&#x7F6E;&#x4F38;&#x7F29;&#x6A21;&#x5F0F;pivotXType&#x3001;pivotYType&#xFF0C; &#x4F38;&#x7F29;&#x52A8;&#x753B;&#x76F8;&#x5BF9;&#x4E8E;x,y &#x5750;&#x6807;&#x7684;&#x5F00;&#x59CB;&#x4F4D;&#x7F6E;pivotXValue&#x3001;pivotYValue&#x7B49;&#x3002;</p>
+<p>1&#x3001;&#x4EE3;&#x7801;&#x5B9E;&#x73B0;</p>
+<pre><code>View view = new View(this);
+Animation scaleAnimation = new ScaleAnimation(0.5f, 1.0f, 0.5f, 1.0f);
+scaleAnimation.setDuration(500);
+view.startAnimation(scaleAnimation);
+</code></pre>
+<p>2&#x3001;xml&#x6587;&#x4EF6;&#x5B9E;&#x73B0;</p>
+<pre><code>&lt;scale xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;
+    android:duration=&quot;500&quot;
+    android:fillAfter=&quot;false&quot;
+    android:fromXScale=&quot;0.5&quot;
+    android:fromYScale=&quot;0.5&quot;
+    android:interpolator=&quot;@android:anim/accelerate_decelerate_interpolator&quot;
+    android:pivotX=&quot;50%&quot;
+    android:pivotY=&quot;50%&quot;
+    android:repeatCount=&quot;1&quot;
+    android:toXScale=&quot;1.0&quot;
+    android:toYScale=&quot;1.0&quot; /&gt;
+
+//&#x4EE3;&#x7801;&#x52A0;&#x8F7D;
+View view = new View(this);
+Animation scaleAnimation = AnimationUtils.loadAnimation(this, R.anim.scale_animation);
+view.startAnimation(scaleAnimation);
+</code></pre>
+<h3 id="alphaanimation"><a class="header-anchor" href="#alphaanimation"></a>AlphaAnimation</h3>
+<p>&#x7B2C;&#x4E00;&#x4E2A;&#x53C2;&#x6570;fromAlpha&#x8868;&#x793A;&#x52A8;&#x753B;&#x8D77;&#x59CB;&#x65F6;&#x7684;&#x900F;&#x660E;&#x5EA6;&#xFF0C; &#x7B2C;&#x4E8C;&#x4E2A;&#x53C2;&#x6570;toAlpha&#x8868;&#x793A;&#x52A8;&#x753B;&#x7ED3;&#x675F;&#x65F6;&#x7684;&#x900F;&#x660E;&#x5EA6;</p>
+<p>1&#x3001;&#x4EE3;&#x7801;&#x5B9E;&#x73B0;</p>
+<pre><code>View view = new View(this);
+Animation alphaAnimation = new AlphaAnimation(0f, 1.0f);
+alphaAnimation.setDuration(500);
+view.startAnimation(alphaAnimation);
+</code></pre>
+<p>2&#x3001;xml&#x6587;&#x4EF6;&#x5B9E;&#x73B0;</p>
+<pre><code>&lt;alpha xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;
+    android:duration=&quot;500&quot;
+    android:fromAlpha=&quot;0&quot;
+    android:toAlpha=&quot;1.0&quot; /&gt;
+</code></pre>
+<h3 id="rotateanimation"><a class="header-anchor" href="#rotateanimation"></a>RotateAnimation</h3>
+<ul>
+<li>fromDegrees &#x4E3A;&#x52A8;&#x753B;&#x8D77;&#x59CB;&#x65F6;&#x7269;&#x4EF6;&#x7684;&#x89D2;&#x5EA6;&#xFF0C;&#x8BF4;&#x660E;&#xFF1A;
+<ul>
+<li>&#x5F53;&#x89D2;&#x5EA6;&#x4E3A;&#x8D1F;&#x6570;&#x2014;&#x2014;&#x8868;&#x793A;&#x9006;&#x65F6;&#x9488;&#x65CB;&#x8F6C;</li>
+<li>&#x5F53;&#x89D2;&#x5EA6;&#x4E3A;&#x6B63;&#x6570;&#x2014;&#x2014;&#x8868;&#x793A;&#x987A;&#x65F6;&#x9488;&#x65CB;&#x8F6C;</li>
+<li>(&#x8D1F;&#x6570;from&#x2014;&#x2014;to&#x6B63;&#x6570;:&#x987A;&#x65F6;&#x9488;&#x65CB;&#x8F6C;)</li>
+<li>(&#x8D1F;&#x6570;from&#x2014;&#x2014;to&#x8D1F;&#x6570;:&#x9006;&#x65F6;&#x9488;&#x65CB;&#x8F6C;)</li>
+<li>(&#x6B63;&#x6570;from&#x2014;&#x2014;to&#x6B63;&#x6570;:&#x987A;&#x65F6;&#x9488;&#x65CB;&#x8F6C;)</li>
+<li>(&#x6B63;&#x6570;from&#x2014;&#x2014;to&#x8D1F;&#x6570;:&#x9006;&#x65F6;&#x9488;&#x65CB;&#x8F6C;)</li>
+</ul>
+</li>
+<li>toDegrees &#x5C5E;&#x6027;&#x4E3A;&#x52A8;&#x753B;&#x7ED3;&#x675F;&#x65F6;&#x7269;&#x4EF6;&#x65CB;&#x8F6C;&#x7684;&#x89D2;&#x5EA6; &#x53EF;&#x4EE5;&#x5927;&#x4E8E;360&#x5EA6;</li>
+<li>pivotX pivotY &#x4E3A;&#x52A8;&#x753B;&#x76F8;&#x5BF9;&#x4E8E;&#x7269;&#x4EF6;&#x7684;X&#x3001;Y&#x5750;&#x6807;&#x7684;&#x5F00;&#x59CB;&#x4F4D; &#x8BF4;&#x660E;&#xFF1A;
+<ul>
+<li>&#x4EE5;&#x4E0A;&#x4E24;&#x4E2A;&#x5C5E;&#x6027;&#x503C; &#x4ECE;0%-100%&#x4E2D;&#x53D6;&#x503C;</li>
+<li>50%&#x4E3A;&#x7269;&#x4EF6;&#x7684;X&#x6216;Y&#x65B9;&#x5411;&#x5750;&#x6807;&#x4E0A;&#x7684;&#x4E2D;&#x70B9;&#x4F4D;&#x7F6E;</li>
+</ul>
+</li>
+</ul>
+<p>1&#x3001;&#x4EE3;&#x7801;&#x5B9E;&#x73B0;</p>
+<pre><code>View view = new View(this);
+Animation rotateAnimation = new RotateAnimation(0f, 180f);
+rotateAnimation.setDuration(500);
+view.startAnimation(rotateAnimation);
+</code></pre>
+<p>2&#x3001;xml&#x6587;&#x4EF6;&#x5B9E;&#x73B0;</p>
+<pre><code>&lt;rotate xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;
+    android:interpolator=&quot;@android:anim/accelerate_interpolator&quot;
+    android:repeatCount=&quot;2&quot;
+    android:fromDegrees=&quot;0&quot;
+    android:toDegrees=&quot;180&quot;
+    android:pivotX=&quot;50%&quot;
+    android:pivotY=&quot;50%&quot;
+    android:duration=&quot;500&quot; /&gt;
+</code></pre>
+<h3 id="translateanimation"><a class="header-anchor" href="#translateanimation"></a>TranslateAnimation</h3>
+<ul>
+<li>fromXDelta&#x3001;toXDelta &#x52A8;&#x753B;&#x8D77;&#x59CB;&#x3001;&#x7ED3;&#x675F;&#x65F6;X&#x5750;&#x6807;</li>
+<li>fromYDelta&#x3001;toYDelta &#x52A8;&#x753B;&#x8D77;&#x59CB;&#x3001;&#x7ED3;&#x675F;&#x65F6;Y&#x5750;&#x6807;</li>
+</ul>
+<p>1&#x3001;&#x4EE3;&#x7801;&#x5B9E;&#x73B0;</p>
+<pre><code>View view = new View(this);
+Animation transAnimation = new TranslateAnimation(50f, 100f, 50f, 180f);
+transAnimation.setDuration(500);
+view.startAnimation(transAnimation);
+</code></pre>
+<p>2&#x3001;xml&#x6587;&#x4EF6;&#x5B9E;&#x73B0;</p>
+<pre><code>&lt;translate xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;
+    android:interpolator=&quot;@android:anim/accelerate_interpolator&quot;
+    android:fromXDelta=&quot;50&quot;
+    android:fromYDelta=&quot;50&quot;
+    android:toXDelta=&quot;100&quot;
+    android:toYDelta=&quot;180&quot;
+    android:duration=&quot;500&quot; /&gt;
+</code></pre>
+<h3 id="animationset"><a class="header-anchor" href="#animationset"></a>AnimationSet</h3>
+<p>&#x52A8;&#x753B;&#x96C6;&#x5408;&#xFF0C;&#x987E;&#x540D;&#x601D;&#x4E49;&#xFF0C;&#x5C31;&#x662F;&#x591A;&#x4E2A;&#x76F8;&#x540C;&#x6216;&#x8005;&#x4E0D;&#x76F8;&#x540C;&#x79CD;&#x7C7B;&#x7684;&#x52A8;&#x753B;&#x96C6;&#x5408;&#x5728;&#x4E00;&#x8D77;&#xFF0C;&#x7136;&#x540E;&#x64AD;&#x653E;&#xFF0C;&#x4E5F;&#x5C31;&#x662F;&#x52A8;&#x753B;&#x7684;&#x53E0;&#x52A0;&#x3002;</p>
+<p>1&#x3001;&#x4EE3;&#x7801;&#x5B9E;&#x73B0;</p>
+<pre><code>View view = new View(this);
+Animation transAnimation = new TranslateAnimation(50f, 100f, 50f, 180f);
+transAnimation.setDuration(500);
+view.startAnimation(transAnimation);
+
+Animation rotateAnimation = new RotateAnimation(0f, 180f);
+rotateAnimation.setDuration(500);
+view.startAnimation(rotateAnimation);
+
+AnimationSet animationSet = new AnimationSet(true);
+animationSet.addAnimation(transAnimation);
+animationSet.addAnimation(rotateAnimation);
+animationSet.setStartOffset(1000);//&#x4E00;&#x79D2;&#x540E;&#x518D;&#x6267;&#x884C;&#x52A8;&#x753B; = &#x7B49;&#x5F85;1&#x79D2;&#x540E;&#x6267;&#x884C;&#x52A8;&#x753B;
+animationSet.setFillAfter(true);//&#x8BBE;&#x7F6E;&#x52A8;&#x753B;&#x6267;&#x884C;&#x540E;&#x4FDD;&#x6301;&#x6700;&#x540E;&#x72B6;&#x6001;
+view.startAnimation(animationSet);
+</code></pre>
+<p>2&#x3001;xml&#x6587;&#x4EF6;&#x5B9E;&#x73B0;</p>
+<pre><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
+&lt;set xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;
+    android:interpolator=&quot;@android:anim/accelerate_interpolator&quot;
+    android:shareInterpolator=&quot;true&quot;&gt;
+    &lt;alpha
+        android:fromAlpha=&quot;0&quot;
+        android:toAlpha=&quot;1&quot; /&gt;
+    &lt;translate
+        android:fromXDelta=&quot;50&quot;
+        android:fromYDelta=&quot;50&quot;
+        android:toXDelta=&quot;100&quot;
+        android:toYDelta=&quot;180&quot; /&gt;
+    &lt;rotate
+        android:fromDegrees=&quot;0&quot;
+        android:pivotX=&quot;50&quot;
+        android:pivotY=&quot;50&quot;
+        android:toDegrees=&quot;180&quot; /&gt;
+    &lt;!--&lt;set&gt;
+        //&#x8FD8;&#x53EF;&#x4EE5;&#x5728;&#x8FD9;&#x91CC;&#x6DFB;&#x52A0;&#x5B50;&#x52A8;&#x753B;&#x96C6;&#x5408;
+    &lt;/set&gt;--&gt;
+&lt;/set&gt;
+</code></pre>
+<h2 id="property-animation"><a class="header-anchor" href="#property-animation"></a>Property Animation</h2>
+<p>&#x2026;&#x5F85;&#x7EED;</p>
+<h3 id="animatorset"><a class="header-anchor" href="#animatorset"></a>AnimatorSet</h3>
+<p>&#x662F;&#x9488;&#x5BF9;&#x89C6;&#x56FE;&#x5C5E;&#x6027;&#x7684;&#x52A8;&#x753B;&#x96C6;&#x5408;&#x3002;&#x5B83;&#x652F;&#x6301;&#x8BBE;&#x7F6E;&#x7EC4;&#x4E2D;&#x52A8;&#x753B;&#x7684;&#x65F6;&#x5E8F;&#x5173;&#x7CFB;&#xFF0C;&#x5982;&#x540C;&#x65F6;&#x64AD;&#x653E;&#xFF0C;&#x987A;&#x5E8F;&#x64AD;&#x653E;&#x7B49;&#x3002;AnimatorSet &#x5C31;&#x6BD4; AnimationSet &#x529F;&#x80FD;&#x5F3A;&#x5927;&#x5F88;&#x591A;&#x4E86;&#xFF0C; AnimatorSet &#x53EF;&#x4EE5;&#x4F7F;&#x7528; playSequentially&#x3001;playTogether&#x4E24;&#x4E2A;&#x65B9;&#x6CD5;&#xFF0C;&#x6765;&#x8BA9;&#x4E00;&#x4E9B;&#x5217;&#x7684;&#x52A8;&#x753B;&#x4E32;&#x884C;&#x548C;&#x5E76;&#x884C;&#x3002;</p>
+<p>1&#x3001;&#x4EE3;&#x7801;&#x5B9E;&#x73B0;</p>
+<pre><code>View view = new View(this);
+ObjectAnimator animatorA = ObjectAnimator.ofFloat(view, &quot;TranslationX&quot;, -300, 300, 0);
+ObjectAnimator animatorB = ObjectAnimator.ofFloat(view, &quot;scaleY&quot;, 0.5f, 1.5f, 1f);
+ObjectAnimator animatorC = ObjectAnimator.ofFloat(view, &quot;rotation&quot;, 0, 270, 90, 180, 0);
+AnimatorSet animatorSet = new AnimatorSet();
+animatorSet.playTogether(animatorA, animatorB, animatorC);//&#x5E76;&#x884C;&#x64AD;&#x653E;
+//animatorSet.playSequentially(animatorA, animatorB, animatorC);//&#x987A;&#x5E8F;&#x64AD;&#x653E;
+animatorSet.start();
+</code></pre>
+<p>2&#x3001;xml&#x6587;&#x4EF6;&#x5B9E;&#x73B0;</p>
+<pre><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
+&lt;set xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;
+    android:ordering=&quot;sequentially&quot;&gt;
+
+    &lt;objectAnimator
+        android:interpolator=&quot;@android:anim/accelerate_decelerate_interpolator&quot;
+        android:propertyName=&quot;alpha&quot;
+        android:duration=&quot;3000&quot;
+        android:valueType=&quot;floatType&quot;
+        android:valueFrom=&quot;0&quot;
+        android:valueTo=&quot;1&quot;/&gt;
+
+    &lt;objectAnimator
+        android:interpolator=&quot;@android:anim/anticipate_overshoot_interpolator&quot;
+        android:propertyName=&quot;scaleX&quot;
+        android:duration=&quot;3000&quot;
+        android:valueType=&quot;floatType&quot;
+        android:valueFrom=&quot;0.5&quot;
+        android:valueTo=&quot;1.5&quot; /&gt;
+
+&lt;/set&gt;
+
+//&#x4EE3;&#x7801;&#x52A0;&#x8F7D;
+View view = new View(this);
+        AnimatorSet animatorSet = (AnimatorSet) AnimatorInflater.loadAnimator(MainActivity.this, R.animator.animator_set);
+        animatorSet.setTarget(view);
+        animatorSet.start();
+</code></pre>
+<h2 id="&#x81EA;&#x5B9A;&#x4E49;&#x52A8;&#x753B;"><a class="header-anchor" href="#&#x81EA;&#x5B9A;&#x4E49;&#x52A8;&#x753B;"></a>&#x81EA;&#x5B9A;&#x4E49;&#x52A8;&#x753B;</h2>
+<h2 id="&#x52A8;&#x753B;&#x4F18;&#x5316;"><a class="header-anchor" href="#&#x52A8;&#x753B;&#x4F18;&#x5316;"></a>&#x52A8;&#x753B;&#x4F18;&#x5316;</h2>
 <p>&#x660E;&#x5929;&#x5F85;&#x7EED;&#x2026;</p>
 <h2 id="&#x53C2;&#x8003;"><a class="header-anchor" href="#&#x53C2;&#x8003;"></a>&#x53C2;&#x8003;</h2>
 <ul>
 <li><a href="http://blog.csdn.net/singwhatiwanna/article/details/17639987" target="_blank" rel="external">http://blog.csdn.net/singwhatiwanna/article/details/17639987</a></li>
+<li><a href="http://www.cnblogs.com/zxcblog/p/3259920.html" target="_blank" rel="external">http://www.cnblogs.com/zxcblog/p/3259920.html</a></li>
 </ul>]]></content>
     
     <summary type="html">
