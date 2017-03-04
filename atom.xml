@@ -1260,7 +1260,7 @@ Intent intent = new Intent(MzAccountManager.getInstance().getContext(), HtmlLogi
     <link href="http://ngudream.com/2017/02/05/android-airbnb-lottie/"/>
     <id>http://ngudream.com/2017/02/05/android-airbnb-lottie/</id>
     <published>2017-02-05T14:27:31.000Z</published>
-    <updated>2017-02-25T11:33:35.546Z</updated>
+    <updated>2017-03-04T12:37:48.940Z</updated>
     
     <content type="html"><![CDATA[<p>&#x65B0;&#x5E74;&#x7B2C;&#x4E00;&#x5929;&#x4E0A;&#x73ED;&#xFF0C;&#x6CA1;&#x60F3;&#x5230;&#x5C31;&#x7ACB;&#x6625;&#x4E86;&#xFF0C;&#x4FD7;&#x8BDD;&#x8BF4;&#xFF0C;&#x4E00;&#x5E74;&#x4E4B;&#x8BA1;&#x5728;&#x4E8E;&#x6625;&#xFF0C;&#x5168;&#x65B0;&#x7684; 17 &#x5E74;&#x5F00;&#x59CB;&#x5566;&#xFF0C;&#x6765;&#xFF0C;&#x6536;&#x62FE;&#x4E0B;&#x5FC3;&#x60C5;&#xFF0C;&#x6295;&#x5165;&#x5230;&#x5DE5;&#x4F5C;&#x4E2D;&#xFF0C;&#x64B8;&#x8D77;&#x8896;&#x5B50;&#xFF0C;&#x5C31;&#x662F;&#x5E72;&#xFF01;</p>
 <p>&#x5C31;&#x5728;&#x524D;&#x51E0;&#x5929;&#xFF0C;Airbnb &#x5F00;&#x6E90;&#x4E86;&#x4E00;&#x4E2A;&#x9879;&#x76EE;&#x53EB;&#x505A; Lottie&#xFF0C;&#x6211;&#x4E2A;&#x4EBA;&#x89C9;&#x5F97;&#x8FD9;&#x4E2A;&#x9879;&#x76EE;&#x7B80;&#x76F4;&#x7889;&#x5821;&#x4E86;&#xFF01;</p>
