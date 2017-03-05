@@ -4,6 +4,26 @@
 
     
   <url>
+    <loc>http://ngudream.com/2016/09/17/rxjava-2-0-new-features/</loc>
+    <lastmod>2017-03-05T02:45:41.858Z</lastmod>
+    <data>
+        <display>
+        <title>浅谈RxJava与2.0的新特性</title>
+        <pubTime>2016-09-17T12:23:53.000Z</pubTime>
+        
+        <tag>RxJava</tag>
+         
+         
+           
+             
+              <breadCrumb title="移动开发" url="http://ngudream.com/categories/%E7%A7%BB%E5%8A%A8%E5%BC%80%E5%8F%91/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://ngudream.com/2017/02/05/android-airbnb-lottie/</loc>
     <lastmod>2017-03-04T12:37:48.940Z</lastmod>
     <data>
@@ -877,26 +897,6 @@
         <display>
         <title>基于RxJava的事件总线--优雅的替换Handler</title>
         <pubTime>2016-09-10T15:46:19.000Z</pubTime>
-        
-        <tag>RxJava</tag>
-         
-         
-           
-             
-              <breadCrumb title="移动开发" url="http://ngudream.com/categories/%E7%A7%BB%E5%8A%A8%E5%BC%80%E5%8F%91/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://ngudream.com/2016/09/17/rxjava-2-0-new-features/</loc>
-    <lastmod>2017-01-15T07:58:44.446Z</lastmod>
-    <data>
-        <display>
-        <title>浅谈RxJava与2.0的新特性</title>
-        <pubTime>2016-09-17T12:23:53.000Z</pubTime>
         
         <tag>RxJava</tag>
          
