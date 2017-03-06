@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://ngudream.com/2017/03/06/rxjava-subject/</loc>
+    
+    <lastmod>2017-03-06T13:45:43.786Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://ngudream.com/2016/09/17/rxjava-2-0-new-features/</loc>
     
     <lastmod>2017-03-05T02:45:41.858Z</lastmod>
