@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://ngudream.com/2017/02/28/android-animation-theory/</loc>
+    
+    <lastmod>2017-03-09T13:50:05.840Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://ngudream.com/2017/03/06/rxjava-subject/</loc>
     
     <lastmod>2017-03-06T13:45:43.786Z</lastmod>
@@ -19,13 +26,6 @@
     <loc>http://ngudream.com/2017/02/05/android-airbnb-lottie/</loc>
     
     <lastmod>2017-03-04T12:37:48.940Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://ngudream.com/2017/02/28/android-animation-theory/</loc>
-    
-    <lastmod>2017-03-02T14:32:03.104Z</lastmod>
     
   </url>
   
