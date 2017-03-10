@@ -4,6 +4,46 @@
 
     
   <url>
+    <loc>http://ngudream.com/2016/02/20/androidstudio-debug/</loc>
+    <lastmod>2017-03-10T12:43:40.574Z</lastmod>
+    <data>
+        <display>
+        <title>AndroidStudio Debug 调试技巧</title>
+        <pubTime>2016-02-20T11:35:05.000Z</pubTime>
+        
+        <tag>Android</tag>
+         
+         
+           
+             
+              <breadCrumb title="移动开发" url="http://ngudream.com/categories/%E7%A7%BB%E5%8A%A8%E5%BC%80%E5%8F%91/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://ngudream.com/2016/07/24/work-plan/</loc>
+    <lastmod>2017-03-10T11:33:53.511Z</lastmod>
+    <data>
+        <display>
+        <title>工作计划模板</title>
+        <pubTime>2016-07-24T13:15:48.000Z</pubTime>
+        
+        <tag>Work</tag>
+         
+         
+           
+             
+              <breadCrumb title="触类旁通" url="http://ngudream.com/categories/%E8%A7%A6%E7%B1%BB%E6%97%81%E9%80%9A/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://ngudream.com/2017/02/28/android-animation-theory/</loc>
     <lastmod>2017-03-09T13:50:05.840Z</lastmod>
     <data>
@@ -513,23 +553,6 @@
              
               <breadCrumb title="服务器" url="http://ngudream.com/categories/%E6%9C%8D%E5%8A%A1%E5%99%A8/"/>
           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://ngudream.com/2016/07/24/work-plan/</loc>
-    <lastmod>2017-01-15T07:58:44.510Z</lastmod>
-    <data>
-        <display>
-        <title>工作计划模板</title>
-        <pubTime>2016-07-24T13:15:48.000Z</pubTime>
-        
-        <tag>Work</tag>
-         
-         
-           
         </display>
     </data>
     </url>
