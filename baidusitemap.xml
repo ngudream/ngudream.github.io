@@ -4,6 +4,46 @@
 
     
   <url>
+    <loc>http://ngudream.com/2016/05/14/http-code/</loc>
+    <lastmod>2017-03-14T15:09:43.886Z</lastmod>
+    <data>
+        <display>
+        <title>HTTP协议状态码详解（HTTP Status Code）</title>
+        <pubTime>2016-05-14T15:00:15.000Z</pubTime>
+        
+        <tag>HTTP</tag>
+         
+         
+           
+             
+              <breadCrumb title="服务器" url="http://ngudream.com/categories/%E6%9C%8D%E5%8A%A1%E5%99%A8/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://ngudream.com/2017/03/14/android-binder/</loc>
+    <lastmod>2017-03-14T14:59:03.482Z</lastmod>
+    <data>
+        <display>
+        <title>Android Binder机制</title>
+        <pubTime>2017-03-14T14:47:29.000Z</pubTime>
+        
+        <tag>Android</tag>
+         
+         
+           
+             
+              <breadCrumb title="移动开发" url="http://ngudream.com/categories/%E7%A7%BB%E5%8A%A8%E5%BC%80%E5%8F%91/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://ngudream.com/2017/01/24/n-hexo-blog/</loc>
     <lastmod>2017-03-10T15:47:25.447Z</lastmod>
     <data>
