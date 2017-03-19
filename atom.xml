@@ -1715,11 +1715,11 @@ public abstract class Subject&lt;T, R&gt; extends Observable&lt;R&gt; implements
   </entry>
   
   <entry>
-    <title>Android 三种常用动画分析</title>
+    <title>Android 动画分析与优化</title>
     <link href="http://ngudream.com/2017/02/28/android-animation-theory/"/>
     <id>http://ngudream.com/2017/02/28/android-animation-theory/</id>
     <published>2017-02-28T13:59:14.000Z</published>
-    <updated>2017-03-09T13:50:05.840Z</updated>
+    <updated>2017-03-19T04:29:52.911Z</updated>
     
     <content type="html"><![CDATA[<h2 id="&#x539F;&#x7406;"><a class="header-anchor" href="#&#x539F;&#x7406;"></a>&#x539F;&#x7406;</h2>
 <h3 id="timeinterpolator&#x548C;typeevaluator"><a class="header-anchor" href="#timeinterpolator&#x548C;typeevaluator"></a>TimeInterpolator&#x548C;TypeEvaluator</h3>
@@ -1873,7 +1873,7 @@ public abstract class Subject&lt;T, R&gt; extends Observable&lt;R&gt; implements
 &lt;/RelativeLayout&gt;
 
 </code></pre>
-<p>&#x6700;&#x540E;&#x5448;&#x73B0;&#x7684;&#x52A8;&#x753B;&#x5982;&#x4E0B;&#x56FE;&#xFF1A;</p>
+<p>&#x6700;&#x540E;&#x5448;&#x73B0;&#x7684;&#x52A8;&#x753B;&#x5982;&#x4E0B;&#x56FE;&#xFF0C;&#x5B83;&#x662F;&#x7531; 4 &#x5F20;&#x56FE;&#x7247;&#xFF0C;&#x5373; 4 &#x5E27;&#x7EC4;&#x6210;&#x7684;&#xFF1A;</p>
 <div align="center">
 <img data-original="/2017/02/28/android-animation-theory/animation-list.gif" class="lazy">
 </div>
@@ -1981,6 +1981,7 @@ public abstract class Subject&lt;T, R&gt; extends Observable&lt;R&gt; implements
 <h2 id="tween-animation"><a class="header-anchor" href="#tween-animation"></a>Tween Animation</h2>
 <p>&#x662F;&#x5BF9;&#x67D0;&#x4E2A;View&#x8FDB;&#x884C;&#x4E00;&#x7CFB;&#x5217;&#x7684;&#x52A8;&#x753B;&#x7684;&#x64CD;&#x4F5C;&#xFF0C;&#x5305;&#x62EC;&#x6DE1;&#x5165;&#x6DE1;&#x51FA;&#xFF08;Alpha&#xFF09;&#xFF0C;&#x7F29;&#x653E;&#xFF08;Scale&#xFF09;&#xFF0C;&#x5E73;&#x79FB;&#xFF08;Translate&#xFF09;&#xFF0C;&#x65CB;&#x8F6C;&#xFF08;Rotate&#xFF09;&#x56DB;&#x79CD;&#x6A21;&#x5F0F;&#x3002;&#x539F;&#x7406;&#x662F;&#x7ED9;&#x51FA;&#x4E24;&#x4E2A;&#x5173;&#x952E;&#x5E27;&#xFF0C;&#x901A;&#x8FC7;&#x4E00;&#x4E9B;&#x7B97;&#x6CD5;&#x5C06;&#x7ED9;&#x5B9A;&#x7684;&#x5C5E;&#x6027;&#x503C;&#x5728;&#x7ED9;&#x5B9A;&#x7684;&#x65F6;&#x95F4;&#x5185;&#x5728;&#x4E24;&#x4E2A;&#x5173;&#x952E;&#x5E27;&#x4E4B;&#x95F4;&#x6E10;&#x53D8;&#x3002;&#x9700;&#x8981;&#x6CE8;&#x610F;&#x7684;&#x5C31;&#x662F;&#x8BE5;&#x52A8;&#x753B;&#x53EA;&#x80FD;&#x5E94;&#x7528;&#x4E8E;View&#x5BF9;&#x8C61;&#x3002;</p>
 <p>Android Tween &#x52A8;&#x753B;&#x5C31;&#x662F;&#x901A;&#x8FC7;ParentView &#x6765;&#x4E0D;&#x65AD;&#x8C03;&#x6574; ChildView &#x7684;&#x753B;&#x5E03;&#x5750;&#x6807;&#x7CFB;&#x6765;&#x5B9E;&#x73B0;&#x7684;&#xFF0C;&#x4E0B;&#x9762;&#x4EE5;&#x5E73;&#x79FB;&#x52A8;&#x753B;&#x6765;&#x505A;&#x793A;&#x4F8B;&#xFF0C;&#x5047;&#x8BBE;&#x5728;&#x52A8;&#x753B;&#x5F00;&#x59CB;&#x65F6; ChildView &#x5728; ParentView &#x4E2D;&#x7684;&#x521D;&#x59CB;&#x4F4D;&#x7F6E;&#x5728; (100,200) &#x5904;&#xFF0C;&#x8FD9;&#x65F6; ParentView &#x4F1A;&#x6839;&#x636E;&#x8FD9;&#x4E2A;&#x5750;&#x6807;&#x6765;&#x8BBE;&#x7F6E; ChildView &#x7684;&#x753B;&#x5E03;&#xFF0C;&#x5728; ParentView&#x7684; dispatchDraw &#x4E2D;&#x5B83;&#x53D1;&#x73B0; ChildView &#x6709;&#x4E00;&#x4E2A;&#x5E73;&#x79FB;&#x52A8;&#x753B;&#xFF0C;&#x800C;&#x4E14;&#x5F53;&#x524D;&#x7684;&#x5E73;&#x79FB;&#x4F4D;&#x7F6E;&#x662F; (100, 200)&#xFF0C;&#x4E8E;&#x662F;&#x5B83;&#x901A;&#x8FC7;&#x8C03;&#x7528;&#x753B;&#x5E03;&#x7684;&#x51FD;&#x6570;traslate(100, 200) &#x6765;&#x544A;&#x8BC9; ChildView &#x5728;&#x8FD9;&#x4E2A;&#x4F4D;&#x7F6E;&#x5F00;&#x59CB;&#x753B;&#xFF0C;&#x8FD9;&#x5C31;&#x662F;&#x52A8;&#x753B;&#x7684;&#x7B2C;&#x4E00;&#x5E27;&#x3002;&#x5982;&#x679C; ParentView &#x53D1;&#x73B0; ChildView &#x6709;&#x52A8;&#x753B;&#xFF0C;&#x5C31;&#x4F1A;&#x4E0D;&#x65AD;&#x7684;&#x8C03;&#x7528; invalidate() &#x8FD9;&#x4E2A;&#x51FD;&#x6570;&#xFF0C;&#x8FD9;&#x6837;&#x5C31;&#x4F1A;&#x5BFC;&#x81F4;&#x81EA;&#x5DF1;&#x4F1A;&#x4E0D;&#x65AD;&#x7684;&#x91CD;&#x753B;&#xFF0C;&#x5C31;&#x4F1A;&#x4E0D;&#x65AD;&#x7684;&#x8C03;&#x7528; dispatchDraw &#x8FD9;&#x4E2A;&#x51FD;&#x6570;&#xFF0C;&#x8FD9;&#x6837;&#x5C31;&#x4EA7;&#x751F;&#x4E86;&#x52A8;&#x753B;&#x7684;&#x540E;&#x7EED;&#x5E27;&#xFF0C;&#x5F53;&#x518D;&#x6B21;&#x8FDB;&#x5165; dispatchDraw &#x65F6;&#xFF0C;ParentView &#x6839;&#x636E;&#x5E73;&#x79FB;&#x52A8;&#x753B;&#x4EA7;&#x751F;&#x51FA;&#x7B2C;&#x4E8C;&#x5E27;&#x7684;&#x5E73;&#x79FB;&#x4F4D;&#x7F6E; (500, 200)&#xFF0C;&#x7136;&#x540E;&#x7EE7;&#x7EED;&#x6267;&#x884C;&#x4E0A;&#x8FF0;&#x64CD;&#x4F5C;&#xFF0C;&#x7136;&#x540E;&#x4EA7;&#x751F;&#x7B2C;&#x4E09;&#x5E27;&#xFF0C;&#x7B2C;&#x56DB;&#x5E27;&#xFF0C;&#x76F4;&#x5230;&#x52A8;&#x753B;&#x64AD;&#x5B8C;&#x3002;</p>
+<p>&#x8865;&#x95F4;&#x52A8;&#x753B;&#x8FD8;&#x6709;&#x4E00;&#x4E2A;&#x81F4;&#x547D;&#x7684;&#x7F3A;&#x9677;&#xFF0C;&#x5C31;&#x662F;&#x5B83;&#x53EA;&#x662F;&#x6539;&#x53D8;&#x4E86;View&#x7684;&#x663E;&#x793A;&#x6548;&#x679C;&#x800C;&#x5DF2;&#xFF0C;&#x800C;&#x4E0D;&#x4F1A;&#x771F;&#x6B63;&#x53BB;&#x6539;&#x53D8;View&#x7684;&#x5C5E;&#x6027;&#x3002;&#x4EC0;&#x4E48;&#x610F;&#x601D;&#x5462;&#xFF1F;&#x6BD4;&#x5982;&#x8BF4;&#xFF0C;&#x73B0;&#x5728;&#x5C4F;&#x5E55;&#x7684;&#x5DE6;&#x4E0A;&#x89D2;&#x6709;&#x4E00;&#x4E2A;&#x6309;&#x94AE;&#xFF0C;&#x7136;&#x540E;&#x6211;&#x4EEC;&#x901A;&#x8FC7;&#x8865;&#x95F4;&#x52A8;&#x753B;&#x5C06;&#x5B83;&#x79FB;&#x52A8;&#x5230;&#x4E86;&#x5C4F;&#x5E55;&#x7684;&#x53F3;&#x4E0B;&#x89D2;&#xFF0C;&#x73B0;&#x5728;&#x4F60;&#x53EF;&#x4EE5;&#x53BB;&#x5C1D;&#x8BD5;&#x70B9;&#x51FB;&#x4E00;&#x4E0B;&#x8FD9;&#x4E2A;&#x6309;&#x94AE;&#xFF0C;&#x70B9;&#x51FB;&#x4E8B;&#x4EF6;&#x662F;&#x7EDD;&#x5BF9;&#x4E0D;&#x4F1A;&#x89E6;&#x53D1;&#x7684;&#xFF0C;&#x56E0;&#x4E3A;&#x5B9E;&#x9645;&#x4E0A;&#x8FD9;&#x4E2A;&#x6309;&#x94AE;&#x8FD8;&#x662F;&#x505C;&#x7559;&#x5728;&#x5C4F;&#x5E55;&#x7684;&#x5DE6;&#x4E0A;&#x89D2;&#xFF0C;&#x53EA;&#x4E0D;&#x8FC7;&#x8865;&#x95F4;&#x52A8;&#x753B;&#x5C06;&#x8FD9;&#x4E2A;&#x6309;&#x94AE;&#x7ED8;&#x5236;&#x5230;&#x4E86;&#x5C4F;&#x5E55;&#x7684;&#x53F3;&#x4E0B;&#x89D2;&#x800C;&#x5DF2;&#x3002;</p>
 <p>Tween Animation &#x4E2D;&#x4E3B;&#x8981;&#x5305;&#x542B;&#x4EE5;&#x4E0B;&#x51E0;&#x4E2A;&#x7C7B;&#xFF1A;</p>
 <ul>
 <li>ScaleAnimation		&#x5C3A;&#x5BF8;&#x5927;&#x5C0F;&#x7F29;&#x653E;</li>
@@ -2022,7 +2023,7 @@ Animation scaleAnimation = AnimationUtils.loadAnimation(this, R.anim.scale_anima
 view.startAnimation(scaleAnimation);
 </code></pre>
 <h3 id="alphaanimation"><a class="header-anchor" href="#alphaanimation"></a>AlphaAnimation</h3>
-<p>&#x7B2C;&#x4E00;&#x4E2A;&#x53C2;&#x6570;fromAlpha&#x8868;&#x793A;&#x52A8;&#x753B;&#x8D77;&#x59CB;&#x65F6;&#x7684;&#x900F;&#x660E;&#x5EA6;&#xFF0C; &#x7B2C;&#x4E8C;&#x4E2A;&#x53C2;&#x6570;toAlpha&#x8868;&#x793A;&#x52A8;&#x753B;&#x7ED3;&#x675F;&#x65F6;&#x7684;&#x900F;&#x660E;&#x5EA6;</p>
+<p>&#x7B2C;&#x4E00;&#x4E2A;&#x53C2;&#x6570; fromAlpha &#x8868;&#x793A;&#x52A8;&#x753B;&#x8D77;&#x59CB;&#x65F6;&#x7684;&#x900F;&#x660E;&#x5EA6;&#xFF0C; &#x7B2C;&#x4E8C;&#x4E2A;&#x53C2;&#x6570;toAlpha&#x8868;&#x793A;&#x52A8;&#x753B;&#x7ED3;&#x675F;&#x65F6;&#x7684;&#x900F;&#x660E;&#x5EA6;</p>
 <p>1&#x3001;&#x4EE3;&#x7801;&#x5B9E;&#x73B0;</p>
 <pre><code>View view = new View(this);
 Animation alphaAnimation = new AlphaAnimation(0f, 1.0f);
@@ -2041,16 +2042,16 @@ view.startAnimation(alphaAnimation);
 <ul>
 <li>&#x5F53;&#x89D2;&#x5EA6;&#x4E3A;&#x8D1F;&#x6570;&#x2014;&#x2014;&#x8868;&#x793A;&#x9006;&#x65F6;&#x9488;&#x65CB;&#x8F6C;</li>
 <li>&#x5F53;&#x89D2;&#x5EA6;&#x4E3A;&#x6B63;&#x6570;&#x2014;&#x2014;&#x8868;&#x793A;&#x987A;&#x65F6;&#x9488;&#x65CB;&#x8F6C;</li>
-<li>(&#x8D1F;&#x6570;from&#x2014;&#x2014;to&#x6B63;&#x6570;:&#x987A;&#x65F6;&#x9488;&#x65CB;&#x8F6C;)</li>
-<li>(&#x8D1F;&#x6570;from&#x2014;&#x2014;to&#x8D1F;&#x6570;:&#x9006;&#x65F6;&#x9488;&#x65CB;&#x8F6C;)</li>
-<li>(&#x6B63;&#x6570;from&#x2014;&#x2014;to&#x6B63;&#x6570;:&#x987A;&#x65F6;&#x9488;&#x65CB;&#x8F6C;)</li>
-<li>(&#x6B63;&#x6570;from&#x2014;&#x2014;to&#x8D1F;&#x6570;:&#x9006;&#x65F6;&#x9488;&#x65CB;&#x8F6C;)</li>
+<li>(&#x8D1F;&#x6570; from&#x2014;&#x2014;to &#x6B63;&#x6570;:&#x987A;&#x65F6;&#x9488;&#x65CB;&#x8F6C;)</li>
+<li>(&#x8D1F;&#x6570; from&#x2014;&#x2014;to &#x8D1F;&#x6570;:&#x9006;&#x65F6;&#x9488;&#x65CB;&#x8F6C;)</li>
+<li>(&#x6B63;&#x6570; from&#x2014;&#x2014;to &#x6B63;&#x6570;:&#x987A;&#x65F6;&#x9488;&#x65CB;&#x8F6C;)</li>
+<li>(&#x6B63;&#x6570; from&#x2014;&#x2014;to &#x8D1F;&#x6570;:&#x9006;&#x65F6;&#x9488;&#x65CB;&#x8F6C;)</li>
 </ul>
 </li>
 <li>toDegrees &#x5C5E;&#x6027;&#x4E3A;&#x52A8;&#x753B;&#x7ED3;&#x675F;&#x65F6;&#x7269;&#x4EF6;&#x65CB;&#x8F6C;&#x7684;&#x89D2;&#x5EA6; &#x53EF;&#x4EE5;&#x5927;&#x4E8E;360&#x5EA6;</li>
-<li>pivotX pivotY &#x4E3A;&#x52A8;&#x753B;&#x76F8;&#x5BF9;&#x4E8E;&#x7269;&#x4EF6;&#x7684;X&#x3001;Y&#x5750;&#x6807;&#x7684;&#x5F00;&#x59CB;&#x4F4D; &#x8BF4;&#x660E;&#xFF1A;
+<li>pivotX pivotY &#x4E3A;&#x52A8;&#x753B;&#x76F8;&#x5BF9;&#x4E8E;&#x7269;&#x4EF6;&#x7684; X&#x3001;Y &#x5750;&#x6807;&#x7684;&#x5F00;&#x59CB;&#x4F4D; &#x8BF4;&#x660E;&#xFF1A;
 <ul>
-<li>&#x4EE5;&#x4E0A;&#x4E24;&#x4E2A;&#x5C5E;&#x6027;&#x503C; &#x4ECE;0%-100%&#x4E2D;&#x53D6;&#x503C;</li>
+<li>&#x4EE5;&#x4E0A;&#x4E24;&#x4E2A;&#x5C5E;&#x6027;&#x503C; &#x4ECE; 0%-100% &#x4E2D;&#x53D6;&#x503C;</li>
 <li>50%&#x4E3A;&#x7269;&#x4EF6;&#x7684;X&#x6216;Y&#x65B9;&#x5411;&#x5750;&#x6807;&#x4E0A;&#x7684;&#x4E2D;&#x70B9;&#x4F4D;&#x7F6E;</li>
 </ul>
 </li>
@@ -2134,9 +2135,8 @@ view.startAnimation(animationSet);
 &lt;/set&gt;
 </code></pre>
 <h2 id="property-animation"><a class="header-anchor" href="#property-animation"></a>Property Animation</h2>
-<h3 id="objectanimator"><a class="header-anchor" href="#objectanimator"></a>ObjectAnimator</h3>
 <h3 id="valueanimator"><a class="header-anchor" href="#valueanimator"></a>ValueAnimator</h3>
-<p>ValueAnimator &#x662F;&#x8BA1;&#x7B97;&#x52A8;&#x753B;&#x8FC7;&#x7A0B;&#x4E2D;&#x53D8;&#x5316;&#x7684;&#x503C;&#xFF0C;&#x5305;&#x542B;&#x52A8;&#x753B;&#x7684;&#x5F00;&#x59CB;&#x503C;&#xFF0C;&#x7ED3;&#x675F;&#x503C;&#xFF0C;&#x6301;&#x7EED;&#x65F6;&#x95F4;&#x7B49;&#x5C5E;&#x6027;&#x3002;&#x4F46;&#x5E76;&#x6CA1;&#x6709;&#x628A;&#x8FD9;&#x4E9B;&#x8BA1;&#x7B97;&#x51FA;&#x6765;&#x7684;&#x503C;&#x5E94;&#x7528;&#x5230;&#x5177;&#x4F53;&#x7684;&#x5BF9;&#x8C61;&#x4E0A;&#x9762;&#xFF0C;&#x6240;&#x4EE5;&#x4E5F;&#x4E0D;&#x4F1A;&#x6709;&#x4EC0;&#x4E48;&#x7684;&#x52A8;&#x753B;&#x663E;&#x793A;&#x51FA;&#x6765;&#x3002;&#x8981;&#x628A;&#x8BA1;&#x7B97;&#x51FA;&#x6765;&#x7684;&#x503C;&#x5E94;&#x7528;&#x5230;&#x5BF9;&#x8C61;&#x4E0A;&#xFF0C;&#x5FC5;&#x987B;&#x4E3A; ValueAnimator &#x6CE8;&#x518C;&#x4E00;&#x4E2A;&#x76D1;&#x542C;&#x5668;ValueAnimator.AnimatorUpdateListener&#xFF0C;&#x8BE5;&#x76D1;&#x542C;&#x5668;&#x8D1F;&#x8D23;&#x66F4;&#x65B0;&#x5BF9;&#x8C61;&#x7684;&#x5C5E;&#x6027;&#x503C;&#x3002;</p>
+<p>ValueAnimator &#x662F;&#x8BA1;&#x7B97;&#x52A8;&#x753B;&#x8FC7;&#x7A0B;&#x4E2D;&#x53D8;&#x5316;&#x7684;&#x503C;&#xFF0C;&#x5305;&#x542B;&#x52A8;&#x753B;&#x7684;&#x5F00;&#x59CB;&#x503C;&#xFF0C;&#x7ED3;&#x675F;&#x503C;&#xFF0C;&#x6301;&#x7EED;&#x65F6;&#x95F4;&#x7B49;&#x5C5E;&#x6027;&#x3002;&#x4F46;&#x5E76;&#x6CA1;&#x6709;&#x628A;&#x8FD9;&#x4E9B;&#x8BA1;&#x7B97;&#x51FA;&#x6765;&#x7684;&#x503C;&#x5E94;&#x7528;&#x5230;&#x5177;&#x4F53;&#x7684;&#x5BF9;&#x8C61;&#x4E0A;&#x9762;&#xFF0C;&#x6240;&#x4EE5;&#x4E5F;&#x4E0D;&#x4F1A;&#x6709;&#x4EC0;&#x4E48;&#x7684;&#x52A8;&#x753B;&#x663E;&#x793A;&#x51FA;&#x6765;&#x3002;&#x8981;&#x628A;&#x8BA1;&#x7B97;&#x51FA;&#x6765;&#x7684;&#x503C;&#x5E94;&#x7528;&#x5230;&#x5BF9;&#x8C61;&#x4E0A;&#xFF0C;&#x5FC5;&#x987B;&#x4E3A; ValueAnimator &#x6CE8;&#x518C;&#x4E00;&#x4E2A;&#x76D1;&#x542C;&#x5668; ValueAnimator.AnimatorUpdateListener&#xFF0C;&#x8BE5;&#x76D1;&#x542C;&#x5668;&#x8D1F;&#x8D23;&#x66F4;&#x65B0;&#x5BF9;&#x8C61;&#x7684;&#x5C5E;&#x6027;&#x503C;&#x3002;</p>
 <p>ValueAnimator &#x5B83;&#x662F;&#x8C03;&#x7528; TypeEvaluator &#x6765;&#x5B8C;&#x6210;&#x8BA1;&#x7B97; view &#x5728;&#x52A8;&#x753B;&#x4E2D;&#x7684;&#x5C5E;&#x6027;&#x503C;&#x7684;&#x3002;&#x90A3; TypeEvaluator &#x7684;&#x4F5C;&#x7528;&#x5230;&#x5E95;&#x662F;&#x4EC0;&#x4E48;&#x5462;&#xFF1F;&#x7B80;&#x5355;&#x6765;&#x8BF4;&#xFF0C;&#x5C31;&#x662F;&#x544A;&#x8BC9;&#x52A8;&#x753B;&#x7CFB;&#x7EDF;&#x5982;&#x4F55;&#x4ECE;&#x521D;&#x59CB;&#x503C;&#x8FC7;&#x5EA6;&#x5230;&#x7ED3;&#x675F;&#x503C;&#xFF0C;&#x5373;&#x5B83;&#x57FA;&#x4E8E;&#x63D2;&#x503C;&#x51FD;&#x6570;&#x3001;&#x5F00;&#x59CB;&#x503C;&#x3001;&#x7ED3;&#x675F;&#x503C;&#x8BA1;&#x7B97;&#x4F60;&#x5728;&#x52A8;&#x753B;&#x7684;&#x5C5E;&#x6027;&#x7684;&#x503C;&#x3002;</p>
 <p>&#x6BD4;&#x5982;&#x8BF4; FloatEvaluator&#xFF0C;&#x5B83;&#x5B9E;&#x73B0;&#x4E86; TypeEvaluator &#x63A5;&#x53E3;&#xFF1A;</p>
 <pre><code>/**
@@ -2178,9 +2178,11 @@ view.startAnimation(animationSet);
 //&#x4F7F;&#x7528;&#x7684;&#x65F6;&#x5019;&#x5C31;&#x662F;
  ValueAnimator animator = ValueAnimator.ofObject(new PointEvaluator()&#xFF0C;new Point(0), new Point(minValue * 2 / 5));
 </code></pre>
-<p>&#x2026;&#x5F85;&#x7EED;</p>
+<h3 id="objectanimator"><a class="header-anchor" href="#objectanimator"></a>ObjectAnimator</h3>
+<p>&#x76F8;&#x6BD4;&#x4E8E; ValueAnimator&#xFF0C;ObjectAnimator &#x53EF;&#x80FD;&#x624D;&#x662F;&#x6211;&#x4EEC;&#x6700;&#x5E38;&#x63A5;&#x89E6;&#x5230;&#x7684;&#x7C7B;&#xFF0C;&#x56E0;&#x4E3A; ValueAnimator &#x53EA;&#x4E0D;&#x8FC7;&#x662F;&#x5BF9;&#x503C;&#x8FDB;&#x884C;&#x4E86;&#x4E00;&#x4E2A;&#x5E73;&#x6ED1;&#x7684;&#x52A8;&#x753B;&#x8FC7;&#x6E21;&#xFF0C;&#x4F46;&#x6211;&#x4EEC;&#x5B9E;&#x9645;&#x4F7F;&#x7528;&#x5230;&#x8FD9;&#x79CD;&#x529F;&#x80FD;&#x7684;&#x573A;&#x666F;&#x597D;&#x50CF;&#x5E76;&#x4E0D;&#x591A;&#x3002;&#x800C; ObjectAnimator &#x5219;&#x5C31;&#x4E0D;&#x540C;&#x4E86;&#xFF0C;&#x5B83;&#x662F;&#x53EF;&#x4EE5;&#x76F4;&#x63A5;&#x5BF9;&#x4EFB;&#x610F;&#x5BF9;&#x8C61;&#x7684;&#x4EFB;&#x610F;&#x5C5E;&#x6027;&#x8FDB;&#x884C;&#x52A8;&#x753B;&#x64CD;&#x4F5C;&#x7684;&#xFF0C;&#x6BD4;&#x5982;&#x8BF4; View &#x7684; alpha &#x5C5E;&#x6027;&#x3002;</p>
+<p>&#x4E0D;&#x8FC7;&#x867D;&#x8BF4; ObjectAnimator &#x4F1A;&#x66F4;&#x52A0;&#x5E38;&#x7528;&#x4E00;&#x4E9B;&#xFF0C;&#x4F46;&#x662F;&#x5B83;&#x5176;&#x5B9E;&#x662F;&#x7EE7;&#x627F;&#x81EA; ValueAnimator &#x7684;&#xFF0C;&#x5E95;&#x5C42;&#x7684;&#x52A8;&#x753B;&#x5B9E;&#x73B0;&#x673A;&#x5236;&#x4E5F;&#x662F;&#x57FA;&#x4E8E; ValueAnimator &#x6765;&#x5B8C;&#x6210;&#x7684;&#xFF0C;&#x56E0;&#x6B64; ValueAnimator &#x4ECD;&#x7136;&#x662F;&#x6574;&#x4E2A;&#x5C5E;&#x6027;&#x52A8;&#x753B;&#x5F53;&#x4E2D;&#x6700;&#x6838;&#x5FC3;&#x7684;&#x4E00;&#x4E2A;&#x7C7B;&#x3002;&#x90A3;&#x4E48;&#x65E2;&#x7136;&#x662F;&#x7EE7;&#x627F;&#x5173;&#x7CFB;&#xFF0C;&#x8BF4;&#x660E; ValueAnimator &#x4E2D;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;&#x7684;&#x65B9;&#x6CD5;&#x5728; ObjectAnimator &#x4E2D;&#x4E5F;&#x662F;&#x53EF;&#x4EE5;&#x6B63;&#x5E38;&#x4F7F;&#x7528;&#x7684;&#xFF0C;&#x5B83;&#x4EEC;&#x7684;&#x7528;&#x6CD5;&#x4E5F;&#x975E;&#x5E38;&#x7C7B;&#x4F3C;&#x3002;</p>
 <h3 id="animatorset"><a class="header-anchor" href="#animatorset"></a>AnimatorSet</h3>
-<p>&#x662F;&#x9488;&#x5BF9;&#x89C6;&#x56FE;&#x5C5E;&#x6027;&#x7684;&#x52A8;&#x753B;&#x96C6;&#x5408;&#x3002;&#x5B83;&#x652F;&#x6301;&#x8BBE;&#x7F6E;&#x7EC4;&#x4E2D;&#x52A8;&#x753B;&#x7684;&#x65F6;&#x5E8F;&#x5173;&#x7CFB;&#xFF0C;&#x5982;&#x540C;&#x65F6;&#x64AD;&#x653E;&#xFF0C;&#x987A;&#x5E8F;&#x64AD;&#x653E;&#x7B49;&#x3002;AnimatorSet &#x5C31;&#x6BD4; AnimationSet &#x529F;&#x80FD;&#x5F3A;&#x5927;&#x5F88;&#x591A;&#x4E86;&#xFF0C; AnimatorSet &#x53EF;&#x4EE5;&#x4F7F;&#x7528; playSequentially&#x3001;playTogether&#x4E24;&#x4E2A;&#x65B9;&#x6CD5;&#xFF0C;&#x6765;&#x8BA9;&#x4E00;&#x4E9B;&#x5217;&#x7684;&#x52A8;&#x753B;&#x4E32;&#x884C;&#x548C;&#x5E76;&#x884C;&#x3002;</p>
+<p>&#x662F;&#x9488;&#x5BF9;&#x89C6;&#x56FE;&#x5C5E;&#x6027;&#x7684;&#x52A8;&#x753B;&#x96C6;&#x5408;&#x3002;&#x5B83;&#x652F;&#x6301;&#x8BBE;&#x7F6E;&#x7EC4;&#x4E2D;&#x52A8;&#x753B;&#x7684;&#x65F6;&#x5E8F;&#x5173;&#x7CFB;&#xFF0C;&#x5982;&#x540C;&#x65F6;&#x64AD;&#x653E;&#xFF0C;&#x987A;&#x5E8F;&#x64AD;&#x653E;&#x7B49;&#x3002;AnimatorSet &#x5C31;&#x6BD4; AnimationSet &#x529F;&#x80FD;&#x5F3A;&#x5927;&#x5F88;&#x591A;&#x4E86;&#xFF0C; AnimatorSet &#x53EF;&#x4EE5;&#x4F7F;&#x7528; playSequentially&#x3001;playTogether &#x4E24;&#x4E2A;&#x65B9;&#x6CD5;&#xFF0C;&#x6765;&#x8BA9;&#x4E00;&#x4E9B;&#x5217;&#x7684;&#x52A8;&#x753B;&#x4E32;&#x884C;&#x548C;&#x5E76;&#x884C;&#x3002;</p>
 <p>1&#x3001;&#x4EE3;&#x7801;&#x5B9E;&#x73B0;</p>
 <pre><code>View view = new View(this);
 ObjectAnimator animatorA = ObjectAnimator.ofFloat(view, &quot;TranslationX&quot;, -300, 300, 0);
@@ -2216,17 +2218,338 @@ animatorSet.start();
 
 //&#x4EE3;&#x7801;&#x52A0;&#x8F7D;
 View view = new View(this);
-        AnimatorSet animatorSet = (AnimatorSet) AnimatorInflater.loadAnimator(MainActivity.this, R.animator.animator_set);
-        animatorSet.setTarget(view);
-        animatorSet.start();
+AnimatorSet animatorSet = (AnimatorSet) AnimatorInflater.loadAnimator(MainActivity.this, R.animator.animator_set);
+animatorSet.setTarget(view);
+animatorSet.start();
 </code></pre>
 <h2 id="&#x81EA;&#x5B9A;&#x4E49;&#x52A8;&#x753B;"><a class="header-anchor" href="#&#x81EA;&#x5B9A;&#x4E49;&#x52A8;&#x753B;"></a>&#x81EA;&#x5B9A;&#x4E49;&#x52A8;&#x753B;</h2>
 <h2 id="&#x52A8;&#x753B;&#x4F18;&#x5316;"><a class="header-anchor" href="#&#x52A8;&#x753B;&#x4F18;&#x5316;"></a>&#x52A8;&#x753B;&#x4F18;&#x5316;</h2>
+<h3 id="&#x4F18;&#x5316;&#x70B9;1"><a class="header-anchor" href="#&#x4F18;&#x5316;&#x70B9;1"></a>&#x4F18;&#x5316;&#x70B9;1</h3>
+<p>&#x5177;&#x4F53;&#x8BF7;&#x53C2;&#x8003;&#xFF1A;<a href="http://blog.csdn.net/rentee/article/details/52251829" target="_blank" rel="external">http://blog.csdn.net/rentee/article/details/52251829</a></p>
+<ul>
+<li>&#x4F7F;&#x7528; PropertyValuesHolder</li>
+</ul>
+<p>&#x60F3;&#x5FC5;&#x5927;&#x5BB6;&#x90FD;&#x8FD9;&#x6837;&#x5199;&#x8FC7;&#xFF1A;</p>
+<pre><code>ObjectAnimator animX = ObjectAnimator.ofFloat(myView, &quot;x&quot;, 50f);
+ObjectAnimator animY = ObjectAnimator.ofFloat(myView, &quot;y&quot;, 100f);
+AnimatorSet animSetXY = new AnimatorSet();
+animSetXY.playTogether(animX, animY);
+animSetXY.start();
+</code></pre>
+<p>&#x4F46;&#x662F;&#x8FD9;&#x6837;&#x5199;&#x4F1A;&#x4EA7;&#x751F;&#x4E24;&#x4E2A; ObjectAnimator &#x5BF9;&#x8C61;&#xFF0C;&#x6548;&#x7387;&#x8F83;&#x4F4E;&#xFF0C;&#x5B98;&#x65B9;&#x5EFA;&#x7ACB;&#x8FD9;&#x6837;&#x5199;&#xFF1A;</p>
+<pre><code>PropertyValuesHolder pvhX = PropertyValuesHolder.ofFloat(&quot;x&quot;, 50f);
+PropertyValuesHolder pvhY = PropertyValuesHolder.ofFloat(&quot;y&quot;, 100f);
+
+ObjectAnimator.ofPropertyValuesHolder(myView, pvhX, pvyY).start();
+</code></pre>
+<p>&#x8FD9;&#x91CC;&#x4F7F;&#x7528;&#x4E86; PropertyValuesHolder&#xFF0C;&#x53EA;&#x4EA7;&#x751F;&#x4E00;&#x4E2A; ObjectAnimator &#x5BF9;&#x8C61;&#xFF0C;&#x66F4;&#x52A0;&#x9AD8;&#x6548;&#x3002;</p>
+<p>&#x4E00;&#x4E2A; view &#x540C;&#x65F6;&#x53D1;&#x751F;&#x591A;&#x79CD;&#x6548;&#x679C;&#x65F6;&#xFF0C;&#x5EFA;&#x8BAE;&#x8FD9;&#x79CD;&#x5199;&#x6CD5;&#x3002;</p>
+<ul>
+<li>&#x4F7F;&#x7528; Keyframe</li>
+</ul>
+<p>&#x540C;&#x6837;&#xFF0C;&#x6211;&#x4EEC;&#x80AF;&#x5B9A;&#x4E5F;&#x8FD9;&#x6837;&#x5199;&#x8FC7;&#xFF1A;</p>
+<pre><code>AnimatorSet animSet = new AnimatorSet();
+
+ObjectAnimator transYFirstAnim = ObjectAnimator.ofFloat(mView, &quot;translationY&quot;, 0, 100);
+ObjectAnimator transYSecondAnim = ObjectAnimator.ofFloat(mView, &quot;translationY&quot;, 100, 0);
+
+animSet.playSequentially(transYFirstAnim, transYSecondAnim);
+</code></pre>
+<p>&#x4EA7;&#x751F;&#x4E24;&#x4E2A; ObjectAnimator &#x5BF9;&#x8C61;&#xFF0C;&#x4E00;&#x4E2A; AnimatorSet&#xFF0C;&#x4EE3;&#x7801;&#x7E41;&#x7410;&#xFF0C;&#x5BF9;&#x8C61;&#x5197;&#x6742;&#x3002;<br>
+&#x8FD9;&#x79CD;&#x60C5;&#x51B5;&#x5EFA;&#x8BAE;&#x4F7F;&#x7528; Keyframe &#x7F16;&#x5199;&#x5176;&#x884C;&#x4E3A;&#x3002;&#x4ECE;&#x8BCD;&#x4E49;&#x4E0A;&#x6765;&#x7406;&#x89E3; Keyframe &#x662F;&#x5173;&#x952E;&#x5E27;&#xFF0C;&#x4E0B;&#x9762;&#x662F;&#x4F7F;&#x7528;&#x5173;&#x952E;&#x5E27;&#x7684;&#x4F8B;&#x5B50;&#xFF1A;</p>
+<pre><code>Keyframe k0 = Keyframe.ofFloat(0f, 0); //&#x7B2C;&#x4E00;&#x4E2A;&#x53C2;&#x6570;&#x4E3A;&#x201C;&#x4F55;&#x65F6;&#x201D;&#xFF0C;&#x7B2C;&#x4E8C;&#x4E2A;&#x53C2;&#x6570;&#x4E3A;&#x201C;&#x4F55;&#x5730;&#x201D;
+Keyframe k1 = Keyframe.ofFloat(0.5f, 100);
+Keyframe k2 = Keyframe.ofFloat(1f, 0);
+
+PropertyValuesHolder p = PropertyValuesHolder.ofKeyframe(&quot;translationY&quot;, k0, k1, k2);
+
+ObjectAnimator objectAnimator = ObjectAnimator.ofPropertyValuesHolder(mView, p);
+objectAnimator.start();
+</code></pre>
+<p>&#x6240;&#x4EE5;&#x6548;&#x679C;&#x5C31;&#x662F;&#xFF1A;<br>
+&#x5F00;&#x59CB;&#x65F6;&#x4F4D;&#x7F6E;&#x4E3A; 0&#xFF1B;<br>
+&#x52A8;&#x753B;&#x5F00;&#x59CB; 1/2 &#x65F6;&#x4F4D;&#x7F6E;&#x4E3A; 100&#xFF1B;<br>
+&#x52A8;&#x753B;&#x7ED3;&#x675F;&#x65F6;&#x4F4D;&#x7F6E;&#x4E3A; 0&#x3002;</p>
+<p>&#x4E00;&#x4E2A; view &#x7684;&#x5355;&#x4E2A;&#x5C5E;&#x6027;&#x5148;&#x540E;&#x53D1;&#x751F;&#x4E00;&#x7CFB;&#x5217;&#x53D8;&#x5316;&#x65F6;&#xFF0C;&#x5EFA;&#x8BAE;&#x4F7F;&#x7528; Keyframe &#x8FBE;&#x5230;&#x6548;&#x679C;&#x3002;</p>
+<p>&#x603B;&#x7ED3;&#x5C31;&#x662F;&#xFF0C;&#x5982;&#x679C;&#x662F;&#x540C;&#x4E00;&#x4E2A; view &#x7684;&#x4E00;&#x7CFB;&#x5217;&#x52A8;&#x753B;&#xFF0C;&#x5747;&#x53EF;&#x4F7F;&#x7528;&#x4EE5;&#x4E0A;&#x7EC4;&#x5408;&#x65B9;&#x5F0F;&#x8FBE;&#x5230;&#x53EA;&#x4F7F;&#x7528;&#x4E00;&#x4E2A; ObjectAnimator &#x7684;&#x6548;&#x679C; &#x3002;&#x591A;&#x4E2A; view &#x7684;&#x52A8;&#x753B;&#x7528; AnimatorSet &#x8FDB;&#x884C;&#x52A8;&#x753B;&#x7EC4;&#x5408;&#x548C;&#x6392;&#x5E8F;&#xFF0C;&#x4EE3;&#x7801;&#x67B6;&#x6784;&#x548C;&#x6267;&#x884C;&#x6548;&#x7387;&#x57FA;&#x672C;&#x80FD;&#x8FBE;&#x5230;&#x6700;&#x4F18;&#x5316;&#x3002;</p>
+<ul>
+<li>&#x4F7F;&#x7528; AnimatorListenerAdapter &#x4EE3;&#x66FF; AnimatorListener</li>
+</ul>
+<p>&#x7531;&#x4E8E; AnimatorListener &#x662F;&#x63A5;&#x53E3;&#xFF0C;&#x6240;&#x4EE5;&#x5B9E;&#x73B0;&#x5B83;&#x5F97;&#x5B9E;&#x73B0;&#x5B83;&#x6240;&#x6709;&#x7684;&#x65B9;&#x6CD5;&#xFF0C;&#x800C;&#x6211;&#x4EEC;&#x6709;&#x65F6;&#x53EA;&#x7528;&#x5230;&#x5B83;&#x7684;&#x4E2A;&#x522B;&#x56DE;&#x8C03;&#xFF08;&#x5982;&#xFF1A;onAnimationStart&#xFF09;&#xFF0C;&#x4F7F;&#x7528;&#x5B83;&#x4F1A;&#x5BFC;&#x81F4;&#x4EE3;&#x7801;&#x770B;&#x8D77;&#x6765;&#x975E;&#x5E38;&#x5197;&#x6742;&#x3002;&#x800C; AnimatorListenerAdapter &#x662F;&#x9ED8;&#x8BA4;&#x5B9E;&#x73B0;&#x4E86; AnimatorListener &#x7684;&#x4E00;&#x4E2A;&#x62BD;&#x8C61;&#x7C7B;&#xFF0C;&#x4F60;&#x53EF;&#x4EE5;&#x6309;&#x9700;&#x8981;&#x91CD;&#x5199;&#x5176;&#x4E2D;&#x7684;&#x65B9;&#x6CD5;&#xFF0C;&#x4EE3;&#x7801;&#x4F1A;&#x4F18;&#x96C5;&#x4E00;&#x70B9;&#x3002;</p>
+<ul>
+<li>&#x4F7F;&#x7528; ViewPropertyAnimator</li>
+</ul>
+<p>&#x5C5E;&#x6027;&#x52A8;&#x753B;&#x7684;&#x673A;&#x5236;&#x5DF2;&#x7ECF;&#x4E0D;&#x662F;&#x518D;&#x9488;&#x5BF9;&#x4E8E; View &#x800C;&#x8FDB;&#x884C;&#x8BBE;&#x8BA1;&#x7684;&#x4E86;&#xFF0C;&#x800C;&#x662F;&#x4E00;&#x79CD;&#x4E0D;&#x65AD;&#x5730;&#x5BF9;&#x503C;&#x8FDB;&#x884C;&#x64CD;&#x4F5C;&#x7684;&#x673A;&#x5236;&#xFF0C;&#x5B83;&#x53EF;&#x4EE5;&#x5C06;&#x503C;&#x8D4B;&#x503C;&#x5230;&#x6307;&#x5B9A;&#x5BF9;&#x8C61;&#x7684;&#x6307;&#x5B9A;&#x5C5E;&#x6027;&#x4E0A;&#x3002;<br>
+&#x4F46;&#x662F;&#xFF0C;&#x5728;&#x7EDD;&#x5927;&#x591A;&#x6570;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;&#x8FD8;&#x662F;&#x5BF9; View &#x8FDB;&#x884C;&#x52A8;&#x753B;&#x64CD;&#x4F5C;&#x7684;&#x3002;Android &#x5F00;&#x53D1;&#x56E2;&#x961F;&#x4E5F;&#x662F;&#x610F;&#x8BC6;&#x5230;&#x4E86;&#x8FD9;&#x4E00;&#x70B9;&#xFF0C;&#x4E8E;&#x662F;&#x5728; Android 3.1 &#x7CFB;&#x7EDF;&#x5F53;&#x4E2D;&#x8865;&#x5145;&#x4E86; ViewPropertyAnimator &#x8FD9;&#x4E2A;&#x673A;&#x5236;&#x3002;</p>
+<pre><code>ObjectAnimator animator = ObjectAnimator.ofFloat(textview, &#x201C;alpha&#x201D;, 0f); animator.start(); 
+//&#x7B49;&#x540C; 
+textview.animate().alpha(0f);
+</code></pre>
+<p>animate() &#x65B9;&#x6CD5;&#x5C31;&#x662F;&#x5728; Android 3.1 &#x7CFB;&#x7EDF;&#x4E0A;&#x65B0;&#x589E;&#x7684;&#x4E00;&#x4E2A;&#x65B9;&#x6CD5;&#xFF0C;&#x8FD9;&#x4E2A;&#x65B9;&#x6CD5;&#x7684;&#x8FD4;&#x56DE;&#x503C;&#x662F;&#x4E00;&#x4E2A; ViewPropertyAnimator &#x5BF9;&#x8C61;&#x3002;&#xFF08;&#x7B80;&#x660E;&#x65B9;&#x4FBF;&#xFF09;</p>
+<pre><code>textview.animate().x(500).y(500).setDuration(5000).setInterpolator(new BounceInterpolator());
+</code></pre>
+<ul>
+<li>
+<p>&#x5C5E;&#x6027;&#x52A8;&#x753B;&#x5176;&#x4ED6;&#x4E00;&#x4E9B;&#x5B9E;&#x7528;&#x65B9;&#x6CD5;&#xFF1A;&#xFF08;&#x6682;&#x65F6;&#x53EA;&#x8BB2;&#x4E86;API 14&#x2014;Android 4.0&#x53CA;&#x4EE5;&#x4E0B;&#x7684;&#x90E8;&#x5206;&#xFF09;</p>
+<ul>
+<li>setStartDelay():&#x53EF;&#x4EE5;&#x8BBE;&#x7F6E;&#x52A8;&#x753B;&#x5F00;&#x59CB;&#x524D;&#x7684;&#x5EF6;&#x8FDF;&#x65F6;&#x95F4;&#x3002;&#x6CE8;&#x610F;&#xFF1A;&#x6B64;&#x65B9;&#x6CD5; API 14 &#x52A0;&#x5165;&#xFF1B;&#x5982;&#x679C;&#x7ED9;&#x52A8;&#x753B;&#x6DFB;&#x52A0;&#x4E86; AnimatorListener&#xFF0C;Listener &#x7684; onAnimationStart &#x65B9;&#x6CD5;&#x4F1A;&#x5728;&#x52A8;&#x753B;&#x6700;&#x5F00;&#x59CB;&#x7684;&#x65F6;&#x5019;&#x56DE;&#x8C03;&#xFF0C;&#x800C;&#x4E0D;&#x662F; delay &#x4E00;&#x6BB5;&#x65F6;&#x95F4;&#x540E;&#x56DE;&#x8C03;&#x3002;</li>
+<li>isStarted()&#xFF08;API 14&#xFF09;&#x4E0E; isRunning()&#xFF1A;&#x8FD9;&#x4E2A;&#x5F97;&#x4E0E; setStartDelay() &#x653E;&#x5728;&#x4E00;&#x8D77;&#x8BB2;&#xFF0C;&#x4E5F;&#x5C31;&#x662F;&#x8BF4;&#xFF0C;&#x5F53;&#x52A8;&#x753B;&#x5728; delay &#x4E2D;&#x5E76;&#x6CA1;&#x6709;&#x771F;&#x6B63;&#x5F00;&#x59CB;&#x65F6;&#xFF0C;isStarted &#x8FD4;&#x56DE; false&#xFF0C;&#x800C; isRunning &#x8FD4;&#x56DE; true&#x3002;&#x4E5F;&#x5C31;&#x662F;&#xFF0C;isRunning &#x7684;&#x5468;&#x671F;&#x662F;&#x5927;&#x4E8E; isStarted &#x7684;&#x3002;</li>
+<li>cancel() &#x4E0E; end():cancel &#x65B9;&#x6CD5;&#x4F1A;&#x7ACB;&#x5373;&#x505C;&#x6B62;&#x52A8;&#x753B;&#xFF0C;&#x5E76;&#x4E14;&#x505C;&#x7559;&#x5728;&#x5F53;&#x524D;&#x5E27;&#x3002;end &#x65B9;&#x6CD5;&#x4F1A;&#x7ACB;&#x5373;&#x505C;&#x6B62;&#x52A8;&#x753B;&#xFF0C;&#x5E76;&#x4E14;&#x5C06;&#x52A8;&#x753B;&#x8FC5;&#x901F;&#x7F6E;&#x5230;&#x6700;&#x540E;&#x4E00;&#x5E27;&#x7684;&#x72B6;&#x6001;&#x3002;</li>
+<li>setupStartValues() &#x4E0E; setupEndValues()&#xFF1A;&#x8BBE;&#x7F6E;&#x52A8;&#x753B;&#x8FDB;&#x884C;&#x5230;&#x7684;&#x5F53;&#x524D;&#x503C;&#x4E3A;&#x5F00;&#x59CB;&#x503C;(&#x7ED3;&#x675F;&#x503C;)&#x3002;</li>
+</ul>
+</li>
+</ul>
+<p>&#x4EE5;&#x4E0B;&#x8FD9;&#x4E2A;&#x793A;&#x4F8B;&#x4E2D;&#xFF0C;&#x5F53; view &#x79FB;&#x52A8;&#x4E86; 2.5s &#x7684;&#x65F6;&#x5019;&#xFF0C;cancel &#x5F53;&#x524D;&#x52A8;&#x753B;&#xFF0C;&#x5E76;&#x91CD;&#x65B0;&#x8BBE;&#x5B9A;&#x8D77;&#x59CB;&#x4F4D;&#x7F6E;&#x4E3A;&#x5F53;&#x524D;&#x4F4D;&#x7F6E;&#xFF0C;&#x7ED3;&#x675F;&#x4F4D;&#x7F6E;&#x4E3A; 400&#xFF0C;&#x518D;&#x5F00;&#x59CB;&#x6B64;&#x52A8;&#x753B;&#x3002;</p>
+<pre><code>final ObjectAnimator o = ObjectAnimator.ofFloat(mTextView, &quot;x&quot;, 0, 500);
+o.setDuration(5000);
+o.start();
+
+mTextView.postDelayed(new Runnable() {
+      @Override
+      public void run() {
+           if (o.isRunning()) {
+                o.cancel();
+            }
+            o.setupStartValues();
+            o.setFloatValues(400);
+            o.start();
+      }
+},2500);
+</code></pre>
+<h3 id="&#x4F18;&#x5316;&#x70B9;2"><a class="header-anchor" href="#&#x4F18;&#x5316;&#x70B9;2"></a>&#x4F18;&#x5316;&#x70B9;2</h3>
+<p>&#x76EE;&#x7684;&#x8FD8;&#x662F;&#x5C3D;&#x91CF;&#x51CF;&#x5C11; ObjectAnimator &#x7684;&#x521B;&#x5EFA;&#x3002;</p>
+<p>&#x4E3E;&#x4E2A;&#x4F8B;&#x5B50;&#xFF0C;&#x6211;&#x4EEC;&#x5E0C;&#x671B;&#x5BF9;&#x4E00;&#x4E2A;&#x70B9;&#x7684; XY &#x5750;&#x6807;&#x540C;&#x65F6;&#x4F7F;&#x7528;&#x52A8;&#x753B;&#xFF0C;&#x90A3;&#x6211;&#x4EEC;&#x4E00;&#x822C;&#x4F1A;&#x4F7F;&#x7528;&#x4E0B;&#x9762;&#x7684;&#x65B9;&#x6CD5;&#xFF0C;&#x8FD9;&#x6837;&#x5C31;&#x4F1A;&#x521B;&#x5EFA;&#x4E24;&#x4E2A; ObjectAnimator&#xFF1A;</p>
+<pre><code>ObjectAnimator aPaintX = ObjectAnimator.ofFloat(this, &quot;translationX&quot;, 0, 100);
+		//PaintY
+		ObjectAnimator aPaintY = ObjectAnimator.ofFloat(this, &quot;translationY&quot;, 0, 100);
+		//AnimatorSet
+		AnimatorSet set = new AnimatorSet();
+		set.playTogether(aPaintX, aPaintY);
+		set.start();
+</code></pre>
+<p>&#x6211;&#x4EEC;&#x4F7F;&#x7528;&#x4E86; AnimatorSet &#x6765;&#x7BA1;&#x7406;&#x52A8;&#x753B;&#x96C6;&#xFF0C;&#x4F46;&#x6211;&#x4EEC;&#x770B; AnimatorSet &#x4E2D;&#x7684;&#x6E90;&#x7801;&#x53EF;&#x4EE5;&#x77E5;&#x9053;&#xFF0C;&#x5176;&#x6700;&#x540E;&#x4E5F;&#x662F;&#x542F;&#x52A8;&#x6BCF;&#x4E00;&#x4E2A;&#x7684;&#x5C5E;&#x6027;&#x52A8;&#x753B;&#x8FDB;&#x884C;&#x64AD;&#x653E;&#x7684;&#x3002;&#x6240;&#x4EE5;&#x5982;&#x679C;&#x6211;&#x4EEC;&#x60F3;&#x540C;&#x65F6;&#x6539;&#x53D8;&#x5BF9;&#x8C61;&#x7684;&#x591A;&#x4E2A;&#x5C5E;&#x6027;&#xFF0C;&#x5C31;&#x5F97;&#x521B;&#x5EFA;&#x591A;&#x4E2A; ObjectAnimator&#x3002;&#x6211;&#x4EEC;&#x6362;&#x4E2A;&#x601D;&#x8DEF;&#xFF0C;&#x662F;&#x4E0D;&#x662F;&#x53EF;&#x4EE5;&#x5C01;&#x88C5;&#x4E00;&#x4E2A;&#x5C5E;&#x6027;&#x96C6;&#x5408;&#x7C7B;&#x7684;&#x5B9E;&#x4F8B;&#xFF0C;&#x7136;&#x540E;&#x5C31;&#x53EF;&#x4EE5;&#x53EA;&#x4F7F;&#x7528;&#x4E00;&#x4E2A;&#x5C5E;&#x6027;&#x52A8;&#x753B;&#x4E86;&#x3002;</p>
+<p>&#x6211;&#x4EEC;&#x56DE;&#x60F3;&#x4E00;&#x4E0B;&#xFF0C;&#x524D;&#x9762;&#x6709;&#x63D0;&#x5230;&#x8FC7; TypeEvaluator&#xFF0C;&#x5C5E;&#x6027;&#x52A8;&#x753B;&#x7684;&#x503C;&#x5C31;&#x662F;&#x5728;&#x5B83;&#x91CC;&#x9762;&#x505A;&#x4FEE;&#x6539;&#x7684;&#x3002;&#x901A;&#x8FC7;&#x7FFB;&#x770B; ObjectAnimator &#x7684;&#x6E90;&#x7801;&#xFF0C;&#x53D1;&#x73B0;&#x5B83;&#x662F;&#x63D0;&#x4F9B;&#x4E86;&#x4F20;&#x5165;&#x81EA;&#x5B9A;&#x4E49; TypeEvaluator &#x7684;&#x65B9;&#x6CD5;&#xFF1A;</p>
+<pre><code>public static ObjectAnimator ofObject(Object target, String propertyName,
+            TypeEvaluator evaluator, Object... values) {
+        ObjectAnimator anim = new ObjectAnimator(target, propertyName);
+        anim.setObjectValues(values);
+        anim.setEvaluator(evaluator);
+        return anim;
+    }
+</code></pre>
+<p>&#x90A3;OK&#xFF0C;&#x53EF;&#x4EE5;&#x8FD9;&#x6837;&#x6765;&#x4F18;&#x5316;&#x3002;&#x5B9E;&#x73B0;&#x81EA;&#x5B9A;&#x4E49; TypeEvaluator&#xFF0C;&#x4F7F;&#x7528;&#x5B83;&#x7684; evaluate &#x51FD;&#x6570;&#x6765;&#x5B9E;&#x73B0;&#x81EA;&#x5DF1;&#x7684;&#x5C5E;&#x6027;&#x53D8;&#x66F4;&#x903B;&#x8F91;&#x3002;</p>
+<pre><code>public static class PaintEvaluator implements TypeEvaluator {
+        private static final PaintEvaluator sInstance = new PaintEvaluator();
+        public static PaintEvaluator getInstance() {
+	return sInstance;
+        }
+        public Object evaluate(float fraction, Object startValue, Object endValue) {
+	ViewProperty start = (ViewProperty) startValue;
+	ViewProperty end = (ViewProperty) endValue;
+	float x = start.paintX + fraction * (end.paintX - start.paintX); //&#x6839;&#x636E;&#x81EA;&#x5DF1;&#x5B9A;&#x4E49;&#x7684;&#x7B97;&#x6CD5;&#xFF0C;&#x5206;&#x522B;&#x8BA1;&#x7B97; x y &#x503C;&#xFF0C;&#x7136;&#x540E;&#x8FD4;&#x56DE;
+	float y = start.paintY + fraction * (end.paintY - start.paintY);
+	return new ViewProperty(x, y); //&#x4E0D;&#x9650;&#x53EF;&#x4EE5;&#x662F; xy &#x5750;&#x6807;&#x503C;&#xFF0C;&#x8FD8;&#x53EF;&#x4EE5;&#x6839;&#x636E;&#x81EA;&#x5DF1;&#x9700;&#x6C42;&#x81EA;&#x5B9A;&#x4E49;&#x5176;&#x5B83;&#x5C5E;&#x6027;&#xFF0C;&#x4F8B;&#x5982; alpha &#x503C;&#x7B49;&#x7B49;
+        }
+    }
+</code></pre>
+<h3 id="&#x4F18;&#x5316;&#x70B9;3"><a class="header-anchor" href="#&#x4F18;&#x5316;&#x70B9;3"></a>&#x4F18;&#x5316;&#x70B9;3</h3>
+<p>&#x89E3;&#x51B3;animation&#x5FAA;&#x73AF;&#x4E2D;&#x505C;&#x6B62;&#x65F6;&#x5361;&#x987F;&#x4E00;&#x4E0B;&#x7684;&#x95EE;&#x9898;&#x3002;</p>
+<pre><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;  
+&lt;set xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;&gt;  
+    &lt;rotate  
+        android:fromDegrees=&quot;0&quot;  
+        android:toDegrees=&quot;359&quot;  
+        android:duration=&quot;500&quot;  
+        android:repeatCount=&quot;-1&quot;  
+        android:pivotX=&quot;50%&quot;  
+        android:pivotY=&quot;50%&quot; /&gt;  
+&lt;/set&gt;  
+</code></pre>
+<p>&#x542B;&#x4E49;&#x8868;&#x793A;&#x4ECE;0&#x5230;359&#x5EA6;&#x5F00;&#x59CB;&#x5FAA;&#x73AF;&#x65CB;&#x8F6C;&#xFF0C;0-359(&#x82E5;&#x8BBE;&#x7F6E;&#x6210;360&#x5728;&#x505C;&#x6B62;&#x65F6;&#x4F1A;&#x51FA;&#x73B0;&#x505C;&#x987F;&#x73B0;&#x8C61;)&#x5EA6;&#x65CB;&#x8F6C;&#x6240;&#x7528;&#x65F6;&#x95F4;&#x4E3A;500ms&#xFF0C;&#x65CB;&#x8F6C;&#x4E2D;&#x5FC3;&#x8DDD;&#x79BB;view&#x7684;&#x5DE6;&#x9876;&#x70B9;&#x4E3A;50%&#x8DDD;&#x79BB;&#xFF0C;&#x8DDD;&#x79BB;view&#x7684;&#x4E0A;&#x8FB9;&#x7F18;&#x4E3A;50%&#x8DDD;&#x79BB;&#xFF0C;&#x5373;&#x6B63;&#x4E2D;&#x5FC3;&#x3002;</p>
+<h3 id="&#x4F18;&#x5316;&#x70B9;4"><a class="header-anchor" href="#&#x4F18;&#x5316;&#x70B9;4"></a>&#x4F18;&#x5316;&#x70B9;4</h3>
+<p>&#x5F53;&#x754C;&#x9762;&#x7684;&#x7ED8;&#x5236;&#x548C;&#x52A8;&#x753B;&#x6BD4;&#x8F83;&#x590D;&#x6742;&#xFF0C;&#x8BA1;&#x7B97;&#x91CF;&#x6BD4;&#x8F83;&#x5927;&#x7684;&#x60C5;&#x51B5;&#xFF0C;&#x5C31;&#x4E0D;&#x518D;&#x9002;&#x5408;&#x4F7F;&#x7528; View &#x7684;&#x5C5E;&#x6027;&#x52A8;&#x753B;&#x4E86;&#xFF0C;&#x56E0;&#x4E3A;&#x6BCF;&#x6B21;&#x5C5E;&#x6027;&#x7684;&#x53D8;&#x66F4;&#x90FD;&#x9700;&#x8981;&#x591A;&#x6B21;&#x8C03;&#x7528; onMeasure&#x3001;onLayout&#x3001;onDraw&#xFF0C;&#x91CD;&#x65B0;&#x7ED8;&#x5236; View &#x672C;&#x8EAB;&#x3002;</p>
+<p>&#x6211;&#x4EEC;&#x77E5;&#x9053;&#xFF0C;&#x6BCF;&#x4E2A; View &#x4E2D;&#x90FD;&#x6709; Canvas &#x53EF;&#x4EE5;&#x7528;&#x6765;&#x7ED8;&#x5236;&#x52A8;&#x753B;&#xFF0C;&#x53EA;&#x9700;&#x8981;&#x5728;&#x8FD9;&#x4E2A; View &#x4E2D;&#x91CD;&#x8F7D;onDraw()&#x65B9;&#x6CD5;&#x5C31;&#x53EF;&#x4EE5;&#x3002;&#x90A3;&#x7528;&#x4EC0;&#x4E48;&#x6765;&#x7ED8;&#x5236;&#x52A8;&#x753B;&#x5462;&#xFF1F;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x8003;&#x8651;&#x4F7F;&#x7528; SurfaceView&#xFF0C;&#x5B83;&#x80FD;&#x591F;&#x5728;&#x975E; UI &#x7EBF;&#x7A0B;&#x4E2D;&#x8FDB;&#x884C;&#x56FE;&#x5F62;&#x7ED8;&#x5236;&#xFF0C;&#x91CA;&#x653E;&#x4E86; UI &#x7EBF;&#x7A0B;&#x7684;&#x538B;&#x529B;&#x3002;</p>
+<p><a href="https://github.com/xxss0903/SimpleCircleDemo/blob/master/Circle.java" target="_blank" rel="external">Demo&#x53C2;&#x8003;xxss0903</a></p>
+<pre><code>public class MainActivity extends Activity {  
+	@Override  
+    protected void onCreate(Bundle savedInstanceState) {  
+        super.onCreate(savedInstanceState);  
+        setContentView(new Circle(this)); // &#x6DFB;&#x52A0;&#x81EA;&#x5B9A;&#x4E49;&#x7684;SurfaceView  
+    }  
+  
+    @Override  
+    public boolean onCreateOptionsMenu(Menu menu) {  
+        // Inflate the menu; this adds items to the action bar if it is present.  
+        getMenuInflater().inflate(R.menu.main, menu);  
+        return true;  
+    }  
+}
+
+public class Circle extends SurfaceView implements SurfaceHolder.Callback {
+
+    private OnCircleAnimationListener mListener;
+
+    private int mWidth;
+    private int mHeight;
+    private SurfaceHolder mHolder;
+    private static final String TEXT_CIRCLE = &quot;&#x8DF3;&#x8FC7;&quot;;
+
+    private int mDegree = 0;
+
+    private long mDelay = 3000; // &#x9ED8;&#x8BA4;&#x8FD0;&#x884C;&#x65F6;&#x95F4;3&#x79D2;
+    private boolean mStop = false;
+    private Paint mClearPaint;
+
+    public Circle(Context context) {
+        super(context);
+
+        //
+        mHolder = getHolder();
+        mHolder.addCallback(this);
+    }
+
+    public Circle(Context context, AttributeSet attrs) {
+        super(context, attrs);
+        mHolder = getHolder();
+        mHolder.addCallback(this);
+        // &#x4E0B;&#x9762;&#x7684;&#x4EE3;&#x7801;&#x4F1A;&#x80FD;&#x591F;&#x53BB;&#x9664;&#x6389;&#x5706;&#x5708;&#x4E4B;&#x5916;&#x7684;&#x9ED1;&#x8272;&#x80CC;&#x666F;
+        setZOrderOnTop(true);
+        mHolder.setFormat(PixelFormat.TRANSLUCENT);
+    }
+
+    @Override
+    protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
+        super.onMeasure(widthMeasureSpec, heightMeasureSpec);
+//        setMeasuredDimension(100, 100);
+    }
+
+    @Override
+    public void surfaceCreated(SurfaceHolder surfaceHolder) {
+        // &#x83B7;&#x53D6;&#x5BBD;&#x9AD8;
+        mWidth = getMeasuredWidth();
+        mHeight = getMeasuredHeight();
+        if (mListener != null) {
+            mListener.onAnimationPrepared(Circle.this);
+        }
+    }
+
+    @Override
+    public void surfaceChanged(SurfaceHolder surfaceHolder, int i, int i1, int i2) {
+        Log.e(&quot;John&quot;, &quot;Circle&quot; + &quot; # &quot; + &quot;surface changed&quot;);
+    }
+
+    @Override
+    public void surfaceDestroyed(SurfaceHolder surfaceHolder) {
+
+    }
+
+    public void setCircleAnimationListener(OnCircleAnimationListener listener) {
+        mListener = listener;
+    }
+
+    public void startCircleAnimation() {
+        new DrawThread().start();
+    }
+
+    public void setAnimationDelay(long delay) {
+        mDelay = delay;
+    }
+
+    public void stopAnimation() {
+        mStop = true;
+    }
+
+    public class DrawThread extends Thread {
+
+        private Paint mPaint;
+        private Paint mTextPaint;
+        private Paint mArcPaint;
+
+        public DrawThread() {
+            mPaint = new Paint();
+            mPaint.setAntiAlias(true);
+            mTextPaint = new TextPaint();
+            mTextPaint.setTextSize(mHeight / 2-5);
+            mTextPaint.setColor(Color.WHITE);
+            mPaint.setColor(Color.RED);
+            mArcPaint = new Paint();
+            mArcPaint.setStrokeWidth((float) (mWidth / 2 * 0.1));
+            mArcPaint.setColor(Color.BLUE);
+            mArcPaint.setAntiAlias(true);
+            mArcPaint.setStyle(Paint.Style.STROKE);
+
+            //&#x8FD9;&#x662F;&#x5B9A;&#x4E49;&#x6A61;&#x76AE;&#x64E6;&#x753B;&#x7B14;
+            mClearPaint = new Paint();
+            mClearPaint.setAntiAlias(true);
+            mClearPaint.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.CLEAR));
+
+        }
+
+        @Override
+        public void run() {
+            mListener.onAnimationStart(Circle.this);
+            while (!mStop) {
+                drawCircle();
+                if (mDegree &gt;= 360) {
+                    mListener.onAnimationFinished(Circle.this);
+                    break;
+                }
+                // &#x628A;&#x603B;&#x7684;&#x52A8;&#x753B;&#x65F6;&#x95F4;&#x5206;&#x6210;360&#x4EFD;
+                long animation_duration = mDelay / 360;
+                SystemClock.sleep(animation_duration);
+                mDegree++;
+            }
+        }
+
+        // &#x7ED8;&#x5236;&#x5706;&#x5708;
+        private void drawCircle() {
+            mListener.onAnimationRunning(Circle.this);
+            Canvas canvas = mHolder.lockCanvas();
+            if (canvas == null) {
+                return;
+            }
+            canvas.drawRect(0, 0, mWidth, mHeight, mClearPaint);
+            canvas.drawColor(Color.TRANSPARENT, PorterDuff.Mode.CLEAR);
+
+            canvas.save();
+            canvas.scale(0.9f, 0.9f, mWidth * 1f / 2, mHeight * 1f / 2);
+            canvas.drawCircle(mWidth * 1.0f / 2, mHeight * 1.0f / 2, mWidth * 1.0f / 2, mPaint);
+            float centerY = mHeight * 1f / 2;
+            // &#x8FD9;&#x4E2A;&#x662F;&#x83B7;&#x53D6;&#x6BCF;&#x4E2A;&#x6587;&#x5B57;&#x7684;&#x5BBD;&#x5EA6;&#xFF0C;&#x90A3;&#x4E48;&#x600E;&#x4E48;&#x77E5;&#x9053;&#x6709;&#x51E0;&#x4E2A;&#x6587;&#x5B57;&#x5462;?
+            float widths[] = new float[2];
+            mTextPaint.getTextWidths(TEXT_CIRCLE, widths);
+            canvas.drawText(TEXT_CIRCLE, 5, centerY + (widths[0] * 1f / 2) - 10, mTextPaint);
+            canvas.restore();
+
+            // &#x65CB;&#x8F6C;&#x5750;&#x6807;&#x753B;&#x5706;&#x5708;
+            canvas.save();
+            canvas.rotate(-90, mWidth / 2, mHeight / 2);
+            RectF rectF = new RectF((float) (mWidth / 2 * 0.1) / 2, (float) (mWidth / 2 * 0.1) / 2, mWidth - (float) (mWidth / 2 * 0.1) / 2, mHeight - (float) (mWidth / 2 * 0.1) / 2);
+            canvas.drawArc(rectF, 0, mDegree, false, mArcPaint);
+            canvas.restore();
+
+            mHolder.unlockCanvasAndPost(canvas);
+        }
+    }
+
+    public interface OnCircleAnimationListener {
+        void onAnimationPrepared(View view);
+
+        void onAnimationFinished(View view);
+
+        void onAnimationRunning(View view);
+
+        void onAnimationStart(View view);
+    }
+}  
+</code></pre>
 <p>&#x660E;&#x5929;&#x5F85;&#x7EED;&#x2026;</p>
 <h2 id="&#x53C2;&#x8003;"><a class="header-anchor" href="#&#x53C2;&#x8003;"></a>&#x53C2;&#x8003;</h2>
 <ul>
 <li><a href="http://blog.csdn.net/singwhatiwanna/article/details/17639987" target="_blank" rel="external">http://blog.csdn.net/singwhatiwanna/article/details/17639987</a></li>
 <li><a href="http://www.cnblogs.com/zxcblog/p/3259920.html" target="_blank" rel="external">http://www.cnblogs.com/zxcblog/p/3259920.html</a></li>
+<li><a href="http://blog.csdn.net/rentee/article/details/52251829" target="_blank" rel="external">http://blog.csdn.net/rentee/article/details/52251829</a></li>
+<li><a href="http://blog.csdn.net/qiujuer/article/details/42531485" target="_blank" rel="external">http://blog.csdn.net/qiujuer/article/details/42531485</a></li>
 </ul>]]></content>
     
     <summary type="html">
