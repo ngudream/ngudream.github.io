@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://ngudream.com/"/>
-  <updated>2017-03-19T05:18:17.497Z</updated>
+  <updated>2017-03-20T15:11:31.915Z</updated>
   <id>http://ngudream.com/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://ngudream.com/2017/03/17/java-interview/"/>
     <id>http://ngudream.com/2017/03/17/java-interview/</id>
     <published>2017-03-17T13:36:32.000Z</published>
-    <updated>2017-03-19T05:18:17.497Z</updated>
+    <updated>2017-03-20T15:11:31.915Z</updated>
     
     <content type="html"><![CDATA[<h2 id="java&#x57FA;&#x7840;"><a class="header-anchor" href="#java&#x57FA;&#x7840;"></a>Java&#x57FA;&#x7840;</h2>
 <p><strong>1. String &#x7C7B;&#x4E3A;&#x4EC0;&#x4E48;&#x662F; final &#x7684;</strong></p>
@@ -959,65 +959,397 @@ criteria.add(Expression.eq(&quot;age&quot;, new Integer(20)));
 <p>&#x4E8B;&#x52A1;&#xFF08;Transaction&#xFF09;&#x662F;&#x5DE5;&#x4F5C;&#x4E2D;&#x7684;&#x57FA;&#x672C;&#x903B;&#x8F91;&#x5355;&#x4F4D;&#xFF0C;&#x53EF;&#x4EE5;&#x7528;&#x4E8E;&#x786E;&#x4FDD;&#x6570;&#x636E;&#x5E93;&#x80FD;&#x591F;&#x88AB;&#x6B63;&#x786E;&#x4FEE;&#x6539;&#xFF0C;&#x907F;&#x514D;&#x6570;&#x636E;&#x53EA;&#x4FEE;&#x6539;&#x4E86;&#x4E00;&#x90E8;&#x5206;&#x800C;&#x5BFC;&#x81F4;&#x6570;&#x636E;&#x4E0D;&#x5B8C;&#x6574;&#xFF0C;&#x6216;&#x8005;&#x5728;&#x4FEE;&#x6539;&#x65F6;&#x53D7;&#x5230;&#x7528;&#x6237;&#x5E72;&#x6270;&#x3002;&#x4F5C;&#x4E3A;&#x4E00;&#x540D;&#x8F6F;&#x4EF6;&#x8BBE;&#x8BA1;&#x5E08;&#xFF0C;&#x5FC5;&#x987B;&#x4E86;&#x89E3;&#x4E8B;&#x52A1;&#x5E76;&#x5408;&#x7406;&#x5229;&#x7528;&#xFF0C;&#x4EE5;&#x786E;&#x4FDD;&#x6570;&#x636E;&#x5E93;&#x4FDD;&#x5B58;&#x6B63;&#x786E;&#x3001;&#x5B8C;&#x6574;&#x7684;&#x6570;&#x636E;&#x3002;&#x6570;&#x636E;&#x5E93;&#x5411;&#x7528;&#x6237;&#x63D0;&#x4F9B;&#x4FDD;&#x5B58;&#x5F53;&#x524D;&#x7A0B;&#x5E8F;&#x72B6;&#x6001;&#x7684;&#x65B9;&#x6CD5;&#xFF0C;&#x53EB;&#x4E8B;&#x52A1;&#x63D0;&#x4EA4;&#xFF08;commit&#xFF09;&#xFF1B;&#x5F53;&#x4E8B;&#x52A1;&#x6267;&#x884C;&#x8FC7;&#x7A0B;&#x4E2D;&#xFF0C;&#x4F7F;&#x6570;&#x636E;&#x5E93;&#x5FFD;&#x7565;&#x5F53;&#x524D;&#x7684;&#x72B6;&#x6001;&#x5E76;&#x56DE;&#x5230;&#x524D;&#x9762;&#x4FDD;&#x5B58;&#x7684;&#x72B6;&#x6001;&#x7684;&#x65B9;&#x6CD5;&#x53EB;&#x4E8B;&#x52A1;&#x56DE;&#x6EDA;&#xFF08;rollback&#xFF09;&#x3002;</p>
 <p>&#x5177;&#x4F53;&#x8BF7;&#x770B;&#xFF1A;<a href="http://blog.csdn.net/lifaming15/article/details/2564660" target="_blank" rel="external">http://blog.csdn.net/lifaming15/article/details/2564660</a></p>
 <h2 id="&#x591A;&#x7EBF;&#x7A0B;"><a class="header-anchor" href="#&#x591A;&#x7EBF;&#x7A0B;"></a>&#x591A;&#x7EBF;&#x7A0B;</h2>
-<ol>
-<li>
-<p>Java&#x521B;&#x5EFA;&#x7EBF;&#x7A0B;&#x4E4B;&#x540E;&#xFF0C;&#x76F4;&#x63A5;&#x8C03;&#x7528;start()&#x65B9;&#x6CD5;&#x548C;run()&#x7684;&#x533A;&#x522B;</p>
-</li>
-<li>
-<p>&#x5E38;&#x7528;&#x7684;&#x7EBF;&#x7A0B;&#x6C60;&#x6A21;&#x5F0F;&#x4EE5;&#x53CA;&#x4E0D;&#x540C;&#x7EBF;&#x7A0B;&#x6C60;&#x7684;&#x4F7F;&#x7528;&#x573A;&#x666F;</p>
-</li>
-<li>
-<p>newFixedThreadPool&#x6B64;&#x79CD;&#x7EBF;&#x7A0B;&#x6C60;&#x5982;&#x679C;&#x7EBF;&#x7A0B;&#x6570;&#x8FBE;&#x5230;&#x6700;&#x5927;&#x503C;&#x540E;&#x4F1A;&#x600E;&#x4E48;&#x529E;&#xFF0C;&#x5E95;&#x5C42;&#x539F;&#x7406;&#x3002;</p>
-</li>
-<li>
-<p>&#x591A;&#x7EBF;&#x7A0B;&#x4E4B;&#x95F4;&#x901A;&#x4FE1;&#x7684;&#x540C;&#x6B65;&#x95EE;&#x9898;&#xFF0C;synchronized&#x9501;&#x7684;&#x662F;&#x5BF9;&#x8C61;&#xFF0C;&#x884D;&#x4F38;&#x51FA;&#x548C;synchronized&#x76F8;&#x5173;&#x5F88;&#x591A;&#x7684;&#x5177;&#x4F53;&#x95EE;&#x9898;&#xFF0C;&#x4F8B;&#x5982;&#x540C;&#x4E00;&#x4E2A;&#x7C7B;&#x4E0D;&#x540C;&#x65B9;&#x6CD5;&#x90FD;&#x6709;synchronized&#x9501;&#xFF0C;&#x4E00;&#x4E2A;&#x5BF9;&#x8C61;&#x662F;&#x5426;&#x53EF;&#x4EE5;&#x540C;&#x65F6;&#x8BBF;&#x95EE;&#x3002;&#x6216;&#x8005;&#x4E00;&#x4E2A;&#x7C7B;&#x7684;static&#x6784;&#x9020;&#x65B9;&#x6CD5;&#x52A0;&#x4E0A;synchronized&#x4E4B;&#x540E;&#x7684;&#x9501;&#x7684;&#x5F71;&#x54CD;&#x3002;</p>
-</li>
-<li>
-<p>&#x4E86;&#x89E3;&#x53EF;&#x91CD;&#x5165;&#x9501;&#x7684;&#x542B;&#x4E49;&#xFF0C;&#x4EE5;&#x53CA;ReentrantLock &#x548C;synchronized&#x7684;&#x533A;&#x522B;</p>
-</li>
-<li>
-<p>&#x540C;&#x6B65;&#x7684;&#x6570;&#x636E;&#x7ED3;&#x6784;&#xFF0C;&#x4F8B;&#x5982;concurrentHashMap&#x7684;&#x6E90;&#x7801;&#x7406;&#x89E3;&#x4EE5;&#x53CA;&#x5185;&#x90E8;&#x5B9E;&#x73B0;&#x539F;&#x7406;&#xFF0C;&#x4E3A;&#x4EC0;&#x4E48;&#x4ED6;&#x662F;&#x540C;&#x6B65;&#x7684;&#x4E14;&#x6548;&#x7387;&#x9AD8;&#x3002;</p>
-</li>
-<li>
-<p>atomicinteger&#x548C;Volatile&#x7B49;&#x7EBF;&#x7A0B;&#x5B89;&#x5168;&#x64CD;&#x4F5C;&#x7684;&#x5173;&#x952E;&#x5B57;&#x7684;&#x7406;&#x89E3;&#x548C;&#x4F7F;&#x7528;</p>
-</li>
-<li>
-<p>&#x7EBF;&#x7A0B;&#x95F4;&#x901A;&#x4FE1;&#xFF0C;wait&#x548C;notify</p>
-</li>
-<li>
-<p>&#x5B9A;&#x65F6;&#x7EBF;&#x7A0B;&#x7684;&#x4F7F;&#x7528;</p>
-</li>
-<li>
-<p>&#x573A;&#x666F;&#xFF1A;&#x5728;&#x4E00;&#x4E2A;&#x4E3B;&#x7EBF;&#x7A0B;&#x4E2D;&#xFF0C;&#x8981;&#x6C42;&#x6709;&#x5927;&#x91CF;(&#x5F88;&#x591A;&#x5F88;&#x591A;)&#x5B50;&#x7EBF;&#x7A0B;&#x6267;&#x884C;&#x5B8C;&#x4E4B;&#x540E;&#xFF0C;&#x4E3B;&#x7EBF;&#x7A0B;&#x624D;&#x6267;&#x884C;&#x5B8C;&#x6210;&#x3002;&#x591A;&#x79CD;&#x65B9;&#x5F0F;&#xFF0C;&#x8003;&#x8651;&#x6548;&#x7387;&#x3002;</p>
-</li>
-<li>
-<p>&#x8FDB;&#x7A0B;&#x548C;&#x7EBF;&#x7A0B;&#x7684;&#x533A;&#x522B;</p>
-</li>
-<li>
-<p>&#x4EC0;&#x4E48;&#x53EB;&#x7EBF;&#x7A0B;&#x5B89;&#x5168;&#xFF1F;</p>
-</li>
-<li>
-<p>&#x7EBF;&#x7A0B;&#x7684;&#x51E0;&#x79CD;&#x72B6;&#x6001;</p>
-</li>
-<li>
-<p>&#x5E76;&#x53D1;&#x3001;&#x540C;&#x6B65;&#x7684;&#x63A5;&#x53E3;&#x6216;&#x65B9;&#x6CD5;</p>
-</li>
-<li>
-<p>HashMap &#x662F;&#x5426;&#x7EBF;&#x7A0B;&#x5B89;&#x5168;&#xFF0C;&#x4E3A;&#x4F55;&#x4E0D;&#x5B89;&#x5168;&#x3002; ConcurrentHashMap&#xFF0C;&#x7EBF;&#x7A0B;&#x5B89;&#x5168;&#xFF0C;&#x4E3A;&#x4F55;&#x5B89;&#x5168;&#x3002;&#x5E95;&#x5C42;&#x5B9E;&#x73B0;&#x662F;&#x600E;&#x4E48;&#x6837;&#x7684;&#x3002;</p>
-</li>
-<li>
-<p>J.U.C&#x4E0B;&#x7684;&#x5E38;&#x89C1;&#x7C7B;&#x7684;&#x4F7F;&#x7528;&#x3002; ThreadPool&#x7684;&#x6DF1;&#x5165;&#x8003;&#x5BDF;&#xFF1B; BlockingQueue&#x7684;&#x4F7F;&#x7528;&#x3002;&#xFF08;take&#xFF0C;poll&#x7684;&#x533A;&#x522B;&#xFF0C;put&#xFF0C;offer&#x7684;&#x533A;&#x522B;&#xFF09;&#xFF1B;&#x539F;&#x5B50;&#x7C7B;&#x7684;&#x5B9E;&#x73B0;&#x3002;</p>
-</li>
-<li>
-<p>&#x7B80;&#x5355;&#x4ECB;&#x7ECD;&#x4E0B;&#x591A;&#x7EBF;&#x7A0B;&#x7684;&#x60C5;&#x51B5;&#xFF0C;&#x4ECE;&#x5EFA;&#x7ACB;&#x4E00;&#x4E2A;&#x7EBF;&#x7A0B;&#x5F00;&#x59CB;&#x3002;&#x7136;&#x540E;&#x600E;&#x4E48;&#x63A7;&#x5236;&#x540C;&#x6B65;&#x8FC7;&#x7A0B;&#xFF0C;&#x591A;&#x7EBF;&#x7A0B;&#x5E38;&#x7528;&#x7684;&#x65B9;&#x6CD5;&#x548C;&#x7ED3;&#x6784;</p>
-</li>
-<li>
-<p>volatile&#x7684;&#x7406;&#x89E3;</p>
-</li>
-<li>
-<p>&#x5B9E;&#x73B0;&#x591A;&#x7EBF;&#x7A0B;&#x6709;&#x51E0;&#x79CD;&#x65B9;&#x5F0F;&#xFF0C;&#x591A;&#x7EBF;&#x7A0B;&#x540C;&#x6B65;&#x600E;&#x4E48;&#x505A;&#xFF0C;&#x8BF4;&#x8BF4;&#x51E0;&#x4E2A;&#x7EBF;&#x7A0B;&#x91CC;&#x5E38;&#x7528;&#x7684;&#x65B9;&#x6CD5;&#x3002;</p>
-</li>
-</ol>
+<p><strong>1. Java&#x521B;&#x5EFA;&#x7EBF;&#x7A0B;&#x4E4B;&#x540E;&#xFF0C;&#x76F4;&#x63A5;&#x8C03;&#x7528;start()&#x65B9;&#x6CD5;&#x548C;run()&#x7684;&#x533A;&#x522B;</strong></p>
+<p>&#x4E24;&#x79CD;&#x65B9;&#x6CD5;&#x7684;&#x533A;&#x522B;:</p>
+<p>&#xFF08;1&#xFF09;start&#xFF1A;</p>
+<p>&#x7528; start &#x65B9;&#x6CD5;&#x6765;&#x542F;&#x52A8;&#x7EBF;&#x7A0B;&#xFF0C;&#x771F;&#x6B63;&#x5B9E;&#x73B0;&#x4E86;&#x591A;&#x7EBF;&#x7A0B;&#x8FD0;&#x884C;&#xFF0C;&#x8FD9;&#x65F6;&#x65E0;&#x9700;&#x7B49;&#x5F85; run &#x65B9;&#x6CD5;&#x4F53;&#x4EE3;&#x7801;&#x6267;&#x884C;&#x5B8C;&#x6BD5;&#x800C;&#x76F4;&#x63A5;&#x7EE7;&#x7EED;&#x6267;&#x884C;&#x4E0B;&#x9762;&#x7684;&#x4EE3;&#x7801;&#x3002;&#x901A;&#x8FC7;&#x8C03;&#x7528; Thread &#x7C7B;&#x7684; start() &#x65B9;&#x6CD5;&#x6765;&#x542F;&#x52A8;&#x4E00;&#x4E2A;&#x7EBF;&#x7A0B;&#xFF0C;&#x8FD9;&#x65F6;&#x6B64;&#x7EBF;&#x7A0B;&#x5904;&#x4E8E;&#x5C31;&#x7EEA;&#xFF08;&#x53EF;&#x8FD0;&#x884C;&#xFF09;&#x72B6;&#x6001;&#xFF0C;&#x5E76;&#x6CA1;&#x6709;&#x8FD0;&#x884C;&#xFF0C;&#x4E00;&#x65E6;&#x5F97;&#x5230; cpu &#x65F6;&#x95F4;&#x7247;&#xFF0C;&#x5C31;&#x5F00;&#x59CB;&#x6267;&#x884C; run() &#x65B9;&#x6CD5;&#xFF0C;&#x8FD9;&#x91CC;&#x65B9;&#x6CD5;  run() &#x79F0;&#x4E3A;&#x7EBF;&#x7A0B;&#x4F53;&#xFF0C;&#x5B83;&#x5305;&#x542B;&#x4E86;&#x8981;&#x6267;&#x884C;&#x7684;&#x8FD9;&#x4E2A;&#x7EBF;&#x7A0B;&#x7684;&#x5185;&#x5BB9;&#xFF0C;Run&#x65B9;&#x6CD5;&#x8FD0;&#x884C;&#x7ED3;&#x675F;&#xFF0C;&#x6B64;&#x7EBF;&#x7A0B;&#x968F;&#x5373;&#x7EC8;&#x6B62;&#x3002;</p>
+<p>&#xFF08;2&#xFF09;run&#xFF1A;</p>
+<p>run() &#x65B9;&#x6CD5;&#x53EA;&#x662F;&#x7C7B;&#x7684;&#x4E00;&#x4E2A;&#x666E;&#x901A;&#x65B9;&#x6CD5;&#x800C;&#x5DF2;&#xFF0C;&#x5982;&#x679C;&#x76F4;&#x63A5;&#x8C03;&#x7528; run &#x65B9;&#x6CD5;&#xFF0C;&#x7A0B;&#x5E8F;&#x4E2D;&#x4F9D;&#x7136;&#x53EA;&#x6709;&#x4E3B;&#x7EBF;&#x7A0B;&#x8FD9;&#x4E00;&#x4E2A;&#x7EBF;&#x7A0B;&#xFF0C;&#x5176;&#x7A0B;&#x5E8F;&#x6267;&#x884C;&#x8DEF;&#x5F84;&#x8FD8;&#x662F;&#x53EA;&#x6709;&#x4E00;&#x6761;&#xFF0C;&#x8FD8;&#x662F;&#x8981;&#x987A;&#x5E8F;&#x6267;&#x884C;&#xFF0C;&#x8FD8;&#x662F;&#x8981;&#x7B49;&#x5F85; run &#x65B9;&#x6CD5;&#x4F53;&#x6267;&#x884C;&#x5B8C;&#x6BD5;&#x540E;&#x624D;&#x53EF;&#x7EE7;&#x7EED;&#x6267;&#x884C;&#x4E0B;&#x9762;&#x7684;&#x4EE3;&#x7801;&#xFF0C;&#x8FD9;&#x6837;&#x5C31;&#x6CA1;&#x6709;&#x8FBE;&#x5230;&#x5199;&#x7EBF;&#x7A0B;&#x7684;&#x76EE;&#x7684;&#x3002;</p>
+<p>&#x603B;&#x7ED3;&#xFF1A;&#x8C03;&#x7528; start &#x65B9;&#x6CD5;&#x65B9;&#x53EF;&#x542F;&#x52A8;&#x7EBF;&#x7A0B;&#xFF0C;&#x800C; run &#x65B9;&#x6CD5;&#x53EA;&#x662F; thread &#x7684;&#x4E00;&#x4E2A;&#x666E;&#x901A;&#x65B9;&#x6CD5;&#x8C03;&#x7528;&#xFF0C;&#x8FD8;&#x662F;&#x5728;&#x4E3B;&#x7EBF;&#x7A0B;&#x91CC;&#x6267;&#x884C;&#x3002;&#x8FD9;&#x4E24;&#x4E2A;&#x65B9;&#x6CD5;&#x5E94;&#x8BE5;&#x90FD;&#x6BD4;&#x8F83;&#x719F;&#x6089;&#xFF0C;&#x628A;&#x9700;&#x8981;&#x5E76;&#x884C;&#x5904;&#x7406;&#x7684;&#x4EE3;&#x7801;&#x653E;&#x5728; run() &#x65B9;&#x6CD5;&#x4E2D;&#xFF0C;start() &#x65B9;&#x6CD5;&#x542F;&#x52A8;&#x7EBF;&#x7A0B;&#x5C06;&#x81EA;&#x52A8;&#x8C03;&#x7528; run()&#x65B9;&#x6CD5;&#xFF0C;&#x8FD9;&#x662F;&#x7531;jvm&#x7684;&#x5185;&#x5B58;&#x673A;&#x5236;&#x89C4;&#x5B9A;&#x7684;&#x3002;&#x5E76;&#x4E14; run() &#x65B9;&#x6CD5;&#x5FC5;&#x987B;&#x662F; public &#x8BBF;&#x95EE;&#x6743;&#x9650;&#xFF0C;&#x8FD4;&#x56DE;&#x503C;&#x7C7B;&#x578B;&#x4E3A; void&#x3002;</p>
+<p><strong>2. &#x5E38;&#x7528;&#x7684;&#x7EBF;&#x7A0B;&#x6C60;&#x6A21;&#x5F0F;&#x4EE5;&#x53CA;&#x4E0D;&#x540C;&#x7EBF;&#x7A0B;&#x6C60;&#x7684;&#x4F7F;&#x7528;&#x573A;&#x666F;</strong></p>
+<p>Java &#x901A;&#x8FC7; Executors &#x63D0;&#x4F9B;&#x56DB;&#x79CD;&#x7EBF;&#x7A0B;&#x6C60;&#xFF0C;&#x5206;&#x522B;&#x4E3A;&#xFF1A;</p>
+<ul>
+<li>newCachedThreadPool &#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x53EF;&#x7F13;&#x5B58;&#x7EBF;&#x7A0B;&#x6C60;&#xFF0C;&#x5982;&#x679C;&#x7EBF;&#x7A0B;&#x6C60;&#x957F;&#x5EA6;&#x8D85;&#x8FC7;&#x5904;&#x7406;&#x9700;&#x8981;&#xFF0C;&#x53EF;&#x7075;&#x6D3B;&#x56DE;&#x6536;&#x7A7A;&#x95F2;&#x7EBF;&#x7A0B;&#xFF0C;&#x82E5;&#x65E0;&#x53EF;&#x56DE;&#x6536;&#xFF0C;&#x5219;&#x65B0;&#x5EFA;&#x7EBF;&#x7A0B;&#x3002;</li>
+<li>newFixedThreadPool &#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x5B9A;&#x957F;&#x7EBF;&#x7A0B;&#x6C60;&#xFF0C;&#x53EF;&#x63A7;&#x5236;&#x7EBF;&#x7A0B;&#x6700;&#x5927;&#x5E76;&#x53D1;&#x6570;&#xFF0C;&#x8D85;&#x51FA;&#x7684;&#x7EBF;&#x7A0B;&#x4F1A;&#x5728;&#x961F;&#x5217;&#x4E2D;&#x7B49;&#x5F85;&#x3002;</li>
+<li>newScheduledThreadPool &#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x5B9A;&#x957F;&#x7EBF;&#x7A0B;&#x6C60;&#xFF0C;&#x652F;&#x6301;&#x5B9A;&#x65F6;&#x53CA;&#x5468;&#x671F;&#x6027;&#x4EFB;&#x52A1;&#x6267;&#x884C;&#x3002;</li>
+<li>newSingleThreadExecutor &#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x5355;&#x7EBF;&#x7A0B;&#x5316;&#x7684;&#x7EBF;&#x7A0B;&#x6C60;&#xFF0C;&#x5B83;&#x53EA;&#x4F1A;&#x7528;&#x552F;&#x4E00;&#x7684;&#x5DE5;&#x4F5C;&#x7EBF;&#x7A0B;&#x6765;&#x6267;&#x884C;&#x4EFB;&#x52A1;&#xFF0C;&#x4FDD;&#x8BC1;&#x6240;&#x6709;&#x4EFB;&#x52A1;&#x6309;&#x7167;&#x6307;&#x5B9A;&#x987A;&#x5E8F;(FIFO, LIFO, &#x4F18;&#x5148;&#x7EA7;)&#x6267;&#x884C;&#x3002;</li>
+</ul>
+<p>&#x5177;&#x4F53;&#x8BF7;&#x770B;&#xFF1A;<a href="http://blog.csdn.net/u011479540/article/details/51867886" target="_blank" rel="external">http://blog.csdn.net/u011479540/article/details/51867886</a></p>
+<p><strong>3. newFixedThreadPool&#x6B64;&#x79CD;&#x7EBF;&#x7A0B;&#x6C60;&#x5982;&#x679C;&#x7EBF;&#x7A0B;&#x6570;&#x8FBE;&#x5230;&#x6700;&#x5927;&#x503C;&#x540E;&#x4F1A;&#x600E;&#x4E48;&#x529E;&#xFF0C;&#x5E95;&#x5C42;&#x539F;&#x7406;&#x3002;</strong></p>
+<p>&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x53EF;&#x91CD;&#x7528;&#x56FA;&#x5B9A;&#x7EBF;&#x7A0B;&#x6570;&#x7684;&#x7EBF;&#x7A0B;&#x6C60;&#xFF0C;&#x4EE5;&#x5171;&#x4EAB;&#x7684;&#x65E0;&#x754C;&#x961F;&#x5217;&#x65B9;&#x5F0F;&#x6765;&#x8FD0;&#x884C;&#x8FD9;&#x4E9B;&#x7EBF;&#x7A0B;&#x3002;&#x5728;&#x4EFB;&#x610F;&#x70B9;&#xFF0C;&#x5728;&#x5927;&#x591A;&#x6570; nThreads &#x7EBF;&#x7A0B;&#x4F1A;&#x5904;&#x4E8E;&#x5904;&#x7406;&#x4EFB;&#x52A1;&#x7684;&#x6D3B;&#x52A8;&#x72B6;&#x6001;&#x3002;&#x5982;&#x679C;&#x5728;&#x6240;&#x6709;&#x7EBF;&#x7A0B;&#x5904;&#x4E8E;&#x6D3B;&#x52A8;&#x72B6;&#x6001;&#x65F6;&#x63D0;&#x4EA4;&#x9644;&#x52A0;&#x4EFB;&#x52A1;&#xFF0C;&#x5219;&#x5728;&#x6709;&#x53EF;&#x7528;&#x7EBF;&#x7A0B;&#x4E4B;&#x524D;&#xFF0C;&#x9644;&#x52A0;&#x4EFB;&#x52A1;&#x5C06;&#x5728;&#x961F;&#x5217;&#x4E2D;&#x7B49;&#x5F85;&#x3002;&#x5982;&#x679C;&#x5728;&#x5173;&#x95ED;&#x524D;&#x7684;&#x6267;&#x884C;&#x671F;&#x95F4;&#x7531;&#x4E8E;&#x5931;&#x8D25;&#x800C;&#x5BFC;&#x81F4;&#x4EFB;&#x4F55;&#x7EBF;&#x7A0B;&#x7EC8;&#x6B62;&#xFF0C;&#x90A3;&#x4E48;&#x4E00;&#x4E2A;&#x65B0;&#x7EBF;&#x7A0B;&#x5C06;&#x4EE3;&#x66FF;&#x5B83;&#x6267;&#x884C;&#x540E;&#x7EED;&#x7684;&#x4EFB;&#x52A1;&#xFF08;&#x5982;&#x679C;&#x9700;&#x8981;&#xFF09;&#x3002;&#x5728;&#x67D0;&#x4E2A;&#x7EBF;&#x7A0B;&#x88AB;&#x663E;&#x5F0F;&#x5730;&#x5173;&#x95ED;&#x4E4B;&#x524D;&#xFF0C;&#x6C60;&#x4E2D;&#x7684;&#x7EBF;&#x7A0B;&#x5C06;&#x4E00;&#x76F4;&#x5B58;&#x5728;&#x3002;</p>
+<p><strong>4. &#x540C;&#x4E00;&#x4E2A;&#x7C7B;&#x4E0D;&#x540C;&#x65B9;&#x6CD5;&#x90FD;&#x6709; synchronized &#x9501;&#xFF0C;&#x4E00;&#x4E2A;&#x5BF9;&#x8C61;&#x662F;&#x5426;&#x53EF;&#x4EE5;&#x540C;&#x65F6;&#x8BBF;&#x95EE;&#x3002;&#x6216;&#x8005;&#x4E00;&#x4E2A;&#x7C7B;&#x7684; static &#x6784;&#x9020;&#x65B9;&#x6CD5;&#x52A0;&#x4E0A; synchronized &#x4E4B;&#x540E;&#x7684;&#x9501;&#x7684;&#x5F71;&#x54CD;&#x3002;</strong></p>
+<p>&#xFF08;1&#xFF09;&#x7B54;&#x6848;&#x662F;: &#x4E0D;&#x53EF;&#x4EE5;!!!</p>
+<p>&#x591A;&#x4E2A;&#x7EBF;&#x7A0B;&#x8BBF;&#x95EE;&#x540C;&#x4E00;&#x4E2A;&#x7C7B;&#x7684; synchronized &#x65B9;&#x6CD5;&#x65F6;&#xFF0C;&#x90FD;&#x662F;&#x4E32;&#x884C;&#x6267;&#x884C;&#x7684;! &#x5C31;&#x7B97;&#x6709;&#x591A;&#x4E2A; cpu &#x4E5F;&#x4E0D;&#x4F8B;&#x5916;! synchronized &#x65B9;&#x6CD5;&#x4F7F;&#x7528;&#x4E86;&#x7C7B;java&#x7684;&#x5185;&#x7F6E;&#x9501;&#xFF0C;&#x5373;&#x9501;&#x4F4F;&#x7684;&#x662F;&#x65B9;&#x6CD5;&#x6240;&#x5C5E;&#x5BF9;&#x8C61;&#x672C;&#x8EAB;&#x3002;&#x540C;&#x4E00;&#x4E2A;&#x9501;&#x67D0;&#x4E2A;&#x65F6;&#x523B;&#x53EA;&#x80FD;&#x88AB;&#x4E00;&#x4E2A;&#x6267;&#x884C;&#x7EBF;&#x7A0B;&#x6240;&#x83B7;&#x53D6;, &#x56E0;&#x6B64;&#x5176;&#x4ED6;&#x7EBF;&#x7A0B;&#x90FD;&#x5F97;&#x7B49;&#x5F85;&#x9501;&#x7684;&#x91CA;&#x653E;&#x3002;&#x56E0;&#x6B64;&#x5C31;&#x7B97;&#x4F60;&#x6709;&#x591A;&#x4F59;&#x7684; cpu &#x53EF;&#x4EE5;&#x6267;&#x884C;, &#x4F46;&#x662F;&#x4F60;&#x6CA1;&#x6709;&#x9501;&#xFF0C;&#x6240;&#x4EE5;&#x4F60;&#x8FD8;&#x662F;&#x4E0D;&#x80FD;&#x8FDB;&#x5165; synchronized &#x65B9;&#x6CD5;&#x6267;&#x884C;, cpu &#x56E0;&#x6B64;&#x800C;&#x7A7A;&#x95F2;&#x3002;&#x5982;&#x679C;&#x67D0;&#x4E2A;&#x7EBF;&#x7A0B;&#x957F;&#x671F;&#x6301;&#x6709;&#x4E00;&#x4E2A;&#x7ADE;&#x4E89;&#x6FC0;&#x70C8;&#x7684;&#x9501;, &#x90A3;&#x4E48;&#x5C06;&#x5BFC;&#x81F4;&#x5176;&#x4ED6;&#x7EBF;&#x7A0B;&#x90FD;&#x56E0;&#x7B49;&#x5F85;&#x6240;&#x7684;&#x91CA;&#x653E;&#x800C;&#x88AB;&#x6302;&#x8D77;, &#x4ECE;&#x800C;&#x5BFC;&#x81F4;CPU&#x65E0;&#x6CD5;&#x5F97;&#x5230;&#x5229;&#x7528;&#xFF0C;&#x7CFB;&#x7EDF;&#x541E;&#x5410;&#x91CF;&#x4F4E;&#x4E0B;&#x3002;&#x56E0;&#x6B64;&#x8981;&#x5C3D;&#x91CF;&#x907F;&#x514D;&#x67D0;&#x4E2A;&#x7EBF;&#x7A0B;&#x5BF9;&#x9501;&#x7684;&#x957F;&#x671F;&#x5360;&#x6709;!</p>
+<p>&#x5982;&#x679C;&#x60F3;&#x907F;&#x514D;&#x5BF9;&#x9501;&#x7684;&#x7ADE;&#x4E89;&#xFF0C;&#x4F60;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;&#x9501;&#x5206;&#x89E3;&#xFF0C;&#x9501;&#x5206;&#x6BB5;&#x4EE5;&#x53CA;&#x51CF;&#x5C11;&#x7EBF;&#x7A0B;&#x6301;&#x6709;&#x9501;&#x7684;&#x65F6;&#x95F4;&#xFF0C;&#x5982;&#x679C;&#x4E0A;&#x8BC9;&#x7A0B;&#x5E8F;&#x4E2D;&#x7684; syncMethod1 &#x548C; syncMethod2 &#x65B9;&#x6CD5;&#x662F;&#x4E24;&#x4E2A;&#x4E0D;&#x76F8;&#x5E72;&#x7684;&#x65B9;&#x6CD5;(&#x8BF7;&#x6C42;&#x7684;&#x8D44;&#x6E90;&#x4E0D;&#x5B58;&#x5728;&#x5173;&#x7CFB;)&#xFF0C;&#x90A3;&#x4E48;&#x8FD9;&#x4E24;&#x4E2A;&#x65B9;&#x6CD5;&#x53EF;&#x4EE5;&#x5206;&#x522B;&#x4F7F;&#x7528;&#x4E24;&#x4E2A;&#x4E0D;&#x540C;&#x7684;&#x9501;&#x3002;</p>
+<pre><code>public class SyncMethod {
+    private Object lock1 = new Object();
+    private Object lock2 = new Object();
+
+    public void syncMethod2() {
+        synchronized (lock1) {
+            try {
+                System.out.println(&quot;@@@@@@@@@@@@@@@@@@@@@@@@ (syncMethod2, &#x5DF2;&#x7ECF;&#x83B7;&#x53D6;&#x5185;&#x7F6E;&#x9501;`SyncMethod.this`)&quot;);
+                Thread.sleep(5000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+            System.out.println(&quot;@@@@@@@@@@@@@@@@@@@@@@@@ (syncMethod2, &#x5373;&#x5C06;&#x91CA;&#x653E;&#x5185;&#x7F6E;&#x9501;`SyncMethod.this`)&quot;);
+        }
+    }
+
+    public void syncMethod1() {
+        synchronized (lock2) {
+            System.out.println(&quot;######################## (syncMethod1, &#x5DF2;&#x7ECF;&#x83B7;&#x53D6;&#x5185;&#x7F6E;&#x9501;`SyncMethod.this`, &#x5E76;&#x5373;&#x5C06;&#x9000;&#x51FA;)&quot;);
+        }
+    }
+}
+</code></pre>
+<p>&#x5177;&#x4F53;&#x8BF7;&#x770B;&#xFF1A;<a href="http://www.jianshu.com/p/f23a90a79b3a" target="_blank" rel="external">http://www.jianshu.com/p/f23a90a79b3a</a></p>
+<p>&#xFF08;2&#xFF09;&#x5728; static &#x65B9;&#x6CD5;&#x548C;&#x975E; static &#x65B9;&#x6CD5;&#x524D;&#x9762;&#x52A0; synchronized &#x5230;&#x5E95;&#x6709;&#x4EC0;&#x4E48;&#x4E0D;&#x540C;&#x5462;&#xFF1F;</p>
+<p>&#x5927;&#x5BB6;&#x90FD;&#x77E5;&#x9053;&#xFF0C;static &#x7684;&#x65B9;&#x6CD5;&#x5C5E;&#x4E8E;&#x7C7B;&#x65B9;&#x6CD5;&#xFF0C;&#x5B83;&#x5C5E;&#x4E8E;&#x8FD9;&#x4E2A; Class&#xFF08;&#x6CE8;&#x610F;&#xFF1A;&#x8FD9;&#x91CC;&#x7684; Class &#x4E0D;&#x662F;&#x6307;Class &#x7684;&#x67D0;&#x4E2A;&#x5177;&#x4F53;&#x5BF9;&#x8C61;&#xFF09;&#xFF0C;&#x90A3;&#x4E48; static &#x83B7;&#x53D6;&#x5230;&#x7684;&#x9501;&#xFF0C;&#x5C31;&#x662F;&#x5F53;&#x524D;&#x8C03;&#x7528;&#x8FD9;&#x4E2A;&#x65B9;&#x6CD5;&#x7684;&#x5BF9;&#x8C61;&#x6240;&#x5C5E;&#x7684;&#x7C7B;(Class&#xFF0C;&#x800C;&#x4E0D;&#x518D;&#x662F;&#x7531;&#x8FD9;&#x4E2A; Class &#x4EA7;&#x751F;&#x7684;&#x67D0;&#x4E2A;&#x5177;&#x4F53;&#x5BF9;&#x8C61;&#x4E86;)&#x3002;&#x800C;&#x975E; static &#x65B9;&#x6CD5;&#x83B7;&#x53D6;&#x5230;&#x7684;&#x9501;&#xFF0C;&#x5C31;&#x662F;&#x5F53;&#x524D;&#x8C03;&#x7528;&#x8FD9;&#x4E2A;&#x65B9;&#x6CD5;&#x7684;&#x5BF9;&#x8C61;&#x7684;&#x9501;&#x4E86;&#x3002;&#x6240;&#x4EE5;&#xFF0C;&#x4ED6;&#x4EEC;&#x4E4B;&#x95F4;&#x4E0D;&#x4F1A;&#x4EA7;&#x751F;&#x4E92;&#x65A5;&#x3002;</p>
+<pre><code>pulbic class Something(){
+    public synchronized void isSyncA(){}
+    public synchronized void isSyncB(){}
+    public static synchronized void cSyncA(){}
+    public static synchronized void cSyncB(){}
+}
+</code></pre>
+<p>&#x90A3;&#x4E48; Something &#x7C7B;&#x7684;&#x4E24;&#x4E2A;&#x5B9E;&#x4F8B; a &#x4E0E; b &#x4EE5;&#x4E0B;&#x9762;&#x7684;&#x7EC4;&#x5408;&#x5F62;&#x5F0F;&#x8C03;&#x7528;&#x4EE5;&#x4E0A;&#x65B9;&#x6CD5;&#xFF0C;&#x7ED3;&#x679C;&#x4F1A;&#x662F;&#x4EC0;&#x4E48;&#x5462;&#xFF1F;</p>
+<pre><code>a. x.isSyncA()&#x4E0E;x.isSyncB() 
+b. x.isSyncA()&#x4E0E;y.isSyncA()
+c. x.cSyncA()&#x4E0E;y.cSyncB()
+d. x.isSyncA()&#x4E0E;Something.cSyncA()
+</code></pre>
+<ul>
+<li>a&#xFF0C;&#x90FD;&#x662F;&#x5BF9;&#x540C;&#x4E00;&#x4E2A;&#x5B9E;&#x4F8B;&#x7684; synchronized &#x57DF;&#x8BBF;&#x95EE;&#xFF0C;&#x56E0;&#x6B64;&#x4E0D;&#x80FD;&#x88AB;&#x540C;&#x65F6;&#x8BBF;&#x95EE;</li>
+<li>b&#xFF0C;&#x662F;&#x9488;&#x5BF9;&#x4E0D;&#x540C;&#x5B9E;&#x4F8B;&#x7684;&#xFF0C;&#x56E0;&#x6B64;&#x53EF;&#x4EE5;&#x540C;&#x65F6;&#x88AB;&#x8BBF;&#x95EE;</li>
+<li>c&#xFF0C;&#x56E0;&#x4E3A;&#x662F; static synchronized&#xFF0C;&#x6240;&#x4EE5;&#x4E0D;&#x540C;&#x5B9E;&#x4F8B;&#x4E4B;&#x95F4;&#x4ECD;&#x7136;&#x4F1A;&#x88AB;&#x9650;&#x5236;,&#x76F8;&#x5F53;&#x4E8E;Something.isSyncA() &#x4E0E; Something.isSyncB() &#x4E86;&#xFF0C;&#x56E0;&#x6B64;&#x4E0D;&#x80FD;&#x88AB;&#x540C;&#x65F6;&#x8BBF;&#x95EE;&#x3002;<br>
+&#x3000;&#x3000;<br>
+&#x90A3;&#x4E48;&#xFF0C;&#x7B2C;d&#x5462;?&#xFF0C;&#x4E66;&#x4E0A;&#x7684; &#x7B54;&#x6848;&#x662F;&#x53EF;&#x4EE5;&#x88AB;&#x540C;&#x65F6;&#x8BBF;&#x95EE;&#x7684;&#xFF0C;&#x7B54;&#x6848;&#x7406;&#x7531;&#x662F; synchronzied &#x7684;&#x662F;&#x5B9E;&#x4F8B;&#x65B9;&#x6CD5;&#x4E0E;synchronzied &#x7684;&#x7C7B;&#x65B9;&#x6CD5;&#x7531;&#x4E8E;&#x9501;&#x5B9A;&#xFF08;lock&#xFF09;&#x4E0D;&#x540C;&#x7684;&#x539F;&#x56E0;&#x3002;&#x4E2A;&#x4EBA;&#x5206;&#x6790;&#x4E5F;&#x5C31;&#x662F; synchronized &#x4E0E; static synchronized &#x76F8;&#x5F53;&#x4E8E;&#x4E24;&#x5E2E;&#x6D3E;&#xFF0C;&#x5404;&#x81EA;&#x7BA1;&#x5404;&#x81EA;&#xFF0C;&#x76F8;&#x4E92;&#x4E4B;&#x95F4;&#x5C31;&#x65E0;&#x7EA6;&#x675F;&#x4E86;&#xFF0C;&#x53EF;&#x4EE5;&#x88AB;&#x540C;&#x65F6;&#x8BBF;&#x95EE;&#x3002;&#x76EE;&#x524D;&#x8FD8;&#x4E0D;&#x662F;&#x5206;&#x6E05;&#x695A;java&#x5185;&#x90E8;&#x8BBE;&#x8BA1; synchronzied &#x662F;&#x600E;&#x4E48;&#x6837;&#x5B9E;&#x73B0;&#x7684;&#x3002;</li>
+</ul>
+<p>&#x7ED3;&#x8BBA;&#xFF1A;</p>
+<ul>
+<li>A: synchronized static &#x662F;&#x67D0;&#x4E2A;&#x7C7B;&#x7684;&#x8303;&#x56F4;&#xFF0C;synchronized static cSync{}&#x9632;&#x6B62;&#x591A;&#x4E2A;&#x7EBF;&#x7A0B;&#x540C;&#x65F6;&#x8BBF;&#x95EE;&#x8FD9;&#x4E2A; &#x7C7B;&#x4E2D;&#x7684; synchronized static &#x65B9;&#x6CD5;&#x3002;&#x5B83;&#x53EF;&#x4EE5;&#x5BF9;&#x7C7B;&#x7684;&#x6240;&#x6709;&#x5BF9;&#x8C61;&#x5B9E;&#x4F8B;&#x8D77;&#x4F5C;&#x7528;&#x3002;</li>
+<li>B: synchronized &#x662F;&#x67D0;&#x5B9E;&#x4F8B;&#x7684;&#x8303;&#x56F4;&#xFF0C;synchronized isSync(){} &#x9632;&#x6B62;&#x591A;&#x4E2A;&#x7EBF;&#x7A0B;&#x540C;&#x65F6;&#x8BBF;&#x95EE;&#x8FD9;&#x4E2A;&#x5B9E;&#x4F8B;&#x4E2D;&#x7684; synchronized &#x65B9;&#x6CD5;&#x3002;</li>
+</ul>
+<p>&#x5177;&#x4F53;&#x8BF7;&#x770B;&#xFF1A;<a href="http://www.cnblogs.com/GYoungBean/p/3589726.html" target="_blank" rel="external">http://www.cnblogs.com/GYoungBean/p/3589726.html</a></p>
+<p><strong>5. &#x4E86;&#x89E3;&#x53EF;&#x91CD;&#x5165;&#x9501;&#x7684;&#x542B;&#x4E49;&#xFF0C;&#x4EE5;&#x53CA; ReentrantLock &#x548C; synchronized &#x7684;&#x533A;&#x522B;</strong></p>
+<p>&#xFF08;1&#xFF09;&#x53EF;&#x91CD;&#x5165;&#x9501;&#xFF0C;&#x4E5F;&#x53EB;&#x505A;&#x9012;&#x5F52;&#x9501;&#xFF0C;&#x6307;&#x7684;&#x662F;&#x540C;&#x4E00;&#x7EBF;&#x7A0B;&#x5916;&#x5C42;&#x51FD;&#x6570;&#x83B7;&#x5F97;&#x9501;&#x4E4B;&#x540E;&#xFF0C;&#x5185;&#x5C42;&#x9012;&#x5F52;&#x51FD;&#x6570;&#x4ECD;&#x7136;&#x6709;&#x83B7;&#x53D6;&#x8BE5;&#x9501;&#x7684;&#x4EE3;&#x7801;&#xFF0C;&#x4F46;&#x4E0D;&#x53D7;&#x5F71;&#x54CD;&#x3002;&#x5728; JAVA &#x73AF;&#x5883;&#x4E0B; ReentrantLock &#x548C; synchronized &#x90FD;&#x662F;&#x53EF;&#x91CD;&#x5165;&#x9501;&#x3002;</p>
+<p>&#xFF08;2&#xFF09;&#x5982;&#x4F55;&#x5B9E;&#x73B0;&#x53EF;&#x91CD;&#x5165;&#x9501;&#xFF1F;</p>
+<p>&#x4E3A;&#x6BCF;&#x4E2A;&#x9501;&#x5173;&#x8054;&#x4E00;&#x4E2A;&#x83B7;&#x53D6;&#x8BA1;&#x6570;&#x5668;&#x548C;&#x4E00;&#x4E2A;&#x6240;&#x6709;&#x8005;&#x7EBF;&#x7A0B;&#xFF0C;&#x5F53;&#x8BA1;&#x6570;&#x503C;&#x4E3A; 0 &#x7684;&#x65F6;&#x5019;&#xFF0C;&#x8FD9;&#x4E2A;&#x8D1F;&#x5C31;&#x6CA1;&#x6709;&#x88AB;&#x4EFB;&#x4F55;&#x7EBF;&#x7A0B;&#x6301;&#x6709;&#x3002;&#x5F53;&#x7EBF;&#x7A0B;&#x8BF7;&#x6C42;&#x4E00;&#x4E2A;&#x672A;&#x88AB;&#x6301;&#x6709;&#x7684;&#x9501;&#x65F6;&#xFF0C;JVM &#x5C06;&#x8BB0;&#x4E0B;&#x9501;&#x7684;&#x6301;&#x6709;&#x8005;&#xFF0C;&#x5E76;&#x4E14;&#x5C06;&#x83B7;&#x53D6;&#x8BA1;&#x6570;&#x503C;&#x7F6E;&#x4E3A; 1&#xFF0C;&#x5982;&#x679C;&#x540C;&#x4E00;&#x4E2A;&#x7EBF;&#x7A0B;&#x518D;&#x6B21;&#x83B7;&#x53D6;&#x8FD9;&#x4E2A;&#x9501;&#xFF0C;&#x8BB0;&#x6570;&#x503C;&#x5C06;&#x9012;&#x589E;&#xFF0C;&#x9000;&#x51FA;&#x4E00;&#x6B21;&#x540C;&#x6B65;&#x4EE3;&#x7801;&#x5757;&#xFF0C;&#x8BA1;&#x7B97;&#x503C;&#x9012;&#x51CF;&#xFF0C;&#x5F53;&#x8BA1;&#x6570;&#x503C;&#x4E3A; 0 &#x65F6;&#xFF0C;&#x8FD9;&#x4E2A;&#x9501;&#x5C31;&#x88AB;&#x91CA;&#x653E;&#x3002;ReentrantLock &#x91CC;&#x9762;&#x6709;&#x5B9E;&#x73B0;&#x3002;</p>
+<p>&#xFF08;3&#xFF09;ReentrantLock &#x548C; synchronized &#x7684;&#x533A;&#x522B;</p>
+<p>synchronized &#x5728;&#x4FEE;&#x9970;&#x4EE3;&#x7801;&#x5757;&#x7684;&#x65F6;&#x5019;&#x9700;&#x8981;&#x4E00;&#x4E2A; reference &#x5BF9;&#x8C61;&#x4F5C;&#x4E3A;&#x9501;&#x7684;&#x5BF9;&#x8C61;&#x3002;&#x5728;&#x4FEE;&#x9970;&#x65B9;&#x6CD5;&#x7684;&#x65F6;&#x5019;&#x9ED8;&#x8BA4;&#x662F;&#x5F53;&#x524D;&#x5BF9;&#x8C61;&#x4F5C;&#x4E3A;&#x9501;&#x7684;&#x5BF9;&#x8C61;&#x3002;&#x5728;&#x4FEE;&#x9970;&#x7C7B;&#x65F6;&#x5019;&#x9ED8;&#x8BA4;&#x662F;&#x5F53;&#x524D;&#x7C7B;&#x7684; Class &#x5BF9;&#x8C61;&#x4F5C;&#x4E3A;&#x9501;&#x7684;&#x5BF9;&#x8C61;&#x3002;</p>
+<p>synchronized &#x4F1A;&#x5728;&#x8FDB;&#x5165;&#x540C;&#x6B65;&#x5757;&#x7684;&#x524D;&#x540E;&#x5206;&#x522B;&#x5F62;&#x6210; monitorenter &#x548C; monitorexit &#x5B57;&#x8282;&#x7801;&#x6307;&#x4EE4;&#x3002;&#x5728;&#x6267;&#x884C; monitorenter &#x6307;&#x4EE4;&#x65F6;&#x4F1A;&#x5C1D;&#x8BD5;&#x83B7;&#x53D6;&#x5BF9;&#x8C61;&#x7684;&#x9501;&#xFF0C;&#x5982;&#x679C;&#x6B64;&#x6CA1;&#x5BF9;&#x8C61;&#x6CA1;&#x6709;&#x88AB;&#x9501;&#xFF0C;&#x6216;&#x8005;&#x6B64;&#x5BF9;&#x8C61;&#x5DF2;&#x7ECF;&#x88AB;&#x5F53;&#x524D;&#x7EBF;&#x7A0B;&#x9501;&#x4F4F;&#xFF0C;&#x90A3;&#x4E48;&#x9501;&#x7684;&#x8BA1;&#x6570;&#x5668;&#x52A0;&#x4E00;&#xFF0C;&#x6BCF;&#x5F53; monitorexit &#x88AB;&#x9501;&#x7684;&#x5BF9;&#x8C61;&#x7684;&#x8BA1;&#x6570;&#x5668;&#x51CF;&#x4E00;&#xFF0C;&#x76F4;&#x5230;&#x4E3A; 0 &#x5C31;&#x91CA;&#x653E;&#x8BE5;&#x5BF9;&#x8C61;&#x7684;&#x9501;&#x3002;&#x7531;&#x6B64; synchronized &#x662F;&#x53EF;&#x91CD;&#x5165;&#x7684;&#xFF0C;&#x4E0D;&#x4F1A;&#x51FA;&#x73B0;&#x81EA;&#x5DF1;&#x628A;&#x81EA;&#x5DF1;&#x9501;&#x6B7B;&#x3002;</p>
+<p>synchronized &#x5728;&#x9501;&#x5B9A;&#x65F6;&#x5982;&#x679C;&#x65B9;&#x6CD5;&#x5757;&#x629B;&#x51FA;&#x5F02;&#x5E38;&#xFF0C;JVM &#x4F1A;&#x81EA;&#x52A8;&#x5C06;&#x9501;&#x91CA;&#x653E;&#x6389;&#xFF0C;&#x4E0D;&#x4F1A;&#x56E0;&#x4E3A;&#x51FA;&#x4E86;&#x5F02;&#x5E38;&#x6CA1;&#x6709;&#x91CA;&#x653E;&#x9501;&#x9020;&#x6210;&#x7EBF;&#x7A0B;&#x6B7B;&#x9501;&#x3002;&#x4F46;&#x662F; Lock &#x7684;&#x8BDD;&#x5C31;&#x4EAB;&#x53D7;&#x4E0D;&#x5230; JVM &#x5E26;&#x6765;&#x81EA;&#x52A8;&#x7684;&#x529F;&#x80FD;&#xFF0C;&#x51FA;&#x73B0;&#x5F02;&#x5E38;&#x65F6;&#x5FC5;&#x987B;&#x5728; finally &#x5C06;&#x9501;&#x91CA;&#x653E;&#x6389;&#xFF0C;&#x5426;&#x5219;&#x5C06;&#x4F1A;&#x5F15;&#x8D77;&#x6B7B;&#x9501;&#x3002;</p>
+<p>&#x5728;&#x8D44;&#x6E90;&#x7ADE;&#x4E89;&#x4E0D;&#x662F;&#x5F88;&#x6FC0;&#x70C8;&#x7684;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;&#x5076;&#x5C14;&#x4F1A;&#x6709;&#x540C;&#x6B65;&#x7684;&#x60C5;&#x5F62;&#x4E0B;&#xFF0C;synchronized &#x662F;&#x5F88;&#x5408;&#x9002;&#x7684;&#x3002;&#x539F;&#x56E0;&#x5728;&#x4E8E;&#xFF0C;&#x7F16;&#x8BD1;&#x7A0B;&#x5E8F;&#x901A;&#x5E38;&#x4F1A;&#x5C3D;&#x53EF;&#x80FD;&#x7684;&#x8FDB;&#x884C;&#x4F18;&#x5316; synchronize&#xFF0C;&#x53E6;&#x5916;&#x53EF;&#x8BFB;&#x6027;&#x975E;&#x5E38;&#x597D;&#xFF0C;&#x4E0D;&#x7BA1;&#x7528;&#x6CA1;&#x7528;&#x8FC7;5.0&#x591A;&#x7EBF;&#x7A0B;&#x5305;&#x7684;&#x7A0B;&#x5E8F;&#x5458;&#x90FD;&#x80FD;&#x7406;&#x89E3;&#x3002;</p>
+<p>ReentrantLock &#x63D0;&#x4F9B;&#x4E86;&#x591A;&#x6837;&#x5316;&#x7684;&#x540C;&#x6B65;&#xFF0C;&#x6BD4;&#x5982;&#x6709;&#x65F6;&#x95F4;&#x9650;&#x5236;&#x7684;&#x540C;&#x6B65;&#xFF0C;&#x53EF;&#x4EE5;&#x88AB; Interrupt &#x7684;&#x540C;&#x6B65;&#xFF08;synchronized &#x7684;&#x540C;&#x6B65;&#x662F;&#x4E0D;&#x80FD; Interrupt &#x7684;&#xFF09;&#x7B49;&#x3002;&#x5728;&#x8D44;&#x6E90;&#x7ADE;&#x4E89;&#x4E0D;&#x6FC0;&#x70C8;&#x7684;&#x60C5;&#x5F62;&#x4E0B;&#xFF0C;&#x6027;&#x80FD;&#x7A0D;&#x5FAE;&#x6BD4;synchronized &#x5DEE;&#x70B9;&#x70B9;&#x3002;&#x4F46;&#x662F;&#x5F53;&#x540C;&#x6B65;&#x975E;&#x5E38;&#x6FC0;&#x70C8;&#x7684;&#x65F6;&#x5019;&#xFF0C;synchronized &#x7684;&#x6027;&#x80FD;&#x4E00;&#x4E0B;&#x5B50;&#x80FD;&#x4E0B;&#x964D;&#x597D;&#x51E0;&#x5341;&#x500D;&#x3002;&#x800C; ReentrantLock &#x786E;&#x8FD8;&#x80FD;&#x7EF4;&#x6301;&#x5E38;&#x6001;&#x3002;</p>
+<p>ReentrantLock &#x9664;&#x4E86; synchronized &#x7684;&#x529F;&#x80FD;&#xFF0C;&#x591A;&#x4E86;&#x4E09;&#x4E2A;&#x9AD8;&#x7EA7;&#x529F;&#x80FD;&#xFF1A;&#x7B49;&#x5F85;&#x53EF;&#x4E2D;&#x65AD;&#xFF0C;&#x516C;&#x5E73;&#x9501;&#xFF0C;&#x7ED1;&#x5B9A;&#x591A;&#x4E2A; Condition&#x3002;</p>
+<p>1&#xFF09;&#x7B49;&#x5F85;&#x53EF;&#x4E2D;&#x65AD;</p>
+<p>&#x5728;&#x6301;&#x6709;&#x9501;&#x7684;&#x7EBF;&#x7A0B;&#x957F;&#x65F6;&#x95F4;&#x4E0D;&#x91CA;&#x653E;&#x9501;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x7B49;&#x5F85;&#x7684;&#x7EBF;&#x7A0B;&#x53EF;&#x4EE5;&#x9009;&#x62E9;&#x653E;&#x5F03;&#x7B49;&#x5F85;&#x3002;tryLock(long timeout, TimeUnit unit)</p>
+<p>2&#xFF09;&#x516C;&#x5E73;&#x9501;</p>
+<p>&#x6309;&#x7167;&#x7533;&#x8BF7;&#x9501;&#x7684;&#x987A;&#x5E8F;&#x6765;&#x4E00;&#x6B21;&#x83B7;&#x5F97;&#x9501;&#x79F0;&#x4E3A;&#x516C;&#x5E73;&#x9501;&#x3002;synchronized &#x7684;&#x662F;&#x975E;&#x516C;&#x5E73;&#x9501;&#xFF0C;ReentrantLock &#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x6784;&#x9020;&#x51FD;&#x6570;&#x5B9E;&#x73B0;&#x516C;&#x5E73;&#x9501;&#xFF1A;new RenentrantLock(boolean fair)</p>
+<p>3&#xFF09;&#x7ED1;&#x5B9A;&#x591A;&#x4E2A; Condition</p>
+<p>&#x901A;&#x8FC7;&#x591A;&#x6B21; newCondition &#x53EF;&#x4EE5;&#x83B7;&#x5F97;&#x591A;&#x4E2A; Condition &#x5BF9;&#x8C61;&#xFF0C;&#x53EF;&#x4EE5;&#x7B80;&#x5355;&#x7684;&#x5B9E;&#x73B0;&#x6BD4;&#x8F83;&#x590D;&#x6742;&#x7684;&#x7EBF;&#x7A0B;&#x540C;&#x6B65;&#x7684;&#x529F;&#x80FD;&#xFF0C;&#x901A;&#x8FC7; await()&#xFF0C;signal()&#x3002;</p>
+<p><strong>6. &#x540C;&#x6B65;&#x7684;&#x6570;&#x636E;&#x7ED3;&#x6784;&#xFF0C;&#x4F8B;&#x5982; concurrentHashMap &#x7684;&#x6E90;&#x7801;&#x7406;&#x89E3;&#x4EE5;&#x53CA;&#x5185;&#x90E8;&#x5B9E;&#x73B0;&#x539F;&#x7406;&#xFF0C;&#x4E3A;&#x4EC0;&#x4E48;&#x4ED6;&#x662F;&#x540C;&#x6B65;&#x7684;&#x4E14;&#x6548;&#x7387;&#x9AD8;&#x3002;</strong></p>
+<p>&#x901A;&#x8FC7;&#x5206;&#x6790; Hashtable &#x5C31;&#x77E5;&#x9053;&#xFF0C;synchronized &#x662F;&#x9488;&#x5BF9;&#x6574;&#x5F20; Hash &#x8868;&#x7684;&#xFF0C;&#x5373;&#x6BCF;&#x6B21;&#x9501;&#x4F4F;&#x6574;&#x5F20;&#x8868;&#x8BA9;&#x7EBF;&#x7A0B;&#x72EC;&#x5360;&#xFF0C;ConcurrentHashMap &#x5141;&#x8BB8;&#x591A;&#x4E2A;&#x4FEE;&#x6539;&#x64CD;&#x4F5C;&#x5E76;&#x53D1;&#x8FDB;&#x884C;&#xFF0C;&#x5176;&#x5173;&#x952E;&#x5728;&#x4E8E;&#x4F7F;&#x7528;&#x4E86;&#x9501;&#x5206;&#x79BB;&#x6280;&#x672F;&#x3002;&#x5B83;&#x4F7F;&#x7528;&#x4E86;&#x591A;&#x4E2A;&#x9501;&#x6765;&#x63A7;&#x5236;&#x5BF9; hash &#x8868;&#x7684;&#x4E0D;&#x540C;&#x90E8;&#x5206;&#x8FDB;&#x884C;&#x7684;&#x4FEE;&#x6539;&#x3002;ConcurrentHashMap &#x5185;&#x90E8;&#x4F7F;&#x7528;&#x6BB5; (Segment) &#x6765;&#x8868;&#x793A;&#x8FD9;&#x4E9B;&#x4E0D;&#x540C;&#x7684;&#x90E8;&#x5206;&#xFF0C;&#x6BCF;&#x4E2A;&#x6BB5;&#x5176;&#x5B9E;&#x5C31;&#x662F;&#x4E00;&#x4E2A;&#x5C0F;&#x7684; hash table&#xFF0C;&#x5B83;&#x4EEC;&#x6709;&#x81EA;&#x5DF1;&#x7684;&#x9501;&#x3002;&#x53EA;&#x8981;&#x591A;&#x4E2A;&#x4FEE;&#x6539;&#x64CD;&#x4F5C;&#x53D1;&#x751F;&#x5728;&#x4E0D;&#x540C;&#x7684;&#x6BB5;&#x4E0A;&#xFF0C;&#x5B83;&#x4EEC;&#x5C31;&#x53EF;&#x4EE5;&#x5E76;&#x53D1;&#x8FDB;&#x884C;&#x3002;</p>
+<p>&#x6709;&#x4E9B;&#x65B9;&#x6CD5;&#x9700;&#x8981;&#x8DE8;&#x6BB5;&#xFF0C;&#x6BD4;&#x5982; size() &#x548C; containsValue()&#xFF0C;&#x5B83;&#x4EEC;&#x53EF;&#x80FD;&#x9700;&#x8981;&#x9501;&#x5B9A;&#x6574;&#x4E2A;&#x8868;&#x800C;&#x800C;&#x4E0D;&#x4EC5;&#x4EC5;&#x662F;&#x67D0;&#x4E2A;&#x6BB5;&#xFF0C;&#x8FD9;&#x9700;&#x8981;&#x6309;&#x987A;&#x5E8F;&#x9501;&#x5B9A;&#x6240;&#x6709;&#x6BB5;&#xFF0C;&#x64CD;&#x4F5C;&#x5B8C;&#x6BD5;&#x540E;&#xFF0C;&#x53C8;&#x6309;&#x987A;&#x5E8F;&#x91CA;&#x653E;&#x6240;&#x6709;&#x6BB5;&#x7684;&#x9501;&#x3002;&#x8FD9;&#x91CC;&#x201C;&#x6309;&#x987A;&#x5E8F;&#x201D;&#x662F;&#x5F88;&#x91CD;&#x8981;&#x7684;&#xFF0C;&#x5426;&#x5219;&#x6781;&#x6709;&#x53EF;&#x80FD;&#x51FA;&#x73B0;&#x6B7B;&#x9501;&#xFF0C;&#x5728; ConcurrentHashMap &#x5185;&#x90E8;&#xFF0C;&#x6BB5;&#x6570;&#x7EC4;&#x662F; final &#x7684;&#xFF0C;&#x5E76;&#x4E14;&#x5176;&#x6210;&#x5458;&#x53D8;&#x91CF;&#x5B9E;&#x9645;&#x4E0A;&#x4E5F;&#x662F; final &#x7684;&#xFF0C;&#x4F46;&#x662F;&#xFF0C;&#x4EC5;&#x4EC5;&#x662F;&#x5C06;&#x6570;&#x7EC4;&#x58F0;&#x660E;&#x4E3A;final&#x7684;&#x5E76;&#x4E0D;&#x4FDD;&#x8BC1;&#x6570;&#x7EC4;&#x6210;&#x5458;&#x4E5F;&#x662F; final &#x7684;&#xFF0C;&#x8FD9;&#x9700;&#x8981;&#x5B9E;&#x73B0;&#x4E0A;&#x7684;&#x4FDD;&#x8BC1;&#x3002;&#x8FD9;&#x53EF;&#x4EE5;&#x786E;&#x4FDD;&#x4E0D;&#x4F1A;&#x51FA;&#x73B0;&#x6B7B;&#x9501;&#xFF0C;&#x56E0;&#x4E3A;&#x83B7;&#x5F97;&#x9501;&#x7684;&#x987A;&#x5E8F;&#x662F;&#x56FA;&#x5B9A;&#x7684;&#x3002;</p>
+<p>&#x5177;&#x4F53;&#x8BF7;&#x770B;&#xFF1A;<a href="http://blog.csdn.net/dingji_ping/article/details/51005799" target="_blank" rel="external">http://blog.csdn.net/dingji_ping/article/details/51005799</a></p>
+<p><strong>7. atomicinteger &#x548C; Volatile &#x7B49;&#x7EBF;&#x7A0B;&#x5B89;&#x5168;&#x64CD;&#x4F5C;&#x7684;&#x5173;&#x952E;&#x5B57;&#x7684;&#x7406;&#x89E3;&#x548C;&#x4F7F;&#x7528;</strong></p>
+<p>Volatile &#x4FEE;&#x9970;&#x7684;&#x6210;&#x5458;&#x53D8;&#x91CF;&#x5728;&#x6BCF;&#x6B21;&#x88AB;&#x7EBF;&#x7A0B;&#x8BBF;&#x95EE;&#x65F6;&#xFF0C;&#x90FD;&#x5F3A;&#x8FEB;&#x4ECE;&#x5171;&#x4EAB;&#x5185;&#x5B58;&#x91CD;&#x65B0;&#x8BFB;&#x53D6;&#x8BE5;&#x6210;&#x5458;&#x7684;&#x503C;&#xFF0C;&#x800C;&#x4E14;&#xFF0C;&#x5F53;&#x6210;&#x5458;&#x53D8;&#x91CF;&#x503C;&#x53D1;&#x751F;&#x53D8;&#x5316;&#x65F6;&#xFF0C;&#x5F3A;&#x8FEB;&#x5C06;&#x53D8;&#x5316;&#x7684;&#x503C;&#x91CD;&#x65B0;&#x5199;&#x5165;&#x5171;&#x4EAB;&#x5185;&#x5B58;&#xFF0C;&#x8FD9;&#x6837;&#x4E24;&#x4E2A;&#x4E0D;&#x540C;&#x7684;&#x7EBF;&#x7A0B;&#x5728;&#x8BBF;&#x95EE;&#x540C;&#x4E00;&#x4E2A;&#x5171;&#x4EAB;&#x53D8;&#x91CF;&#x7684;&#x503C;&#x65F6;&#xFF0C;&#x59CB;&#x7EC8;&#x770B;&#x5230;&#x7684;&#x662F;&#x540C;&#x4E00;&#x4E2A;&#x503C;&#x3002;</p>
+<p>java &#x8BED;&#x8A00;&#x89C4;&#x8303;&#x6307;&#x51FA;&#xFF1A;&#x4E3A;&#x4E86;&#x83B7;&#x53D6;&#x6700;&#x4F73;&#x7684;&#x8FD0;&#x884C;&#x901F;&#x5EA6;&#xFF0C;&#x5141;&#x8BB8;&#x7EBF;&#x7A0B;&#x4FDD;&#x7559;&#x5171;&#x4EAB;&#x53D8;&#x91CF;&#x7684;&#x526F;&#x672C;&#xFF0C;&#x5F53;&#x8FD9;&#x4E2A;&#x7EBF;&#x7A0B;&#x8FDB;&#x5165;&#x6216;&#x8005;&#x79BB;&#x5F00;&#x540C;&#x6B65;&#x4EE3;&#x7801;&#x5757;&#x65F6;&#xFF0C;&#x624D;&#x4E0E;&#x5171;&#x4EAB;&#x6210;&#x5458;&#x53D8;&#x91CF;&#x8FDB;&#x884C;&#x6BD4;&#x5BF9;&#xFF0C;&#x5982;&#x679C;&#x6709;&#x53D8;&#x5316;&#x518D;&#x66F4;&#x65B0;&#x5171;&#x4EAB;&#x6210;&#x5458;&#x53D8;&#x91CF;&#x3002;&#x8FD9;&#x6837;&#x5F53;&#x591A;&#x4E2A;&#x7EBF;&#x7A0B;&#x540C;&#x65F6;&#x8BBF;&#x95EE;&#x4E00;&#x4E2A;&#x5171;&#x4EAB;&#x53D8;&#x91CF;&#x65F6;&#xFF0C;&#x53EF;&#x80FD;&#x4F1A;&#x5B58;&#x5728;&#x503C;&#x4E0D;&#x540C;&#x6B65;&#x7684;&#x73B0;&#x8C61;&#x3002;</p>
+<p>&#x800C; volatile &#x8FD9;&#x4E2A;&#x503C;&#x7684;&#x4F5C;&#x7528;&#x5C31;&#x662F;&#x544A;&#x8BC9; VM&#xFF1A;&#x5BF9;&#x4E8E;&#x8FD9;&#x4E2A;&#x6210;&#x5458;&#x53D8;&#x91CF;&#x4E0D;&#x80FD;&#x4FDD;&#x5B58;&#x5B83;&#x7684;&#x526F;&#x672C;&#xFF0C;&#x8981;&#x76F4;&#x63A5;&#x4E0E;&#x5171;&#x4EAB;&#x6210;&#x5458;&#x53D8;&#x91CF;&#x4EA4;&#x4E92;&#x3002;</p>
+<p>&#x5EFA;&#x8BAE;&#xFF1A;&#x5F53;&#x591A;&#x4E2A;&#x7EBF;&#x7A0B;&#x540C;&#x65F6;&#x8BBF;&#x95EE;&#x4E00;&#x4E2A;&#x5171;&#x4EAB;&#x53D8;&#x91CF;&#x65F6;&#xFF0C;&#x53EF;&#x4EE5;&#x4F7F;&#x7528; volatile&#xFF0C;&#x800C;&#x5F53;&#x8BBF;&#x95EE;&#x7684;&#x53D8;&#x91CF;&#x5DF2;&#x5728; synchronized &#x4EE3;&#x7801;&#x5757;&#x4E2D;&#x65F6;&#xFF0C;&#x4E0D;&#x5FC5;&#x4F7F;&#x7528;&#x3002;<br>
+&#x7F3A;&#x70B9;&#xFF1A;&#x4F7F;&#x7528; volatile &#x5C06;&#x4F7F;&#x5F97; VM &#x4F18;&#x5316;&#x5931;&#x53BB;&#x4F5C;&#x7528;&#xFF0C;&#x5BFC;&#x81F4;&#x6548;&#x7387;&#x8F83;&#x4F4E;&#xFF0C;&#x6240;&#x4EE5;&#x8981;&#x5728;&#x5FC5;&#x8981;&#x7684;&#x65F6;&#x5019;&#x4F7F;&#x7528;&#x3002;</p>
+<p>AtomicInteger &#x4E3A;&#x4EC0;&#x4E48;&#x80FD;&#x591F;&#x8FBE;&#x5230;&#x591A;&#x800C;&#x4E0D;&#x4E71;&#xFF0C;&#x5904;&#x7406;&#x9AD8;&#x5E76;&#x53D1;&#x5E94;&#x4ED8;&#x81EA;&#x5982;&#x5462;&#xFF0C;&#x6211;&#x4EEC;&#x624D;&#x770B;&#x770B;AtomicInteger&#x7684;&#x6E90;&#x4EE3;&#x7801;&#xFF1A;</p>
+<pre><code>private volatile int value;  
+</code></pre>
+<p>&#x5927;&#x5BB6;&#x53EF;&#x4EE5;&#x770B;&#x5230;&#x6709;&#x8FD9;&#x4E2A;&#x53D8;&#x91CF;&#xFF0C;value&#x5C31;&#x662F;&#x4F60;&#x8BBE;&#x7F6E;&#x7684;&#x81EA;&#x52A0;&#x8D77;&#x59CB;&#x503C;&#x3002;&#x6CE8;&#x610F;&#x770B;&#x5B83;&#x7684;&#x8BBF;&#x95EE;&#x63A7;&#x5236;&#x7B26;&#xFF0C;&#x662F;volatile&#xFF0C;&#x8FD9;&#x4E2A;&#x5C31;&#x662F;&#x4FDD;&#x8BC1;AtomicInteger&#x7EBF;&#x7A0B;&#x5B89;&#x5168;&#x7684;&#x6839;&#x6E90;&#x3002;</p>
+<p><strong>8. &#x7EBF;&#x7A0B;&#x95F4;&#x901A;&#x4FE1;&#xFF0C;wait &#x548C; notify</strong></p>
+<p>&#x5982;&#x679C;&#x5BF9;&#x8C61;&#x8C03;&#x7528;&#x4E86; wait &#x65B9;&#x6CD5;&#x5C31;&#x4F1A;&#x4F7F;&#x6301;&#x6709;&#x8BE5;&#x5BF9;&#x8C61;&#x7684;&#x7EBF;&#x7A0B;&#x628A;&#x8BE5;&#x5BF9;&#x8C61;&#x7684;&#x63A7;&#x5236;&#x6743;&#x4EA4;&#x51FA;&#x53BB;&#xFF0C;&#x7136;&#x540E;&#x5904;&#x4E8E;&#x7B49;&#x5F85;&#x72B6;&#x6001;&#x3002;</p>
+<p>&#x5982;&#x679C;&#x5BF9;&#x8C61;&#x8C03;&#x7528;&#x4E86; notify &#x65B9;&#x6CD5;&#x5C31;&#x4F1A;&#x901A;&#x77E5;&#x67D0;&#x4E2A;&#x6B63;&#x5728;&#x7B49;&#x5F85;&#x8FD9;&#x4E2A;&#x5BF9;&#x8C61;&#x7684;&#x63A7;&#x5236;&#x6743;&#x7684;&#x7EBF;&#x7A0B;&#x53EF;&#x4EE5;&#x7EE7;&#x7EED;&#x8FD0;&#x884C;&#x3002;</p>
+<p>&#x5982;&#x679C;&#x5BF9;&#x8C61;&#x8C03;&#x7528;&#x4E86; notifyAll &#x65B9;&#x6CD5;&#x5C31;&#x4F1A;&#x901A;&#x77E5;&#x6240;&#x6709;&#x7B49;&#x5F85;&#x8FD9;&#x4E2A;&#x5BF9;&#x8C61;&#x63A7;&#x5236;&#x6743;&#x7684;&#x7EBF;&#x7A0B;&#x7EE7;&#x7EED;&#x8FD0;&#x884C;&#x3002;</p>
+<p>&#x5177;&#x4F53;&#x8BF7;&#x770B;&#xFF1A;<a href="http://blog.csdn.net/ns_code/article/details/17225469" target="_blank" rel="external">http://blog.csdn.net/ns_code/article/details/17225469</a></p>
+<p><strong>9. &#x5B9A;&#x65F6;&#x7EBF;&#x7A0B;&#x7684;&#x4F7F;&#x7528;</strong><br>
+&#x8FD9;&#x662F;&#x6700;&#x5E38;&#x89C1;&#x7684;&#xFF0C;&#x521B;&#x5EFA;&#x4E00;&#x4E2A; thread&#xFF0C;&#x7136;&#x540E;&#x8BA9;&#x5B83;&#x5728; while &#x5FAA;&#x73AF;&#x91CC;&#x4E00;&#x76F4;&#x8FD0;&#x884C;&#x7740;&#xFF0C;&#x901A;&#x8FC7; sleep &#x65B9;&#x6CD5;&#x6765;&#x8FBE;&#x5230;&#x5B9A;&#x65F6;&#x4EFB;&#x52A1;&#x7684;&#x6548;&#x679C;&#x3002;&#x8FD9;&#x6837;&#x53EF;&#x4EE5;&#x5FEB;&#x901F;&#x7B80;&#x5355;&#x7684;&#x5B9E;&#x73B0;&#x3002;</p>
+<pre><code>/** 
+ * &#x666E;&#x901A;thread 
+ * &#x8FD9;&#x662F;&#x6700;&#x5E38;&#x89C1;&#x7684;&#xFF0C;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;thread&#xFF0C;&#x7136;&#x540E;&#x8BA9;&#x5B83;&#x5728;while&#x5FAA;&#x73AF;&#x91CC;&#x4E00;&#x76F4;&#x8FD0;&#x884C;&#x7740;&#xFF0C; 
+ * &#x901A;&#x8FC7;sleep&#x65B9;&#x6CD5;&#x6765;&#x8FBE;&#x5230;&#x5B9A;&#x65F6;&#x4EFB;&#x52A1;&#x7684;&#x6548;&#x679C;&#x3002;&#x8FD9;&#x6837;&#x53EF;&#x4EE5;&#x5FEB;&#x901F;&#x7B80;&#x5355;&#x7684;&#x5B9E;&#x73B0;&#xFF0C;&#x4EE3;&#x7801;&#x5982;&#x4E0B;&#xFF1A; 
+ * @author GT 
+ * 
+ */  
+public class Task1 {  
+    public static void main(String[] args) {  
+        // run in a second  
+        final long timeInterval = 1000;  
+        Runnable runnable = new Runnable() {  
+            public void run() {  
+                while (true) {  
+                    // ------- code for task to run  
+                    System.out.println(&quot;Hello !!&quot;);  
+                    // ------- ends here  
+                    try {  
+                        Thread.sleep(timeInterval);  
+                    } catch (InterruptedException e) {  
+                        e.printStackTrace();  
+                    }  
+                }  
+            }  
+        };  
+        Thread thread = new Thread(runnable);  
+        thread.start();  
+    }  
+}  
+</code></pre>
+<p>&#x7528; Timer &#x548C; TimerTask</p>
+<p>&#x4E0A;&#x9762;&#x7684;&#x5B9E;&#x73B0;&#x641C;&#x7D22;&#x662F;&#x975E;&#x5E38;&#x5FEB;&#x901F;&#x7B80;&#x4FBF;&#x7684;&#xFF0C;&#x4F46;&#x5B83;&#x4E5F;&#x7F3A;&#x5C11;&#x4E00;&#x4E9B;&#x529F;&#x80FD;&#x3002;&#x7528; Timer &#x548C; TimerTask &#x7684;&#x8BDD;&#x4E0E;&#x4E0A;&#x8FF0;&#x65B9;&#x6CD5;&#x76F8;&#x6BD4;&#x6709;&#x5982;&#x4E0B;&#x597D;&#x5904;&#xFF1A;</p>
+<ul>
+<li>&#x5F53;&#x542F;&#x52A8;&#x548C;&#x53BB;&#x53D6;&#x6D88;&#x4EFB;&#x52A1;&#x65F6;&#x53EF;&#x4EE5;&#x63A7;&#x5236;</li>
+<li>&#x7B2C;&#x4E00;&#x6B21;&#x6267;&#x884C;&#x4EFB;&#x52A1;&#x65F6;&#x53EF;&#x4EE5;&#x6307;&#x5B9A;&#x4F60;&#x60F3;&#x8981;&#x7684; delay &#x65F6;&#x95F4;</li>
+</ul>
+<p>&#x5728;&#x5B9E;&#x73B0;&#x65F6;&#xFF0C;Timer &#x7C7B;&#x53EF;&#x4EE5;&#x8C03;&#x5EA6;&#x4EFB;&#x52A1;&#xFF0C;TimerTask &#x5219;&#x662F;&#x901A;&#x8FC7;&#x5728; run() &#x65B9;&#x6CD5;&#x91CC;&#x5B9E;&#x73B0;&#x5177;&#x4F53;&#x4EFB;&#x52A1;&#x3002;Timer &#x5B9E;&#x4F8B;&#x53EF;&#x4EE5;&#x8C03;&#x5EA6;&#x591A;&#x4EFB;&#x52A1;&#xFF0C;&#x5B83;&#x662F;&#x7EBF;&#x7A0B;&#x5B89;&#x5168;&#x7684;&#x3002;&#x5F53;Timer&#x7684;&#x6784;&#x9020;&#x5668;&#x88AB;&#x8C03;&#x7528;&#x65F6;&#xFF0C;&#x5B83;&#x521B;&#x5EFA;&#x4E86;&#x4E00;&#x4E2A;&#x7EBF;&#x7A0B;&#xFF0C;&#x8FD9;&#x4E2A;&#x7EBF;&#x7A0B;&#x53EF;&#x4EE5;&#x7528;&#x6765;&#x8C03;&#x5EA6;&#x4EFB;&#x52A1;&#x3002;</p>
+<pre><code>/** 
+ *  
+ * &#x4E8E;&#x7B2C;&#x4E00;&#x79CD;&#x65B9;&#x5F0F;&#x76F8;&#x6BD4;&#xFF0C;&#x4F18;&#x52BF; 1&gt;&#x5F53;&#x542F;&#x52A8;&#x548C;&#x53BB;&#x53D6;&#x6D88;&#x4EFB;&#x52A1;&#x65F6;&#x53EF;&#x4EE5;&#x63A7;&#x5236; 2&gt;&#x7B2C;&#x4E00;&#x6B21;&#x6267;&#x884C;&#x4EFB;&#x52A1;&#x65F6;&#x53EF;&#x4EE5;&#x6307;&#x5B9A;&#x4F60;&#x60F3;&#x8981;&#x7684;delay&#x65F6;&#x95F4; 
+ *  
+ * &#x5728;&#x5B9E;&#x73B0;&#x65F6;&#xFF0C;Timer&#x7C7B;&#x53EF;&#x4EE5;&#x8C03;&#x5EA6;&#x4EFB;&#x52A1;&#xFF0C;TimerTask&#x5219;&#x662F;&#x901A;&#x8FC7;&#x5728;run()&#x65B9;&#x6CD5;&#x91CC;&#x5B9E;&#x73B0;&#x5177;&#x4F53;&#x4EFB;&#x52A1;&#x3002; Timer&#x5B9E;&#x4F8B;&#x53EF;&#x4EE5;&#x8C03;&#x5EA6;&#x591A;&#x4EFB;&#x52A1;&#xFF0C;&#x5B83;&#x662F;&#x7EBF;&#x7A0B;&#x5B89;&#x5168;&#x7684;&#x3002; 
+ * &#x5F53;Timer&#x7684;&#x6784;&#x9020;&#x5668;&#x88AB;&#x8C03;&#x7528;&#x65F6;&#xFF0C;&#x5B83;&#x521B;&#x5EFA;&#x4E86;&#x4E00;&#x4E2A;&#x7EBF;&#x7A0B;&#xFF0C;&#x8FD9;&#x4E2A;&#x7EBF;&#x7A0B;&#x53EF;&#x4EE5;&#x7528;&#x6765;&#x8C03;&#x5EA6;&#x4EFB;&#x52A1;&#x3002; &#x4E0B;&#x9762;&#x662F;&#x4EE3;&#x7801;&#xFF1A; 
+ *  
+ * @author GT 
+ *  
+ */  
+public class Task2 {  
+    public static void main(String[] args) {  
+        TimerTask task = new TimerTask() {  
+            @Override  
+            public void run() {  
+                // task to run goes here  
+                System.out.println(&quot;Hello !!!&quot;);  
+            }  
+        };  
+        Timer timer = new Timer();  
+        long delay = 0;  
+        long intevalPeriod = 1 * 1000;  
+        // schedules the task to be run in an interval  
+        timer.scheduleAtFixedRate(task, delay, intevalPeriod);  
+    } // end of main  
+}  
+</code></pre>
+<p>&#x7531;&#x4E8E; TimerTask &#x662F;&#x4EE5;&#x961F;&#x5217;&#x7684;&#x65B9;&#x5F0F;&#x4E00;&#x4E2A;&#x4E00;&#x4E2A;&#x88AB;&#x987A;&#x5E8F;&#x6267;&#x884C;&#x7684;&#xFF0C;&#x6240;&#x4EE5;&#x6267;&#x884C;&#x65F6;&#x95F4;&#x53EF;&#x80FD;&#x548C;&#x9884;&#x671F;&#x7684;&#x65F6;&#x95F4;&#x4E0D;&#x4E00;&#x81F4;&#xFF0C;&#x5982;&#x679C;&#x524D;&#x9762;&#x7684;&#x4EFB;&#x52A1;&#x6D88;&#x8017;&#x65F6;&#x95F4;&#x8F83;&#x957F;&#xFF0C;&#x5219;&#x540E;&#x9762;&#x7684;&#x4EFB;&#x52A1;&#x8FD0;&#x884C;&#x7684;&#x65F6;&#x95F4;&#x4E5F;&#x4F1A;&#x88AB;&#x5EF6;&#x8FDF;&#x3002;</p>
+<p>ScheduledExecutorService &#x5B9E;&#x73B0;</p>
+<pre><code>/** 
+ *  
+ *  
+ * ScheduledExecutorService&#x662F;&#x4ECE;Java SE5&#x7684;java.util.concurrent&#x91CC;&#xFF0C;&#x505A;&#x4E3A;&#x5E76;&#x53D1;&#x5DE5;&#x5177;&#x7C7B;&#x88AB;&#x5F15;&#x8FDB;&#x7684;&#xFF0C;&#x8FD9;&#x662F;&#x6700;&#x7406;&#x60F3;&#x7684;&#x5B9A;&#x65F6;&#x4EFB;&#x52A1;&#x5B9E;&#x73B0;&#x65B9;&#x5F0F;&#x3002;  
+ * &#x76F8;&#x6BD4;&#x4E8E;&#x4E0A;&#x4E24;&#x4E2A;&#x65B9;&#x6CD5;&#xFF0C;&#x5B83;&#x6709;&#x4EE5;&#x4E0B;&#x597D;&#x5904;&#xFF1A; 
+ * 1&gt;&#x76F8;&#x6BD4;&#x4E8E;Timer&#x7684;&#x5355;&#x7EBF;&#x7A0B;&#xFF0C;&#x5B83;&#x662F;&#x901A;&#x8FC7;&#x7EBF;&#x7A0B;&#x6C60;&#x7684;&#x65B9;&#x5F0F;&#x6765;&#x6267;&#x884C;&#x4EFB;&#x52A1;&#x7684;  
+ * 2&gt;&#x53EF;&#x4EE5;&#x5F88;&#x7075;&#x6D3B;&#x7684;&#x53BB;&#x8BBE;&#x5B9A;&#x7B2C;&#x4E00;&#x6B21;&#x6267;&#x884C;&#x4EFB;&#x52A1;delay&#x65F6;&#x95F4; 
+ * 3&gt;&#x63D0;&#x4F9B;&#x4E86;&#x826F;&#x597D;&#x7684;&#x7EA6;&#x5B9A;&#xFF0C;&#x4EE5;&#x4FBF;&#x8BBE;&#x5B9A;&#x6267;&#x884C;&#x7684;&#x65F6;&#x95F4;&#x95F4;&#x9694; 
+ *  
+ * &#x4E0B;&#x9762;&#x662F;&#x5B9E;&#x73B0;&#x4EE3;&#x7801;&#xFF0C;&#x6211;&#x4EEC;&#x901A;&#x8FC7;ScheduledExecutorService#scheduleAtFixedRate&#x5C55;&#x793A;&#x8FD9;&#x4E2A;&#x4F8B;&#x5B50;&#xFF0C;&#x901A;&#x8FC7;&#x4EE3;&#x7801;&#x91CC;&#x53C2;&#x6570;&#x7684;&#x63A7;&#x5236;&#xFF0C;&#x9996;&#x6B21;&#x6267;&#x884C;&#x52A0;&#x4E86;delay&#x65F6;&#x95F4;&#x3002; 
+ *  
+ *  
+ * @author GT 
+ *  
+ */  
+public class Task3 {  
+    public static void main(String[] args) {  
+        Runnable runnable = new Runnable() {  
+            public void run() {  
+                // task to run goes here  
+                System.out.println(&quot;Hello !!&quot;);  
+            }  
+        };  
+        ScheduledExecutorService service = Executors  
+                .newSingleThreadScheduledExecutor();  
+        // &#x7B2C;&#x4E8C;&#x4E2A;&#x53C2;&#x6570;&#x4E3A;&#x9996;&#x6B21;&#x6267;&#x884C;&#x7684;&#x5EF6;&#x65F6;&#x65F6;&#x95F4;&#xFF0C;&#x7B2C;&#x4E09;&#x4E2A;&#x53C2;&#x6570;&#x4E3A;&#x5B9A;&#x65F6;&#x6267;&#x884C;&#x7684;&#x95F4;&#x9694;&#x65F6;&#x95F4;  
+        service.scheduleAtFixedRate(runnable, 10, 1, TimeUnit.SECONDS);  
+    }  
+}  
+</code></pre>
+<p><strong>10. &#x573A;&#x666F;&#xFF1A;&#x5728;&#x4E00;&#x4E2A;&#x4E3B;&#x7EBF;&#x7A0B;&#x4E2D;&#xFF0C;&#x8981;&#x6C42;&#x6709;&#x5927;&#x91CF;(&#x5F88;&#x591A;&#x5F88;&#x591A;)&#x5B50;&#x7EBF;&#x7A0B;&#x6267;&#x884C;&#x5B8C;&#x4E4B;&#x540E;&#xFF0C;&#x4E3B;&#x7EBF;&#x7A0B;&#x624D;&#x6267;&#x884C;&#x5B8C;&#x6210;&#x3002;&#x591A;&#x79CD;&#x65B9;&#x5F0F;&#xFF0C;&#x8003;&#x8651;&#x6548;&#x7387;&#x3002;</strong></p>
+<p>&#x90A3;&#x4E48;&#x5982;&#x4F55;&#x786E;&#x4FDD;&#x6240;&#x6709;&#x7684;&#x5B50;&#x7EBF;&#x7A0B;&#x6267;&#x884C;&#x5B8C;&#x6BD5;&#x4E86;&#x3002;&#x4E00;&#x822C;&#x7684;&#x6709;&#x5982;&#x4E0B;&#x65B9;&#x6CD5;&#xFF1A;</p>
+<p>&#xFF08;1&#xFF09;&#x8BA9;&#x4E3B;&#x7EBF;&#x7A0B;&#x7B49;&#x5F85;&#xFF0C;&#x6216;&#x7740;&#x7761;&#x7720;&#x51E0;&#x5206;&#x949F;&#x3002;&#x7528; Thread.sleep() &#x6216;&#x8005; TimeUnit.SECONDS.sleep(5);<br>
+&#x5982;&#x4E0B;&#xFF1A;</p>
+<pre><code>public class ThreadSubMain1 {  
+  
+    public static void main(String[] args) {  
+        // TODO Auto-generated method stub  
+  
+        for (int i = 0; i &lt; 10; i++) {  
+  
+            new Thread(new Runnable() {  
+                public void run() {  
+  
+                    try {  
+                        Thread.sleep(1000);  
+                        // &#x6A21;&#x62DF;&#x5B50;&#x7EBF;&#x7A0B;&#x4EFB;&#x52A1;  
+                    } catch (InterruptedException e) {  
+                    }  
+                    System.out.println(&quot;&#x5B50;&#x7EBF;&#x7A0B;&quot; + Thread.currentThread() + &quot;&#x6267;&#x884C;&#x5B8C;&#x6BD5;&quot;);  
+                }  
+            }).start();   
+        }  
+  
+        try {  
+            // &#x7B49;&#x5F85;&#x5168;&#x90E8;&#x5B50;&#x7EBF;&#x7A0B;&#x6267;&#x884C;&#x5B8C;&#x6BD5;  
+            TimeUnit.SECONDS.sleep(5);  
+        } catch (InterruptedException e) {  
+            // TODO Auto-generated catch block  
+            e.printStackTrace();  
+        }  
+        System.out.println(&quot;&#x4E3B;&#x7EBF;&#x6267;&#x884C;&#x3002;&quot;);  
+    }  
+}  
+</code></pre>
+<p>&#x6548;&#x679C;&#x5982;&#x4E0B;&#xFF1A;</p>
+<pre><code>&#x5B50;&#x7EBF;&#x7A0B;Thread[Thread-1,5,main]&#x6267;&#x884C;&#x5B8C;&#x6BD5;  
+&#x5B50;&#x7EBF;&#x7A0B;Thread[Thread-3,5,main]&#x6267;&#x884C;&#x5B8C;&#x6BD5;  
+&#x5B50;&#x7EBF;&#x7A0B;Thread[Thread-5,5,main]&#x6267;&#x884C;&#x5B8C;&#x6BD5;  
+&#x5B50;&#x7EBF;&#x7A0B;Thread[Thread-7,5,main]&#x6267;&#x884C;&#x5B8C;&#x6BD5;  
+&#x5B50;&#x7EBF;&#x7A0B;Thread[Thread-9,5,main]&#x6267;&#x884C;&#x5B8C;&#x6BD5;  
+&#x5B50;&#x7EBF;&#x7A0B;Thread[Thread-0,5,main]&#x6267;&#x884C;&#x5B8C;&#x6BD5;  
+&#x5B50;&#x7EBF;&#x7A0B;Thread[Thread-2,5,main]&#x6267;&#x884C;&#x5B8C;&#x6BD5;  
+&#x5B50;&#x7EBF;&#x7A0B;Thread[Thread-4,5,main]&#x6267;&#x884C;&#x5B8C;&#x6BD5;  
+&#x5B50;&#x7EBF;&#x7A0B;Thread[Thread-6,5,main]&#x6267;&#x884C;&#x5B8C;&#x6BD5;  
+&#x5B50;&#x7EBF;&#x7A0B;Thread[Thread-8,5,main]&#x6267;&#x884C;&#x5B8C;&#x6BD5;  
+&#x4E3B;&#x7EBF;&#x6267;&#x884C;&#x3002;  
+</code></pre>
+<p>&#x6B64;&#x65B9;&#x4E3B;&#x7EBF;&#x7A0B;&#x53EA;&#x662F;&#x7761;&#x4E86; 5 &#x79D2;&#xFF0C;&#x4F46;&#x662F;&#x4E0D;&#x80FD;&#x4FDD;&#x8BC1;&#x5168;&#x90E8;&#x7684;&#x5B50;&#x7EBF;&#x7A0B;&#x6267;&#x884C;&#x5B8C;&#x6210;&#xFF0C;&#x6240;&#x4EE5;&#x8FD9;&#x513F;&#x7684;5&#x79D2;&#x53EA;&#x662F;&#x4E00;&#x4E2A;&#x4F30;&#x503C;&#x3002;</p>
+<p>&#xFF08;2&#xFF09;&#x4F7F;&#x7528; Thread &#x7684; join() &#x7B49;&#x5F85;&#x6240;&#x6709;&#x7684;&#x5B50;&#x7EBF;&#x7A0B;&#x6267;&#x884C;&#x5B8C;&#x6BD5;&#xFF0C;&#x4E3B;&#x7EBF;&#x7A0B;&#x5728;&#x6267;&#x884C;&#x3002;&#x5B9E;&#x73B0;&#x5982;&#x4E0B;&#xFF1A;</p>
+<pre><code>public class ThreadSubMain2 {  
+  
+    public static void main(String[] args) {  
+        // &#x4F7F;&#x7528;&#x7EBF;&#x7A0B;&#x5B89;&#x5168;&#x7684;Vector   
+        Vector&lt;Thread&gt; threads = new Vector&lt;Thread&gt;();  
+        for (int i = 0; i &lt; 10; i++) {  
+  
+            Thread iThread = new Thread(new Runnable() {  
+                public void run() {  
+  
+                    try {  
+                        Thread.sleep(1000);  
+                        // &#x6A21;&#x62DF;&#x5B50;&#x7EBF;&#x7A0B;&#x4EFB;&#x52A1;  
+                    } catch (InterruptedException e) {  
+                    }  
+                    System.out.println(&quot;&#x5B50;&#x7EBF;&#x7A0B;&quot; + Thread.currentThread() + &quot;&#x6267;&#x884C;&#x5B8C;&#x6BD5;&quot;);  
+  
+                }  
+            });  
+  
+            threads.add(iThread);  
+            iThread.start();  
+        }  
+  
+        for (Thread iThread : threads) {  
+            try {  
+                // &#x7B49;&#x5F85;&#x6240;&#x6709;&#x7EBF;&#x7A0B;&#x6267;&#x884C;&#x5B8C;&#x6BD5;  
+                iThread.join();  
+            } catch (InterruptedException e) {  
+                e.printStackTrace();  
+            }  
+        }  
+  
+        System.out.println(&quot;&#x4E3B;&#x7EBF;&#x6267;&#x884C;&#x3002;&quot;);  
+    }  
+  
+}  
+</code></pre>
+<p>&#x6267;&#x884C;&#x7ED3;&#x679C;&#x5982;&#x4E0B;&#xFF1A;</p>
+<pre><code>&#x5B50;&#x7EBF;&#x7A0B;Thread[Thread-1,5,main]&#x6267;&#x884C;&#x5B8C;&#x6BD5;  
+&#x5B50;&#x7EBF;&#x7A0B;Thread[Thread-2,5,main]&#x6267;&#x884C;&#x5B8C;&#x6BD5;  
+&#x5B50;&#x7EBF;&#x7A0B;Thread[Thread-0,5,main]&#x6267;&#x884C;&#x5B8C;&#x6BD5;  
+&#x5B50;&#x7EBF;&#x7A0B;Thread[Thread-3,5,main]&#x6267;&#x884C;&#x5B8C;&#x6BD5;  
+&#x5B50;&#x7EBF;&#x7A0B;Thread[Thread-4,5,main]&#x6267;&#x884C;&#x5B8C;&#x6BD5;  
+&#x5B50;&#x7EBF;&#x7A0B;Thread[Thread-9,5,main]&#x6267;&#x884C;&#x5B8C;&#x6BD5;  
+&#x5B50;&#x7EBF;&#x7A0B;Thread[Thread-7,5,main]&#x6267;&#x884C;&#x5B8C;&#x6BD5;  
+&#x5B50;&#x7EBF;&#x7A0B;Thread[Thread-5,5,main]&#x6267;&#x884C;&#x5B8C;&#x6BD5;  
+&#x5B50;&#x7EBF;&#x7A0B;Thread[Thread-8,5,main]&#x6267;&#x884C;&#x5B8C;&#x6BD5;  
+&#x5B50;&#x7EBF;&#x7A0B;Thread[Thread-6,5,main]&#x6267;&#x884C;&#x5B8C;&#x6BD5;  
+&#x4E3B;&#x7EBF;&#x6267;&#x884C;&#x3002; 
+</code></pre>
+<p>&#x8FD9;&#x79CD;&#x65B9;&#x5F0F;&#x7B26;&#x5408;&#x8981;&#x6C42;&#xFF0C;&#x5B83;&#x80FD;&#x591F;&#x7B49;&#x5F85;&#x6240;&#x6709;&#x7684;&#x5B50;&#x7EBF;&#x7A0B;&#x6267;&#x884C;&#x5B8C;&#xFF0C;&#x4E3B;&#x7EBF;&#x7A0B;&#x624D;&#x4F1A;&#x6267;&#x884C;&#x3002;</p>
+<p>&#xFF08;3&#xFF09;&#x4F7F;&#x7528; ExecutorService &#x7EBF;&#x7A0B;&#x6C60;&#xFF0C;&#x7B49;&#x5F85;&#x6240;&#x6709;&#x4EFB;&#x52A1;&#x6267;&#x884C;&#x5B8C;&#x6BD5;&#x518D;&#x6267;&#x884C;&#x4E3B;&#x7EBF;&#x7A0B; awaitTermination&#x3002;</p>
+<p>awaitTermination(long timeout,TimeUnit unit) &#x8BF7;&#x6C42;&#x5173;&#x95ED;&#x3001;&#x53D1;&#x751F;&#x8D85;&#x65F6;&#x6216;&#x8005;&#x5F53;&#x524D;&#x7EBF;&#x7A0B;&#x4E2D;&#x65AD;&#xFF0C;&#x65E0;&#x8BBA;&#x54EA;&#x4E00;&#x4E2A;&#x9996;&#x5148;&#x53D1;&#x751F;&#x4E4B;&#x540E;&#xFF0C;&#x90FD;&#x5C06;&#x5BFC;&#x81F4;&#x963B;&#x585E;&#xFF0C;&#x76F4;&#x5230;&#x6240;&#x6709;&#x4EFB;&#x52A1;&#x5B8C;&#x6210;&#x6267;&#x884C;&#x3002;</p>
+<pre><code>public class ThreadSubMain3 {  
+  
+    public static void main(String[] args) {  
+        // &#x5B9A;&#x4E49;&#x4E00;&#x4E2A;&#x7F13;&#x51B2;&#x7684;&#x7EBF;&#x7A0B;&#x503C; &#x7EBF;&#x7A0B;&#x6C60;&#x7684;&#x5927;&#x5C0F;&#x6839;&#x636E;&#x4EFB;&#x52A1;&#x53D8;&#x5316;  
+        ExecutorService threadPool = Executors.newCachedThreadPool();  
+        for (int i = 0; i &lt; 10; i++) {  
+  
+            threadPool.execute(new Runnable() {  
+                public void run() {  
+  
+                    try {  
+                        Thread.sleep(1000);  
+                        // &#x6A21;&#x62DF;&#x5B50;&#x7EBF;&#x7A0B;&#x4EFB;&#x52A1;  
+                    } catch (InterruptedException e) {  
+                    }  
+                    System.out.println(&quot;&#x5B50;&#x7EBF;&#x7A0B;&quot; + Thread.currentThread() + &quot;&#x6267;&#x884C;&#x5B8C;&#x6BD5;&quot;);  
+  
+                }  
+            });  
+  
+        }  
+  
+        // &#x542F;&#x52A8;&#x4E00;&#x6B21;&#x987A;&#x5E8F;&#x5173;&#x95ED;&#xFF0C;&#x6267;&#x884C;&#x4EE5;&#x524D;&#x63D0;&#x4EA4;&#x7684;&#x4EFB;&#x52A1;&#xFF0C;&#x4F46;&#x4E0D;&#x63A5;&#x53D7;&#x65B0;&#x4EFB;&#x52A1;&#x3002;  
+        threadPool.shutdown();  
+  
+        try {  
+            // &#x8BF7;&#x6C42;&#x5173;&#x95ED;&#x3001;&#x53D1;&#x751F;&#x8D85;&#x65F6;&#x6216;&#x8005;&#x5F53;&#x524D;&#x7EBF;&#x7A0B;&#x4E2D;&#x65AD;&#xFF0C;&#x65E0;&#x8BBA;&#x54EA;&#x4E00;&#x4E2A;&#x9996;&#x5148;&#x53D1;&#x751F;&#x4E4B;&#x540E;&#xFF0C;&#x90FD;&#x5C06;&#x5BFC;&#x81F4;&#x963B;&#x585E;&#xFF0C;&#x76F4;&#x5230;&#x6240;&#x6709;&#x4EFB;&#x52A1;&#x5B8C;&#x6210;&#x6267;&#x884C;  
+            // &#x8BBE;&#x7F6E;&#x6700;&#x957F;&#x7B49;&#x5F85;10&#x79D2;  
+            threadPool.awaitTermination(10, TimeUnit.SECONDS);  
+        } catch (InterruptedException e) {  
+            //  
+            e.printStackTrace();  
+        }  
+  
+        System.out.println(&quot;&#x4E3B;&#x7EBF;&#x6267;&#x884C;&#x3002;&quot;);  
+    }  
+  
+}  
+</code></pre>
+<p>&#x6267;&#x884C;&#x7ED3;&#x679C;&#x5982;&#x4E0B;&#xFF1A;</p>
+<pre><code>&#x5B50;&#x7EBF;&#x7A0B;Thread[pool-1-thread-4,5,main]&#x6267;&#x884C;&#x5B8C;&#x6BD5;  
+&#x5B50;&#x7EBF;&#x7A0B;Thread[pool-1-thread-1,5,main]&#x6267;&#x884C;&#x5B8C;&#x6BD5;  
+&#x5B50;&#x7EBF;&#x7A0B;Thread[pool-1-thread-7,5,main]&#x6267;&#x884C;&#x5B8C;&#x6BD5;  
+&#x5B50;&#x7EBF;&#x7A0B;Thread[pool-1-thread-6,5,main]&#x6267;&#x884C;&#x5B8C;&#x6BD5;  
+&#x5B50;&#x7EBF;&#x7A0B;Thread[pool-1-thread-5,5,main]&#x6267;&#x884C;&#x5B8C;&#x6BD5;  
+&#x5B50;&#x7EBF;&#x7A0B;Thread[pool-1-thread-2,5,main]&#x6267;&#x884C;&#x5B8C;&#x6BD5;  
+&#x5B50;&#x7EBF;&#x7A0B;Thread[pool-1-thread-3,5,main]&#x6267;&#x884C;&#x5B8C;&#x6BD5;  
+&#x5B50;&#x7EBF;&#x7A0B;Thread[pool-1-thread-8,5,main]&#x6267;&#x884C;&#x5B8C;&#x6BD5;  
+&#x5B50;&#x7EBF;&#x7A0B;Thread[pool-1-thread-10,5,main]&#x6267;&#x884C;&#x5B8C;&#x6BD5;  
+&#x5B50;&#x7EBF;&#x7A0B;Thread[pool-1-thread-9,5,main]&#x6267;&#x884C;&#x5B8C;&#x6BD5;  
+&#x4E3B;&#x7EBF;&#x6267;&#x884C;&#x3002;  
+</code></pre>
+<p>&#x8FD9;&#x79CD;&#x65B9;&#x6CD5;&#x548C;&#x65B9;&#x6CD5; 2 &#x4E00;&#x6837;&#xFF0C;&#x5C06;&#x7B49;&#x5F85;&#x6240;&#x6709;&#x5B50;&#x7EBF;&#x7A0B;&#x6267;&#x884C;&#x5B8C;&#x6BD5;&#x4E4B;&#x540E;&#x624D;&#x6267;&#x884C;&#x4E3B;&#x7EBF;&#x7A0B;&#x3002;</p>
+<p>&#xFF08;4&#xFF09;&#x4F7F;&#x7528; Java.util.concurrent &#x4E2D;&#x7684; CountDownLatch&#xFF0C;&#x662F;&#x4E00;&#x4E2A;&#x5012;&#x6570;&#x8BA1;&#x6570;&#x5668;&#x3002;&#x521D;&#x59CB;&#x5316;&#x65F6;&#x5148;&#x8BBE;&#x7F6E;&#x4E00;&#x4E2A;&#x5012;&#x6570;&#x8BA1;&#x6570;&#x521D;&#x59CB;&#x503C;&#xFF0C;&#x6BCF;&#x8C03;&#x7528;&#x4E00;&#x6B21; countDown() &#x65B9;&#x6CD5;&#xFF0C;&#x5012;&#x6570;&#x503C;&#x51CF;&#x4E00;&#xFF0C;&#x4ED6;&#x7684; await() &#x65B9;&#x6CD5;&#x4F1A;&#x963B;&#x585E;&#x5F53;&#x524D;&#x8FDB;&#x7A0B;&#xFF0C;&#x76F4;&#x5230;&#x5012;&#x6570;&#x81F3;0&#x3002;</p>
+<pre><code>Thread t = new Thread() {
+  public void run() {
+	try {
+        //TODO &#x4F60;&#x7684;&#x5E94;&#x7528;
+    } catch (Exception e) {
+        //TODO &#x5F02;&#x5E38;&#x5904;&#x7406;
+    } finally {
+       latch.countDown();  //&#x8FD9;&#x53E5;&#x662F;&#x5173;&#x952E;
+       System.out.println(&quot;ok&quot;);  //5&#x4E2A;&#x7EBF;&#x7A0B;&#x90FD;&#x8DD1;&#x5B8C;&#x540E;&#x8F93;&#x51FA;
+	}
+  }
+};
+ t.start();
+</code></pre>
+<p>&#x7136;&#x540E;&#x8BA9;&#x4EE5;&#x4E0A;&#x64CD;&#x4F5C;&#x5FAA;&#x73AF;&#x4E94;&#x6B21;(&#x5C31;&#x662F;&#x8BF4;&#x540C;&#x65F6;&#x5F00;5&#x4E2A;&#x7EBF;&#x7A0B;)&#xFF0C;&#x90A3;&#x4E48;&#x8FD9;&#x4E2A;&quot;ok&quot;&#x5C31;&#x4F1A;&#x5728;&#x7B49;&#x5230;&#x8FD9;5&#x4E2A;&#x7EBF;&#x7A0B;&#x90FD;ok&#x540E;&#x624D;&#x4F1A;&#x88AB;&#x8F93;&#x51FA;&#x4E00;&#x6B21;&#x3002;</p>
+<p>&#x5177;&#x4F53;&#x8BF7;&#x770B;&#xFF1A;<a href="http://blog.csdn.net/fengshizty/article/details/41356845?utm_source=tuicool&amp;utm_medium=referral" target="_blank" rel="external">http://blog.csdn.net/fengshizty/article/details/41356845?utm_source=tuicool&amp;utm_medium=referral</a></p>
+<p><strong>11. &#x8FDB;&#x7A0B;&#x548C;&#x7EBF;&#x7A0B;&#x7684;&#x533A;&#x522B;</strong></p>
+<p><strong>12. &#x4EC0;&#x4E48;&#x53EB;&#x7EBF;&#x7A0B;&#x5B89;&#x5168;&#xFF1F;</strong></p>
+<p><strong>13. &#x7EBF;&#x7A0B;&#x7684;&#x51E0;&#x79CD;&#x72B6;&#x6001;</strong></p>
+<p><strong>14. &#x5E76;&#x53D1;&#x3001;&#x540C;&#x6B65;&#x7684;&#x63A5;&#x53E3;&#x6216;&#x65B9;&#x6CD5;</strong></p>
+<p><strong>15. HashMap &#x662F;&#x5426;&#x7EBF;&#x7A0B;&#x5B89;&#x5168;&#xFF0C;&#x4E3A;&#x4F55;&#x4E0D;&#x5B89;&#x5168;&#x3002; ConcurrentHashMap&#xFF0C;&#x7EBF;&#x7A0B;&#x5B89;&#x5168;&#xFF0C;&#x4E3A;&#x4F55;&#x5B89;&#x5168;&#x3002;&#x5E95;&#x5C42;&#x5B9E;&#x73B0;&#x662F;&#x600E;&#x4E48;&#x6837;&#x7684;&#x3002;</strong></p>
+<p><strong>16. J.U.C&#x4E0B;&#x7684;&#x5E38;&#x89C1;&#x7C7B;&#x7684;&#x4F7F;&#x7528;&#x3002; ThreadPool&#x7684;&#x6DF1;&#x5165;&#x8003;&#x5BDF;&#xFF1B; BlockingQueue&#x7684;&#x4F7F;&#x7528;&#x3002;&#xFF08;take&#xFF0C;poll&#x7684;&#x533A;&#x522B;&#xFF0C;put&#xFF0C;offer&#x7684;&#x533A;&#x522B;&#xFF09;&#xFF1B;&#x539F;&#x5B50;&#x7C7B;&#x7684;&#x5B9E;&#x73B0;&#x3002;</strong></p>
+<p><strong>17. &#x7B80;&#x5355;&#x4ECB;&#x7ECD;&#x4E0B;&#x591A;&#x7EBF;&#x7A0B;&#x7684;&#x60C5;&#x51B5;&#xFF0C;&#x4ECE;&#x5EFA;&#x7ACB;&#x4E00;&#x4E2A;&#x7EBF;&#x7A0B;&#x5F00;&#x59CB;&#x3002;&#x7136;&#x540E;&#x600E;&#x4E48;&#x63A7;&#x5236;&#x540C;&#x6B65;&#x8FC7;&#x7A0B;&#xFF0C;&#x591A;&#x7EBF;&#x7A0B;&#x5E38;&#x7528;&#x7684;&#x65B9;&#x6CD5;&#x548C;&#x7ED3;&#x6784;</strong></p>
+<p><strong>18. volatile&#x7684;&#x7406;&#x89E3;</strong></p>
+<p><strong>19. &#x5B9E;&#x73B0;&#x591A;&#x7EBF;&#x7A0B;&#x6709;&#x51E0;&#x79CD;&#x65B9;&#x5F0F;&#xFF0C;&#x591A;&#x7EBF;&#x7A0B;&#x540C;&#x6B65;&#x600E;&#x4E48;&#x505A;&#xFF0C;&#x8BF4;&#x8BF4;&#x51E0;&#x4E2A;&#x7EBF;&#x7A0B;&#x91CC;&#x5E38;&#x7528;&#x7684;&#x65B9;&#x6CD5;&#x3002;</strong></p>
 <h2 id="&#x7F51;&#x7EDC;&#x901A;&#x4FE1;"><a class="header-anchor" href="#&#x7F51;&#x7EDC;&#x901A;&#x4FE1;"></a>&#x7F51;&#x7EDC;&#x901A;&#x4FE1;</h2>
 <ol>
 <li>
