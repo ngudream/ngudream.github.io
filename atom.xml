@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://ngudream.com/"/>
-  <updated>2017-03-20T15:11:31.915Z</updated>
+  <updated>2017-03-21T13:44:03.385Z</updated>
   <id>http://ngudream.com/</id>
   
   <author>
@@ -20,18 +20,22 @@
     <link href="http://ngudream.com/2017/03/17/java-interview/"/>
     <id>http://ngudream.com/2017/03/17/java-interview/</id>
     <published>2017-03-17T13:36:32.000Z</published>
-    <updated>2017-03-20T15:11:31.915Z</updated>
+    <updated>2017-03-21T13:44:03.385Z</updated>
     
     <content type="html"><![CDATA[<h2 id="java&#x57FA;&#x7840;"><a class="header-anchor" href="#java&#x57FA;&#x7840;"></a>Java&#x57FA;&#x7840;</h2>
 <p><strong>1. String &#x7C7B;&#x4E3A;&#x4EC0;&#x4E48;&#x662F; final &#x7684;</strong></p>
 <p>final &#x7684;&#x51FA;&#x73B0;&#x5C31;&#x662F;&#x4E3A;&#x4E86;&#x4E3A;&#x4E86;&#x4E0D;&#x60F3;&#x6539;&#x53D8;&#xFF0C;&#x800C;&#x4E0D;&#x60F3;&#x6539;&#x53D8;&#x7684;&#x7406;&#x7531;&#x6709;&#x4E24;&#x70B9;&#xFF1A;&#x8BBE;&#x8BA1;(&#x5B89;&#x5168;)&#x6216;&#x8005;&#x6548;&#x7387;&#x3002;</p>
 <p>final &#x4FEE;&#x9970;&#x7684;&#x7C7B;&#x662F;&#x4E0D;&#x88AB;&#x80FD;&#x7EE7;&#x627F;&#x7684;&#xFF0C;&#x6240;&#x4EE5; final &#x4FEE;&#x9970;&#x7684;&#x7C7B;&#x662F;&#x4E0D;&#x80FD;&#x88AB;&#x7BE1;&#x6539;&#x7684;&#x3002;</p>
-<p>1&#x3001;&#x4ECE;&#x8BBE;&#x8BA1;&#x5B89;&#x5168;)&#x4E0A;&#x8BB2;&#xFF0C;<br>
-1)&#x3001;&#x786E;&#x4FDD;&#x5B83;&#x4EEC;&#x4E0D;&#x4F1A;&#x5728;&#x5B50;&#x7C7B;&#x4E2D;&#x6539;&#x53D8;&#x8BED;&#x4E49;&#x3002;String &#x7C7B;&#x662F; final &#x7C7B;&#xFF0C;&#x8FD9;&#x610F;&#x5473;&#x7740;&#x4E0D;&#x5141;&#x8BB8;&#x4EFB;&#x4F55;&#x4EBA;&#x5B9A;&#x4E49;String &#x7684;&#x5B50;&#x7C7B;&#x3002;&#x6362;&#x8A00;&#x4E4B;&#xFF0C;&#x5982;&#x679C;&#x6709;&#x4E00;&#x4E2A; String &#x7684;&#x5F15;&#x7528;&#xFF0C;&#x5B83;&#x5F15;&#x7528;&#x7684;&#x4E00;&#x5B9A;&#x662F;&#x4E00;&#x4E2A; String &#x5BF9;&#x8C61;&#xFF0C;&#x800C;&#x4E0D;&#x53EF;&#x80FD;&#x662F;&#x5176;&#x4ED6;&#x7C7B;&#x7684;&#x5BF9;&#x8C61;&#x3002;</p>
-<p>2)&#x3001;String &#x4E00;&#x65E6;&#x88AB;&#x521B;&#x5EFA;&#x662F;&#x4E0D;&#x80FD;&#x88AB;&#x4FEE;&#x6539;&#x7684;&#xFF0C;&#x56E0;&#x4E3A; Java &#x8BBE;&#x8BA1;&#x8005;&#x5C06; String &#x4E3A;&#x53EF;&#x4EE5;&#x5171;&#x4EAB;&#x7684;</p>
-<p>2&#x3001;&#x4ECE;&#x6548;&#x7387;&#x4E0A;&#x8BB2;&#xFF1A;<br>
-1)&#x3001;&#x8BBE;&#x8BA1;&#x6210; final&#xFF0C;JVM &#x624D;&#x4E0D;&#x7528;&#x5BF9;&#x76F8;&#x5173;&#x65B9;&#x6CD5;&#x5728;&#x865A;&#x51FD;&#x6570;&#x8868;&#x4E2D;&#x67E5;&#x8BE2;&#xFF0C;&#x800C;&#x76F4;&#x63A5;&#x5B9A;&#x4F4D;&#x5230; String &#x7C7B;&#x7684;&#x76F8;&#x5173;&#x65B9;&#x6CD5;&#x4E0A;&#xFF0C;&#x63D0;&#x9AD8;&#x4E86;&#x6267;&#x884C;&#x6548;&#x7387;&#x3002;</p>
-<p>2)&#x3001;Java &#x8BBE;&#x8BA1;&#x8005;&#x8BA4;&#x4E3A;&#x5171;&#x4EAB;&#x5E26;&#x6765;&#x7684;&#x6548;&#x7387;&#x66F4;&#x9AD8;&#x3002;</p>
+<p>1&#x3001;&#x4ECE;&#x8BBE;&#x8BA1;&#x5B89;&#x5168;&#x4E0A;&#x8BB2;&#xFF1A;</p>
+<ul>
+<li>&#x786E;&#x4FDD;&#x5B83;&#x4EEC;&#x4E0D;&#x4F1A;&#x5728;&#x5B50;&#x7C7B;&#x4E2D;&#x6539;&#x53D8;&#x8BED;&#x4E49;&#x3002;String &#x7C7B;&#x662F; final &#x7C7B;&#xFF0C;&#x8FD9;&#x610F;&#x5473;&#x7740;&#x4E0D;&#x5141;&#x8BB8;&#x4EFB;&#x4F55;&#x4EBA;&#x5B9A;&#x4E49;String &#x7684;&#x5B50;&#x7C7B;&#x3002;&#x6362;&#x8A00;&#x4E4B;&#xFF0C;&#x5982;&#x679C;&#x6709;&#x4E00;&#x4E2A; String &#x7684;&#x5F15;&#x7528;&#xFF0C;&#x5B83;&#x5F15;&#x7528;&#x7684;&#x4E00;&#x5B9A;&#x662F;&#x4E00;&#x4E2A; String &#x5BF9;&#x8C61;&#xFF0C;&#x800C;&#x4E0D;&#x53EF;&#x80FD;&#x662F;&#x5176;&#x4ED6;&#x7C7B;&#x7684;&#x5BF9;&#x8C61;&#x3002;</li>
+<li>String &#x4E00;&#x65E6;&#x88AB;&#x521B;&#x5EFA;&#x662F;&#x4E0D;&#x80FD;&#x88AB;&#x4FEE;&#x6539;&#x7684;&#xFF0C;&#x56E0;&#x4E3A; Java &#x8BBE;&#x8BA1;&#x8005;&#x5C06; String &#x4E3A;&#x53EF;&#x4EE5;&#x5171;&#x4EAB;&#x7684;</li>
+</ul>
+<p>2&#x3001;&#x4ECE;&#x6548;&#x7387;&#x4E0A;&#x8BB2;&#xFF1A;</p>
+<ul>
+<li>&#x8BBE;&#x8BA1;&#x6210; final&#xFF0C;JVM &#x624D;&#x4E0D;&#x7528;&#x5BF9;&#x76F8;&#x5173;&#x65B9;&#x6CD5;&#x5728;&#x865A;&#x51FD;&#x6570;&#x8868;&#x4E2D;&#x67E5;&#x8BE2;&#xFF0C;&#x800C;&#x76F4;&#x63A5;&#x5B9A;&#x4F4D;&#x5230; String &#x7C7B;&#x7684;&#x76F8;&#x5173;&#x65B9;&#x6CD5;&#x4E0A;&#xFF0C;&#x63D0;&#x9AD8;&#x4E86;&#x6267;&#x884C;&#x6548;&#x7387;&#x3002;</li>
+<li>Java &#x8BBE;&#x8BA1;&#x8005;&#x8BA4;&#x4E3A;&#x5171;&#x4EAB;&#x5E26;&#x6765;&#x7684;&#x6548;&#x7387;&#x66F4;&#x9AD8;&#x3002;</li>
+</ul>
 <p>&#x603B;&#x800C;&#x8A00;&#x4E4B;&#xFF0C;&#x5C31;&#x662F;&#x8981;&#x4FDD;&#x8BC1; java.lang.String &#x5F15;&#x7528;&#x7684;&#x5BF9;&#x8C61;&#x4E00;&#x5B9A;&#x662F; java.lang.String &#x7684;&#x5BF9;&#x8C61;&#xFF0C;&#x800C;&#x4E0D;&#x662F;&#x5F15;&#x7528;&#x5B83;&#x7684;&#x5B50;&#x5B59;&#x7C7B;&#xFF0C;&#x8FD9;&#x6837;&#x624D;&#x80FD;&#x4FDD;&#x8BC1;&#x5B83;&#x7684;&#x6548;&#x7387;&#x548C;&#x5B89;&#x5168;&#x3002;</p>
 <p><strong>2. HashMap &#x7684;&#x6E90;&#x7801;&#xFF0C;&#x5B9E;&#x73B0;&#x539F;&#x7406;&#xFF0C;&#x5E95;&#x5C42;&#x7ED3;&#x6784;&#x3002;</strong></p>
 <p>HashMap &#x57FA;&#x4E8E;&#x54C8;&#x5E0C;&#x8868;&#x7684; Map &#x63A5;&#x53E3;&#x7684;&#x5B9E;&#x73B0;&#x3002;&#x6B64;&#x5B9E;&#x73B0;&#x63D0;&#x4F9B;&#x6240;&#x6709;&#x53EF;&#x9009;&#x7684;&#x6620;&#x5C04;&#x64CD;&#x4F5C;&#xFF0C;&#x5E76;&#x5141;&#x8BB8;&#x4F7F;&#x7528; null &#x503C;&#x548C; null &#x952E;&#x3002;&#xFF08;&#x9664;&#x4E86;&#x4E0D;&#x540C;&#x6B65;&#x548C;&#x5141;&#x8BB8;&#x4F7F;&#x7528; null &#x4E4B;&#x5916;&#xFF0C;HashMap &#x7C7B;&#x4E0E; Hashtable &#x5927;&#x81F4;&#x76F8;&#x540C;&#x3002;&#xFF09;&#x6B64;&#x7C7B;&#x4E0D;&#x4FDD;&#x8BC1;&#x6620;&#x5C04;&#x7684;&#x987A;&#x5E8F;&#xFF0C;&#x7279;&#x522B;&#x662F;&#x5B83;&#x4E0D;&#x4FDD;&#x8BC1;&#x8BE5;&#x987A;&#x5E8F;&#x6052;&#x4E45;&#x4E0D;&#x53D8;&#x3002;</p>
