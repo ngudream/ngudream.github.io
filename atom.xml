@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://ngudream.com/"/>
-  <updated>2017-03-21T13:44:03.385Z</updated>
+  <updated>2017-03-27T13:35:33.561Z</updated>
   <id>http://ngudream.com/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://ngudream.com/2017/03/17/java-interview/"/>
     <id>http://ngudream.com/2017/03/17/java-interview/</id>
     <published>2017-03-17T13:36:32.000Z</published>
-    <updated>2017-03-21T13:44:03.385Z</updated>
+    <updated>2017-03-27T13:35:33.561Z</updated>
     
     <content type="html"><![CDATA[<h2 id="java&#x57FA;&#x7840;"><a class="header-anchor" href="#java&#x57FA;&#x7840;"></a>Java&#x57FA;&#x7840;</h2>
 <p><strong>1. String &#x7C7B;&#x4E3A;&#x4EC0;&#x4E48;&#x662F; final &#x7684;</strong></p>
@@ -67,12 +67,31 @@
 </ul>
 <p>&#x8FD8;&#x6709;&#x5F88;&#x591A;&#x5F88;&#x591A;&#xFF0C;&#x53EF;&#x4EE5;&#x770B;&#x770B; AbstractQueue&#xFF0C; Deque &#x6709;&#x54EA;&#x4E9B;&#x5B9E;&#x73B0;&#x7C7B;&#x3002; &#x63A8;&#x8350;ArrayBlockingQueue &#x3002;&#x5E76;&#x53D1;&#x6027;&#x80FD;&#x8FD8;&#x4E0D;&#x9519;&#x3002;</p>
 <p><strong>6. &#x53CD;&#x5C04;&#x4E2D;&#xFF0C;Class.forName &#x548C; Classloader &#x7684;&#x533A;&#x522B;&#x3002;</strong></p>
-<p>&#xFF08;1&#xFF09;Class.forName(className)&#x65B9;&#x6CD5;&#xFF0C;&#x5185;&#x90E8;&#x5B9E;&#x9645;&#x8C03;&#x7528;&#x7684;&#x65B9;&#x6CD5;&#x662F;  Class.forName(className,true,classloader);</p>
-<p>&#x7B2C;2&#x4E2A; boolean &#x53C2;&#x6570;&#x8868;&#x793A;&#x7C7B;&#x662F;&#x5426;&#x9700;&#x8981;&#x521D;&#x59CB;&#x5316;&#xFF0C;  Class.forName(className) &#x9ED8;&#x8BA4;&#x662F;&#x9700;&#x8981;&#x521D;&#x59CB;&#x5316;&#x3002;<br>
-&#x4E00;&#x65E6;&#x521D;&#x59CB;&#x5316;&#xFF0C;&#x5C31;&#x4F1A;&#x89E6;&#x53D1;&#x76EE;&#x6807;&#x5BF9;&#x8C61;&#x7684; static &#x5757;&#x4EE3;&#x7801;&#x6267;&#x884C;&#xFF0C;static &#x53C2;&#x6570;&#x4E5F;&#x4E5F;&#x4F1A;&#x88AB;&#x518D;&#x6B21;&#x521D;&#x59CB;&#x5316;&#x3002;</p>
-<p>&#xFF08;2&#xFF09;ClassLoader.loadClass(className) &#x65B9;&#x6CD5;&#xFF0C;&#x5185;&#x90E8;&#x5B9E;&#x9645;&#x8C03;&#x7528;&#x7684;&#x65B9;&#x6CD5;&#x662F;  ClassLoader.loadClass(className,false);</p>
-<p>&#x7B2C;2&#x4E2A; boolean &#x53C2;&#x6570;&#xFF0C;&#x8868;&#x793A;&#x76EE;&#x6807;&#x5BF9;&#x8C61;&#x662F;&#x5426;&#x8FDB;&#x884C;&#x94FE;&#x63A5;&#xFF0C;false &#x8868;&#x793A;&#x4E0D;&#x8FDB;&#x884C;&#x94FE;&#x63A5;&#xFF0C;&#x7531;&#x4E0A;&#x9762;&#x4ECB;&#x7ECD;&#x53EF;&#x4EE5;&#xFF0C;<br>
-&#x4E0D;&#x8FDB;&#x884C;&#x94FE;&#x63A5;&#x610F;&#x5473;&#x7740;&#x4E0D;&#x8FDB;&#x884C;&#x5305;&#x62EC;&#x521D;&#x59CB;&#x5316;&#x7B49;&#x4E00;&#x4E9B;&#x5217;&#x6B65;&#x9AA4;&#xFF0C;&#x90A3;&#x4E48;&#x9759;&#x6001;&#x5757;&#x548C;&#x9759;&#x6001;&#x5BF9;&#x8C61;&#x5C31;&#x4E0D;&#x4F1A;&#x5F97;&#x5230;&#x6267;&#x884C;</p>
+<p>&#xFF08;1&#xFF09;Class.forName(className)&#x65B9;&#x6CD5;&#xFF0C;&#x5185;&#x90E8;&#x5B9E;&#x9645;&#x8C03;&#x7528;&#x7684;&#x65B9;&#x6CD5;&#x662F;  Class.forName(className,true,classloader);&#x7B2C;2&#x4E2A; boolean &#x53C2;&#x6570;&#x8868;&#x793A;&#x7C7B;&#x662F;&#x5426;&#x9700;&#x8981;&#x521D;&#x59CB;&#x5316;&#xFF0C;  Class.forName(className) &#x9ED8;&#x8BA4;&#x662F;&#x9700;&#x8981;&#x521D;&#x59CB;&#x5316;&#x3002;&#x4E00;&#x65E6;&#x521D;&#x59CB;&#x5316;&#xFF0C;&#x5C31;&#x4F1A;&#x89E6;&#x53D1;&#x76EE;&#x6807;&#x5BF9;&#x8C61;&#x7684; static &#x5757;&#x4EE3;&#x7801;&#x6267;&#x884C;&#xFF0C;static &#x53C2;&#x6570;&#x4E5F;&#x4E5F;&#x4F1A;&#x88AB;&#x518D;&#x6B21;&#x521D;&#x59CB;&#x5316;&#x3002;forName(&quot;&quot;) &#x5F97;&#x5230;&#x7684; class &#x662F;&#x5DF2;&#x7ECF;&#x521D;&#x59CB;&#x5316;&#x5B8C;&#x6210;&#x7684;</p>
+<p>&#xFF08;2&#xFF09;ClassLoader.loadClass(className) &#x65B9;&#x6CD5;&#xFF0C;&#x5185;&#x90E8;&#x5B9E;&#x9645;&#x8C03;&#x7528;&#x7684;&#x65B9;&#x6CD5;&#x662F;  ClassLoader.loadClass(className,false);&#x7B2C;2&#x4E2A; boolean &#x53C2;&#x6570;&#xFF0C;&#x8868;&#x793A;&#x76EE;&#x6807;&#x5BF9;&#x8C61;&#x662F;&#x5426;&#x8FDB;&#x884C;&#x94FE;&#x63A5;&#xFF0C;false &#x8868;&#x793A;&#x4E0D;&#x8FDB;&#x884C;&#x94FE;&#x63A5;&#xFF0C;&#x7531;&#x4E0A;&#x9762;&#x4ECB;&#x7ECD;&#x53EF;&#x4EE5;&#xFF0C;&#x4E0D;&#x8FDB;&#x884C;&#x94FE;&#x63A5;&#x610F;&#x5473;&#x7740;&#x4E0D;&#x8FDB;&#x884C;&#x5305;&#x62EC;&#x521D;&#x59CB;&#x5316;&#x7B49;&#x4E00;&#x4E9B;&#x5217;&#x6B65;&#x9AA4;&#xFF0C;&#x90A3;&#x4E48;&#x9759;&#x6001;&#x5757;&#x548C;&#x9759;&#x6001;&#x5BF9;&#x8C61;&#x5C31;&#x4E0D;&#x4F1A;&#x5F97;&#x5230;&#x6267;&#x884C;&#x3002;loadClass(&quot;&quot;) &#x5F97;&#x5230;&#x7684; class &#x662F;&#x8FD8;&#x6CA1;&#x6709;&#x8FDE;&#x63A5;&#x7684;&#x3002;</p>
+<p>java&#x4F7F;&#x7528;JDBC&#x8FDE;&#x63A5;&#x6570;&#x636E;&#x5E93;&#x65F6;&#x5019;&#xFF0C;&#x6211;&#x4EEC;&#x9996;&#x5148;&#x9700;&#x8981;&#x52A0;&#x8F7D;&#x6570;&#x636E;&#x5E93;&#x9A71;&#x52A8;&#x3002;</p>
+<pre><code>Class.forName(&quot;com.MySQL.jdbc.Driver&quot;);//&#x901A;&#x8FC7;&#x8FD9;&#x79CD;&#x65B9;&#x5F0F;&#x5C06;&#x9A71;&#x52A8;&#x6CE8;&#x518C;&#x5230;&#x9A71;&#x52A8;&#x7BA1;&#x7406;&#x5668;&#x4E0A;
+    Connection conn = DriverManager.getConnection(&quot;url&quot;,&quot;userName&quot;,&quot;password&quot;);//&#x901A;&#x8FC7;&#x9A71;&#x52A8;&#x7BA1;&#x7406;&#x5668;&#x83B7;&#x5F97;&#x76F8;&#x5E94;&#x7684;&#x8FDE;&#x63A5;
+</code></pre>
+<p>&#x67E5;&#x770B;com.mysql.jdbc.Driver&#x6E90;&#x7801;&#xFF1A;</p>
+<pre><code>public class Driver extends NonRegisteringDriver
+  implements java.sql.Driver
+{
+    //&#x6CE8;&#x610F;&#xFF0C;&#x8FD9;&#x91CC;&#x6709;&#x4E00;&#x4E2A;static&#x7684;&#x4EE3;&#x7801;&#x5757;&#xFF0C;&#x8FD9;&#x4E2A;&#x4EE3;&#x7801;&#x5757;&#x5C06;&#x4F1A;&#x5728;class&#x521D;&#x59CB;&#x5316;&#x7684;&#x65F6;&#x5019;&#x6267;&#x884C;
+  static
+  {
+    try
+    {
+        //&#x5C06;&#x8FD9;&#x4E2A;&#x9A71;&#x52A8;Driver&#x6CE8;&#x518C;&#x5230;&#x9A71;&#x52A8;&#x7BA1;&#x7406;&#x5668;&#x4E0A;
+      DriverManager.registerDriver(new Driver());
+    } catch (SQLException E) {
+      throw new RuntimeException(&quot;Can&apos;t register driver!&quot;);
+    }
+  }
+}
+</code></pre>
+<p>Class.forName(&#x201C;com.mysql.jdbc.Driver&#x201D;) &#x65B9;&#x6CD5;&#x4EE5;&#x540E;&#xFF0C;&#x4ED6;&#x4F1A;&#x8FDB;&#x884C; class &#x7684;&#x521D;&#x59CB;&#x5316;&#xFF0C;&#x6267;&#x884C; static &#x4EE3;&#x7801;&#x5757;&#x3002;</p>
+<p>&#x4E5F;&#x5C31;&#x662F;&#x8BF4; class &#x521D;&#x59CB;&#x5316;&#x4EE5;&#x540E;&#xFF0C;&#x5C31;&#x4F1A;&#x5C06;&#x9A71;&#x6CE8;&#x518C;&#x5230; DriverManageer &#x4E0A;&#xFF0C;&#x4E4B;&#x540E;&#x624D;&#x80FD;&#x901A;&#x8FC7; DriverManager &#x53BB;&#x83B7;&#x53D6;&#x76F8;&#x5E94;&#x7684;&#x8FDE;&#x63A5;&#x3002;&#x4F46;&#x662F;&#x8981;&#x662F;&#x6211;&#x4EEC;&#x4F7F;&#x7528; ClassLoader.loadClass(com.mysql.jdbc.Driver) &#x7684;&#x8BDD;&#xFF0C;&#x4E0D;&#x4F1A; link&#xFF0C;&#x66F4;&#x4E5F;&#x4E0D;&#x4F1A;&#x521D;&#x59CB;&#x5316; class&#x3002;&#x76F8;&#x5E94;&#x7684;&#x5C31;&#x4E0D;&#x4F1A;&#x5C06; Driver &#x6CE8;&#x518C;&#x5230; DriverManager &#x4E0A;&#x9762;&#xFF0C;&#x6240;&#x4EE5;&#x80AF;&#x5B9A;&#x4E0D;&#x80FD;&#x901A;&#x8FC7; DriverManager &#x83B7;&#x53D6;&#x76F8;&#x5E94;&#x7684;&#x8FDE;&#x63A5;&#x3002;</p>
 <p>&#x5177;&#x4F53;&#x8BF7;&#x770B;&#xFF1A;<a href="http://blog.csdn.net/xie_xiansheng/article/details/52958012" target="_blank" rel="external">http://blog.csdn.net/xie_xiansheng/article/details/52958012</a></p>
 <p><strong>7. Java7&#x3001;Java8&#x7684;&#x65B0;&#x7279;&#x6027;</strong></p>
 <ul>
