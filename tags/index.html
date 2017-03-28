@@ -620,7 +620,7 @@
     <!-- Tag Cloud Page -->
     <hr>
 <br>
-<ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/编程/">编程</a><span class="category-list-count">13</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/晨读/">晨读</a><span class="category-list-count">15</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/移动开发/">移动开发</a><span class="category-list-count">46</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/服务器/">服务器</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/通信/">通信</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/数据库/">数据库</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/触类旁通/">触类旁通</a><span class="category-list-count">2</span></li></ul>
+<ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/晨读/">晨读</a><span class="category-list-count">15</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/编程/">编程</a><span class="category-list-count">13</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/移动开发/">移动开发</a><span class="category-list-count">46</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/服务器/">服务器</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/通信/">通信</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/数据库/">数据库</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/触类旁通/">触类旁通</a><span class="category-list-count">2</span></li></ul>
 
 <!-- Count tags and categories -->
 <p class="count"></p>
@@ -1292,6 +1292,7 @@
 
           codeRain();
           //duoshuoComments();
+          neteaseCommnets();
       });
     }
 
@@ -2376,6 +2377,15 @@
       
     }
 
+    var neteaseCommnets = function() {
+      jQuery.getScript("https://img1.cache.netease.com/f2e/tie/yun/sdk/loader.js")
+          .done(function() {
+            $("#yun-tie-sdk-wrap").css("background-color","#E6E6E6");
+          })
+          .fail(function() {});
+      <script src="https://img1.cache.netease.com/f2e/tie/yun/sdk/loader.js"></script>
+    }
+
     //隐藏categories、tags页面下的标签
     var hideLabels =  function() {
       // Hide Labels
@@ -2383,7 +2393,7 @@
       if(is_archive() || is_tag() || is_category()) {
         var url = window.location.pathname;
         if(!url.endWith("/tags/")){
-          $("#footer").after("<img id='id_eye_btn' class='hide-labels fa fa-eye animated infinite pulse' style='margin-left:5px;margin-top:5px;width:38px;height:18px;'></img>");
+          $("#footer").after("<img id="id_eye_btn" class="hide-labels fa fa-eye animated infinite pulse" style="margin-left:5px;margin-top:5px;width:38px;height:18px">");
           $("#id_eye_btn").attr("src", "/img/eye.png");
           $(".hide-labels").click(function() {
               $(".article-info").toggle(200);
@@ -2399,7 +2409,7 @@
         $("#page-undefined").css("opacity", "1.0");
       }
     }
-</script>
+
 
 <!-- 添加 InstantClick 预加载 -->
 <!-- 这段代码的含义是每次页面重载时，通过直接的函数调用来实现MathJax、百度统计、Google Code Prettify、Google Analytics的重新运行 -->

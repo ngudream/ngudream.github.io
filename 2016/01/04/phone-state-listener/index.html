@@ -781,7 +781,7 @@ Android&#x8FD8;&#x63D0;&#x4F9B;&#x4E86;&#x4E00;&#x79CD;&#x66F4;&#x52A0;&#x5E38;&
         target: "cloud-tie-wrapper"
         };
         </script>
-        <script src="https://img1.cache.netease.com/f2e/tie/yun/sdk/loader.js"></script>
+
     
 
 
@@ -1272,6 +1272,7 @@ ga('send', 'pageview');
 
           codeRain();
           //duoshuoComments();
+          neteaseCommnets();
       });
     }
 
@@ -2356,6 +2357,15 @@ ga('send', 'pageview');
       
     }
 
+    var neteaseCommnets = function() {
+      jQuery.getScript("https://img1.cache.netease.com/f2e/tie/yun/sdk/loader.js")
+          .done(function() {
+            $("#yun-tie-sdk-wrap").css("background-color","#E6E6E6");
+          })
+          .fail(function() {});
+      <script src="https://img1.cache.netease.com/f2e/tie/yun/sdk/loader.js"></script>
+    }
+
     //隐藏categories、tags页面下的标签
     var hideLabels =  function() {
       // Hide Labels
@@ -2363,7 +2373,7 @@ ga('send', 'pageview');
       if(is_archive() || is_tag() || is_category()) {
         var url = window.location.pathname;
         if(!url.endWith("/tags/")){
-          $("#footer").after("<img id='id_eye_btn' class='hide-labels fa fa-eye animated infinite pulse' style='margin-left:5px;margin-top:5px;width:38px;height:18px;'></img>");
+          $("#footer").after("<img id="id_eye_btn" class="hide-labels fa fa-eye animated infinite pulse" style="margin-left:5px;margin-top:5px;width:38px;height:18px">");
           $("#id_eye_btn").attr("src", "/img/eye.png");
           $(".hide-labels").click(function() {
               $(".article-info").toggle(200);
@@ -2379,7 +2389,7 @@ ga('send', 'pageview');
         $("#page-undefined").css("opacity", "1.0");
       }
     }
-</script>
+
 
 <!-- 添加 InstantClick 预加载 -->
 <!-- 这段代码的含义是每次页面重载时，通过直接的函数调用来实现MathJax、百度统计、Google Code Prettify、Google Analytics的重新运行 -->
