@@ -1138,7 +1138,7 @@ var particleCanvas = new ParticleNetwork(canvasDiv, options);
 
           codeRain();
           //duoshuoComments();
-          neteaseCommnets();
+          //neteaseCommnets();
       });
     }
 
@@ -2223,12 +2223,15 @@ var particleCanvas = new ParticleNetwork(canvasDiv, options);
       
     }
 
+    //网易评论
     var neteaseCommnets = function() {
-      jQuery.getScript("https://img1.cache.netease.com/f2e/tie/yun/sdk/loader.js")
-          .done(function() {
-            $("#yun-tie-sdk-wrap").css("background-color","#E6E6E6 !important");
-          })
-          .fail(function() {});
+      if(is_post()){
+        jQuery.getScript("https://img1.cache.netease.com/f2e/tie/yun/sdk/loader.js")
+            .done(function() {
+              $("#yun-tie-sdk-wrap").css("background-color","#E6E6E6 !important");
+            })
+            .fail(function() {});
+      }
     }
 
     //隐藏categories、tags页面下的标签
