@@ -561,7 +561,7 @@
 
     
 
-	<div class="ui red ribbon label" style="line-height: 1.3; min-width:100px; max-width:450px"> <!-- 标题 -->
+	<div class="ui purple ribbon label" style="line-height: 1.3; min-width:100px; max-width:450px"> <!-- 标题 -->
 		<span class="archive-item-title" style="display:block; height:100%; max-width:400px;white-space:nowrap; text-transform:capitalize">
 			<h1 itemprop="name">
       <a class="article-title" href="/2016/08/23/morning-reading/">关于晨读</a>
@@ -747,7 +747,7 @@
 
     
 
-	<div class="ui purple ribbon label" style="line-height: 1.3; min-width:100px; max-width:450px"> <!-- 标题 -->
+	<div class="ui green ribbon label" style="line-height: 1.3; min-width:100px; max-width:450px"> <!-- 标题 -->
 		<span class="archive-item-title" style="display:block; height:100%; max-width:400px;white-space:nowrap; text-transform:capitalize">
 			<h1 itemprop="name">
       <a class="article-title" href="/2016/08/14/realm-browse/">Realm实战总结--数据浏览</a>
@@ -810,7 +810,7 @@
 
     
 
-	<div class="ui purple ribbon label" style="line-height: 1.3; min-width:100px; max-width:450px"> <!-- 标题 -->
+	<div class="ui teal ribbon label" style="line-height: 1.3; min-width:100px; max-width:450px"> <!-- 标题 -->
 		<span class="archive-item-title" style="display:block; height:100%; max-width:400px;white-space:nowrap; text-transform:capitalize">
 			<h1 itemprop="name">
       <a class="article-title" href="/2016/08/13/realm-builder/">Realm实战总结--平台搭建</a>
@@ -873,7 +873,7 @@
 
     
 
-	<div class="ui red ribbon label" style="line-height: 1.3; min-width:100px; max-width:450px"> <!-- 标题 -->
+	<div class="ui orange ribbon label" style="line-height: 1.3; min-width:100px; max-width:450px"> <!-- 标题 -->
 		<span class="archive-item-title" style="display:block; height:100%; max-width:400px;white-space:nowrap; text-transform:capitalize">
 			<h1 itemprop="name">
       <a class="article-title" href="/2016/08/12/git-common-command/">Git常用命令备忘</a>
@@ -935,7 +935,7 @@
 
     
 
-	<div class="ui red ribbon label" style="line-height: 1.3; min-width:100px; max-width:450px"> <!-- 标题 -->
+	<div class="ui blue ribbon label" style="line-height: 1.3; min-width:100px; max-width:450px"> <!-- 标题 -->
 		<span class="archive-item-title" style="display:block; height:100%; max-width:400px;white-space:nowrap; text-transform:capitalize">
 			<h1 itemprop="name">
       <a class="article-title" href="/2016/07/30/okhttp-call-flow/">OKHttp的请求流程</a>
@@ -998,7 +998,7 @@
 
     
 
-	<div class="ui blue ribbon label" style="line-height: 1.3; min-width:100px; max-width:450px"> <!-- 标题 -->
+	<div class="ui teal ribbon label" style="line-height: 1.3; min-width:100px; max-width:450px"> <!-- 标题 -->
 		<span class="archive-item-title" style="display:block; height:100%; max-width:400px;white-space:nowrap; text-transform:capitalize">
 			<h1 itemprop="name">
       <a class="article-title" href="/2016/07/25/horizontal-list-view/">横向ListView-HorizontalListView</a>
@@ -1061,7 +1061,7 @@
 
     
 
-	<div class="ui blue ribbon label" style="line-height: 1.3; min-width:100px; max-width:450px"> <!-- 标题 -->
+	<div class="ui teal ribbon label" style="line-height: 1.3; min-width:100px; max-width:450px"> <!-- 标题 -->
 		<span class="archive-item-title" style="display:block; height:100%; max-width:400px;white-space:nowrap; text-transform:capitalize">
 			<h1 itemprop="name">
       <a class="article-title" href="/2016/07/25/okhttp-cache/">Okhttp--缓存的加入方式</a>
@@ -1124,7 +1124,7 @@
 
     
 
-	<div class="ui green ribbon label" style="line-height: 1.3; min-width:100px; max-width:450px"> <!-- 标题 -->
+	<div class="ui purple ribbon label" style="line-height: 1.3; min-width:100px; max-width:450px"> <!-- 标题 -->
 		<span class="archive-item-title" style="display:block; height:100%; max-width:400px;white-space:nowrap; text-transform:capitalize">
 			<h1 itemprop="name">
       <a class="article-title" href="/2016/07/24/work-plan/">工作计划模板</a>
@@ -2708,9 +2708,9 @@
       jQuery.getScript("https://img1.cache.netease.com/f2e/tie/yun/sdk/loader.js")
           .done(function() {
             $("#yun-tie-sdk-wrap").css("background-color","#E6E6E6");
+            console.log("aaaaaaaaaaaaaaaaaa");
           })
           .fail(function() {});
-      <script src="https://img1.cache.netease.com/f2e/tie/yun/sdk/loader.js"></script>
     }
 
     //隐藏categories、tags页面下的标签
@@ -2720,7 +2720,7 @@
       if(is_archive() || is_tag() || is_category()) {
         var url = window.location.pathname;
         if(!url.endWith("/tags/")){
-          $("#footer").after("<img id="id_eye_btn" class="hide-labels fa fa-eye animated infinite pulse" style="margin-left:5px;margin-top:5px;width:38px;height:18px">");
+          $("#footer").after("<img id='id_eye_btn' class='hide-labels fa fa-eye animated infinite pulse' style='margin-left:5px;margin-top:5px;width:38px;height:18px;'></img>");
           $("#id_eye_btn").attr("src", "/img/eye.png");
           $(".hide-labels").click(function() {
               $(".article-info").toggle(200);
@@ -2736,7 +2736,7 @@
         $("#page-undefined").css("opacity", "1.0");
       }
     }
-
+</script>
 
 <!-- 添加 InstantClick 预加载 -->
 <!-- 这段代码的含义是每次页面重载时，通过直接的函数调用来实现MathJax、百度统计、Google Code Prettify、Google Analytics的重新运行 -->
