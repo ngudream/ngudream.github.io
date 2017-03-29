@@ -718,12 +718,15 @@ const func color: (in color: col1) + (in color: col2) is func //&#x5B9A;&#x4E49;
             if(!isExist){
               isExist = true;
               loadJS("https://img1.cache.netease.com/f2e/tie/yun/sdk/loader.js", function(){
-                $("#yun-tie-sdk-wrap").css("background-color","#efefef");
-                $(".tie-textarea").css("background-color","#F7F8F9");
-                $(".single-tie").css("background-color","#fafafa");
+                setTimeout("resetBackground()", "800");
               })
               $commentBar.fadeOut(800);
             }
+        }
+        function resetBackground() {
+          $("#yun-tie-sdk-wrap").css("background-color","#efefef");
+          $(".tie-textarea").css("background-color","#F7F8F9");
+          $(".single-tie").css("background-color","#fafafa");
         }
         $commentBar.click(function(){
             load$hide();

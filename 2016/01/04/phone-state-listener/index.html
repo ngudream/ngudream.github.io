@@ -783,12 +783,15 @@ Android&#x8FD8;&#x63D0;&#x4F9B;&#x4E86;&#x4E00;&#x79CD;&#x66F4;&#x52A0;&#x5E38;&
             if(!isExist){
               isExist = true;
               loadJS("https://img1.cache.netease.com/f2e/tie/yun/sdk/loader.js", function(){
-                $("#yun-tie-sdk-wrap").css("background-color","#efefef");
-                $(".tie-textarea").css("background-color","#F7F8F9");
-                $(".single-tie").css("background-color","#fafafa");
+                setTimeout("resetBackground()", "800");
               })
               $commentBar.fadeOut(800);
             }
+        }
+        function resetBackground() {
+          $("#yun-tie-sdk-wrap").css("background-color","#efefef");
+          $(".tie-textarea").css("background-color","#F7F8F9");
+          $(".single-tie").css("background-color","#fafafa");
         }
         $commentBar.click(function(){
             load$hide();

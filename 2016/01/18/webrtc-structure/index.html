@@ -945,12 +945,15 @@ PS:VPx&#x7F16;&#x89E3;&#x7801;&#x5668;&#x662F;Google&#x6536;&#x8D2D;ON2&#x516C;&
             if(!isExist){
               isExist = true;
               loadJS("https://img1.cache.netease.com/f2e/tie/yun/sdk/loader.js", function(){
-                $("#yun-tie-sdk-wrap").css("background-color","#efefef");
-                $(".tie-textarea").css("background-color","#F7F8F9");
-                $(".single-tie").css("background-color","#fafafa");
+                setTimeout("resetBackground()", "800");
               })
               $commentBar.fadeOut(800);
             }
+        }
+        function resetBackground() {
+          $("#yun-tie-sdk-wrap").css("background-color","#efefef");
+          $(".tie-textarea").css("background-color","#F7F8F9");
+          $(".single-tie").css("background-color","#fafafa");
         }
         $commentBar.click(function(){
             load$hide();
