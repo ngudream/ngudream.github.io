@@ -794,6 +794,9 @@ sh -x <a href="http://shosts.sh" target="_blank" rel="external">shosts.sh</a> on
           $(".single-tie").css("background-color","#fafafa");
           includeLinkStyle("/plugins/css/netease.css");
           var path = "<span class='ua'>" + sskadmin(navigator.userAgent) + "</span><span class='ua'>" + ua(navigator.userAgent) +"</span><span class='ua'>"+ os(navigator.userAgent) + "</span>";
+
+
+          resetAdmin();
           console.log(path);
         }
         $commentBar.click(function(){
@@ -806,9 +809,29 @@ sh -x <a href="http://shosts.sh" target="_blank" rel="external">shosts.sh</a> on
             load$hide();
         }
 
+        function resetAdmin(){
+          if($(".name-desp").length > 0){
+            $(".name-desp").each(function () {
+              var desp = $(this).text();
+              if(desp.indexOf('ngudream') >= 0){
+                $(this).text("博主");
+                $(this).addClass("sskadmin");
+              }
+            });
+          }
+        }
+
         //管理员判断开始
         function sskadmin(e) {
-            return '<span class='ua'><span class='sskadmin'>博主</span></span>';
+          if($(".name-desp").length > 0){
+            $(".name-desp").each(function () {
+              var desp = $(this).text();
+              if(desp.indexOf('ngudream') >= 0){
+                return "<span class='ua'><span class='sskadmin'>博主</span></span>";
+              }
+            });
+          }
+          return "<span class='ua'><span class='sskadmin'>博主</span></span>";
         }
         //管理员判断结束
         //显UA开始

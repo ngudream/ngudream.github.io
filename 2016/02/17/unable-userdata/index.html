@@ -689,6 +689,9 @@ eclipse&#x4E0A;&#x7684;&#x201C;open the Android SDK Manager&#x201D;&#x6309;&#x94
           $(".single-tie").css("background-color","#fafafa");
           includeLinkStyle("/plugins/css/netease.css");
           var path = "<span class='ua'>" + sskadmin(navigator.userAgent) + "</span><span class='ua'>" + ua(navigator.userAgent) +"</span><span class='ua'>"+ os(navigator.userAgent) + "</span>";
+
+
+          resetAdmin();
           console.log(path);
         }
         $commentBar.click(function(){
@@ -701,9 +704,29 @@ eclipse&#x4E0A;&#x7684;&#x201C;open the Android SDK Manager&#x201D;&#x6309;&#x94
             load$hide();
         }
 
+        function resetAdmin(){
+          if($(".name-desp").length > 0){
+            $(".name-desp").each(function () {
+              var desp = $(this).text();
+              if(desp.indexOf('ngudream') >= 0){
+                $(this).text("博主");
+                $(this).addClass("sskadmin");
+              }
+            });
+          }
+        }
+
         //管理员判断开始
         function sskadmin(e) {
-            return '<span class='ua'><span class='sskadmin'>博主</span></span>';
+          if($(".name-desp").length > 0){
+            $(".name-desp").each(function () {
+              var desp = $(this).text();
+              if(desp.indexOf('ngudream') >= 0){
+                return "<span class='ua'><span class='sskadmin'>博主</span></span>";
+              }
+            });
+          }
+          return "<span class='ua'><span class='sskadmin'>博主</span></span>";
         }
         //管理员判断结束
         //显UA开始

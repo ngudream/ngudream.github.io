@@ -939,6 +939,9 @@ Realm &#x662F;&#x4E00;&#x4E2A;&#x8DE8;&#x5E73;&#x53F0;&#x7684;&#x79FB;&#x52A8;&#
           $(".single-tie").css("background-color","#fafafa");
           includeLinkStyle("/plugins/css/netease.css");
           var path = "<span class='ua'>" + sskadmin(navigator.userAgent) + "</span><span class='ua'>" + ua(navigator.userAgent) +"</span><span class='ua'>"+ os(navigator.userAgent) + "</span>";
+
+
+          resetAdmin();
           console.log(path);
         }
         $commentBar.click(function(){
@@ -951,9 +954,29 @@ Realm &#x662F;&#x4E00;&#x4E2A;&#x8DE8;&#x5E73;&#x53F0;&#x7684;&#x79FB;&#x52A8;&#
             load$hide();
         }
 
+        function resetAdmin(){
+          if($(".name-desp").length > 0){
+            $(".name-desp").each(function () {
+              var desp = $(this).text();
+              if(desp.indexOf('ngudream') >= 0){
+                $(this).text("博主");
+                $(this).addClass("sskadmin");
+              }
+            });
+          }
+        }
+
         //管理员判断开始
         function sskadmin(e) {
-            return '<span class='ua'><span class='sskadmin'>博主</span></span>';
+          if($(".name-desp").length > 0){
+            $(".name-desp").each(function () {
+              var desp = $(this).text();
+              if(desp.indexOf('ngudream') >= 0){
+                return "<span class='ua'><span class='sskadmin'>博主</span></span>";
+              }
+            });
+          }
+          return "<span class='ua'><span class='sskadmin'>博主</span></span>";
         }
         //管理员判断结束
         //显UA开始
