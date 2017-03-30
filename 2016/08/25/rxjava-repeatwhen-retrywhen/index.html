@@ -33,7 +33,6 @@
 
 		if(!navigator.userAgent.match(/(iPhone|iPod|Android|ios|Opera Mini|BlackBerry|webOS)/i)){
 			includeLinkStyle("/plugins/css/special.css");
-			includeLinkStyle("/plugins/css/duoshuo.css");
 		//	includeLinkStyle("/plugins/font/style3.css");
 
 		//	includeLinkStyle("/plugins/heart/style.css");
@@ -948,7 +947,6 @@ public class RepeatFactory implements Func1&lt;Observable&lt;? extends Void&gt;,
         }
         function resetBackground() {
           if($("#yun-tie-sdk-wrap").length <= 0 && count > 0){
-            console.log("aaaaaaaaaaaaaaa");
             count--;
             setTimeout("resetBackground()", "800");
             return;
@@ -956,10 +954,7 @@ public class RepeatFactory implements Func1&lt;Observable&lt;? extends Void&gt;,
           $("#yun-tie-sdk-wrap").css("background-color","#efefef");
           $(".tie-textarea").css("background-color","#F7F8F9");
           $(".single-tie").css("background-color","#fafafa");
-          $("div.photo").children().each(function () {
-            $(this).addClass("ds-avatar");
-            console.log("aaaaaaaaaaaaaaa");
-          });
+          includeLinkStyle("/plugins/css/netease.css");
         }
         $commentBar.click(function(){
             load$hide();

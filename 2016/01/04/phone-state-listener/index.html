@@ -33,7 +33,6 @@
 
 		if(!navigator.userAgent.match(/(iPhone|iPod|Android|ios|Opera Mini|BlackBerry|webOS)/i)){
 			includeLinkStyle("/plugins/css/special.css");
-			includeLinkStyle("/plugins/css/duoshuo.css");
 		//	includeLinkStyle("/plugins/font/style3.css");
 
 		//	includeLinkStyle("/plugins/heart/style.css");
@@ -792,7 +791,6 @@ Android&#x8FD8;&#x63D0;&#x4F9B;&#x4E86;&#x4E00;&#x79CD;&#x66F4;&#x52A0;&#x5E38;&
         }
         function resetBackground() {
           if($("#yun-tie-sdk-wrap").length <= 0 && count > 0){
-            console.log("aaaaaaaaaaaaaaa");
             count--;
             setTimeout("resetBackground()", "800");
             return;
@@ -800,10 +798,7 @@ Android&#x8FD8;&#x63D0;&#x4F9B;&#x4E86;&#x4E00;&#x79CD;&#x66F4;&#x52A0;&#x5E38;&
           $("#yun-tie-sdk-wrap").css("background-color","#efefef");
           $(".tie-textarea").css("background-color","#F7F8F9");
           $(".single-tie").css("background-color","#fafafa");
-          $("div.photo").children().each(function () {
-            $(this).addClass("ds-avatar");
-            console.log("aaaaaaaaaaaaaaa");
-          });
+          includeLinkStyle("/plugins/css/netease.css");
         }
         $commentBar.click(function(){
             load$hide();

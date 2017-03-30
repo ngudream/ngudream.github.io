@@ -33,7 +33,6 @@
 
 		if(!navigator.userAgent.match(/(iPhone|iPod|Android|ios|Opera Mini|BlackBerry|webOS)/i)){
 			includeLinkStyle("/plugins/css/special.css");
-			includeLinkStyle("/plugins/css/duoshuo.css");
 		//	includeLinkStyle("/plugins/font/style3.css");
 
 		//	includeLinkStyle("/plugins/heart/style.css");
@@ -931,7 +930,6 @@ Realm &#x662F;&#x4E00;&#x4E2A;&#x8DE8;&#x5E73;&#x53F0;&#x7684;&#x79FB;&#x52A8;&#
         }
         function resetBackground() {
           if($("#yun-tie-sdk-wrap").length <= 0 && count > 0){
-            console.log("aaaaaaaaaaaaaaa");
             count--;
             setTimeout("resetBackground()", "800");
             return;
@@ -939,10 +937,7 @@ Realm &#x662F;&#x4E00;&#x4E2A;&#x8DE8;&#x5E73;&#x53F0;&#x7684;&#x79FB;&#x52A8;&#
           $("#yun-tie-sdk-wrap").css("background-color","#efefef");
           $(".tie-textarea").css("background-color","#F7F8F9");
           $(".single-tie").css("background-color","#fafafa");
-          $("div.photo").children().each(function () {
-            $(this).addClass("ds-avatar");
-            console.log("aaaaaaaaaaaaaaa");
-          });
+          includeLinkStyle("/plugins/css/netease.css");
         }
         $commentBar.click(function(){
             load$hide();
