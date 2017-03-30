@@ -65,12 +65,7 @@ transition: transform 0.4s ease-out; /*变化时间设置为0.4秒(变化动作�
 .name-nick{
 	margin-right: 8px;
 }
-.name-nick:hover {
-    border-left: 14px solid #3264b4;
-}
-.name-desp:hover {
-    border-left: 14px solid #3264b4;
-}
+
 #yun-tie-sdk-wrap .single-tie .tie-author .name-nick{
     cursor: pointer;
     transition: border-width 0.3s linear 0.1s, color 0.2s linear 0.3s;
@@ -315,3 +310,14 @@ span.ua {
     opacity: 1;
 }
 /*UA End*/
+/*博主标记 CSS*/
+.sskadmin {
+    background-color: #00a67c!important;
+    border-color: #01B171!important;
+    border-radius: 4px;
+    padding: 0 5px!important;
+    opacity: .4;
+}
+.sskadmin:hover {
+    opacity: 1;
+}

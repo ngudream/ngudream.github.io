@@ -546,7 +546,7 @@
 
     
 
-	<div class="ui green ribbon label" style="line-height: 1.3; min-width:100px; max-width:450px"> <!-- 标题 -->
+	<div class="ui purple ribbon label" style="line-height: 1.3; min-width:100px; max-width:450px"> <!-- 标题 -->
 		<span class="archive-item-title" style="display:block; height:100%; max-width:400px;white-space:nowrap; text-transform:capitalize">
 			<h1 itemprop="name">
       <a class="article-title" href="/2016/08/23/morning-reading/">关于晨读</a>
@@ -606,7 +606,7 @@
 
     
 
-	<div class="ui orange ribbon label" style="line-height: 1.3; min-width:100px; max-width:450px"> <!-- 标题 -->
+	<div class="ui teal ribbon label" style="line-height: 1.3; min-width:100px; max-width:450px"> <!-- 标题 -->
 		<span class="archive-item-title" style="display:block; height:100%; max-width:400px;white-space:nowrap; text-transform:capitalize">
 			<h1 itemprop="name">
       <a class="article-title" href="/2016/08/22/golang-gc/">Golang GC 探究</a>
@@ -669,7 +669,7 @@
 
     
 
-	<div class="ui red ribbon label" style="line-height: 1.3; min-width:100px; max-width:450px"> <!-- 标题 -->
+	<div class="ui orange ribbon label" style="line-height: 1.3; min-width:100px; max-width:450px"> <!-- 标题 -->
 		<span class="archive-item-title" style="display:block; height:100%; max-width:400px;white-space:nowrap; text-transform:capitalize">
 			<h1 itemprop="name">
       <a class="article-title" href="/2016/08/15/im-tcp-udp/">移动端IM系统的协议选型：UDP还是TCP？</a>
@@ -732,7 +732,7 @@
 
     
 
-	<div class="ui blue ribbon label" style="line-height: 1.3; min-width:100px; max-width:450px"> <!-- 标题 -->
+	<div class="ui purple ribbon label" style="line-height: 1.3; min-width:100px; max-width:450px"> <!-- 标题 -->
 		<span class="archive-item-title" style="display:block; height:100%; max-width:400px;white-space:nowrap; text-transform:capitalize">
 			<h1 itemprop="name">
       <a class="article-title" href="/2016/08/14/realm-browse/">Realm实战总结--数据浏览</a>
@@ -795,7 +795,7 @@
 
     
 
-	<div class="ui green ribbon label" style="line-height: 1.3; min-width:100px; max-width:450px"> <!-- 标题 -->
+	<div class="ui blue ribbon label" style="line-height: 1.3; min-width:100px; max-width:450px"> <!-- 标题 -->
 		<span class="archive-item-title" style="display:block; height:100%; max-width:400px;white-space:nowrap; text-transform:capitalize">
 			<h1 itemprop="name">
       <a class="article-title" href="/2016/08/13/realm-builder/">Realm实战总结--平台搭建</a>
@@ -858,7 +858,7 @@
 
     
 
-	<div class="ui green ribbon label" style="line-height: 1.3; min-width:100px; max-width:450px"> <!-- 标题 -->
+	<div class="ui teal ribbon label" style="line-height: 1.3; min-width:100px; max-width:450px"> <!-- 标题 -->
 		<span class="archive-item-title" style="display:block; height:100%; max-width:400px;white-space:nowrap; text-transform:capitalize">
 			<h1 itemprop="name">
       <a class="article-title" href="/2016/08/12/git-common-command/">Git常用命令备忘</a>
@@ -920,7 +920,7 @@
 
     
 
-	<div class="ui orange ribbon label" style="line-height: 1.3; min-width:100px; max-width:450px"> <!-- 标题 -->
+	<div class="ui purple ribbon label" style="line-height: 1.3; min-width:100px; max-width:450px"> <!-- 标题 -->
 		<span class="archive-item-title" style="display:block; height:100%; max-width:400px;white-space:nowrap; text-transform:capitalize">
 			<h1 itemprop="name">
       <a class="article-title" href="/2016/07/30/okhttp-call-flow/">OKHttp的请求流程</a>
@@ -1046,7 +1046,7 @@
 
     
 
-	<div class="ui teal ribbon label" style="line-height: 1.3; min-width:100px; max-width:450px"> <!-- 标题 -->
+	<div class="ui green ribbon label" style="line-height: 1.3; min-width:100px; max-width:450px"> <!-- 标题 -->
 		<span class="archive-item-title" style="display:block; height:100%; max-width:400px;white-space:nowrap; text-transform:capitalize">
 			<h1 itemprop="name">
       <a class="article-title" href="/2016/07/25/okhttp-cache/">Okhttp--缓存的加入方式</a>
@@ -1109,7 +1109,7 @@
 
     
 
-	<div class="ui teal ribbon label" style="line-height: 1.3; min-width:100px; max-width:450px"> <!-- 标题 -->
+	<div class="ui blue ribbon label" style="line-height: 1.3; min-width:100px; max-width:450px"> <!-- 标题 -->
 		<span class="archive-item-title" style="display:block; height:100%; max-width:400px;white-space:nowrap; text-transform:capitalize">
 			<h1 itemprop="name">
       <a class="article-title" href="/2016/07/24/work-plan/">工作计划模板</a>
@@ -1804,7 +1804,7 @@
 
     //设置标签的背景色
     var resetTags = function(){
-       if(!navigator.userAgent.match(/(iPhone|iPod|Android|ios|Opera Mini|BlackBerry|webOS)/i)){
+       if(!checkMobile()){
             var tags = $(".tagcloud a");
             for(var i = 0; i < tags.length; i++){
                 var num = Math.floor(Math.random()*7);
@@ -1882,7 +1882,7 @@
 					randomAnimationName = animationNames[Math.ceil(Math.random() * len) - 1];
         var imgAvatar = "<img id='blog_avatar' src='" + avatarPath + "' class='animated " + randomAnimationName + "' style='background: white;'/>";
         var totalwidth = $(window).width();
-        if (navigator.userAgent.match(/(iPhone|iPod|Android|ios|Opera Mini|BlackBerry|webOS)/i) || totalwidth < 700) {//移动端头像
+        if (checkMobile() || totalwidth < 700) {//移动端头像
           imgAvatar = "<img id='blog_avatar' src='" + avatarPath + "'/>";
           $("#id_avatar_a_mobile").append(imgAvatar);
           if(avatarPath == '/img/buerrong.png'){
@@ -2022,7 +2022,7 @@
       				t.html(listStr + t.html());
       			});
         } else {
-            //if (!navigator.userAgent.match(/(iPhone|iPod|Android|ios|Opera Mini|BlackBerry|webOS)/i)) {
+            //if (!checkMobile()) {
             //	var heartspan = "<span class='htmleaf-links'><i class='heart' id='like3' rel='like'></i></span>";
             //	$("#footerdiv").append(heartspan);
             //底部红心动画
@@ -2068,7 +2068,7 @@
 
     var otherSettings = function (isChange, isPostPage, isHome) {
         var totalwidth = $(window).width();
-        if (!navigator.userAgent.match(/(iPhone|iPod|Android|ios|Opera Mini|BlackBerry|webOS)/i)) {
+        if (!checkMobile()) {
                 //running
           if (totalwidth <= 900) {
             $(".body-wrap").css("margin-bottom", "116px");
@@ -2382,7 +2382,7 @@
 
     //移动端添加搜索图标
     var mobileSearch = function(){
-      if(navigator.userAgent.match(/(iPhone|iPod|Android|ios|Opera Mini|BlackBerry|webOS)/i)){
+      if(checkMobile()){
         $("#id_span_search_close").append("<img src='/search/img/cb-close.png' id='cb-close-btn'/>");
         $("#id_span_search_open").append("<img src='/search/img/cb-search.png' id='cb-search-btn'/>");
       }
@@ -2644,7 +2644,7 @@
       $("#container .left-col .overlay").css({"background-color": colorList[id],"opacity": .5});
       // Mobile
       $("#container #mobile-nav .overlay").css({"background-color": colorList[id],"opacity": .7});
-      if(!navigator.userAgent.match(/(iPhone|iPod|Android|ios|Opera Mini|BlackBerry|webOS)/i)){
+      if(!checkMobile()){
         if(curTimer == null){
           // 代码雨
           if(matrix != undefined){
@@ -2728,7 +2728,7 @@
 <!-- 添加 InstantClick 预加载 -->
 <!-- 这段代码的含义是每次页面重载时，通过直接的函数调用来实现MathJax、百度统计、Google Code Prettify、Google Analytics的重新运行 -->
  <script data-no-instant>
-		if(!navigator.userAgent.match(/(iPhone|iPod|Android|ios|Opera Mini|BlackBerry|webOS)/i)){
+		if(!checkMobile()){
 			jQuery.getScript("//cdn.bootcss.com/instantclick/3.0.1/instantclick.min.js")
 				.done(function() {
 					InstantClick.on('change', function (isInitialLoad) {
@@ -2758,6 +2758,19 @@
 		} else {
       afterChange(true);
 		}
+
+    function checkMobile() {
+        var isiPad = navigator.userAgent.match(/iPad/i) != null;
+        if (isiPad) {
+            return false;
+        }
+        var isMobile = navigator.userAgent.match(/iphone|android|phone|mobile|wap|netfront|java|opera mobi|opera mini|ucweb|windows ce|symbian|symbianos|series|webos|sony|blackberry|dopod|nokia|samsung|palmsource|xda|pieplus|meizu|midp|cldc|motorola|foma|docomo|up.browser|up.link|blazer|helio|hosin|huawei|novarra|coolpad|webos|techfaith|palmsource|alcatel|amoi|ktouch|nexian|ericsson|philips|sagem|wellcom|bunjalloo|maui|smartphone|iemobile|spice|bird|zte-|longcos|pantech|gionee|portalmmm|jig browser|hiptop|benq|haier|^lct|320x320|240x320|176x220/i) != null;
+        if (isMobile) {
+            return true;
+        }
+        return false;
+    }
+    //移动客户端判断结束
 </script>
   </div>
 </body>
