@@ -67,15 +67,14 @@ transition: transform 0.4s ease-out; /*变化时间设置为0.4秒(变化动作�
 }
 
 .name-desp{
-	-webkit-transition:all 1s; 
-	-moz-transition:all 1s; 
-	-o-transition:all 1s; 
+	animation-duration:1s;
+	-webkit-animation-duration:1s; 
 }
 
 .name-desp:hover{
-	-webkit-transform:scale(1.5); 
-	-moz-transform:scale(1.5); 
-	-o-transform:scale(1.5);
+	-webkit-transform:scale(1.3); 
+	-moz-transform:scale(1.3); 
+	-o-transform:scale(1.3);
 }
 
 #yun-tie-sdk-wrap .single-tie .tie-author .name-nick{
@@ -87,14 +86,13 @@ transition: transform 0.4s ease-out; /*变化时间设置为0.4秒(变化动作�
     transition: border-width 0.3s linear 0.1s, color 0.2s linear 0.3s;
 }
 .name-desp{
-	-webkit-transition:all 1s; 
-	-moz-transition:all 1s; 
-	-o-transition:all 1s; 
+	animation-duration:1s;
+	-webkit-animation-duration:1s; 
 }
 .tie-time:hover {
-    -webkit-transform:scale(1.5); 
-	-moz-transform:scale(1.5); 
-	-o-transform:scale(1.5); 
+    -webkit-transform:scale(1.3); 
+	-moz-transform:scale(1.3); 
+	-o-transform:scale(1.3); 
 }
 #yun-tie-sdk-wrap .single-tie .tie-time {
     transition: border-width 0.3s linear 0.1s, color 0.2s linear 0.3s;
@@ -335,7 +333,6 @@ span.ua {
     border-color: #01B171!important;
     border-radius: 4px;
     padding: 0 5px!important;
-    opacity: .4;
 }
 .sskadmin:hover {
     opacity: 1;
