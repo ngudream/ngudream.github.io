@@ -66,6 +66,12 @@ transition: transform 0.4s ease-out; /*变化时间设置为0.4秒(变化动作�
 	margin-right: 8px;
 }
 
+.name-desp{
+	-webkit-transition:all 1s; 
+	-moz-transition:all 1s; 
+	-o-transition:all 1s; 
+}
+
 .name-desp:hover{
 	-webkit-transform:scale(1.5); 
 	-moz-transform:scale(1.5); 
