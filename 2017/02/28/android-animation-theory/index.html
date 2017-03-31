@@ -1489,7 +1489,8 @@ public class Circle extends SurfaceView implements SurfaceHolder.Callback {
     </aside>
     <script>
         var isExist = false;
-        var count = 3;
+        var countBg = 3;
+        var countAdmin = 3;
         var $commentBar = $("#comments aside.comment-bar");
         var load$hide = function(){
           $commentBar.find("a > i").toggle();
@@ -1502,8 +1503,8 @@ public class Circle extends SurfaceView implements SurfaceHolder.Callback {
             }
         }
         function resetBackground() {
-          if($("#yun-tie-sdk-wrap").length <= 0 && count > 0){
-            count--;
+          if($("#yun-tie-sdk-wrap").length <= 0 && countBg > 0){
+            countBg--;
             setTimeout("resetBackground()", "800");
             return;
           }
@@ -1512,8 +1513,8 @@ public class Circle extends SurfaceView implements SurfaceHolder.Callback {
           $(".single-tie").css("background-color","#fafafa");
           includeLinkStyle("/plugins/css/netease.css");
           //var path = "<span class='ua'>" + sskadmin(navigator.userAgent) + "</span><span class='ua'>" + ua(navigator.userAgent) +"</span><span class='ua'>"+ os(navigator.userAgent) + "</span>";
-          //resetAdmin();
           //console.log(path);
+          setTimeout("resetAdmin()", "500");
         }
         $commentBar.click(function(){
             load$hide();
@@ -1534,6 +1535,11 @@ public class Circle extends SurfaceView implements SurfaceHolder.Callback {
                 $(this).addClass("sskadmin");
               }
             });
+          } else {
+            if(countAdmin > 0){
+              countAdmin--;
+              setTimeout("resetAdmin()", "300");
+            }
           }
         }
 
