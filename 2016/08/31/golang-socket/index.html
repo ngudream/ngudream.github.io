@@ -1,0 +1,2889 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+<!--[if lt IE 9]>
+        <style>body {display: none; background: none !important} </style>
+        <meta http-equiv="Refresh" Content="0; url=//outdatedbrowser.com/" />
+    <![endif]-->
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+<meta name="format-detection" content="telephone=no">
+<meta name="author" content="ngudream">
+
+<script data-no-instant><!-- 移动端不需要的样式不加载 -->
+		function includeLinkStyle(url) {
+			var link = document.createElement("link");
+			link.rel = "stylesheet";
+			link.type = "text/css";
+			link.href = url;
+			var attr = document.createAttribute('data-no-instant');
+			link.setAttributeNode(attr);
+			document.getElementsByTagName("head")[0].appendChild(link);
+		}
+
+		function includeJavaScript(url){
+			var scriptObj = document.createElement("script");
+			scriptObj.src = url;
+			scriptObj.type = "text/javascript";
+			var attr = document.createAttribute('data-no-instant');
+			scriptObj.setAttributeNode(attr);
+			document.getElementsByTagName("head")[0].appendChild(scriptObj);
+		}
+
+		if(!navigator.userAgent.match(/(iPhone|iPod|Android|ios|Opera Mini|BlackBerry|webOS)/i)){
+			includeLinkStyle("/plugins/css/special.css");
+
+		//	includeLinkStyle("/plugins/font/style3.css");
+
+		//	includeLinkStyle("/plugins/heart/style.css");
+		//	includeLinkStyle("/search/css/cb-search.css");
+			
+				var link = document.createElement("link");
+				link.rel = "shortcut icon";
+				link.href = "/img/favicon.png";
+				document.getElementsByTagName("head")[0].appendChild(link);
+			
+		} else {
+			if(navigator.userAgent.match(/(iPhone|iPod|iPad|ios)/i)){
+				var link = document.createElement("link");
+				link.rel = "apple-touch-icon";
+				link.href = "/img/favicon.ico";
+				document.getElementsByTagName("head")[0].appendChild(link);
+			}
+			includeLinkStyle("/plugins/prettify/themes/tomorrow-night-eighties.css");
+			includeLinkStyle("/search/css/cb-search-mobile.css");
+		}
+
+		function loadJS(url, callback){
+			var scriptObj = document.createElement("script");
+			scriptObj.src = url;
+			scriptObj.type = "text/javascript";
+			//var attr = document.createAttribute('data-no-instant');
+			//scriptObj.setAttributeNode(attr);
+			var loaded;
+			if(typeof callback === 'function'){
+	        scriptObj.onload = scriptObj.onreadystatechange = function(){
+	            if(!loaded && (!scriptObj.readyState || /loaded|complete/.test(scriptObj.readyState))){
+	                scriptObj.onload = scriptObj.onreadystatechange = null;
+	                loaded = true;
+	                callback();
+	            }
+	        }
+	    }
+			document.getElementsByTagName("head")[0].appendChild(scriptObj);
+		}
+</script>
+
+
+
+<meta name="description" content="在golang中，网络协议已经被封装的非常完好了，想要写一个Socket的Server，我们并不用像其他语言那样需要为socket、bind、listen、receive等一系列操作头疼，只要使用Golang中自带的net包即可很方便的完成连接等操作~">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Go语言基于Socket编写服务器端与客户端通信的实例">
+<meta property="og:url" content="http://ngudream.com/2016/08/31/golang-socket/index.html">
+<meta property="og:site_name" content="移动开发 | ngudream">
+<meta property="og:description" content="在golang中，网络协议已经被封装的非常完好了，想要写一个Socket的Server，我们并不用像其他语言那样需要为socket、bind、listen、receive等一系列操作头疼，只要使用Golang中自带的net包即可很方便的完成连接等操作~">
+<meta property="og:updated_time" content="2017-02-22T14:40:14.533Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Go语言基于Socket编写服务器端与客户端通信的实例">
+<meta name="twitter:description" content="在golang中，网络协议已经被封装的非常完好了，想要写一个Socket的Server，我们并不用像其他语言那样需要为socket、bind、listen、receive等一系列操作头疼，只要使用Golang中自带的net包即可很方便的完成连接等操作~">
+
+
+    <link rel="alternate" href="/atom.xml" title="移动开发 | ngudream" type="application/atom+xml" data-no-instant>
+
+
+
+    <link href="//cdn.bootcss.com/animate.css/3.5.1/animate.min.css" rel="stylesheet" data-no-instant>
+
+
+
+
+
+	<script data-no-instant>
+		paceOptions = {
+			ajax: false, // disabled
+			document: false, // disabled
+			eventLag: false, // disabled
+			restartOnRequestAfter: false,
+			restartOnPushState: false,
+			elements: {
+				selectors: ['.body-wrap']
+			}
+		};
+	</script>
+  <script data-pace-options="{ &quot;ajax&quot;: false }" src="//cdn.bootcss.com/pace/1.0.2/pace.min.js" data-no-instant></script>
+  <link href="//cdn.bootcss.com/pace/1.0.2/themes/blue/pace-theme-bounce.css" rel="stylesheet" data-no-instant>
+
+
+<link rel="stylesheet" href="/css/style.css">
+
+
+
+<link href="//cdn.bootcss.com/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet">
+
+
+<title>Go语言基于Socket编写服务器端与客户端通信的实例 | 移动开发 | ngudream</title>
+
+<script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+<script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
+
+<script data-no-instant>
+    var yiliaConfig = {
+        fancybox: false,
+        animate: true,
+        isHome: false,
+        isPost: true,
+        isArchive: false,
+        isTag: false,
+        isCategory: false,
+        fancybox_js: "//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.js",
+        scrollreveal: "//cdn.bootcss.com/scrollReveal.js/3.1.4/scrollreveal.min.js",
+        search: true
+    }
+</script>
+
+
+    <script data-no-instant> yiliaConfig.jquery_ui = [false]; </script>
+
+
+
+    <script data-no-instant> yiliaConfig.rootUrl = "\/";</script>
+
+
+
+
+
+
+
+	<!-- 右下角搜索 -->
+<script><!-- 移动端不需要的样式不加载 -->
+		if(!navigator.userAgent.match(/(iPhone|iPod|Android|ios|Opera Mini|BlackBerry|webOS)/i)){
+			document.write("<script src='/search/js/bootstrap3-typeahead.min.js' data-no-instant><\/script>");
+		} else {
+			document.write("<script src='/search/js/bootstrap3-typeahead.min-mobile.js' data-no-instant><\/script>");
+		}
+</script>
+
+	<!-- <script src="/search/js/cb-search.js"></script> 已合并到after-footer.ejs-->
+	<!-- <script src="/plugins/js/jquery.lazyload.min.js"></script> -->
+	<script src="//cdn.bootcss.com/jquery_lazyload/1.9.7/jquery.lazyload.min.js" data-no-instant></script>
+	<!--  -->
+		<!--prettify代码高亮主题css引入。注：为了减少请求数，已将此css合并到special.css-->
+		<!--<link href="/plugins/prettify/themes/tomorrow-night-eighties.css" rel="stylesheet">-->
+	<!--  -->
+
+	<script type="text/javascript">
+        //定义一个全局script的标记数组，用来标记是否某个script已经下载到本地
+        var scriptsArray = new Array();
+        $.cachedScript = function (url, options) {
+            //循环script标记数组
+            for (var s in scriptsArray) {
+                //console.log(scriptsArray[s]);
+                //如果某个数组已经下载到了本地
+                if (scriptsArray[s]==url) {
+
+                    return {  //则返回一个对象字面量，其中的done之所以叫做done是为了与下面$.ajax中的done相对应
+                        done: function (method) {
+                            if (typeof method == 'function'){  //如果传入参数为一个方法
+                                method();
+                            }
+                        }
+                    };
+                }
+            }
+            //这里是jquery官方提供类似getScript实现的方法，也就是说getScript其实也就是对ajax方法的一个拓展
+            options = $.extend(options || {}, {
+                dataType: "script",
+                url: url,
+                cache:true //其实现在这缓存加与不加没多大区别
+            });
+            scriptsArray.push(url); //将url地址放入script标记数组中
+            return $.ajax(options);
+        };
+    </script>
+</head></html>
+<body>
+  <div id="container">
+    <div class="left-col" id="left_col_div" style="background-color:#fafafa">
+      <div id="fold_div" onclick="switchSysBar(false, true)" style="position:fixed;float:left;height:100%;width:20px; background:#fafafa url(/img/right1.png) no-repeat center right;display:none">
+      </div>
+    <div class="overlay" id="id_code_rain_div" style="opacity:0.2">
+    <canvas id="matrix" width="300" height="180"></canvas>
+</div>
+<div class="intrude-less" id="intrude_div">
+    <header id="header" class="inner">
+        <a id="id_avatar_a" href="/" class="profilepic">
+           <!-- <img src="/img/running.jpg" class="animated zoomIn"> -->
+        </a>
+        <hgroup id="id_hgroup_name">
+          <h1 id="ngudream_name" class="header-author"><!-- main.styl cl-effect-2 -->
+				    <a href="/"><span style="background-color:#fafafa !important" data-hover="专注于移动开发的不二">ngudream</span></a>
+		      </h1>
+        </hgroup>
+        
+                <span id="id_span_change" class="header-subtitle" style="margin-left:-42px; margin-right:2px">Coding Changes the </span>
+                <!--Coding Changes the World-->
+
+                <div id="id_normal_text_anim" class="rw-words rw-words-1" style="margin-left:2px">
+                  <!-- 控制文字往下掉 -->
+                  <span>World</span>
+                  <span>Never</span>
+                  <span>Give</span>
+                  <span>Up</span>
+                  <span>Dream</span>
+                  <span style="font-size:20px;margin-top:-2px"> 😜 😚</span>
+                </div>
+            
+
+                
+                    <form id="search-form">
+                        <!-- 搜索框相关 -->
+                        <div class="col-3" style="float:left">
+                            <input type="text" id="local-search-input" name="q" results="0" placeholder="搜索...(◕ܫ◕)" class="effect-2" autocomplete="off" autocorrect="off" style="padding-left:4px">
+                            <span class="focus-border"></span>
+                            <!-- 搜索框动画 -->
+                        </div>
+                        <div style="float:right;margin-top:13px">
+                            <i id="search-delete" class="button pill" onclick="resetSearch()" style="margin-left:-26px">删除</i>
+                            <!-- 清空/重置搜索框 -->
+                        </div>
+                    </form>
+                    <br>
+                    <br>
+                    <div id="local-search-result"></div>
+                    <!-- 搜索结果区 -->
+                    <p class="no-result" style="font-size:0.8em;text-align:center">空空如也...元芳，你怎么看？</p>
+                    <!-- 无匹配时显示，注意请在 CSS 中设置默认隐藏 <i class='fa fa-spinner fa-pulse'></i>-->
+                    
+
+                        
+                            <div id="switch-btn" class="switch-btn">
+                                <div class="icon">
+                                    <div class="icon-ctn">
+                                        <div class="icon-wrap icon-house" data-idx="0">
+                                            <div class="birdhouse"></div>
+                                            <div class="birdhouse_holes"></div>
+                                        </div>
+                                        <div class="icon-wrap icon-ribbon hide" data-idx="1">
+                                            <div class="ribbon"></div>
+                                        </div>
+                                        
+                                            <div class="icon-wrap icon-link hide" data-idx="2">
+                                                <div class="loopback_l"></div>
+                                                <div class="loopback_r"></div>
+                                            </div>
+                                            
+                                                
+                                                    <div class="icon-wrap icon-me hide" data-idx="3">
+                                                        <div class="user"></div>
+                                                        <div class="shoulder"></div>
+                                                    </div>
+                                                    
+                                                        
+                                                                
+                                                                    <div class="icon-wrap icon-me hide" data-idx="5">
+                                                                        <div class="user"></div>
+                                                                        <div class="wechat_left"></div>
+                                                                    </div>
+                                                                    <div class="icon-wrap icon-me hide" data-idx="6">
+                                                                        <div class="user"></div>
+                                                                        <div class="wechat_left"></div>
+                                                                    </div>
+                                                                    
+                                    </div>
+
+                                </div>
+
+                                <div class="tips-box hide">
+                                    <!-- 鸟屋 -->
+                                    <div class="tips-arrow"></div>
+                                    <ul class="tips-inner">
+                                        <li>
+                                            菜单
+                                        </li>
+                                        <li>
+                                            标签
+                                        </li>
+                                        
+                                            <li>
+                                                友情链接
+                                            </li>
+                                            
+                                                
+                                                    <li>
+                                                        个人签名
+                                                    </li>
+                                                    
+                                                        
+                                    </ul>
+                                </div>
+                            </div>
+                            
+
+                                <div id="switch-area" class="switch-area">
+                                    <div class="switch-wrap">
+                                        <section class="switch-part switch-part1">
+                                            <nav class="header-menu">
+                                                <ul id="menu_ul">
+                                                    
+                                                        <!-- 菜单 -->
+                                                        <li class="cl-effect-1">
+                                                          
+                                                            <a href="/">
+                                                                主页
+                                                            </a>
+                                                          
+                                                        </li>
+                                                        
+                                                        <!-- 菜单 -->
+                                                        <li class="cl-effect-1">
+                                                          
+                                                            <a href="/archives/">
+                                                                学无止境
+                                                            </a>
+                                                          
+                                                        </li>
+                                                        
+                                                        <!-- 菜单 -->
+                                                        <li class="cl-effect-1">
+                                                          
+                                                            <a data-no-instant href="/tags/">
+                                                                分类标签
+                                                            </a>
+                                                          
+                                                        </li>
+                                                        
+                                                        <!-- 菜单 -->
+                                                        <li class="cl-effect-1">
+                                                          
+                                                            <a href="/guestbook/">
+                                                                温馨留言
+                                                            </a>
+                                                          
+                                                        </li>
+                                                        
+                                                        <!-- 菜单 -->
+                                                        <li class="cl-effect-1">
+                                                          
+                                                            <a href="/about/">
+                                                                关于博主
+                                                            </a>
+                                                          
+                                                        </li>
+                                                        
+                                                </ul>
+                                            </nav>
+                                            <nav class="header-nav">
+                                                <ul class="social">
+                                                    <!-- 社交 -->
+                                                    
+                                                        
+                                                                      
+                                                                            <span class="hint hint--top" data-hint="Email"><a class="fa Email" href="mailto:ngudreamlee@gmail.com"></a></span>
+                                                                      
+                                                                    
+                                                                        
+                                                        
+                                                                      
+                                                                            <span class="hint hint--top" data-hint="GitHub"><a class="fa GitHub" href="https://github.com/ngudream" style="margin-left:3px"></a></span>
+                                                                      
+                                                                    
+                                                                        
+                                                        
+                                                                <span class="hint hint--top" data-hint="QQ"><a class="fa QQ" href="javascript:void(0)" style="margin-left:3px"></a></span>
+                                                                
+                                                                        
+                                                        
+                                                            <span class="hint hint--top" data-hint="微信"><a class="fa WeChat" href="javascript:void(0)" style="margin-left:3px"></a></span>
+                                                            
+                                                                        
+                                                </ul>
+                                            </nav>
+                                        </section>
+
+                                        
+                                            <section class="switch-part switch-part2">
+                                                <div class="widget tagcloud" id="js-tagcloud">
+                                                    <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Android/">Android</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Architecture/">Architecture</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/C/">C#</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Distributed/">Distributed</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/EJB/">EJB</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Gif/">Gif</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Git/">Git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Glide/">Glide</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Golang/">Golang</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Gradle/">Gradle</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HTTP/">HTTP</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hexo/">Hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/HotFix/">HotFix</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/IM/">IM</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/IP/">IP</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java/">Java</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/LruCache/">LruCache</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Mongodb/">Mongodb</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MySql/">MySql</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Nginx/">Nginx</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/OKHttp/">OKHttp</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PHP/">PHP</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PJSIP/">PJSIP</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PhotoShop/">PhotoShop</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Picasso/">Picasso</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PowerPoint/">PowerPoint</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Realm/">Realm</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/RxAndroid/">RxAndroid</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/RxJava/">RxJava</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/SQL/">SQL</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Seed/">Seed</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Shell/">Shell</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Spring/">Spring</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Sqlite/">Sqlite</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/System/">System</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/TCP/">TCP</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Thread/">Thread</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/UDP/">UDP</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/View/">View</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/WebRTC/">WebRTC</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Work/">Work</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Zookeeper/">Zookeeper</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/delphi/">delphi</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/linux/">linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/移动支付/">移动支付</a></li></ul>
+                                                </div>
+                                            </section>
+                                            
+
+                                                
+                                                    <section class="switch-part switch-part3">
+                                                        <div id="js-friends">
+                                                            
+                                                                <a class="main-nav-link switch-friends-link" href="https://hexo.io">
+                                                                    Hexo
+                                                                </a>
+                                                                
+                                                                <a class="main-nav-link switch-friends-link" href="https://pages.github.com/">
+                                                                    GitHub
+                                                                </a>
+                                                                
+                                                                <a class="main-nav-link switch-friends-link" href="http://moxfive.xyz/">
+                                                                    MOxFIVE
+                                                                </a>
+                                                                
+                                                                <a class="main-nav-link switch-friends-link" href="http://keeganlee.me/">
+                                                                    Keegan小钢
+                                                                </a>
+                                                                
+                                                                    <div style="margin-top:50px">
+                                                                        <span>感恩一路有你们的陪伴与帮助！</span>
+                                                                    </div>
+                                                        </div>
+                                                    </section>
+                                                    
+
+                                                        
+                                                            
+                                                                        <section class="switch-part switch-part4">
+                                                                            
+                                                                                <div id="js-aboutme" style="line-height:1.4rem !important">
+                                                                                    专注于移动开发的攻城狮。作为一个程序猿，你可以忘了学习的高数，可以忘了学习的英语，可以忘了学习的线性代数.... 但是千万别忘了学习。
+                                                                                </div>
+                                                                                <div style="text-align:center" id="bee_div"></div>
+                                                                        </section>
+                                                                        
+                                                                            
+                                                                                    
+                                                                                        <section class="switch-part switch-part6">
+                                                                                            <div style="text-align:center" id="qq_div">
+                                                                                            </div>
+                                                                                        </section>
+
+                                                                                        <section class="switch-part switch-part7" id="wechat_div">
+                                                                                            <div style="text-align:center"></div>
+                                                                                        </section>
+                                                                                        
+
+                                    </div>
+                                </div>
+    </header>
+</div>
+
+    </div>
+
+    <div class="mid-col" id="mid_col_div">
+      <nav id="mobile-nav">
+      <div class="overlay">
+          <div class="slider-trigger"></div>
+          <h1 class="header-author js-mobile-header hide"><a href="/" title="回到主页">ngudream</a></h1>
+      </div>
+    <div class="intrude-less">
+        <header id="header" class="inner">
+            <a id="id_avatar_a_mobile" href="/" class="profilepic">
+                <!-- <img src="/img/running.jpg" class="animated rotateIn" style="-vendor-animation-duration: 3s;-vendor-animation-delay: 2s;-vendor-animation-iteration-count: infinite;"> -->
+				<!--<img src="/img/running.jpg" > -->
+            </a>
+            <hgroup>
+              <h1 class="header-author"><a href="/" title="回到主页">ngudream</a></h1>
+            </hgroup>
+            
+            <p class="header-subtitle">Coding Changes the World</p>
+            
+            <nav class="header-menu">
+                <ul>
+                
+                    <li><a href="/">主页</a></li>
+                
+                    <li><a href="/archives/">学无止境</a></li>
+                
+                    <li><a href="/tags/">分类标签</a></li>
+                
+                    <li><a href="/guestbook/">温馨留言</a></li>
+                
+                    <li><a href="/about/">关于博主</a></li>
+                
+                <div class="clearfix"></div>
+                </ul>
+            </nav>
+            <nav class="header-nav">
+                        <ul class="social">
+                            
+								
+									<a class="fa Email" target="_blank" href="mailto:ngudreamlee@gmail.com" title="Email"></a>
+								
+                            
+								
+									<a class="fa GitHub" target="_blank" href="https://github.com/ngudream" title="GitHub"></a>
+								
+                            
+								
+									<a class="fa QQ" title="QQ" target="_self" href="/social/"></a>
+								
+                            
+								
+									<a class="fa WeChat" title="微信" target="_self" href="/social/"></a>
+								
+                            
+                        </ul>
+            </nav>
+        </header>
+    </div>
+    <link class="menu-list" tags="标签" friends="友情链接" about="个人签名">
+</nav>
+      <div class="body-wrap"><article id="post-golang-socket" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/08/31/golang-socket/" class="article-date">
+      <time datetime="2016-08-31T14:21:15.000Z" itemprop="datePublished">2016-08-31</time>
+</a>
+
+
+
+
+	<br>
+	<p style="height:7px">
+	</p><p style="height:20px;font-family:KaiTi,LiSu,'宋体',sans-serif;color:#DBDBDB;font-size:12px">预计阅读14分钟</p>
+    </div>
+  
+
+   <!-- 文章主内容 -->
+  
+      <header id="id_header_post" class="article-header">
+        <h1 class="article-title-big" itemprop="name">
+      Go语言基于Socket编写服务器端与客户端通信的实例
+    </h1>
+      </header>
+      
+      <div class="article-info article-info-post">
+        <div class="article-category tagcloud">
+    <a class="article-category-link" href="/categories/编程/">编程</a>
+    </div>
+        <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Golang/">Golang</a></li></ul>
+    </div>
+        <div class="clearfix"></div>
+      </div>
+      
+    
+          <div id="article-content" class="article-entry" itemprop="articleBody">
+			  
+			<p>&#x5728;golang&#x4E2D;&#xFF0C;&#x7F51;&#x7EDC;&#x534F;&#x8BAE;&#x5DF2;&#x7ECF;&#x88AB;&#x5C01;&#x88C5;&#x7684;&#x975E;&#x5E38;&#x5B8C;&#x597D;&#x4E86;&#xFF0C;&#x60F3;&#x8981;&#x5199;&#x4E00;&#x4E2A;Socket&#x7684;Server&#xFF0C;&#x6211;&#x4EEC;&#x5E76;&#x4E0D;&#x7528;&#x50CF;&#x5176;&#x4ED6;&#x8BED;&#x8A00;&#x90A3;&#x6837;&#x9700;&#x8981;&#x4E3A;socket&#x3001;bind&#x3001;listen&#x3001;receive&#x7B49;&#x4E00;&#x7CFB;&#x5217;&#x64CD;&#x4F5C;&#x5934;&#x75BC;&#xFF0C;&#x53EA;&#x8981;&#x4F7F;&#x7528;Golang&#x4E2D;&#x81EA;&#x5E26;&#x7684;net&#x5305;&#x5373;&#x53EF;&#x5F88;&#x65B9;&#x4FBF;&#x7684;&#x5B8C;&#x6210;&#x8FDE;&#x63A5;&#x7B49;&#x64CD;&#x4F5C;~</p>
+<h2 id="socket&#x8FDE;&#x63A5;"><a class="header-anchor" href="#socket&#x8FDE;&#x63A5;"></a>socket&#x8FDE;&#x63A5;</h2>
+<p>&#x5728;&#x8FD9;&#x91CC;&#xFF0C;&#x7ED9;&#x51FA;&#x4E00;&#x4E2A;&#x6700;&#x6700;&#x57FA;&#x7840;&#x7684;&#x57FA;&#x4E8E;Socket&#x7684;Server&#x7684;&#x5199;&#x6CD5;&#xFF1A;</p>
+<p>&#x4EE3;&#x7801;&#x5982;&#x4E0B;:</p>
+<pre><code>package main  
+import (  
+    &quot;fmt&quot;  
+    &quot;net&quot;  
+    &quot;log&quot;  
+    &quot;os&quot;  
+)  
+  
+func main() {  
+//&#x5EFA;&#x7ACB;socket&#xFF0C;&#x76D1;&#x542C;&#x7AEF;&#x53E3;  
+    netListen, err := net.Listen(&quot;tcp&quot;, &quot;localhost:1024&quot;)  
+    CheckError(err)  
+    defer netListen.Close()  
+    Log(&quot;Waiting for clients&quot;)  
+    for {  
+        conn, err := netListen.Accept()  
+        if err != nil {  
+            continue  
+        }  
+        Log(conn.RemoteAddr().String(), &quot; tcp connect success&quot;)  
+        handleConnection(conn)  
+    }  
+}  
+//&#x5904;&#x7406;&#x8FDE;&#x63A5;  
+func handleConnection(conn net.Conn) {  
+    buffer := make([]byte, 2048)  
+    for {  
+        n, err := conn.Read(buffer)  
+        if err != nil {  
+            Log(conn.RemoteAddr().String(), &quot; connection error: &quot;, err)  
+            return  
+        }  
+        Log(conn.RemoteAddr().String(), &quot;receive data string:\n&quot;, string(buffer[:n]))  
+    }  
+}  
+func Log(v ...interface{}) {  
+    log.Println(v...)  
+}  
+func CheckError(err error) {  
+    if err != nil {  
+        fmt.Fprintf(os.Stderr, &quot;Fatal error: %s&quot;, err.Error())  
+        os.Exit(1)  
+    }  
+}  
+</code></pre>
+<p>&#x629B;&#x9664;Go&#x8BED;&#x8A00;&#x91CC;&#x9762;10&#x884C;&#x4EE3;&#x7801;&#x6709;5&#x884C;error&#x7684;&#x86CB;&#x75BC;&#x4E4B;&#x5904;,&#x4F60;&#x53EF;&#x4EE5;&#x770B;&#x5230;&#xFF0C;Server&#x60F3;&#x8981;&#x5EFA;&#x7ACB;&#x5E76;&#x63A5;&#x53D7;&#x4E00;&#x4E2A;Socket&#xFF0C;&#x5176;&#x6838;&#x5FC3;&#x6D41;&#x7A0B;&#x5C31;&#x662F;</p>
+<p>&#x4EE3;&#x7801;&#x5982;&#x4E0B;:</p>
+<pre><code>netListen, err := net.Listen(&quot;tcp&quot;, &quot;localhost:1024&quot;) 
+conn, err := netListen.Accept() 
+n, err := conn.Read(buffer)  
+</code></pre>
+<p>&#x8FD9;&#x4E09;&#x6B65;&#xFF0C;&#x901A;&#x8FC7;Listen&#x3001;Accept &#x548C;Read&#xFF0C;&#x6211;&#x4EEC;&#x5C31;&#x6210;&#x529F;&#x7684;&#x7ED1;&#x5B9A;&#x4E86;&#x4E00;&#x4E2A;&#x7AEF;&#x53E3;&#xFF0C;&#x5E76;&#x80FD;&#x591F;&#x8BFB;&#x53D6;&#x4ECE;&#x8BE5;&#x7AEF;&#x53E3;&#x4F20;&#x6765;&#x7684;&#x5185;&#x5BB9;~<br>
+Server&#x5199;&#x597D;&#x4E4B;&#x540E;&#xFF0C;&#x63A5;&#x4E0B;&#x6765;&#x5C31;&#x662F;Client&#x65B9;&#x9762;&#x5566;&#xFF0C;&#x6211;&#x624B;&#x5199;&#x4E00;&#x4E2A;HelloWorld&#x7ED9;&#x5927;&#x5BB6;&#xFF1A;</p>
+<p>&#x4EE3;&#x7801;&#x5982;&#x4E0B;:</p>
+<pre><code>package main  
+import (  
+    &quot;fmt&quot;  
+    &quot;net&quot;  
+    &quot;os&quot;  
+)  
+  
+func sender(conn net.Conn) {  
+        words := &quot;hello world!&quot;  
+        conn.Write([]byte(words))  
+    fmt.Println(&quot;send over&quot;)  
+}  
+func main() {  
+    server := &quot;127.0.0.1:1024&quot;  
+    tcpAddr, err := net.ResolveTCPAddr(&quot;tcp4&quot;, server)  
+    if err != nil {  
+        fmt.Fprintf(os.Stderr, &quot;Fatal error: %s&quot;, err.Error())  
+        os.Exit(1)  
+    }  
+  
+    conn, err := net.DialTCP(&quot;tcp&quot;, nil, tcpAddr)  
+    if err != nil {  
+        fmt.Fprintf(os.Stderr, &quot;Fatal error: %s&quot;, err.Error())  
+        os.Exit(1)  
+    }  
+    fmt.Println(&quot;connect success&quot;)  
+    sender(conn)  
+}  
+</code></pre>
+<p>&#x53EF;&#x4EE5;&#x770B;&#x5230;&#xFF0C;Client&#x8FD9;&#x91CC;&#x7684;&#x5173;&#x952E;&#x5728;&#x4E8E;</p>
+<p>&#x4EE3;&#x7801;&#x5982;&#x4E0B;:</p>
+<pre><code>tcpAddr, err := net.ResolveTCPAddr(&quot;tcp4&quot;, server) 
+conn, err := net.DialTCP(&quot;tcp&quot;, nil, tcpAddr)  
+</code></pre>
+<p>&#x8FD9;&#x4E24;&#x6B65;&#xFF0C;&#x4E3B;&#x8981;&#x662F;&#x8D1F;&#x8D23;&#x89E3;&#x6790;&#x7AEF;&#x53E3;&#x548C;&#x8FDE;&#x63A5;~</p>
+<p>&#x5199;&#x597D;Server&#x548C;Client&#x4E4B;&#x540E;&#xFF0C;&#x8BA9;&#x6211;&#x4EEC;&#x8FD0;&#x884C;&#x4E00;&#x4E0B;&#x770B;&#x770B;&#xFF1A;~~</p>
+<p>&#x6210;&#x529F;&#x8FD0;&#x884C;&#xFF0C;Console&#x51FA;&#x73B0;Server&#x7B49;&#x5F85;&#x8FDE;&#x63A5;&#x7684;&#x63D0;&#x793A;&#x3002;</p>
+<p>Server&#x7AEF;&#x6210;&#x529F;&#x7684;&#x6536;&#x5230;&#x4E86;&#x6211;&#x4EEC;&#x7684;Hello-World&#x5566;&#xFF0C;&#x81F3;&#x4E8E;&#x540E;&#x9762;&#x7684;&#x90A3;&#x884C;&#x7EA2;&#x5B57;&#xFF0C;&#x5219;&#x662F;&#x65AD;&#x5F00;&#x8FDE;&#x63A5;&#x7684;&#x63D0;&#x793A;~<br>
+&#x5230;&#x8FD9;&#x91CC;&#xFF0C;&#x4E00;&#x4E2A;&#x6700;&#x57FA;&#x7840;&#x7684;&#x4F7F;&#x7528;Socket&#x7684;Server-Client&#x6846;&#x67B6;&#x5C31;&#x51FA;&#x6765;&#x5566;~</p>
+<p>&#x5982;&#x679C;&#x60F3;&#x8981;&#x8BA9;Server&#x80FD;&#x591F;&#x54CD;&#x5E94;&#x6765;&#x81EA;&#x4E0D;&#x540C;Client&#x7684;&#x8BF7;&#x6C42;&#xFF0C;&#x6211;&#x4EEC;&#x53EA;&#x8981;&#x5728;Server&#x7AEF;&#x7684;&#x4EE3;&#x7801;&#x7684;main&#x5165;&#x53E3;&#x4E2D;&#xFF0C;<br>
+&#x5728; handleConnection(conn net.Conn) &#x8FD9;&#x53E5;&#x4EE3;&#x7801;&#x7684;&#x524D;&#x9762;&#x52A0;&#x4E0A;&#x4E00;&#x4E2A; go&#xFF0C;&#x5C31;&#x53EF;&#x4EE5;&#x8BA9;&#x670D;&#x52A1;&#x5668;&#x5E76;&#x53D1;&#x5904;&#x7406;&#x4E0D;&#x540C;&#x7684;Client&#x53D1;&#x6765;&#x7684;&#x8BF7;&#x6C42;&#x5566;</p>
+<h2 id="&#x81EA;&#x5B9A;&#x4E49;&#x901A;&#x8BAF;&#x534F;&#x8BAE;"><a class="header-anchor" href="#&#x81EA;&#x5B9A;&#x4E49;&#x901A;&#x8BAF;&#x534F;&#x8BAE;"></a>&#x81EA;&#x5B9A;&#x4E49;&#x901A;&#x8BAF;&#x534F;&#x8BAE;</h2>
+<p>&#x5728;&#x4E0A;&#x9762;&#x6211;&#x4EEC;&#x505A;&#x51FA;&#x6765;&#x4E00;&#x4E2A;&#x6700;&#x57FA;&#x7840;&#x7684;demo&#x540E;&#xFF0C;&#x5DF2;&#x7ECF;&#x53EF;&#x4EE5;&#x521D;&#x6B65;&#x5B9E;&#x73B0;Server&#x548C;Client&#x4E4B;&#x95F4;&#x7684;&#x4FE1;&#x606F;&#x4EA4;&#x6D41;&#x4E86;~ &#x8FD9;&#x4E00;&#x7AE0;&#x6211;&#x4F1A;&#x4ECB;&#x7ECD;&#x4E00;&#x4E0B;&#x600E;&#x4E48;&#x5728;Server&#x548C;Client&#x4E4B;&#x95F4;&#x5B9E;&#x73B0;&#x4E00;&#x4E2A;&#x7B80;&#x5355;&#x7684;&#x901A;&#x8BAF;&#x534F;&#x8BAE;&#xFF0C;&#x4ECE;&#x800C;&#x589E;&#x5F3A;&#x6574;&#x4E2A;&#x4FE1;&#x606F;&#x4EA4;&#x6D41;&#x8FC7;&#x7A0B;&#x7684;&#x7A33;&#x5B9A;&#x6027;&#x3002;</p>
+<p>&#x5728;Server&#x548C;client&#x7684;&#x4EA4;&#x4E92;&#x8FC7;&#x7A0B;&#x4E2D;&#xFF0C;&#x6709;&#x65F6;&#x5019;&#x5F88;&#x96BE;&#x907F;&#x514D;&#x51FA;&#x73B0;&#x7F51;&#x7EDC;&#x6CE2;&#x52A8;&#xFF0C;&#x800C;&#x5728;&#x901A;&#x8BAF;&#x8D28;&#x91CF;&#x8F83;&#x5DEE;&#x7684;&#x65F6;&#x5019;&#xFF0C;Client&#x6709;&#x53EF;&#x80FD;&#x65E0;&#x6CD5;&#x5C06;&#x4FE1;&#x606F;&#x6D41;&#x4E00;&#x6B21;&#x6027;&#x5B8C;&#x6574;&#x53D1;&#x9001;&#xFF0C;&#x6700;&#x7EC8;&#x4F20;&#x5230;Server&#x4E0A;&#x7684;&#x4FE1;&#x606F;&#x5F88;&#x53EF;&#x80FD;&#x53D8;&#x4E3A;&#x5F88;&#x591A;&#x6BB5;&#x3002;</p>
+<p>&#x5982;&#x4E0B;&#x56FE;&#x6240;&#x793A;&#xFF0C;&#x672C;&#x6765;&#x5E94;&#x8BE5;&#x662F;&#x5206;&#x6761;&#x4F20;&#x8F93;&#x7684;json&#xFF0C;&#x7ED3;&#x679C;&#x56E0;&#x4E3A;&#x4E00;&#x4E9B;&#x539F;&#x56E0;&#x8FDE;&#x63A5;&#x5728;&#x4E86;&#x4E00;&#x8D77;&#xFF0C;&#x8FD9;&#x65F6;&#x5019;&#x5C31;&#x4F1A;&#x51FA;&#x73B0;&#x95EE;&#x9898;&#x5566;&#xFF0C;Server&#x7AEF;&#x8981;&#x600E;&#x4E48;&#x5224;&#x65AD;&#x6536;&#x5230;&#x7684;&#x6D88;&#x606F;&#x662F;&#x5426;&#x5B8C;&#x6574;&#x5462;&#xFF1F;~</p>
+<p>&#x5514;&#xFF0C;&#x7B54;&#x6848;&#x5C31;&#x662F;&#x8FD9;&#x7BC7;&#x6587;&#x7AE0;&#x7684;&#x4E3B;&#x9898;&#x5566;&#xFF1A;&#x5728;Server&#x548C;Client&#x4EA4;&#x4E92;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x52A0;&#x5165;&#x4E00;&#x4E2A;&#x901A;&#x8BAF;&#x534F;&#x8BAE;&#xFF08;protocol&#xFF09;&#xFF0C;&#x8BA9;&#x4E8C;&#x8005;&#x7684;&#x4EA4;&#x4E92;&#x901A;&#x8FC7;&#x8FD9;&#x4E2A;&#x534F;&#x8BAE;&#x8FDB;&#x884C;&#x5C01;&#x88C5;&#xFF0C;&#x4ECE;&#x800C;&#x4F7F;Server&#x80FD;&#x591F;&#x5224;&#x65AD;&#x6536;&#x5230;&#x7684;&#x4FE1;&#x606F;&#x662F;&#x5426;&#x4E3A;&#x5B8C;&#x6574;&#x7684;&#x4E00;&#x6BB5;&#x3002;&#xFF08;&#x4E5F;&#x5C31;&#x662F;&#x89E3;&#x51B3;&#x5206;&#x5305;&#x7684;&#x95EE;&#x9898;&#xFF09;</p>
+<p>&#x56E0;&#x4E3A;&#x4E3B;&#x8981;&#x76EE;&#x7684;&#x662F;&#x4E3A;&#x4E86;&#x8BA9;Server&#x80FD;&#x5224;&#x65AD;&#x5BA2;&#x6237;&#x7AEF;&#x53D1;&#x6765;&#x7684;&#x4FE1;&#x606F;&#x662F;&#x5426;&#x5B8C;&#x6574;&#xFF0C;&#x56E0;&#x6B64;&#x6574;&#x4E2A;&#x534F;&#x8BAE;&#x7684;&#x6838;&#x5FC3;&#x601D;&#x8DEF;&#x5E76;&#x4E0D;&#x662F;&#x5F88;&#x590D;&#x6742;&#xFF1A;</p>
+<ul>
+<li>&#x534F;&#x8BAE;&#x7684;&#x6838;&#x5FC3;&#x5C31;&#x662F;&#x8BBE;&#x8BA1;&#x4E00;&#x4E2A;&#x5934;&#x90E8;&#xFF08;headers&#xFF09;&#xFF0C;&#x5728;Client&#x6BCF;&#x6B21;&#x53D1;&#x9001;&#x4FE1;&#x606F;&#x7684;&#x65F6;&#x5019;&#x5C06;header&#x5C01;&#x88C5;&#x8FDB;&#x53BB;&#xFF0C;&#x518D;&#x8BA9;Server&#x5728;&#x6BCF;&#x6B21;&#x6536;&#x5230;&#x4FE1;&#x606F;&#x7684;&#x65F6;&#x5019;&#x6309;&#x7167;&#x9884;&#x5B9A;&#x683C;&#x5F0F;&#x5C06;&#x6D88;&#x606F;&#x8FDB;&#x884C;&#x89E3;&#x6790;&#xFF0C;&#x8FD9;&#x6837;&#x6839;&#x636E;Client&#x4F20;&#x6765;&#x7684;&#x6570;&#x636E;&#x4E2D;&#x662F;&#x5426;&#x5305;&#x542B;headers&#xFF0C;&#x5C31;&#x53EF;&#x4EE5;&#x5F88;&#x8F7B;&#x677E;&#x7684;&#x5224;&#x65AD;&#x6536;&#x5230;&#x7684;&#x4FE1;&#x606F;&#x662F;&#x5426;&#x5B8C;&#x6574;&#x4E86;~</li>
+</ul>
+<p>&#x5982;&#x679C;&#x4FE1;&#x606F;&#x5B8C;&#x6574;&#xFF0C;&#x90A3;&#x4E48;&#x5C31;&#x5C06;&#x8BE5;&#x4FE1;&#x606F;&#x53D1;&#x9001;&#x7ED9;&#x4E0B;&#x4E00;&#x4E2A;&#x903B;&#x8F91;&#x8FDB;&#x884C;&#x5904;&#x7406;&#xFF0C;&#x5982;&#x679C;&#x4FE1;&#x606F;&#x4E0D;&#x5B8C;&#x6574;&#xFF08;&#x7F3A;&#x5C11;headers&#xFF09;&#xFF0C;&#x90A3;&#x4E48;Server&#x5C31;&#x4F1A;&#x628A;&#x8FD9;&#x6761;&#x4FE1;&#x606F;&#x4E0E;&#x524D;&#x4E00;&#x6761;&#x4FE1;&#x606F;&#x5408;&#x5E76;&#x7EE7;&#x7EED;&#x5904;&#x7406;&#x3002;</p>
+<p>&#x4E0B;&#x9762;&#x662F;&#x534F;&#x8BAE;&#x90E8;&#x5206;&#x7684;&#x4EE3;&#x7801;,&#x4E3B;&#x8981;&#x5206;&#x4E3A;&#x6570;&#x636E;&#x7684;&#x5C01;&#x88C5;&#xFF08;Enpack&#xFF09;&#x548C;&#x89E3;&#x6790;&#xFF08;Depack&#xFF09;&#x4E24;&#x4E2A;&#x90E8;&#x5206;&#xFF0C;&#x5176;&#x4E2D;Enpack&#x7528;&#x4E8E;Client&#x7AEF;&#x5C06;&#x4F20;&#x7ED9;&#x670D;&#x52A1;&#x5668;&#x7684;&#x6570;&#x636E;&#x5C01;&#x88C5;&#xFF0C;&#x800C;Depack&#x662F;Server&#x7528;&#x6765;&#x89E3;&#x6790;&#x6570;&#x636E;&#xFF0C;&#x5176;&#x4E2D;Const&#x90E8;&#x5206;&#x7528;&#x4E8E;&#x5B9A;&#x4E49;Headers&#xFF0C;HeaderLength&#x5219;&#x662F;Headers&#x7684;&#x957F;&#x5EA6;&#xFF0C;&#x7528;&#x4E8E;&#x540E;&#x9762;Server&#x7AEF;&#x7684;&#x89E3;&#x6790;&#x3002;&#x8FD9;&#x91CC;&#x8981;&#x8BF4;&#x4E00;&#x4E0B;ConstMLength,&#x8FD9;&#x91CC;&#x4EE3;&#x8868;Client&#x4F20;&#x5165;&#x4FE1;&#x606F;&#x7684;&#x957F;&#x5EA6;&#xFF0C;&#x56E0;&#x4E3A;&#x5728;golang&#x4E2D;&#xFF0C;int&#x8F6C;&#x4E3A;byte&#x540E;&#x4F1A;&#x5360;4&#x957F;&#x5EA6;&#x7684;&#x7A7A;&#x95F4;&#xFF0C;&#x56E0;&#x6B64;&#x8BBE;&#x5B9A;&#x4E3A;4&#x3002;&#x6BCF;&#x6B21;Client&#x5411;Server&#x53D1;&#x9001;&#x4FE1;&#x606F;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x9664;&#x4E86;&#x5C06;Headers&#x5C01;&#x88C5;&#x8FDB;&#x53BB;&#x610F;&#x4EE5;&#x5916;&#xFF0C;&#x8FD8;&#x4F1A;&#x5C06;&#x4F20;&#x5165;&#x4FE1;&#x606F;&#x7684;&#x957F;&#x5EA6;&#x4E5F;&#x5C01;&#x88C5;&#x8FDB;&#x53BB;&#xFF0C;&#x8FD9;&#x6837;&#x53EF;&#x4EE5;&#x65B9;&#x4FBF;Server&#x8FDB;&#x884C;&#x89E3;&#x6790;&#x548C;&#x6821;&#x9A8C;&#x3002;</p>
+<p>&#x4EE3;&#x7801;&#x5982;&#x4E0B;:</p>
+<pre><code>//&#x901A;&#x8BAF;&#x534F;&#x8BAE;&#x5904;&#x7406;  
+package protocol  
+import (  
+    &quot;bytes&quot;  
+    &quot;encoding/binary&quot;  
+)  
+const (  
+    ConstHeader         = &quot;Headers&quot;  
+    ConstHeaderLength   = 7  
+    ConstMLength = 4  
+)  
+//&#x5C01;&#x5305;  
+func Enpack(message []byte) []byte {  
+    return append(append([]byte(ConstHeader), IntToBytes(len(message))...), message...)  
+}  
+//&#x89E3;&#x5305;  
+func Depack(buffer []byte, readerChannel chan []byte) []byte {  
+    length := len(buffer)  
+    var i int  
+    for i = 0; i &lt; length; i = i + 1 {  
+        if length &lt; i+ConstHeaderLength+ConstMLength {  
+            break  
+        }  
+        if string(buffer[i:i+ConstHeaderLength]) == ConstHeader {  
+            messageLength := BytesToInt(buffer[i+ConstHeaderLength : i+ConstHeaderLength+ConstMLength])  
+            if length &lt; i+ConstHeaderLength+ConstLength+messageLength {  
+                break  
+            }  
+            data := buffer[i+ConstHeaderLength+ConstMLength : i+ConstHeaderLength+ConstMLength+messageLength]  
+            readerChannel &lt;- data  
+  
+        }  
+    }  
+  
+    if i == length {  
+        return make([]byte, 0)  
+    }  
+    return buffer[i:]  
+}  
+  
+//&#x6574;&#x5F62;&#x8F6C;&#x6362;&#x6210;&#x5B57;&#x8282;  
+func IntToBytes(n int) []byte {  
+    x := int32(n)  
+    bytesBuffer := bytes.NewBuffer([]byte{})  
+    binary.Write(bytesBuffer, binary.BigEndian, x)  
+    return bytesBuffer.Bytes()  
+}  
+  
+//&#x5B57;&#x8282;&#x8F6C;&#x6362;&#x6210;&#x6574;&#x5F62;  
+func BytesToInt(b []byte) int {  
+    bytesBuffer := bytes.NewBuffer(b)  
+    var x int32  
+    binary.Read(bytesBuffer, binary.BigEndian, &amp;x)  
+    return int(x)  
+}  
+</code></pre>
+<p>&#x534F;&#x8BAE;&#x5199;&#x597D;&#x4E4B;&#x540E;&#xFF0C;&#x63A5;&#x4E0B;&#x6765;&#x5C31;&#x662F;&#x5728;Server&#x548C;Client&#x7684;&#x4EE3;&#x7801;&#x4E2D;&#x5E94;&#x7528;&#x534F;&#x8BAE;&#x5566;&#xFF0C;&#x4E0B;&#x9762;&#x662F;Server&#x7AEF;&#x7684;&#x4EE3;&#x7801;&#xFF0C;&#x4E3B;&#x8981;&#x8D1F;&#x8D23;&#x89E3;&#x6790;Client&#x901A;&#x8FC7;&#x534F;&#x8BAE;&#x53D1;&#x6765;&#x7684;&#x4FE1;&#x606F;&#x6D41;&#xFF1A;</p>
+<p>&#x4EE3;&#x7801;&#x5982;&#x4E0B;:</p>
+<pre><code>package main    
+import (    
+    &quot;protocol&quot;    
+    &quot;fmt&quot;    
+    &quot;net&quot;    
+    &quot;os&quot;    
+)    
+func main() {    
+    netListen, err := net.Listen(&quot;tcp&quot;, &quot;localhost:6060&quot;)    
+    CheckError(err)    
+    defer netListen.Close()    
+    Log(&quot;Waiting for clients&quot;)    
+    for {    
+        conn, err := netListen.Accept()    
+        if err != nil {    
+            continue    
+        }    
+    
+        //timeouSec :=10    
+        //conn.    
+        Log(conn.RemoteAddr().String(), &quot; tcp connect success&quot;)    
+        go handleConnection(conn)    
+    
+    }    
+}    
+    
+func handleConnection(conn net.Conn) {    
+    // &#x7F13;&#x51B2;&#x533A;&#xFF0C;&#x5B58;&#x50A8;&#x88AB;&#x622A;&#x65AD;&#x7684;&#x6570;&#x636E;    
+    tmpBuffer := make([]byte, 0)    
+    //&#x63A5;&#x6536;&#x89E3;&#x5305;    
+    readerChannel := make(chan []byte, 16)    
+    go reader(readerChannel)    
+    buffer := make([]byte, 1024)    
+    for {    
+    n, err := conn.Read(buffer)    
+    if err != nil {    
+    Log(conn.RemoteAddr().String(), &quot; connection error: &quot;, err)    
+    return    
+    }    
+    tmpBuffer = protocol.Depack(append(tmpBuffer, buffer[:n]...), readerChannel)    
+    }    
+    defer conn.Close()    
+}    
+    
+func reader(readerChannel chan []byte) {    
+    for {    
+        select {    
+        case data := &lt;-readerChannel:    
+            Log(string(data))    
+        }    
+    }    
+}    
+    
+func Log(v ...interface{}) {    
+    fmt.Println(v...)    
+}    
+    
+func CheckError(err error) {    
+    if err != nil {    
+        fmt.Fprintf(os.Stderr, &quot;Fatal error: %s&quot;, err.Error())    
+        os.Exit(1)    
+    }    
+}    
+</code></pre>
+<p>&#x7136;&#x540E;&#x662F;Client&#x7AEF;&#x7684;&#x4EE3;&#x7801;&#xFF0C;&#x8FD9;&#x4E2A;&#x7B80;&#x5355;&#x591A;&#x4E86;&#xFF0C;&#x53EA;&#x8981;&#x7ED9;&#x4FE1;&#x606F;&#x5C01;&#x88C5;&#x4E00;&#x4E0B;&#x5C31;&#x53EF;&#x4EE5;&#x4E86;~&#xFF1A;</p>
+<p>&#x4EE3;&#x7801;&#x5982;&#x4E0B;:</p>
+<pre><code>package main    
+import (    
+&quot;protocol&quot;    
+&quot;fmt&quot;    
+&quot;net&quot;    
+&quot;os&quot;    
+&quot;time&quot;    
+&quot;strconv&quot;    
+)    
+    
+func send(conn net.Conn) {    
+    for i := 0; i &lt; 100; i++ {    
+        session:=GetSession()    
+        words := &quot;{\&quot;ID\&quot;:&quot;+ strconv.Itoa(i) +&quot;\&quot;,\&quot;Session\&quot;:&quot;+session +&quot;2015073109532345\&quot;,\&quot;Meta\&quot;:\&quot;golang\&quot;,\&quot;Content\&quot;:\&quot;message\&quot;}&quot;    
+        conn.Write(protocol.Enpacket([]byte(words)))    
+    }    
+    fmt.Println(&quot;send over&quot;)    
+    defer conn.Close()    
+}    
+    
+func GetSession() string{    
+    gs1:=time.Now().Unix()    
+    gs2:=strconv.FormatInt(gs1,10)    
+    return gs2    
+}    
+    
+func main() {    
+    server := &quot;localhost:6060&quot;    
+    tcpAddr, err := net.ResolveTCPAddr(&quot;tcp4&quot;, server)    
+    if err != nil {    
+        fmt.Fprintf(os.Stderr, &quot;Fatal error: %s&quot;, err.Error())    
+        os.Exit(1)    
+    }    
+    
+    conn, err := net.DialTCP(&quot;tcp&quot;, nil, tcpAddr)    
+    if err != nil {    
+        fmt.Fprintf(os.Stderr, &quot;Fatal error: %s&quot;, err.Error())    
+        os.Exit(1)    
+    }    
+    fmt.Println(&quot;connect success&quot;)    
+    send(conn)    
+}    
+</code></pre>
+<p>&#x8FD9;&#x6837;&#x6211;&#x4EEC;&#x5C31;&#x6210;&#x529F;&#x5B9E;&#x73B0;&#x5728;Server&#x548C;Client&#x4E4B;&#x95F4;&#x5EFA;&#x7ACB;&#x4E00;&#x5957;&#x81EA;&#x5B9A;&#x4E49;&#x7684;&#x57FA;&#x7840;&#x901A;&#x8BAF;&#x534F;&#x8BAE;&#x5566;&#xFF0C;&#x8BA9;&#x6211;&#x4EEC;&#x8FD0;&#x884C;&#x4E00;&#x4E0B;&#x770B;&#x4E0B;&#x6548;&#x679C;&#xFF1A;</p>
+<p>&#x6210;&#x529F;&#x8BC6;&#x522B;&#x6BCF;&#x4E00;&#x6761;Client&#x53D1;&#x6765;&#x7684;&#x4FE1;&#x606F;&#x5566;~~</p>
+<blockquote>
+<p>&#x539F;&#x6587;&#x6807;&#x9898;&#xFF1A;Go&#x8BED;&#x8A00;&#x57FA;&#x4E8E;Socket&#x7F16;&#x5199;&#x670D;&#x52A1;&#x5668;&#x7AEF;&#x4E0E;&#x5BA2;&#x6237;&#x7AEF;&#x901A;&#x4FE1;&#x7684;&#x5B9E;&#x4F8B;<br>
+&#x539F;&#x6587;&#x94FE;&#x63A5;&#xFF1A;<a href="http://www.codesec.net/view/408386.html" target="_blank" rel="external">http://www.codesec.net/view/408386.html</a></p>
+</blockquote>
+		</div>
+      
+  
+    <nav id="article-nav">
+        
+            <div id="article-nav-newer" class="article-nav-title">
+                <a href="/2016/08/31/alipay-wallet-technology/">
+                    最全最强解析：支付宝钱包系统架构内部剖析（架构图）
+                </a>
+            </div>
+        
+        
+            <div id="article-nav-older" class="article-nav-title">
+                <a href="/2016/08/30/android-getauthtoken/">
+                    AccountManager getAuthToken问题
+                </a>
+            </div>
+        
+    </nav>
+  
+</article>
+<div id="toc" class="toc-article">
+        <strong class="toc-title">文章目录</strong>
+        
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#socket连接"><span class="toc-number">1.</span> <span class="toc-text">socket连接</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#自定义通讯协议"><span class="toc-number">2.</span> <span class="toc-text">自定义通讯协议</span></a></li></ol>
+        
+    </div>
+    <style>
+        .left-col .switch-btn,
+        .left-col .switch-area {
+            display: none;
+        }
+        .toc-level-5 i,
+        .toc-level-5 ol {
+            display: none !important;
+        }
+    </style>
+    <input type="button" id="tocButton" value="隐藏目录" title="点击按钮隐藏或者显示文章目录">
+    <script>
+        yiliaConfig.toc = ["隐藏目录", "显示目录", !!"false"];
+    </script>
+
+
+    <div class="share">
+    
+        <div class="bdsharebuttonbox">
+            <a href="#" class="fa fa-twitter bds_twi" data-cmd="twi" title="分享到推特"></a>
+            <a href="#" class="fa fa-weibo bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+            <a href="#" class="fa fa-qq bds_sqq" data-cmd="sqq" title="分享给 QQ 好友"></a>
+            <a href="#" class="fa fa-files-o bds_copy" data-cmd="copy" title="复制网址"></a>
+            <a href="#" class="fa fa fa-envelope-o bds_mail" data-cmd="mail" title="通过邮件分享"></a>
+            <a href="#" class="fa fa-weixin bds_weixin" data-cmd="weixin" title="生成文章二维码"></a>
+            <a href="#" class="fa fa-share-alt bds_more" data-cmd="more"></a>
+        </div>
+        <script>
+            window._bd_share_config={
+                "common":{"bdSnsKey":{},"bdText":"Go语言基于Socket编写服务器端与客户端通信的实例　| 移动开发 | ngudream　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+        </script>
+    
+
+    
+</div>
+
+
+
+    
+        <div class="duoshuo" id="comments">
+    <div id="comment-box"></div>
+    <div id="cloud-tie-wrapper" class="cloud-tie-wrapper" style="background:#E6E6E6 !important"></div>
+    <script>
+      var cloudTieConfig = {
+        url: document.location.href,
+        sourceId: "",
+        productKey: "5da8c19bfca94f708935e51b16681b8e",
+        target: "cloud-tie-wrapper"
+      };
+    </script>
+    <aside class="comment-bar">
+        <a href="javascript:void(0);">
+            <i class="fa fa-commenting-o animated infinite pulse"></i>
+            <i class="fa fa-spinner fa-pulse"></i>
+            <span class="count-comment"></span>
+        </a>
+    </aside>
+    <script>
+        var isExist = false;
+        var countBg = 3;
+        var countAdmin = 3;
+        var $commentBar = $("#comments aside.comment-bar");
+        var load$hide = function(){
+          $commentBar.find("a > i").toggle();
+            if(!isExist){
+              isExist = true;
+              loadJS("https://img1.cache.netease.com/f2e/tie/yun/sdk/loader.js", function(){
+                setTimeout("resetBackground()", "800");
+              })
+              $commentBar.fadeOut(800);
+            }
+        }
+        function resetBackground() {
+          if($("#yun-tie-sdk-wrap").length <= 0 && countBg > 0){
+            countBg--;
+            setTimeout("resetBackground()", "800");
+            return;
+          }
+          $("#yun-tie-sdk-wrap").css("background-color","#efefef");
+          $(".tie-textarea").css("background-color","#F7F8F9");
+          $(".single-tie").css("background-color","#fafafa");
+          includeLinkStyle("/plugins/css/netease.css");
+          //var path = "<span class='ua'>" + sskadmin(navigator.userAgent) + "</span><span class='ua'>" + ua(navigator.userAgent) +"</span><span class='ua'>"+ os(navigator.userAgent) + "</span>";
+          //console.log(path);
+          setTimeout("resetAdmin()", "300");
+        }
+        $commentBar.click(function(){
+            load$hide();
+        })
+        $commentBar.children("a").hover(function(){
+            load$hide();
+        })
+        if (window.location.hash === "#comments") {
+            load$hide();
+        }
+
+        function resetAdmin(){
+          if($(".name-desp").length > 0){
+            $(".name-desp").each(function () {
+              var desp = $(this).text();
+              if(desp.indexOf('ngudream广东') >= 0){
+                $(this).text("博主");
+                //$(this).addClass("sskadmin");
+              }
+            });
+          } else {
+            if(countAdmin > 0){
+              countAdmin--;
+              setTimeout("resetAdmin()", "300");
+            }
+          }
+        }
+
+        //管理员判断开始
+        function sskadmin(e) {
+          if($(".name-desp").length > 0){
+            $(".name-desp").each(function () {
+              var desp = $(this).text();
+              if(desp.indexOf('ngudream') >= 0){
+                return "<span class='ua'><span class='sskadmin'>博主</span></span>";
+              }
+            });
+          }
+          return "<span class='ua'><span class='sskadmin'>博主</span></span>";
+        }
+        //管理员判断结束
+        //显UA开始
+        function ua(e) {
+            var r = new Array;
+            var outputer = '';
+            if (r = e.match(/FireFox\/([^\s]+)/ig)) {
+                var r1 = r[0].split("/");
+                outputer = "<span class='ua_firefox'><i class='fa fa-firefox'></i> FireFox"
+            } else if (r = e.match(/Maxthon([\d]*)\/([^\s]+)/ig)) {
+                var r1 = r[0].split("/");
+                outputer = "<span class='ua_maxthon'><i class='fa fa-globe'></i> Maxthon"
+            } else if (r = e.match(/BIDUBrowser([\d]*)\/([^\s]+)/ig)) {
+                var r1 = r[0].split("/");
+                outputer = "<span class='ua_ucweb'><i class='fa fa-globe'></i> 百度浏览器"
+            } else if (r = e.match(/UBrowser([\d]*)\/([^\s]+)/ig)) {
+                var r1 = r[0].split("/");
+                outputer = "<span class='ua_ucweb'><i class='fa fa-globe'></i> UCBrowser"
+            } else if (r = e.match(/UCBrowser([\d]*)\/([^\s]+)/ig)) {
+                var r1 = r[0].split("/");
+                outputer = "<span class='ua_ucweb'><i class='fa fa-globe'></i> UCBrowser"
+            } else if (r = e.match(/MetaSr/ig)) {
+                outputer = "<span class='ua_sogou'><i class='fa fa-globe'></i> 搜狗浏览器"
+            } else if (r = e.match(/2345Explorer/ig)) {
+                outputer = "<span class='ua_2345explorer'><i class='fa fa-globe'></i> 2345王牌浏览器"
+            } else if (r = e.match(/2345chrome/ig)) {
+                outputer = "<span class='ua_2345chrome'><i class='fa fa-globe'></i> 2345加速浏览器"
+            } else if (r = e.match(/LBBROWSER/ig)) {
+                outputer = "<span class='ua_lbbrowser'><i class='fa fa-globe'></i> 猎豹安全浏览器"
+            } else if (r = e.match(/MicroMessenger\/([^\s]+)/ig)) {
+                var r1 = r[0].split("/");
+                outputer = "<span class='ua_qq'><i class='fa fa-weixin'></i> 微信"
+                /*.split('/')[0]*/
+            } else if (r = e.match(/QQBrowser\/([^\s]+)/ig)) {
+                var r1 = r[0].split("/");
+                outputer = "<span class='ua_qq'><i class='fa fa-qq'></i> QQ浏览器"
+                /*.split('/')[0]*/
+            } else if (r = e.match(/QQ\/([^\s]+)/ig)) {
+                var r1 = r[0].split("/");
+                outputer = "<span class='ua_qq'><i class='fa fa-qq'></i> QQ浏览器"
+                /*.split('/')[0]*/
+            } else if (r = e.match(/MiuiBrowser\/([^\s]+)/ig)) {
+                var r1 = r[0].split("/");
+                outputer = "<span class='ua_mi'><i class='fa fa-globe'></i> Miui浏览器"
+                /*.split('/')[0]*/
+            } else if (r = e.match(/Chrome([\d]*)\/([^\s]+)/ig)) {
+                var r1 = r[0].split("/");
+                outputer = "<span class='ua_chrome'><i class='fa fa-chrome'></i> Chrome"
+                /*.split('.')[0]*/
+            } else if (r = e.match(/safari\/([^\s]+)/ig)) {
+                var r1 = r[0].split("/");
+                outputer = "<span class='ua_apple'><i class='fa fa-safari'></i> Safari"
+            } else if (r = e.match(/Opera[\s|\/]([^\s]+)/ig)) {
+                var r1 = r[0].split("/");
+                outputer = "<span class='ua_opera'><i class='fa fa-opera'></i> Opera"
+            } else if (r = e.match(/Trident\/7.0/gi)) {
+                outputer = "<span class='ua_ie'><i class='fa fa-internet-explorer'></i> IE 11"
+            } else if (r = e.match(/MSIE\s([^\s|;]+)/gi)) {
+                outputer = "<span class='ua_ie'><i class='fa fa-internet-explorer'></i> IE" + " " + r[0]
+                /*.replace("MSIE", "").split(".")[0]*/
+            } else {
+                outputer = "<span class='ua_other'><i class='fa fa-globe'></i> 其它浏览器"
+            }
+            if (checkMobile()) {
+                Mobile = "<br><br>";
+            } else {
+                Mobile = "";
+            }
+            return outputer + "</span>" + Mobile;
+        }
+        function os(e) {
+            var os = "";
+            if (e.match(/win/ig)) {
+                if (e.match(/nt 5.1/ig)) {
+                    os = "<span class='os_xp'><i class='fa fa-windows'></i> Windows XP"
+                } else if (e.match(/nt 6.1/ig)) {
+                    os = "<span class='os_7'><i class='fa fa-windows'></i> Windows 7"
+                } else if (e.match(/nt 6.2/ig)) {
+                    os = "<span class='os_8'><i class='fa fa-windows'></i> Windows 8"
+                } else if (e.match(/nt 6.3/ig)) {
+                    os = "<span class='os_8_1'><i class='fa fa-windows'></i> Windows 8.1"
+                } else if (e.match(/nt 10.0/ig)) {
+                    os = "<span class='os_8_1'><i class='fa fa-windows'></i> Windows 10"
+                } else if (e.match(/nt 6.0/ig)) {
+                    os = "<span class='os_vista'><i class='fa fa-windows'></i> Windows Vista"
+                } else if (e.match(/nt 5/ig)) {
+                    os = "<span class='os_2000'><i class='fa fa-windows'></i> Windows 2000"
+                } else {
+                    os = "<span class='os_windows'><i class='fa fa-windows'></i> Windows"
+                }
+            } else if (e.match(/android/ig)) {
+                os = "<span class='os_android'><i class='fa fa-android'></i> Android"
+            } else if (e.match(/ubuntu/ig)) {
+                os = "<span class='os_ubuntu'><i class='fa fa-desktop'></i> Ubuntu"
+            } else if (e.match(/linux/ig)) {
+                os = "<span class='os_linux'><i class='fa fa-linux'></i> Linux"
+            } else if (e.match(/mac/ig)) {
+                os = "<span class='os_mac'><i class='fa fa-apple'></i> Mac OS X"
+            } else if (e.match(/unix/ig)) {
+                os = "<span class='os_unix'><i class='fa fa-desktop'></i> Unix"
+            } else if (e.match(/symbian/ig)) {
+                os = "<span class='os_nokia'><i class='fa fa-mobile'></i> Nokia SymbianOS"
+            } else {
+                os = "<span class='os_other'><i class='fa fa-desktop'></i> 其它操作系统"
+            }
+            return os + "</span>";
+        }
+        //显UA结束
+    </script>
+</div>
+    
+
+
+<div class="scroll" id="post-nav-button">
+        
+            <a class="hint hint--right" href="/2016/08/31/alipay-wallet-technology/" data-hint="上一篇: 最全最强解析：支付宝钱包系统架构内部剖析（架构图）">
+                <i class="fa fa-angle-left"></i>
+            </a>
+        
+
+        <a class="hint hint--right" data-hint="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+
+        
+            <a class="hint hint--right" href="/2016/08/30/android-getauthtoken/" data-hint="下一篇: AccountManager getAuthToken问题">
+                <i class="fa fa-angle-right"></i>
+            </a>
+        
+    </div>
+
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2017/04/09/java-interview-network-communication/">Java 面试题之网络通信</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/17/java-interview/">Java 面试题归类汇总</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/14/android-binder/">Android Binder机制</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/06/rxjava-subject/">RxJava Subject解析</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/02/28/android-animation-theory/">Android 动画分析与优化</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/02/27/rxjava-only-flatmap/">只能用 flatmap 而不能用 map 的场景</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/02/26/android-app-is-foreground/">android 判断应用是否处于前台</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/02/09/linux-ip-switch-shell/">Linux Shell 脚本切换 IP</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/02/08/android-webview-asyncload-css-js/">WebView异步加载自定义CSS/JS</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/02/05/android-airbnb-lottie/">Android Airbnb Lottie 复杂动画</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/02/05/android-dexclassloader/">Android安全–DexClassLoader动态加载分析</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/01/24/n-hexo-blog/">笔者博客源代码</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/01/14/android-change-app-launcher-icon-dynamically/">Android 动态改变 App 桌面图标</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/26/rxjava-thread-switch-theory/">RxJava线程切换原理</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/21/android-clean-architecture-pattern/">如何用 Clean 架构开发 Android 应用</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/12/12/android-mvp-rxjava-practice/">响应式MVP架构todo-mvp-rxjava实践</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/11/30/android-data-gather/">Android 知识梳理</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/11/13/android-view-draw-theory/">深入理解Android之View的绘制流程</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/11/06/android-glide-use/">Glide的基本使用</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/11/01/android-network-base-structure/">教你写Android网络框架之基本架构</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/10/31/rxjava-thread-switch/">RxJava线程切换</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/10/25/rxjava-map/">Observable.map源码分析</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/10/19/android-network-library/">Android网络开源库</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/10/17/response-programming-idea/">响应式编程思想</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/10/12/java-compile-running/">Java编译时与运行时</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/10/11/mysql-delete-repeat-data/">MySql删除重复记录</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/10/10/android-picasso-use/">Picasso的基本使用</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/10/09/mysql-quick-insert/">MySQL 大数据量快速插入方法和语句优化</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/10/09/gradle-common-command/">Gradle常用命令收录</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/10/08/android-third-views/">Android第三方View</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/10/08/android-listview-stopscroll/">ListView停止滚动</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/10/04/how-to-study-distributed-system/">学习分布式系统需要怎样的知识？</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/10/01/rxjava-flatmap/">Observable.flatmap源码分析</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/09/29/mongodb-inverted-index/">MongoDB优化之倒排索引</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/09/28/zookeeper-theory-feature/">zookeeper原理，特点及应用</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/09/28/viewpager-unlimited-loop/">ViewPager实现左右无限循环</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/09/26/rxjava-timer/">RxJava定时器：timer</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/09/23/im-series-articles/">IM技术资料分类</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/09/22/rxjava-samples/">RxJava常见的使用场景收集</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/09/21/rxjava-understand/">拆轮子系列：拆 RxJava</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/09/18/adapter-itempool/">你还在写麻烦的 Adapter 么？</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/09/17/rxjava-2-0-new-features/">浅谈RxJava与2.0的新特性</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/09/17/im-heartbeat-why/">为什么说基于TCP的移动端IM仍然需要心跳保活？</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/09/17/android-dynamic-load/">Android插件化开源项目收集</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/09/16/alibaba-ipo-tech-power/">阿里巴巴上市背后的技术力量</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/09/13/hexo-install-prettify/">为hexo博客加入prettify高亮插件</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/09/10/rxjava-eventbus/">基于RxJava的事件总线--优雅的替换Handler</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/09/10/android-structure-rebuild/">Android项目重构之路:架构篇</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/09/06/realm-dbhelper/">Realm常用操作封装</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/09/04/java-mult-threads/">40个Java多线程问题总结</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/09/04/golang-zip-unzip/">Golang Zip的解压缩，带图形界面</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/09/02/mobile-pay-market/">手机厂商进军移动支付 并未撼动微信和支付宝</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/31/alipay-wallet-technology/">最全最强解析：支付宝钱包系统架构内部剖析（架构图）</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/31/golang-socket/">Go语言基于Socket编写服务器端与客户端通信的实例</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/30/android-getauthtoken/">AccountManager getAuthToken问题</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/29/weixin-protocal/">微信协议简单调研笔记</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/25/android-plugin-sample/">Android插件原理剖析</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/25/rxjava-repeatwhen-retrywhen/">对RxJava中.repeatWhen()和.retryWhen()操作符的理解</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/25/presenter-interface/">你还在为MVP中Presenter写接口?</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/25/rxjava-operators/">RxJava 的操作符</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/23/android-lrucache-bug/">Android LruCache的bug</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/23/morning-reading/">关于晨读</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/22/golang-gc/">Golang GC 探究</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/15/im-tcp-udp/">移动端IM系统的协议选型：UDP还是TCP？</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/14/realm-browse/">Realm实战总结--数据浏览</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/13/realm-builder/">Realm实战总结--平台搭建</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/12/git-common-command/">Git常用命令备忘</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/30/okhttp-call-flow/">OKHttp的请求流程</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/25/horizontal-list-view/">横向ListView-HorizontalListView</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/25/okhttp-cache/">Okhttp--缓存的加入方式</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/24/work-plan/">工作计划模板</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/22/okhttp-call-cancel/">OKHttp 如何取消请求</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/16/viewholder-simple-create/">ViewHolder模式超简洁写法，很cool!</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/09/hexo-advanced/">hexo高级进阶</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/06/26/sqlite-mult-wal/">Sqlite多线程读写 wal机制</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/06/18/png-gif-transparency/">制作透明背景 PNG 图片和 GIF 动图的几种方法</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/14/http-code/">HTTP协议状态码详解</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/23/windows-translucent-inoperative/">Android activity设置透明windowIsTranslucent后动画无效问题</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/02/24/delphi-beautify-two/">delphi界面美化（二）--vclskin</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/02/23/c井-file-watcher/">C# FileSystemWatcher实现单个文件监控</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/02/21/delphi-beautify-one/">delphi界面美化（一）</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/02/21/sql-inject/">SQL注入攻击</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/02/20/webrtc-pjsip-timer/">PJSIP 协议栈中定时器的实现详解</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/02/20/androidstudio-debug/">AndroidStudio Debug 调试技巧</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/02/17/unable-userdata/">解决创建Android 4.0以上项目出现unable to find userdata.img 问题</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/27/mysql-pwd-forgot/">Ubuntu下忘记MYSQL密码</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/21/seed7/">新的一种编程语言--Seed7</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/20/webrtc-pjsip/">WebRTC视频解析-PJSIP</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/20/as-quick-key/">Android Studio 快捷键</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/18/webrtc-structure/">WebRTC音视频引擎研究--整体架构分析</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/16/spring-ejb-concordance/">Spring与EJB的整合（关键部分）</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/05/nginx-php-mysql-fastcgi/">Ubuntu下安装和配置 Nginx + PHP + Mysql + FastCGI</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/04/phone-state-listener/">Android音乐播放器监听传统电话和网络电话</a></li></ul>
+
+
+    <script>
+        
+    </script></div>
+      <footer id="footer">
+    <div class="outer">
+        <div id="footer-info" style="text-align:center">
+
+            <div class="footer-left" style="vertical-align:middle;margin-top:2px">
+                <img src="" style="vertical-align:middle; opacity:0" height="24">
+                <i class="fa fa-copyright" style="vertical-align:middle"></i>
+                2016-2017 ngudream
+            </div>
+
+			<div id="footer_right_div" class="footer-right" style="text-align:center;overflow:hidden">
+				<div id="web_count_div" class="post-count-bottom" style="display:inline">
+					
+						<span id="id_wordcount_span" style="margin-left:20px;vertical-align:middle">本文字数：2,170</span>
+					
+				</div>
+            </div>
+        </div>
+
+        
+            <div id="footerdiv" class="visit" style="text-align:center">
+			        <img src="" style="vertical-align:middle; opacity:0" height="24">
+                
+                    <span id="busuanzi_container_site_pv" style="display:none; text-align:center">
+                        <span id="site-visit" class="hint hint--top" data-hint="本博热度" style="vertical-align:middle"><i class="fa fa-user" aria-hidden="true"></i><span id="busuanzi_value_site_uv"></span>
+                        </span>
+                    </span>
+                
+				
+					
+						<span id="divider_span" style="vertical-align:middle">|&thinsp;</span>
+					
+					
+						<span id="busuanzi_container_page_pv" style="display:none;text-align:center">
+							<span id="page-visit" class="hint hint--top hint--info" data-hint="本文热度" style="vertical-align:middle"><i class="fa fa-eye animated infinite pulse" aria-hidden="true"></i><span id="busuanzi_value_page_pv"></span><span>°C</span>
+							</span>
+						</span>
+					
+				
+            </div>
+        
+    </div>
+
+	<!-- 右下角的搜索 -->
+<div class="cb-search-tool" style="position: fixed; top: 0px ; bottom: 0px; left: 0px; right:  0px;
+        opacity: 0.95; background-color: #111111; z-index: 9999; display: none">
+    <input type="text" class="cb-search-content" id="cb-search-content" style="width:50%;top:60px;left:300px;position:fixed; border-radius:50px; background-color:white; opacity:1 !important" placeholder="请输入文章标题或标签">
+
+	<div id="cb-close-div" style="position: fixed; top: 16px; right: 16px">
+        <span class="hint hint--left" data-hint="按ESC键关闭搜索" id="id_span_search_close"></span>
+    </div>
+</div>
+
+<div id="cb-search-div" style="position: fixed; right: 16px; bottom: 20px">
+    <span class="hint hint--left" data-hint="双击Ctrl键打开或关闭搜索" id="id_span_search_open"></span>
+</div>
+
+</footer>
+    </div>
+    <script data-main="/js/main.js" src="//cdn.bootcss.com/require.js/2.3.2/require.min.js" defer="defer" async="true" data-no-instant></script>
+
+
+
+<!-- Google Analytics -->
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-82374871-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+<!-- End Google Analytics -->
+
+
+<!-- <div class="scroll" id="scroll">
+    <a href="#" title="返回顶部"><i class="fa fa-arrow-up"></i></a>
+    <a href="#comments" onclick="load$hide()" title="查看评论"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer" title="转到底部"><i class="fa fa-arrow-down"></i></a>
+</div> -->
+<script>
+    // Open in New Window
+    
+        var oOpenInNew = {
+            
+            
+            
+            
+            
+            
+             archives: ".archive-article-title", 
+             miniArchives: "a.post-list-link", 
+            
+             friends: "#js-friends a", 
+            
+        }
+        for (var x in oOpenInNew) {
+            $(oOpenInNew[x]).attr("target", "_blank");
+        }
+    
+</script>
+
+
+<script type="text/javascript" data-no-instant>
+
+    String.prototype.endWith = function(s) {
+      if(s==null||s==""||this.length==0||s.length>this.length)
+        return false;
+      if(this.substring(this.length-s.length)==s)
+        return true;
+      else
+        return false;
+      return true;
+    }
+
+    String.prototype.startWith = function(s) {
+      if(s==null||s==""||this.length==0||s.length>this.length)
+        return false;
+      if(this.substr(0,s.length)==s)
+        return true;
+      else
+        return false;
+      return true;
+    }
+
+    //是否是文章
+    function is_post(){//根据自己实际需要来判断
+      var url = window.location.pathname;
+      var urlArray = url.split("/");
+      if(urlArray.length > 2){
+        var id = $(".article").eq(0).attr("id");
+        var resultUrl = "post-" + urlArray[urlArray.length - 2];
+        if(resultUrl == id){
+          return true;
+        }
+      }
+      return false;
+      // if($("#id_header_post").length > 0){
+      //   return true;
+      // }
+      // return false;
+
+      //return yiliaConfig.isPost;
+    }
+
+    function is_archive() {
+      // if($("#id_archives").length > 0){
+      //   return true;
+      // }
+      // return false;
+      var url = window.location.pathname;
+      if(url.startWith("/archives/")){
+        return true;
+      }
+      return false;
+      //return yiliaConfig.isArchive;
+    }
+
+    function is_tag() {
+      var url = window.location.pathname;
+      if(url.startWith("/tags/")){
+        return true;
+      }
+      return false;
+    }
+
+    function is_category(){
+      var url = window.location.pathname;
+      if(url.startWith("/categories/")){
+        return true;
+      }
+      return false;
+      //return yiliaConfig.isCategory;
+    }
+
+    function is_home(){
+      var url = window.location.pathname;
+      if(url == '/'){
+        return true;
+      }
+      return false;
+    }
+
+    var slide = function(idx) {
+        // 修复IE10+切换无效的bug
+        var $wrap = $(".switch-wrap"),
+            transform = [
+                '-webkit-transform: translate(-' + idx * 100 + '%, 0);',
+                '-moz-transform: translate(-' + idx * 100 + '%, 0);',
+                '-o-transform: translate(-' + idx * 100 + '%, 0);',
+                '-ms-transform: translate(-' + idx * 100 + '%, 0);',
+                'transform: translate(-' + idx * 100 + '%, 0);'
+            ];
+        $wrap[0].style.cssText = transform.join('');
+        $(".icon-wrap").addClass("hide");
+        $(".icon-wrap").eq(idx).removeClass("hide");
+    }
+
+    var toggleTocArea = function(){
+        var valueHide = yiliaConfig.toc[0];
+        var valueShow = yiliaConfig.toc[1];
+        if ($(".left-col").is(":hidden")) {
+            $("#tocButton").attr("value", valueShow);
+        }
+        $("#tocButton").click(function() {
+            if ($("#toc").is(":hidden")) {
+                $("#tocButton").attr("value", valueHide);
+                $("#toc").slideDown(320);
+                $(".switch-btn, .switch-area").fadeOut(300);
+            }
+            else {
+                $("#tocButton").attr("value", valueShow);
+                $("#toc").slideUp(350);
+                $(".switch-btn, .switch-area").fadeIn(500);
+            }
+        })
+    }
+
+    var HideTOCifNoHeader = function(){
+        if (!$(".toc").length) {
+            $("#toc, #tocButton").hide();
+            $(".switch-btn, .switch-area").show();
+        }
+    }
+
+    var clickIcon = function(){
+        $("#toc .toc-item > i").click(function(){
+            $(this).siblings(".toc-child").slideToggle(100);
+            $(this).toggleClass("hide");
+            $(this).siblings("i").toggleClass("hide");
+        })
+    }
+
+    var clickTitle = function(){
+        var $itemHasChild = $("#toc .toc-item:has(> .toc-child)");
+        var $titleHasChild = $itemHasChild.children(".toc-link");
+        $titleHasChild.dblclick(function(){//双击隐藏子目录
+            $(this).siblings(".toc-child").hide(100);
+            $(this).siblings("i").toggleClass("hide");
+        })
+        // After dblclick enent
+        $titleHasChild.click(function(){
+            var $curentTocChild = $(this).siblings(".toc-child");
+            if ($curentTocChild.is(":hidden")) {
+                $curentTocChild.show(100);
+                $(this).siblings("i").toggleClass("hide");
+            }
+        })
+    }
+
+    var clickTocTitle = function(){
+        var $itemHasChild = $("#toc .toc-item:has(> .toc-child)");
+        var $titleHasChild = $itemHasChild.children(".toc-link");
+        var $iconToExpand = $(".toc-item > .fa-caret-right");
+        var $iconToFold = $(".toc-item > .fa-caret-down");
+        var $subToc = $titleHasChild.next(".toc-child");
+        $iconToExpand.addClass("hide");
+
+        var $tocTitle = $("#toc .toc-title");
+        if ($titleHasChild.length) {
+            $tocTitle.addClass("clickable");
+            $tocTitle.click(function(){
+                if ($subToc.is(":hidden")) {
+                    $subToc.show(150);
+                    $iconToExpand.removeClass("hide");
+                    $iconToFold.addClass("hide");
+                } else {
+                    $subToc.hide(100);
+                    $iconToExpand.addClass("hide");
+                    $iconToFold.removeClass("hide");
+                }
+            })
+            // TOC on mobile
+            if ($(".left-col").is(":hidden")) {
+                $("#container .toc-article .toc").css("padding-left", "1.4em");
+                $("#container .toc-article .toc-title").css("display", "initial");
+            }
+        }
+    }
+
+    var TocNoWarp = function(cond){
+        if (cond) {
+            var $tocLink = $(".toc li a");
+            $tocLink.each(function(){
+                var title = $(this).find('.toc-text').text();
+                // Find elements with ellipsis
+                if (this.offsetWidth < this.scrollWidth) {
+                    $(this).attr("title", title);
+                    if (!!$().tooltip) { $(this).tooltip() }
+                }
+            })
+            var isSafari = !!navigator.userAgent.match(/Version\/[\d\.]+.*Safari/);
+            if (isSafari) {
+                $("#toc .toc-item i").css("bottom", ".1em");
+            }
+        }
+    }
+
+    // 异步加载css
+    function loadCss (cssUrl, callback) {
+      var elem, bl,
+          isExecuted = false; // 防止在ie9中，callback执行两次
+
+      if ( cssUrl == null ) {
+          return String(cssUrl);
+      }
+      elem = document.createElement('link'),
+      elem.rel = 'stylesheet';
+      if ( typeof callback === 'function' )  {
+          bl = true;
+      }
+
+      // for ie
+      function handle() {
+          if ( elem.readyState === 'loaded' || elem.readyState === 'complete' ) {
+              if (bl && !isExecuted) {
+                  callback();
+                  isExecuted = true;
+              }
+              elem.onreadystatechange = null;
+          }
+      }
+      elem.onreadystatechange = handle;
+
+      // for 非ie
+      if (bl && !isExecuted) {
+          elem.onload = callback;
+          isExecuted = true;
+      }
+
+      elem.href = cssUrl;
+      document.getElementsByTagName('head')[0].appendChild(elem);
+    }
+
+    //异步加载js
+    function loadScript(scriptUrl, callback) {
+      var elem, bl,
+          isExecuted = false; // 防止在ie9中，callback执行两次
+
+      if (scriptUrl == null) {
+          return String(fn);
+      }
+      elem = document.createElement('script');
+      if ( typeof callback === 'function' )  {
+          bl = true;
+      }
+
+      // for ie
+      function handle(){
+          var status = elem.readyState;
+          if (status === 'loaded' || status === 'complete') {
+              if (bl && !isExecuted) {
+                  callback();
+                  isExecuted = true;
+              }
+              elem.onreadystatechange = null;
+          }
+      }
+      elem.onreadystatechange = handle;
+
+      // for 非ie
+      if (bl && !isExecuted) {
+          elem.onload = callback;
+          isExecuted = true;
+      }
+
+      elem.src = scriptUrl;
+      document.getElementsByTagName('head')[0].appendChild(elem);
+    }
+
+    //instantclick回调
+    var afterChange = function (isChange) {
+      switchSysBar(isChange, false);
+      var isPostPage = null;
+      if(isPostPage == null){
+        isPostPage = is_post();
+      }
+      if(isPostPage && !isChange){//如果是文章，则设置目录功能
+        $("#instantclick").remove();
+        $("#instantclick-bar").remove();
+        yiliaConfig.toc = ["隐藏目录", "显示目录", !!"false"];
+        toggleTocArea();
+        HideTOCifNoHeader();
+        var $itemHasChild = $("#toc .toc-item:has(> .toc-child)");
+        var $titleHasChild = $itemHasChild.children(".toc-link");
+        $itemHasChild.prepend("<i class='fa fa-caret-down'></i><i class='fa fa-caret-right'></i>");
+        clickIcon();
+        clickTitle();
+        clickTocTitle();
+        TocNoWarp(yiliaConfig.toc[2]);
+        miniArchives();
+        $(".article").css("opacity", "1.0");//结束后要将文章显示
+      } else if(is_home() && !isChange){
+        loadCss("//cdn.bootcss.com/semantic-ui/0.19.3/css/semantic.min.css", function(){
+          jQuery.getScript("//cdn.bootcss.com/semantic-ui/0.19.3/javascript/semantic.min.js").done(function(){
+            $(".article").removeClass("animated");
+            $(".article").css("opacity", "1.0");//结束后要将文章显示
+          });
+        });
+      } else {//暂时解决在分类标签页打开其它页面后，返回分类标签页加载页面出错的问题
+        var url = window.location.pathname;
+        if(!isChange){
+          if(url == "/tags/"){
+            window.location.reload();
+            return;
+          } else if(url.startWith("/page/")){
+            $(".article").css("opacity", "1.0");//结束后要将文章显示
+          }
+        }
+      }
+      if(is_archive()){
+        $("#id_archives").css("opacity", "1.0");
+      }
+      $(document).ready(function () {
+          resetPageOpacity();
+          hideLabels();
+          resetTags();
+
+          $("img.lazy").lazyload({
+            placeholder : "/img/loading0_3.gif",
+            effect : "fadeIn"
+          });
+
+          var avatarIcons = ["/img/running.jpg", "/img/buerrong.png"];
+          var iconIndex = Math.floor(Math.random()*(avatarIcons.length));
+          var avatarPath = avatarIcons[iconIndex];
+          //本机宽度798、高度638
+          resetTitile();
+          addAvatar(avatarPath);
+          resetPageWidth();
+          setTitleSerialNum();
+          tipBoxFunc();
+          scroll2Top();
+          otherSettings(isChange, is_post(), is_home());
+          baiduShare();
+          if(isPostPage){
+            setHightLigth();
+            copyCode();
+            copyRight();
+          }
+          leftSearch();
+          mobileSearch();
+          rightSearch();
+
+          // $.cachedScript('https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js').done(function () {
+          //   console.log("dddddddd");
+          // });
+          jQuery.getScript("https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js").done(function(){
+          });
+
+          
+              $.cachedScript('//hm.baidu.com/hm.js?e15be48aed697986b2e1f55a831ee570').done(function () {
+              });
+          
+
+          if(isPostPage) {
+            jQuery.getScript('//push.zhanzhang.baidu.com/push.js').done(function () {
+            });
+            //目录随着页面滚动页高亮标题
+            jQuery.getScript('/plugins/js/scrollHighlight.js').done(function(){
+              $(".toc-article").scrollHighlight({childItem:'a', container:'.article-content', attribute:'href'});
+            });
+          }
+          addTextAnimation();
+          playTextAnimation();
+          textAnimationClick(avatarPath);
+
+          codeRain();
+          switchFoldLeft();
+          //duoshuoComments();
+          //neteaseCommnets();
+      });
+    }
+
+    //左侧搜索
+    var leftSearch = function() {
+      if (yiliaConfig.search) {
+        jQuery.getScript(yiliaConfig.rootUrl + 'js/search.js').done(function(){
+          var inputArea = document.querySelector("#local-search-input");
+          var $HideWhenSearch = $("#toc, #tocButton, .post-list, #post-nav-button a:nth-child(2)");
+          var $resetButton = $("#search-form .button");
+          var $resultArea = $("#local-search-result");
+
+          var getSearchFile = function() {
+              var search_path = "search.xml";
+              var path = yiliaConfig.rootUrl + search_path;
+              searchFunc(path, 'local-search-input', 'local-search-result');
+          }
+
+          var getFileOnload = inputArea.getAttribute('searchonload');
+          if (yiliaConfig.search && getFileOnload === "true") {
+              getSearchFile();
+          } else {
+              inputArea.onfocus = function() {
+                  getSearchFile()
+              }
+          }
+
+          var HideTocArea = function() {
+              $HideWhenSearch.css("visibility", "hidden");
+              $resetButton.show();
+          }
+          inputArea.oninput = function() {
+              HideTocArea()
+          }
+          inputArea.onkeydown = function() {
+              if (event.keyCode == 13) return false
+          }
+
+          //搜索框删除按钮
+          resetSearch = function() {
+              $HideWhenSearch.css("visibility", "initial");
+              $resultArea.html("");
+              document.querySelector("#search-form").reset();
+              $resetButton.hide();
+              $(".no-result").hide();
+              $("#left_col_div").css("overflow-y", "hidden");
+          }
+
+          //监控搜索框内容，内容为空时主动调用删除函数
+          $(function() {
+              $('#local-search-input').bind('input propertychange', function() {
+                  $('#result').html($(this).val().length + ' characters');
+                  var len = $(this).val().length;
+                  if (len <= 0) {
+                      var searchDel = document.getElementById("search-delete");
+                      searchDel.click();
+                  }
+              });
+          })
+
+          $resultArea.bind("DOMNodeRemoved DOMNodeInserted", function(e) {
+              if (!$(e.target).text()) {
+                  $(".no-result").show(200);
+                  $("#left_col_div").css("overflow-y", "hidden");
+              } else {
+                  $(".no-result").hide();
+                  $("#left_col_div").css("overflow-y", "auto").css("overflow-x", "hidden");
+              }
+          })
+        });
+      }
+    }
+
+    //弹出鸟屋
+    var tipBoxFunc = function() {
+      var Tips = (function() {
+
+          var $tipBox = $(".tips-box");
+
+          return {
+              show: function() {
+                  $tipBox.removeClass("hide");
+              },
+              hide: function() {
+                  $tipBox.addClass("hide");
+              },
+              init: function() {
+
+              }
+          }
+      })();
+      var bind = function() {
+          var switchBtn = $("#myonoffswitch");
+          var tagcloud = $(".second-part");
+          var navDiv = $(".first-part");
+          switchBtn.click(function() {
+              if (switchBtn.hasClass("clicked")) {
+                  switchBtn.removeClass("clicked");
+                  tagcloud.removeClass("turn-left");
+                  navDiv.removeClass("turn-left");
+              } else {
+                  switchBtn.addClass("clicked");
+                  tagcloud.addClass("turn-left");
+                  navDiv.addClass("turn-left");
+                  resetTags();
+              }
+          });
+
+          var timeout;
+          var isEnterBtn = false;
+          var isEnterTips = false;
+
+          $(".icon").bind("mouseenter", function() {
+              isEnterBtn = true;
+              Tips.show();
+          }).bind("mouseleave", function() {
+              isEnterBtn = false;
+              setTimeout(function() {
+                  if (!isEnterTips) {
+                      Tips.hide();
+                  }
+              }, 100);
+          });
+
+          $(".tips-box").bind("mouseenter", function() {
+              isEnterTips = true;
+              Tips.show();
+          }).bind("mouseleave", function() {
+              isEnterTips = false;
+              setTimeout(function() {
+                  if (!isEnterBtn) {
+                      Tips.hide();
+                  }
+              }, 100);
+          });
+
+          $(".tips-inner li").bind("click", function() { //控制鸟屋点击事件
+              var idx = $(this).index();
+              if(idx == 3){
+                if ($("#my_signature").length <= 0) {
+                  $("#bee_div").append("<img id='my_signature' src='/img/bee.png' />");
+                }
+              } else if(idx == 4){
+                if($("#ds-recent-visitors").length <= 0){
+                  $("#js-visitor").append("<ul class='ds-recent-visitors' data-num-items='28' data-avatar-size='50' id='ds-recent-visitors'></ul>");
+                  DUOSHUO.RecentVisitors($("#ds-recent-visitors"));
+                }
+              }
+              slide(idx);
+              Tips.hide();
+          });
+
+          $(".QQ").bind("click", function() { //qq扫码
+              //var idx = $(this).index();
+              if ($("#my_qq").length <= 0) {
+                  $("#qq_div").append("<img id='my_qq' src='/img/qq.png' style='cursor:pointer; margin-top:-8px;' />");
+                  $("#my_qq").bind("click", function() { //qq扫码
+                    if ($("#my_wechat").length <= 0) {
+                        $("#wechat_div").append("<img id='my_wechat' src='/img/wechat.png' style='cursor:pointer; margin-left:12px;' />");
+                        $("#my_wechat").bind("click", function() { //微信扫码
+                            slide(5);
+                            Tips.hide();
+                        });
+                    }
+                      slide(6);
+                      Tips.hide();
+                  });
+              }
+              slide(5);
+              Tips.hide();
+          });
+
+          $(".WeChat").bind("click", function() { //微信扫码
+              //var idx = $(this).index();
+              if ($("#my_wechat").length <= 0) {
+                  $("#wechat_div").append("<img id='my_wechat' src='/img/wechat.png' style='cursor:pointer; margin-left:12px;' />");
+                  $("#my_wechat").bind("click", function() { //微信扫码
+                    if ($("#my_qq").length <= 0) {
+                        $("#qq_div").append("<img id='my_qq' src='/img/qq.png' style='cursor:pointer; margin-top:-8px;' />");
+                        $("#my_qq").bind("click", function() { //qq扫码
+                            slide(6);
+                            Tips.hide();
+                        });
+                    }
+                      slide(5);
+                      Tips.hide();
+                  });
+              }
+              slide(6);
+              Tips.hide();
+          });
+
+      }
+      bind();
+      Tips.init();
+    }
+
+    //左侧文章目录区域显示全部文章列表
+    var miniArchives = function() {
+        if (is_post()) {
+          if(!$("ul.post-list").hasClass("toc-article")){
+            $(".post-list").addClass("toc-article");
+            $("#post-nav-button > a:nth-child(2)").click(function() {
+                $("#post-nav-button .fa-bars,#post-nav-button .fa-times").toggle();
+                $(".post-list").toggle(300);
+                if ($(".toc").length > 0) {
+                    $("#toc, #tocButton").toggle(200, function() {
+                        if ($(".switch-area").is(":visible")) {
+                            $("#toc, .switch-btn, .switch-area").toggle();
+                            $("#tocButton").attr("value", yiliaConfig.toc[0]);
+                        }
+                    });
+                } else {
+                    $(".switch-btn, .switch-area").fadeToggle(300);
+                }
+            });
+          }
+        }
+    };
+
+    //设置标签的背景色
+    var resetTags = function(){
+       if(!checkMobile()){
+            var tags = $(".tagcloud a");
+            for(var i = 0; i < tags.length; i++){
+                var num = Math.floor(Math.random()*7);
+                tags.eq(i).addClass("color" + num);
+            }
+            $(".article-category a:nth-child(-n+2)").attr("class", "color0");
+        }
+    }
+
+    var resetTitile = function () {
+        <!-- 控制标题是否滚动 -->
+        var totalwidth = $(window).width();
+        var titles = document.getElementsByClassName("archive-item-title");
+        for (var i = 0; i < titles.length; i++) {
+            var title = titles[i];
+            <!-- 设置标题最大显示长度 -->
+            if (totalwidth >= 1800) {
+                title.style.maxWidth = "600px";
+            } else if (totalwidth >= 1550 && totalwidth < 1800) {
+                    title.style.maxWidth = "500px";
+            } else if (totalwidth < 700) {
+                title.style.maxWidth = "300px";
+                title.style.marginLeft = "-10px";
+            }
+
+            <!--　添加跑马灯效果 -->
+            var marquee = false;
+            var realLength = 0;
+            var str = title.innerText;
+            for (var j = 0; j < str.length; j++) {
+                charCode = str.charCodeAt(j);
+                if (charCode >= 0 && charCode <= 128) {
+                    realLength += 1;
+                } else {
+                    realLength += 2;
+                }
+            }
+            var max = 40;
+            if (totalwidth < 700) {
+                max = 34;
+            }
+            if (realLength > max) {
+                marquee = true;
+            }
+            if (marquee) {
+                var mar = document.createElement("marquee");
+                mar.setAttribute("behavior", "scroll");
+                mar.onmouseover = function () {
+                    this.stop();
+                }
+                mar.onmouseout = function () {
+                    this.start();
+                }
+                var parent = title.parentNode;
+                var _title = title.cloneNode(true);
+                mar.appendChild(_title);
+                parent.replaceChild(mar, title);
+            }
+        }
+
+        //设置页面标题
+        var str = document.title;
+        if (str.indexOf("移动开发") != 0) {
+            arr = str.split("|");
+            document.title = arr[0] + "|" + arr[2];
+        }
+    }
+
+    var addAvatar = function (avatarPath) {
+      
+        var animationNames = [
+					  "bounceIn", "fadeInRightBig", "rotateIn", "rollIn", "zoomIn", "bounceInDown",
+					],
+					len = animationNames.length,
+					randomAnimationName = animationNames[Math.ceil(Math.random() * len) - 1];
+        var imgAvatar = "<img id='blog_avatar' src='" + avatarPath + "' class='animated " + randomAnimationName + "' style='background: white;'/>";
+        var totalwidth = $(window).width();
+        if (checkMobile() || totalwidth < 700) {//移动端头像
+          imgAvatar = "<img id='blog_avatar' src='" + avatarPath + "'/>";
+          $("#id_avatar_a_mobile").append(imgAvatar);
+          if(avatarPath == '/img/buerrong.png'){
+            $("#blog_avatar").css("background", "white");
+          }
+        } else {
+          $("#id_avatar_a").append(imgAvatar);
+        }
+      
+    }
+
+    var resetPageWidth = function () {
+        //宽屏时设置页面宽度
+        var totalwidth = $(window).width();
+        if (totalwidth >= 1800) {
+            $(".body-wrap").css("max-width", "85em");
+            $(".body-wrap").css("width", "85em");
+        } else if (totalwidth >= 1500 && totalwidth < 1800) {
+            $(".body-wrap").css("max-width", "70em");
+            $(".body-wrap").css("width", "70em");
+        } else if (totalwidth <= 700) {
+            <!-- 设置移动端页面样式 -->
+            if (is_post() || is_archive() || is_category() || is_tag()) {
+      		    $(".article").each(function () {
+      			    $(this).css("margin-top", "0.625rem").css("margin-left", "-0.35rem").css("margin-right", "0.3rem").css("margin-bottom", "0.625rem");
+      		    })
+            } else {
+      		    $(".article").each(function () {
+      			    $(this).css("margin-top", "0.625rem").css("margin-left", "0.35rem").css("margin-right", "0.3rem").css("margin-bottom", "0.625rem");
+      		    })
+            }
+
+    	    //在小屏时距边界左边有点大了，所以距离减小
+    	    var curUrl = window.location.pathname;
+    	    var tagUrl = "/tags/"
+    	    var guestUrl = "/guestbook/";
+    	    var aboutUrl = "/about/";
+    	    var socialUrl = "/social/"
+    	    if(curUrl == tagUrl || curUrl == guestUrl || curUrl == aboutUrl || curUrl == socialUrl){
+    		    $(".article").each(function () {
+    			    $(this).css("margin-top", "0.625rem").css("margin-left", "-0.35rem").css("margin-right", "0.3rem").css("margin-bottom", "0.625rem");
+    		    })
+    	    }
+
+            //设置标题大小
+            $(".article-title-big").each(function () {
+                $(this).css("margin-left", "5px").css("font-size", "1.5rem");
+            })
+
+            $(".article-info-post").each(function () {
+                $(this).css("margin-left", "5px");
+            })
+        }
+    }
+
+    //给标题加上序号
+    var setTitleSerialNum = function () {
+        if(is_post()){
+            var existNumber = null;
+      			$("h2").each(function(){
+              if($(this).attr("exist-number") != undefined) {
+                existNumber = true;
+                return false;
+              }
+              $(this).css("margin-top", "0.5em");
+              $(this).css("margin-bottom", "0.3em");
+              var attr = $(this).attr("exist-number");
+              if(null == attr || undefined == attr){
+                $(this).attr("exist-number", true);
+              }
+            });
+            //已经设置过序号，将直接返回
+            if(existNumber){
+              return;
+            }
+
+            $("h3").each(function(){//控制h3标题的间隔
+              $(this).css("margin-top", "0.3em");
+              $(this).css("margin-bottom", "0.2em");
+            });
+
+            $("h4").each(function(){//控制h4标题的间隔
+              $(this).css("margin-top", "0.15em");
+              $(this).css("margin-bottom", "0.15em");
+            });
+
+      			var $article = $(".article-entry");
+      			var count = [0, 0, 0, 0, 0, 0];
+      			var mark = [0, 0, 0, 0, 0, 0];
+
+      			(function setMark() {
+      				var hTag = ["h1", "h2", "h3", "h4", "h5", "h6"];
+      				var index = 0;
+      				for (var i = 0; i < 6; ++i) {
+      					if ($article.children(hTag[i]).length > 0) {
+      						++index;
+      						mark[i] = index;
+      					}
+      				}
+      			})();
+
+      			$article.children(":header").each(function () {
+      				var t = $(this);
+      				var pos = 0;
+      				switch (t[0].tagName) {
+      					case "H1":
+      						pos = 0;
+      						break;
+      					case "H2":
+      						pos = 1;
+      						break;
+      					case "H3":
+      						pos = 2;
+      						break;
+      					case "H4":
+      						pos = 3;
+      						break;
+      					case "H5":
+      						pos = 4;
+      						break;
+      					case "H6":
+      						pos = 5;
+      						break;
+      				}
+
+      				var len = mark[pos];
+      				if (len < 6) {
+      					count[len] = 0;
+      				}
+      				count[len - 1]++;
+
+      				var listStr = count[0] + "";
+      				for (var i = 1; i < len; ++i) {
+      					listStr += "." + count[i];
+      				}
+      				listStr += "  ";
+      				t.html(listStr + t.html());
+      			});
+        } else {
+            //if (!checkMobile()) {
+            //	var heartspan = "<span class='htmleaf-links'><i class='heart' id='like3' rel='like'></i></span>";
+            //	$("#footerdiv").append(heartspan);
+            //底部红心动画
+            //	$('body').on("click", '.heart', function () {
+
+            //		var A = $(this).attr("id");
+            //		var B = A.split("like");
+            //		var messageID = B[1];
+            //		var C = parseInt($("#likeCount" + messageID).html());
+            //		$(this).css("background-position", "")
+            //		var D = $(this).attr("rel");
+
+            //		if (D === 'like') {
+            //			$("#likeCount" + messageID).html(C + 1);
+            //			$(this).addClass("heartAnimation").attr("rel", "unlike");
+            //		}
+            //		else {
+            //			$("#likeCount" + messageID).html(C - 1);
+            //			$(this).removeClass("heartAnimation").attr("rel", "like");
+            //			$(this).css("background-position", "left");
+            //		}
+            //	});
+            //}
+        }
+    }
+
+    //代码高亮
+    var setHightLigth = function () {
+        <!-- prettify代码高亮脚本引入 http://jumpbyte.cn/2016/07/02/use-and-install-prettify/-->
+        if (is_post()){
+          jQuery.getScript("//cdn.bootcss.com/prettify/r298/prettify.min.js")
+              .done(function() {
+                  /* 执行成功后的处理 */
+                  $('pre').addClass('prettyprint linenums').attr('style', 'white-space:pre;word-break: keep-all;overflow:auto;height:auto;width:auto;padding-top:5px;padding-bottom:5px;');
+                  <!-- 控制代码高度和滚动条 -->
+                  prettyPrint();
+              })
+              .fail(function() {
+                  /* 执行失败后的处理 */
+          });
+        }
+    }
+
+    var scroll2Top = function () {
+      jQuery.getScript('/plugins/js/gotop.js').done(function () {
+        $("body").append('<div id="backtoTop" data-action="gototop"><canvas id="backtoTopCanvas" width="48" height="48"></canvas><div class="per"></div></div>');
+        var T = bigfa_scroll;
+        T.backToTop($("#backtoTop"));
+        T.scrollHook($(window), "#666666");
+        try {
+          $(".flexslider").flexslider({
+            animation: "fade",
+            prevText: "",
+            nextText: "",
+            directionNav: true
+          });
+        } catch (e) {
+        }
+      });<!-- http://suninuni.com/2015/11/27/frontend/hexo/back-to-top/ -->
+    }
+
+    var otherSettings = function (isChange, isPostPage, isHome) {
+        var totalwidth = $(window).width();
+        if (!checkMobile()) {
+                //running
+          if (totalwidth <= 900) {
+            $(".body-wrap").css("margin-bottom", "116px");
+          }
+          if($("#id_keep_div").length <= 0){
+            var runningDiv = "<div id='id_keep_div' style='display:inline;'><span class='my-face' style='vertical-align:middle;'>小伙子，不要懒惰</span><a id='running_link' href='/running/index.html' target='_blank' data-no-instant><img src='/img/keep.png' style='vertical-align:middle;' /><img src='/img/keep.png' style='vertical-align:middle;' /><img src='/img/keep.png' style='vertical-align:middle;' /><img src='/img/keep.png' style='vertical-align:middle;' /><img src='/img/keep.png' style='vertical-align:middle;' /><img src='/img/keep.png' style='vertical-align:middle;' /></a></div>";
+            $(runningDiv).insertBefore("#web_count_div");
+          }
+          //添加左边栏ngudream效果
+          $("#ngudream_name").attr("class", "header-author cl-effect-2");
+          //移动端就不需要加载这几个图片了
+          //$("#qq_div").append("<img id='my_qq' src='/img/qq.png' style='cursor:pointer; margin-top:-8px;' />");
+          //$("#wechat_div").append("<img id='my_wechat' src='/img/wechat.png' style='cursor:pointer; margin-left:12px;' />");
+          //$("#bee_div").append("<img src='/img/bee.png' />");
+          //不显示右下角的搜索按钮
+          //$("#cb-close-btn").css("opacity", 0);
+          //$("#cb-search-btn").css("opacity", 0);
+
+          //点击弹出心形
+          //console.log(isChange, isPostPage, isHome);
+          if(isChange && !isPostPage && isHome){
+            jQuery.getScript('/js/love.js').done(function () {
+            });
+          }
+
+        	var curUrl = window.location.pathname;
+        	var tagUrl = "/tags/"
+        	var guestUrl = "/guestbook/";
+        	var aboutUrl = "/about/";
+        	var archiveUrl = "/archives/";
+        	var welfareUrl = "/404.html";
+        	if(curUrl == tagUrl || curUrl == guestUrl || curUrl == aboutUrl || curUrl == archiveUrl || curUrl == welfareUrl){
+            try {
+              	$(".tips-inner").find("li")[4].remove();
+            } catch (e) {
+            }
+        	}
+        	if(is_category() || is_tag()) {
+            try {
+              $(".tips-inner").find("li")[4].remove();
+            } catch (e) {
+            }
+        	}
+        	console.log("screen.height = " + screen.height + ", screen.width = " + screen.width);
+        } else {
+          if (is_post()) {
+            <!-- 移动端不显示提示 -->
+            $("#copyright_author").attr("class", "");
+            $("#copyright_url").attr("class", "");
+            $("#copyright_license").attr("class", "");
+          }
+          $("#id_wordcount_span").css("margin-left", "");
+          $(".body-wrap").css("margin-bottom", "110px");//移动端页面底部距离大一点
+          // if (totalwidth > 900) {//已合并到special.css
+          //   $("<link>")
+          //         .attr({
+          //           rel: "stylesheet",
+          //           type: "text/css",
+          //           href: "/plugins/hint/hint.min.css"
+          //         })
+          //         .appendTo("head");
+          //   $("<link>")
+          //         .attr({
+          //             rel: "stylesheet",
+          //             type: "text/css",
+          //             href: "/plugins/font/style3.css"
+          //         })
+          //         .appendTo("head");
+          //   $("<link>")
+          //         .attr({
+          //             rel: "stylesheet",
+          //             type: "text/css",
+          //             href: "/plugins/heart/style.css"
+          //         })
+          //         .appendTo("head");
+          //   }
+                    //左边栏缩小
+            if (totalwidth > 900 && totalwidth < 1200) {
+                $(".left-col").css("width", "250px");
+                $(".mid-col").css("margin-left", "-50px");
+                if (is_post()) {
+                      $("#toc").css("width", "180px");
+                      $("#tocButton").css("margin-left", "-50px");
+                      $("#post-nav-button").css("margin-left", "-50px");
+                }
+            }
+            //监听横竖屏转
+            window.addEventListener('orientationchange', function (event) {
+                if (window.orientation == 180 || window.orientation == 0) {
+                    window.location.reload();//横屏
+                    //$("#cb-search-div").removeAttr("style");
+                    //$("#cb-search-div").css("float", "left").css("margin-left", "15px");
+                } else {
+                    window.location.reload();//竖屏
+                }
+            });
+
+            $("#cb-search-content").removeAttr("style");
+            $("#cb-search-content").css("margin-left", "-115px").css("width", "70%").css("font-size", "1.2em").css("height", "30px")
+                            .css("margin-top", "80px").css("border-radius", "50px");
+            $("#cb-close-div").css("margin-top", "50px")
+
+                    //移动端显示公益为腾讯404
+            $("#publicwelfare").attr("href", "/publicwelfare/baby-back-home.html");
+        }
+    }
+
+    var copyCode = function () {
+        <!-- 代码的复制功能 -->
+        var totalwidth = $(window).width();
+        var clipboard = new Clipboard('.copyspan');
+        var nodes = document.getElementsByTagName("pre");
+
+        for (var i = 0; i < nodes.length; i++) {
+            var code = nodes[i];
+            if($(code).find(".copyspan").length <= 0){
+              code.onmouseover = function () {//鼠标进入时再显示复制按钮
+                  $(this).find(".copyspan").show();
+              }
+              code.onmouseout = function () {
+                  $(this).find(".copyspan").hide();
+              }
+              <!-- 添加复制按钮 -->
+              var span = document.createElement("span");
+              span.className = "copyspan";
+              span.style.width = "100%";
+              span.style.textAlign = "right";
+              var copy = document.createElement("i");
+              copy.style.cursor = "pointer";
+              <!--  设置鼠标手形 -->
+              copy.style.float = "right";
+              copy.style.marginRight = "10px"
+              copy.className = "fa fa-clipboard";
+              copy.setAttribute("title", "●'◡'●点我复制");
+              span.setAttribute("data-clipboard-text", code.innerText);
+              <!-- 复制的内容为code块 -->
+              span.appendChild(copy);
+              var height = code.offsetHeight;
+              if (totalwidth > 700) {
+                  if (height > 100) {
+                      copy.style.marginTop = "5px"
+                      code.insertBefore(span, code.firstChild);
+                  }
+              } else {
+                  if (height > 100) {
+                      //code.insertAfter(span, code.firstChild);
+                      insertAfter(span, code.firstChild);
+                  }
+              }
+              $(span).hide();
+            }
+        }
+
+        <!-- 在节点targetEl后面播入一个新元素newEl -->
+        function insertAfter(newEl, targetEl) {
+            var parentEl = targetEl.parentNode;
+            if (parentEl.lastChild == targetEl) {
+                parentEl.appendChild(newEl);
+            } else {
+                parentEl.insertBefore(newEl, targetEl.nextSibling);
+            }
+        }
+    }
+
+    var copyRight = function () {
+        var pageRightCopy = new Clipboard('.copy-path');
+        if (false && is_post()) {
+            //复制网页内容自动添加版权信息
+            var copyright = document.getElementsByClassName("copyright");
+            if (copyright.length > 0) {
+                function addCopyRight() {
+                    var clipboard = new Clipboard('.copycontent');
+                    var body_element = document.body;
+                    var selection = window.getSelection();
+                    if (window.clipboardData) { // Internet Explorer
+                        var pagelink = "\r\n\r\n 原文出自「ngudream」转载请保留原文链接: " + document.location.href + "";
+                        var copytext = selection + pagelink;
+                        window.clipboardData.setData("Text", copytext);
+                        return false;
+                    } else {
+                        var pagelink = "\r\n 原文出自「ngudream」转载请保留原文链接: " + document.location.href + "";
+                        var copytext = selection + pagelink;
+                        var newdiv = document.createElement('div');
+                        newdiv.className = "copycontent";
+                        newdiv.setAttribute("data-clipboard-text", copytext);
+                        body_element.appendChild(newdiv);
+                        newdiv.click();
+                        //selection.selectAllChildren(newdiv);
+                        window.setTimeout(function () {
+                            body_element.removeChild(newdiv);
+                            }, 0);
+                    }
+                    clipboard.destroy();
+                }
+                document.oncopy = addCopyRight;
+            }
+        }
+    }
+
+    var baiduShare = function () {
+        //处理百度分享
+        var elem = document.getElementsByClassName("bdsharebuttonbox");
+        if (elem.length > 0) {
+            var elemDiv = elem[0];
+            var elem_child = elemDiv.childNodes;//得到参数元素的所有子元素
+            for (var i = 0; i < elem_child.length; i++) { //遍历子元素
+                var childA = elem_child[i];
+                if (childA.className == "fa fa-share-alt bds_more") {
+                    childA.parentNode.removeChild(childA);//删除更多
+                    continue;
+                }
+                if (childA.className != undefined) {
+                    var span = document.createElement("span");
+                    var _sel = childA.cloneNode(true);
+                    _sel.title = "";
+                    span.appendChild(_sel);
+                    span.setAttribute("class", "hint  hint--top");
+                    span.setAttribute("data-hint", childA.title);
+                    childA.parentNode.replaceChild(span, childA);
+                }
+            }
+        }
+    }
+
+    var rightSearch = function () {
+      //右下角搜索
+  		var time1 = 0;
+      var show = false;
+      var names = new Array(); //文章名字等
+      var urls = new Array(); //文章地址
+      $(document).keyup(function (e) {
+          var time2 = new Date().getTime();
+          if (e.keyCode == 17) {
+              var gap = time2 - time1;
+              time1 = time2;
+              if (gap < 500) {
+                  if (show) {
+                      $(".cb-search-tool").css("display", "none");
+                      show = false;
+                  } else {
+                      $(".cb-search-tool").css("display", "block");
+                      show = true;
+                      $("#cb-search-content").val("");
+                      $("#cb-search-content").focus();
+                  }
+                  time1 = 0;
+              }
+  			    } else if(e.keyCode == 27){
+                $(".cb-search-tool").css("display", "none");
+                show = false;
+                time1 = 0;
+            }
+      });
+
+   		$("#cb-search-content").keyup(function (e) {
+          var time2 = new Date().getTime();
+          if (e.keyCode == 17) {
+              var gap = time2 - time1;
+              time1 = time2;
+              if (gap < 500) {
+                  if (show) {
+                      $(".cb-search-tool").css("display", "none");
+                      show = false;
+                  } else {
+                      $(".cb-search-tool").css("display", "block");
+                      show = true;
+                      $("#cb-search-content").val("");
+                      $("#cb-search-content").focus();
+                  }
+                  time1 = 0;
+              }
+          }
+      });
+
+      $("#cb-close-btn").click(function () {
+          $(".cb-search-tool").css("display", "none");
+          show = false;
+          time1 = 0;
+      });
+
+      $("#cb-search-btn").click(function(){
+          $(".cb-search-tool").css("display", "block");
+          show = true;
+          $("#cb-search-content").val("");
+          $("#cb-search-content").focus();
+          time1 = 0;
+      });
+
+      $.getJSON("/search/cb-search.json").done(function (data) {
+          if (data.code == 0) {
+              for (var index in data.data) {
+                  var item = data.data[index];
+                  names.push(item.title);
+                  urls.push(item.url);
+              }
+
+  				    $("#dropdown-menu").css("font-size", "1.2em");
+
+              $("#cb-search-content").typeahead({
+                    source: names,
+                    afterSelect: function (item) {
+    						    $(".cb-search-tool").css("display", "none");
+                    show = false;
+                    window.location.href = (urls[names.indexOf(item)]);
+                    return item;
+                  }
+              });
+           }
+        }).error(function(data, b) { console.log("json解析错误，搜索功能暂不可用，请检查文章title，确保不含有换行等特殊符号"); });
+    }
+
+    //移动端添加搜索图标
+    var mobileSearch = function(){
+      if(checkMobile()){
+        $("#id_span_search_close").append("<img src='/search/img/cb-close.png' id='cb-close-btn'/>");
+        $("#id_span_search_open").append("<img src='/search/img/cb-search.png' id='cb-search-btn'/>");
+      }
+    }
+
+    //左边栏coding change动画
+    var addTextAnimation = function (){
+      var textAnimations = [
+      "rw-words rw-words-1", "cd-headline rotate-1", "cd-headline clip", "cd-headline slide",
+       "cd-headline zoom", "cd-headline letters scale", "cd-headline push", "cd-headline loading-bar"
+      ],
+      textLen = textAnimations.length,
+      textIndex = Math.ceil(Math.random() * textLen) - 1,
+      textAnimationName = textAnimations[textIndex];
+      if(textIndex != 0){
+        $("#id_span_change").remove();
+        $("#id_normal_text_anim").remove();
+        var textAnimView = "<div id='id_span_change'><span>Coding Changes the</span><span class='cd-words-wrapper' style='margin-left:4px;'><b class='is-visible' style='font-weight:normal !important;color: #6b889d;'>World</b><b style='font-weight:normal !important;color: #6b739d;'>Never</b><b style='font-weight:normal !important;color: #7a6b9d;'>Give</b><b style='font-weight:normal !important;color: #7a6b9d;'>Up</b><b style='font-weight:normal !important;color: #7a6b9d;'>Dream</b></span></div>";
+        $("#id_hgroup_name").after(textAnimView);
+        var newClass = textAnimationName + " header-subtitle";
+        $("#id_span_change").attr("class", newClass);
+      }
+    }
+
+    var playTextAnimation = function () {
+      //set animation timing
+    	var animationDelay = 2500,
+    		//loading bar effect
+    		barAnimationDelay = 3800,
+    		barWaiting = barAnimationDelay - 3000, //3000 is the duration of the transition on the loading bar - set in the scss/css file
+    		//letters effect
+    		lettersDelay = 50,
+    		//type effect
+    		typeLettersDelay = 150,
+    		selectionDuration = 500,
+    		typeAnimationDelay = selectionDuration + 800,
+    		//clip effect
+    		revealDuration = 600,
+    		revealAnimationDelay = 1500;
+
+    	initHeadline();
+
+
+    	function initHeadline() {
+    		//insert <i> element for each letter of a changing word
+    		singleLetters($('.cd-headline.letters').find('b'));
+    		//initialise headline animation
+    		animateHeadline($('.cd-headline'));
+    	}
+
+    	function singleLetters($words) {
+    		$words.each(function(){
+    			var word = $(this),
+    				letters = word.text().split(''),
+    				selected = word.hasClass('is-visible');
+    			for (i in letters) {
+    				if(word.parents('.rotate-2').length > 0) letters[i] = '<em>' + letters[i] + '</em>';
+    				letters[i] = (selected) ? '<i class="in">' + letters[i] + '</i>': '<i>' + letters[i] + '</i>';
+    			}
+    		    var newLetters = letters.join('');
+    		    word.html(newLetters);
+    		});
+    	}
+
+    	function animateHeadline($headlines) {
+    		var duration = animationDelay;
+    		$headlines.each(function(){
+    			var headline = $(this);
+
+    			if(headline.hasClass('loading-bar')) {
+    				duration = barAnimationDelay;
+    				setTimeout(function(){ headline.find('.cd-words-wrapper').addClass('is-loading') }, barWaiting);
+    			} else if (headline.hasClass('clip')){
+    				var spanWrapper = headline.find('.cd-words-wrapper'),
+    					newWidth = spanWrapper.width() + 10
+    				spanWrapper.css('width', newWidth);
+    			} else if (!headline.hasClass('type') ) {
+    				//assign to .cd-words-wrapper the width of its longest word
+    				var words = headline.find('.cd-words-wrapper b'),
+    					width = 0;
+    				words.each(function(){
+    					var wordWidth = $(this).width();
+    				    if (wordWidth > width) width = wordWidth;
+    				});
+    				headline.find('.cd-words-wrapper').css('width', width);
+    			};
+
+    			//trigger animation
+    			setTimeout(function(){ hideWord( headline.find('.is-visible').eq(0) ) }, duration);
+    		});
+    	}
+
+    	function hideWord($word) {
+    		var nextWord = takeNext($word);
+
+    		if($word.parents('.cd-headline').hasClass('type')) {
+    			var parentSpan = $word.parent('.cd-words-wrapper');
+    			parentSpan.addClass('selected').removeClass('waiting');
+    			setTimeout(function(){
+    				parentSpan.removeClass('selected');
+    				$word.removeClass('is-visible').addClass('is-hidden').children('i').removeClass('in').addClass('out');
+    			}, selectionDuration);
+    			setTimeout(function(){ showWord(nextWord, typeLettersDelay) }, typeAnimationDelay);
+
+    		} else if($word.parents('.cd-headline').hasClass('letters')) {
+    			var bool = ($word.children('i').length >= nextWord.children('i').length) ? true : false;
+    			hideLetter($word.find('i').eq(0), $word, bool, lettersDelay);
+    			showLetter(nextWord.find('i').eq(0), nextWord, bool, lettersDelay);
+
+    		}  else if($word.parents('.cd-headline').hasClass('clip')) {
+    			$word.parents('.cd-words-wrapper').animate({ width : '2px' }, revealDuration, function(){
+    				switchWord($word, nextWord);
+    				showWord(nextWord);
+    			});
+
+    		} else if ($word.parents('.cd-headline').hasClass('loading-bar')){
+    			$word.parents('.cd-words-wrapper').removeClass('is-loading');
+    			switchWord($word, nextWord);
+    			setTimeout(function(){ hideWord(nextWord) }, barAnimationDelay);
+    			setTimeout(function(){ $word.parents('.cd-words-wrapper').addClass('is-loading') }, barWaiting);
+
+    		} else {
+    			switchWord($word, nextWord);
+    			setTimeout(function(){ hideWord(nextWord) }, animationDelay);
+    		}
+    	}
+
+    	function showWord($word, $duration) {
+    		if($word.parents('.cd-headline').hasClass('type')) {
+    			showLetter($word.find('i').eq(0), $word, false, $duration);
+    			$word.addClass('is-visible').removeClass('is-hidden');
+
+    		}  else if($word.parents('.cd-headline').hasClass('clip')) {
+    			$word.parents('.cd-words-wrapper').animate({ 'width' : $word.width() + 10 }, revealDuration, function(){
+    				setTimeout(function(){ hideWord($word) }, revealAnimationDelay);
+    			});
+    		}
+    	}
+
+    	function hideLetter($letter, $word, $bool, $duration) {
+    		$letter.removeClass('in').addClass('out');
+
+    		if(!$letter.is(':last-child')) {
+    		 	setTimeout(function(){ hideLetter($letter.next(), $word, $bool, $duration); }, $duration);
+    		} else if($bool) {
+    		 	setTimeout(function(){ hideWord(takeNext($word)) }, animationDelay);
+    		}
+
+    		if($letter.is(':last-child') && $('html').hasClass('no-csstransitions')) {
+    			var nextWord = takeNext($word);
+    			switchWord($word, nextWord);
+    		}
+    	}
+
+    	function showLetter($letter, $word, $bool, $duration) {
+    		$letter.addClass('in').removeClass('out');
+
+    		if(!$letter.is(':last-child')) {
+    			setTimeout(function(){ showLetter($letter.next(), $word, $bool, $duration); }, $duration);
+    		} else {
+    			if($word.parents('.cd-headline').hasClass('type')) { setTimeout(function(){ $word.parents('.cd-words-wrapper').addClass('waiting'); }, 200);}
+    			if(!$bool) { setTimeout(function(){ hideWord($word) }, animationDelay) }
+    		}
+    	}
+
+    	function takeNext($word) {
+    		return (!$word.is(':last-child')) ? $word.next() : $word.parent().children().eq(0);
+    	}
+
+    	function takePrev($word) {
+    		return (!$word.is(':first-child')) ? $word.prev() : $word.parent().children().last();
+    	}
+
+    	function switchWord($oldWord, $newWord) {
+    		$oldWord.removeClass('is-visible').addClass('is-hidden');
+    		$newWord.removeClass('is-hidden').addClass('is-visible');
+    	}
+    }
+
+    var textAnimationClick = function (avatarPath) {
+          var totalHeight = screen.height;
+          if (!is_post()) {
+            if(totalHeight >= 700){//左边栏足够高才显示图片
+              if($("#left_show_div").length <= 0){
+                var curDate = new Date();
+                var date = curDate.getDate();
+                var time = Date.parse(new Date());
+                var lastTime = Date.parse("2017-02-01");
+                var day = parseInt((time -lastTime)/(1000*60*60*24));
+                var path = '/img/daily_pic/' + (day % 167) + '.png';
+                var avatarIndex = Math.ceil(Math.random()*30);
+                var newAvatar = '/img/avatar/' + avatarIndex + '.png';
+                //console.log(path);
+                var year_div = "<div align=center id='left_show_div' ><img src=" + path + " id='2017_year' style='cursor:pointer;'/></div>";
+                $("#left_col_div").append(year_div);
+
+                if(totalHeight >= 1000){//左侧鼠标进入显示滚动条
+                  $("#left_col_div").mouseenter(function(){
+                    $("#left_col_div").css("overflow-y", "auto").css("overflow-x", "hidden");
+                  });
+
+                  $("#left_col_div").mouseleave(function(){
+                    $("#left_col_div").css("overflow-y", "hidden").css("overflow-x", "hidden");
+                  });
+                } else if(totalHeight >= 700){
+                  $("#left_col_div").css("overflow-y", "hidden").css("overflow-x", "hidden");
+                  var clickCount = 0;
+                  $("#id_span_change").css("cursor", "pointer").click(function(){
+                    if((clickCount % 2) == 0){
+                      $("#left_col_div").css("overflow-y", "auto").css("overflow-x", "hidden");
+                    } else {
+                      $("#left_col_div").css("overflow-y", "hidden").css("overflow-x", "hidden");
+                    }
+                    clickCount++;
+                  });
+                  var avatarOut = false;
+                  $("#id_avatar_a").mouseenter(function(){
+                    if(!avatarOut){
+                      avatarOut = true;
+                      $("#blog_avatar").attr("src", newAvatar).attr("class", "animated rotateInDownLeft").css("background", "#fafafa").css("border-radius","50px");
+                    }
+                  });
+
+                  $("#id_avatar_a").mouseleave(function(){
+                    if(avatarOut){
+                      avatarOut = false;
+                      $("#blog_avatar").attr("src", avatarPath).attr("class", "animated rotateInDownRight");
+                    }
+                  });
+                }
+
+                $("#2017_year").click(function() {
+                  //$(this).remove();
+                  $(this).css("opacity", 0);
+                  $(this).parent().append("<img src='/img/left_bg/ghost.gif' style='position:absolute; margin-left:-250px;cursor:pointer;max-width:260px;max-height:280px' id='eyes_img'/>");
+                  $("#eyes_img").click(function() {
+                    $(this).remove();
+                    $("#2017_year").css("opacity", 1);
+                  });
+                });
+              }
+          }
+      }
+    }
+
+    //收缩左边拦按钮
+    function switchFoldLeft(){
+      var totalwidth = screen.width;
+      if(totalwidth <= 1400){//19寸以下显示按钮
+        $("#left_col_div").mouseenter(function(){
+          $("#fold_div").css("display", "");
+        });
+
+        $("#left_col_div").mouseleave(function(){
+          if($(this).width() > 20){
+            $("#fold_div").css("display", "none");
+          }
+        });
+      }
+    }
+
+    //收缩左边拦
+    //var status = 1;
+    function switchSysBar(isChange, isClicked){
+      if(isChange){
+        return;
+      }
+      console.log(window.status);
+      if(!isClicked && 1 == window.status){
+        hideLeft();
+        return;
+      } else if(!isClicked){
+        return;
+      }
+
+        if (0 == window.status){
+          window.status = 1;
+          hideLeft();
+        } else {
+    		  window.status = 0;
+          showLeft();
+        }
+        console.log(window.status);
+    }
+
+    function showLeft() {
+      $("#left_col_div").fadeToggle("fast", function(){
+        $("#left_col_div").css("background-color", "#fafafa")
+        $("#fold_div").css("background", "url(/img/right1.png) no-repeat center right");
+        $("#id_code_rain_div").toggle();
+        $("#intrude_div").toggle();
+        $("#toc").toggle();
+        $("#post-nav-button").toggle();
+        $("#left_show_div").toggle();
+        $(this).css("display", "");
+        $(".body-wrap").css("max-width", "94%");
+        $("#left_col_div").css("width", "300px");
+        $("#mid_col_div").css("left", "300px");
+      });
+    }
+
+    function hideLeft() {
+      $("#left_col_div").fadeToggle("fast", function(){
+        $("#id_code_rain_div").hide();
+        $("#intrude_div").hide();
+        $("#toc").hide();
+        $("#post-nav-button").hide();
+        $("#left_show_div").hide();
+        $(this).css("width", "20px");
+        $(this).css("display", "");
+        $("#fold_div").css("display", "");
+        $("#fold_div").css("background", "url(/img/left1.png) no-repeat center right");
+        $("#left_col_div").css("background-color", "#e6e6e6");
+        $(".body-wrap").css("max-width", "90%");
+        $("#mid_col_div").css("left", "20px");
+      });
+    }
+
+    //代码雨
+    var curTimer = null;//记录上一页面的timer，使用instantclick后，打开下一页面时需要取消上一个定时器
+    var colorList = ["#6da336", "#ff945c", "#66CC66", "#99CC99", "#CC6666", "#76becc", "#c99979", "#918597", "#4d4d4d"];
+    var id = null;
+    var colorBGList = ["rgba(109,163,54,0.05)", "rgba(255,148,92, 0.05)", "rgba(102,204,102,0.05)", "rgba(153,204,153,0.05)", "rgba(204,102,102,0.05)", "rgba(118,190,204,0.05)", "rgba(201,153,121,0.05)", "rgba(145,133,151,0.05)", "rgba(77,77,77,0.05)"];
+    var colorLetterList = ["#ffffff", "#000000", "#000000", "#000080", "#000000", "#FFFF00", "#000000", "#0F0", "#0F0"];
+    var codeRain = function () {
+      // Random Color 边栏顶部随机颜色
+      // clearInterval(curTimer);
+      // $("#matrix").remove();
+      // $("#id_code_rain_div").append("<canvas id='matrix' width='300' height='180'></canvas>");
+      id = Math.ceil(Math.random()*(colorList.length-1));
+      // PC
+      $("#container .left-col .overlay").css({"background-color": colorList[id],"opacity": .5});
+      // Mobile
+      $("#container #mobile-nav .overlay").css({"background-color": colorList[id],"opacity": .7});
+      if(!checkMobile()){
+        if(curTimer == null){
+          // 代码雨
+          if(matrix != undefined){
+            var width = matrix.width;
+            var height = matrix.height;
+            var letters = Array(256).join(1).split('');
+            var draw = function () {
+              if(typeof(matrix) == "undefined"){
+                clearInterval(curTimer);
+                return;
+              }
+              matrix.getContext('2d').globalAlpha = 1.0;
+              matrix.getContext('2d').fillStyle = colorBGList[id];
+              matrix.getContext('2d').fillRect(0, 0, width, height);
+              matrix.getContext('2d').fillStyle = colorLetterList[id];
+              matrix.getContext('2d').font = "10pt Calibri";
+              letters.map(function (y_pos, index) {
+                text = String.fromCharCode(48 + Math.floor(Math.random()*73));//英文字符：65 + Math.random() * 33 中文：3e4 + Math.random() * 33 数字：Math.floor(Math.random()*10)
+                x_pos = index * 10;
+                matrix.getContext('2d').fillText(text, x_pos, y_pos);
+                letters[index] = (y_pos > 180 + Math.random() * 1e4) ? 0 : y_pos + 10;
+              });
+            };
+          }
+
+          var timer = setInterval(draw, 60);
+          curTimer = timer;
+          window.onfocus = function() {//获取焦点时开始
+            clearInterval(timer);
+            timer = setInterval(draw, 60);//定时器
+          }
+          window.onblur = function() {//失去焦点时停止
+            clearInterval(timer);
+          }
+        }
+      }
+    }
+
+    //多说评论首页显示评论数
+    var duoshuoQuery = {short_name:"ngudream"};
+    var duoshuoComments = function() {
+      
+    }
+
+    //网易评论
+    var neteaseCommnets = function() {
+      if(is_post()){
+        jQuery.getScript("https://img1.cache.netease.com/f2e/tie/yun/sdk/loader.js")
+            .done(function() {
+              $("#yun-tie-sdk-wrap").css("background-color","#E6E6E6 !important");
+            })
+            .fail(function() {});
+      }
+    }
+
+    //隐藏categories、tags页面下的标签
+    var hideLabels =  function() {
+      // Hide Labels
+      $("#id_archives").css("opacity", "1.0");
+      if(is_archive() || is_tag() || is_category()) {
+        var url = window.location.pathname;
+        if(!url.endWith("/tags/")){
+          $("#footer").after("<img id='id_eye_btn' class='hide-labels fa fa-eye animated infinite pulse' style='margin-left:5px;margin-top:5px;width:38px;height:18px;'></img>");
+          $("#id_eye_btn").attr("src", "/img/eye.png");
+          $(".hide-labels").click(function() {
+              $(".article-info").toggle(200);
+          })
+        }
+      }
+    }
+
+    //设置页面的可见，使用instantclick后需要设置
+    var resetPageOpacity = function() {
+      var url = window.location.pathname;
+      if((url.startWith("/about/") && url.endWith("/about/")) || (url.startWith("/guestbook/") && url.endWith("/guestbook/"))){
+        $("#page-undefined").css("opacity", "1.0");
+      }
+    }
+</script>
+
+<!-- 添加 InstantClick 预加载 -->
+<!-- 这段代码的含义是每次页面重载时，通过直接的函数调用来实现MathJax、百度统计、Google Code Prettify、Google Analytics的重新运行 -->
+ <script data-no-instant>
+		if(!checkMobile()){
+			jQuery.getScript("//cdn.bootcss.com/instantclick/3.0.1/instantclick.min.js")
+				.done(function() {
+					InstantClick.on('change', function (isInitialLoad) {
+            //console.log(isInitialLoad);
+						if (isInitialLoad === false) {
+              afterChange(isInitialLoad);
+              if (typeof MathJax !== 'undefined'){ // support MathJax
+                MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
+              }
+              if (typeof prettyPrint !== 'undefined'){ // support google code prettify
+                prettyPrint();
+              }
+              if (typeof _hmt !== 'undefined'){  // support 百度统计
+                _hmt.push(['_trackPageview', location.pathname + location.search]);
+              }
+              if (typeof ga !== 'undefined'){  // support google analytics
+                ga('send', 'pageview', location.pathname + location.search);
+              }
+						} else {
+              afterChange(isInitialLoad);
+            }
+					});
+					InstantClick.init();
+				})
+				.fail(function() {
+				});
+		} else {
+      afterChange(true);
+		}
+
+    //移动客户端判断结束
+    function checkMobile() {
+        var isiPad = navigator.userAgent.match(/iPad/i) != null;
+        if (isiPad) {
+            return false;
+        }
+        var isMobile = navigator.userAgent.match(/iphone|android|phone|mobile|wap|netfront|java|opera mobi|opera mini|ucweb|windows ce|symbian|symbianos|series|webos|sony|blackberry|dopod|nokia|samsung|palmsource|xda|pieplus|meizu|midp|cldc|motorola|foma|docomo|up.browser|up.link|blazer|helio|hosin|huawei|novarra|coolpad|webos|techfaith|palmsource|alcatel|amoi|ktouch|nexian|ericsson|philips|sagem|wellcom|bunjalloo|maui|smartphone|iemobile|spice|bird|zte-|longcos|pantech|gionee|portalmmm|jig browser|hiptop|benq|haier|^lct|320x320|240x320|176x220/i) != null;
+        if (isMobile) {
+            return true;
+        }
+        return false;
+    }
+</script>
+  </div>
+</body>

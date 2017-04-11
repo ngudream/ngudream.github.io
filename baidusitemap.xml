@@ -1,0 +1,1937 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+
+    
+  <url>
+    <loc>http://ngudream.com/2017/03/17/java-interview/</loc>
+    <lastmod>2017-04-11T15:46:36.867Z</lastmod>
+    <data>
+        <display>
+        <title>Java 面试题归类汇总</title>
+        <pubTime>2017-03-17T13:36:32.000Z</pubTime>
+        
+        <tag>Java</tag>
+         
+         
+           
+             
+              <breadCrumb title="编程" url="http://ngudream.com/categories/%E7%BC%96%E7%A8%8B/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://ngudream.com/2017/04/09/java-interview-network-communication/</loc>
+    <lastmod>2017-04-11T15:29:55.390Z</lastmod>
+    <data>
+        <display>
+        <title>Java 面试题之网络通信</title>
+        <pubTime>2017-04-09T03:54:18.000Z</pubTime>
+        
+        <tag>Java</tag>
+         
+         
+           
+             
+              <breadCrumb title="编程" url="http://ngudream.com/categories/%E7%BC%96%E7%A8%8B/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://ngudream.com/2017/01/24/n-hexo-blog/</loc>
+    <lastmod>2017-04-11T14:49:32.132Z</lastmod>
+    <data>
+        <display>
+        <title>笔者博客源代码</title>
+        <pubTime>2017-01-24T09:35:19.000Z</pubTime>
+        
+        <tag>Hexo</tag>
+         
+         
+           
+             
+              <breadCrumb title="服务器" url="http://ngudream.com/categories/%E6%9C%8D%E5%8A%A1%E5%99%A8/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+    
+  <url>
+    <loc>http://ngudream.com/2016/05/14/http-code/</loc>
+    <lastmod>2017-03-22T13:31:11.056Z</lastmod>
+    <data>
+        <display>
+        <title>HTTP协议状态码详解</title>
+        <pubTime>2016-05-14T15:00:15.000Z</pubTime>
+        
+        <tag>HTTP</tag>
+         
+         
+           
+             
+              <breadCrumb title="服务器" url="http://ngudream.com/categories/%E6%9C%8D%E5%8A%A1%E5%99%A8/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://ngudream.com/2017/02/28/android-animation-theory/</loc>
+    <lastmod>2017-03-19T04:29:52.911Z</lastmod>
+    <data>
+        <display>
+        <title>Android 动画分析与优化</title>
+        <pubTime>2017-02-28T13:59:14.000Z</pubTime>
+        
+        <tag>Android</tag>
+         
+         
+           
+             
+              <breadCrumb title="移动开发" url="http://ngudream.com/categories/%E7%A7%BB%E5%8A%A8%E5%BC%80%E5%8F%91/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://ngudream.com/2017/03/14/android-binder/</loc>
+    <lastmod>2017-03-14T14:59:03.482Z</lastmod>
+    <data>
+        <display>
+        <title>Android Binder机制</title>
+        <pubTime>2017-03-14T14:47:29.000Z</pubTime>
+        
+        <tag>Android</tag>
+         
+         
+           
+             
+              <breadCrumb title="移动开发" url="http://ngudream.com/categories/%E7%A7%BB%E5%8A%A8%E5%BC%80%E5%8F%91/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://ngudream.com/2016/02/20/androidstudio-debug/</loc>
+    <lastmod>2017-03-10T12:43:40.574Z</lastmod>
+    <data>
+        <display>
+        <title>AndroidStudio Debug 调试技巧</title>
+        <pubTime>2016-02-20T11:35:05.000Z</pubTime>
+        
+        <tag>Android</tag>
+         
+         
+           
+             
+              <breadCrumb title="移动开发" url="http://ngudream.com/categories/%E7%A7%BB%E5%8A%A8%E5%BC%80%E5%8F%91/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://ngudream.com/2016/07/24/work-plan/</loc>
+    <lastmod>2017-03-10T11:33:53.511Z</lastmod>
+    <data>
+        <display>
+        <title>工作计划模板</title>
+        <pubTime>2016-07-24T13:15:48.000Z</pubTime>
+        
+        <tag>Work</tag>
+         
+         
+           
+             
+              <breadCrumb title="触类旁通" url="http://ngudream.com/categories/%E8%A7%A6%E7%B1%BB%E6%97%81%E9%80%9A/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://ngudream.com/2017/03/06/rxjava-subject/</loc>
+    <lastmod>2017-03-06T13:45:43.786Z</lastmod>
+    <data>
+        <display>
+        <title>RxJava Subject解析</title>
+        <pubTime>2017-03-06T11:46:05.000Z</pubTime>
+        
+        <tag>RxJava</tag>
+         
+         
+           
+             
+              <breadCrumb title="移动开发" url="http://ngudream.com/categories/%E7%A7%BB%E5%8A%A8%E5%BC%80%E5%8F%91/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://ngudream.com/2016/09/17/rxjava-2-0-new-features/</loc>
+    <lastmod>2017-03-05T02:45:41.858Z</lastmod>
+    <data>
+        <display>
+        <title>浅谈RxJava与2.0的新特性</title>
+        <pubTime>2016-09-17T12:23:53.000Z</pubTime>
+        
+        <tag>RxJava</tag>
+         
+         
+           
+             
+              <breadCrumb title="移动开发" url="http://ngudream.com/categories/%E7%A7%BB%E5%8A%A8%E5%BC%80%E5%8F%91/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://ngudream.com/2017/02/05/android-airbnb-lottie/</loc>
+    <lastmod>2017-03-04T12:37:48.940Z</lastmod>
+    <data>
+        <display>
+        <title>Android Airbnb Lottie 复杂动画</title>
+        <pubTime>2017-02-05T14:27:31.000Z</pubTime>
+        
+        <tag>Android</tag>
+         
+         
+           
+             
+              <breadCrumb title="移动开发" url="http://ngudream.com/categories/%E7%A7%BB%E5%8A%A8%E5%BC%80%E5%8F%91/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://ngudream.com/2017/02/27/rxjava-only-flatmap/</loc>
+    <lastmod>2017-02-28T15:50:43.735Z</lastmod>
+    <data>
+        <display>
+        <title>只能用 flatmap 而不能用 map 的场景</title>
+        <pubTime>2017-02-27T15:02:35.000Z</pubTime>
+        
+        <tag>RxJava</tag>
+         
+         
+           
+             
+              <breadCrumb title="移动开发" url="http://ngudream.com/categories/%E7%A7%BB%E5%8A%A8%E5%BC%80%E5%8F%91/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://ngudream.com/2017/02/26/android-app-is-foreground/</loc>
+    <lastmod>2017-02-26T05:09:25.208Z</lastmod>
+    <data>
+        <display>
+        <title>android 判断应用是否处于前台</title>
+        <pubTime>2017-02-26T04:25:59.000Z</pubTime>
+        
+        <tag>Android</tag>
+         
+         
+           
+             
+              <breadCrumb title="移动开发" url="http://ngudream.com/categories/%E7%A7%BB%E5%8A%A8%E5%BC%80%E5%8F%91/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://ngudream.com/2016/11/13/android-view-draw-theory/</loc>
+    <lastmod>2017-02-26T03:30:01.970Z</lastmod>
+    <data>
+        <display>
+        <title>深入理解Android之View的绘制流程</title>
+        <pubTime>2016-11-13T15:19:04.000Z</pubTime>
+        
+        <tag>Android</tag>
+         
+         
+           
+             
+              <breadCrumb title="移动开发" url="http://ngudream.com/categories/%E7%A7%BB%E5%8A%A8%E5%BC%80%E5%8F%91/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://ngudream.com/2016/07/25/okhttp-cache/</loc>
+    <lastmod>2017-02-26T02:59:48.917Z</lastmod>
+    <data>
+        <display>
+        <title>Okhttp--缓存的加入方式</title>
+        <pubTime>2016-07-25T12:39:20.000Z</pubTime>
+        
+        <tag>OKHttp</tag>
+         
+         
+           
+             
+              <breadCrumb title="移动开发" url="http://ngudream.com/categories/%E7%A7%BB%E5%8A%A8%E5%BC%80%E5%8F%91/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://ngudream.com/2016/12/12/android-mvp-rxjava-practice/</loc>
+    <lastmod>2017-02-25T14:27:58.300Z</lastmod>
+    <data>
+        <display>
+        <title>响应式MVP架构todo-mvp-rxjava实践</title>
+        <pubTime>2016-12-12T15:08:01.000Z</pubTime>
+        
+        <tag>Android</tag>
+         
+        <tag>RxJava</tag>
+         
+         
+           
+             
+              <breadCrumb title="移动开发" url="http://ngudream.com/categories/%E7%A7%BB%E5%8A%A8%E5%BC%80%E5%8F%91/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://ngudream.com/2016/08/12/git-common-command/</loc>
+    <lastmod>2017-02-25T13:07:34.219Z</lastmod>
+    <data>
+        <display>
+        <title>Git常用命令备忘</title>
+        <pubTime>2016-08-12T14:32:28.000Z</pubTime>
+        
+        <tag>Git</tag>
+         
+         
+           
+             
+              <breadCrumb title="编程" url="http://ngudream.com/categories/%E7%BC%96%E7%A8%8B/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://ngudream.com/2016/07/30/okhttp-call-flow/</loc>
+    <lastmod>2017-02-25T11:25:55.840Z</lastmod>
+    <data>
+        <display>
+        <title>OKHttp的请求流程</title>
+        <pubTime>2016-07-30T06:18:23.000Z</pubTime>
+        
+        <tag>OKHttp</tag>
+         
+         
+           
+             
+              <breadCrumb title="移动开发" url="http://ngudream.com/categories/%E7%A7%BB%E5%8A%A8%E5%BC%80%E5%8F%91/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://ngudream.com/2016/07/22/okhttp-call-cancel/</loc>
+    <lastmod>2017-02-25T06:24:38.990Z</lastmod>
+    <data>
+        <display>
+        <title>OKHttp 如何取消请求</title>
+        <pubTime>2016-07-22T13:09:01.000Z</pubTime>
+        
+        <tag>OKHttp</tag>
+         
+         
+           
+             
+              <breadCrumb title="移动开发" url="http://ngudream.com/categories/%E7%A7%BB%E5%8A%A8%E5%BC%80%E5%8F%91/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://ngudream.com/2016/08/22/golang-gc/</loc>
+    <lastmod>2017-02-22T14:54:39.120Z</lastmod>
+    <data>
+        <display>
+        <title>Golang GC 探究</title>
+        <pubTime>2016-08-22T14:42:30.000Z</pubTime>
+        
+        <tag>Golang</tag>
+         
+         
+           
+             
+              <breadCrumb title="编程" url="http://ngudream.com/categories/%E7%BC%96%E7%A8%8B/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://ngudream.com/2016/08/31/golang-socket/</loc>
+    <lastmod>2017-02-22T14:40:14.533Z</lastmod>
+    <data>
+        <display>
+        <title>Go语言基于Socket编写服务器端与客户端通信的实例</title>
+        <pubTime>2016-08-31T14:21:15.000Z</pubTime>
+        
+        <tag>Golang</tag>
+         
+         
+           
+             
+              <breadCrumb title="编程" url="http://ngudream.com/categories/%E7%BC%96%E7%A8%8B/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://ngudream.com/2016/12/26/rxjava-thread-switch-theory/</loc>
+    <lastmod>2017-02-21T13:46:58.166Z</lastmod>
+    <data>
+        <display>
+        <title>RxJava线程切换原理</title>
+        <pubTime>2016-12-26T14:13:27.000Z</pubTime>
+        
+        <tag>RxJava</tag>
+         
+         
+           
+             
+              <breadCrumb title="移动开发" url="http://ngudream.com/categories/%E7%A7%BB%E5%8A%A8%E5%BC%80%E5%8F%91/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://ngudream.com/2017/01/14/android-change-app-launcher-icon-dynamically/</loc>
+    <lastmod>2017-02-19T15:09:46.555Z</lastmod>
+    <data>
+        <display>
+        <title>Android 动态改变 App 桌面图标</title>
+        <pubTime>2017-01-14T12:10:28.000Z</pubTime>
+        
+        <tag>Android</tag>
+         
+         
+           
+             
+              <breadCrumb title="移动开发" url="http://ngudream.com/categories/%E7%A7%BB%E5%8A%A8%E5%BC%80%E5%8F%91/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://ngudream.com/2017/02/09/linux-ip-switch-shell/</loc>
+    <lastmod>2017-02-19T14:41:06.256Z</lastmod>
+    <data>
+        <display>
+        <title>Linux Shell 脚本切换 IP</title>
+        <pubTime>2017-02-09T12:43:41.000Z</pubTime>
+        
+        <tag>linux</tag>
+         
+        <tag>Shell</tag>
+         
+        <tag>IP</tag>
+         
+         
+           
+             
+              <breadCrumb title="编程" url="http://ngudream.com/categories/%E7%BC%96%E7%A8%8B/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://ngudream.com/2017/02/05/android-dexclassloader/</loc>
+    <lastmod>2017-02-19T02:46:37.388Z</lastmod>
+    <data>
+        <display>
+        <title>Android安全–DexClassLoader动态加载分析</title>
+        <pubTime>2017-02-05T14:05:43.000Z</pubTime>
+        
+        <tag>Android</tag>
+         
+         
+           
+             
+              <breadCrumb title="移动开发" url="http://ngudream.com/categories/%E7%A7%BB%E5%8A%A8%E5%BC%80%E5%8F%91/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://ngudream.com/2016/06/18/png-gif-transparency/</loc>
+    <lastmod>2017-02-18T10:26:00.361Z</lastmod>
+    <data>
+        <display>
+        <title>制作透明背景 PNG 图片和 GIF 动图的几种方法</title>
+        <pubTime>2016-06-18T13:02:13.000Z</pubTime>
+        
+        <tag>Gif</tag>
+         
+        <tag>PhotoShop</tag>
+         
+        <tag>PowerPoint</tag>
+         
+         
+           
+             
+              <breadCrumb title="触类旁通" url="http://ngudream.com/categories/%E8%A7%A6%E7%B1%BB%E6%97%81%E9%80%9A/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://ngudream.com/2016/02/20/webrtc-pjsip-timer/</loc>
+    <lastmod>2017-02-15T14:42:07.217Z</lastmod>
+    <data>
+        <display>
+        <title>PJSIP 协议栈中定时器的实现详解</title>
+        <pubTime>2016-02-20T14:37:08.000Z</pubTime>
+        
+        <tag>WebRTC</tag>
+         
+        <tag>PJSIP</tag>
+         
+         
+           
+             
+              <breadCrumb title="通信" url="http://ngudream.com/categories/%E9%80%9A%E4%BF%A1/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://ngudream.com/2016/01/20/webrtc-pjsip/</loc>
+    <lastmod>2017-02-15T14:38:54.480Z</lastmod>
+    <data>
+        <display>
+        <title>WebRTC视频解析-PJSIP</title>
+        <pubTime>2016-01-20T11:34:39.000Z</pubTime>
+        
+        <tag>WebRTC</tag>
+         
+        <tag>PJSIP</tag>
+         
+         
+           
+             
+              <breadCrumb title="通信" url="http://ngudream.com/categories/%E9%80%9A%E4%BF%A1/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://ngudream.com/2017/02/08/android-webview-asyncload-css-js/</loc>
+    <lastmod>2017-02-14T13:15:50.739Z</lastmod>
+    <data>
+        <display>
+        <title>WebView异步加载自定义CSS/JS</title>
+        <pubTime>2017-02-07T16:27:01.000Z</pubTime>
+        
+        <tag>Android</tag>
+         
+         
+           
+             
+              <breadCrumb title="移动开发" url="http://ngudream.com/categories/%E7%A7%BB%E5%8A%A8%E5%BC%80%E5%8F%91/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://ngudream.com/2016/09/22/rxjava-samples/</loc>
+    <lastmod>2017-02-05T13:02:32.394Z</lastmod>
+    <data>
+        <display>
+        <title>RxJava常见的使用场景收集</title>
+        <pubTime>2016-09-22T14:15:11.000Z</pubTime>
+        
+        <tag>RxJava</tag>
+         
+         
+           
+             
+              <breadCrumb title="移动开发" url="http://ngudream.com/categories/%E7%A7%BB%E5%8A%A8%E5%BC%80%E5%8F%91/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+    
+  <url>
+    <loc>http://ngudream.com/2016/09/28/zookeeper-theory-feature/</loc>
+    <lastmod>2017-01-15T07:58:44.512Z</lastmod>
+    <data>
+        <display>
+        <title>zookeeper原理，特点及应用</title>
+        <pubTime>2016-09-28T15:07:20.000Z</pubTime>
+        
+        <tag>Zookeeper</tag>
+         
+         
+           
+             
+              <breadCrumb title="服务器" url="http://ngudream.com/categories/%E6%9C%8D%E5%8A%A1%E5%99%A8/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://ngudream.com/2016/03/23/windows-translucent-inoperative/</loc>
+    <lastmod>2017-01-15T07:58:44.508Z</lastmod>
+    <data>
+        <display>
+        <title>Android activity设置透明windowIsTranslucent后动画无效问题</title>
+        <pubTime>2016-03-23T12:49:51.000Z</pubTime>
+        
+        <tag>Android</tag>
+         
+         
+           
+             
+              <breadCrumb title="移动开发" url="http://ngudream.com/categories/%E7%A7%BB%E5%8A%A8%E5%BC%80%E5%8F%91/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://ngudream.com/2016/08/29/weixin-protocal/</loc>
+    <lastmod>2017-01-15T07:58:44.505Z</lastmod>
+    <data>
+        <display>
+        <title>微信协议简单调研笔记</title>
+        <pubTime>2016-08-29T15:50:39.000Z</pubTime>
+        
+         
+           
+             
+              <breadCrumb title="晨读" url="http://ngudream.com/categories/%E6%99%A8%E8%AF%BB/"/>
+          
+             
+              <breadCrumb title="通信" url="http://ngudream.com/categories/%E6%99%A8%E8%AF%BB/%E9%80%9A%E4%BF%A1/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://ngudream.com/2016/01/18/webrtc-structure/</loc>
+    <lastmod>2017-01-15T07:58:44.501Z</lastmod>
+    <data>
+        <display>
+        <title>WebRTC音视频引擎研究--整体架构分析</title>
+        <pubTime>2016-01-18T11:40:20.000Z</pubTime>
+        
+        <tag>WebRTC</tag>
+         
+         
+           
+             
+              <breadCrumb title="通信" url="http://ngudream.com/categories/%E9%80%9A%E4%BF%A1/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://ngudream.com/2016/09/28/viewpager-unlimited-loop/</loc>
+    <lastmod>2017-01-15T07:58:44.495Z</lastmod>
+    <data>
+        <display>
+        <title>ViewPager实现左右无限循环</title>
+        <pubTime>2016-09-28T12:38:18.000Z</pubTime>
+        
+        <tag>Android</tag>
+         
+         
+           
+             
+              <breadCrumb title="移动开发" url="http://ngudream.com/categories/%E7%A7%BB%E5%8A%A8%E5%BC%80%E5%8F%91/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://ngudream.com/2016/07/16/viewholder-simple-create/</loc>
+    <lastmod>2017-01-15T07:58:44.493Z</lastmod>
+    <data>
+        <display>
+        <title>ViewHolder模式超简洁写法，很cool!</title>
+        <pubTime>2016-07-16T04:14:34.000Z</pubTime>
+        
+        <tag>Android</tag>
+         
+         
+           
+             
+              <breadCrumb title="移动开发" url="http://ngudream.com/categories/%E7%A7%BB%E5%8A%A8%E5%BC%80%E5%8F%91/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://ngudream.com/2016/02/17/unable-userdata/</loc>
+    <lastmod>2017-01-15T07:58:44.491Z</lastmod>
+    <data>
+        <display>
+        <title>解决创建Android 4.0以上项目出现unable to find userdata.img 问题</title>
+        <pubTime>2016-02-17T11:01:21.000Z</pubTime>
+        
+        <tag>Android</tag>
+         
+         
+           
+             
+              <breadCrumb title="移动开发" url="http://ngudream.com/categories/%E7%A7%BB%E5%8A%A8%E5%BC%80%E5%8F%91/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://ngudream.com/2016/06/26/sqlite-mult-wal/</loc>
+    <lastmod>2017-01-15T07:58:44.488Z</lastmod>
+    <data>
+        <display>
+        <title>Sqlite多线程读写 wal机制</title>
+        <pubTime>2016-06-26T11:21:50.000Z</pubTime>
+        
+        <tag>Android</tag>
+         
+        <tag>Sqlite</tag>
+         
+         
+           
+             
+              <breadCrumb title="数据库" url="http://ngudream.com/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://ngudream.com/2016/02/21/sql-inject/</loc>
+    <lastmod>2017-01-15T07:58:44.486Z</lastmod>
+    <data>
+        <display>
+        <title>SQL注入攻击</title>
+        <pubTime>2016-02-21T13:00:43.000Z</pubTime>
+        
+        <tag>SQL</tag>
+         
+         
+           
+             
+              <breadCrumb title="数据库" url="http://ngudream.com/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://ngudream.com/2016/01/16/spring-ejb-concordance/</loc>
+    <lastmod>2017-01-15T07:58:44.483Z</lastmod>
+    <data>
+        <display>
+        <title>Spring与EJB的整合（关键部分）</title>
+        <pubTime>2016-01-16T13:13:06.000Z</pubTime>
+        
+        <tag>Spring</tag>
+         
+        <tag>EJB</tag>
+         
+         
+           
+             
+              <breadCrumb title="编程" url="http://ngudream.com/categories/%E7%BC%96%E7%A8%8B/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://ngudream.com/2016/01/21/seed7/</loc>
+    <lastmod>2017-01-15T07:58:44.481Z</lastmod>
+    <data>
+        <display>
+        <title>新的一种编程语言--Seed7</title>
+        <pubTime>2016-01-21T13:08:59.000Z</pubTime>
+        
+        <tag>Seed</tag>
+         
+         
+           
+             
+              <breadCrumb title="编程" url="http://ngudream.com/categories/%E7%BC%96%E7%A8%8B/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://ngudream.com/2016/09/21/rxjava-understand/</loc>
+    <lastmod>2017-01-15T07:58:44.479Z</lastmod>
+    <data>
+        <display>
+        <title>拆轮子系列：拆 RxJava</title>
+        <pubTime>2016-09-21T14:17:31.000Z</pubTime>
+        
+        <tag>RxJava</tag>
+         
+         
+           
+             
+              <breadCrumb title="晨读" url="http://ngudream.com/categories/%E6%99%A8%E8%AF%BB/"/>
+          
+             
+              <breadCrumb title="移动开发" url="http://ngudream.com/categories/%E6%99%A8%E8%AF%BB/%E7%A7%BB%E5%8A%A8%E5%BC%80%E5%8F%91/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://ngudream.com/2016/09/26/rxjava-timer/</loc>
+    <lastmod>2017-01-15T07:58:44.477Z</lastmod>
+    <data>
+        <display>
+        <title>RxJava定时器：timer</title>
+        <pubTime>2016-09-26T13:29:47.000Z</pubTime>
+        
+        <tag>RxJava</tag>
+         
+         
+           
+             
+              <breadCrumb title="移动开发" url="http://ngudream.com/categories/%E7%A7%BB%E5%8A%A8%E5%BC%80%E5%8F%91/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://ngudream.com/2016/10/31/rxjava-thread-switch/</loc>
+    <lastmod>2017-01-15T07:58:44.475Z</lastmod>
+    <data>
+        <display>
+        <title>RxJava线程切换</title>
+        <pubTime>2016-10-31T12:56:42.000Z</pubTime>
+        
+        <tag>RxJava</tag>
+         
+         
+           
+             
+              <breadCrumb title="移动开发" url="http://ngudream.com/categories/%E7%A7%BB%E5%8A%A8%E5%BC%80%E5%8F%91/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://ngudream.com/2016/08/25/rxjava-repeatwhen-retrywhen/</loc>
+    <lastmod>2017-01-15T07:58:44.460Z</lastmod>
+    <data>
+        <display>
+        <title>对RxJava中.repeatWhen()和.retryWhen()操作符的理解</title>
+        <pubTime>2016-08-25T13:35:35.000Z</pubTime>
+        
+        <tag>RxJava</tag>
+         
+        <tag>RxAndroid</tag>
+         
+         
+           
+             
+              <breadCrumb title="移动开发" url="http://ngudream.com/categories/%E7%A7%BB%E5%8A%A8%E5%BC%80%E5%8F%91/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://ngudream.com/2016/08/25/rxjava-operators/</loc>
+    <lastmod>2017-01-15T07:58:44.458Z</lastmod>
+    <data>
+        <display>
+        <title>RxJava 的操作符</title>
+        <pubTime>2016-08-24T16:13:36.000Z</pubTime>
+        
+        <tag>RxJava</tag>
+         
+        <tag>RxAndroid</tag>
+         
+         
+           
+             
+              <breadCrumb title="移动开发" url="http://ngudream.com/categories/%E7%A7%BB%E5%8A%A8%E5%BC%80%E5%8F%91/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://ngudream.com/2016/10/25/rxjava-map/</loc>
+    <lastmod>2017-01-15T07:58:44.456Z</lastmod>
+    <data>
+        <display>
+        <title>Observable.map源码分析</title>
+        <pubTime>2016-10-25T14:06:37.000Z</pubTime>
+        
+        <tag>RxJava</tag>
+         
+         
+           
+             
+              <breadCrumb title="移动开发" url="http://ngudream.com/categories/%E7%A7%BB%E5%8A%A8%E5%BC%80%E5%8F%91/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://ngudream.com/2016/10/01/rxjava-flatmap/</loc>
+    <lastmod>2017-01-15T07:58:44.454Z</lastmod>
+    <data>
+        <display>
+        <title>Observable.flatmap源码分析</title>
+        <pubTime>2016-10-01T05:53:19.000Z</pubTime>
+        
+        <tag>RxJava</tag>
+         
+         
+           
+             
+              <breadCrumb title="移动开发" url="http://ngudream.com/categories/%E7%A7%BB%E5%8A%A8%E5%BC%80%E5%8F%91/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://ngudream.com/2016/10/17/response-programming-idea/</loc>
+    <lastmod>2017-01-15T07:58:44.452Z</lastmod>
+    <data>
+        <display>
+        <title>响应式编程思想</title>
+        <pubTime>2016-10-17T11:10:33.000Z</pubTime>
+        
+        <tag>RxJava</tag>
+         
+         
+           
+             
+              <breadCrumb title="晨读" url="http://ngudream.com/categories/%E6%99%A8%E8%AF%BB/"/>
+          
+             
+              <breadCrumb title="编程" url="http://ngudream.com/categories/%E6%99%A8%E8%AF%BB/%E7%BC%96%E7%A8%8B/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://ngudream.com/2016/09/10/rxjava-eventbus/</loc>
+    <lastmod>2017-01-15T07:58:44.449Z</lastmod>
+    <data>
+        <display>
+        <title>基于RxJava的事件总线--优雅的替换Handler</title>
+        <pubTime>2016-09-10T15:46:19.000Z</pubTime>
+        
+        <tag>RxJava</tag>
+         
+         
+           
+             
+              <breadCrumb title="移动开发" url="http://ngudream.com/categories/%E7%A7%BB%E5%8A%A8%E5%BC%80%E5%8F%91/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://ngudream.com/2016/09/06/realm-dbhelper/</loc>
+    <lastmod>2017-01-15T07:58:44.444Z</lastmod>
+    <data>
+        <display>
+        <title>Realm常用操作封装</title>
+        <pubTime>2016-09-06T14:09:16.000Z</pubTime>
+        
+        <tag>Android</tag>
+         
+        <tag>Realm</tag>
+         
+         
+           
+             
+              <breadCrumb title="移动开发" url="http://ngudream.com/categories/%E7%A7%BB%E5%8A%A8%E5%BC%80%E5%8F%91/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://ngudream.com/2016/08/13/realm-builder/</loc>
+    <lastmod>2017-01-15T07:58:44.443Z</lastmod>
+    <data>
+        <display>
+        <title>Realm实战总结--平台搭建</title>
+        <pubTime>2016-08-13T02:15:48.000Z</pubTime>
+        
+        <tag>Realm</tag>
+         
+         
+           
+             
+              <breadCrumb title="数据库" url="http://ngudream.com/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://ngudream.com/2016/08/14/realm-browse/</loc>
+    <lastmod>2017-01-15T07:58:44.441Z</lastmod>
+    <data>
+        <display>
+        <title>Realm实战总结--数据浏览</title>
+        <pubTime>2016-08-14T02:49:55.000Z</pubTime>
+        
+        <tag>Realm</tag>
+         
+         
+           
+             
+              <breadCrumb title="数据库" url="http://ngudream.com/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://ngudream.com/2016/08/25/presenter-interface/</loc>
+    <lastmod>2017-01-15T07:58:44.439Z</lastmod>
+    <data>
+        <display>
+        <title>你还在为MVP中Presenter写接口?</title>
+        <pubTime>2016-08-24T16:41:22.000Z</pubTime>
+        
+        <tag>Android</tag>
+         
+         
+           
+             
+              <breadCrumb title="晨读" url="http://ngudream.com/categories/%E6%99%A8%E8%AF%BB/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://ngudream.com/2016/01/04/phone-state-listener/</loc>
+    <lastmod>2017-01-15T07:58:44.435Z</lastmod>
+    <data>
+        <display>
+        <title>Android音乐播放器监听传统电话和网络电话</title>
+        <pubTime>2016-01-04T12:30:51.000Z</pubTime>
+        
+        <tag>Android</tag>
+         
+         
+           
+             
+              <breadCrumb title="移动开发" url="http://ngudream.com/categories/%E7%A7%BB%E5%8A%A8%E5%BC%80%E5%8F%91/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://ngudream.com/2016/01/05/nginx-php-mysql-fastcgi/</loc>
+    <lastmod>2017-01-15T07:58:44.433Z</lastmod>
+    <data>
+        <display>
+        <title>Ubuntu下安装和配置 Nginx + PHP + Mysql + FastCGI</title>
+        <pubTime>2016-01-05T12:37:20.000Z</pubTime>
+        
+        <tag>Nginx</tag>
+         
+        <tag>PHP</tag>
+         
+         
+           
+             
+              <breadCrumb title="服务器" url="http://ngudream.com/categories/%E6%9C%8D%E5%8A%A1%E5%99%A8/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://ngudream.com/2016/10/09/mysql-quick-insert/</loc>
+    <lastmod>2017-01-15T07:58:44.429Z</lastmod>
+    <data>
+        <display>
+        <title>MySQL 大数据量快速插入方法和语句优化</title>
+        <pubTime>2016-10-09T15:38:39.000Z</pubTime>
+        
+        <tag>MySql</tag>
+         
+         
+           
+             
+              <breadCrumb title="晨读" url="http://ngudream.com/categories/%E6%99%A8%E8%AF%BB/"/>
+          
+             
+              <breadCrumb title="数据库" url="http://ngudream.com/categories/%E6%99%A8%E8%AF%BB/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://ngudream.com/2016/01/27/mysql-pwd-forgot/</loc>
+    <lastmod>2017-01-15T07:58:44.427Z</lastmod>
+    <data>
+        <display>
+        <title>Ubuntu下忘记MYSQL密码</title>
+        <pubTime>2016-01-27T11:11:58.000Z</pubTime>
+        
+        <tag>MySql</tag>
+         
+         
+           
+             
+              <breadCrumb title="数据库" url="http://ngudream.com/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://ngudream.com/2016/10/11/mysql-delete-repeat-data/</loc>
+    <lastmod>2017-01-15T07:58:44.425Z</lastmod>
+    <data>
+        <display>
+        <title>MySql删除重复记录</title>
+        <pubTime>2016-10-11T13:54:36.000Z</pubTime>
+        
+        <tag>MySql</tag>
+         
+         
+           
+             
+              <breadCrumb title="数据库" url="http://ngudream.com/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://ngudream.com/2016/08/23/morning-reading/</loc>
+    <lastmod>2017-01-15T07:58:44.423Z</lastmod>
+    <data>
+        <display>
+        <title>关于晨读</title>
+        <pubTime>2016-08-22T16:44:32.000Z</pubTime>
+        
+         
+           
+             
+              <breadCrumb title="晨读" url="http://ngudream.com/categories/%E6%99%A8%E8%AF%BB/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://ngudream.com/2016/09/29/mongodb-inverted-index/</loc>
+    <lastmod>2017-01-15T07:58:44.420Z</lastmod>
+    <data>
+        <display>
+        <title>MongoDB优化之倒排索引</title>
+        <pubTime>2016-09-29T13:45:05.000Z</pubTime>
+        
+        <tag>Mongodb</tag>
+         
+         
+           
+             
+              <breadCrumb title="晨读" url="http://ngudream.com/categories/%E6%99%A8%E8%AF%BB/"/>
+          
+             
+              <breadCrumb title="数据库" url="http://ngudream.com/categories/%E6%99%A8%E8%AF%BB/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://ngudream.com/2016/09/02/mobile-pay-market/</loc>
+    <lastmod>2017-01-15T07:58:44.416Z</lastmod>
+    <data>
+        <display>
+        <title>手机厂商进军移动支付 并未撼动微信和支付宝</title>
+        <pubTime>2016-09-01T16:16:26.000Z</pubTime>
+        
+        <tag>移动支付</tag>
+         
+         
+           
+             
+              <breadCrumb title="晨读" url="http://ngudream.com/categories/%E6%99%A8%E8%AF%BB/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://ngudream.com/2016/09/04/java-mult-threads/</loc>
+    <lastmod>2017-01-15T07:58:44.413Z</lastmod>
+    <data>
+        <display>
+        <title>40个Java多线程问题总结</title>
+        <pubTime>2016-09-04T13:07:01.000Z</pubTime>
+        
+        <tag>Java</tag>
+         
+        <tag>Thread</tag>
+         
+         
+           
+             
+              <breadCrumb title="晨读" url="http://ngudream.com/categories/%E6%99%A8%E8%AF%BB/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://ngudream.com/2016/10/12/java-compile-running/</loc>
+    <lastmod>2017-01-15T07:58:44.409Z</lastmod>
+    <data>
+        <display>
+        <title>Java编译时与运行时</title>
+        <pubTime>2016-10-12T14:50:17.000Z</pubTime>
+        
+        <tag>Java</tag>
+         
+         
+           
+             
+              <breadCrumb title="编程" url="http://ngudream.com/categories/%E7%BC%96%E7%A8%8B/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://ngudream.com/2016/08/15/im-tcp-udp/</loc>
+    <lastmod>2017-01-15T07:58:44.406Z</lastmod>
+    <data>
+        <display>
+        <title>移动端IM系统的协议选型：UDP还是TCP？</title>
+        <pubTime>2016-08-15T12:04:21.000Z</pubTime>
+        
+        <tag>TCP</tag>
+         
+        <tag>UDP</tag>
+         
+         
+           
+             
+              <breadCrumb title="通信" url="http://ngudream.com/categories/%E9%80%9A%E4%BF%A1/"/>
+          
+             
+              <breadCrumb title="移动开发" url="http://ngudream.com/categories/%E9%80%9A%E4%BF%A1/%E7%A7%BB%E5%8A%A8%E5%BC%80%E5%8F%91/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://ngudream.com/2016/09/23/im-series-articles/</loc>
+    <lastmod>2017-01-15T07:58:44.403Z</lastmod>
+    <data>
+        <display>
+        <title>IM技术资料分类</title>
+        <pubTime>2016-09-23T14:36:24.000Z</pubTime>
+        
+        <tag>IM</tag>
+         
+         
+           
+             
+              <breadCrumb title="移动开发" url="http://ngudream.com/categories/%E7%A7%BB%E5%8A%A8%E5%BC%80%E5%8F%91/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://ngudream.com/2016/09/17/im-heartbeat-why/</loc>
+    <lastmod>2017-01-15T07:58:44.399Z</lastmod>
+    <data>
+        <display>
+        <title>为什么说基于TCP的移动端IM仍然需要心跳保活？</title>
+        <pubTime>2016-09-17T12:05:59.000Z</pubTime>
+        
+        <tag>TCP</tag>
+         
+         
+           
+             
+              <breadCrumb title="晨读" url="http://ngudream.com/categories/%E6%99%A8%E8%AF%BB/"/>
+          
+             
+              <breadCrumb title="移动开发" url="http://ngudream.com/categories/%E6%99%A8%E8%AF%BB/%E7%A7%BB%E5%8A%A8%E5%BC%80%E5%8F%91/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://ngudream.com/2016/10/04/how-to-study-distributed-system/</loc>
+    <lastmod>2017-01-15T07:58:44.396Z</lastmod>
+    <data>
+        <display>
+        <title>学习分布式系统需要怎样的知识？</title>
+        <pubTime>2016-10-04T14:04:54.000Z</pubTime>
+        
+        <tag>Distributed</tag>
+         
+        <tag>System</tag>
+         
+         
+           
+             
+              <breadCrumb title="晨读" url="http://ngudream.com/categories/%E6%99%A8%E8%AF%BB/"/>
+          
+             
+              <breadCrumb title="服务器" url="http://ngudream.com/categories/%E6%99%A8%E8%AF%BB/%E6%9C%8D%E5%8A%A1%E5%99%A8/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://ngudream.com/2016/07/25/horizontal-list-view/</loc>
+    <lastmod>2017-01-15T07:58:44.391Z</lastmod>
+    <data>
+        <display>
+        <title>横向ListView-HorizontalListView</title>
+        <pubTime>2016-07-25T13:08:48.000Z</pubTime>
+        
+        <tag>Android</tag>
+         
+        <tag>View</tag>
+         
+         
+           
+             
+              <breadCrumb title="移动开发" url="http://ngudream.com/categories/%E7%A7%BB%E5%8A%A8%E5%BC%80%E5%8F%91/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://ngudream.com/2016/09/13/hexo-install-prettify/</loc>
+    <lastmod>2017-01-15T07:58:44.388Z</lastmod>
+    <data>
+        <display>
+        <title>为hexo博客加入prettify高亮插件</title>
+        <pubTime>2016-09-13T15:07:45.000Z</pubTime>
+        
+        <tag>Hexo</tag>
+         
+         
+           
+             
+              <breadCrumb title="服务器" url="http://ngudream.com/categories/%E6%9C%8D%E5%8A%A1%E5%99%A8/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://ngudream.com/2016/07/09/hexo-advanced/</loc>
+    <lastmod>2017-01-15T07:58:44.383Z</lastmod>
+    <data>
+        <display>
+        <title>hexo高级进阶</title>
+        <pubTime>2016-07-08T16:05:59.000Z</pubTime>
+        
+        <tag>Hexo</tag>
+         
+         
+           
+             
+              <breadCrumb title="服务器" url="http://ngudream.com/categories/%E6%9C%8D%E5%8A%A1%E5%99%A8/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://ngudream.com/2016/10/09/gradle-common-command/</loc>
+    <lastmod>2017-01-15T07:58:44.377Z</lastmod>
+    <data>
+        <display>
+        <title>Gradle常用命令收录</title>
+        <pubTime>2016-10-09T15:35:39.000Z</pubTime>
+        
+        <tag>Android</tag>
+         
+        <tag>Gradle</tag>
+         
+         
+           
+             
+              <breadCrumb title="移动开发" url="http://ngudream.com/categories/%E7%A7%BB%E5%8A%A8%E5%BC%80%E5%8F%91/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://ngudream.com/2016/09/04/golang-zip-unzip/</loc>
+    <lastmod>2017-01-15T07:58:44.374Z</lastmod>
+    <data>
+        <display>
+        <title>Golang Zip的解压缩，带图形界面</title>
+        <pubTime>2016-09-04T03:58:50.000Z</pubTime>
+        
+        <tag>Golang</tag>
+         
+         
+           
+             
+              <breadCrumb title="编程" url="http://ngudream.com/categories/%E7%BC%96%E7%A8%8B/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://ngudream.com/2016/02/24/delphi-beautify-two/</loc>
+    <lastmod>2017-01-15T07:58:44.368Z</lastmod>
+    <data>
+        <display>
+        <title>delphi界面美化（二）--vclskin</title>
+        <pubTime>2016-02-24T13:17:36.000Z</pubTime>
+        
+        <tag>delphi</tag>
+         
+         
+           
+             
+              <breadCrumb title="编程" url="http://ngudream.com/categories/%E7%BC%96%E7%A8%8B/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://ngudream.com/2016/02/21/delphi-beautify-one/</loc>
+    <lastmod>2017-01-15T07:58:44.365Z</lastmod>
+    <data>
+        <display>
+        <title>delphi界面美化（一）</title>
+        <pubTime>2016-02-21T13:17:22.000Z</pubTime>
+        
+        <tag>delphi</tag>
+         
+         
+           
+             
+              <breadCrumb title="编程" url="http://ngudream.com/categories/%E7%BC%96%E7%A8%8B/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://ngudream.com/2016/02/23/c%E4%BA%95-file-watcher/</loc>
+    <lastmod>2017-01-15T07:58:44.362Z</lastmod>
+    <data>
+        <display>
+        <title>C# FileSystemWatcher实现单个文件监控</title>
+        <pubTime>2016-02-23T13:29:00.000Z</pubTime>
+        
+        <tag>C#</tag>
+         
+         
+           
+             
+              <breadCrumb title="编程" url="http://ngudream.com/categories/%E7%BC%96%E7%A8%8B/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://ngudream.com/2016/01/20/as-quick-key/</loc>
+    <lastmod>2017-01-15T07:58:44.359Z</lastmod>
+    <data>
+        <display>
+        <title>Android Studio 快捷键</title>
+        <pubTime>2016-01-20T11:30:43.000Z</pubTime>
+        
+        <tag>Android</tag>
+         
+         
+           
+             
+              <breadCrumb title="移动开发" url="http://ngudream.com/categories/%E7%A7%BB%E5%8A%A8%E5%BC%80%E5%8F%91/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://ngudream.com/2016/10/08/android-third-views/</loc>
+    <lastmod>2017-01-15T07:58:44.356Z</lastmod>
+    <data>
+        <display>
+        <title>Android第三方View</title>
+        <pubTime>2016-10-08T13:55:33.000Z</pubTime>
+        
+        <tag>Android</tag>
+         
+         
+           
+             
+              <breadCrumb title="移动开发" url="http://ngudream.com/categories/%E7%A7%BB%E5%8A%A8%E5%BC%80%E5%8F%91/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://ngudream.com/2016/09/10/android-structure-rebuild/</loc>
+    <lastmod>2017-01-15T07:58:44.354Z</lastmod>
+    <data>
+        <display>
+        <title>Android项目重构之路:架构篇</title>
+        <pubTime>2016-09-10T03:01:09.000Z</pubTime>
+        
+        <tag>Android</tag>
+         
+         
+           
+             
+              <breadCrumb title="移动开发" url="http://ngudream.com/categories/%E7%A7%BB%E5%8A%A8%E5%BC%80%E5%8F%91/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://ngudream.com/2016/08/25/android-plugin-sample/</loc>
+    <lastmod>2017-01-15T07:58:44.351Z</lastmod>
+    <data>
+        <display>
+        <title>Android插件原理剖析</title>
+        <pubTime>2016-08-25T15:16:17.000Z</pubTime>
+        
+        <tag>Android</tag>
+         
+         
+           
+             
+              <breadCrumb title="晨读" url="http://ngudream.com/categories/%E6%99%A8%E8%AF%BB/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://ngudream.com/2016/10/10/android-picasso-use/</loc>
+    <lastmod>2017-01-15T07:58:44.348Z</lastmod>
+    <data>
+        <display>
+        <title>Picasso的基本使用</title>
+        <pubTime>2016-10-10T11:39:48.000Z</pubTime>
+        
+        <tag>Android</tag>
+         
+        <tag>Picasso</tag>
+         
+         
+           
+             
+              <breadCrumb title="移动开发" url="http://ngudream.com/categories/%E7%A7%BB%E5%8A%A8%E5%BC%80%E5%8F%91/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://ngudream.com/2016/10/19/android-network-library/</loc>
+    <lastmod>2017-01-15T07:58:44.345Z</lastmod>
+    <data>
+        <display>
+        <title>Android网络开源库</title>
+        <pubTime>2016-10-19T15:19:08.000Z</pubTime>
+        
+        <tag>Android</tag>
+         
+         
+           
+             
+              <breadCrumb title="移动开发" url="http://ngudream.com/categories/%E7%A7%BB%E5%8A%A8%E5%BC%80%E5%8F%91/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://ngudream.com/2016/11/01/android-network-base-structure/</loc>
+    <lastmod>2017-01-15T07:58:44.343Z</lastmod>
+    <data>
+        <display>
+        <title>教你写Android网络框架之基本架构</title>
+        <pubTime>2016-11-01T15:22:29.000Z</pubTime>
+        
+        <tag>Android</tag>
+         
+         
+           
+             
+              <breadCrumb title="移动开发" url="http://ngudream.com/categories/%E7%A7%BB%E5%8A%A8%E5%BC%80%E5%8F%91/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://ngudream.com/2016/08/23/android-lrucache-bug/</loc>
+    <lastmod>2017-01-15T07:58:44.337Z</lastmod>
+    <data>
+        <display>
+        <title>Android LruCache的bug</title>
+        <pubTime>2016-08-23T14:06:30.000Z</pubTime>
+        
+        <tag>Android</tag>
+         
+        <tag>LruCache</tag>
+         
+         
+           
+             
+              <breadCrumb title="晨读" url="http://ngudream.com/categories/%E6%99%A8%E8%AF%BB/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://ngudream.com/2016/10/08/android-listview-stopscroll/</loc>
+    <lastmod>2017-01-15T07:58:44.334Z</lastmod>
+    <data>
+        <display>
+        <title>ListView停止滚动</title>
+        <pubTime>2016-10-08T11:57:18.000Z</pubTime>
+        
+        <tag>Android</tag>
+         
+         
+           
+             
+              <breadCrumb title="移动开发" url="http://ngudream.com/categories/%E7%A7%BB%E5%8A%A8%E5%BC%80%E5%8F%91/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://ngudream.com/2016/11/06/android-glide-use/</loc>
+    <lastmod>2017-01-15T07:58:44.330Z</lastmod>
+    <data>
+        <display>
+        <title>Glide的基本使用</title>
+        <pubTime>2016-11-06T13:31:45.000Z</pubTime>
+        
+        <tag>Android</tag>
+         
+        <tag>Glide</tag>
+         
+         
+           
+             
+              <breadCrumb title="移动开发" url="http://ngudream.com/categories/%E7%A7%BB%E5%8A%A8%E5%BC%80%E5%8F%91/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://ngudream.com/2016/08/30/android-getauthtoken/</loc>
+    <lastmod>2017-01-15T07:58:44.328Z</lastmod>
+    <data>
+        <display>
+        <title>AccountManager getAuthToken问题</title>
+        <pubTime>2016-08-30T13:59:34.000Z</pubTime>
+        
+        <tag>Android</tag>
+         
+         
+           
+             
+              <breadCrumb title="移动开发" url="http://ngudream.com/categories/%E7%A7%BB%E5%8A%A8%E5%BC%80%E5%8F%91/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://ngudream.com/2016/09/17/android-dynamic-load/</loc>
+    <lastmod>2017-01-15T07:58:44.324Z</lastmod>
+    <data>
+        <display>
+        <title>Android插件化开源项目收集</title>
+        <pubTime>2016-09-17T11:29:39.000Z</pubTime>
+        
+        <tag>Android</tag>
+         
+        <tag>HotFix</tag>
+         
+         
+           
+             
+              <breadCrumb title="移动开发" url="http://ngudream.com/categories/%E7%A7%BB%E5%8A%A8%E5%BC%80%E5%8F%91/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://ngudream.com/2016/11/30/android-data-gather/</loc>
+    <lastmod>2017-01-15T07:58:44.320Z</lastmod>
+    <data>
+        <display>
+        <title>Android 知识梳理</title>
+        <pubTime>2016-11-30T15:16:15.000Z</pubTime>
+        
+        <tag>Android</tag>
+         
+         
+           
+             
+              <breadCrumb title="移动开发" url="http://ngudream.com/categories/%E7%A7%BB%E5%8A%A8%E5%BC%80%E5%8F%91/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://ngudream.com/2016/12/21/android-clean-architecture-pattern/</loc>
+    <lastmod>2017-01-15T07:58:44.317Z</lastmod>
+    <data>
+        <display>
+        <title>如何用 Clean 架构开发 Android 应用</title>
+        <pubTime>2016-12-21T12:59:53.000Z</pubTime>
+        
+        <tag>Android</tag>
+         
+        <tag>Architecture</tag>
+         
+         
+           
+             
+              <breadCrumb title="移动开发" url="http://ngudream.com/categories/%E7%A7%BB%E5%8A%A8%E5%BC%80%E5%8F%91/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://ngudream.com/2016/08/31/alipay-wallet-technology/</loc>
+    <lastmod>2017-01-15T07:58:44.313Z</lastmod>
+    <data>
+        <display>
+        <title>最全最强解析：支付宝钱包系统架构内部剖析（架构图）</title>
+        <pubTime>2016-08-31T14:42:03.000Z</pubTime>
+        
+        <tag>Android</tag>
+         
+         
+           
+             
+              <breadCrumb title="晨读" url="http://ngudream.com/categories/%E6%99%A8%E8%AF%BB/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://ngudream.com/2016/09/16/alibaba-ipo-tech-power/</loc>
+    <lastmod>2017-01-15T07:58:44.309Z</lastmod>
+    <data>
+        <display>
+        <title>阿里巴巴上市背后的技术力量</title>
+        <pubTime>2016-09-16T03:51:21.000Z</pubTime>
+        
+         
+           
+             
+              <breadCrumb title="编程" url="http://ngudream.com/categories/%E7%BC%96%E7%A8%8B/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://ngudream.com/2016/09/18/adapter-itempool/</loc>
+    <lastmod>2017-01-15T07:58:44.304Z</lastmod>
+    <data>
+        <display>
+        <title>你还在写麻烦的 Adapter 么？</title>
+        <pubTime>2016-09-18T14:37:19.000Z</pubTime>
+        
+        <tag>Android</tag>
+         
+         
+           
+             
+              <breadCrumb title="晨读" url="http://ngudream.com/categories/%E6%99%A8%E8%AF%BB/"/>
+          
+             
+              <breadCrumb title="移动开发" url="http://ngudream.com/categories/%E6%99%A8%E8%AF%BB/%E7%A7%BB%E5%8A%A8%E5%BC%80%E5%8F%91/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+    
+    
+</urlset>
