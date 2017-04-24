@@ -60,14 +60,28 @@ $('#nav').affix({
 
 	// counterUp
 	$(document).ready(function( $ ) {
-    if(!/mobile/gi.test(window.navigator.userAgent)){
-        var videoBgStr = '<video id="intro-video" class="video" muted="" loop="" autoplay="">'+
-        '<source src="http://7xljz9.com1.z0.glb.clouddn.com/demo-min.mp4" type="video/mp4">'+
-      '</video>';
-    }
-    $(videoBgStr).appendTo('.intro');
-    $('.overwatch-warp').fadeOut();
-    if($("span.count").length > 0){	
+		if(!/mobile/gi.test(window.navigator.userAgent)){
+			var videoBgStr = '<video id="intro-video" class="video" muted="" loop="" autoplay="">'+
+			'<source src="http://7xljz9.com1.z0.glb.clouddn.com/demo-min.mp4" type="video/mp4">'+
+		  '</video>';
+		}
+		var width = $(window).width();//1920X1080 ,1366X768,1440X900,1600X900 
+		$(videoBgStr).appendTo('.intro');
+		var marginLeft = 0;
+		var marginTop = 0;
+		if(width >= 1900){
+			marginLeft = 270;
+			marginTop = 156;
+		} else if(width >= 1550){
+			marginLeft = 115;
+			marginTop = 66;
+		} else if(width >= 1420){
+			marginLeft = 50;
+			marginTop = 66;
+		}
+		$("#intro-video").css("margin-left", marginLeft).css("margin-top", marginTop);
+		$('.overwatch-warp').fadeOut();
+		if($("span.count").length > 0){	
 			$('span.count').counterUp({
 					delay: 10, // the delay time in ms
 			time: 1000 // the speed time in ms
