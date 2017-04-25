@@ -71,13 +71,13 @@ $('#nav').affix({
 		var marginTop = 0;
 		if(width >= 1900){
 			marginLeft = 270;
-			marginTop = 156;
+			marginTop = 246;
 		} else if(width >= 1550){
 			marginLeft = 115;
-			marginTop = 66;
+			marginTop = 106;
 		} else if(width >= 1420){
 			marginLeft = 50;
-			marginTop = 66;
+			marginTop = 106;
 		}
 		$("#intro-video").css("margin-left", marginLeft).css("margin-top", marginTop);
 		$('.overwatch-warp').fadeOut();
