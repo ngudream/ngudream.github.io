@@ -72,6 +72,8 @@ $('#nav').affix({
 		if(width >= 1900){
 			marginLeft = 270;
 			marginTop = 246;
+			$("#enter_div_id").css("margin-top", "66px");
+			$("#enter_div_id").show();
 		} else if(width >= 1550){
 			marginLeft = 115;
 			marginTop = 106;
@@ -80,6 +82,10 @@ $('#nav').affix({
 			marginTop = 106;
 		}
 		$("#intro-video").css("margin-left", marginLeft).css("margin-top", marginTop);
+		var aud = document.getElementById("intro-video");
+		aud.oncanplaythrough = function() {
+			$("#v4-pre-loaded").hide();
+		};
 		$('.overwatch-warp').fadeOut();
 		if($("span.count").length > 0){	
 			$('span.count').counterUp({
