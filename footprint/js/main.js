@@ -72,7 +72,7 @@ $('#nav').affix({
 		if(width >= 1900){
 			marginLeft = 270;
 			marginTop = 246;
-			$("#enter_div_id").css("margin-top", "66px");
+			$("#enter_div_id").css("margin-top", "72px");
 			$("#enter_div_id").show();
 		} else if(width >= 1550){
 			marginLeft = 115;
