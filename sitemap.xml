@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://ngudream.com/2017/01/24/n-hexo-blog/</loc>
+    
+    <lastmod>2017-05-20T10:23:18.470Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://ngudream.com/2017/05/07/java-interview-sql/</loc>
     
     <lastmod>2017-05-16T13:51:00.785Z</lastmod>
@@ -54,13 +61,6 @@
     <loc>http://ngudream.com/guestbook/css/football.css</loc>
     
     <lastmod>2017-04-15T14:13:47.943Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://ngudream.com/2017/01/24/n-hexo-blog/</loc>
-    
-    <lastmod>2017-04-11T14:49:32.132Z</lastmod>
     
   </url>
   
