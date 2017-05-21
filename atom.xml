@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://ngudream.com/"/>
-  <updated>2017-05-16T13:51:00.785Z</updated>
+  <updated>2017-05-21T09:16:49.155Z</updated>
   <id>http://ngudream.com/</id>
   
   <author>
@@ -14,6 +14,557 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>五分钟学会 Kotlin 语法</title>
+    <link href="http://ngudream.com/2017/05/18/kotlin-for-android-expression/"/>
+    <id>http://ngudream.com/2017/05/18/kotlin-for-android-expression/</id>
+    <published>2017-05-18T14:53:01.000Z</published>
+    <updated>2017-05-21T09:16:49.155Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote>
+<p>&#x8F6C;&#x8F7D;&#x8BF7;&#x6CE8;&#x660E;&#x51FA;&#x5904;&#xFF1A;<a href="http://www.jianshu.com/u/4025214b6abd" target="_blank" rel="external nofollow noopener noreferrer">http://www.jianshu.com/u/4025214b6abd</a></p>
+</blockquote>
+<h2 id="&#x4E3A;&#x4EC0;&#x4E48;&#x4F7F;&#x7528;kotlin"><a class="header-anchor" href="#&#x4E3A;&#x4EC0;&#x4E48;&#x4F7F;&#x7528;kotlin"></a>&#x4E3A;&#x4EC0;&#x4E48;&#x4F7F;&#x7528;Kotlin</h2>
+<p>&#x9879;&#x76EE;&#x4E00;&#x671F;&#x5728;&#x6536;&#x5C3E;&#x4E86;&#x7EC8;&#x4E8E;&#x6709;&#x65F6;&#x95F4;&#x6298;&#x817E;&#x4E86;&#xFF0C;&#x4E00;&#x4E2A;&#x591A;&#x6708;&#x4EE5;&#x6765;Kotlin&#x4ECE;&#x5165;&#x95E8;&#x5230;&#x73B0;&#x5728;&#xFF0C;&#x575A;&#x6301;&#x7528;&#x6765;&#x5F00;&#x53D1;&#x7684;&#x5207;&#x8EAB;&#x611F;&#x53D7;&#x3002;&#x56E0;&#x4E3A;&#x8BED;&#x6CD5;&#x4E0E;Java&#x7684;&#x533A;&#x522B;&#x633A;&#x5927;&#x7684;&#x4E00;&#x5F00;&#x59CB;&#x5F88;&#x60F3;&#x653E;&#x5F03;&#xFF0C;&#x5982;&#x679C;&#x4E0D;&#x662F;&#x56E0;&#x4E3A;&#x9879;&#x76EE;&#x5728;&#x4F7F;&#x7528;&#xFF0C;&#x60F3;&#x5FC5;&#x5F88;&#x5C11;&#x4EBA;&#x4F1A;&#x5C1D;&#x8BD5;&#x8FD9;&#x6837;&#x4E00;&#x95E8;&#x5C0F;&#x4F17;&#x8BED;&#x8A00;&#xFF0C;&#x4F46;&#x662F;&#x4E60;&#x60EF;&#x540E;&#x4F1A;&#x53D1;&#x73B0;&#x8FD9;&#x4E9B;&#x5E74;&#x7A76;&#x7ADF;&#x6D6A;&#x8D39;&#x591A;&#x5C11;&#x65F6;&#x95F4;&#x5728;&#x5199;&#x65E0;&#x7528;&#x7684;Java&#x4EE3;&#x7801;&#x4E86;&#xFF0C;Kotlin&#x5728;&#x517C;&#x5BB9;Java&#x7684;&#x57FA;&#x7840;&#x4E0A;&#x8FD8;&#x80FD;&#x5927;&#x5927;&#x63D0;&#x5347;&#x5F00;&#x53D1;&#x6548;&#x7387;&#x3002;Kotlin&#x6709;&#x8BB8;&#x591A;&#x7279;&#x6027;&#x4F46;&#x5BF9;&#x4E8E;&#x5F00;&#x53D1;&#x6765;&#x8BF4;&#xFF0C;&#x5FEB;&#x901F;&#x9002;&#x5E94;&#x548C;&#x5B66;&#x4E60;&#x66F4;&#x4E3A;&#x91CD;&#x8981;&#xFF0C;&#x5F88;&#x591A;&#x65F6;&#x5019;&#x6211;&#x4EEC;&#x90FD;&#x662F;&#x5728;&#x4E0D;&#x660E;&#x767D;&#x5176;&#x539F;&#x56E0;&#x5C31;&#x5F00;&#x59CB;&#x4F7F;&#x7528;&#x7684;&#xFF0C;&#x6B63;&#x5982;&#x6211;&#x4EEC;&#x4E0D;&#x53EF;&#x80FD;&#x628A;Retrofit&#x539F;&#x7406;&#x7814;&#x7A76;&#x900F;&#x624D;&#x4F7F;&#x7528;&#x5B83;&#x3002;&#x53EA;&#x8981;&#x5B83;&#x8DB3;&#x591F;&#x7A33;&#x5B9A;&#x6210;&#x719F;&#xFF0C;&#x5E76;&#x80FD;&#x6709;&#x6548;&#x7684;&#x63D0;&#x5347;&#x5F00;&#x53D1;&#x6548;&#x7387;&#x90FD;&#x662F;&#x503C;&#x5F97;&#x5C1D;&#x8BD5;&#x7684;&#x3002;&#x9119;&#x4EBA;&#x4E0D;&#x624D;&#xFF0C;&#x76EE;&#x524D;&#x4F7F;&#x7528;Kotlin&#x7684;&#x539F;&#x56E0;&#x4E3B;&#x8981;&#x662F;&#x56E0;&#x4E3A;&#x5B83;&#x8BED;&#x6CD5;&#x7B80;&#x6D01;&#xFF0C;&#x652F;&#x6301;lambda&#x8868;&#x8FBE;&#x5F0F;&#xFF0C;&#x5F3A;&#x5927;&#x7684;when&#x8BED;&#x6CD5;&#xFF0C;&#x4E0D;&#x7528;&#x5199;&#x5206;&#x53F7;&#x7ED3;&#x5C3E;&#xFF0C;&#x5149;&#x662F;&#x8FD9;&#x4E9B;&#x5C31;&#x8DB3;&#x4EE5;&#x8BA9;&#x6211;&#x559C;&#x6B22;Kotlin&#x3002;&#x81F3;&#x4E8E;&#x7A7A;&#x5B89;&#x5168;&#x4E4B;&#x7C7B;&#x7684;&#x7279;&#x6027;&#xFF0C;&#x6BD5;&#x7ADF;&#x670D;&#x52A1;&#x7AEF;&#x6570;&#x636E;&#x7C7B;&#x578B;&#x592A;&#x591A;null&#x4E86;&#x5E76;&#x6CA1;&#x591A;&#x5927;&#x611F;&#x89E6;&#xFF0C;&#x8FD9;&#x4E9B;&#x7279;&#x6027;&#x5728;&#x5B9E;&#x9645;&#x5E94;&#x7528;&#x4E2D;&#x6F5C;&#x79FB;&#x9ED8;&#x5316;&#x7684;&#x5C31;&#x5438;&#x6536;&#x4E86;&#xFF0C;&#x4EE5;&#x81F3;&#x4E8E;&#x73B0;&#x5728;&#x9047;&#x5230;&#x51E0;&#x4E2A;Java&#x7F16;&#x5199;&#x7684;&#x4EE3;&#x7801;&#xFF0C;&#x90FD;&#x6709;&#x4E9B;&#x4E0D;&#x9002;&#x5E94;&#x4E86;&#x3002;</p>
+<h2 id="&#x4FEE;&#x6539;&#x8BF4;&#x660E;"><a class="header-anchor" href="#&#x4FEE;&#x6539;&#x8BF4;&#x660E;"></a>&#x4FEE;&#x6539;&#x8BF4;&#x660E;</h2>
+<p>&#x7A81;&#x7136;&#x706B;&#x4E86;&#x4E00;&#x8138;&#x61F5;&#x903C;&#xFF0C;Google IO&#x7684;&#x5F71;&#x54CD;&#x771F;&#x662F;&#x4E0D;&#x5BB9;&#x5C0F;&#x89D1;&#x3002;&#x907F;&#x514D;&#x8BEF;&#x4EBA;&#x5B50;&#x5F1F;&#x8FD8;&#x662F;&#x4FEE;&#x6539;&#x4E0B;&#x6BD4;&#x8F83;&#x597D;&#xFF0C;&#x4E5F;&#x5C31;&#x628A;&#x4E0A;&#x4E00;&#x7BC7;&#x6587;&#x7AE0;&#x7684;&#x57FA;&#x7840;&#x77E5;&#x8BC6;&#x4E5F;&#x642C;&#x8FC1;&#x8FC7;&#x6765;&#xFF0C;&#x5BF9;&#x6761;&#x4EF6;&#x5224;&#x65AD;when&#x8FD8;&#x6709;&#x7A7A;&#x5224;&#x65AD;&#x5904;&#x7406;&#x8FDB;&#x884C;&#x4E86;&#x4FEE;&#x6539;&#xFF0C;&#x6DFB;&#x52A0;&#x4E86;lambda&#x8BF4;&#x660E;&#xFF0C;&#x79FB;&#x9664;&#x8FC7;&#x671F;&#x94FE;&#x63A5;&#x3002;</p>
+<h2 id="kotlin-&#x57FA;&#x672C;&#x8BED;&#x6CD5;"><a class="header-anchor" href="#kotlin-&#x57FA;&#x672C;&#x8BED;&#x6CD5;"></a>Kotlin &#x57FA;&#x672C;&#x8BED;&#x6CD5;</h2>
+<p>&#x5148;&#x8BF4;&#x4E2A;&#x5B66;&#x4E60;Kotlin&#x8BED;&#x6CD5;&#x7684;&#x5C0F;&#x7A8D;&#x95E8;&#xFF0C;&#x5C06;&#x4EE3;&#x7801;&#x7528;Java&#x5199;&#x597D;&#xFF0C;&#x7136;&#x540E;Code/Conver Java File to Kotlin File&#x8F6C;&#x6362;&#x6210;Kotlin&#x4EE3;&#x7801;&#xFF0C;&#x6216;&#x8005;&#x5C06;Java&#x4EE3;&#x7801;&#x590D;&#x5236;&#x5230;Kotlin&#x6587;&#x4EF6;&#x4F1A;&#x63D0;&#x793A;&#x8F6C;&#x6362;&#x4E5F;&#x662F;&#x633A;&#x65B9;&#x4FBF;&#x7684;&#xFF0C;&#x6BD4;&#x8F83;&#x5DEE;&#x5F02;&#x5F88;&#x5BB9;&#x6613;&#x5C31;&#x80FD;&#x7406;&#x89E3;&#x4E86;&#xFF0C;&#x4E00;&#x5F00;&#x59CB;&#x96BE;&#x514D;&#x4E0D;&#x9002;&#x5E94;&#x4E60;&#x60EF;&#x540E;&#x76F8;&#x4FE1;&#x4F60;&#x4E00;&#x5B9A;&#x4F1A;&#x559C;&#x6B22;&#x4E0A;Kotlin</p>
+<p><strong>1). &#x5B9A;&#x4E49;</strong></p>
+<p>&#x5FD8;&#x6389;Java&#x7684;&#x90A3;&#x4E00;&#x5957;&#x5199;&#x6CD5;&#x4E0D;&#x7136;&#x4F1A;&#x5F88;&#x4E0D;&#x9002;&#x5E94;&#x7684;&#xFF0C;Kotlin&#x6709;&#x81EA;&#x5DF1;&#x7684;&#x7279;&#x6027;&#x4E0D;&#x8BE5;&#x88AB;Java&#x7684;&#x601D;&#x7EF4;&#x6240;&#x675F;&#x7F1A;&#x3002;&#x5728;Kotlin&#x4E2D;&#x5E38;&#x91CF;&#x7528;val&#x58F0;&#x660E;&#xFF0C;&#x53D8;&#x4E86;&#x7528;var&#x58F0;&#x660E;&#xFF0C;&#x5173;&#x952E;&#x5B57;&#x5728;&#x524D;&#x9762;&#xFF0C;&#x7C7B;&#x578B;&#x4EE5;&#x5192;&#x53F7;:&#x9694;&#x5F00;&#x5728;&#x540E;&#x9762;&#xFF0C;&#x4E5F;&#x53EF;&#x4EE5;&#x7701;&#x7565;&#x76F4;&#x63A5;&#x8D4B;&#x503C;&#xFF0C;&#x7C7B;&#x578B;&#x540E;&#x5E26;&#x95EE;&#x53F7;?&#x8868;&#x793A;&#x53EF;&#x4E3A;&#x7A7A;&#x7C7B;&#x578B;(&#x9ED8;&#x8BA4;&#x7A7A;&#x5B89;&#x5168;)&#x3002;<br>
+&#x5E38;&#x91CF;val&#x5EF6;&#x8FDF;&#x52A0;&#x8F7D;by lazy{}&#xFF0C;&#x9ED8;&#x8BA4;&#x7EBF;&#x7A0B;&#x5B89;&#x5168;&#x5173;&#x95ED;&#x7EBF;&#x7A0B;&#x5B89;&#x5168;lazy(LazyThreadSafetyMode.NONE){}&#xFF0C;&#x53D8;&#x91CF;var&#x5EF6;&#x8FDF;&#x52A0;&#x8F7D;lateinit&#x3002;</p>
+<pre><code>//&#x5E38;&#x91CF;&#x6570;&#x7EC4;int[][][] arrs = new int[3][2][1];
+val arrs = Array(3) { Array(2) { IntArray(1) } }
+//&#x7A7A;&#x5B89;&#x5168;&#x53D8;&#x91CF;
+var str: String = &quot;hello&quot;
+var str1 = &quot;word&quot;
+//&#x53EF;&#x4E3A;&#x7A7A;&#x5B57;&#x7B26;&#x4E32;&#x53D8;&#x91CF;
+var str2: String? = null
+</code></pre>
+<p><strong>2). &#x6761;&#x4EF6;</strong></p>
+<p>if&#x2026;else &#x6B63;&#x5E38;&#x4F7F;&#x7528;&#xFF0C;&#x4E0D;&#x8FC7;&#x79FB;&#x9664;&#x4E86;switch&#x7528;&#x66F4;&#x5F3A;&#x5927;&#x7684;when&#x66FF;&#x4EE3;&#xFF0C;when&#x5B50;&#x5F0F;&#x53EF;&#x4EE5;&#x662F;&#x5E38;&#x91CF;&#x3001;&#x53D8;&#x91CF;&#x3001;&#x8FD4;&#x56DE;&#x6570;&#x503C;&#x7684;&#x8868;&#x8FBE;&#x5F0F;&#x3001;&#x8FD4;&#x56DE;Boolean&#x503C;&#x7684;&#x8868;&#x8FBE;&#x5F0F;&#xFF0C;&#x5F3A;&#x5927;&#x5230;&#x7528;&#x6765;&#x66FF;&#x6362;if&#x2026;else if</p>
+<pre><code>// &#x6D4B;&#x8BD5;&#x503C; x = 0, -1, 1, 2, 3, 6, 10
+var x = 10
+when (x) {
+    //&#x5E38;&#x91CF;
+    2 -&gt; println(&quot;&#x7B49;&#x4E8E;2&quot;)
+    //&#x6570;&#x503C;&#x8868;&#x8FBE;&#x5F0F;
+    if (x &gt; 0) 1 else -1 -&gt; println(&quot;&#x5927;&#x4E8E;0&#x5E76;&#x7B49;&#x4E8E;1&#xFF0C;&#x6216;&#x5C0F;&#x4E8E;0&#x5E76;&#x7B49;&#x4E8E;-1&quot;)
+    //Boolean&#x7C7B;&#x578B;&#x8868;&#x8FBE;&#x5F0F;
+    in 1..5 -&gt; println(&quot;&#x8303;&#x56F4;&#x5339;&#x914D;1-5&quot;)
+    !in 6..9 -&gt; println(&quot;&#x4E0D;&#x662F;6-9&quot;)
+    is Int -&gt; println(&quot;&#x7C7B;&#x578B;&#x5224;&#x65AD;&quot;)
+    else -&gt; println(&quot;else&quot;)
+}
+// &#x4EE3;&#x66FF;if...else if
+when{
+    x &gt; 6 &amp;&amp; x &lt;= 10  -&gt;  println(&quot;&#x5927;&#x4E8E;6&#x5C0F;&#x4E8E;&#x7B49;&#x4E8E;10&quot;)
+    x &lt; 6 -&gt; println(&quot;&#x5C0F;&#x4E8E;6&quot;)
+    else -&gt; println(&quot;else&quot;)
+}
+</code></pre>
+<p><strong>3). &#x5FAA;&#x73AF;</strong></p>
+<p>while &#x548C; do&#x2026;while &#x540C;Java&#x5E76;&#x65E0;&#x533A;&#x522B;&#xFF0C;for&#x5219;&#x6709;&#x5F88;&#x5927;&#x6539;&#x53D8;&#x5E76;&#x591A;&#x51FA;&#x4E86;&#x51E0;&#x4E2A;&#x53D8;&#x79CD;</p>
+<pre><code>val list = ArrayList&lt;String&gt;()
+//&#x9012;&#x589E;for (int i = 0; i &lt; list.size(); i++)
+for (i in list.indices) {
+   print(list[i])
+}
+//&#x9012;&#x589E;for (int i = 2; i &lt; list.size(); i++)
+for (i in 2..list.size-1) {
+   print(list[i])
+}
+//&#x9012;&#x51CF;for (int i = list.size(); i &gt;= 0; i--)
+for (i in list.size downTo 0) {
+    print(list[i])
+}
+//&#x64CD;&#x4F5C;&#x5217;&#x8868;&#x5185;&#x7684;&#x5BF9;&#x8C61;
+for (item in list) {
+    print(item)
+}
+//&#x52A0;&#x5F3A;&#x7248;
+for&#xFF08;&#xFF08;i&#xFF0C; item&#xFF09; in list.witnIndex()&#xFF09; {
+    print(list[i])
+    print(item)
+}
+//&#x53D8;&#x79CD;&#x7248;
+list.forEach {
+    print(it)
+}
+
+list.forEach {
+    print(it)
+}
+
+list.forEachIndexed { i, s -&gt;
+    print(list[i])
+    print(s)
+}
+
+list.forEachIndexed(object :(Int,String) -&gt; Unit{
+    override fun invoke(i: Int, s: String) {
+        print(list[i])
+        print(s)
+    }
+})
+</code></pre>
+<h2 id="&#x4E07;&#x80FD;&#x7684;&#x5192;&#x53F7;"><a class="header-anchor" href="#&#x4E07;&#x80FD;&#x7684;&#x5192;&#x53F7;"></a>&#x4E07;&#x80FD;&#x7684;&#x5192;&#x53F7;</h2>
+<p>&#x5728;Kotlin&#x4E2D;&#x5192;&#x53F7;:&#x7528;&#x4E07;&#x80FD;&#x6765;&#x79F0;&#x547C;&#x7EDD;&#x4E0D;&#x4E3A;&#x8FC7;&#x3002;&#x5E38;&#x91CF;&#x53D8;&#x91CF;&#x7684;&#x7C7B;&#x578B;&#x58F0;&#x660E;&#xFF0C;&#x51FD;&#x6570;&#x7684;&#x8FD4;&#x56DE;&#x503C;&#xFF0C;&#x7C7B;&#x7684;&#x7EE7;&#x627F;&#x90FD;&#x9700;&#x8981;&#x5B83;</p>
+<pre><code>//val&#x8868;&#x793A;&#x5E38;&#x91CF;var&#x8868;&#x793A;&#x53D8;&#x91CF;&#x58F0;&#x660E;
+val name: String = &quot;tutu&quot; 
+//&#x7701;&#x7565;&#x7C7B;&#x578B;&#x8BF4;&#x660E;
+var age = &quot;23&quot;
+//fun&#x8868;&#x793A;&#x51FD;&#x6570;
+fun getName(): String{
+   return &quot;tutu&quot;
+}
+//&#x7C7B;&#x7EE7;&#x627F;
+class UserList&lt;E&gt;(): ArrayList&lt;E&gt;() {
+    //...
+}
+</code></pre>
+<p>&#x9664;&#x6B64;&#x4E4B;&#x5916;&#x8FD8;&#x6709;&#x4E00;&#x4E2A;&#x7279;&#x522B;&#x7684;&#x5730;&#x65B9;&#x4E5F;&#x9700;&#x8981;&#x5B83;&#xFF0C;&#x4F7F;&#x7528;Java&#x7C7B;&#x7684;&#x65F6;&#x5019;&#x3002;Kotlin&#x6700;&#x7EC8;&#x4F1A;&#x8FD8;&#x662F;&#x7F16;&#x8BD1;&#x6210;Java&#x5B57;&#x8282;&#x7801;&#xFF0C;&#x4F7F;&#x7528;&#x5230;Java&#x7C7B;&#x662F;&#x5FC5;&#x7136;&#x7684;&#xFF0C;&#x5728;Kotlin&#x8BED;&#x6CD5;&#x5982;&#x4E0B;</p>
+<pre><code>val intent = Intent(this, MainActivity::class.java)
+</code></pre>
+<p>&#x7C7B;&#x540D;::class.java&#x6CA1;&#x6709;&#x4E3A;&#x4EC0;&#x4E48;&#x5C31;&#x8FD9;&#x4E48;&#x5199;&#x8BB0;&#x7740;&#x5C31;&#x662F;</p>
+<h2 id="&#x6211;&#x662F;&#x8C01;&#x7684;"><a class="header-anchor" href="#&#x6211;&#x662F;&#x8C01;&#x7684;"></a>&#x6211;&#x662F;&#x8C01;&#x7684;@</h2>
+<p>&#x9664;&#x4E86;&#x5192;&#x53F7;&#x53E6;&#x4E00;&#x4E2A;&#x91CD;&#x8981;&#x7B26;&#x53F7;@&#xFF0C;&#x60F3;&#x5FC5;&#x7528;&#x5230;&#x5185;&#x90E8;&#x7C7B;&#x548C;&#x533F;&#x540D;&#x5185;&#x90E8;&#x7C7B;&#x7684;&#x5730;&#x65B9;&#x4E00;&#x5B9A;&#x5F88;&#x591A;&#xFF0C;&#x518D;&#x52A0;&#x4E0A;&#x652F;&#x6301;lambda&#x8BED;&#x6CD5;&#xFF0C;&#x6CA1;&#x6709;&#x5B83;&#x8C01;&#x544A;&#x8BC9;&#x4F60;this&#x548C;return&#x6307;&#x7684;&#x662F;&#x54EA;&#x4E00;&#x4E2A;</p>
+<pre><code>class User {
+    inner class State{
+        fun getUser(): User{
+            //&#x8FD4;&#x56DE;User
+            return this@User
+        }
+        fun getState(): State{
+            //&#x8FD4;&#x56DE;State
+            return this@State
+        }
+    }
+}
+</code></pre>
+<h2 id="&#x5077;&#x61D2;&#x7684;&#x65B9;&#x6CD5;"><a class="header-anchor" href="#&#x5077;&#x61D2;&#x7684;&#x65B9;&#x6CD5;"></a>&#x5077;&#x61D2;&#x7684;&#x65B9;&#x6CD5;</h2>
+<p><strong>1). Kotlin&#x7279;&#x8272;</strong></p>
+<p>Java&#x7684;getter/setter&#x65B9;&#x6CD5;&#x81EA;&#x52A8;&#x8F6C;&#x6362;&#x6210;&#x5C5E;&#x6027;&#xFF0C;&#x5BF9;&#x5E94;&#x5230;Kotlin&#x5C5E;&#x6027;&#x7684;&#x8C03;&#x7528;</p>
+<pre><code>public class User {
+    private String name;
+    private String age;
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getAge() {
+        return age;
+    }
+
+    public void setAge(String age) {
+        this.age = age;
+    }
+}
+</code></pre>
+<p>&#x53CD;&#x4E4B;Kotlin&#x7684;&#x5C5E;&#x6027;&#x81EA;&#x52A8;&#x751F;&#x6210;Java&#x7684;getter/setter&#x65B9;&#x6CD5;&#xFF0C;&#x65B9;&#x4FBF;&#x5728;Java&#x4E2D;&#x8C03;&#x7528;&#xFF0C;&#x540C;&#x6837;&#x7684;&#x5B9A;&#x4E49;&#x5728;Kotlin&#x4E2D;</p>
+<pre><code>class User {
+    var name: String? = null
+    var age: String? = null
+}
+</code></pre>
+<p>&#x8FD9;&#x6837;&#x4E00;&#x4E2A;Java&#x7C7B;&#x5728;Kotlin&#x4E2D;&#x53EA;&#x9700;&#x8FD9;&#x6837;&#x8C03;&#x7528;</p>
+<pre><code>val user = User()
+//&#x8D4B;&#x503C;
+user.name = &quot;tutu&quot;
+user.age = &quot;23&quot;
+//&#x53D6;&#x503C;
+val name = user.name
+val age = user.age
+</code></pre>
+<p>&#x6211;&#x4EEC;&#x7684;getter/setter&#x65B9;&#x6CD5;&#x6709;&#x65F6;&#x4E0D;&#x4F1A;&#x8FD9;&#x4E48;&#x7B80;&#x5355;&#xFF0C;&#x8FD9;&#x5C31;&#x9700;&#x8981;&#x81EA;&#x5B9A;&#x4E49;getter/setter&#x4E86;&#xFF0C;&#x53E6;&#x8D77;&#x4E00;&#x884C;&#x8BBE;&#x7F6E;get()/set(value)&#x65B9;&#x6CD5;&#xFF0C;&#x5B9E;&#x73B0;&#x4E00;&#x4E2A;Java&#x4E2D;&#x5E38;&#x7528;&#x7684;&#x5355;&#x4F8B;&#xFF0C;&#x8FD9;&#x91CC;&#x53EA;&#x4E3A;&#x4E86;&#x5C55;&#x793A;&#xFF0C;&#x5355;&#x4F8B;&#x5728;Kotlin&#x6709;&#x66F4;&#x7B80;&#x5355;&#x7684;&#x65B9;&#x6CD5;&#x5B9E;&#x73B0;&#xFF0C;&#x53EA;&#x8981;&#x5728; package &#x7EA7;&#x522B;&#x521B;&#x5EFA;&#x4E00;&#x4E2A; object &#x5373;&#x53EF;</p>
+<pre><code>class User {
+    companion object {
+        @Volatile var instance: User? = null
+            get() {
+                if (field == null) {
+                    synchronized(User::class.java) {
+                        if (field == null)
+                            field = User()
+                    }
+                }
+                return field
+            }
+    }
+
+    var name: String? = null
+    var age: String? = null
+}
+</code></pre>
+<p>&#x81EA;&#x5B9A;&#x4E49;getter/setter&#x91CD;&#x70B9;&#x5728;field&#xFF0C;&#x8DDF;&#x6211;&#x4EEC;&#x719F;&#x6089;&#x6240;Java&#x7684;this&#x6307;&#x4EE3;&#x5F53;&#x524D;&#x7C7B;&#x4E00;&#x6837;&#xFF0C;field&#x6307;&#x4EE3;&#x5F53;&#x524D;&#x53C2;&#x6570;&#xFF0C;&#x76F4;&#x63A5;&#x4F7F;&#x7528;&#x53C2;&#x6570;&#x540D;instance&#x4EE3;&#x66FF;&#x4E0D;&#x4F1A;&#x62A5;&#x9519;&#x4F46;&#x5355;&#x4F8B;&#x5C31;&#x6CA1;&#x6548;&#x679C;&#x4E86;</p>
+<p><strong>2). &#x5B57;&#x7B26;&#x4E32;&#x6A21;&#x677F;</strong></p>
+<p>&#x5728;Java&#x4E2D;&#x62FC;&#x63A5;&#x5B57;&#x7B26;&#x4E32;&#x7684;&#x4EE3;&#x7801;&#x53EF;&#x8BFB;&#x6027;&#x90FD;&#x5F88;&#x5DEE;&#xFF0C;&#x5728;Kotlin&#x5B57;&#x7B26;&#x4E32;&#x62FC;&#x63A5;&#x53D8;&#x5F97;&#x975E;&#x5E38;&#x7B80;&#x6D01;&#xFF0C;&#x53EA;&#x9700;&#x7528;$&#x540E;&#x9762;&#x52A0;&#x4E0A;&#x53C2;&#x6570;&#x540D;&#xFF0C;&#x590D;&#x6742;&#x7684;&#x53C2;&#x6570;&#x8981;&#x52A0;&#x4E0A;{}</p>
+<pre><code>val user = User()
+//&#x8D4B;&#x503C;
+user.name = &quot;tutu&quot;
+user.age = &quot;23&quot;
+//&#x53D6;&#x503C;
+val name = user.name
+val age = user.age
+var userInfo = &quot;name:${user.name},  age:$age&quot;
+//&#x8F93;&#x51FA;&#x7ED3;&#x679C;&#xFF1A;name:tutu, age:23
+</code></pre>
+<p><strong>3). lambda</strong></p>
+<p>&#x4E00;&#x5F00;&#x59CB;&#x89C9;&#x5F97;lambda&#x5F88;&#x9AD8;&#x7EA7;&#x5B8C;&#x5168;&#x770B;&#x4E0D;&#x61C2;&#xFF0C;&#x5176;&#x5B9E;&#x5F88;&#x7B80;&#x5355;&#x7684;&#x5C31;&#x662F;&#x628A;&#x63A5;&#x53E3;&#x540D;&#x3001;&#x65B9;&#x6CD5;&#x540D;&#x548C;&#x53C2;&#x6570;&#x7C7B;&#x578B;&#x7701;&#x6389;&#x4E0D;&#x5199;&#x518D;&#x52A0;&#x4E2A;-&gt;&#x7F62;&#x4E86;&#xFF0C;&#x660E;&#x767D;&#x8FD9;&#x70B9;&#x4E86;&#x5F88;&#x597D;&#x7406;&#x89E3;&#x3002;</p>
+<pre><code>// &#x65E0;&#x53C2;&#x6570;&#x65E0;&#x8FD4;&#x56DE;&#x503C;
+Thread(Runnable {
+    sleep(1000)
+}).start()
+// &#x5355;&#x53C2;&#x6570;&#x4E0D;&#x5E26;&#x8FD4;&#x56DE;&#x503C;
+view.setOnClickListener { v -&gt;
+    Log.e(&quot;tag&quot;, &quot;${v.tag}&quot;)
+}
+// &#x591A;&#x53C2;&#x6570;&#x5E26;&#x8FD4;&#x56DE;&#x503C;
+view.setOnKeyListener(View.OnKeyListener { v, keyCode, event -&gt;
+    Log.e(&quot;tag&quot;, &quot;keyCode$keyCode, ${event.keyCode}&quot;)
+    if (event.keyCode == KeyEvent.KEYCODE_BACK)
+        return@OnKeyListener true
+    false
+})
+</code></pre>
+<h2 id="&#x65B0;&#x9762;&#x5B54;"><a class="header-anchor" href="#&#x65B0;&#x9762;&#x5B54;"></a>&#x65B0;&#x9762;&#x5B54;</h2>
+<ul>
+<li>1). &#x5EF6;&#x8FDF;&#x52A0;&#x8F7D;</li>
+<li>2). &#x6D41;&#x7A0B;&#x63A7;&#x5236;</li>
+</ul>
+<p>&#x5185;&#x5BB9;&#x4E0A;&#x4E00;&#x7BC7;&#x5199;&#x8FC7;&#x53C2;&#x8003; <a href="http://www.jianshu.com/p/946da9f06302" target="_blank" rel="external nofollow noopener noreferrer">Android Kotlin&#x5B66;&#x4E60;&#x7B14;&#x8BB0;</a>&#xFF0C;&#x4E0D;&#x91CD;&#x590D;&#x4ECB;&#x7ECD;</p>
+<h2 id="&#x7A7A;&#x5224;&#x65AD;"><a class="header-anchor" href="#&#x7A7A;&#x5224;&#x65AD;"></a>&#x7A7A;&#x5224;&#x65AD;</h2>
+<p>Kotlin&#x7684;&#x7A7A;&#x5B89;&#x5168;&#x8BBE;&#x8BA1;&#x5BF9;&#x4E8E;&#x58F0;&#x660E;&#x53EF;&#x4E3A;&#x7A7A;&#x7684;&#x53C2;&#x6570;&#xFF0C;&#x5728;&#x4F7F;&#x7528;&#x65F6;&#x8981;&#x8FDB;&#x884C;&#x7A7A;&#x5224;&#x65AD;&#x5904;&#x7406;&#xFF0C;&#x6709;&#x4E24;&#x79CD;&#x5904;&#x7406;&#x65B9;&#x5F0F;&#xFF0C;&#x5B57;&#x6BB5;&#x540E;&#x52A0;!!&#x50CF;Java&#x4E00;&#x6837;&#x629B;&#x51FA;&#x7A7A;&#x5F02;&#x5E38;&#xFF0C;&#x53E6;&#x4E00;&#x79CD;&#x5B57;&#x6BB5;&#x540E;&#x52A0;?&#x53EF;&#x4E0D;&#x505A;&#x5904;&#x7406;&#x8FD4;&#x56DE;&#x503C;&#x4E3A; null&#x6216;&#x914D;&#x5408;?:&#x505A;&#x7A7A;&#x5224;&#x65AD;&#x5904;&#x7406;</p>
+<pre><code>//&#x7C7B;&#x578B;&#x540E;&#x9762;&#x52A0;?&#x8868;&#x793A;&#x53EF;&#x4E3A;&#x7A7A;
+var age: String? = &quot;23&quot; 
+//&#x629B;&#x51FA;&#x7A7A;&#x6307;&#x9488;&#x5F02;&#x5E38;
+val ages = age!!.toInt()
+//&#x4E0D;&#x505A;&#x5904;&#x7406;&#x8FD4;&#x56DE; null
+val ages1 = age?.toInt()
+//age&#x4E3A;&#x7A7A;&#x8FD4;&#x56DE;-1
+val ages2 = age?.toInt() ?: -1
+</code></pre>
+<p>&#x66F4;&#x591A;&#x7A7A;&#x5904;&#x7406;<a href="http://www.jianshu.com/p/905f8c2de5ea" target="_blank" rel="external nofollow noopener noreferrer">NullPointException &#x5229;&#x5668; Kotlin &#x53EF;&#x9009;&#x578B;</a></p>
+<h2 id="&#x6CE8;&#x610F;&#x4E8B;&#x9879;"><a class="header-anchor" href="#&#x6CE8;&#x610F;&#x4E8B;&#x9879;"></a>&#x6CE8;&#x610F;&#x4E8B;&#x9879;</h2>
+<p>&#x5185;&#x90E8;&#x7C7B;&#x548C;&#x53C2;&#x6570;&#x9ED8;&#x8BA4;&#x4E3A;public&#xFF0C;&#x800C;&#x5728;Java&#x4E2D;&#x4E3A;private<br>
+&#x7C7B;&#x9ED8;&#x8BA4;&#x4E3A;&#x4E0D;&#x53EF;&#x7EE7;&#x627F;(final)&#xFF0C;&#x60F3;&#x8981;&#x53EF;&#x88AB;&#x7EE7;&#x627F;&#x8981;&#x58F0;&#x660E;&#x4E3A;open&#x6216;abstract<br>
+&#x53D6;&#x6D88;&#x4E86;static&#x5173;&#x952E;&#x5B57;&#xFF0C;&#x9759;&#x6001;&#x65B9;&#x6CD5;&#x548C;&#x53C2;&#x6570;&#x7EDF;&#x4E00;&#x5199;&#x5728;companion object&#x5757;<br>
+internal&#x6A21;&#x5757;&#x5185;&#x53EF;&#x89C1;&#xFF0C;inner&#x5185;&#x90E8;&#x7C7B;</p>
+<p>&#x4EE5;&#x4E0A;&#x4EC5;&#x662F;&#x5BF9;&#x4F7F;&#x7528;&#x9891;&#x7387;&#x8F83;&#x9AD8;&#x7684;&#x8BED;&#x6CD5;&#x603B;&#x7ED3;&#xFF0C;&#x5B66;&#x4F1A;&#x57FA;&#x672C;&#x53EF;&#x4EE5;&#x9605;&#x8BFB;Kotlin&#x4EE3;&#x7801;&#xFF0C;&#x9047;&#x5230;&#x70B9;&#x95EE;&#x9898;Google&#x901F;&#x67E5;&#x4E00;&#x4E0B;&#xFF0C;&#x81F3;&#x4E8E;&#x667A;&#x80FD;&#x8F6C;&#x6362;&#x3001;&#x7C7B;&#x578B;&#x63A8;&#x5BFC;&#x4E4B;&#x7C7B;&#x7684;&#x4E0D;&#x7528;&#x8BF4;&#x4F7F;&#x7528;&#x540E;&#x559C;&#x6B22;&#x81EA;&#x7136;&#x5C31;&#x4F1A;&#x4E86;&#x3002;&#x5F53;&#x7136;&#x8FD9;&#x53EA;&#x662F;kotlin&#x7684;&#x57FA;&#x672C;&#x8BED;&#x6CD5;&#xFF0C;&#x65B9;&#x4FBF;Java&#x5FEB;&#x901F;&#x719F;&#x6089;kotlin&#xFF0C;&#x6DF1;&#x5165;&#x5B66;&#x4E60;&#x8FD8;&#x8BF7;&#x9605;&#x8BFB;&#x76F8;&#x5173;&#x8D44;&#x6599;&#x3002;</p>
+<h2 id="&#x76F8;&#x5173;&#x94FE;&#x63A5;"><a class="header-anchor" href="#&#x76F8;&#x5173;&#x94FE;&#x63A5;"></a>&#x76F8;&#x5173;&#x94FE;&#x63A5;</h2>
+<ul>
+<li><a href="https://try.kotlinlang.org/" target="_blank" rel="external nofollow noopener noreferrer">&#x5728;&#x7EBF;&#x5B66;&#x4E60;</a></li>
+<li><a href="https://kotlinlang.org/docs/reference/" target="_blank" rel="external nofollow noopener noreferrer">Kotlin &#x5B98;&#x65B9;&#x6587;&#x6863;</a></li>
+<li>&#x6700;&#x7EC8;&#x627E;&#x5230;&#x4E86;&#x7FFB;&#x8BD1;&#x51FA;&#x5904;<a href="https://github.com/cctanfujun/kotlin-web-site-cn" target="_blank" rel="external nofollow noopener noreferrer">kotlin-web-site-cn</a></li>
+<li><a href="http://tanfujun.com/kotlin-web-site-cn/" target="_blank" rel="external nofollow noopener noreferrer">http://tanfujun.com/kotlin-web-site-cn/</a></li>
+</ul>
+<h2 id="&#x540E;&#x8BB0;"><a class="header-anchor" href="#&#x540E;&#x8BB0;"></a>&#x540E;&#x8BB0;</h2>
+<p>&#x4E3A;&#x4E86;&#x65B9;&#x4FBF;&#x6536;&#x96C6;&#x4F18;&#x79C0;Kotlin&#x6587;&#x7AE0;&#x65B0;&#x5EFA;&#x4E86;&#x4E2A;&#x4E13;&#x9898;&#xFF0C;&#x6709;&#x5174;&#x8DA3;&#x7684;&#x6B22;&#x8FCE;&#x6295;&#x7A3F;&#x4F18;&#x79C0;&#x5185;&#x5BB9;<br>
+<a href="http://www.jianshu.com/c/3c442ef98c83" target="_blank" rel="external nofollow noopener noreferrer">http://www.jianshu.com/c/3c442ef98c83</a></p>]]></content>
+    
+    <summary type="html">
+    
+      先说个学习 Kotlin 语法的小窍门，将代码用 Java 写好，然后 Code/Conver Java File to Kotlin File 转换成 Kotlin 代码，或者将 Java 代码复制到 Kotlin 文件会提示转换也是挺方便的，比较差异很容易就能理解了，一开始难免不适应习惯后相信你一定会喜欢上 Kotlin
+    
+    </summary>
+    
+      <category term="晨读" scheme="http://ngudream.com/categories/%E6%99%A8%E8%AF%BB/"/>
+    
+      <category term="移动开发" scheme="http://ngudream.com/categories/%E6%99%A8%E8%AF%BB/%E7%A7%BB%E5%8A%A8%E5%BC%80%E5%8F%91/"/>
+    
+    
+      <category term="Android" scheme="http://ngudream.com/tags/Android/"/>
+    
+      <category term="Kotlin" scheme="http://ngudream.com/tags/Kotlin/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>kotlin for android 简介(二)</title>
+    <link href="http://ngudream.com/2017/05/13/kotlin-for-android-introduction-2/"/>
+    <id>http://ngudream.com/2017/05/13/kotlin-for-android-introduction-2/</id>
+    <published>2017-05-13T13:27:35.000Z</published>
+    <updated>2017-05-21T09:09:56.263Z</updated>
+    
+    <content type="html"><![CDATA[<ul>
+<li>&#x539F;&#x6587;&#x94FE;&#x63A5; : <a href="http://antonioleiva.com/kotlin-android-create-project/" target="_blank" rel="external nofollow noopener noreferrer">Kotlin for Android (II): Create a new project</a></li>
+<li>&#x8BD1;&#x8005; : <a href="https://github.com/Lollypo" target="_blank" rel="external nofollow noopener noreferrer">Lollypo</a></li>
+<li>&#x6821;&#x5BF9;&#x8005;: <a href="https://github.com/chaossss" target="_blank" rel="external nofollow noopener noreferrer">chaossss</a></li>
+<li>&#x72B6;&#x6001; : &#x6821;&#x5BF9;&#x4E2D;</li>
+</ul>
+<p>&#x5F53;&#x6211;&#x4ECE;<a href="http://antonioleiva.com/kotlin-for-android-introduction/" target="_blank" rel="external nofollow noopener noreferrer">what Kotlin is and what it can do for us</a>&#x83B7;&#x5F97;&#x4E00;&#x4E9B;&#x542F;&#x53D1;&#x4E4B;&#x540E;&#xFF0C;&#x89C9;&#x5F97;&#x662F;&#x65F6;&#x5019;&#x914D;&#x7F6E;&#x4E0B; Android Studio&#x6765;&#x5E2E;&#x52A9;&#x6211;&#x4EEC;&#x4F7F;&#x7528; Kotlin &#x5F00;&#x53D1; Android &#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x4E86;&#x3002; &#x5176;&#x4E2D;&#x6709;&#x4E9B;&#x6B65;&#x9AA4;&#x53EA;&#x9700;&#x8981;&#x5728;&#x521D;&#x6B21;&#x4F7F;&#x7528;&#x65F6;&#x5B8C;&#x6210;&#x4E00;&#x6B21;, &#x4F46;&#x662F;&#x5176;&#x4ED6;&#x4E00;&#x4E9B; Gradle &#x914D;&#x7F6E;&#x9700;&#x8981;&#x4E3A;&#x6BCF;&#x4E00;&#x4E2A;&#x65B0;&#x9879;&#x76EE;&#x505A;&#x4E00;&#x904D;&#x3002; ( &#x8BD1;&#x8005;&#x6CE8; : &#x5982;&#x679C;&#x4F60;&#x5BF9; Kotlin &#x8FD8;&#x4E0D;&#x4E86;&#x89E3;&#xFF0C;&#x53EF;&#x4EE5;&#x5148;&#x770B;&#x770B;<a href="https://github.com/bboyfeiyu/android-tech-frontier/blob/master/androidweekly/kotlin-for-android%E7%AE%80%E4%BB%8B" target="_blank" rel="external nofollow noopener noreferrer">kotlin-for-android</a>&#x7B80;&#x4ECB;&#x8FD9;&#x7BC7;&#x6587;&#x7AE0; )</p>
+<p>&#x5BF9;&#x4E8E;&#x672C;&#x7CFB;&#x5217;&#x6587;&#x7AE0;, &#x6211;&#x5C06;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x6211;&#x65E9;&#x4E9B;&#x65F6;&#x5019;&#x521B;&#x5EFA;&#x7684;<a href="https://play.google.com/store/apps/details?id=com.limecreativelabs.bandhook" target="_blank" rel="external nofollow noopener noreferrer">Bandhook</a>&#x7684;&#x7B80;&#x5316;&#x7248;&#x672C;, &#x5B83;&#x57FA;&#x672C;&#x4E0A;&#x5C31;&#x662F;&#x8FDE;&#x63A5;&#x5230;&#x4E00;&#x4E2A;&#x57FA;&#x4E8E;RESTful&#x7684;&#x97F3;&#x4E50;API&#x7136;&#x540E;&#x63A5;&#x6536;&#x4E00;&#x4E9B;&#x4E50;&#x961F;&#x7684;&#x4FE1;&#x606F;. &#x94FE;&#x63A5;&#x5230; <a href="https://github.com/antoniolg/Bandhook-Kotlin" target="_blank" rel="external nofollow noopener noreferrer">Bandhook Kotlin on Github</a> &#x67E5;&#x770B;&#x6E90;&#x4EE3;&#x7801;&#x3002;</p>
+<h2 id="&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x65B0;&#x9879;&#x76EE;&#x7136;&#x540E;&#x4E0B;&#x8F7D;kotlin&#x63D2;&#x4EF6;"><a class="header-anchor" href="#&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x65B0;&#x9879;&#x76EE;&#x7136;&#x540E;&#x4E0B;&#x8F7D;kotlin&#x63D2;&#x4EF6;"></a>&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x65B0;&#x9879;&#x76EE;&#x7136;&#x540E;&#x4E0B;&#x8F7D;Kotlin&#x63D2;&#x4EF6;</h2>
+<p>&#x5C31;&#x50CF;&#x4F60;&#x5E73;&#x5E38;&#x505A;&#x7684;&#x90A3;&#x6837;&#xFF0C;&#x6211;&#x4EEC;&#x53EA;&#x9700;&#x8981;&#x7528; Android Studio &#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x5E26; Activity &#x7684;&#x57FA;&#x672C; Android &#x9879;&#x76EE;&#x3002;</p>
+<p>&#x4E00;&#x65E6;&#x5B8C;&#x6210;,&#x6211;&#x4EEC;&#x9700;&#x8981;&#x505A;&#x7684;&#x7B2C;&#x4E00;&#x4EF6;&#x4E8B;&#x5C31;&#x662F;&#x53BB;&#x4E0B;&#x8F7D; Kotlin &#x63D2;&#x4EF6;. &#x53BB;&#x5230; Android Studio &#x7684;&#x7CFB;&#x7EDF;&#x8BBE;&#x7F6E;&#x4E2D;&#x7136;&#x540E;&#x67E5;&#x627E; plugins &#x4E4B;&#x540E;&#xFF0C;&#x518D;&#x6B21;&#x4F7F;&#x7528;&#x641C;&#x7D22;&#x627E;&#x5230; Kotlin &#x63D2;&#x4EF6;&#xFF0C;&#x5B89;&#x88C5;&#x5E76;&#x91CD;&#x542F; IDE&#x3002;</p>
+<div align="center">
+<img data-original="/2017/05/13/kotlin-for-android-introduction-2/1.png" class="lazy">
+</div>
+<h2 id="&#x6DFB;&#x52A0;-kotlin-&#x63D2;&#x4EF6;&#x7684;&#x4F9D;&#x8D56;&#x5230;&#x7684;&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x7684;-build-gradle-&#x4E2D;"><a class="header-anchor" href="#&#x6DFB;&#x52A0;-kotlin-&#x63D2;&#x4EF6;&#x7684;&#x4F9D;&#x8D56;&#x5230;&#x7684;&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x7684;-build-gradle-&#x4E2D;"></a>&#x6DFB;&#x52A0; Kotlin &#x63D2;&#x4EF6;&#x7684;&#x4F9D;&#x8D56;&#x5230;&#x7684;&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x7684; build.gradle &#x4E2D;</h2>
+<p>&#x8BE5;&#x9879;&#x76EE;&#x7684; build.gradle &#x9700;&#x8981;&#x6DFB;&#x52A0;&#x4E00;&#x4E2A;&#x65B0;&#x7684;&#x4F9D;&#x8D56;&#xFF0C;&#x8FD9;&#x4E2A;&#x4F9D;&#x8D56;&#x5C06;&#x4F1A;&#x88AB;Kotlin&#x63D2;&#x4EF6;&#x8981;&#x6C42;&#x4EE5;&#x5728;&#x4E3B;Module&#x4E2D;&#x4F7F;&#x7528;:</p>
+<pre><code>buildscript {
+    repositories {
+        jcenter()
+    }
+    dependencies {
+        classpath &apos;com.android.tools.build:gradle:1.1.3&apos;
+        classpath &apos;org.jetbrains.kotlin:kotlin-gradle-plugin:1.0.0&apos;
+    }
+}
+</code></pre>
+<h2 id="&#x914D;&#x7F6E;-module-&#x7684;-build-grade"><a class="header-anchor" href="#&#x914D;&#x7F6E;-module-&#x7684;-build-grade"></a>&#x914D;&#x7F6E; Module &#x7684; build.grade</h2>
+<p>&#x9996;&#x5148;, &#x5E94;&#x7528;Kotlin&#x63D2;&#x4EF6;:</p>
+<pre><code>apply plugin: &apos;com.android.application&apos;
+apply plugin: &apos;kotlin-android&apos;	
+</code></pre>
+<p>&#x63A5;&#x7740;, &#x6DFB;&#x52A0;Kotlin&#x5E93;&#x5230;&#x4F60;&#x7684;&#x4F9D;&#x8D56;:</p>
+<pre><code>dependencies {
+    compile fileTree(dir: &apos;libs&apos;, include: [&apos;*.jar&apos;])
+    compile &apos;org.jetbrains.kotlin:kotlin-stdlib:1.0.0&apos;
+}
+</code></pre>
+<p>&#x6700;&#x540E;, &#x4F60;&#x9700;&#x8981;&#x6DFB;&#x52A0;&#x6211;&#x4EEC;&#x5728;&#x4E0B;&#x4E00;&#x4E2A;&#x6B65;&#x9AA4;&#x521B;&#x5EFA;&#x7684;Kotlin&#x6587;&#x4EF6;&#x5939;:</p>
+<pre><code>android {
+    compileSdkVersion 22
+    buildToolsVersion &quot;22.0.0&quot;
+ 
+    ...
+ 
+    sourceSets {
+        main.java.srcDirs += &apos;src/main/kotlin&apos;
+    }
+}
+</code></pre>
+<p>&#x6216;&#x8005;,&#x4F60;&#x53EF;&#x4EE5;&#x8DF3;&#x8FC7;&#x8FD9;&#x4E00;&#x6B65;,&#x5F53;&#x505A;&#x5B8C;&#x4E0B;&#x4E00;&#x4E2A;&#x6B65;&#x9AA4;&#x65F6;&#xFF0C;&#x4F7F;&#x7528;&#x8FD9;&#x4E2A;Android Studio&#x7684;&#x64CD;&#x4F5C;:</p>
+<div align="center">
+<img data-original="/2017/05/13/kotlin-for-android-introduction-2/2.png" class="lazy">
+</div>
+<p>&#x6211;&#x66F4;&#x503E;&#x5411;&#x4E8E;&#x624B;&#x52A8;&#x53BB;&#x505A;&#x4EE5;&#x4FDD;&#x6301;&#x6211;&#x7684; Gradle &#x6587;&#x4EF6;&#x6709;&#x6574;&#x6D01;&#x6709;&#x5E8F;, &#x4F46;&#x7B2C;&#x4E8C;&#x4E2A;&#x9009;&#x9879;&#x53EF;&#x80FD;&#x8F83;&#x4E3A;&#x5BB9;&#x6613;&#x4E9B;&#x3002;</p>
+<h2 id="&#x521B;&#x5EFA;-kotlin-&#x6587;&#x4EF6;&#x5939;"><a class="header-anchor" href="#&#x521B;&#x5EFA;-kotlin-&#x6587;&#x4EF6;&#x5939;"></a>&#x521B;&#x5EFA; Kotlin &#x6587;&#x4EF6;&#x5939;</h2>
+<p>&#x5982;&#x679C;&#x4F60;&#x5C06;&#x9879;&#x76EE;&#x7684;&#x89C6;&#x56FE;&#x4ECE;&#x2018;Android&#x2019;&#x8F6C;&#x5230;&#x2018;Project&#x2019;&#xFF0C;&#x90A3;&#x5C06;&#x4F1A;&#x975E;&#x5E38;&#x5BB9;&#x6613;&#x3002;&#x4F9D;&#x6B21;&#x9009;&#x62E9;&#x2018;app-&gt;src-&gt;main&#x2019; &#x7136;&#x540E;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x540D;&#x4E3A; &#x2018;kotlin&#x2019;&#x7684;&#x6587;&#x4EF6;&#x5939;:</p>
+<div align="center">
+<img data-original="/2017/05/13/kotlin-for-android-introduction-2/3.png" class="lazy">
+</div>
+<h2 id="&#x5C06;-java-activity-&#x8F6C;&#x6362;&#x6210;-kotlin-&#x6587;&#x4EF6;"><a class="header-anchor" href="#&#x5C06;-java-activity-&#x8F6C;&#x6362;&#x6210;-kotlin-&#x6587;&#x4EF6;"></a>&#x5C06; Java activity &#x8F6C;&#x6362;&#x6210; Kotlin &#x6587;&#x4EF6;</h2>
+<p>Kotlin &#x63D2;&#x4EF6;&#x80FD;&#x5C06; Java &#x8F6C;&#x6362;&#x4E3A; Kotlin &#x7C7B;. &#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x8F7B;&#x677E;&#x7684;&#x901A;&#x8FC7;&#x2018;Code&#x2019;&#x83DC;&#x5355;&#x4E2D;&#x7684;&#x2018;Convert Java File to Kotlin File&#x2019;&#x9009;&#x9879;&#x8F6C;&#x6362;&#x5F53;&#x524D;&#x7684; Activity &#x5230; Kotlin &#x7C7B; :</p>
+<div align="center">
+<img data-original="/2017/05/13/kotlin-for-android-introduction-2/4.png" class="lazy">
+</div>
+<p>IDE&#x5C06;&#x5EFA;&#x8BAE;&#x4F60;&#x79FB;&#x52A8;&#x65B0;&#x6587;&#x4EF6;&#x5230;Kotlin&#x6587;&#x4EF6;&#x5939;&#xFF0C;&#x70B9;&#x51FB;&#x2018;Move File&#x2019;(&#x6216;&#x8005;&#x624B;&#x52A8;&#x5B8C;&#x6210;&#xFF0C;&#x5047;&#x5982;&#x4F60;&#x6CA1;&#x770B;&#x5230;&#x8FD9;&#x4E2A;&#x9009;&#x9879;)&#x3002;</p>
+<pre><code>public class MainActivity : ActionBarActivity() {
+ 
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_main)
+    }
+ 
+ 
+    override fun onCreateOptionsMenu(menu: Menu): Boolean {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.menu_main, menu)
+        return true
+    }
+ 
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        // Handle action bar item clicks here. The action bar will
+        // automatically handle clicks on the Home/Up button, so long
+        // as you specify a parent activity in AndroidManifest.xml.
+        val id = item.getItemId()
+ 
+        //noinspection SimplifiableIfStatement
+        if (id == R.id.action_settings) {
+            return true
+        }
+ 
+        return super.onOptionsItemSelected(item)
+    }
+}
+</code></pre>
+<h2 id="&#x4E3B;&#x8981;&#x533A;&#x522B;"><a class="header-anchor" href="#&#x4E3B;&#x8981;&#x533A;&#x522B;"></a>&#x4E3B;&#x8981;&#x533A;&#x522B;</h2>
+<p>&#x770B;&#x4E00;&#x770B;&#x4E4B;&#x524D;&#x7684;&#x4EE3;&#x7801;, &#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x770B;&#x5230;&#x4E00;&#x4E9B;&#x660E;&#x663E;&#x7684;&#x5DEE;&#x5F02;&#x3002; &#x5176;&#x4E2D;&#x5F88;&#x5927;&#x4E00;&#x90E8;&#x5206;&#x6211;&#x4EEC;&#x5C06;&#x4F1A;&#x5728;&#x4E0B;&#x4E00;&#x7BC7;&#x6587;&#x7AE0;&#x8BB2;&#x89E3;&#x5230;:</p>
+<ul>
+<li>&#x4F7F;&#x7528;&#x5192;&#x53F7;&#xFF0C;&#x800C;&#x4E0D;&#x662F;&#x2019;extends&#x2019;&#x3002;</li>
+<li>&#x663E;&#x5F0F;&#x4F7F;&#x7528;&#x2018;override&#x2019;: &#x5728;Java&#x4E2D;, &#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;&#x4E00;&#x4E2A;&#x6CE8;&#x91CA;&#x4F7F;&#x6211;&#x4EEC;&#x7684;&#x4EE3;&#x7801;&#x66F4;&#x6E05;&#x6670;,&#x4F46;&#x5B83;&#x4E0D;&#x662F;&#x5FC5;&#x8981;&#x6761;&#x4EF6;. Kotlin&#x5C06;&#x8FEB;&#x4F7F;&#x6211;&#x4EEC;&#x4F7F;&#x7528;&#x5B83;.</li>
+<li>&#x51FD;&#x6570;&#x5219;&#x4F7F;&#x7528;&#x2018;fun&#x2019;&#x5173;&#x952E;&#x5B57;: Kotlin&#x662F;&#x4E00;&#x4E2A;&#x9762;&#x5411;&#x5BF9;&#x8C61;&#x7684;&#x51FD;&#x6570;&#x5F0F;&#x8BED;&#x8A00;, &#x56E0;&#x6B64;&#x53EF;&#x80FD;&#x4F1A;&#x4E0E;&#x5176;&#x4ED6;&#x8BED;&#x8A00;&#x7C7B;&#x4F3C;&#xFF0C;&#x4F8B;&#x5982;Scala. Java&#x65B9;&#x6CD5;&#x88AB;&#x51FD;&#x6570;&#x7684;&#x5F62;&#x5F0F;&#x8868;&#x793A;&#x3002;</li>
+<li>&#x51FD;&#x6570;&#x53C2;&#x6570;&#x547D;&#x540D;&#x89C4;&#x5219;&#x4E0D;&#x540C;: &#x7C7B;&#x578B;&#x548C;&#x540D;&#x79F0;&#x90FD;&#x5199;&#x5728;&#x76F8;&#x53CD;&#x7684;&#x4F4D;&#x7F6E;,&#x5E76;&#x7528;&#x5192;&#x53F7;&#x9694;&#x5F00;&#x3002;</li>
+<li>&#x5206;&#x53F7;&#x53EF;&#x9009;: &#x6211;&#x4EEC;&#x4E0D;&#x9700;&#x8981;&#x5728;&#x884C;&#x7684;&#x7ED3;&#x5C3E;&#x5904;&#x52A0;&#x4E0A;&#x5206;&#x53F7;&#x3002;&#x5982;&#x679C;&#x6211;&#x4EEC;&#x60F3;&#x8981;&#x4E5F;&#x53EF;&#x4EE5;&#x52A0;&#x4E0A;, &#x4F46;&#x5982;&#x679C;&#x6211;&#x4EEC;&#x4E0D;&#x8FD9;&#x6837;&#x505A;&#xFF0C;&#x5B83;&#x5C31;&#x53EF;&#x4EE5;&#x8282;&#x7701;&#x5927;&#x91CF;&#x7684;&#x65F6;&#x95F4;,&#x5E76;&#x4F7F;&#x6211;&#x4EEC;&#x7684;&#x4EE3;&#x7801;&#x6574;&#x6D01;&#x3002;</li>
+<li>&#x5176;&#x4ED6;&#x5C0F;&#x7EC6;&#x8282;: &#x5728;&#x7B80;&#x4ECB;&#x4E00;&#x6587;&#x4E2D;, &#x6211;&#x5DF2;&#x7ECF;&#x8BF4;&#x5230;&#x4E86; &#x2018;?&#x2019; &#x7684;&#x610F;&#x4E49;. &#x8FD9;&#x8868;&#x660E;&#x53C2;&#x6570;&#x53EF;&#x4EE5;&#x4E3A;&#x7A7A;&#x3002;NULL&#x7684;&#x5904;&#x7406;&#x65B9;&#x5F0F;&#x4E0D;&#x540C;&#x4E8E;Java&#x3002;</li>
+</ul>
+<h2 id="&#x603B;&#x7ED3;"><a class="header-anchor" href="#&#x603B;&#x7ED3;"></a>&#x603B;&#x7ED3;</h2>
+<p>&#x4E5F;&#x8BB8;&#x6211;&#x4EEC;&#x4F1A;&#x8BA4;&#x4E3A;&#x4F7F;&#x7528;&#x4E00;&#x95E8;&#x65B0;&#x8BED;&#x8A00;&#x5C06;&#x4F1A;&#x975E;&#x5E38;&#x56F0;&#x96BE;, Kotlin&#x88AB;JetBrains&#x56E2;&#x961F;&#x5F00;&#x53D1;&#x51FA;&#x6765;&#x7684;&#xFF0C;&#x8981;&#x6210;&#x4E3A;&#x6700;&#x5BB9;&#x6613;&#x548C;&#x53EF;&#x4EA4;&#x4E92;&#x7684;&#x8BED;&#x8A00;&#x7528;&#x6765;&#x8986;&#x76D6;&#x90A3;&#x4E9B;Java&#x7684;&#x4E0D;&#x8DB3;&#x4E4B;&#x5904;&#x3002;&#x7531;&#x4E8E;Android Studio&#x4E5F;&#x662F;&#x57FA;&#x4E8E;JetBrains&#x7684;&#x4EA7;&#x54C1;&#xFF0C;&#x8FD9;&#x5C06;&#x8BA9;&#x96C6;&#x6210;&#x5230;&#x8FD9;&#x4E2A;IDE&#x4E2D;&#x5E76;&#x4E14;&#x5F00;&#x59CB;&#x5DE5;&#x4F5C;&#x975E;&#x5E38;&#x7B80;&#x5355;&#x3002;</p>]]></content>
+    
+    <summary type="html">
+    
+      当我从 what Kotlin is and what it can do for us 获得一些启发之后，觉得是时候配置下 Android Studio 来帮助我们使用 Kotlin 开发 Android 应用程序了。其中有些步骤只需要在初次使用时完成一次，但是其他一些Gradle配置需要为每一个新项目做一遍。
+    
+    </summary>
+    
+      <category term="晨读" scheme="http://ngudream.com/categories/%E6%99%A8%E8%AF%BB/"/>
+    
+      <category term="移动开发" scheme="http://ngudream.com/categories/%E6%99%A8%E8%AF%BB/%E7%A7%BB%E5%8A%A8%E5%BC%80%E5%8F%91/"/>
+    
+    
+      <category term="Android" scheme="http://ngudream.com/tags/Android/"/>
+    
+      <category term="Kotlin" scheme="http://ngudream.com/tags/Kotlin/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>kotlin for android 简介(一)</title>
+    <link href="http://ngudream.com/2017/05/10/kotlin-for-android-introduction/"/>
+    <id>http://ngudream.com/2017/05/10/kotlin-for-android-introduction/</id>
+    <published>2017-05-10T15:20:13.000Z</published>
+    <updated>2017-05-21T09:05:20.233Z</updated>
+    
+    <content type="html"><![CDATA[<ul>
+<li>&#x539F;&#x6587;&#x94FE;&#x63A5; : <a href="http://antonioleiva.com/kotlin-for-android-introduction/" target="_blank" rel="external nofollow noopener noreferrer">Kotlin for Android (I): Introduction</a></li>
+<li>&#x8BD1;&#x8005; : <a href="https://github.com/canglangwenyue" target="_blank" rel="external nofollow noopener noreferrer">canglangwenyue</a></li>
+<li>&#x6821;&#x5BF9;&#x8005;: <a href="https://github.com/bboyfeiyu" target="_blank" rel="external nofollow noopener noreferrer">Mr.Simple</a></li>
+<li>&#x72B6;&#x6001; : &#x5B8C;&#x6210;</li>
+</ul>
+<p>Kotlin &#x662F;&#x4F17;&#x591A;&#x57FA;&#x4E8E;JVM&#x7684;&#x8BED;&#x8A00;&#x4E4B;&#x4E00;&#xFF0C;&#x5B83;&#x4E00;&#x5F00;&#x59CB;&#x662F;&#x4F5C;&#x4E3A; android &#x5F00;&#x53D1;&#x4E2D; java &#x8BED;&#x8A00;&#x7684;&#x53EF;&#x80FD;&#x7684;&#x4EE3;&#x66FF;&#x8005;&#x51FA;&#x73B0;&#x7684;&#x3002;java &#x662F;&#x4E16;&#x754C;&#x4E0A;&#x4F7F;&#x7528;&#x6700;&#x591A;&#x7684;&#x8BED;&#x8A00;&#x4E4B;&#x4E00;&#xFF0C;&#x800C;&#x4F34;&#x968F;&#x7740;&#x5176;&#x4ED6;&#x8BED;&#x8A00;&#x7684;&#x53D1;&#x5C55;&#x4F7F;&#x5F97;&#x7A0B;&#x5E8F;&#x5458;&#x7F16;&#x7A0B;&#x8D8A;&#x6765;&#x8D8A;&#x5BB9;&#x6613;&#xFF0C;&#x4F46;&#x662F; java &#x5E76;&#x6CA1;&#x6709;&#x5C3D;&#x5FEB;&#x5730;&#x5411;&#x9884;&#x671F;&#x76EE;&#x6807;&#x53D1;&#x5C55;&#x3002;</p>
+<h2 id="kotlin&#x7B80;&#x4ECB;"><a class="header-anchor" href="#kotlin&#x7B80;&#x4ECB;"></a>Kotlin&#x7B80;&#x4ECB;</h2>
+<p>Kotlin &#x662F; JetBrains &#x521B;&#x9020;&#x7684;&#x57FA;&#x4E8E;JVM&#x7684;&#x8BED;&#x8A00;&#xFF0C;JetBrains &#x662F; IntelliJ &#x7684;&#x7F14;&#x9020;&#x56E2;&#x961F;&#x3002; Kotlin &#x662F;&#x4E00;&#x4E2A;&#x62E5;&#x6709;&#x5F88;&#x591A;&#x51FD;&#x6570;&#x7F16;&#x7A0B;&#x7279;&#x70B9;&#x7684;&#x9762;&#x5411;&#x5BF9;&#x8C61;&#x7684;&#x7F16;&#x7A0B;&#x8BED;&#x8A00;&#x3002;</p>
+<h2 id="&#x4E3A;&#x4EC0;&#x4E48;&#x8981;&#x7528;kotlin"><a class="header-anchor" href="#&#x4E3A;&#x4EC0;&#x4E48;&#x8981;&#x7528;kotlin"></a>&#x4E3A;&#x4EC0;&#x4E48;&#x8981;&#x7528;Kotlin</h2>
+<p>&#x6211;&#x9996;&#x5148;&#x58F0;&#x660E;&#x6211;&#x5E76;&#x6CA1;&#x6709;&#x4F7F;&#x7528; Kotlin &#x5F88;&#x957F;&#x65F6;&#x95F4;&#xFF0C;&#x6211;&#x51E0;&#x4E4E;&#x662F;&#x5728;&#x5B66;&#x4E60;&#x7684;&#x540C;&#x65F6;&#x5199;&#x4E86;&#x8FD9;&#x4E9B;&#x6587;&#x7AE0;&#x7684;&#x3002;&#x6211;&#x5E76;&#x6CA1;&#x6709;&#x5C1D;&#x8BD5;&#x4EFB;&#x4F55;&#x5176;&#x5B83;&#x7684;&#x66FF;	&#x4EE3;&#x8BED;&#x8A00;&#xFF0C;&#x4F8B;&#x5982; Go &#x548C; Scala&#xFF0C;&#x6240;&#x4EE5;&#x5982;&#x679C;&#x4F60;&#x662F;&#x771F;&#x7684;&#x8003;&#x8651;&#x6362;&#x4E00;&#x79CD;&#x5F00;&#x53D1;&#x8BED;&#x8A00;&#x7684;&#x8BDD;&#xFF0C;&#x6211;&#x5EFA;&#x8BAE;&#x4F60;&#x53BB;&#x641C;&#x7D22;&#x4E00;&#x4E0B;&#x5176;&#x4ED6;&#x4EBA;&#x5BF9;&#x8FD9;&#x4E9B;	&#x8BED;&#x8A00;&#x7684;&#x8BC4;&#x4EF7;&#x3002;&#x4E00;&#x4E2A;&#x4F7F;&#x7528; Scala &#x5F00;&#x53D1; android &#x7684;&#x4F8B;&#x5B50;&#x53EF;&#x4EE5;&#x5728;[47deg Github site](http:/ <a href="http://47deg.github.io/translate-bubble-android/" target="_blank" rel="external nofollow noopener noreferrer">47deg.github.io/translate-bubble-android/</a>)&#x627E;&#x5230;&#x3002;</p>
+<p>&#x4EE5;&#x4E0B;&#x662F;&#x6211;&#x9009;&#x62E9;&#x5B66;&#x4E60; Kotlin &#x7684;&#x539F;&#x56E0;&#xFF1A;</p>
+<ul>
+<li>&#x5B66;&#x4E60;&#x66F2;&#x7EBF;&#x76F8;&#x5BF9;&#x8F83;&#x5FEB;&#xFF1A;&#x4EE5; Scala &#x4F5C;&#x4E3A;&#x4F8B;&#x5B50;&#x8FDB;&#x884C;&#x6BD4;&#x8F83;&#xFF0C;&#x6211;&#x4EEC;&#x662F;&#x5411;&#x7740;&#x66F4;&#x7B80;&#x5355;&#x7684;&#x65B9;&#x5411;&#x524D;&#x8FDB;&#x3002;Kotlin &#x6709;&#x66F4;&#x591A;&#x7684;&#x9650;&#x5236;&#xFF0C;&#x4F46;&#x662F;&#x5982;&#x679C;&#x4F60;&#x6CA1;&#x6709;&#x5B66;&#x4E60;&#x8FC7;&#x4E00;&#x95E8;&#x73B0;&#x4EE3;&#x7F16;&#x7A0B;&#x8BED;&#x8A00;&#x7684;&#x8BDD;&#xFF0C;Kotlin &#x66F4;&#x5BB9;&#x6613;&#x5B66;&#x4E60;&#x3002;</li>
+<li>&#x8F7B;&#x91CF;&#x7EA7;&#xFF1A;&#x4E0E;&#x5176;&#x4ED6;&#x8BED;&#x8A00;&#x76F8;&#x6BD4; Kotlin &#x7684;&#x6838;&#x5FC3;&#x5E93;&#x66F4;&#x5C0F;&#x3002;&#x8FD9;&#x5F88;&#x91CD;&#x8981;&#xFF0C;&#x56E0;&#x4E3A;android&#x51FD;&#x6570;&#x6570;&#x91CF;&#x9650;&#x5236;(&#x51FD;&#x6570;&#x6570;&#x91CF;&#x4E0D;&#x80FD;&#x5927;&#x4E8E;64k)&#x662F;&#x4E00;&#x4E2A;&#x95EE;&#x9898;&#xFF0C;&#x867D; &#x7136;&#x6709;&#x4E00;&#x4E9B;&#x9009;&#x62E9;&#x6765;&#x89E3;&#x51B3;&#x8FD9;&#x4E2A;&#x95EE;&#x9898;&#xFF0C;&#x4F8B;&#x5982;proguard &#x6216;  multidexing&#xFF0C;&#x4F46;&#x662F;&#x8FD9;&#x4E9B;&#x89E3;&#x51B3;&#x65B9;&#x6848;&#x4F1A;&#x52A0;&#x590D;&#x6742;&#x5EA6;&#xFF0C;&#x5E76;&#x5BFC; &#x81F4;&#x8C03;&#x8BD5;&#x65F6;&#x82B1;&#x8D39;&#x66F4;&#x591A;&#x7684;&#x65F6;&#x95F4;&#x3002;&#x5F15;&#x5165; Kotlin &#x6838;&#x5FC3;&#x5E93;&#x6DFB;&#x52A0;&#x4E86;&#x4E0D;&#x5230; 7000 &#x4E2A;&#x65B9;&#x6CD5;&#xFF0C;&#x5927;&#x81F4;&#x548C; support&#xFF0D;v4 &#x4E00;&#x6837;&#x3002;</li>
+<li>&#x9AD8;&#x4EA4;&#x4E92;&#x6027;&#xFF1A;Kotlin &#x548C;&#x5176;&#x5B83; java &#x5E93;&#x534F;&#x8C03;&#x4F7F;&#x7528;&#x7684;&#x7279;&#x522B;&#x597D;&#xFF0C;&#x5E76;&#x4E14;&#x4EA4;&#x4E92;&#x64CD;&#x4F5C;&#x5F88;&#x7B80;&#x5355;&#x3002;&#x8FD9;&#x662F; Kotlin &#x56E2;&#x961F; &#x5728;&#x5F00;&#x53D1;&#x65B0;&#x8BED;&#x8A00;&#x662F;&#x7684;&#x4E3B;&#x8981;&#x7406;&#x5FF5;&#x4E4B;&#x4E00;&#x3002;&#x4ED6;&#x4EEC;&#x60F3;&#x5728;&#x4F7F;&#x7528; Kotlin &#x5F00;&#x53D1;&#x65F6;&#x5E76;&#x4E0D;&#x7528;&#x91CD;&#x5199;&#x4E4B;&#x524D;&#x6240;&#x6709;&#x7528; java &#x5199;&#x7684;&#x4EE3;&#x7801;&#xFF0C;&#x6240;&#x4EE5;&#xFF0C;Kotlin &#x548C; java &#x4EA4;&#x4E92;&#x7684;&#x80FD;&#x529B;&#x5FC5;&#x987B;&#x975E;&#x5E38;&#x9AD8;&#x3002;</li>
+<li>&#x4E0E; AS &#x548C; Gradle &#x5B8C;&#x7F8E;&#x7ED3;&#x5408;&#xFF1A;&#x6211;&#x4EEC;&#x6709;&#x4E00;&#x4E2A;IDE&#x7684;&#x63D2;&#x4EF6;&#x548C;&#x53E6;&#x4E00;&#x4E2A;&#x5C5E;&#x4E8E; Grade &#x7684;&#x63D2;&#x4EF6;&#xFF0C;&#x56E0;&#x6B64;&#xFF0C;&#x7528;Kotlin &#x8FDB;&#x884C; android &#x7F16;&#x7A0B;&#x5E76;&#x4E0D;&#x56F0;&#x96BE;&#x3002;</li>
+</ul>
+<p>&#x5728;&#x5F00;&#x59CB;&#x4EFB;&#x4F55;&#x4E89;&#x8BBA;&#x4E4B;&#x524D;&#x6211;&#x5EFA;&#x8BAE;&#x4F60;&#x770B;&#x4E00;&#x4E0B; Jake Wharton &#x5199;&#x7684;&#x4E00;&#x4E2A;&#x6709;&#x8DA3;&#x7684;&#x6587;&#x6863;<a href="https://docs.google.com/document/d/1ReS3ep-hjxWA8kZi0YqDbEhCqTt29hG8P44aA9W0DM8/edit?hl=es&amp;forcehl=1&amp;pli=1" target="_blank" rel="external nofollow noopener noreferrer">the use of Kotlin for Android development</a>&#x3002;</p>
+<h2 id="kotlin&#x7684;&#x4F18;&#x70B9;"><a class="header-anchor" href="#kotlin&#x7684;&#x4F18;&#x70B9;"></a>Kotlin&#x7684;&#x4F18;&#x70B9;</h2>
+<h3 id="&#x53EF;&#x8BFB;&#x6027;&#x66F4;&#x9AD8;-&#x66F4;&#x7B80;&#x6D01;"><a class="header-anchor" href="#&#x53EF;&#x8BFB;&#x6027;&#x66F4;&#x9AD8;-&#x66F4;&#x7B80;&#x6D01;"></a>&#x53EF;&#x8BFB;&#x6027;&#x66F4;&#x9AD8;&#xFF0C;&#x66F4;&#x7B80;&#x6D01;</h3>
+<p>&#x4F7F;&#x7528; Kotlin&#xFF0C;&#x53EF;&#x4EE5;&#x66F4;&#x5BB9;&#x6613;&#x7684;&#x907F;&#x514D;&#x521B;&#x5EFA;&#x6A21;&#x7248;&#x578B;&#x4EE3;&#x7801;&#xFF0C;&#x56E0;&#x4E3A;&#x5927;&#x591A;&#x6570;&#x7ECF;&#x5178;&#x7684;&#x60C5;&#x666F;&#x90FD;&#x9ED8;&#x8BA4;&#x5305;&#x542B;&#x5728; Kotlin &#x4E2D;&#x3002;</p>
+<p>&#x4F8B;&#x5982;&#xFF0C;&#x5728; java &#x4E2D;&#xFF0C;&#x6211;&#x4EEC;&#x60F3;&#x8981;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x5178;&#x578B;&#x7684; data class &#x65F6;&#x9700;&#x8981;&#x8FD9;&#x6837;&#x505A;&#xFF1A;</p>
+<pre><code>public class Artist {
+    private long id;
+    private String name;
+    private String url;
+    private String mbid;
+ 
+    public long getId() {
+        return id;
+    }
+ 
+    public void setId(long id) {
+        this.id = id;
+    }
+ 
+    public String getName() {
+        return name;
+    }
+ 
+    public void setName(String name) {
+        this.name = name;
+    }
+ 
+    public String getUrl() {
+        return url;
+    }
+ 
+    public void setUrl(String url) {
+        this.url = url;
+    }
+ 
+    public String getMbid() {
+        return mbid;
+    }
+ 
+    public void setMbid(String mbid) {
+        this.mbid = mbid;
+    }
+ 
+    @Override public String toString() {
+        return &quot;Artist{&quot; +
+                &quot;id=&quot; + id +
+                &quot;, name=&apos;&quot; + name + &apos;\&apos;&apos; +
+                &quot;, url=&apos;&quot; + url + &apos;\&apos;&apos; +
+                &quot;, mbid=&apos;&quot; + mbid + &apos;\&apos;&apos; +
+                &apos;}&apos;;
+    }
+}
+</code></pre>
+<p>&#x90A3;&#x4E48;&#x5728; Kotlin &#x9700;&#x8981;&#x591A;&#x5C11;&#x4EE3;&#x7801;&#x5462;&#xFF1F;&#x4EC5;&#x4EC5;&#x662F;&#x4E0B;&#x9762;&#x8FD9;&#x4E2A;&#x7B80;&#x5355;&#x7684;&#x6570;&#x636E;&#x7C7B;&#xFF1A;</p>
+<pre><code>data class Artist(
+    var id: Long, 
+    var name: String, 
+    var url: String, 
+    var mbid: String)
+</code></pre>
+<h3 id="&#x7A7A;&#x6307;&#x9488;&#x5B89;&#x5168;"><a class="header-anchor" href="#&#x7A7A;&#x6307;&#x9488;&#x5B89;&#x5168;"></a>&#x7A7A;&#x6307;&#x9488;&#x5B89;&#x5168;</h3>
+<p>&#x5F53;&#x6211;&#x4EEC;&#x7528; java &#x5F00;&#x53D1;&#x65F6;&#xFF0C;&#x6211;&#x4EEC;&#x7684;&#x5927;&#x591A;&#x6570;&#x4EE3;&#x7801;&#x662F;&#x8981;&#x8FDB;&#x884C;&#x7C7B;&#x578B;&#x68C0;&#x67E5;&#x7684;&#xFF0C;&#x5982;&#x679C;&#x6211;&#x4EEC;&#x4E0D;&#x60F3;&#x51FA;&#x73B0; unexpected NullPointerException &#x7684;&#x8BDD;,&#x6211;&#x4EEC;&#x5C31;&#x8981;&#x5728;&#x8FD0;&#x884C;&#x4EE3;&#x7801;&#x4E4B;&#x524D;&#x6301;&#x7EED;&#x7684;&#x68C0;&#x67E5;&#x662F;&#x5426;&#x6709;&#x5BF9;&#x8C61;&#x4E3A; null&#x3002;Kotlin&#xFF0C;&#x548C;&#x5176;&#x5B83;&#x8BED; &#x8A00;&#x4E00;&#x6837;&#xFF0C;&#x662F;&#x7A7A;&#x6307;&#x9488;&#x5B89;&#x5168;&#x7684;&#xFF0C;&#x56E0;&#x4E3A;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x5B89;&#x5168;&#x7684;&#x8C03;&#x7528;&#x64CD;&#x4F5C;&#x6765;&#x51C6;&#x786E;&#x7684;&#x58F0;&#x660E;&#x4E00;&#x4E2A; object &#x53EF;&#x4EE5;&#x4E3A; null&#x3002;</p>
+<p>&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x8FD9;&#x6837;&#x505A;&#xFF1A;</p>
+<pre><code>//This won&#xB4;t compile. Artist can&#xB4;t be null
+	var notNullArtist: Artist = null
+ 
+	//Artist can be null
+	var artist: Artist? = null
+ 
+	// Won&#xB4;t compile, artist could be null and we need to deal with that
+	artist.print()
+ 
+	// Will print only if artist != null
+	artist?.print()
+ 
+	// Smart cast. We don&#xB4;t need to use safe call operator if we previously checked 	nullity
+	if (artist != null) {
+	    artist.print()
+	}
+	 
+	// Only use it when we are sure it&#xB4;s not null. Will throw an exception otherwise.
+	artist!!.print()
+ 
+	// Use Elvis operator to give an alternative in case the object is null
+	val name = artist?.name ?: &quot;empty&quot;
+</code></pre>
+<h3 id="&#x6269;&#x5C55;&#x65B9;&#x6CD5;"><a class="header-anchor" href="#&#x6269;&#x5C55;&#x65B9;&#x6CD5;"></a>&#x6269;&#x5C55;&#x65B9;&#x6CD5;</h3>
+<p>&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x7ED9;&#x4EFB;&#x4F55;&#x7C7B;&#x6DFB;&#x52A0;&#x65B0;&#x65B9;&#x6CD5;&#x3002;&#x8FD9;&#x6BD4;&#x6211;&#x4EEC;&#x5728; project &#x4E2D;&#x4F7F;&#x7528;&#x7684;&#x5DE5;&#x5177;&#x7C7B;&#x53EF;&#x8BFB;&#x6027;&#x66F4;&#x9AD8;&#x3002;&#x4F8B;&#x5982;&#xFF1A;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x7ED9; Fragment &#x6DFB;&#x52A0;&#x4E00;&#x4E2A;&#x65B0;&#x65B9;&#x6CD5;&#x6765;&#x663E;&#x793A; Toast&#x3002;</p>
+<pre><code>fun Fragment.toast(message: CharSequence, duration: Int = Toast.LENGTH_SHORT) {
+    Toast.makeText(getActivity(), message, duration).show()
+}
+</code></pre>
+<p>&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x8FD9;&#x6837;&#x4F7F;&#x7528;&#xFF1A;</p>
+<pre><code>fragment.toast(&quot;Hello world!&quot;)
+</code></pre>
+<h3 id="&#x652F;&#x6301;&#x51FD;&#x6570;&#x5F0F;&#x7F16;&#x7A0B;"><a class="header-anchor" href="#&#x652F;&#x6301;&#x51FD;&#x6570;&#x5F0F;&#x7F16;&#x7A0B;"></a>&#x652F;&#x6301;&#x51FD;&#x6570;&#x5F0F;&#x7F16;&#x7A0B;</h3>
+<p>&#x5982;&#x679C;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x4E0D;&#x7528;&#x5728;&#x6211;&#x4EEC;&#x9700;&#x8981;&#x7684;&#x65F6;&#x5019;&#x6BCF;&#x4E00;&#x6B21;&#x90FD;&#x521B;&#x5EFA;&#x4E00;&#x4E2A; listener&#xFF0C;&#x5C31;&#x50CF;&#x521B;&#x5EFA;&#x4E00;&#x4E2A; click  listener &#x90A3;&#x6837;&#x7684;&#x64CD;&#x4F5C;&#xFF0C; &#x800C;&#x662F;&#x4EC5;&#x4EC5;&#x5B9A;&#x4E49;&#x6211;&#x4EEC;&#x60F3;&#x8981;&#x505A;&#x4EC0;&#x4E48;&#xFF1F;&#x8FD9;&#x79CD;&#x60F3;&#x6CD5;&#x7684;&#x786E;&#x53EF;&#x4EE5;&#x5B9E;&#x73B0;&#xFF0C;&#x5B83;&#x7684;&#x5B9E;&#x73B0;&#x5F97;&#x76CA;&#x4E8E; lambdad &#x7684;&#x4F7F;&#x7528;&#xFF1A;</p>
+<pre><code>view.setOnClickListener({ toast(&quot;Hello world!&quot;) })
+</code></pre>
+<h2 id="kotlin&#x76EE;&#x524D;&#x5B58;&#x5728;&#x7684;&#x9650;&#x5236;"><a class="header-anchor" href="#kotlin&#x76EE;&#x524D;&#x5B58;&#x5728;&#x7684;&#x9650;&#x5236;"></a>Kotlin&#x76EE;&#x524D;&#x5B58;&#x5728;&#x7684;&#x9650;&#x5236;</h2>
+<p>Kotlin &#x4F9D;&#x65E7;&#x5728;&#x53D1;&#x5C55;&#xFF0C;&#x867D;&#x7136;&#x5B83;&#x76F8;&#x5BF9;&#x7A33;&#x5B9A;&#xFF0C;&#x5E76;&#x4E14; final release &#x7248;&#x672C;&#x5C31;&#x5F88;&#x5FEB;&#x53D1;&#x5E03;&#xFF0C;&#x4F46;&#x662F; Kotlin &#x5728;&#x8FDB;&#x884C; android &#x76F8;&#x5173;&#x5F00;&#x53D1;&#x7684;&#x65F6;&#x5019;&#x8FD8;&#x662F;&#x6709;&#x4E9B;&#x9650;&#x5236;&#x7684;&#x3002;</p>
+<ul>
+<li>&#x4EA4;&#x4E92;&#x6027;&#x4E0E;&#x81EA;&#x52A8;&#x4EE3;&#x7801;&#x751F;&#x6210;&#xFF1A;&#x4E00;&#x4E9B;&#x6709;&#x540D;&#x7684; android Libraries&#xFF0C;&#x4F8B;&#x5982; Dagger &#x6216; Butterknife&#xFF0C;&#x4ED6;&#x4EEC;&#x4F9D;&#x8D56;&#x4E8E;&#x81EA;&#x52A8; &#x4EE3;&#x7801;&#x751F;&#x6210;&#xFF0C;&#x8FD9;&#x79CD;&#x60C5;&#x51B5;&#x4E0B;&#x5982;&#x679C;&#x6709;&#x540D;&#x5B57;&#x51B2;&#x7A81;&#x7684;&#x8BDD;&#x5C06;&#x65E0;&#x6CD5;&#x8FDB;&#x884C;&#x4EE3;&#x7801;&#x751F;&#x6210;&#x3002;Kotlin &#x6B63;&#x5728;&#x89E3;&#x51B3;&#x8FD9;&#x4E2A;&#x95EE;&#x9898;&#xFF0C;&#x6240;&#x4EE5;&#x8FD9;&#x4E2A;&#x95EE;&#x9898;&#x4E5F;&#x8BB8; &#x4F1A;&#x5F88;&#x5FEB;&#x89E3;&#x51B3;&#x3002;&#x65E0;&#x8BBA;&#x5982;&#x4F55;&#xFF0C;&#x6211;&#x5C06;&#x5728;&#x63A5;&#x4E0B;&#x6765;&#x7684;&#x6587;&#x7AE0;&#x91CC;&#x9610;&#x660E;&#xFF0C;Kotlin &#x8BED;&#x8A00;&#x7684;&#x8868;&#x8FBE;&#x80FD;&#x529B;&#x4F1A;&#x8BA9;&#x6211;&#x4EEC;&#x89C9;&#x5F97;&#x4E0D;&#x518D;&#x9700;&#x8981;&#x90A3;&#x4E48;&#x591A;&#x7684; Libraries&#x3002;</li>
+<li>&#x58F0;&#x660E;&#x81EA;&#x5B9A;&#x4E49; View &#x6BD4;&#x8F83;&#x56F0;&#x96BE;&#xFF1A;Kotlin &#x7C7B;&#x53EA;&#x80FD;&#x58F0;&#x660E;&#x4E00;&#x4E2A;&#x6784;&#x9020;&#x51FD;&#x6570;&#xFF0C;&#x7136;&#x800C;&#x81EA;&#x5B9A;&#x4E49; View &#x901A;&#x5E38;&#x9700;&#x8981;&#x4E09;&#x4E2A;&#x3002;&#x5982;&#x679C;&#x6211; &#x4EEC;&#x4F7F;&#x7528;&#x4EE3;&#x7801;&#x6765;&#x521B;&#x5EFA;View&#x7684;&#x8BDD;&#x53EF;&#x4EE5;&#x907F;&#x514D;&#x8FD9;&#x4E2A;&#x95EE;&#x9898;&#xFF0C;&#x4F46;&#x5BF9;&#x4E8E;&#x4F7F;&#x7528;XML&#x6587;&#x4EF6;&#x6765;&#x58F0;&#x660E; View &#x7684;&#x8BDD;&#x5C31;&#x4E0D;&#x80FD;&#x6EE1;&#x8DB3;&#x9700;&#x6C42;&#x4E86;&#x3002;&#x6700;&#x5BB9;&#x6613;&#x7684;&#x53D8;&#x901A;&#x65B9;&#x5F0F;&#x662F;&#x7528; java &#x6765;&#x58F0;&#x660E;&#x8FD9;&#x4E9B; &#x81EA;&#x5B9A;&#x4E49;View&#x7684;&#x5B9E;&#x73B0;&#x7C7B;&#xFF0C;&#x7136;&#x540E;&#x901A;&#x8FC7; Kotlin &#x6765;&#x4F7F;&#x7528;&#x5B83;&#x4EEC;&#x3002;Kotlin &#x56E2;&#x961F;&#x8BB8;&#x8BFA;&#x5C06;&#x5728; M11 release &#x89E3;&#x51B3;&#x8FD9;&#x4E2A;&#x95EE;&#x9898;&#x3002; Update: Kotlin M11 is out and now includes secondary constructors</li>
+<li>android &#x4E0B; Junit &#x6D4B;&#x8BD5;&#xFF1A;AS 1.1 &#x4E2D;&#x4ECB;&#x7ECD;&#x7684;&#x65B0;&#x7279;&#x6027;&#x5E76;&#x4E0D;&#x9002;&#x7528;&#x4E0E; Kotlin&#x3002;&#x987A;&#x4FBF;&#x8BF4;&#x8BF4;&#xFF0C;&#x7CFB;&#x7EDF;&#x6D4B;&#x8BD5;&#x548C; Junit &#x6D4B;&#x8BD5;&#x5BF9;&#x4E8E;&#x7EAF; Kotlin &#x9879;&#x76EE;&#x662F;&#x5B8C;&#x5168;&#x53EF;&#x7528;&#x3002;</li>
+</ul>
+<h2 id="&#x7ED3;&#x8BBA;"><a class="header-anchor" href="#&#x7ED3;&#x8BBA;"></a>&#x7ED3;&#x8BBA;</h2>
+<p>&#x5BF9;&#x4E8E; android apps &#x5F00;&#x53D1;&#xFF0C;Kotlin &#x662F;&#x4E00;&#x4E2A;&#x975E;&#x5E38;&#x6709;&#x8DA3;&#x7684; java &#x66FF;&#x4EE3;&#x8005;&#x3002;&#x4E0B;&#x4E00;&#x7BC7;&#x6587;&#x7AE0;&#x5C06;&#x4F1A;&#x63CF;&#x8FF0;&#x5982;&#x4F55;&#x7528; Kotlin &#x65B0;&#x5EFA;&#x4E00; &#x4E2A;project&#xFF0C;&#x548C;&#x5982;&#x4F55;&#x66F4;&#x597D;&#x7684;&#x9002;&#x7528; Kotlin &#x6765;&#x4F7F;&#x5F97; android &#x5F00;&#x53D1;&#x66F4;&#x52A0;&#x7B80;&#x5355;&#x3002;&#x656C;&#x8BF7;&#x5173;&#x6CE8;&#xFF01;</p>]]></content>
+    
+    <summary type="html">
+    
+      Kotlin 是众多基于JVM的语言之一，它一开始是作为 android  开发中 java 语言的可能的代替者出现的。java 是世界上使用最多的语言之一，而伴随着其他语言的发展使得程序员编程越来越容易，但是 java 并没有尽快地向预期目标发展。
+    
+    </summary>
+    
+      <category term="晨读" scheme="http://ngudream.com/categories/%E6%99%A8%E8%AF%BB/"/>
+    
+      <category term="移动开发" scheme="http://ngudream.com/categories/%E6%99%A8%E8%AF%BB/%E7%A7%BB%E5%8A%A8%E5%BC%80%E5%8F%91/"/>
+    
+    
+      <category term="Android" scheme="http://ngudream.com/tags/Android/"/>
+    
+      <category term="Kotlin" scheme="http://ngudream.com/tags/Kotlin/"/>
+    
+  </entry>
   
   <entry>
     <title>Java 面试题之数据库</title>
@@ -6250,744 +6801,6 @@ protected void schedule() {
     
     
       <category term="RxJava" scheme="http://ngudream.com/tags/RxJava/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>如何用 Clean 架构开发 Android 应用</title>
-    <link href="http://ngudream.com/2016/12/21/android-clean-architecture-pattern/"/>
-    <id>http://ngudream.com/2016/12/21/android-clean-architecture-pattern/</id>
-    <published>2016-12-21T12:59:53.000Z</published>
-    <updated>2017-01-15T07:58:44.317Z</updated>
-    
-    <content type="html"><![CDATA[<div><a href="https://github.com/ReactiveX/RxJava" target="_blank" rel="external nofollow noopener noreferrer"><img class="pic lazy" data-original="/2016/12/21/android-clean-architecture-pattern/mvp_clean.png" style="float:left; width:100px; height:56px; margin-right:16px" alt=""></a>
-<span>&#x3010;&#x7FFB;&#x8BD1;&#x3011;&#x81EA;&#x6211;&#x5F00;&#x59CB;&#x5F00;&#x53D1; Android &#x5E94;&#x7528;&#x4EE5;&#x6765;&#x5C31;&#x6709;&#x4E00;&#x79CD;&#x611F;&#x89C9;&#x2014;&#x2014;&#x6211;&#x53EF;&#x4EE5;&#x628A;&#x5B83;&#x505A;&#x5F97;&#x66F4;&#x597D;&#x3002;&#x5728;&#x6211;&#x7684;&#x804C;&#x4E1A;&#x751F;&#x6DAF;&#x4E2D;&#xFF0C;&#x6211;&#x770B;&#x5230;&#x8FC7;&#x4E0D;&#x5C11;&#x70C2;&#x4EE3;&#x7801;&#xFF0C;&#x5176;&#x4E2D;&#x4E00;&#x4E9B;&#x8FD8;&#x662F;&#x6211;&#x81EA;&#x5DF1;&#x5199;&#x7684;&#x3002;Android &#x7684;&#x590D;&#x6742;&#x6027;&#x548C;&#x70C2;&#x4EE3;&#x7801;&#x52BF;&#x5FC5;&#x9020;&#x6210;&#x5927;&#x95EE;&#x9898;&#x3002;&#x6240;&#x4EE5;&#xFF0C;&#x4ECE;&#x9519;&#x8BEF;&#x4E2D;&#x6C72;&#x53D6;&#x6559;&#x8BAD;&#x5E76;&#x6301;&#x7EED;&#x6539;&#x5584;&#x5341;&#x5206;&#x91CD;&#x8981;&#x3002;&#x5728;&#x591A;&#x6B21;&#x5C1D;&#x8BD5;&#x5BFB;&#x627E;&#x66F4;&#x597D;&#x7684;&#x5F00;&#x53D1;&#x65B9;&#x5F0F;&#x540E;&#xFF0C;&#x6211;&#x9047;&#x5230;&#x4E86; Clean &#x67B6;&#x6784;&#xFF08;&#x7B80;&#x6D01;&#x67B6;&#x6784;&#xFF09;&#x3002;&#x4E8E;&#x662F;&#x6211;&#x5C06;&#x5176;&#x5E94;&#x7528;&#x5728;&#x4E86; Android &#x5F00;&#x53D1;&#x4E2D;&#xFF0C;&#x5E76;&#x7ED3;&#x5408;&#x6211;&#x7684;&#x5F00;&#x53D1;&#x7ECF;&#x9A8C;&#x505A;&#x4E86;&#x8C03;&#x6574;&#xFF0C;&#x5199;&#x51FA;&#x4E86;&#x8FD9;&#x7BC7;&#x6211;&#x89C9;&#x5F97;&#x8F83;&#x4E3A;&#x5B9E;&#x7528;&#x3001;&#x503C;&#x5F97;&#x5206;&#x4EAB;&#x7684;&#x6587;&#x7AE0;&#x3002;</span></div>
-<a id="more"></a>
-<p>&#x82F1;&#x6587;&#x539F;&#x6587;&#xFF1A;<a href="https://medium.com/@dmilicic/a-detailed-guide-on-developing-android-apps-using-the-clean-architecture-pattern-d38d71e94029#.8yosmtpre" target="_blank" rel="external nofollow noopener noreferrer">A detailed guide on developing Android apps using the Clean Architecture pattern</a></p>
-<blockquote>
-<p><a href="https://www.oschina.net/" target="_blank" rel="external nofollow noopener noreferrer">&#x6765;&#x81EA;&#x5F00;&#x6E90;&#x4E2D;&#x56FD;</a><br>
-&#x539F;&#x6587;&#x94FE;&#x63A5;:&#x3000;<a href="https://www.oschina.net/translate/developing-android-apps-using-the-clean-architecture-pattern?hmsr=toutiao.io&amp;utm_medium=toutiao.io&amp;utm_source=toutiao.io" target="_blank" rel="external nofollow noopener noreferrer">&#x5982;&#x4F55;&#x7528; Clean &#x67B6;&#x6784;&#x5F00;&#x53D1; Android &#x5E94;&#x7528; </a><br>
-&#x53C2;&#x4E0E;&#x7FFB;&#x8BD1; (5&#x4EBA;) : <a href="https://my.oschina.net/jamesfancy" target="_blank" rel="external nofollow noopener noreferrer">&#x8FB9;&#x57CE;</a>, <a href="https://my.oschina.net/tocy" target="_blank" rel="external nofollow noopener noreferrer">Tocy</a>, <a href="https://my.oschina.net/viyinfo" target="_blank" rel="external nofollow noopener noreferrer">Viyi</a>, <a href="https://my.oschina.net/sensen163" target="_blank" rel="external nofollow noopener noreferrer">&#x7D2B;&#x7CFB;&#x6D41;&#x6708;</a>, <a href="https://my.oschina.net/crooner" target="_blank" rel="external nofollow noopener noreferrer">&#x65E0;&#x82E5;</a></p>
-</blockquote>
-<p>&#x6700;&#x8FD1;&#x6211;&#x7528; Clean &#x67B6;&#x6784;&#x4E3A;&#x5BA2;&#x6237;&#x6784;&#x5EFA;&#x4E86; app&#xFF0C;&#x5E76;&#x6536;&#x5230;&#x4E86;&#x5F88;&#x597D;&#x7684;&#x53CD;&#x9988;&#x3002;&#x56E0;&#x6B64;&#xFF0C;&#x5728;&#x8FD9;&#x7BC7;&#x6587;&#x7AE0;&#x4E2D;&#x6211;&#x4F1A;&#x624B;&#x628A;&#x624B;&#x6559;&#x4F60;&#x5982;&#x4F55;&#x7528; Clean &#x67B6;&#x6784;&#x5F00;&#x53D1; Android &#x5E94;&#x7528;&#x3002;</p>
-<h2 id="&#x4EC0;&#x4E48;&#x662F;-clean-&#x67B6;&#x6784;&#xFF1F;"><a class="header-anchor" href="#&#x4EC0;&#x4E48;&#x662F;-clean-&#x67B6;&#x6784;&#xFF1F;"></a>&#x4EC0;&#x4E48;&#x662F; Clean &#x67B6;&#x6784;&#xFF1F;</h2>
-<p>&#x6709;&#x8BB8;&#x591A;&#x6587;&#x7AE0;&#x5DF2;&#x7ECF;&#x5BF9; Clean &#x67B6;&#x6784;&#x7684;&#x6982;&#x5FF5;&#x505A;&#x8FC7;&#x4ECB;&#x7ECD;&#x3002;&#x5728;&#x6B64;&#x6211;&#x8BB2;&#x4E00;&#x8BB2; Clean &#x67B6;&#x6784;&#x7684;&#x6838;&#x5FC3;&#x5185;&#x5BB9;&#x3002;</p>
-<p>&#x901A;&#x5E38;&#x6240;&#x8BF4;&#x7684; Clean&#xFF0C;&#x662F;&#x6307;&#x4EE3;&#x7801;&#x88AB;&#x5206;&#x4E3A;&#x50CF;&#x6D0B;&#x8471;&#x72B6;&#x7684;&#x591A;&#x4E2A;&#x5C42;&#xFF0C;&#x5176;<strong>&#x89C4;&#x5219;&#x57FA;&#x7840;</strong>&#xFF1A;&#x5185;&#x5C42;&#x4E0D;&#x9700;&#x8981;&#x77E5;&#x9053;&#x5916;&#x5C42;&#x5728;&#x5E72;&#x4EC0;&#x4E48;&#x3002;&#x5373;<strong>&#x5411;&#x5185;&#x4F9D;&#x8D56;</strong>&#x3002;</p>
-<p>&#x8FD9;&#x662F;&#x4E0A;&#x4E00;&#x6BB5;&#x5185;&#x5BB9;&#x7684;&#x76F4;&#x89C2;&#x5448;&#x73B0;&#xFF1A;</p>
-<div align="center">
-<img data-original="/2016/12/21/android-clean-architecture-pattern/110613_GK36_2903254.jpg" class="lazy">
-<br>
-<span style="width:100%">&#x7B80;&#x6D01;&#x67B6;&#x6784;&#x6781;&#x4F73;&#x7684;&#x89C6;&#x89C9;&#x8868;&#x73B0;&#x3002;&#x56FE;&#x7247;&#x6765;&#x81EA;<a href="https://blog.8thlight.com/uncle-bob/archive.html" target="_blank" rel="external nofollow noopener noreferrer">Uncle Bob</a>&#x3002;</span>
-</div>
-<p>&#x6587;&#x4E2D;&#x63D0;&#x5230;&#x7684; Clean &#x67B6;&#x6784;&#x4F1A;&#x7ED9;&#x4EE3;&#x7801;&#x63D0;&#x4F9B;&#x4E00;&#x4E0B;&#x5C5E;&#x6027;&#xFF1A;</p>
-<ul>
-<li>&#x4E0D;&#x4F9D;&#x8D56;&#x6846;&#x67B6;&#x3002;</li>
-<li>&#x53EF;&#x6D4B;&#x8BD5;&#x3002;</li>
-<li>&#x4E0D;&#x4F9D;&#x8D56; UI&#x3002;</li>
-<li>&#x4E0D;&#x4F9D;&#x8D56;&#x6570;&#x636E;&#x5E93;&#x3002;</li>
-<li>&#x4E0D;&#x4F9D;&#x8D56;&#x5176;&#x5B83;&#x5916;&#x90E8;&#x529B;&#x91CF;</li>
-</ul>
-<p>&#x6211;&#x5E0C;&#x671B;&#x4F60;&#x80FD;&#x7406;&#x89E3;&#x8FD9;&#x51E0;&#x70B9;&#x5728;&#x4E0B;&#x9762;&#x7684;&#x793A;&#x4F8B;&#x4E2D;&#x662F;&#x5982;&#x4F55;&#x4F53;&#x73B0;&#x7684;&#x3002;&#x66F4;&#x591A;&#x5173;&#x4E8E; Clean &#x67B6;&#x6784;&#x7684;&#x89E3;&#x91CA;&#xFF0C;&#x6211;&#x63A8;&#x8350;&#x4F60;&#x770B;&#x770B;&#x8FD9;&#x7BC7;<a href="https://8thlight.com/blog/uncle-bob/2012/08/13/the-clean-architecture.html" target="_blank" rel="external nofollow noopener noreferrer">&#x6587;&#x7AE0;</a>&#x548C;&#x8FD9;&#x4E2A;<a href="https://vimeo.com/43612849" target="_blank" rel="external nofollow noopener noreferrer">&#x89C6;&#x9891;</a>&#x3002;</p>
-<h2 id="&#x8FD9;&#x5728;-anroid-&#x4E2D;&#x610F;&#x5473;&#x7740;&#x4EC0;&#x4E48;"><a class="header-anchor" href="#&#x8FD9;&#x5728;-anroid-&#x4E2D;&#x610F;&#x5473;&#x7740;&#x4EC0;&#x4E48;"></a>&#x8FD9;&#x5728; Anroid &#x4E2D;&#x610F;&#x5473;&#x7740;&#x4EC0;&#x4E48;</h2>
-<p>&#x4E00;&#x822C;&#x6765;&#x8BF4;&#xFF0C;&#x4F60;&#x7684;&#x5E94;&#x7528;&#x53EF;&#x4EE5;&#x6709;&#x4EFB;&#x610F;&#x6570;&#x91CF;&#x7684;&#x5C42;&#xFF0C;&#x9664;&#x975E;&#x4F60;&#x7684; Android &#x5E94;&#x7528;&#x5305;&#x542B;&#x4F01;&#x4E1A;&#x7EA7;&#x7684;&#x4E1A;&#x52A1;&#x903B;&#x8F91;&#xFF0C;&#x6700;&#x5E38;&#x89C1;&#x7684;&#x662F;3&#x5C42;&#xFF1A;</p>
-<ul>
-<li>&#x5916;&#x5C42;&#xFF1A;&#x5B9E;&#x73B0;&#x5C42;</li>
-<li>&#x4E2D;&#x95F4;&#x5C42;&#xFF1A;&#x63A5;&#x53E3;&#x9002;&#x914D;&#x5C42;</li>
-<li>&#x5185;&#x5C42;&#xFF1A;&#x4E1A;&#x52A1;&#x903B;&#x8F91;&#x5C42;</li>
-</ul>
-<p><strong>&#x5B9E;&#x73B0;&#x5C42;</strong>&#x662F;&#x6846;&#x67B6;&#x8981;&#x6C42;&#x6240;&#x6709;&#x4E8B;&#x60C5;&#x53D1;&#x751F;&#x7684;&#x5730;&#x65B9;&#x3002;&#x6784;&#x67B6;&#x4EE3;&#x7801;<strong>&#x5305;&#x62EC;&#x6BCF;&#x884C;&#x4EE3;&#x7801;&#x90FD;&#x4E0D;&#x662F;&#x5728;&#x89E3;&#x51B3;&#x4F60;&#x8981;&#x89E3;&#x51B3;&#x7684;&#x95EE;&#x9898;</strong>&#xFF0C;&#x6BD4;&#x5982;&#x6240;&#x6709; Android &#x5F00;&#x53D1;&#x8005;&#x90FD;&#x559C;&#x6B22;&#x521B;&#x5EFA;&#x7684; Activity &#x548C; Fragment&#xFF0C;&#x53D1;&#x9001; Intent&#xFF0C;&#x4EE5;&#x53CA;&#x5176;&#x5B83;&#x7F51;&#x7EDC;&#x548C;&#x6570;&#x636E;&#x5E93;&#x76F8;&#x5173;&#x7684;&#x6846;&#x67B6;&#x4EE3;&#x7801;&#x3002;</p>
-<p><strong>&#x63A5;&#x53E3;&#x9002;&#x914D;&#x5C42;</strong>&#x7684;&#x76EE;&#x6807;&#x662F;&#x8FDE;&#x63A5;&#x4E1A;&#x52A1;&#x903B;&#x8F91;&#x548C;&#x6846;&#x67B6;&#x4EE3;&#x7801;&#x3002;</p>
-<p>&#x6700;&#x91CD;&#x8981;&#x7684;&#x95EE;&#x9898;&#x662F;<strong>&#x4E1A;&#x52A1;&#x903B;&#x8F91;&#x5C42;</strong>&#x3002;&#x8FD9;&#x91CC;&#x662F;&#x4F60;&#x7684;&#x5E94;&#x7528;&#x4E2D;&#x5B9E;&#x9645;&#x89E3;&#x51B3;&#x95EE;&#x9898;&#x7684;&#x5730;&#x65B9;&#x3002;&#x8FD9;&#x91CC;&#x4E0D;&#x4F1A;&#x6709;&#x6846;&#x67B6;&#x4EE3;&#x7801;&#xFF0C;&#x4F60;<strong>&#x5E94;&#x8BE5;&#x80FD;&#x5728;&#x6CA1;&#x6709;&#x6A21;&#x62DF;&#x5668;&#x652F;&#x6301;&#x4E0B;&#x8FD0;&#x884C;&#x8FD9;&#x90E8;&#x5206;&#x4EE3;&#x7801;</strong>&#x3002;&#x8FD9;&#x6837;&#x4F60;&#x7684;&#x4E1A;&#x52A1;&#x903B;&#x8F91;&#x4EE3;&#x7801;&#x624D;<strong>&#x5BB9;&#x6613;&#x6D4B;&#x8BD5;&#x3001;&#x5F00;&#x53D1;&#x548C;&#x7EF4;&#x62A4;</strong>&#x3002;&#x8FD9;&#x662F; Clean &#x67B6;&#x6784;&#x7684;&#x4E3B;&#x8981;&#x4F18;&#x52BF;&#x3002;</p>
-<p>&#x6838;&#x5FC3;&#x5C42;&#x4E4B;&#x4E0A;&#x7684;&#x6BCF;&#x4E00;&#x5C42;&#x90FD;&#x9700;&#x8981;&#x4E3A;&#x4E0B;&#x4E00;&#x5C42;&#x8F6C;&#x6362;&#x6A21;&#x578B;&#x7ED3;&#x6784;&#x3002;&#x5185;&#x5C42;&#x4E0D;&#x4F1A;&#x5F15;&#x7528;&#x5916;&#x5C42;&#x7684;&#x6A21;&#x578B;&#xFF0C;&#x4F46;&#x5916;&#x5C42;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;&#x5185;&#x5C42;&#x7684;&#x6A21;&#x578B;&#x3002;&#x8FD9;&#x4E5F;&#x662F;&#x524D;&#x9762;&#x63D0;&#x5230;&#x7684;<strong>&#x4F9D;&#x8D56;&#x89C4;&#x5219;</strong>&#x3002;&#x867D;&#x7136;&#x8FD9;&#x6837;&#x505A;&#x4F1A;&#x5BFC;&#x81F4;&#x66F4;&#x5927;&#x7684;&#x5F00;&#x9500;&#xFF0C;&#x4F46;&#x80FD;&#x786E;&#x4FDD;&#x5404;&#x5C42;&#x4EE3;&#x7801;&#x4E4B;&#x95F4;&#x7684;&#x89E3;&#x8026;&#x3002;</p>
-<blockquote>
-<p>&#x4E3A;&#x4EC0;&#x4E48;&#x9700;&#x8981;&#x6A21;&#x578B;&#x8F6C;&#x6362;&#xFF1F;&#x4E3E;&#x4E2A;&#x4F8B;&#x5B50;&#xFF0C;&#x5F53;&#x903B;&#x8F91;&#x5C42;&#x7684;&#x6A21;&#x578B;&#x4E0D;&#x80FD;&#x76F4;&#x63A5;&#x5F88;&#x4F18;&#x96C5;&#x5730;&#x5C55;&#x73B0;&#x7ED9;&#x7528;&#x6237;&#xFF0C;&#x6216;&#x662F;&#x9700;&#x8981;&#x540C;&#x65F6;&#x5C55;&#x793A;&#x591A;&#x4E2A;&#x903B;&#x8F91;&#x5C42;&#x7684;&#x6A21;&#x578B;&#x65F6;&#xFF0C;&#x6700;&#x597D;&#x521B;&#x5EFA;&#x4E00;&#x4E2A; ViewModel &#x7C7B;&#x6765;&#x66F4;&#x597D;&#x7684;&#x8FDB;&#x884C; UI &#x5C55;&#x793A;&#x3002;&#x8FD9;&#x6837;&#x53EF;&#x4EE5;&#x5728;&#x5916;&#x5C42;&#x4F7F;&#x7528;&#x8F6C;&#x6362;&#x5668;&#x7C7B;&#x5C06;&#x4E1A;&#x52A1;&#x6A21;&#x578B;&#x8F6C;&#x6362;&#x6210;&#x5408;&#x9002;&#x7684; ViewModel&#x3002;</p>
-</blockquote>
-<blockquote>
-<p>&#x53E6;&#x4E00;&#x4E2A;&#x4F8B;&#x5B50;&#xFF1A;&#x5047;&#x8BBE;&#x4F60;&#x8981;&#x4ECE;&#x5916;&#x90E8;&#x6570;&#x636E;&#x5C42;&#x7684;  ContentProvider &#x5F97;&#x5230;&#x4E00;&#x4E2A; Cursor &#x5BF9;&#x8C61;&#xFF0C;&#x5916;&#x5C42;&#x8981;&#x5148;&#x628A;&#x5B83;&#x8F6C;&#x6362;&#x6210;&#x5185;&#x5C42;&#x7684;&#x4E1A;&#x52A1;&#x6A21;&#x578B;&#xFF0C;&#x518D;&#x9001;&#x7ED9;&#x4F60;&#x7684;&#x4E1A;&#x52A1;&#x903B;&#x8F91;&#x5C42;&#x8FDB;&#x884C;&#x5904;&#x7406;&#x3002;</p>
-</blockquote>
-<p>&#x6587;&#x672B;&#x6211;&#x4F1A;&#x7ED9;&#x51FA;&#x66F4;&#x591A;&#x76F8;&#x5173;&#x8D44;&#x6E90;&#xFF0C;&#x4EE5;&#x4FBF;&#x4F60;&#x4E86;&#x89E3;&#x66F4;&#x591A;&#x76F8;&#x5173;&#x4FE1;&#x606F;&#x3002;&#x73B0;&#x5728;&#x6211;&#x4EEC;&#x5DF2;&#x7ECF;&#x4E86;&#x89E3; Clean &#x67B6;&#x6784;&#x7684;&#x57FA;&#x672C;&#x539F;&#x7406;&#xFF0C;&#x63A5;&#x4E0B;&#x6765;&#x6211;&#x4EEC;&#x9700;&#x8981;&#x7528;&#x4EE3;&#x7801;&#x793A;&#x4F8B;&#x8FDB;&#x884C;&#x8BF4;&#x660E;&#xFF1A;&#x7528; Clean &#x67B6;&#x6784;&#x6784;&#x5EFA;&#x4E00;&#x4E2A;&#x793A;&#x4F8B;&#x529F;&#x80FD;&#x3002;</p>
-<h2 id="&#x600E;&#x6837;&#x5F00;&#x59CB;&#x6784;&#x5EFA;&#x4E00;&#x4E2A;-clean-&#x5E94;&#x7528;&#xFF1F;"><a class="header-anchor" href="#&#x600E;&#x6837;&#x5F00;&#x59CB;&#x6784;&#x5EFA;&#x4E00;&#x4E2A;-clean-&#x5E94;&#x7528;&#xFF1F;"></a>&#x600E;&#x6837;&#x5F00;&#x59CB;&#x6784;&#x5EFA;&#x4E00;&#x4E2A; Clean &#x5E94;&#x7528;&#xFF1F;</h2>
-<p>&#x6211;&#x505A;&#x4E86;&#x4E00;&#x4E2A;<a href="https://github.com/dmilicic/Android-Clean-Boilerplate" target="_blank" rel="external nofollow noopener noreferrer">&#x6837;&#x677F;&#x9879;&#x76EE;</a>&#xFF0C;&#x5B83;&#x4E3A;&#x4F60;&#x63D0;&#x4F9B;&#x4E86;&#x6240;&#x6709;&#x7684;&#x5E95;&#x5C42;&#x547D;&#x4EE4;&#x3002;&#x8FD9;&#x662F;&#x4E00;&#x4E2A; <strong>Clean &#x542F;&#x52A8;&#x5305;</strong>&#xFF0C;&#x5728;&#x8BBE;&#x8BA1;&#x4E4B;&#x521D;&#x5C31;&#x5305;&#x542B;&#x6700;&#x5E38;&#x7528;&#x7684;&#x4E00;&#x4E9B;&#x5DE5;&#x5177;&#x5305;&#x3002;&#x4F60;&#x53EF;&#x514D;&#x8D39;&#x4E0B;&#x8F7D;&#x548C;&#x4FEE;&#x6539;&#xFF0C;&#x8FD8;&#x80FD;&#x7528;&#x5B83;&#x5EFA;&#x7ACB;&#x81EA;&#x5DF1;&#x7684;&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x3002;</p>
-<p>&#x4F60;&#x53EF;&#x4EE5;&#x5728;&#x8FD9;&#x91CC;&#x627E;&#x5230;&#x5165;&#x95E8;&#x9879;&#x76EE;: <a href="https://github.com/dmilicic/Android-Clean-Boilerplate" target="_blank" rel="external nofollow noopener noreferrer">Android Clean Boilerplate</a></p>
-<h2 id="&#x5F00;&#x59CB;&#x7F16;&#x5199;&#x65B0;&#x7528;&#x4F8B;"><a class="header-anchor" href="#&#x5F00;&#x59CB;&#x7F16;&#x5199;&#x65B0;&#x7528;&#x4F8B;"></a>&#x5F00;&#x59CB;&#x7F16;&#x5199;&#x65B0;&#x7528;&#x4F8B;</h2>
-<p>&#x672C;&#x8282;&#x5C06;&#x89E3;&#x91CA;&#x6240;&#x6709;&#x9700;&#x8981;&#x7F16;&#x5199;&#x7684;&#x4EE3;&#x7801;&#xFF0C;&#x4F60;&#x53EF;&#x901A;&#x8FC7;&#x4E0A;&#x4E00;&#x8282;&#x63D0;&#x4F9B;&#x7684;&#x6837;&#x677F;&#x6587;&#x4EF6;&#x4F7F;&#x7528; Clean &#x65B9;&#x6CD5;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x793A;&#x4F8B;&#x3002; &#x4E00;&#x4E2A;&#x793A;&#x4F8B;&#x53EA;&#x4EE3;&#x8868;&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x4E2D;&#x7684;&#x90E8;&#x5206;&#x72EC;&#x7ACB;&#x529F;&#x80FD;&#x3002; &#x7528;&#x6237;&#xFF08;&#x4F8B;&#x5982;&#xFF0C;&#x5728;&#x70B9;&#x51FB;&#x65F6;&#xFF09;&#x53EF;&#x4EE5;&#x9009;&#x62E9;&#x542F;&#x7528;&#x6216;&#x4E0D;&#x542F;&#x7528;&#x3002;</p>
-<p>&#x9996;&#x5148;&#x6211;&#x4EEC;&#x6765;&#x89E3;&#x91CA;&#x8FD9;&#x79CD;&#x65B9;&#x6CD5;&#x7684;&#x7ED3;&#x6784;&#x548C;&#x672F;&#x8BED;&#x3002;&#x8FD9;&#x91CC;&#x8981;&#x8BF4;&#x7684;&#x662F;&#x6211;&#x5982;&#x4F55;&#x6784;&#x5EFA;&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#xFF0C;&#x5176;&#x65B9;&#x6CD5;&#x5E76;&#x4E0D;&#x56FA;&#x5B9A;&#xFF0C;&#x4F60;&#x53EF;&#x6839;&#x636E;&#x4F60;&#x7684;&#x9700;&#x6C42;&#x7EC4;&#x7EC7;&#x4E0D;&#x540C;&#x7684;&#x7ED3;&#x6784;&#x3002;</p>
-<h3 id="&#x7ED3;&#x6784;"><a class="header-anchor" href="#&#x7ED3;&#x6784;"></a>&#x7ED3;&#x6784;</h3>
-<p>&#x4E00;&#x822C;&#x7684; Android &#x5E94;&#x7528;&#x7ED3;&#x6784;&#x5982;&#x4E0B;&#xFF1A;</p>
-<ul>
-<li>&#x5916;&#x5C42;&#x5305;&#xFF1A;UI&#x3001;Storage&#x3001;Network &#x7B49;&#x3002;</li>
-<li>&#x4E2D;&#x5C42;&#x5305;&#xFF1A;Presenters, Converters</li>
-<li>&#x5185;&#x5C42;&#x5305;&#xFF1A;Interactors&#x3001;Models&#x3001;Repositories&#x3001;Executor</li>
-</ul>
-<h3 id="&#x5916;&#x5C42;"><a class="header-anchor" href="#&#x5916;&#x5C42;"></a>&#x5916;&#x5C42;</h3>
-<p>&#x4E0A;&#x9762;&#x5DF2;&#x7ECF;&#x63D0;&#x5230;&#x8FC7;&#xFF0C;&#x8FD9;&#x91CC;&#x662F;&#x6846;&#x67B6;&#x7684;&#x7EC6;&#x8282;&#x3002;</p>
-<p><strong>UI</strong>&#x200A;&#x2014;&#x5305;&#x62EC; Activite&#x3001;Fragment&#x3001;Adapter &#x548C;&#x5176;&#x5B83;&#x7528;&#x6237;&#x754C;&#x9762;&#x76F8;&#x5173;&#x7684;&#x4EE3;&#x7801;&#x3002;</p>
-<p><strong>Storage</strong>&#x200A;&#x2014;&#x200A;&#x6570;&#x636E;&#x5E93;&#x76F8;&#x5173;&#x4EE3;&#x7801;&#xFF0C;&#x5B9E;&#x73B0; Interactor &#x9700;&#x8981;&#x4F7F;&#x7528;&#x7684;&#x63A5;&#x53E3;&#xFF0C;&#x7528;&#x4E8E;&#x8BBF;&#x95EE;&#x548C;&#x5B58;&#x50A8;&#x6570;&#x636E;&#x3002;&#x5305;&#x542B;&#x5982; <a href="https://developer.android.com/guide/topics/providers/content-providers.html" target="_blank" rel="external nofollow noopener noreferrer">ContentProviders</a> &#x6216;&#x8005;&#x50CF; <a href="https://github.com/Raizlabs/DBFlow" target="_blank" rel="external nofollow noopener noreferrer">DBFlow</a> &#x8FD9;&#x6837;&#x7684; ORM&#x3002;</p>
-<p><strong>Network</strong>&#x200A;&#x2014;&#x200A;&#x7C7B;&#x4F3C; <a href="http://square.github.io/retrofit/" target="_blank" rel="external nofollow noopener noreferrer">Retrofit</a> &#x7684;&#x7F51;&#x7EDC;&#x64CD;&#x4F5C;&#x3002;</p>
-<h3 id="&#x4E2D;&#x5C42;"><a class="header-anchor" href="#&#x4E2D;&#x5C42;"></a>&#x4E2D;&#x5C42;</h3>
-<p>&#x7C98;&#x5408;&#x4EE3;&#x7801;&#x5C42;&#xFF0C;&#x5C06;&#x5B9E;&#x73B0;&#x7EC6;&#x8282;&#x4E0E;&#x4E1A;&#x52A1;&#x903B;&#x8F91;&#x8FDE;&#x63A5;&#x8D77;&#x6765;&#x3002;</p>
-<p><strong>Presenters</strong>&#x200A;&#x2014;&#x200A;&#x5904;&#x7406;&#x6765;&#x81EA; UI &#x7684;&#x4E8B;&#x4EF6;&#xFF08;&#x6BD4;&#x5982;&#x7528;&#x6237;&#x5355;&#x51FB;&#xFF09;&#x6216;&#x8005;&#x5E38;&#x7528;&#x4F5C;&#x5185;&#x5C42;&#xFF08;Interactor&#xFF09;&#x7684;&#x56DE;&#x8C03;&#x3002;</p>
-<p><strong>Converters</strong>&#x200A;&#x2014;&#x200A;&#x8F6C;&#x6362;&#x5668;&#x5BF9;&#x8C61;&#x8D1F;&#x8D23;&#x628A;&#x5185;&#x90E8;&#x6A21;&#x578B;&#x8F6C;&#x6362;&#x4E3A;&#x5916;&#x90E8;&#x6A21;&#x578B;&#xFF0C;&#x53CD;&#x4E4B;&#x4EA6;&#x7136;&#x3002;</p>
-<p>&#x5185;&#x5C42;</p>
-<p>&#x6838;&#x5FC3;&#x5C42;&#x5305;&#x542B;&#x5927;&#x90E8;&#x5206;&#x9AD8;&#x7B49;&#x7EA7;&#x4EE3;&#x7801;&#x3002;<strong>&#x8FD9;&#x91CC;&#x7684;&#x6240;&#x6709;&#x7C7B;&#x90FD;&#x662F; POJO</strong>&#x3002;&#x8FD9;&#x4E00;&#x5C42;&#x4E2D;&#x7684;&#x7C7B;&#x548C;&#x5BF9;&#x8C61;&#x90FD;&#x4E0D;&#x662F;&#x7279;&#x5B9A;&#x8FD0;&#x884C;&#x5728; Android &#x5E94;&#x7528;&#x4E2D;&#xFF0C;&#x53EF;&#x4EE5;&#x975E;&#x5E38;&#x5BB9;&#x6613;&#x7684;&#x79FB;&#x690D;&#x5230;&#x5176;&#x5B83; JVM &#x8FD0;&#x884C;&#x3002;</p>
-<p><strong>Interactors</strong> - &#x8FD9;&#x4E9B;&#x662F;&#x5B9E;&#x9645;&#x5305;&#x542B;&#x4E1A;&#x52A1;&#x903B;&#x8F91;&#x4EE3;&#x7801;&#x7684;&#x7C7B;&#x3002;&#x8FD9;&#x4E9B;&#x7C7B;&#x5728;&#x540E;&#x53F0;&#x8FD0;&#x884C;&#xFF0C;&#x5E76;&#x4F7F;&#x7528;&#x56DE;&#x8C03;&#x5411;&#x4E0A;&#x5C42;&#x4F20;&#x9012;&#x4E8B;&#x4EF6;&#x3002;&#x5728;&#x4E00;&#x4E9B;&#x9879;&#x76EE;&#x4E2D;&#xFF0C;&#x5B83;&#x4EEC;&#x4E5F;&#x88AB;&#x79F0;&#x4E3A;&#x7528;&#x4F8B;&#xFF08;&#x53EF;&#x80FD;&#x662F;&#x4E00;&#x4E2A;&#x5408;&#x9002;&#x7684;&#x540D;&#x79F0;&#xFF09;&#x3002;&#x5728;&#x60A8;&#x7684;&#x9879;&#x76EE;&#x4E2D;&#x53EF;&#x80FD;&#x6709;&#x5F88;&#x591A;&#x5C0F;&#x7684;&#x7528;&#x4E8E;&#x89E3;&#x51B3;&#x7279;&#x5B9A;&#x95EE;&#x9898; Interactor &#x7C7B;&#xFF0C;&#x8FD9;&#x5C5E;&#x6B63;&#x5E38;&#x73B0;&#x8C61;&#x3002;&#x53EF;&#x4EE5;&#x8BF4;&#xFF0C;&#x5B83;&#x7B26;&#x5408;<a href="https://en.wikipedia.org/wiki/Single_responsibility_principle" target="_blank" rel="external nofollow noopener noreferrer">&#x5355;&#x4E00;&#x8D23;&#x4EFB;&#x539F;&#x5219;</a>&#xFF0C;&#x800C;&#x4E14;&#x8FD9;&#x6837;&#x7684;&#x7406;&#x89E3;&#x66F4;&#x5BB9;&#x6613;&#x8BA9;&#x4EBA;&#x63A5;&#x53D7;&#x3002;</p>
-<p><strong>Models</strong> - &#x8FD9;&#x4E9B;&#x662F;&#x60A8;&#x5728;&#x4E1A;&#x52A1;&#x903B;&#x8F91;&#x4E2D;&#x5904;&#x7406;&#x7684;&#x4E1A;&#x52A1;&#x6A21;&#x578B;&#x3002;</p>
-<p><strong>Repositories</strong> - &#x6B64;&#x5305;&#x4EC5;&#x5305;&#x542B;&#x6570;&#x636E;&#x5E93;&#x6216;&#x5176;&#x4ED6;&#x5916;&#x5C42;&#x5B9E;&#x73B0;&#x7684;&#x63A5;&#x53E3;&#x3002;Interactors &#x4F7F;&#x7528;&#x8FD9;&#x4E9B;&#x63A5;&#x53E3;&#x6765;&#x8BBF;&#x95EE;&#x548C;&#x5B58;&#x50A8;&#x6570;&#x636E;&#x3002;&#x4E5F;&#x79F0;&#x4E3A;<a href="https://msdn.microsoft.com/en-us/library/ff649690.aspx" target="_blank" rel="external nofollow noopener noreferrer">&#x4ED3;&#x5E93;&#x6A21;&#x5F0F;</a>&#x3002;</p>
-<p><strong>Executor</strong> - &#x6B64;&#x5305;&#x5305;&#x542B;&#x7528;&#x4E8E;&#x8C03;&#x7528;&#x5DE5;&#x4F5C;&#x7EBF;&#x7A0B;&#x6267;&#x884C;&#x5668;&#x5728;&#x540E;&#x53F0;&#x6267;&#x884C; Interactors &#x7684;&#x4EE3;&#x7801;&#x3002;&#x8FD9;&#x4E2A;&#x5305;&#x4E00;&#x822C;&#x4E0D;&#x9700;&#x8981;&#x4F60;&#x4FEE;&#x6539;&#x4EFB;&#x4F55;&#x90E8;&#x5206;&#x3002;</p>
-<h3 id="&#x4E00;&#x4E2A;&#x7B80;&#x5355;&#x7684;&#x793A;&#x4F8B;"><a class="header-anchor" href="#&#x4E00;&#x4E2A;&#x7B80;&#x5355;&#x7684;&#x793A;&#x4F8B;"></a>&#x4E00;&#x4E2A;&#x7B80;&#x5355;&#x7684;&#x793A;&#x4F8B;</h3>
-<p>&#x5728;&#x8FD9;&#x4E2A;&#x793A;&#x4F8B;&#x4E2D;&#xFF0C;&#x6211;&#x4EEC;&#x7684;&#x7528;&#x4F8B;&#x662F;&#xFF1A; &#x201C;<strong>&#x5728; app &#x542F;&#x52A8;&#x65F6;&#x8BFB;&#x53D6;&#x5B58;&#x50A8;&#x5728;&#x6570;&#x636E;&#x5E93;&#x4E2D;&#x7684;&#x6D88;&#x606F;&#x5E76;&#x5C55;&#x793A;&#x3002;</strong>&#x201D; &#x6B64;&#x793A;&#x4F8B;&#x5C06;&#x4F1A;&#x5C55;&#x793A;&#x5982;&#x4F55;&#x4F7F;&#x7528;&#x4E0B;&#x9762;&#x4E09;&#x4E2A;&#x7A0B;&#x5E8F;&#x5305;&#x6765;&#x5B8C;&#x6210;&#x7528;&#x4F8B;&#x7684;&#x529F;&#x80FD;&#xFF1A;</p>
-<ul>
-<li>presentation &#x5305;&#xFF08;&#x5C55;&#x793A;&#x5305;&#xFF09;</li>
-<li>storage &#x5305;&#xFF08;&#x5B58;&#x50A8;&#x5305;&#xFF09;</li>
-<li>domain &#x5305;&#xFF08;&#x4E3B;&#x5305;&#xFF09;</li>
-</ul>
-<p>&#x524D;&#x4E24;&#x4E2A;&#x5C5E;&#x4E8E;&#x5916;&#x5C42;&#x5B9E;&#x73B0;&#xFF0C;&#x6700;&#x540E;&#x4E00;&#x4E2A;&#x5C5E;&#x4E8E;&#x5185;&#x90E8;/&#x6838;&#x5FC3;&#x5C42;&#x5B9E;&#x73B0;&#x3002;</p>
-<p><strong>Presentation</strong> &#x5305;&#x4E3B;&#x8981;&#x8D1F;&#x8D23;&#x6240;&#x6709;&#x4E0E;&#x5C4F;&#x5E55;&#x663E;&#x793A;&#x76F8;&#x5173;&#x7684;&#x90E8;&#x5206;&#x2014;&#x2014;&#x5305;&#x62EC;&#x5168;&#x90E8;&#x7684; <a href="https://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93presenter" target="_blank" rel="external nofollow noopener noreferrer">MVP</a> &#x6808;&#xFF0C;&#x5373;&#x5305;&#x62EC; UI &#x548C; presenter &#x8FD9;&#x4E24;&#x4E2A;&#x4E0D;&#x540C;&#x5C42;&#x7684;&#x7EC4;&#x4EF6;&#x3002;</p>
-<h2 id="&#x7F16;&#x5199;&#x65B0;&#x7684;-interactor-&#x5185;&#x90E8;-&#x6838;&#x5FC3;&#x5C42;"><a class="header-anchor" href="#&#x7F16;&#x5199;&#x65B0;&#x7684;-interactor-&#x5185;&#x90E8;-&#x6838;&#x5FC3;&#x5C42;"></a>&#x7F16;&#x5199;&#x65B0;&#x7684; Interactor &#xFF08;&#x5185;&#x90E8;/&#x6838;&#x5FC3;&#x5C42;&#xFF09;</h2>
-<p>&#x4E8B;&#x5B9E;&#x4E0A;&#x4F60;&#x53EF;&#x4EE5;&#x4ECE;&#x67B6;&#x6784;&#x7684;&#x4EFB;&#x610F;&#x5C42;&#x5F00;&#x59CB;&#x7F16;&#x7801;&#xFF0C;&#x4F46;&#x662F;&#x6211;&#x8FD8;&#x662F;&#x63A8;&#x8350;&#x4F60;&#x9996;&#x5148;&#x4ECE;&#x6838;&#x5FC3;&#x4E1A;&#x52A1;&#x903B;&#x8F91;&#x5F00;&#x59CB;&#x3002;&#x56E0;&#x4E3A;&#x903B;&#x8F91;&#x4EE3;&#x7801;&#x5199;&#x597D;&#x4E4B;&#x540E;&#x53EF;&#x4EE5;&#x6D4B;&#x8BD5;&#xFF0C;&#x4E0D;&#x9700;&#x8981; activity &#x4E5F;&#x53EF;&#x4EE5;&#x6B63;&#x5E38;&#x8FD0;&#x884C;&#x3002;</p>
-<p>&#x6240;&#x4EE5;&#x6211;&#x4EEC;&#x5148;&#x4ECE;&#x521B;&#x5EFA;&#x4E00;&#x4E2A; Interactor &#x5F00;&#x59CB;&#x3002;Interactor &#x662F;&#x7528;&#x4F8B;&#x4E3B;&#x903B;&#x8F91;&#x5B9E;&#x73B0;&#x7684;&#x5730;&#x65B9;&#x3002;<strong>&#x6240;&#x6709;&#x7684; Interactors &#x90FD;&#x8FD0;&#x884C;&#x5728;&#x540E;&#x53F0;&#x7EBF;&#x7A0B;&#xFF0C;&#x56E0;&#x6B64;&#x5E94;&#x8BE5;&#x4E0D;&#x4F1A;&#x5BF9; UI &#x5C55;&#x793A;&#x9020;&#x6210;&#x5F71;&#x54CD;</strong>&#x3002; &#x6211;&#x4EEC;&#x5728;&#x8FD9;&#x91CC;&#x65B0;&#x5EFA;&#x4E00;&#x4E2A; Interactor&#xFF0C;&#x53EB;&#x505A; <strong>WelcomingInteractor</strong>&#x3002;</p>
-<pre><code>public interface WelcomingInteractor extends Interactor { 
- 
-    interface Callback { 
- 
-        void onMessageRetrieved(String message);
- 
-        void onRetrievalFailed(String error);
-    } 
-}
-</code></pre>
-<p><strong>Callback</strong> &#x8D1F;&#x8D23;&#x548C;&#x4E3B;&#x7EBF;&#x7A0B;&#x4E2D;&#x7684; UI &#x4EA4;&#x4E92;&#xFF0C;&#x6211;&#x4EEC;&#x4E4B;&#x6240;&#x4EE5;&#x5C06;&#x5176;&#x653E;&#x5728; Interactor &#x63A5;&#x53E3;&#x4E2D;&#x662F;&#x56E0;&#x4E3A;&#x6211;&#x4EEC;&#x4E0D;&#x9700;&#x8981;&#x5C06;&#x5176;&#x91CD;&#x65B0;&#x547D;&#x540D;&#x4E3A; WelcomingInteractorCallback&#x2014;&#x2014;&#x7528;&#x4E8E;&#x5C06;&#x5176;&#x4E0E;&#x5176;&#x4ED6;&#x56DE;&#x8C03;&#x533A;&#x5206;&#x3002;&#x4E0B;&#x9762;&#x8BA9;&#x6211;&#x4EEC;&#x5B9E;&#x73B0;&#x53D6;&#x56DE;&#x6D88;&#x606F;&#x7684;&#x903B;&#x8F91;&#x3002;&#x5047;&#x8BBE;&#x6211;&#x4EEC;&#x6709;&#x4E00;&#x4E2A; Interactor &#x7684; <strong>MessageRepository</strong>&#xFF0C;&#x53EF;&#x4EE5;&#x7ED9;&#x6211;&#x4EEC;&#x53D1;&#x9001;&#x6B22;&#x8FCE;&#x6D88;&#x606F;&#x3002;</p>
-<pre><code> MessageRepository { 
-    String getWelcomeMessage();
-}
-</code></pre>
-<p>&#x4E0B;&#x9762;&#x8BA9;&#x6211;&#x4EEC;&#x53C2;&#x8003;&#x4E1A;&#x52A1;&#x903B;&#x8F91;&#x5B9E;&#x73B0; Interactor &#x63A5;&#x53E3;&#x3002;&#x6211;&#x4EEC;&#x7684;&#x5B9E;&#x73B0;&#x5FC5;&#x987B;&#x6269;&#x5C55;&#x81EA; <strong>AbstractInteractor&#xFF0C;&#x8FD9;&#x6837;&#x4EE3;&#x7801;&#x5C31;&#x80FD;&#x5728;&#x540E;&#x53F0;&#x6267;&#x884C;&#x4E86;</strong>&#x3002;</p>
-<pre><code>public class WelcomingInteractorImpl extends AbstractInteractor implements WelcomingInteractor {
-    
-    ...    
-    private void notifyError() {
-        mMainThread.post(new Runnable() {            @Override
-            public void run() {
-                mCallback.onRetrievalFailed(&quot;Nothing to welcome you with :(&quot;);
-            }
-        });
-    }    private void postMessage(final String msg) {
-        mMainThread.post(new Runnable() {            @Override
-            public void run() {
-                mCallback.onMessageRetrieved(msg);
-            }
-        });
-    }    @Override
-    public void run() {        // retrieve the message
-        final String message = mMessageRepository.getWelcomeMessage();        // check if we have failed to retrieve our message
-        if (message == null || message.length() == 0) {            // notify the failure on the main thread
-            notifyError();            return;
-        }        // we have retrieved our message, notify the UI on the main thread
-        postMessage(message);
-    }
-</code></pre>
-<div align="center">
-WelcomingInteractor &#x8FD0;&#x884C;&#x65B9;&#x6CD5;&#x3002;
-</div>
-<p>&#x8FD9;&#x91CC;&#x5C1D;&#x8BD5;&#x83B7;&#x53D6;&#x4E86;&#x6570;&#x636E;&#xFF0C;&#x5E76;&#x53D1;&#x9001;&#x6D88;&#x606F;&#x6216;&#x8005;&#x9519;&#x8BEF;&#x7801;&#x5230; UI &#x5C42;&#x7528;&#x4E8E;&#x663E;&#x793A;&#x3002;&#x6211;&#x4EEC;&#x901A;&#x8FC7; Callback &#x901A;&#x77E5; UI&#xFF0C;&#x8FD9;&#x4E2A; Callback &#x626E;&#x6F14;&#x7684;&#x662F; presenter &#x7684;&#x89D2;&#x8272;&#x3002;<strong>&#x8FD9;&#x6BB5;&#x4EE3;&#x7801;&#x662F;&#x6211;&#x4E1A;&#x52A1;&#x903B;&#x8F91;&#x7684;&#x5173;&#x952E;&#x3002;&#x5176;&#x4ED6;&#x6846;&#x67B6;&#x90FD;&#x662F;&#x4F9D;&#x8D56;&#x4E8E;&#x6846;&#x67B6;&#x672C;&#x8EAB;&#x3002;</strong></p>
-<p>&#x8BA9;&#x6211;&#x4EEC;&#x770B;&#x4E00;&#x4E0B; Interactor &#x7A76;&#x7ADF;&#x6709;&#x54EA;&#x4E9B;&#x4F9D;&#x8D56;&#xFF1A;</p>
-<pre><code>import com.kodelabs.boilerplate.domain.executor.Executor;
-import com.kodelabs.boilerplate.domain.executor.MainThread;
-import com.kodelabs.boilerplate.domain.interactors.WelcomingInteractor;
-import com.kodelabs.boilerplate.domain.interactors.base.AbstractInteractor;
-import com.kodelabs.boilerplate.domain.repository.MessageRepository;
-</code></pre>
-<p>&#x6B63;&#x5982;&#x4F60;&#x6240;&#x770B;&#x5230;&#x7684;&#xFF0C;&#x8FD9;&#x91CC;<strong>&#x6CA1;&#x6709;&#x63D0;&#x5230;&#x4EFB;&#x4F55; Android &#x4EE3;&#x7801;</strong>&#xFF0C;&#x8FD9;&#x5C31;&#x662F; Clean &#x67B6;&#x6784;&#x7684;<strong>&#x4E3B;&#x8981;&#x597D;&#x5904;</strong>&#x3002;&#x4F60;&#x53EF;&#x4EE5;&#x770B;&#x5230;<strong>&#x6846;&#x67B6;&#x7684;&#x72EC;&#x7ACB;&#x6027;</strong>&#x3002; &#x53E6;&#x5916;&#xFF0C;&#x6211;&#x4EEC;&#x4E0D;&#x9700;&#x8981;&#x5173;&#x6CE8; UI &#x6216;&#x6570;&#x636E;&#x5E93;&#x7684;&#x7EC6;&#x8282;&#xFF0C;&#x6211;&#x4EEC;&#x53EA;&#x662F;&#x8C03;&#x7528;&#x5916;&#x5C42;&#x5B9E;&#x73B0;&#x7684;&#x63A5;&#x53E3;&#x65B9;&#x6CD5;&#x3002;</p>
-<h2 id="&#x6D4B;&#x8BD5;-interactor"><a class="header-anchor" href="#&#x6D4B;&#x8BD5;-interactor"></a>&#x6D4B;&#x8BD5; Interactor</h2>
-<p>&#x73B0;&#x5728;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;<strong>&#x8131;&#x79BB;&#x4EFF;&#x771F;&#x5668;&#x8FD0;&#x884C;&#x5E76;&#x6D4B;&#x8BD5; Interator</strong>&#x3002;&#x6765;&#x5199;&#x4E2A;&#x7B80;&#x5355;&#x7684; <strong>JUnit</strong> &#x6D4B;&#x8BD5;&#x786E;&#x4FDD;&#x5B83;&#x6709;&#x6548;&#x3002;</p>
-<pre><code>...    @Test
-    public void testWelcomeMessageFound() throws Exception {
-
-        String msg = &quot;Welcome, friend!&quot;;
-
-        when(mMessageRepository.getWelcomeMessage())
-                .thenReturn(msg);
-
-        WelcomingInteractorImpl interactor = new WelcomingInteractorImpl(
-            mExecutor, 
-            mMainThread, 
-            mMockedCallback, 
-            mMessageRepository
-        );
-        interactor.run();
-
-        Mockito.verify(mMessageRepository).getWelcomeMessage();
-        Mockito.verifyNoMoreInteractions(mMessageRepository);
-        Mockito.verify(mMockedCallback).onMessageRetrieved(msg);
-    }
-</code></pre>
-<p>&#x8FD9;&#x4E2A; Interactor &#x4EE3;&#x7801;&#x5E76;&#x4E0D;&#x77E5;&#x9053;&#x5B83;&#x4F1A;&#x7528;&#x5728; Android &#x5E94;&#x7528;&#x4E2D;&#x3002;&#x8FD9;&#x8BC1;&#x660E;&#x4E86;&#x4E0A;&#x9762;&#x63D0;&#x5230;&#x7684;&#x7B2C;&#x4E8C;&#x70B9;&#x2014;&#x2014;&#x6211;&#x4EEC;&#x7684;&#x4E1A;&#x52A1;&#x903B;&#x8F91;&#x662F;<strong>&#x53EF;&#x6D4B;&#x8BD5;&#x7684;</strong>&#x3002;</p>
-<h2 id="&#x7F16;&#x5199;&#x5C55;&#x73B0;&#x5C42;"><a class="header-anchor" href="#&#x7F16;&#x5199;&#x5C55;&#x73B0;&#x5C42;"></a>&#x7F16;&#x5199;&#x5C55;&#x73B0;&#x5C42;</h2>
-<p>&#x5C55;&#x73B0;&#x4EE3;&#x7801;&#x5C5E;&#x4E8E;&#x7B80;&#x6D01;&#x6846;&#x67B6;&#x7684;<strong>&#x5916;&#x5C42;</strong>&#x3002;&#x5B83;&#x7531;&#x5411;&#x7528;&#x6237;&#x5448;&#x73B0;&#x754C;&#x9762;&#x7684;&#x6846;&#x67B6;&#x4EE3;&#x7801;&#x7EC4;&#x6210;&#x3002;&#x6211;&#x4EEC;&#x4F7F;&#x7528; <strong>MainActivity</strong> &#x7C7B;&#x5728;&#x7528;&#x6237;&#x56DE;&#x5230;&#x5E94;&#x7528;&#x7684;&#x65F6;&#x5019;&#x5411;&#x7528;&#x6237;&#x663E;&#x793A;&#x6B22;&#x8FCE;&#x4FE1;&#x606F;&#x3002;</p>
-<p>&#x6211;&#x4EEC;&#x4ECE; <strong>Presenter</strong> &#x548C; <strong>View</strong> &#x5F00;&#x59CB;&#x5199;&#x754C;&#x9762;&#x3002;&#x89C6;&#x56FE;&#x9700;&#x8981;&#x5E72;&#x7684;&#x552F;&#x4E00;&#x4E00;&#x4EF6;&#x4E8B;&#x60C5;&#x5C31;&#x662F;&#x663E;&#x793A;&#x6B22;&#x8FCE;&#x4FE1;&#x606F;&#xFF1A;</p>
-<pre><code>public interface MainPresenter extends BasePresenter { 
- 
-    interface View extends BaseView { 
-        void displayWelcomeMessage(String msg);
-    } 
-}
-</code></pre>
-<p>&#x90A3;&#x4E48;&#xFF0C;&#x7528;&#x6237;&#x56DE;&#x5230;&#x5E94;&#x7528;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x5E94;&#x8BE5;&#x5982;&#x4F55;&#x5F00;&#x59CB; Interactor &#x5462;&#xFF1F;&#x4E00;&#x5207;&#x4E0D;&#x4E25;&#x683C;&#x76F8;&#x5173;&#x7684;&#x4E1C;&#x897F;&#x90FD;&#x5E94;&#x8BE5;&#x653E;&#x5728; Presenter &#x7C7B;&#x4E2D;&#x3002;&#x8FD9;&#x6709;&#x52A9;&#x4E8E;&#x7EC4;&#x7EC7;<a href="https://en.wikipedia.org/wiki/Separation_of_concerns" target="_blank" rel="external nofollow noopener noreferrer">&#x79BB;&#x6563;&#x7684;&#x5173;&#x7CFB;</a>&#x5E76;&#x9632;&#x6B62; Activity &#x53D8;&#x5F97;&#x81C3;&#x80BF;&#x3002;&#x8FD9;&#x5305;&#x62EC;&#x6240;&#x6709;&#x7528; Interator &#x8FD0;&#x884C;&#x7684;&#x4EE3;&#x7801;&#x3002;</p>
-<p>&#x5728; <strong>MainActivity</strong> &#x7C7B;&#x4E2D;&#x91CD;&#x8F7D; <strong>onResume()</strong> &#x65B9;&#x6CD5;&#xFF1A;</p>
-<pre><code>@Override
-protected void onResume() {
-    super.onResume();
-    // let&apos;s start welcome message retrieval when the app resumes
-    mPresenter.resume();
-}
-</code></pre>
-<p>&#x6240;&#x6709; <strong>Presenter</strong> &#x5BF9;&#x8C61;&#x90FD;&#x8981;&#x5728;&#x5B9E;&#x73B0; <strong>BasePresenter</strong> &#x7684;&#x65F6;&#x5019;&#x5B9E;&#x73B0; <strong>resume()</strong> &#x65B9;&#x6CD5;&#x3002;</p>
-<blockquote>
-<p>&#x6CE8;&#x610F;&#xFF1A;&#x6709;&#x4E9B;&#x654F;&#x9510;&#x7684;&#x8BFB;&#x8005;&#x4F1A;&#x53D1;&#x73B0;&#x6211;&#x5728; BasePresenter &#x63A5;&#x53E3;&#x4E2D;&#x6DFB;&#x52A0;&#x4E86; Android &#x7684;&#x751F;&#x547D;&#x5468;&#x671F;&#x65B9;&#x6CD5;&#xFF0C;&#x5373;&#x4F7F; Presenter &#x5728;&#x8F83;&#x4F4E;&#x5C42;&#x3002;Presenter &#x4E0D;&#x4F1A;&#x83B7;&#x77E5; UI &#x5C42;&#x7684;&#x4EFB;&#x4F55;&#x5185;&#x5BB9;&#x2014;&#x2014;&#x6BD4;&#x5982;&#x5B83;&#x7684;&#x751F;&#x547D;&#x5468;&#x671F;&#x3002;&#x7136;&#x800C;&#xFF0C;&#x6211;&#x5E76;&#x6CA1;&#x6709;&#x6307;&#x5B9A; Android &#x7279;&#x5B9A;&#x7684; * &#x4E8B;&#x4EF6;* &#xFF0C;&#x56E0;&#x4E3A;&#x6BCF;&#x4E2A; UI &#x90FD;&#x9700;&#x8981;&#x5411;&#x7528;&#x6237;&#x5C55;&#x793A;&#x3002;&#x60F3;&#x50CF;&#x4E00;&#x4E0B;&#xFF0C;&#x6211;&#x8C03;&#x7528;&#x7684;&#x662F;  onUIShow() &#x800C;&#x4E0D;&#x662F; onResumt()&#xFF0C;&#x7ED3;&#x679C;&#x4F1A;&#x600E;&#x4E48;&#x6837;&#x5462;&#x3002;&#x4E00;&#x5207;&#x8FD0;&#x884C;&#x826F;&#x597D;&#xFF0C;&#x4E0D;&#x662F;&#x5417;&#xFF1F;<img class="emoji" draggable="false" alt="&#x1F603;" src="https://twemoji.maxcdn.com/2/72x72/1f603.png"></p>
-</blockquote>
-<p>&#x6240;&#x6709;&#x7684; Presenter &#x5728;&#x7EE7;&#x627F; BasePresenter &#x65F6;&#x90FD;&#x8981;&#x5B9E;&#x73B0; resume() &#x65B9;&#x6CD5;&#x3002;&#x6211;&#x4EEC;&#x5728; <strong>MainPresenter</strong> &#x7684; <strong>Resume()</strong> &#x65B9;&#x6CD5;&#x4E2D;&#x542F;&#x52A8; Interactor&#x3002;</p>
-<pre><code>@Override
-public void resume() {
-    mView.showProgress();    
-    // initialize the interactor
-    WelcomingInteractor interactor = new WelcomingInteractorImpl(
-            mExecutor,
-            mMainThread, 
-            this, 
-            mMessageRepository
-    );    
-    // run the interactor
-    interactor.execute();
-}
-</code></pre>
-<p><strong>execute()</strong> &#x65B9;&#x6CD5;&#x4F1A;&#x5728;&#x540E;&#x53F0;&#x7EBF;&#x7A0B;&#x4E2D;&#x6267;&#x884C; <strong>WelcomingInteractorImpl</strong> &#x7684; <strong>run()</strong> &#x65B9;&#x6CD5;&#x3002;&#x800C; <strong>run()</strong> &#x65B9;&#x6CD5;&#x5728;<strong>&#x7F16;&#x5199;&#x65B0;&#x7684; Interactor</strong> &#x4E00;&#x8282;&#x4E2D;&#x4F1A;&#x6709;&#x4ECB;&#x7ECD;&#x3002;</p>
-<p>&#x4F60;&#x53EF;&#x80FD;&#x6CE8;&#x610F;&#x5230; Interactor &#x7684;&#x884C;&#x4E3A;&#x4E0E; <strong>AsyncTask</strong> &#x76F8;&#x7C7B;&#x4F3C;&#xFF0C;&#x90FD;&#x662F;&#x5728;&#x63D0;&#x4F9B;&#x6240;&#x9700;&#x4E1C;&#x897F;&#x540E;&#x8FD0;&#x884C;&#x3002;&#x90A3;&#x4E3A;&#x4EC0;&#x4E48;&#x4E0D;&#x4F7F;&#x7528; AsyncTask &#x5462;&#xFF1F;&#x56E0;&#x4E3A;&#x8FD9;&#x662F; <strong>Android &#x4EE3;&#x7801;</strong>&#xFF0C;&#x9700;&#x8981;&#x6A21;&#x62DF;&#x5668;&#x624D;&#x80FD;&#x8FD0;&#x884C;&#x6216;&#x6D4B;&#x8BD5;&#x3002;</p>
-<p>&#x6211;&#x4EEC;&#x4E3A; Interfactor &#x63D0;&#x4F9B;&#x4E0B;&#x5217;&#x5C5E;&#x6027;&#xFF1A;</p>
-<ul>
-<li><strong>ThreadExecutor</strong> &#x5B9E;&#x4F8B;&#x8D1F;&#x8D23;&#x5728;&#x540E;&#x53F0;&#x7EBF;&#x7A0B;&#x4E2D;&#x6267;&#x884C; Interactor&#x3002;&#x6211;&#x901A;&#x5E38;&#x4F1A;&#x4F7F;&#x7528;&#x5355;&#x4F8B;&#x6A21;&#x5F0F;&#x3002;&#x8FD9;&#x4E2A;&#x7C7B;&#x5B9E;&#x9645;&#x9A7B;&#x7559;&#x5728;&#x57DF;&#x5305;&#x4E2D;&#xFF0C;&#x4E0D;&#x9700;&#x8981;&#x5728;&#x5916;&#x5C42;&#x5B9E;&#x73B0;&#x3002;</li>
-<li><strong>MainThreadImpl</strong> &#x5B9E;&#x4F8B;&#x8D1F;&#x8D23;&#x5728;&#x4E3B;&#x7EBF;&#x7A0B;&#x4E0A;&#x4ECE; Interactor &#x53D1;&#x9001;&#x53EF;&#x8FD0;&#x884C;&#x5BF9;&#x8C61;&#x3002;&#x4E3B;&#x7EBF;&#x7A0B;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;&#x6846;&#x67B6;&#x4EE3;&#x7801;&#x8BBF;&#x95EE;&#xFF0C;&#x56E0;&#x6B64;&#x8FD9;&#x4E2A;&#x7C7B;&#x9700;&#x8981;&#x5728;&#x5916;&#x5C42;&#x5B9E;&#x73B0;&#x3002;</li>
-<li>&#x4F60;&#x53EF;&#x80FD;&#x6CE8;&#x610F;&#x5230;&#x6211;&#x4EEC;&#x5411; Interactor &#x63D0;&#x4F9B;&#x4E86; this &#xFF0C;&#x56E0;&#x4E3A; MainPresenter &#x4E5F;&#x662F;&#x4E00;&#x4E2A; Callback &#x5BF9;&#x8C61;&#xFF0C;Interactor &#x4F1A;&#x7528;&#x5B83;&#x5728;&#x4E8B;&#x4EF6;&#x56DE;&#x8C03;&#x4E2D;&#x66F4;&#x65B0; UI&#x3002;</li>
-<li><strong>WelcomeMessageRepository</strong> &#x5B9E;&#x73B0;&#x4E86; Interactor &#x7528;&#x5230;&#x7684; <strong>MessageRepository</strong> &#x63A5;&#x53E3;&#xFF0C;&#x6240;&#x4EE5;&#x6211;&#x4EEC;&#x63D0;&#x4F9B;&#x4E86;&#x5B83;&#x7684;&#x5B9E;&#x4F8B;&#x3002;<strong>WelcomeMessageRepository</strong> &#x4F1A;&#x5728;<strong>&#x7F16;&#x5199;&#x5B58;&#x50A8;&#x5C42;</strong>&#x4E00;&#x8282;&#x4E2D;&#x8BE6;&#x8FF0;&#x3002;</li>
-</ul>
-<blockquote>
-<p>&#x6CE8;&#x610F;&#xFF1A;&#x56E0;&#x4E3A;&#x6BCF;&#x6B21;&#x90FD;&#x9700;&#x8981;&#x5411; Interactor &#x63D0;&#x4F9B;&#x8BB8;&#x591A;&#x5C5E;&#x6027;&#xFF0C;&#x5C06;  Dagger 2 &#x4F9D;&#x8D56;&#x6CE8;&#x5165;&#x6846;&#x67B6;&#x4F1A;&#x63D0;&#x4F9B;&#x4E0D;&#x5C11;&#x5E2E;&#x52A9;&#x3002;&#x7B80;&#x660E;&#x8D77;&#x89C1;&#xFF0C;&#x6B64;&#x5904;&#x6CA1;&#x6709;&#x5C06;&#x5176;&#x6CE8;&#x5165;&#x3002;&#x4F60;&#x53EF;&#x6839;&#x636E;&#x5B9E;&#x9645;&#x60C5;&#x51B5;&#x9009;&#x62E9;&#x4F7F;&#x7528;&#x3002;</p>
-</blockquote>
-<p>&#x4E3A;&#x4EC0;&#x4E48; <strong>this</strong> &#x4E5F;&#x662F; Callback &#x5462;&#xFF1F;&#xFF0C;&#x56E0;&#x4E3A; <strong>MainActivity</strong> &#x7684; <strong>MainPresenter</strong> &#x5B9E;&#x73B0;&#x4E86; Callback &#x63A5;&#x53E3;&#xFF1A;</p>
-<pre><code>public class MainPresenterImpl extends AbstractPresenter implements MainPresenter, WelcomingInteractor.Callback {
-</code></pre>
-<p>&#x6211;&#x4EEC;&#x76D1;&#x542C;&#x7684;&#x4E8B;&#x4EF6;&#x6765;&#x81EA;&#x4E8E; Interactor &#x3002;&#x8FD9;&#x6BB5;&#x4EE3;&#x7801;&#x6765;&#x81EA;&#x4E8E; <strong>MainPresenter</strong>&#xFF1A;</p>
-<pre><code>@Override 
-public void onMessageRetrieved(String message) {
-    mView.hideProgress(); 
-    mView.displayWelcomeMessage(message);
-} 
- 
-@Override 
-public void onRetrievalFailed(String error) {
-    mView.hideProgress(); 
-    onError(error);
-}
-</code></pre>
-<p>&#x5728;&#x4EE3;&#x7801;&#x6BB5;&#x4E2D;&#x6211;&#x4EEC;&#x770B;&#x5230;&#x7684; View &#x5176;&#x5B9E;&#x5C31;&#x662F;&#x5B9E;&#x73B0;&#x4E86; MainPresenter.View &#x63A5;&#x53E3;&#x7684; <strong>MainActivity</strong>&#xFF1A;</p>
-<pre><code>public class MainActivity extends AppCompatActivity implements MainPresenter.View {
-</code></pre>
-<p>&#x5B83;&#x8D1F;&#x8D23;&#x663E;&#x793A;&#x6B22;&#x8FCE;&#x4FE1;&#x606F;&#xFF1A;</p>
-<pre><code>@Override 
-public void displayWelcomeMessage(String msg) {
-    mWelcomeTextView.setText(msg);
-}
-</code></pre>
-<p>&#x8FD9;&#x5DEE;&#x4E0D;&#x591A;&#x5C31;&#x662F;&#x8868;&#x793A;&#x5C42;&#x7684;&#x5185;&#x5BB9;&#x4E86;&#x3002;</p>
-<h2 id="&#x7F16;&#x5199;&#x5B58;&#x50A8;&#x5C42;"><a class="header-anchor" href="#&#x7F16;&#x5199;&#x5B58;&#x50A8;&#x5C42;"></a>&#x7F16;&#x5199;&#x5B58;&#x50A8;&#x5C42;</h2>
-<p>repository &#x4E2D;&#x7684;&#x63A5;&#x53E3;&#x5C31;&#x5728;&#x5B58;&#x50A8;&#x5C42;&#x5B9E;&#x73B0;&#x3002;&#x6240;&#x6709;&#x6570;&#x636E;&#x5E93;&#x76F8;&#x5173;&#x7684;&#x4EE3;&#x7801;&#x90FD;&#x5728;&#x8FD9;&#x91CC;&#x3002;&#x4ED3;&#x5E93;&#x6A21;&#x5F0F;&#x53EA;&#x662F;&#x8868;&#x8FBE;&#x6570;&#x636E;&#x6765;&#x6E90;&#x3002;&#x4F46;&#x6211;&#x4EEC;&#x7684;&#x4E3B;&#x8981;&#x4E1A;&#x52A1;&#x903B;&#x8F91;&#x4E0D;&#x5728;&#x4E4E;&#x9996;&#x6570;&#x636E;&#x7684;&#x6765;&#x6E90;&#x2014;&#x2014;&#x4E0D;&#x7BA1;&#x5B83;&#x662F;&#x6765;&#x81EA;&#x6570;&#x636E;&#x5E93;&#x3001;&#x670D;&#x52A1;&#x5668;&#x8FD8;&#x662F;&#x6587;&#x672C;&#x6587;&#x4EF6;&#x3002;</p>
-<p>&#x5BF9;&#x4E8E;&#x590D;&#x6742;&#x7684;&#x6570;&#x636E;&#xFF0C;&#x4F60;&#x53EF;&#x4EE5;&#x4F7F;&#x7528; <a href="https://developer.android.com/guide/topics/providers/content-providers.html" target="_blank" rel="external nofollow noopener noreferrer">ContentProviders</a> &#x6216;&#x8005;&#x50CF; <a href="https://github.com/Raizlabs/DBFlow" target="_blank" rel="external nofollow noopener noreferrer">DBFlow</a> &#x8FD9;&#x6837;&#x7684; ORM &#x5DE5;&#x5177;&#x5904;&#x7406;&#x3002;&#x5982;&#x679C;&#x4F60;&#x9700;&#x8981;&#x4ECE; Web &#x63A5;&#x6536;&#x6570;&#x636E;&#xFF0C;&#x90A3;&#x5C31;&#x4F1A;&#x7528;&#x5230; <a href="http://square.github.io/retrofit/" target="_blank" rel="external nofollow noopener noreferrer">Retrofit</a>&#x3002;&#x5982;&#x679C;&#x4F60;&#x9700;&#x8981;&#x7B80;&#x5355;&#x7684;&#x952E;&#x503C;&#x5BF9;&#x5B58;&#x50A8;&#xFF0C;&#x90A3;&#x4F60;&#x4F1A;&#x7528;&#x5230; <a href="https://developer.android.com/training/basics/data-storage/shared-preferences.html" target="_blank" rel="external nofollow noopener noreferrer">SharedPreferences</a>&#x3002;&#x4E0D;&#x7BA1;&#x600E;&#x6837;&#xFF0C;&#x4F60;&#x9700;&#x8981;&#x9009;&#x62E9;&#x6B63;&#x786E;&#x7684;&#x5DE5;&#x5177;&#x3002;</p>
-<p>&#x6211;&#x4EEC;&#x7684;&#x6570;&#x636E;&#x5E93;&#x5E76;&#x4E0D;&#x662F;&#x771F;&#x6B63;&#x7684;&#x6570;&#x636E;&#x5E93;&#xFF0C;&#x5B83;&#x53EA;&#x662F;&#x4E00;&#x4E2A;&#x7B80;&#x5355;&#x7684;&#x7C7B;&#xFF0C;&#x901A;&#x8FC7;&#x5EF6;&#x8FDF;&#x6765;&#x6A21;&#x62DF;&#xFF1A;</p>
-<pre><code>public class WelcomeMessageRepository implements MessageRepository { 
-    @Override 
-    public String getWelcomeMessage() {
-        String msg = &quot;Welcome, friend!&quot;; // let&apos;s be friendly
- 
-        // let&apos;s simulate some network/database lag 
-        try { 
-            Thread.sleep(2000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        } 
- 
-        return msg;
-    } 
-}
-</code></pre>
-<p>&#x5C31; <strong>WelcomingInteractor</strong> &#x800C;&#x8A00;&#xFF0C;&#x5EF6;&#x8FDF;&#x7684;&#x539F;&#x56E0;&#x53EF;&#x80FD;&#x662F;&#x7531;&#x771F;&#x5B9E;&#x7F51;&#x7EDC;&#x6216;&#x5176;&#x4ED6;&#x539F;&#x56E0;&#x9020;&#x6210;&#x7684;&#xFF0C;&#x4F46;&#x5B83;&#x5E76;&#x4E0D;&#x5728;&#x4E4E;&#xFF0C;&#x5B83;&#x53EA;&#x9700;&#x8981;&#x6570;&#x636E;&#x63D0;&#x4F9B;&#x8005;&#x5B9E;&#x73B0; <strong>MessageRepository</strong> &#x63A5;&#x53E3;&#x5C31;&#x597D;&#x3002;</p>
-<h2 id="&#x6982;&#x89C8;"><a class="header-anchor" href="#&#x6982;&#x89C8;"></a>&#x6982;&#x89C8;</h2>
-<p>&#x8FD9;&#x4E2A;<a href="https://github.com/dmilicic/Android-Clean-Boilerplate/tree/example" target="_blank" rel="external nofollow noopener noreferrer">&#x793A;&#x4F8B;</a>&#x5DF2;&#x7ECF;&#x653E;&#x5728;GitHub&#x4E0A;&#x3002;&#x5404;&#x4E2A;&#x7C7B;&#x4E4B;&#x95F4;&#x7684;&#x8C03;&#x7528;&#x5173;&#x7CFB;&#x603B;&#x7ED3;&#x5982;&#x4E0B;&#xFF1A;</p>
-<blockquote>
-<p>MainActivity -&gt;MainPresenter -&gt; WelcomingInteractor -&gt; WelcomeMessageRepository -&gt; WelcomingInteractor -&gt; MainPresenter -&gt; MainActivity</p>
-</blockquote>
-<p>&#x6CE8;&#x610F;&#x8FD9;&#x4E2A;&#x63A7;&#x5236;&#x6D41;&#x7A0B;&#xFF0C;&#x8FD9;&#x975E;&#x5E38;&#x91CD;&#x8981;&#xFF1A;</p>
-<blockquote>
-<p>Outer&#x200A;&#x2014;&#x200A;Mid&#x200A;&#x2014;&#x200A;Core&#x200A;&#x2014;&#x200A;Outer&#x200A;&#x2014;&#x200A;Core&#x200A;&#x2014;&#x200A;Mid&#x200A;&#x2014;&#x200A;Outer</p>
-</blockquote>
-<p>&#x5728;&#x4E00;&#x4E2A;&#x7528;&#x4F8B;&#x4E2D;&#x591A;&#x6B21;&#x8BBF;&#x95EE;&#x5916;&#x5C42;&#x662F;&#x5F88;&#x5E38;&#x89C1;&#x7684;&#x4E8B;&#x60C5;&#x3002;&#x5982;&#x679C;&#x4F60;&#x8981;&#x663E;&#x793A;&#x70B9;&#x4EC0;&#x4E48;&#xFF0C;&#x5B58;&#x50A8;&#x70B9;&#x4EC0;&#x4E48;&#x5E76;&#x4ECE; Web &#x8BBF;&#x95EE;&#x4E9B;&#x4EC0;&#x4E48;&#xFF0C;&#x63A7;&#x5236;&#x6D41;&#x81F3;&#x5C11;&#x9700;&#x8981;&#x8BBF;&#x95EE;&#x5916;&#x5C42;&#x4E09;&#x6B21;&#x3002;</p>
-<h2 id="&#x7ED3;&#x8BBA;"><a class="header-anchor" href="#&#x7ED3;&#x8BBA;"></a>&#x7ED3;&#x8BBA;</h2>
-<p>&#x5BF9;&#x4E8E;&#x6211;&#x6765;&#x8BF4;&#xFF0C;&#x8FD9;&#x662F;&#x8FC4;&#x4ECA;&#x4E3A;&#x6B62;&#x5F00;&#x53D1;&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x7684;&#x6700;&#x4F73;&#x65B9;&#x5F0F;&#x3002;&#x89E3;&#x8026;&#x7684;&#x4EE3;&#x7801;&#x80FD;&#x8BA9;&#x4EBA;&#x628A;&#x6CE8;&#x610F;&#x529B;&#x653E;&#x5728;&#x5177;&#x4F53;&#x7684;&#x95EE;&#x9898;&#x4E0A;&#xFF0C;&#x800C;&#x4E0D;&#x53D7;&#x5176;&#x4ED6;&#x4E8B;&#x4EF6;&#x5E72;&#x6270;&#x3002;&#x8FD9;&#x662F;&#x4E00;&#x4E2A;&#x4E0D;&#x9519;&#x7684; <a href="https://en.wikipedia.org/wiki/SOLID_%28object-oriented_design%29" target="_blank" rel="external nofollow noopener noreferrer">SOLID</a> &#x65B9;&#x6CD5;&#xFF0C;&#x4F46;&#x6211;&#x4EEC;&#x8FD8;&#x9700;&#x8981;&#x4E00;&#x4E9B;&#x65F6;&#x95F4;&#x9002;&#x5E94;&#x3002;&#x5E0C;&#x671B;&#x8FD9;&#x7BC7;&#x6587;&#x7AE0;&#x7684;&#x793A;&#x4F8B;&#x80FD;&#x8BA9;&#x4F60;&#x5BF9;&#x8BE5;&#x5185;&#x5BB9;&#x6709;&#x8FDB;&#x4E00;&#x6B65;&#x4E86;&#x89E3;&#x3002;</p>
-<p>&#x4F7F;&#x7528;&#x7B80;&#x6D01;&#x67B6;&#x6784;&#xFF0C;&#x6211;&#x8FD8;&#x5EFA;&#x7ACB;&#x4E86;&#x4E00;&#x4E2A;&#x5F00;&#x6E90;&#x7684;&#x6210;&#x672C;&#x8DDF;&#x8E2A;&#x5E94;&#x7528;&#xFF0C;&#x5B83;&#x80FD;&#x5C55;&#x793A;&#x4E00;&#x9879;&#x5E94;&#x7528;&#x7684;&#x7F16;&#x7801;&#x3002;&#x6B64;&#x5E94;&#x7528;&#x5E76;&#x65E0;&#x521B;&#x65B0;&#x5185;&#x5BB9;&#xFF0C;&#x4F60;&#x82E5;&#x611F;&#x5174;&#x8DA3;&#xFF0C;&#x53EF;&#x67E5;&#x770B;&#xFF1A;<a href="https://github.com/dmilicic/android-clean-sample-app" target="_blank" rel="external nofollow noopener noreferrer">&#x6210;&#x672C;&#x8DDF;&#x8E2A;&#x5E94;&#x7528;&#x793A;&#x4F8B;</a></p>
-<p>&#x53E6;&#x5916;&#xFF0C;&#x6B64;&#x793A;&#x4F8B; app &#x662F;&#x6839;&#x636E;&#x7B80;&#x6D01;&#x7684;&#x542F;&#x52A8;&#x5305;&#x521B;&#x5EFA;&#xFF0C;&#x4F60;&#x53EF;&#x4EE5;&#x5728;&#x8FD9;&#x91CC;&#x627E;&#x5230;&#x76F8;&#x5173;&#x4FE1;&#x606F;&#xFF1A;<a href="https://github.com/dmilicic/android-clean-sample-app" target="_blank" rel="external nofollow noopener noreferrer">Android Clean Boilerplate</a></p>
-<h2 id="&#x76F8;&#x5173;&#x9605;&#x8BFB;"><a class="header-anchor" href="#&#x76F8;&#x5173;&#x9605;&#x8BFB;"></a>&#x76F8;&#x5173;&#x9605;&#x8BFB;</h2>
-<p>&#x672C;&#x6307;&#x5357;&#x662F;&#x5BF9;&#x8BE5;<a href="http://fernandocejas.com/2014/09/03/architecting-android-the-clean-way/" target="_blank" rel="external nofollow noopener noreferrer">&#x6587;&#x7AE0;</a>&#x7684;&#x6269;&#x5C55;&#x3002;&#x533A;&#x522B;&#x5728;&#x4E8E;&#x6211;&#x5728;&#x793A;&#x4F8B;&#x4E2D;&#x4F7F;&#x7528;&#x4E86;<strong>&#x5E38;&#x89C4;&#x7684;Java&#x4EE3;&#x7801;</strong>&#xFF0C;&#x4EE5;&#x907F;&#x514D;&#x5728;&#x5C55;&#x793A;&#x8FD9;&#x4E2A;&#x65B9;&#x6CD5;&#x7684;&#x65F6;&#x5019;&#x6709;&#x5176;&#x5B83;&#x7684;&#x5F71;&#x54CD;&#x3002;&#x5982;&#x679C;&#x4F60;&#x60F3;&#x770B;&#x5230;&#x5728;&#x7B80;&#x6D01;&#x67B6;&#x6784;&#x4E2D;&#x4F7F;&#x7528; <strong>RxJava</strong> &#x7684;&#x4F8B;&#x5B50;&#xFF0C;&#x53EF;&#x4EE5;&#x770B;&#x770B;<a href="http://fernandocejas.com/2015/07/18/architecting-android-the-evolution/" target="_blank" rel="external nofollow noopener noreferrer">&#x8FD9;&#x4E2A;</a>&#x3002;</p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;div&gt;&lt;a href=&quot;https://github.com/ReactiveX/RxJava&quot; rel=&quot;external nofollow noopener noreferrer&quot; target=&quot;_blank&quot;&gt;&lt;img class=&quot;pic lazy&quot; data-original=&quot;/2016/12/21/android-clean-architecture-pattern/mvp_clean.png&quot; style=&quot;float:left; width:100px; height:56px; margin-right:16px&quot; alt=&quot;&quot;&gt;&lt;/a&gt;
-&lt;span&gt;&amp;#x3010;&amp;#x7FFB;&amp;#x8BD1;&amp;#x3011;&amp;#x81EA;&amp;#x6211;&amp;#x5F00;&amp;#x59CB;&amp;#x5F00;&amp;#x53D1; Android &amp;#x5E94;&amp;#x7528;&amp;#x4EE5;&amp;#x6765;&amp;#x5C31;&amp;#x6709;&amp;#x4E00;&amp;#x79CD;&amp;#x611F;&amp;#x89C9;&amp;#x2014;&amp;#x2014;&amp;#x6211;&amp;#x53EF;&amp;#x4EE5;&amp;#x628A;&amp;#x5B83;&amp;#x505A;&amp;#x5F97;&amp;#x66F4;&amp;#x597D;&amp;#x3002;&amp;#x5728;&amp;#x6211;&amp;#x7684;&amp;#x804C;&amp;#x4E1A;&amp;#x751F;&amp;#x6DAF;&amp;#x4E2D;&amp;#xFF0C;&amp;#x6211;&amp;#x770B;&amp;#x5230;&amp;#x8FC7;&amp;#x4E0D;&amp;#x5C11;&amp;#x70C2;&amp;#x4EE3;&amp;#x7801;&amp;#xFF0C;&amp;#x5176;&amp;#x4E2D;&amp;#x4E00;&amp;#x4E9B;&amp;#x8FD8;&amp;#x662F;&amp;#x6211;&amp;#x81EA;&amp;#x5DF1;&amp;#x5199;&amp;#x7684;&amp;#x3002;Android &amp;#x7684;&amp;#x590D;&amp;#x6742;&amp;#x6027;&amp;#x548C;&amp;#x70C2;&amp;#x4EE3;&amp;#x7801;&amp;#x52BF;&amp;#x5FC5;&amp;#x9020;&amp;#x6210;&amp;#x5927;&amp;#x95EE;&amp;#x9898;&amp;#x3002;&amp;#x6240;&amp;#x4EE5;&amp;#xFF0C;&amp;#x4ECE;&amp;#x9519;&amp;#x8BEF;&amp;#x4E2D;&amp;#x6C72;&amp;#x53D6;&amp;#x6559;&amp;#x8BAD;&amp;#x5E76;&amp;#x6301;&amp;#x7EED;&amp;#x6539;&amp;#x5584;&amp;#x5341;&amp;#x5206;&amp;#x91CD;&amp;#x8981;&amp;#x3002;&amp;#x5728;&amp;#x591A;&amp;#x6B21;&amp;#x5C1D;&amp;#x8BD5;&amp;#x5BFB;&amp;#x627E;&amp;#x66F4;&amp;#x597D;&amp;#x7684;&amp;#x5F00;&amp;#x53D1;&amp;#x65B9;&amp;#x5F0F;&amp;#x540E;&amp;#xFF0C;&amp;#x6211;&amp;#x9047;&amp;#x5230;&amp;#x4E86; Clean &amp;#x67B6;&amp;#x6784;&amp;#xFF08;&amp;#x7B80;&amp;#x6D01;&amp;#x67B6;&amp;#x6784;&amp;#xFF09;&amp;#x3002;&amp;#x4E8E;&amp;#x662F;&amp;#x6211;&amp;#x5C06;&amp;#x5176;&amp;#x5E94;&amp;#x7528;&amp;#x5728;&amp;#x4E86; Android &amp;#x5F00;&amp;#x53D1;&amp;#x4E2D;&amp;#xFF0C;&amp;#x5E76;&amp;#x7ED3;&amp;#x5408;&amp;#x6211;&amp;#x7684;&amp;#x5F00;&amp;#x53D1;&amp;#x7ECF;&amp;#x9A8C;&amp;#x505A;&amp;#x4E86;&amp;#x8C03;&amp;#x6574;&amp;#xFF0C;&amp;#x5199;&amp;#x51FA;&amp;#x4E86;&amp;#x8FD9;&amp;#x7BC7;&amp;#x6211;&amp;#x89C9;&amp;#x5F97;&amp;#x8F83;&amp;#x4E3A;&amp;#x5B9E;&amp;#x7528;&amp;#x3001;&amp;#x503C;&amp;#x5F97;&amp;#x5206;&amp;#x4EAB;&amp;#x7684;&amp;#x6587;&amp;#x7AE0;&amp;#x3002;&lt;/span&gt;&lt;/div&gt;
-    
-    </summary>
-    
-      <category term="移动开发" scheme="http://ngudream.com/categories/%E7%A7%BB%E5%8A%A8%E5%BC%80%E5%8F%91/"/>
-    
-    
-      <category term="Android" scheme="http://ngudream.com/tags/Android/"/>
-    
-      <category term="Architecture" scheme="http://ngudream.com/tags/Architecture/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>响应式MVP架构todo-mvp-rxjava实践</title>
-    <link href="http://ngudream.com/2016/12/12/android-mvp-rxjava-practice/"/>
-    <id>http://ngudream.com/2016/12/12/android-mvp-rxjava-practice/</id>
-    <published>2016-12-12T15:08:01.000Z</published>
-    <updated>2017-02-25T14:27:58.300Z</updated>
-    
-    <content type="html"><![CDATA[<div><a href="https://github.com/googlesamples/android-architecture" target="_blank" rel="external nofollow noopener noreferrer"><img class="pic lazy" data-original="/2016/12/12/android-mvp-rxjava-practice/pain.png" style="float:left; width:100px; height:66px; margin-right:16px" alt=""></a>
-<span>&#x5F88;&#x591A;&#x65F6;&#x5019;&#xFF0C;Activity&#x53EF;&#x80FD;&#x65E2;&#x627F;&#x62C5;UI&#x663E;&#x793A;&#x5DE5;&#x4F5C;&#xFF0C;&#x53C8;&#x627F;&#x62C5;&#x90E8;&#x5206;&#x4E1A;&#x52A1;&#x903B;&#x8F91;&#x5DE5;&#x4F5C;&#xFF0C;&#x751A;&#x81F3;&#x662F;&#x5404;&#x79CD;&#x7F51;&#x7EDC;&#x8BF7;&#x6C42;&#x3001;&#x56DE;&#x8C03;&#x7B49;&#xFF0C;&#x8FD9;&#x6837;&#x7684;&#x8BDD;Activity&#x7684;&#x4EE3;&#x7801;&#x4F1A;&#x5FEB;&#x901F;&#x81A8;&#x80C0;&#xFF0C;&#x6709;&#x65F6;&#x5019;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x770B;&#x5230;&#x51E0;&#x5343;&#x884C;&#x4EE3;&#x7801;&#x7684;Activity&#x3002;&#x4E00;&#x4E2A;&#x5230;&#x8FD9;&#x6837;&#x7684;&#x7C7B;&#x5C31;&#x662F;&#x6BD4;&#x8F83;&#x75DB;&#x82E6;&#x7684;&#x4E8B;&#x60C5;&#x3002;&#x90A3;&#x7528;&#x4EC0;&#x4E48;&#x529E;&#x6CD5;&#x89E3;&#x51B3;&#x5462;&#xFF1F;</span></div>
-<a id="more"></a>
-<p>&#x73B0;&#x5728;&#x57FA;&#x672C;&#x662F;&#x91C7;&#x53D6;&#x6A2A;&#x5411;&#x5207;&#x5272;&#x7EC6;&#x5206;&#x6216;&#x8005;&#x7EB5;&#x5411;&#x5C42;&#x6B21;&#x5316;&#xFF1A;</p>
-<ul>
-<li>&#x7B2C;&#x4E00;&#x79CD;&#x662F;&#x6A21;&#x5757;&#x5316;</li>
-<li>&#x7B2C;&#x4E8C;&#x79CD;&#x662F;&#x5206;&#x5C42;</li>
-</ul>
-<p>&#x4E24;&#x4E2A;&#x65B9;&#x6CD5;&#x6700;&#x7EC8;&#x8981;&#x5B9E;&#x73B0;&#x7684;&#x90FD;&#x662F;&#x89E3;&#x8026;&#x3002;&#x5206;&#x5C42;&#x8BB2;&#x7684;&#x662F;&#x7EB5;&#x5411;&#x5C42;&#x9762;&#x4E0A;&#x7684;&#x89E3;&#x8026;&#xFF0C;&#x6A21;&#x5757;&#x5316;&#x5219;&#x662F;&#x6A2A;&#x5411;&#x4E0A;&#x7684;&#x89E3;&#x8026;&#x3002;</p>
-<h2 id="mvp-rxjava"><a class="header-anchor" href="#mvp-rxjava"></a>MVP-RxJava</h2>
-<p>&#x73B0;&#x5728;&#x8BA9;&#x6211;&#x4EEC;&#x6765;&#x5B9E;&#x8DF5;&#x4E00;&#x4E0B;Google&#x5B98;&#x65B9;&#x63D0;&#x4F9B;&#x7684;MVP-RxJava&#x3002;</p>
-<p>MVP&#x67B6;&#x6784;&#x4E2D;&#x5C06;&#x8FD9;&#x4E09;&#x5C42;&#x5206;&#x522B;&#x62BD;&#x8C61;&#x5230;&#x5404;&#x81EA;&#x7684;&#x63A5;&#x53E3;&#x5F53;&#x4E2D;&#xFF0C;&#x4ECE;&#x800C;&#x901A;&#x8FC7;&#x5206;&#x5C42;&#x6765;&#x8FDB;&#x884C;&#x89E3;&#x8026;&#x7684;&#x6846;&#x67B6;&#x3002;&#x901A;&#x8FC7;&#x63A5;&#x53E3;&#x5C06;&#x5C42;&#x6B21;&#x4E4B;&#x95F4;&#x8FDB;&#x884C;&#x9694;&#x79BB;&#xFF0C;&#x800C;Presenter&#x5BF9;View&#x548C;Model&#x7684;&#x76F8;&#x4E92;&#x4F9D;&#x8D56;&#x4E5F;&#x662F;&#x4F9D;&#x8D56;&#x4E8E;&#x5404;&#x81EA;&#x7684;&#x63A5;&#x53E3;&#x3002;&#x8FD9;&#x70B9;&#x7B26;&#x5408;&#x4E86;&#x63A5;&#x53E3;&#x9694;&#x79BB;&#x539F;&#x5219;&#xFF0C;&#x4E5F;&#x6B63;&#x662F;&#x9762;&#x5411;&#x63A5;&#x53E3;&#x7F16;&#x7A0B;&#x3002;&#x6BCF;&#x4E2A;&#x7C7B;&#x90FD;&#x5C3D;&#x91CF;&#x7B26;&#x5408;&#x9762;&#x5411;&#x5BF9;&#x8C61;&#x8BBE;&#x8BA1;&#x539F;&#x5219;&#xFF0C;&#x91C7;&#x7528;&#x5355;&#x4E00;&#x804C;&#x8D23;&#x539F;&#x5219;&#xFF0C;&#x4EE5;&#x4FBF;&#x6574;&#x4E2A;&#x9879;&#x76EE;&#x67B6;&#x6784;&#x6E05;&#x6670;&#x5206;&#x5DE5;&#x660E;&#x786E;&#x3002;</p>
-<p>Google&#x63D0;&#x4F9B;&#x7684;Android&#x5B98;&#x65B9;MVP&#x6574;&#x4E2A;&#x9879;&#x76EE;&#x7684;&#x903B;&#x8F91;&#x56FE;&#x5982;&#x4E0B;&#xFF1A;</p>
-<div align="center">
-<img data-original="/2016/12/12/android-mvp-rxjava-practice/1.jpg" class="lazy">
-</div>
-<p>&#x4F7F;&#x7528;&#x8FD9;&#x6837;&#x7684;&#x67B6;&#x6784;&#x6709;&#x4E00;&#x4E2A;&#x6700;&#x5927;&#x7684;&#x597D;&#x5904;&#x5C31;&#x662F;&#x89E3;&#x8026;&#xFF0C;view&#x5C31;&#x53EA;&#x8D1F;&#x8D23;&#x66F4;&#x65B0;UI&#xFF0C;&#x663E;&#x793A;&#x63A7;&#x4EF6;&#xFF0C;&#x5B8C;&#x6210;&#x4E0E;&#x7528;&#x6237;&#x7684;&#x4EA4;&#x4E92;&#xFF1B;model&#x7684;&#x804C;&#x8D23;&#x5462;&#x5C31;&#x662F;&#x53BB;&#x52A0;&#x8F7D;&#x6570;&#x636E;&#xFF1B;&#x5177;&#x4F53;&#x7684;model&#x4EC0;&#x4E48;&#x65F6;&#x5019;&#x53BB;&#x83B7;&#x53D6;&#x6570;&#x636E;&#xFF0C;&#x83B7;&#x53D6;&#x5B8C;&#x4E86;&#x4E4B;&#x540E;ui&#x4EC0;&#x4E48;&#x65F6;&#x5019;&#x53BB;&#x66F4;&#x65B0;&#xFF0C;&#x8FD9;&#x4E00;&#x5207;&#x90FD;&#x662F;&#x7531;presenter&#x53BB;&#x5B8C;&#x6210;&#x3002;&#x8FD9;&#x6837;&#x505A;&#xFF0C;&#x4E00;&#x65B9;&#x9762;&#x9002;&#x5408;&#x56E2;&#x961F;&#x534F;&#x4F5C;&#x53BB;&#x5F00;&#x53D1;&#xFF0C;&#x53E6;&#x4E00;&#x65B9;&#x9762;&#x4E5F;&#x65B9;&#x4FBF;&#x6D4B;&#x8BD5;&#xFF0C;&#x5404;&#x4E2A;&#x6A21;&#x5757;&#x4E4B;&#x95F4;&#x4E92;&#x4E0D;&#x5E72;&#x6270;&#x3002;</p>
-<p>&#x6211;&#x4EEC;&#x77E5;&#x9053;&#xFF0C;&#x5728;Android&#x4E2D;&#x5F02;&#x6B65;&#x64CD;&#x4F5C;&#x4E00;&#x822C;&#x4F7F;&#x7528;AsycTask&#x6765;&#x5B8C;&#x6210;&#xFF0C;&#x4F46;&#x662F;AsycTask&#x6709;&#x5F88;&#x591A;&#x7F3A;&#x70B9;&#xFF0C;&#x5982;&#x4E0D;&#x80FD;&#x65B9;&#x4FBF;&#x7684;&#x7EC8;&#x6B62;&#x4EFB;&#x52A1;&#x7684;&#x6267;&#x884C;&#x7B49;&#x3002;</p>
-<p>RxAndroid&#x662F;&#x4E00;&#x4E2A;&#x5728; Java VM &#x4E0A;&#x4F7F;&#x7528;&#x53EF;&#x89C2;&#x6D4B;&#x7684;&#x5E8F;&#x5217;&#x6765;&#x7EC4;&#x6210;&#x5F02;&#x6B65;&#x7684;&#x3001;&#x57FA;&#x4E8E;&#x4E8B;&#x4EF6;&#x7684;&#x7A0B;&#x5E8F;&#x7684;&#x5E93;&#xFF0C;&#x5B83;&#x5B8C;&#x5168;&#x53EF;&#x4EE5;&#x66FF;&#x4EE3;AsycTask&#x6765;&#x5B8C;&#x6210;&#x5404;&#x79CD;&#x5F02;&#x6B65;&#x64CD;&#x4F5C;&#xFF0C;&#x800C;&#x4E14;&#x8FD8;&#x6709;BindActivity&#x548C;BindFragment&#x65B9;&#x6CD5;&#xFF0C;&#x4F60;&#x6839;&#x672C;&#x4E0D;&#x9700;&#x8981;&#x8003;&#x8651;&#x5F02;&#x6B65;&#x64CD;&#x4F5C;&#x65F6;&#x7684;Activity&#x548C;Fragment&#x7684;&#x751F;&#x547D;&#x5468;&#x671F;&#x95EE;&#x9898;&#x3002;</p>
-<p>&#x5F02;&#x6B65;&#x64CD;&#x4F5C;&#x5F88;&#x5173;&#x952E;&#x7684;&#x4E00;&#x70B9;&#x662F;&#x7A0B;&#x5E8F;&#x7684;&#x7B80;&#x6D01;&#x6027;&#xFF0C;&#x56E0;&#x4E3A;&#x5728;&#x8C03;&#x5EA6;&#x8FC7;&#x7A0B;&#x6BD4;&#x8F83;&#x590D;&#x6742;&#x7684;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;&#x5F02;&#x6B65;&#x4EE3;&#x7801;&#x7ECF;&#x5E38;&#x4F1A;&#x65E2;&#x96BE;&#x5199;&#x4E5F;&#x96BE;&#x88AB;&#x8BFB;&#x61C2;&#x3002; Android &#x521B;&#x9020;&#x7684;AsyncTask&#xA0;&#x548C;Handler&#xA0;&#xFF0C;&#x5176;&#x5B9E;&#x90FD;&#x662F;&#x4E3A;&#x4E86;&#x8BA9;&#x5F02;&#x6B65;&#x4EE3;&#x7801;&#x66F4;&#x52A0;&#x7B80;&#x6D01;&#x3002;RxJava &#x7684;&#x4F18;&#x52BF;&#x4E5F;&#x662F;&#x7B80;&#x6D01;&#xFF0C;&#x4F46;&#x5B83;&#x7684;&#x7B80;&#x6D01;&#x7684;&#x4E0E;&#x4F17;&#x4E0D;&#x540C;&#x4E4B;&#x5904;&#x5728;&#x4E8E;&#xFF0C;&#x968F;&#x7740;&#x7A0B;&#x5E8F;&#x903B;&#x8F91;&#x53D8;&#x5F97;&#x8D8A;&#x6765;&#x8D8A;&#x590D;&#x6742;&#xFF0C;&#x5B83;&#x4F9D;&#x7136;&#x80FD;&#x591F;&#x4FDD;&#x6301;&#x7B80;&#x6D01;&#x3002;</p>
-<p>&#x7ECF;&#x8FC7;&#x6280;&#x672F;&#x9009;&#x578B;&#x3001;&#x7A0B;&#x5E8F;&#x7ED3;&#x6784;&#x8BBE;&#x8BA1;&#xFF0C;&#x518D;&#x7ED3;&#x5408;&#x4E0A;&#x9762;&#x5217;&#x4E3E;&#x7684;&#x67B6;&#x6784;&#x8BBE;&#x8BA1;&#x4F18;&#x70B9;&#xFF0C;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x5728;&#x9879;&#x76EE;&#x4E2D;&#x7528;&#x4E0B;&#x9762;&#x7684;&#x67B6;&#x6784;&#x8FDB;&#x884C;&#x8BBE;&#x8BA1;&#x5B9E;&#x73B0;&#xFF0C;&#x5373;MVP+RxJava+Realm&#x7684;&#x6A21;&#x5F0F;&#x3002;</p>
-<div align="center">
-<img data-original="/2016/12/12/android-mvp-rxjava-practice/2.jpg" class="lazy">
-</div>
-<p>&#x5176;&#x4E2D;&#x7F51;&#x7EDC;&#x5C42;&#x4F7F;&#x7528;&#x4E86;OkHttp&#xFF0C;&#x901A;&#x8FC7;&#x54CD;&#x5E94;&#x5F0F;&#x7684;RxJava&#x4E0E;Presenter&#x4EA4;&#x4E92;&#xFF0C;&#x518D;&#x7531;Presenter&#x4E0E;&#x754C;&#x9762;&#x4EA4;&#x4E92;&#xFF0C;&#x5B9E;&#x73B0;&#x89E3;&#x85D5;&#xFF1B;&#x6570;&#x636E;&#x5E93;&#x5219;&#x9009;&#x62E9;&#x4E86;&#x6027;&#x80FD;&#x66F4;&#x9AD8;&#x3001;&#x7F16;&#x7A0B;&#x66F4;&#x7B80;&#x6D01;&#x4F18;&#x96C5;&#x7684;Realm&#xFF0C;&#x5B83;&#x4E0E;RxJava&#x914D;&#x5408;&#x4F7F;&#x7528;&#x4E5F;&#x66F4;&#x65B9;&#x4FBF;&#x5FEB;&#x6377;&#x3002;</p>
-<h2 id="&#x6A21;&#x5F0F;&#x6BD4;&#x8F83;"><a class="header-anchor" href="#&#x6A21;&#x5F0F;&#x6BD4;&#x8F83;"></a>&#x6A21;&#x5F0F;&#x6BD4;&#x8F83;</h2>
-<h3 id="mvp-&#x4E0E;-mvc"><a class="header-anchor" href="#mvp-&#x4E0E;-mvc"></a>MVP &#x4E0E; MVC</h3>
-<div align="center">
-<img data-original="/2016/12/12/android-mvp-rxjava-practice/20160120100717863.jpg" class="lazy">
-</div>
-<ul>
-<li>&#x5BF9;&#x4E8E;&#x539F;&#x751F;&#x7684;Android&#x9879;&#x76EE;&#x6765;&#x8BF4;&#xFF0C;layout.xml&#x91CC;&#x9762;&#x7684;xml&#x6587;&#x4EF6;&#x5C31;&#x5BF9;&#x5E94;&#x4E8E;MVC&#x7684;view&#x5C42;</li>
-<li>&#x5F53;&#x7528;&#x6237;&#x51FA;&#x53D1;&#x4E8B;&#x4EF6;&#x7684;&#x65F6;&#x5019;&#xFF0C;view&#x5C42;&#x4F1A;&#x53D1;&#x9001;&#x6307;&#x4EE4;&#x5230;controller&#x5C42;&#xFF0C;&#x63A5;&#x7740;controller&#x53BB;&#x901A;&#x77E5;model&#x5C42;&#x66F4;&#x65B0;&#x6570;&#x636E;&#xFF0C;model&#x5C42;&#x66F4;&#x65B0;&#x5B8C;&#x6570;&#x636E;&#x4EE5;&#x540E;&#x76F4;&#x63A5;&#x663E;&#x793A;&#x5728;view&#x5C42;&#x4E0A;&#xFF0C;&#x8FD9;&#x5C31;&#x662F;MVC&#x7684;&#x5DE5;&#x4F5C;&#x539F;&#x7406;&#x3002;</li>
-<li>MVP&#x4E2D;&#x628A;Layout&#x5E03;&#x5C40;&#x548C;Activity&#x4F5C;&#x4E3A;View&#x5C42;&#xFF0C;&#x589E;&#x52A0;&#x4E86;Presenter&#xFF0C;Presenter&#x5C42;&#x4E0E;Model&#x5C42;&#x8FDB;&#x884C;&#x4E1A;&#x52A1;&#x7684;&#x4EA4;&#x4E92;&#xFF0C;&#x5B8C;&#x6210;&#x540E;&#x518D;&#x4E0E;View&#x5C42;&#x4EA4;&#x4E92;&#xFF08;&#x4E5F;&#x5C31;&#x662F;Activity&#xFF09;&#x8FDB;&#x884C;&#x56DE;&#x8C03;&#x6765;&#x5237;&#x65B0;UI</li>
-<li>&#x5728;MVP&#x4E2D;View&#x5E76;&#x4E0D;&#x76F4;&#x63A5;&#x4F7F;&#x7528;Model&#xFF0C;&#x5B83;&#x4EEC;&#x4E4B;&#x95F4;&#x7684;&#x901A;&#x4FE1;&#x662F;&#x901A;&#x8FC7;Presenter (MVC&#x4E2D;&#x7684;Controller)&#x6765;&#x8FDB;&#x884C;&#x7684;&#xFF0C;&#x6240;&#x6709;&#x7684;&#x4EA4;&#x4E92;&#x90FD;&#x53D1;&#x751F;&#x5728;Presenter&#x5185;&#x90E8;</li>
-</ul>
-<h3 id="&#x4F18;&#x7F3A;&#x70B9;"><a class="header-anchor" href="#&#x4F18;&#x7F3A;&#x70B9;"></a>&#x4F18;&#x7F3A;&#x70B9;</h3>
-<h4 id="mvc"><a class="header-anchor" href="#mvc"></a>MVC</h4>
-<p>&#x4F18;&#x70B9;&#xFF1A;</p>
-<ol>
-<li>&#x9996;&#x5148;&#x5C31;&#x662F;&#x7406;&#x89E3;&#x6BD4;&#x8F83;&#x5BB9;&#x6613;&#xFF0C;&#x6280;&#x672F;&#x542B;&#x91CF;&#x4E0D;&#x9AD8;&#xFF0C;&#x8FD9;&#x5BF9;&#x5F00;&#x53D1;&#x548C;&#x7EF4;&#x62A4;&#x6765;&#x8BF4;&#x6210;&#x672C;&#x8F83;&#x4F4E;&#x4E5F;&#x6613;&#x4E8E;&#x7EF4;&#x62A4;&#x4E0E;&#x4FEE;&#x6539;&#x3002;</li>
-<li>&#x8026;&#x5408;&#x6027;&#x4E0D;&#x9AD8;&#xFF0C;&#x8868;&#x73B0;&#x5C42;&#x4E0E;&#x4E1A;&#x52A1;&#x5C42;&#x5206;&#x79BB;&#x5404;&#x53F8;&#x5176;&#x804C;&#xFF0C;&#x5BF9;&#x5F00;&#x53D1;&#x6765;&#x8BF4;&#x5F88;&#x6709;&#x5229;&#x3002;</li>
-</ol>
-<p>&#x7F3A;&#x70B9;&#xFF1A;</p>
-<ol>
-<li>Controller&#x5BF9;&#x5E94;&#x7684;&#x662F;Activity&#xFF0C;&#x800C;Activity&#x4E2D;&#x5374;&#x53C8;&#x5177;&#x6709;&#x64CD;&#x4F5C;UI&#x7684;&#x529F;&#x80FD;&#xFF0C;Activity&#x6240;&#x5728;&#x7684;Controller&#x662F;&#x975E;&#x5E38;&#x91CD;&#x7684;&#xFF0C;&#x5404;&#x5C42;&#x6B21;&#x4E4B;&#x95F4;&#x7684;&#x8026;&#x5408;&#x60C5;&#x51B5;&#x4E5F;&#x6BD4;&#x8F83;&#x4E25;&#x91CD;&#xFF0C;&#x4E0D;&#x65B9;&#x4FBF;&#x5355;&#x5143;&#x6D4B;&#x8BD5;&#x3002;</li>
-<li>MVC &#x6CA1;&#x6709;&#x5B8C;&#x5168;&#x89E3;&#x8026;&#xFF0C;view&#x5C42;&#x548C;model&#x5C42;&#x662F;&#x76F8;&#x4E92;&#x53EF;&#x77E5;&#x7684;&#x3002;</li>
-</ol>
-<h4 id="mvp"><a class="header-anchor" href="#mvp"></a>MVP</h4>
-<p>&#x4F18;&#x70B9;&#xFF1A;</p>
-<ol>
-<li>&#x4E0E;MVC&#x6700;&#x660E;&#x663E;&#x7684;&#x5DEE;&#x522B;&#x5C31;&#x662F;view&#x5C42;&#x548C;model&#x5C42;&#x4E0D;&#x518D;&#x76F8;&#x4E92;&#x53EF;&#x77E5;&#xFF0C;&#x5B8C;&#x5168;&#x7684;&#x89E3;&#x8026;&#x3002;</li>
-<li>&#x65B9;&#x4FBF;&#x6D4B;&#x8BD5;&#x9A71;&#x52A8;&#x5F00;&#x53D1;&#x3002;</li>
-<li>&#x4EE3;&#x7801;&#x590D;&#x7528;&#x5EA6;&#x8F83;&#x9AD8;&#x3002;</li>
-</ol>
-<h3 id="mvp-&#x4E0E;-mvvm"><a class="header-anchor" href="#mvp-&#x4E0E;-mvvm"></a>MVP &#x4E0E; MVVM</h3>
-<p>&#x4E0E;MVVM&#xFF08;Model-View-ViewModel&#xFF09;&#x7684;&#x533A;&#x522B;&#xFF1A;</p>
-<p>MVVM&#x4E0E;MVP&#x975E;&#x5E38;&#x76F8;&#x4F3C;&#xFF0C;&#x552F;&#x4E00;&#x533A;&#x522B;&#x662F;View&#x548C;Model&#x8FDB;&#x884C;&#x53CC;&#x5411;&#x7ED1;&#x5B9A;&#xFF0C;&#x4E24;&#x8005;&#x4E4B;&#x95F4;&#x6709;&#x4E00;&#x65B9;&#x53D1;&#x751F;&#x53D8;&#x5316;&#x5219;&#x4F1A;&#x53CD;&#x5E94;&#x5230;&#x53E6;&#x4E00;&#x65B9;&#x4E0A;&#x3002;MVVM&#x6A21;&#x5F0F;&#x6709;&#x70B9;&#x50CF;ListView&#x4E0E;Adapter&#x3001;&#x6570;&#x636E;&#x96C6;&#x7684;&#x5173;&#x7CFB;&#xFF0C;&#x5F53;&#x6570;&#x636E;&#x96C6;&#x53D1;&#x751F;&#x53D8;&#x5316;&#x65F6;&#xFF0C;&#x8C03;&#x7528;Adapter&#x7684;notifyDataSetChanged&#x4E4B;&#x540E;View&#x5C31;&#x76F4;&#x63A5;&#x66F4;&#x65B0;&#xFF0C;&#x540C;&#x65F6;&#x5B83;&#x4EEC;&#x4E4B;&#x95F4;&#x53C8;&#x6CA1;&#x6709;&#x8026;&#x5408;&#xFF0C;&#x4F7F;&#x5F97;ListView&#x53D8;&#x5F97;&#x66F4;&#x52A0;&#x7075;&#x6D3B;&#x3002;</p>
-<h2 id="&#x53C2;&#x8003;"><a class="header-anchor" href="#&#x53C2;&#x8003;"></a>&#x53C2;&#x8003;</h2>
-<ul>
-<li><a href="https://github.com/googlesamples/android-architecture/tree/todo-mvp-rxjava/" target="_blank" rel="external nofollow noopener noreferrer">TODO-MVP-RXJAVA</a></li>
-<li><a href="https://labs.ribot.co.uk/android-application-architecture-8b6e34acda65#.roya5ayke" target="_blank" rel="external nofollow noopener noreferrer">Android Application Architecture</a></li>
-<li><a href="https://github.com/googlesamples/android-architecture" target="_blank" rel="external nofollow noopener noreferrer">Android Architecture Blueprints</a></li>
-</ul>]]></content>
-    
-    <summary type="html">
-    
-      &lt;div&gt;&lt;a href=&quot;https://github.com/googlesamples/android-architecture&quot; rel=&quot;external nofollow noopener noreferrer&quot; target=&quot;_blank&quot;&gt;&lt;img class=&quot;pic lazy&quot; data-original=&quot;/2016/12/12/android-mvp-rxjava-practice/pain.png&quot; style=&quot;float:left; width:100px; height:66px; margin-right:16px&quot; alt=&quot;&quot;&gt;&lt;/a&gt;
-&lt;span&gt;&amp;#x5F88;&amp;#x591A;&amp;#x65F6;&amp;#x5019;&amp;#xFF0C;Activity&amp;#x53EF;&amp;#x80FD;&amp;#x65E2;&amp;#x627F;&amp;#x62C5;UI&amp;#x663E;&amp;#x793A;&amp;#x5DE5;&amp;#x4F5C;&amp;#xFF0C;&amp;#x53C8;&amp;#x627F;&amp;#x62C5;&amp;#x90E8;&amp;#x5206;&amp;#x4E1A;&amp;#x52A1;&amp;#x903B;&amp;#x8F91;&amp;#x5DE5;&amp;#x4F5C;&amp;#xFF0C;&amp;#x751A;&amp;#x81F3;&amp;#x662F;&amp;#x5404;&amp;#x79CD;&amp;#x7F51;&amp;#x7EDC;&amp;#x8BF7;&amp;#x6C42;&amp;#x3001;&amp;#x56DE;&amp;#x8C03;&amp;#x7B49;&amp;#xFF0C;&amp;#x8FD9;&amp;#x6837;&amp;#x7684;&amp;#x8BDD;Activity&amp;#x7684;&amp;#x4EE3;&amp;#x7801;&amp;#x4F1A;&amp;#x5FEB;&amp;#x901F;&amp;#x81A8;&amp;#x80C0;&amp;#xFF0C;&amp;#x6709;&amp;#x65F6;&amp;#x5019;&amp;#x6211;&amp;#x4EEC;&amp;#x53EF;&amp;#x4EE5;&amp;#x770B;&amp;#x5230;&amp;#x51E0;&amp;#x5343;&amp;#x884C;&amp;#x4EE3;&amp;#x7801;&amp;#x7684;Activity&amp;#x3002;&amp;#x4E00;&amp;#x4E2A;&amp;#x5230;&amp;#x8FD9;&amp;#x6837;&amp;#x7684;&amp;#x7C7B;&amp;#x5C31;&amp;#x662F;&amp;#x6BD4;&amp;#x8F83;&amp;#x75DB;&amp;#x82E6;&amp;#x7684;&amp;#x4E8B;&amp;#x60C5;&amp;#x3002;&amp;#x90A3;&amp;#x7528;&amp;#x4EC0;&amp;#x4E48;&amp;#x529E;&amp;#x6CD5;&amp;#x89E3;&amp;#x51B3;&amp;#x5462;&amp;#xFF1F;&lt;/span&gt;&lt;/div&gt;
-    
-    </summary>
-    
-      <category term="移动开发" scheme="http://ngudream.com/categories/%E7%A7%BB%E5%8A%A8%E5%BC%80%E5%8F%91/"/>
-    
-    
-      <category term="Android" scheme="http://ngudream.com/tags/Android/"/>
-    
-      <category term="RxJava" scheme="http://ngudream.com/tags/RxJava/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Android 知识梳理</title>
-    <link href="http://ngudream.com/2016/11/30/android-data-gather/"/>
-    <id>http://ngudream.com/2016/11/30/android-data-gather/</id>
-    <published>2016-11-30T15:16:15.000Z</published>
-    <updated>2017-01-15T07:58:44.320Z</updated>
-    
-    <content type="html"><![CDATA[<p>&#x6765;&#x4E00;&#x5F20;googdev&#x7684;&#x601D;&#x7EF4;&#x5BFC;&#x56FE;&#xFF0C;&#x770B;&#x770B;&#x5982;&#x4F55;&#x7CFB;&#x7EDF;&#x7684;&#x5B66;&#x4E60; Android &#x5F00;&#x53D1;&#x77E5;&#x8BC6;&#x3002;</p>
-<div align="center">
-<img data-original="/2016/11/30/android-data-gather/20160913000554907.png" class="lazy">
-</div>
-<p>&#x518D;&#x6765;&#x4E00;&#x5F20;Android&#x77E5;&#x8BC6;&#x70B9;&#x603B;&#x7ED3;&#xFF1A;</p>
-<div align="center">
-<img data-original="/2016/11/30/android-data-gather/20160108161827482.png" class="lazy">
-</div>
-<p>&#x672C;&#x7BC7;&#x535A;&#x5BA2;&#x53EA;&#x662F;&#x4E00;&#x4E2A;&#x77E5;&#x8BC6;&#x6574;&#x7406;&#xFF0C;&#x56E0;&#x4E3A;&#x7F51;&#x4E0A;&#x5BF9;&#x4E8E;Android&#x7684;&#x77E5;&#x8BC6;&#x4ECB;&#x7ECD;&#x8DB3;&#x591F;&#x591A;&#xFF0C;&#x56E0;&#x6B64;&#x6211;&#x4E0D;&#x518D;&#x5199;&#x76F8;&#x5173;&#x6587;&#x7AE0;&#xFF08;&#x4E3B;&#x8981;&#x662F;&#x56E0;&#x4E3A;&#x6211;&#x5199;&#x7684;&#x4E0D;&#x5982;&#x4EBA;&#x5BB6;&#x597D;&#xFF09;&#xFF0C;&#x6240;&#x4EE5;&#x6240;&#x6709;&#x6587;&#x7AE0;&#x5747;&#x6765;&#x81EA;&#x5176;&#x4ED6;&#x5927;&#x795E;&#x4E4B;&#x624B;&#xFF0C;&#x4E0D;&#x8D34;&#x539F;&#x6587;&#x7AE0;&#xFF0C;&#x53EA;&#x63D0;&#x4F9B;&#x8FDE;&#x63A5;&#xFF0C;&#x56E0;&#x6B64;&#x672C;&#x6587;&#x65E8;&#x5728;&#x51CF;&#x5C11;&#x4F60;&#x5BF9;&#x76F8;&#x5173;&#x77E5;&#x8BC6;&#x7684;&#x641C;&#x7D22;&#x8FC7;&#x7A0B;&#xFF0C;&#x65B9;&#x4FBF;&#x67E5;&#x627E;&#x76F8;&#x5173;&#x77E5;&#x8BC6;&#x3002;</p>
-<blockquote>
-<p>&#x6587;&#x7AE0;&#x4F5C;&#x8005;:<a href="http://www.codemx.cn/" target="_blank" rel="external nofollow noopener noreferrer">&#x58A8;&#x9999;</a><br>
-&#x539F;&#x59CB;&#x94FE;&#x63A5;:<a href="http://www.codemx.cn/2016/05/04/2016-05-04-Android-Tree/" target="_blank" rel="external nofollow noopener noreferrer">http://www.codemx.cn/2016/05/04/2016-05-04-Android-Tree/</a></p>
-</blockquote>
-<h2 id="activity"><a class="header-anchor" href="#activity"></a>Activity</h2>
-<p>Activity&#x7684;&#x751F;&#x547D;&#x5468;&#x671F;&#xFF0C;&#x6B63;&#x5E38;&#x7ED3;&#x675F;&#x548C;&#x975E;&#x6B63;&#x5E38;&#x9500;&#x6BC1;&#x7684;&#x751F;&#x547D;&#x5468;&#x671F;&#x548C;&#x8C03;&#x7528;&#x51FD;&#x6570;&#x53CA;&#x5176;&#x4F7F;&#x7528;&#x65B9;&#x6CD5;&#xFF1B;</p>
-<ul>
-<li><a href="http://hukai.me/android-training-managing-the-activity-lifecycle-lesson-1/" target="_blank" rel="external nofollow noopener noreferrer">Android Training - &#x8BE6;&#x89E3;Activity&#x751F;&#x547D;&#x5468;&#x671F;(Lesson 1 - &#x542F;&#x52A8;&#x4E0E;&#x9500;&#x6BC1;Activity)</a></li>
-<li><a href="http://hukai.me/android-training-managing-the-activity-lifecycle-lesson-2/" target="_blank" rel="external nofollow noopener noreferrer">Android Training - &#x8BE6;&#x89E3;Activity&#x751F;&#x547D;&#x5468;&#x671F;(Lesson 2 - &#x6682;&#x505C;&#x4E0E;&#x6062;&#x590D;activity)</a></li>
-<li><a href="http://hukai.me/android-training-managing-the-activity-lifecycle-lesson-3/" target="_blank" rel="external nofollow noopener noreferrer">Android Training - &#x8BE6;&#x89E3;Activity&#x751F;&#x547D;&#x5468;&#x671F;(Lesson 3 - &#x505C;&#x6B62;&#x4E0E;&#x91CD;&#x542F;activity)</a></li>
-<li><a href="http://hukai.me/android-training-managing-the-activity-lifecycle-lesson-4/" target="_blank" rel="external nofollow noopener noreferrer">Android Training - &#x8BE6;&#x89E3;Activity&#x751F;&#x547D;&#x5468;&#x671F;(Lesson 4 - &#x91CD;&#x65B0;&#x521B;&#x5EFA;&#x9500;&#x6BC1;&#x7684;activity)</a></li>
-<li><a href="http://www.cnblogs.com/hanyonglu/archive/2012/03/28/2420515.html" target="_blank" rel="external nofollow noopener noreferrer">Android&#x5F00;&#x53D1;&#x4E4B;InstanceState&#x8BE6;&#x89E3;</a></li>
-</ul>
-<h3 id="activity&#x542F;&#x52A8;&#x6A21;&#x5F0F;"><a class="header-anchor" href="#activity&#x542F;&#x52A8;&#x6A21;&#x5F0F;"></a>Activity&#x542F;&#x52A8;&#x6A21;&#x5F0F;</h3>
-<ul>
-<li><a href="http://jcodecraeer.com/a/anzhuokaifa/androidkaifa/2015/0520/2897.html" target="_blank" rel="external nofollow noopener noreferrer">Activity&#x542F;&#x52A8;&#x6A21;&#x5F0F;&#x56FE;&#x6587;&#x8BE6;&#x89E3;&#xFF1A;standard, singleTop, singleTask &#x4EE5;&#x53CA; singleInstance</a></li>
-<li><a href="http://blog.csdn.net/zhangjg_blog/article/details/10923643" target="_blank" rel="external nofollow noopener noreferrer">Android&#x4E2D;Activity&#x56DB;&#x79CD;&#x542F;&#x52A8;&#x6A21;&#x5F0F;&#x548C;taskAffinity&#x5C5E;&#x6027;&#x8BE6;&#x89E3;</a></li>
-</ul>
-<h3 id="activity&#x7684;&#x542F;&#x52A8;&#x8FC7;&#x7A0B;"><a class="header-anchor" href="#activity&#x7684;&#x542F;&#x52A8;&#x8FC7;&#x7A0B;"></a>Activity&#x7684;&#x542F;&#x52A8;&#x8FC7;&#x7A0B;</h3>
-<ul>
-<li><a href="http://blog.csdn.net/luoshengyang/article/details/6689748" target="_blank" rel="external nofollow noopener noreferrer">Android&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x542F;&#x52A8;&#x8FC7;&#x7A0B;&#x6E90;&#x4EE3;&#x7801;&#x5206;&#x6790;</a></li>
-<li><a href="http://blog.csdn.net/luoshengyang/article/details/6703247" target="_blank" rel="external nofollow noopener noreferrer">Android&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x5185;&#x90E8;&#x542F;&#x52A8;Activity&#x8FC7;&#x7A0B;&#xFF08;startActivity&#xFF09;&#x7684;&#x6E90;&#x4EE3;&#x7801;&#x5206;&#x6790;</a></li>
-<li><a href="http://blog.csdn.net/luoshengyang/article/details/6720261" target="_blank" rel="external nofollow noopener noreferrer">Android&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x5728;&#x65B0;&#x7684;&#x8FDB;&#x7A0B;&#x4E2D;&#x542F;&#x52A8;&#x65B0;&#x7684;Activity&#x7684;&#x65B9;&#x6CD5;&#x548C;&#x8FC7;&#x7A0B;&#x5206;&#x6790;</a></li>
-<li><a href="http://www.soso.io/article/113440.html" target="_blank" rel="external nofollow noopener noreferrer">Activity&#x7684;&#x56DE;&#x6536;&#x8FC7;&#x7A0B;&#x53CA;&#x539F;&#x7406;</a></li>
-</ul>
-<h2 id="view"><a class="header-anchor" href="#view"></a>View</h2>
-<h3 id="view&#x7684;&#x7ED8;&#x5236;&#x6D41;&#x7A0B;"><a class="header-anchor" href="#view&#x7684;&#x7ED8;&#x5236;&#x6D41;&#x7A0B;"></a>View&#x7684;&#x7ED8;&#x5236;&#x6D41;&#x7A0B;</h3>
-<ul>
-<li><a href="http://blog.csdn.net/wangjinyu501/article/details/9008271" target="_blank" rel="external nofollow noopener noreferrer">Android View&#x7ED8;&#x5236;&#x6D41;&#x7A0B;</a></li>
-<li><a href="http://a.codekk.com/detail/Android/lightSky/%E5%85%AC%E5%85%B1%E6%8A%80%E6%9C%AF%E7%82%B9%E4%B9%8B%20View%20%E7%BB%98%E5%88%B6%E6%B5%81%E7%A8%8B" target="_blank" rel="external nofollow noopener noreferrer">&#x516C;&#x5171;&#x6280;&#x672F;&#x70B9;&#x4E4B; View &#x7ED8;&#x5236;&#x6D41;&#x7A0B;</a></li>
-<li><a href="http://blog.csdn.net/qinjuning/article/details/8051811" target="_blank" rel="external nofollow noopener noreferrer">Android&#x4E2D;measure&#x8FC7;&#x7A0B;&#x3001;WRAP_CONTENT&#x8BE6;&#x89E3;&#x4EE5;&#x53CA;xml&#x5E03;&#x5C40;&#x6587;&#x4EF6;&#x89E3;&#x6790;&#x6D41;&#x7A0B;&#x6D45;&#x6790;(&#x4E0A;)</a></li>
-<li><a href="http://blog.csdn.net/qinjuning/article/details/8074262" target="_blank" rel="external nofollow noopener noreferrer">Android&#x4E2D;measure&#x8FC7;&#x7A0B;&#x3001;WRAP_CONTENT&#x8BE6;&#x89E3;&#x4EE5;&#x53CA;xml&#x5E03;&#x5C40;&#x6587;&#x4EF6;&#x89E3;&#x6790;&#x6D41;&#x7A0B;&#x6D45;&#x6790;(&#x4E0B;)</a></li>
-<li><a href="http://blog.csdn.net/qinjuning/article/details/7474827" target="_blank" rel="external nofollow noopener noreferrer">Android&#x4E2D;View(&#x89C6;&#x56FE;)&#x7ED8;&#x5236;&#x4E0D;&#x540C;&#x72B6;&#x6001;&#x80CC;&#x666F;&#x56FE;&#x7247;&#x539F;&#x7406;&#x6DF1;&#x5165;&#x5206;&#x6790;&#x4EE5;&#x53CA;StateListDrawable&#x4F7F;&#x7528;&#x8BE6;&#x89E3;</a></li>
-<li><a href="http://blog.csdn.net/qinjuning/article/details/7226787" target="_blank" rel="external nofollow noopener noreferrer">Android&#x4E2D;&#x5C06;&#x5E03;&#x5C40;&#x6587;&#x4EF6;/View&#x6DFB;&#x52A0;&#x81F3;&#x7A97;&#x53E3;&#x8FC7;&#x7A0B;&#x5206;&#x6790; &#x2014;- &#x4ECE;setContentView()&#x8C08;&#x8D77;</a></li>
-</ul>
-<h3 id="view&#x7684;&#x4E8B;&#x4EF6;&#x5206;&#x53D1;&#x539F;&#x7406;"><a class="header-anchor" href="#view&#x7684;&#x4E8B;&#x4EF6;&#x5206;&#x53D1;&#x539F;&#x7406;"></a>View&#x7684;&#x4E8B;&#x4EF6;&#x5206;&#x53D1;&#x539F;&#x7406;</h3>
-<ul>
-<li><a href="http://www.jianshu.com/p/e99b5e8bd67b#" target="_blank" rel="external nofollow noopener noreferrer">&#x56FE;&#x89E3; Android &#x4E8B;&#x4EF6;&#x5206;&#x53D1;&#x673A;&#x5236;</a></li>
-<li><a href="http://blog.csdn.net/wangjinyu501/article/details/22584465" target="_blank" rel="external nofollow noopener noreferrer">Android &#x4E2D;Touch&#xFF08;&#x89E6;&#x5C4F;&#xFF09;&#x4E8B;&#x4EF6;&#x4F20;&#x9012;&#x673A;&#x5236;</a></li>
-<li><a href="http://www.cnblogs.com/sunzn/archive/2013/05/10/3064129.html" target="_blank" rel="external nofollow noopener noreferrer">Android &#x7F16;&#x7A0B;&#x4E0B; Touch &#x4E8B;&#x4EF6;&#x7684;&#x5206;&#x53D1;&#x548C;&#x6D88;&#x8D39;&#x673A;&#x5236;</a></li>
-<li><a href="http://blog.csdn.net/lvxiangan/article/details/9309927" target="_blank" rel="external nofollow noopener noreferrer">Android-onInterceptTouchEvent()&#x548C;onTouchEvent()&#x603B;&#x7ED3;</a></li>
-<li></li>
-</ul>
-<p>&#x6CE8;&#xFF1A;&#x4E0A;&#x9762;&#x8FD9;&#x7BC7;&#x6587;&#x7AE0;&#x6CA1;&#x627E;&#x5230;&#x539F;&#x521B;&#xFF0C;&#x8FDE;&#x63A5;&#x662F;&#x8F6C;&#x8F7D;&#x7684;&#xFF0C;&#x5982;&#x679C;&#x8C01;&#x627E;&#x5230;&#x539F;&#x521B;&#x53EF;&#x4EE5;&#x63D0;&#x4F9B;&#x7ED9;&#x6211;&#x3002;</p>
-<ul>
-<li><a href="http://blog.csdn.net/iispring/article/details/49203945" target="_blank" rel="external nofollow noopener noreferrer">Android&#x4E2D;View&#x7684;&#x91CF;&#x7B97;&#x3001;&#x5E03;&#x5C40;&#x53CA;&#x7ED8;&#x56FE;&#x673A;&#x5236;</a></li>
-<li><a href="http://blog.csdn.net/iispring/article/details/49403315" target="_blank" rel="external nofollow noopener noreferrer">&#x6E90;&#x7801;&#x89E3;&#x6790;Android&#x4E2D;View&#x7684;measure&#x91CF;&#x7B97;&#x8FC7;&#x7A0B;</a></li>
-<li><a href="http://blog.csdn.net/iispring/article/details/50366021" target="_blank" rel="external nofollow noopener noreferrer">&#x6E90;&#x7801;&#x89E3;&#x6790;Android&#x4E2D;View&#x7684;layout&#x5E03;&#x5C40;&#x8FC7;&#x7A0B;</a></li>
-</ul>
-<h3 id="&#x81EA;&#x5B9A;&#x4E49;view"><a class="header-anchor" href="#&#x81EA;&#x5B9A;&#x4E49;view"></a>&#x81EA;&#x5B9A;&#x4E49;View</h3>
-<ul>
-<li><a href="http://blog.csdn.net/aigestudio/article/details/41212583" target="_blank" rel="external nofollow noopener noreferrer">&#x81EA;&#x5B9A;&#x4E49;&#x63A7;&#x4EF6;&#x5176;&#x5B9E;&#x5F88;&#x7B80;&#x5355;(&#x7CFB;&#x5217;&#x6559;&#x7A0B;)</a></li>
-<li><a href="http://www.gcssloop.com/customview/CustomViewIndex" target="_blank" rel="external nofollow noopener noreferrer">&#x5B89;&#x5353;&#x81EA;&#x5B9A;&#x4E49;View&#x6559;&#x7A0B;&#x76EE;&#x5F55;</a></li>
-</ul>
-<h3 id="&#x81EA;&#x5B9A;&#x4E49;viewgroup"><a class="header-anchor" href="#&#x81EA;&#x5B9A;&#x4E49;viewgroup"></a>&#x81EA;&#x5B9A;&#x4E49;ViewGroup</h3>
-<ul>
-<li><a href="http://blog.csdn.net/lmj623565791/article/details/38339817" target="_blank" rel="external nofollow noopener noreferrer">Android &#x624B;&#x628A;&#x624B;&#x6559;&#x60A8;&#x81EA;&#x5B9A;&#x4E49;ViewGroup</a></li>
-<li><a href="http://blog.csdn.net/lmj623565791/article/details/38352503" target="_blank" rel="external nofollow noopener noreferrer">Android &#x81EA;&#x5B9A;&#x4E49;ViewGroup &#x5B9E;&#x6218;&#x7BC7; -&gt; &#x5B9E;&#x73B0;FlowLayout</a></li>
-<li><a href="http://blog.csdn.net/iispring/article/details/51314039" target="_blank" rel="external nofollow noopener noreferrer">Android&#x4E2D;&#x81EA;&#x5B9A;&#x4E49;View&#x3001;ViewGroup&#x7406;&#x8BBA;&#x57FA;&#x7840;&#x8BE6;&#x89E3;</a></li>
-</ul>
-<h3 id="listview"><a class="header-anchor" href="#listview"></a>ListView</h3>
-<ul>
-<li><a href="http://blog.csdn.net/guolin_blog/article/details/44996879" target="_blank" rel="external nofollow noopener noreferrer">Android ListView&#x5DE5;&#x4F5C;&#x539F;&#x7406;&#x5B8C;&#x5168;&#x89E3;&#x6790;&#xFF0C;&#x5E26;&#x4F60;&#x4ECE;&#x6E90;&#x7801;&#x7684;&#x89D2;&#x5EA6;&#x5F7B;&#x5E95;&#x7406;&#x89E3;</a></li>
-</ul>
-<h2 id="broadcast"><a class="header-anchor" href="#broadcast"></a>Broadcast</h2>
-<h3 id="&#x5E7F;&#x64AD;&#x7684;&#x5206;&#x7C7B;&#x53CA;&#x533A;&#x522B;-&#x6CE8;&#x518C;&#x65B9;&#x6CD5;"><a class="header-anchor" href="#&#x5E7F;&#x64AD;&#x7684;&#x5206;&#x7C7B;&#x53CA;&#x533A;&#x522B;-&#x6CE8;&#x518C;&#x65B9;&#x6CD5;"></a>&#x5E7F;&#x64AD;&#x7684;&#x5206;&#x7C7B;&#x53CA;&#x533A;&#x522B;,&#x6CE8;&#x518C;&#x65B9;&#x6CD5;</h3>
-<ul>
-<li><a href="http://www.cnblogs.com/net168/p/3980068.html" target="_blank" rel="external nofollow noopener noreferrer">&#x89E3;&#x6790;BroadcastReceiver&#x4E4B;&#x4F60;&#x9700;&#x8981;&#x4E86;&#x89E3;&#x7684;&#x4E00;&#x4E9B;&#x4E1C;&#x4E1C;</a></li>
-</ul>
-<h3 id="&#x5E7F;&#x64AD;&#x5B9E;&#x73B0;&#x8DE8;&#x8FDB;&#x7A0B;&#x901A;&#x4FE1;&#x7684;&#x539F;&#x7406;"><a class="header-anchor" href="#&#x5E7F;&#x64AD;&#x5B9E;&#x73B0;&#x8DE8;&#x8FDB;&#x7A0B;&#x901A;&#x4FE1;&#x7684;&#x539F;&#x7406;"></a>&#x5E7F;&#x64AD;&#x5B9E;&#x73B0;&#x8DE8;&#x8FDB;&#x7A0B;&#x901A;&#x4FE1;&#x7684;&#x539F;&#x7406;</h3>
-<ul>
-<li><a href="http://blog.csdn.net/luoshengyang/article/details/6737352" target="_blank" rel="external nofollow noopener noreferrer">Android&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x6CE8;&#x518C;&#x5E7F;&#x64AD;&#x63A5;&#x6536;&#x5668;&#xFF08;registerReceiver&#xFF09;&#x7684;&#x8FC7;&#x7A0B;&#x5206;&#x6790;</a></li>
-<li><a href="http://blog.csdn.net/luoshengyang/article/details/6744448" target="_blank" rel="external nofollow noopener noreferrer">Android&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x53D1;&#x9001;&#x5E7F;&#x64AD;&#xFF08;sendBroadcast&#xFF09;&#x7684;&#x8FC7;&#x7A0B;&#x5206;&#x6790;</a></li>
-</ul>
-<h2 id="service"><a class="header-anchor" href="#service"></a>Service</h2>
-<h3 id="service&#x7684;&#x751F;&#x547D;&#x5468;&#x671F;"><a class="header-anchor" href="#service&#x7684;&#x751F;&#x547D;&#x5468;&#x671F;"></a>Service&#x7684;&#x751F;&#x547D;&#x5468;&#x671F;</h3>
-<ul>
-<li><a href="http://blog.csdn.net/iispring/article/details/48169339" target="_blank" rel="external nofollow noopener noreferrer">Android&#x4E2D;bindService&#x7684;&#x4F7F;&#x7528;&#x53CA;Service&#x751F;&#x547D;&#x5468;&#x671F;</a></li>
-</ul>
-<h3 id="&#x7ED1;&#x5B9A;&#x548C;&#x975E;&#x7ED1;&#x5B9A;service&#x7684;&#x4F7F;&#x7528;&#x65B9;&#x6CD5;"><a class="header-anchor" href="#&#x7ED1;&#x5B9A;&#x548C;&#x975E;&#x7ED1;&#x5B9A;service&#x7684;&#x4F7F;&#x7528;&#x65B9;&#x6CD5;"></a>&#x7ED1;&#x5B9A;&#x548C;&#x975E;&#x7ED1;&#x5B9A;Service&#x7684;&#x4F7F;&#x7528;&#x65B9;&#x6CD5;</h3>
-<ul>
-<li><a href="http://blog.csdn.net/iispring/article/details/48169339" target="_blank" rel="external nofollow noopener noreferrer">Android&#x4E2D;bindService&#x7684;&#x4F7F;&#x7528;&#x53CA;Service&#x751F;&#x547D;&#x5468;&#x671F;</a></li>
-<li><a href="http://blog.csdn.net/iispring/article/details/48015475" target="_blank" rel="external nofollow noopener noreferrer">Android&#x901A;&#x8FC7;startService&#x5B9E;&#x73B0;&#x6279;&#x91CF;&#x4E0B;&#x8F7D;&#x793A;&#x4F8B;</a></li>
-</ul>
-<h3 id="service&#x7684;&#x539F;&#x7406;"><a class="header-anchor" href="#service&#x7684;&#x539F;&#x7406;"></a>Service&#x7684;&#x539F;&#x7406;</h3>
-<ul>
-<li><a href="http://blog.csdn.net/luoshengyang/article/details/6745181" target="_blank" rel="external nofollow noopener noreferrer">Android&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x7ED1;&#x5B9A;&#x670D;&#x52A1;&#xFF08;bindService&#xFF09;&#x7684;&#x8FC7;&#x7A0B;&#x6E90;&#x4EE3;&#x7801;&#x5206;&#x6790;</a></li>
-</ul>
-<h3 id="intentservice"><a class="header-anchor" href="#intentservice"></a>IntentService</h3>
-<ul>
-<li><a href="http://blog.csdn.net/iispring/article/details/48046861" target="_blank" rel="external nofollow noopener noreferrer">Android&#x4E2D;IntentService&#x7684;&#x4F7F;&#x7528;&#x53CA;&#x5176;&#x6E90;&#x7801;&#x89E3;&#x6790;</a></li>
-</ul>
-<h3 id="accessibility-services"><a class="header-anchor" href="#accessibility-services"></a>Accessibility Services</h3>
-<ul>
-<li><a href="http://www.android-doc.com/guide/topics/ui/accessibility/services.html" target="_blank" rel="external nofollow noopener noreferrer">Building Accessibility Services(&#x5EFA;&#x7ACB;&#x53EF;&#x8BBF;&#x95EE;&#x6027;&#x670D;&#x52A1;)</a></li>
-<li><a href="http://blog.csdn.net/androidsecurity/article/details/41890369?utm_source=tuicool" target="_blank" rel="external nofollow noopener noreferrer">Android Accessibility(&#x8F85;&#x52A9;&#x529F;&#x80FD;) &#x2013;&#x5B9E;&#x73B0;Android&#x5E94;&#x7528;&#x81EA;&#x52A8;&#x5B89;&#x88C5;&#x3001;&#x5378;&#x8F7D;</a></li>
-<li><a href="http://www.infoq.com/cn/articles/android-accessibility-installing?utm_campaign=infoq_content&amp;utm_source=infoq&amp;utm_medium=feed&amp;utm_term=global" target="_blank" rel="external nofollow noopener noreferrer">&#x4F7F;&#x7528;Android Accessibility&#x5B9E;&#x73B0;&#x514D;Root&#x81EA;&#x52A8;&#x6279;&#x91CF;&#x5B89;&#x88C5;&#x529F;&#x80FD;</a></li>
-</ul>
-<h2 id="contentprovider"><a class="header-anchor" href="#contentprovider"></a>ContentProvider</h2>
-<h3 id="contentprovider&#x7684;&#x539F;&#x7406;&#x53CA;&#x4F7F;&#x7528;&#x65B9;&#x6CD5;"><a class="header-anchor" href="#contentprovider&#x7684;&#x539F;&#x7406;&#x53CA;&#x4F7F;&#x7528;&#x65B9;&#x6CD5;"></a>ContentProvider&#x7684;&#x539F;&#x7406;&#x53CA;&#x4F7F;&#x7528;&#x65B9;&#x6CD5;</h3>
-<ul>
-<li><a href="http://blog.sina.com.cn/s/blog_9f233c070101euqx.html" target="_blank" rel="external nofollow noopener noreferrer">Android ContentProvider&#x548C;Uri&#x8BE6;&#x89E3; (&#x7EDD;&#x5BF9;&#x5168;&#x9762;)</a></li>
-<li><a href="http://blog.csdn.net/luoshengyang/article/details/6950440" target="_blank" rel="external nofollow noopener noreferrer">Android&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x7EC4;&#x4EF6;Content Provider&#x5E94;&#x7528;&#x5B9E;&#x4F8B;</a></li>
-<li><a href="http://blog.csdn.net/luoshengyang/article/details/6963418" target="_blank" rel="external nofollow noopener noreferrer">Android&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x7EC4;&#x4EF6;Content Provider&#x7684;&#x542F;&#x52A8;&#x8FC7;&#x7A0B;&#x6E90;&#x4EE3;&#x7801;&#x5206;&#x6790;</a></li>
-<li><a href="http://blog.csdn.net/luoshengyang/article/details/6967204" target="_blank" rel="external nofollow noopener noreferrer">Android&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x7EC4;&#x4EF6;Content Provider&#x5728;&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x4E4B;&#x95F4;&#x5171;&#x4EAB;&#x6570;&#x636E;&#x7684;&#x539F;&#x7406;&#x5206;&#x6790;</a></li>
-<li><a href="http://blog.csdn.net/luoshengyang/article/details/6985171" target="_blank" rel="external nofollow noopener noreferrer">Android&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x7EC4;&#x4EF6;Content Provider&#x7684;&#x5171;&#x4EAB;&#x6570;&#x636E;&#x66F4;&#x65B0;&#x901A;&#x77E5;&#x673A;&#x5236;&#x5206;&#x6790;</a></li>
-</ul>
-<p>&#x542F;&#x52A8;&#x8FC7;&#x7A0B;&#xFF0C;&#x4E0E;Applocation&#x548C;Activity&#x6BD4;&#x8F83;&#x542F;&#x52A8;&#x987A;&#x5E8F;&#x662F;&#x600E;&#x6837;&#x7684;&#xFF1B;</p>
-<p>Contentprovider&#x7684;onCreate&#x65B9;&#x6CD5;&#x5728;Application&#x7684;onCreate&#x65B9;&#x6CD5;&#x524D;&#x9762;&#xFF0C;&#x8D44;&#x6599;&#x5982;&#x4E0B;&#xFF1A;</p>
-<ul>
-<li><a href="http://www.jianshu.com/p/a1f40b39b3de" target="_blank" rel="external nofollow noopener noreferrer">android &#x5E94;&#x7528;&#x7684;&#x542F;&#x52A8;&#x8FC7;&#x7A0B;&#x5206;&#x6790;</a></li>
-</ul>
-<h2 id="handler"><a class="header-anchor" href="#handler"></a>Handler</h2>
-<h3 id="handle&#x7684;&#x539F;&#x7406;&#x53CA;&#x673A;&#x5236;"><a class="header-anchor" href="#handle&#x7684;&#x539F;&#x7406;&#x53CA;&#x673A;&#x5236;"></a>Handle&#x7684;&#x539F;&#x7406;&#x53CA;&#x673A;&#x5236;</h3>
-<ul>
-<li><a href="http://www.cnblogs.com/codingmyworld/archive/2011/09/12/2174255.html" target="_blank" rel="external nofollow noopener noreferrer">android&#x7684;&#x6D88;&#x606F;&#x5904;&#x7406;&#x673A;&#x5236;&#xFF08;&#x56FE;+&#x6E90;&#x7801;&#x5206;&#x6790;&#xFF09;&#x2014;&#x2014;Looper,Handler,Message</a></li>
-<li><a href="http://blog.csdn.net/lmj623565791/article/details/38377229" target="_blank" rel="external nofollow noopener noreferrer">Android &#x5F02;&#x6B65;&#x6D88;&#x606F;&#x5904;&#x7406;&#x673A;&#x5236; &#x8BA9;&#x4F60;&#x6DF1;&#x5165;&#x7406;&#x89E3; Looper&#x3001;Handler&#x3001;Message&#x4E09;&#x8005;&#x5173;&#x7CFB;</a></li>
-<li><a href="http://blog.csdn.net/iispring/article/details/47180325" target="_blank" rel="external nofollow noopener noreferrer">&#x6DF1;&#x5165;&#x6E90;&#x7801;&#x89E3;&#x6790;Android&#x4E2D;&#x7684;Handler,Message,MessageQueue,Looper</a></li>
-<li><a href="http://www.cnblogs.com/lbangel/p/4335855.html" target="_blank" rel="external nofollow noopener noreferrer">Handler&#x7684;&#x53D1;&#x9001;&#x5904;&#x7406;&#x6D88;&#x606F;&#x7684;&#x65B9;&#x6CD5;&#x603B;&#x4F1A;&#x53CA;&#x5404;&#x81EA;&#x7684;&#x4F18;&#x7F3A;&#x70B9;</a></li>
-</ul>
-<h3 id="handler&#x7684;&#x6B63;&#x786E;&#x4F7F;&#x7528;&#x65B9;&#x6CD5;"><a class="header-anchor" href="#handler&#x7684;&#x6B63;&#x786E;&#x4F7F;&#x7528;&#x65B9;&#x6CD5;"></a>Handler&#x7684;&#x6B63;&#x786E;&#x4F7F;&#x7528;&#x65B9;&#x6CD5;</h3>
-<ul>
-<li><a href="http://stackoverflow.com/questions/11278875/handlers-and-memory-leaks-in-android" target="_blank" rel="external nofollow noopener noreferrer">Handlers and memory leaks in Android</a></li>
-</ul>
-<h2 id="intent"><a class="header-anchor" href="#intent"></a>Intent</h2>
-<h3 id="intent&#x7684;&#x539F;&#x7406;&#x53CA;&#x4F7F;&#x7528;&#x65B9;&#x6CD5;"><a class="header-anchor" href="#intent&#x7684;&#x539F;&#x7406;&#x53CA;&#x4F7F;&#x7528;&#x65B9;&#x6CD5;"></a>Intent&#x7684;&#x539F;&#x7406;&#x53CA;&#x4F7F;&#x7528;&#x65B9;&#x6CD5;</h3>
-<ul>
-<li><a href="http://blog.csdn.net/iispring/article/details/48417779" target="_blank" rel="external nofollow noopener noreferrer">Android&#x4E2D;Intent&#x6982;&#x8FF0;&#x53CA;&#x4F7F;&#x7528;</a></li>
-<li><a href="http://blog.csdn.net/iispring/article/details/48481793" target="_blank" rel="external nofollow noopener noreferrer">Android&#x4E2D;Intent&#x5BF9;&#x8C61;&#x4E0E;Intent Filter&#x8FC7;&#x6EE4;&#x5339;&#x914D;&#x8FC7;&#x7A0B;&#x8BE6;&#x89E3;</a></li>
-<li><a href="http://blog.csdn.net/iispring/article/details/48578295" target="_blank" rel="external nofollow noopener noreferrer">Android&#x4E2D;&#x5E38;&#x89C1;Intent&#x4E60;&#x60EF;&#x7528;&#x6CD5;-&#x4E0A;&#x7BC7;(&#x9644;&#x6E90;&#x7801;&#x4E0B;&#x8F7D;) </a></li>
-</ul>
-<h3 id="intent&#x5C5E;&#x6027;"><a class="header-anchor" href="#intent&#x5C5E;&#x6027;"></a>Intent&#x5C5E;&#x6027;</h3>
-<ul>
-<li><a href="http://blog.csdn.net/github_25928675/article/details/46460417" target="_blank" rel="external nofollow noopener noreferrer">Android&#x6743;&#x9650;&#x548C;&#x52A8;&#x4F5C;&#x5927;&#x5168;</a></li>
-</ul>
-<h2 id="&#x7F51;&#x7EDC;"><a class="header-anchor" href="#&#x7F51;&#x7EDC;"></a>&#x7F51;&#x7EDC;</h2>
-<h3 id="socket&#x7684;&#x539F;&#x7406;&#x53CA;&#x4F7F;&#x7528;"><a class="header-anchor" href="#socket&#x7684;&#x539F;&#x7406;&#x53CA;&#x4F7F;&#x7528;"></a>Socket&#x7684;&#x539F;&#x7406;&#x53CA;&#x4F7F;&#x7528;</h3>
-<ul>
-<li><a href="http://blog.csdn.net/jiajia4336/article/details/8798421" target="_blank" rel="external nofollow noopener noreferrer">Socket&#x901A;&#x4FE1;&#x539F;&#x7406;&#x548C;&#x5B9E;&#x8DF5;</a></li>
-</ul>
-<h3 id="tcp-udp&#x7684;&#x539F;&#x7406;"><a class="header-anchor" href="#tcp-udp&#x7684;&#x539F;&#x7406;"></a>TCP&#x3001;UDP&#x7684;&#x539F;&#x7406;</h3>
-<ul>
-<li><a href="http://blog.chinaunix.net/uid-26833883-id-3627644.html" target="_blank" rel="external nofollow noopener noreferrer">TCP&#x3001;UDP&#x3001;IP &#x534F;&#x8BAE;&#x5206;&#x6790; </a></li>
-</ul>
-<h3 id="http&#x901A;&#x4FE1;&#x539F;&#x7406;"><a class="header-anchor" href="#http&#x901A;&#x4FE1;&#x539F;&#x7406;"></a>Http&#x901A;&#x4FE1;&#x539F;&#x7406;</h3>
-<ul>
-<li><a href="https://github.com/GeniusVJR/LearningNotes/blob/master/Part4/Network/Http%E5%8D%8F%E8%AE%AE.md" target="_blank" rel="external nofollow noopener noreferrer">Http&#x534F;&#x8BAE;</a></li>
-<li><a href="http://www.cnblogs.com/rocomp/p/4803864.html" target="_blank" rel="external nofollow noopener noreferrer">HTTP&#x534F;&#x8BAE;&#x62A5;&#x6587;&#x3001;&#x5DE5;&#x4F5C;&#x539F;&#x7406;&#x53CA;Java&#x4E2D;&#x7684;HTTP&#x901A;&#x4FE1;&#x6280;&#x672F;&#x8BE6;&#x89E3;</a></li>
-</ul>
-<h2 id="bluetooth"><a class="header-anchor" href="#bluetooth"></a>Bluetooth</h2>
-<h3 id="&#x84DD;&#x7259;2-0"><a class="header-anchor" href="#&#x84DD;&#x7259;2-0"></a>&#x84DD;&#x7259;2.0</h3>
-<ul>
-<li><a href="http://blog.csdn.net/lanyamokuai/article/details/5998437" target="_blank" rel="external nofollow noopener noreferrer">Bluetooth&#x4ECB;&#x7ECD;&#x53CA;&#x539F;&#x7406;</a></li>
-<li><a href="http://blog.csdn.net/zhanghua1121/article/details/9331545" target="_blank" rel="external nofollow noopener noreferrer">Bluetooth&#x901A;&#x4FE1;&#x65B9;&#x5F0F;</a></li>
-<li><a href="http://www.cnblogs.com/wenjiang/p/3200138.html" target="_blank" rel="external nofollow noopener noreferrer">Bluetooth&#x4F7F;&#x7528;&#x65B9;&#x6CD5;</a></li>
-</ul>
-<h3 id="&#x84DD;&#x7259;4-0"><a class="header-anchor" href="#&#x84DD;&#x7259;4-0"></a>&#x84DD;&#x7259;4.0</h3>
-<ul>
-<li><a href="http://www.tuicool.com/articles/quiuMv" target="_blank" rel="external nofollow noopener noreferrer">BLE&#x4ECB;&#x7ECD;&#x53CA;&#x539F;&#x7406;</a></li>
-<li><a href="http://www.51edu.com/it/bckf/35279.html" target="_blank" rel="external nofollow noopener noreferrer">BLE&#x901A;&#x4FE1;&#x65B9;&#x5F0F;</a></li>
-<li><a href="http://www.cnblogs.com/xxzjyf/p/x_x_z_j_y_f.html" target="_blank" rel="external nofollow noopener noreferrer">BLE&#x7684;&#x4F7F;&#x7528;&#x65B9;&#x6CD5;</a></li>
-</ul>
-<h2 id="&#x5185;&#x5B58;&#x4F18;&#x5316;"><a class="header-anchor" href="#&#x5185;&#x5B58;&#x4F18;&#x5316;"></a>&#x5185;&#x5B58;&#x4F18;&#x5316;</h2>
-<ul>
-<li><a href="http://gityuan.com/2016/01/02/memory-analysis-command/" target="_blank" rel="external nofollow noopener noreferrer">Android&#x5185;&#x5B58;&#x5206;&#x6790;&#x547D;&#x4EE4;</a></li>
-</ul>
-<h3 id="&#x7CFB;&#x7EDF;gc&#x56DE;&#x6536;&#x8FC7;&#x7A0B;&#x53CA;&#x539F;&#x7406;"><a class="header-anchor" href="#&#x7CFB;&#x7EDF;gc&#x56DE;&#x6536;&#x8FC7;&#x7A0B;&#x53CA;&#x539F;&#x7406;"></a>&#x7CFB;&#x7EDF;GC&#x56DE;&#x6536;&#x8FC7;&#x7A0B;&#x53CA;&#x539F;&#x7406;</h3>
-<ul>
-<li><a href="http://www.importnew.com/13504.html" target="_blank" rel="external nofollow noopener noreferrer">Java GC&#x7CFB;&#x5217;&#xFF08;1&#xFF09;&#xFF1A;Java&#x5783;&#x573E;&#x56DE;&#x6536;&#x7B80;&#x4ECB;</a></li>
-<li><a href="http://www.importnew.com/13493.html" target="_blank" rel="external nofollow noopener noreferrer">Java GC&#x7CFB;&#x5217;&#xFF08;2&#xFF09;&#xFF1A;Java&#x5783;&#x573E;&#x56DE;&#x6536;&#x662F;&#x5982;&#x4F55;&#x5DE5;&#x4F5C;&#x7684;&#xFF1F;</a></li>
-<li><a href="http://www.importnew.com/13827.html" target="_blank" rel="external nofollow noopener noreferrer">Java GC&#x7CFB;&#x5217;&#xFF08;3&#xFF09;&#xFF1A;&#x5783;&#x573E;&#x56DE;&#x6536;&#x5668;&#x79CD;&#x7C7B;</a></li>
-<li><a href="http://www.importnew.com/13838.html" target="_blank" rel="external nofollow noopener noreferrer">Java GC&#x7CFB;&#x5217;&#xFF08;4&#xFF09;&#xFF1A;&#x5783;&#x573E;&#x56DE;&#x6536;&#x76D1;&#x89C6;&#x548C;&#x5206;&#x6790;</a></li>
-</ul>
-<h3 id="&#x7CFB;&#x7EDF;gc&#x56DE;&#x6536;&#x7684;&#x89E6;&#x53D1;&#x6761;&#x4EF6;"><a class="header-anchor" href="#&#x7CFB;&#x7EDF;gc&#x56DE;&#x6536;&#x7684;&#x89E6;&#x53D1;&#x6761;&#x4EF6;"></a>&#x7CFB;&#x7EDF;GC&#x56DE;&#x6536;&#x7684;&#x89E6;&#x53D1;&#x6761;&#x4EF6;</h3>
-<ul>
-<li><a href="http://www.cnblogs.com/killmyday/archive/2013/06/12/3132518.html" target="_blank" rel="external nofollow noopener noreferrer">Android&#x5185;&#x5B58;&#x7BA1;&#x7406;&#x539F;&#x7406;</a></li>
-<li><a href="http://www.ibm.com/developerworks/cn/opensource/os-cn-android-mmry-rcycl/" target="_blank" rel="external nofollow noopener noreferrer">Android &#x64CD;&#x4F5C;&#x7CFB;&#x7EDF;&#x7684;&#x5185;&#x5B58;&#x56DE;&#x6536;&#x673A;&#x5236;</a></li>
-</ul>
-<h3 id="&#x5185;&#x5B58;&#x4F18;&#x5316;-v2"><a class="header-anchor" href="#&#x5185;&#x5B58;&#x4F18;&#x5316;-v2"></a>&#x5185;&#x5B58;&#x4F18;&#x5316;</h3>
-<ul>
-<li><a href="http://blog.csdn.net/a396901990/article/details/37914465" target="_blank" rel="external nofollow noopener noreferrer">ANDROID&#x5185;&#x5B58;&#x4F18;&#x5316;(&#x5927;&#x6C47;&#x603B;&#x2014;&#x2014;&#x4E0A;)</a></li>
-<li><a href="http://blog.csdn.net/a396901990/article/details/38707007" target="_blank" rel="external nofollow noopener noreferrer">ANDROID&#x5185;&#x5B58;&#x4F18;&#x5316;(&#x5927;&#x6C47;&#x603B;&#x2014;&#x2014;&#x4E2D;)</a></li>
-<li><a href="http://blog.csdn.net/a396901990/article/details/38904543" target="_blank" rel="external nofollow noopener noreferrer">ANDROID&#x5185;&#x5B58;&#x4F18;&#x5316;(&#x5927;&#x6C47;&#x603B;&#x2014;&#x2014;&#x5168;)</a></li>
-<li><a href="http://hukai.me/android-performance-memory/" target="_blank" rel="external nofollow noopener noreferrer">Android&#x6027;&#x80FD;&#x4F18;&#x5316;&#x4E4B;&#x5185;&#x5B58;&#x7BC7;</a></li>
-</ul>
-<h3 id="ui&#x4F18;&#x5316;"><a class="header-anchor" href="#ui&#x4F18;&#x5316;"></a>UI&#x4F18;&#x5316;</h3>
-<ul>
-<li><a href="http://blog.nimbledroid.com/2016/03/21/ways-to-hang-main-thread-zh.html?hmsr=toutiao.io&amp;utm_medium=toutiao.io&amp;utm_source=toutiao.io" target="_blank" rel="external nofollow noopener noreferrer">5&#x4E2A;&#x5BFC;&#x81F4;&#x4E3B;&#x7EBF;&#x7A0B;&#x5361;&#x987F;&#x8F83;&#x9C9C;&#x4E3A;&#x4EBA;&#x77E5;&#x7684;&#x5143;&#x51F6;</a></li>
-<li><a href="http://blog.csdn.net/xyz_lmn/article/details/14524567" target="_blank" rel="external nofollow noopener noreferrer">Android&#x62BD;&#x8C61;&#x5E03;&#x5C40;&#x2014;&#x2014;include&#x3001;merge &#x3001;ViewStub</a></li>
-<li><a href="http://blog.venmo.com/hf2t3h4x98p5e13z82pl8j66ngcmry/performance-tuning-on-android" target="_blank" rel="external nofollow noopener noreferrer">Performance Tuning On Android</a></li>
-</ul>
-<h3 id="&#x6027;&#x80FD;&#x4F18;&#x5316;"><a class="header-anchor" href="#&#x6027;&#x80FD;&#x4F18;&#x5316;"></a>&#x6027;&#x80FD;&#x4F18;&#x5316;</h3>
-<ul>
-<li><a href="http://hukai.me/android-performance-patterns/" target="_blank" rel="external nofollow noopener noreferrer">Android&#x6027;&#x80FD;&#x4F18;&#x5316;&#x5178;&#x8303;&#xFF08;&#x4E00;&#xFF09;</a></li>
-<li><a href="http://hukai.me/android-performance-patterns-season-2/" target="_blank" rel="external nofollow noopener noreferrer">Android&#x6027;&#x80FD;&#x4F18;&#x5316;&#x5178;&#x8303;&#xFF08;&#x4E8C;&#xFF09;</a></li>
-<li><a href="http://hukai.me/android-performance-patterns-season-3/" target="_blank" rel="external nofollow noopener noreferrer">Android&#x6027;&#x80FD;&#x4F18;&#x5316;&#x5178;&#x8303;&#xFF08;&#x4E09;&#xFF09;</a></li>
-<li><a href="http://hukai.me/android-performance-patterns-season-4/" target="_blank" rel="external nofollow noopener noreferrer">Android&#x6027;&#x80FD;&#x4F18;&#x5316;&#x5178;&#x8303;&#xFF08;&#x56DB;&#xFF09;</a></li>
-<li><a href="http://hukai.me/android-performance-patterns-season-5/" target="_blank" rel="external nofollow noopener noreferrer">Android&#x6027;&#x80FD;&#x4F18;&#x5316;&#x5178;&#x8303;&#xFF08;&#x4E94;&#xFF09;</a></li>
-<li>[Android&#x5E94;&#x7528;&#x6027;&#x80FD;&#x4F18;&#x5316;&#x4E2A;&#x4EBA;&#x603B;&#x7ED3;&#x2013;&#x56FE;&#x5F62;&#x4F18;&#x5316;)](<a href="https://mp.weixin.qq.com/s?__biz=MzAxMzYyNDkyNA==&amp;mid=403778409&amp;idx=1&amp;sn=2955f5209f2cb46c327167e9f558013c&amp;scene=0&amp;key=710a5d99946419d93bd87693b2fb201a979a3f06f49072f49e0e5dd05b91de2dbe204e56cbcd8c71cac94e931791f5f3&amp;ascene=0&amp;uin=ODU2NjQ0ODgx&amp;devicetype=iMac+MacBookPro12%2C1+OSX+OSX+10.11.4+build(15E65)" target="_blank" rel="external nofollow noopener noreferrer">https://mp.weixin.qq.com/s?__biz=MzAxMzYyNDkyNA==&amp;mid=403778409&amp;idx=1&amp;sn=2955f5209f2cb46c327167e9f558013c&amp;scene=0&amp;key=710a5d99946419d93bd87693b2fb201a979a3f06f49072f49e0e5dd05b91de2dbe204e56cbcd8c71cac94e931791f5f3&amp;ascene=0&amp;uin=ODU2NjQ0ODgx&amp;devicetype=iMac+MacBookPro12%2C1+OSX+OSX+10.11.4+build(15E65)</a></li>
-</ul>
-<h3 id="&#x5185;&#x5B58;&#x6CC4;&#x9732;&#x8BE6;&#x89E3;&#x53CA;&#x603B;&#x7ED3;"><a class="header-anchor" href="#&#x5185;&#x5B58;&#x6CC4;&#x9732;&#x8BE6;&#x89E3;&#x53CA;&#x603B;&#x7ED3;"></a>&#x5185;&#x5B58;&#x6CC4;&#x9732;&#x8BE6;&#x89E3;&#x53CA;&#x603B;&#x7ED3;</h3>
-<ul>
-<li><a href="http://rayleeya.iteye.com/blog/1956059" target="_blank" rel="external nofollow noopener noreferrer">Android &#x7CFB;&#x7EDF;&#x7A33;&#x5B9A;&#x6027; - OOM&#xFF08;&#x4E00;&#xFF09;</a></li>
-<li><a href="http://rayleeya.iteye.com/blog/1956638" target="_blank" rel="external nofollow noopener noreferrer">Android &#x7CFB;&#x7EDF;&#x7A33;&#x5B9A;&#x6027; - OOM&#xFF08;&#x4E8C;&#xFF09;</a></li>
-<li><a href="http://rayleeya.iteye.com/blog/1955652" target="_blank" rel="external nofollow noopener noreferrer">Android &#x7CFB;&#x7EDF;&#x7A33;&#x5B9A;&#x6027; - ANR&#xFF08;&#x4E00;&#xFF09;</a></li>
-<li><a href="http://rayleeya.iteye.com/blog/1955657" target="_blank" rel="external nofollow noopener noreferrer">Android &#x7CFB;&#x7EDF;&#x7A33;&#x5B9A;&#x6027; - ANR&#xFF08;&#x4E8C;&#xFF09;</a></li>
-<li><a href="http://rayleeya.iteye.com/blog/1956056" target="_blank" rel="external nofollow noopener noreferrer">Android &#x7CFB;&#x7EDF;&#x7A33;&#x5B9A;&#x6027; - ANR&#xFF08;&#x4E09;&#xFF09;</a></li>
-<li><a href="http://hukai.me/android-performance-oom/" target="_blank" rel="external nofollow noopener noreferrer">Android&#x5185;&#x5B58;&#x4F18;&#x5316;&#x4E4B;OOM</a></li>
-<li><a href="http://yq.aliyun.com/articles/3009" target="_blank" rel="external nofollow noopener noreferrer">Android &#x5185;&#x5B58;&#x6CC4;&#x6F0F;&#x603B;&#x7ED3;</a></li>
-<li><a href="http://www.360doc.com/content/14/0526/11/9462341_381066152.shtml" target="_blank" rel="external nofollow noopener noreferrer">ANDROID &#x63A2;&#x7A76;oom&#x5185;&#x5E55;</a></li>
-</ul>
-<h3 id="&#x5185;&#x5B58;&#x68C0;&#x6D4B;&#x5DE5;&#x5177;&#x53CA;&#x4F7F;&#x7528;&#x65B9;&#x6CD5;"><a class="header-anchor" href="#&#x5185;&#x5B58;&#x68C0;&#x6D4B;&#x5DE5;&#x5177;&#x53CA;&#x4F7F;&#x7528;&#x65B9;&#x6CD5;"></a>&#x5185;&#x5B58;&#x68C0;&#x6D4B;&#x5DE5;&#x5177;&#x53CA;&#x4F7F;&#x7528;&#x65B9;&#x6CD5;</h3>
-<h4 id="blockcanary"><a class="header-anchor" href="#blockcanary"></a>BlockCanary</h4>
-<ul>
-<li><a href="http://blog.zhaiyifan.cn/2016/01/16/BlockCanaryTransparentPerformanceMonitor/" target="_blank" rel="external nofollow noopener noreferrer">BlockCanary &#x2014; &#x8F7B;&#x677E;&#x627E;&#x51FA;Android App&#x754C;&#x9762;&#x5361;&#x987F;&#x5143;&#x51F6;</a></li>
-</ul>
-<h4 id="leakcanary"><a class="header-anchor" href="#leakcanary"></a>LeakCanary</h4>
-<ul>
-<li><a href="http://www.jcodecraeer.com/a/anzhuokaifa/androidkaifa/2015/0509/2854.html" target="_blank" rel="external nofollow noopener noreferrer">LeakCanary:&#x68C0;&#x6D4B;&#x6240;&#x6709;&#x7684;&#x5185;&#x5B58;&#x6CC4;&#x6F0F;</a></li>
-</ul>
-<h2 id="&#x4F20;&#x611F;&#x5668;"><a class="header-anchor" href="#&#x4F20;&#x611F;&#x5668;"></a>&#x4F20;&#x611F;&#x5668;</h2>
-<ul>
-<li><a href="http://blog.csdn.net/lincyang/article/details/49471929" target="_blank" rel="external nofollow noopener noreferrer">&#x52A0;&#x901F;&#x5EA6;</a></li>
-<li><a href="http://blog.csdn.net/smartbetter/article/details/53161452" target="_blank" rel="external nofollow noopener noreferrer">&#x78C1;&#x529B;</a></li>
-<li><a href="http://blog.csdn.net/u014492609/article/details/51741402" target="_blank" rel="external nofollow noopener noreferrer">&#x65B9;&#x5411;</a></li>
-<li><a href="http://blog.csdn.net/smartbetter/article/details/53161452" target="_blank" rel="external nofollow noopener noreferrer">&#x9640;&#x87BA;</a></li>
-<li><a href="http://blog.csdn.net/menuconfig/article/details/7225441" target="_blank" rel="external nofollow noopener noreferrer">&#x5149;&#x7EBF;&#x611F;&#x5E94;</a></li>
-<li><a href="http://blog.csdn.net/chadcao/article/details/9928103" target="_blank" rel="external nofollow noopener noreferrer">&#x538B;&#x529B;</a></li>
-<li><a href="http://www.voidcn.com/blog/chadcao/article/p-2503607.html" target="_blank" rel="external nofollow noopener noreferrer">&#x6E29;&#x5EA6;</a></li>
-<li><a href="http://blog.csdn.net/luozhi3527/article/details/9999901" target="_blank" rel="external nofollow noopener noreferrer">&#x63A5;&#x8FD1;/&#x8DDD;&#x79BB;</a></li>
-<li><a href="http://www.xuanyusong.com/archives/337" target="_blank" rel="external nofollow noopener noreferrer">&#x91CD;&#x529B;</a></li>
-<li><a href="http://blog.csdn.net/think_soft/article/details/8101144" target="_blank" rel="external nofollow noopener noreferrer">&#x7EBF;&#x6027;&#x52A0;&#x901F;&#x5EA6;</a></li>
-<li><a href="http://www.2cto.com/kf/201210/162858.html" target="_blank" rel="external nofollow noopener noreferrer">&#x65CB;&#x8F6C;&#x77E2;&#x91CF;</a></li>
-<li><a href="http://blog.sina.com.cn/s/blog_48d49130010110qw.html" target="_blank" rel="external nofollow noopener noreferrer">&#x76F8;&#x5BF9;&#x6E7F;&#x5EA6;&#x4F20;&#x611F;&#x5668;</a></li>
-<li><a href="http://blog.csdn.net/think_soft/article/details/8169483" target="_blank" rel="external nofollow noopener noreferrer">&#x8FD1;&#x573A;&#x901A;&#x4FE1;&#xFF08;NFC&#xFF09;</a></li>
-<li><a href="https://www.oschina.net/question/163910_28354" target="_blank" rel="external nofollow noopener noreferrer">Android&#x64CD;&#x4F5C;&#x7CFB;&#x7EDF;11&#x79CD;&#x4F20;&#x611F;&#x5668;&#x4ECB;&#x7ECD;</a></li>
-<li><a href="http://blog.csdn.net/xiong_it/article/details/45917009" target="_blank" rel="external nofollow noopener noreferrer">Android&#x5F00;&#x53D1;&#xFF1A;Android&#x8BBE;&#x5907;&#x4F20;&#x611F;&#x5668;&#x5F00;&#x53D1;&#x603B;&#x7ED3;</a></li>
-</ul>
-<h2 id="&#x5F00;&#x53D1;&#x6846;&#x67B6;"><a class="header-anchor" href="#&#x5F00;&#x53D1;&#x6846;&#x67B6;"></a>&#x5F00;&#x53D1;&#x6846;&#x67B6;</h2>
-<h3 id="&#x7F51;&#x7EDC;&#x6846;&#x67B6;"><a class="header-anchor" href="#&#x7F51;&#x7EDC;&#x6846;&#x67B6;"></a>&#x7F51;&#x7EDC;&#x6846;&#x67B6;</h3>
-<ul>
-<li><a href="https://github.com/square/okhttp" target="_blank" rel="external nofollow noopener noreferrer">OkHttp</a></li>
-<li><a href="">Volley</a></li>
-<li><a href="https://github.com/wyouflf/xUtils3" target="_blank" rel="external nofollow noopener noreferrer">xUtils3</a></li>
-<li><a href="https://github.com/square/retrofit" target="_blank" rel="external nofollow noopener noreferrer">Retrofit</a></li>
-</ul>
-<h3 id="&#x56FE;&#x7247;&#x52A0;&#x8F7D;&#x6846;&#x67B6;"><a class="header-anchor" href="#&#x56FE;&#x7247;&#x52A0;&#x8F7D;&#x6846;&#x67B6;"></a>&#x56FE;&#x7247;&#x52A0;&#x8F7D;&#x6846;&#x67B6;</h3>
-<ul>
-<li><a href="https://github.com/facebook/fresco" target="_blank" rel="external nofollow noopener noreferrer">Fresco</a></li>
-<li><a href="http://fresco-cn.org/docs/index.html" target="_blank" rel="external nofollow noopener noreferrer">Fresco&#x6587;&#x6863;</a></li>
-<li><a href="https://github.com/nostra13/Android-Universal-Image-Loader" target="_blank" rel="external nofollow noopener noreferrer">Android-Universal-Image-Loader</a></li>
-<li><a href="https://github.com/bumptech/glide" target="_blank" rel="external nofollow noopener noreferrer">Glide</a></li>
-<li><a href="https://github.com/square/picasso" target="_blank" rel="external nofollow noopener noreferrer">picasso</a></li>
-<li><a href="http://www.trinea.cn/android/android-image-cache-compare/" target="_blank" rel="external nofollow noopener noreferrer">Android &#x4E09;&#x5927;&#x56FE;&#x7247;&#x7F13;&#x5B58;&#x539F;&#x7406;&#x3001;&#x7279;&#x6027;&#x5BF9;&#x6BD4;</a></li>
-</ul>
-<h3 id="&#x7ED8;&#x56FE;&#x6846;&#x67B6;"><a class="header-anchor" href="#&#x7ED8;&#x56FE;&#x6846;&#x67B6;"></a>&#x7ED8;&#x56FE;&#x6846;&#x67B6;</h3>
-<ul>
-<li><a href="https://github.com/ddanny/achartengine" target="_blank" rel="external nofollow noopener noreferrer">AChartEngine</a></li>
-<li><a href="https://github.com/PhilJay/MPAndroidChart" target="_blank" rel="external nofollow noopener noreferrer">MPAndroidChart</a></li>
-<li><a href="https://github.com/xcltapestry/XCL-Charts" target="_blank" rel="external nofollow noopener noreferrer">XCL-Charts</a></li>
-<li><a href="https://github.com/blackfizz/EazeGraph" target="_blank" rel="external nofollow noopener noreferrer">EazeGraph</a></li>
-<li><a href="https://github.com/diogobernardino/WilliamChart" target="_blank" rel="external nofollow noopener noreferrer">WilliamChart</a></li>
-<li><a href="https://github.com/lecho/hellocharts-android" target="_blank" rel="external nofollow noopener noreferrer">HelloCharts for Android</a></li>
-</ul>
-<h3 id="&#x6570;&#x636E;&#x5E93;&#x6846;&#x67B6;"><a class="header-anchor" href="#&#x6570;&#x636E;&#x5E93;&#x6846;&#x67B6;"></a>&#x6570;&#x636E;&#x5E93;&#x6846;&#x67B6;</h3>
-<ul>
-<li><a href="">Provider&#xFF0C;ORMLite&#xFF0C;GreenDao</a></li>
-<li><a href="http://blog.csdn.net/u012565107/article/details/21546829" target="_blank" rel="external nofollow noopener noreferrer">Provider&#xFF0C;ORMLite&#xFF0C;GreenDao&#x7684;&#x5B9E;&#x73B0;&#xFF0C;&#x5E76;&#x4E14;&#x7B80;&#x5355;&#x6027;&#x80FD;&#x5BF9;&#x6BD4;</a></li>
-</ul>
-<h3 id="&#x6CE8;&#x89E3;"><a class="header-anchor" href="#&#x6CE8;&#x89E3;"></a>&#x6CE8;&#x89E3;</h3>
-<ul>
-<li><a href="https://github.com/JakeWharton/butterknife" target="_blank" rel="external nofollow noopener noreferrer">Butter Knife</a></li>
-<li><a href="https://github.com/google/dagger" target="_blank" rel="external nofollow noopener noreferrer">Dragger2</a></li>
-</ul>
-<h2 id="&#x7F51;&#x7EDC;&#x671F;&#x520A;"><a class="header-anchor" href="#&#x7F51;&#x7EDC;&#x671F;&#x520A;"></a>&#x7F51;&#x7EDC;&#x671F;&#x520A;</h2>
-<ul>
-<li><a href="http://www.codekk.com/open-source-project-analysis" target="_blank" rel="external nofollow noopener noreferrer">codeKK</a></li>
-<li><a href="http://gank.io/" target="_blank" rel="external nofollow noopener noreferrer">&#x5E72;&#x8D27;&#x96C6;&#x4E2D;&#x8425;</a></li>
-<li><a href="http://www.androidweekly.cn/" target="_blank" rel="external nofollow noopener noreferrer">Android&#x6280;&#x672F;&#x5468;&#x62A5;</a></li>
-<li><a href="http://www.devtf.cn/?tag=%E5%91%A8%E6%8A%A5" target="_blank" rel="external nofollow noopener noreferrer">&#x5F00;&#x53D1;&#x6280;&#x672F;&#x524D;&#x7EBF;</a></li>
-<li><a href="http://gold.xitu.io/#/" target="_blank" rel="external nofollow noopener noreferrer">&#x6398;&#x91D1;</a></li>
-<li><a href="http://toutiao.io/" target="_blank" rel="external nofollow noopener noreferrer">&#x5F00;&#x53D1;&#x8005;&#x5934;&#x6761;</a></li>
-</ul>
-<h2 id="&#x6280;&#x672F;&#x793E;&#x533A;"><a class="header-anchor" href="#&#x6280;&#x672F;&#x793E;&#x533A;"></a>&#x6280;&#x672F;&#x793E;&#x533A;</h2>
-<ul>
-<li><a href="http://www.ibm.com/developerworks/cn/" target="_blank" rel="external nofollow noopener noreferrer">IBM developerWorks</a></li>
-<li><a href="http://tech.meituan.com/" target="_blank" rel="external nofollow noopener noreferrer">&#x7F8E;&#x56E2;&#x70B9;&#x8BC4;&#x6280;&#x672F;&#x56E2;&#x961F;</a></li>
-<li><a href="http://club.alibabatech.org/" target="_blank" rel="external nofollow noopener noreferrer">&#x963F;&#x91CC;&#x6280;&#x672F;&#x6C99;&#x9F99;</a></li>
-<li><a href="http://mogu.io/" target="_blank" rel="external nofollow noopener noreferrer">&#x8611;&#x83C7;&#x8857;&#x6280;&#x672F;&#x535A;&#x5BA2;</a></li>
-<li><a href="http://taobaofed.org/" target="_blank" rel="external nofollow noopener noreferrer">&#x6DD8;&#x5B9D;&#x524D;&#x6BB5;&#x56E2;&#x961F;</a></li>
-<li><a href="http://bugly.qq.com/bbs/portal.php" target="_blank" rel="external nofollow noopener noreferrer">Bugly&#x793E;&#x533A;</a></li>
-<li><a href="http://www.alloyteam.com/" target="_blank" rel="external nofollow noopener noreferrer">&#x817E;&#x8BAF;AllyTeam Blog</a></li>
-<li><a href="http://www.importnew.com/" target="_blank" rel="external nofollow noopener noreferrer">ImportNew</a></li>
-<li><a href="http://android.jobbole.com/" target="_blank" rel="external nofollow noopener noreferrer">&#x4F2F;&#x4E50;&#x5728;&#x7EBF;</a></li>
-</ul>
-<h2 id="&#x8D44;&#x6E90;&#x7F51;&#x7AD9;"><a class="header-anchor" href="#&#x8D44;&#x6E90;&#x7F51;&#x7AD9;"></a>&#x8D44;&#x6E90;&#x7F51;&#x7AD9;</h2>
-<ul>
-<li><a href="https://android-arsenal.com/" target="_blank" rel="external nofollow noopener noreferrer">Android Arsenal</a></li>
-<li><a href="http://itlanbao.com/" target="_blank" rel="external nofollow noopener noreferrer">IT&#x84DD;&#x8C79;</a></li>
-<li><a href="http://a.code4app.com/" target="_blank" rel="external nofollow noopener noreferrer">Code4App</a></li>
-<li><a href="http://www.23code.com/" target="_blank" rel="external nofollow noopener noreferrer">23Code</a></li>
-<li><a href="http://www.see-source.com/index.html" target="_blank" rel="external nofollow noopener noreferrer">&#x5F00;&#x6E90;&#x793E;&#x533A;</a></li>
-<li><a href="https://www.coolgithubprojects.com/#" target="_blank" rel="external nofollow noopener noreferrer">CoolGithubProjects</a></li>
-</ul>
-<h2 id="&#x535A;&#x5BA2;"><a class="header-anchor" href="#&#x535A;&#x5BA2;"></a>&#x535A;&#x5BA2;</h2>
-<ul>
-<li><a href="http://androidperformance.com/" target="_blank" rel="external nofollow noopener noreferrer">Gracker</a></li>
-</ul>
-<p>&#x4E13;&#x6CE8;&#x5199;Android&#x4F18;&#x5316;&#x7684;&#x535A;&#x5BA2;&#x3002;</p>
-<ul>
-<li><a href="http://hukai.me/" target="_blank" rel="external nofollow noopener noreferrer">&#x80E1;&#x51EF;</a></li>
-</ul>
-<p>Android&#x6027;&#x80FD;&#x4F18;&#x5316;&#x5178;&#x8303;&#x4F5C;&#x8005;&#xFF0C;&#x9AD8;&#x54C1;&#x8D28;&#x6587;&#x7AE0;&#x3002;</p>
-<ul>
-<li><a href="http://blog.csdn.net/Luoshengyang?viewmode=contents" target="_blank" rel="external nofollow noopener noreferrer">&#x8001;&#x7F57;&#x7684;Android&#x4E4B;&#x65C5;</a></li>
-</ul>
-<p>Android&#x6E90;&#x7801;&#x5206;&#x6790;&#x7CBE;&#x54C1;&#x7CFB;&#x5217;&#x3002;</p>
-<ul>
-<li><a href="http://blog.csdn.net/harvic880925" target="_blank" rel="external nofollow noopener noreferrer">&#x542F;&#x8230;</a></li>
-</ul>
-<p>&#x96C6;&#x5408;&#x4E86;&#x52A8;&#x753B;&#x3001;&#x81EA;&#x5B9A;&#x4E49;&#x63A7;&#x4EF6;&#x4EE5;&#x53CA;Android&#x5404;&#x79CD;&#x77E5;&#x8BC6;&#x7684;&#x8BE6;&#x89E3;&#x3002;</p>]]></content>
-    
-    <summary type="html">
-    
-      Android的知识点是比较琐碎和庞大的，海洋很大，知识很多，但开一扇心门点一盏心灯，愿化作一叶小舟，自由的在知识的海洋里遨游。对于Android体系的相关知识点，我们需要熟悉Android系统中的各种API，各种UI控件，网络请求，系统原理还有各种坑。当然，从事应用层开发，那必须关注用户体验和技术的平衡。
-    
-    </summary>
-    
-      <category term="移动开发" scheme="http://ngudream.com/categories/%E7%A7%BB%E5%8A%A8%E5%BC%80%E5%8F%91/"/>
-    
-    
-      <category term="Android" scheme="http://ngudream.com/tags/Android/"/>
     
   </entry>
   
