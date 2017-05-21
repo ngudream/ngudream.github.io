@@ -6235,7 +6235,7 @@ bail:
     <link href="http://ngudream.com/2017/01/24/n-hexo-blog/"/>
     <id>http://ngudream.com/2017/01/24/n-hexo-blog/</id>
     <published>2017-01-24T09:35:19.000Z</published>
-    <updated>2017-05-20T10:23:18.470Z</updated>
+    <updated>2017-05-21T10:44:55.932Z</updated>
     
     <content type="html"><![CDATA[<div><img class="pic lazy" data-original="/2017/01/24/n-hexo-blog/1.gif" style="float:left; margin-right:16px" alt="">
 <img class="pic lazy" id="img_right" data-original="/2017/01/24/n-hexo-blog/2.gif" style="float:right; margin-right:16px" alt="">
@@ -6299,6 +6299,7 @@ sudo apt-get install nodejs
 <pre><code>npm install hexo-autonofollow --save
 </code></pre>
 <p><a href="https://liuzhichao.com/2016/hexo-auto-nofollow.html" target="_blank" rel="external nofollow noopener noreferrer">https://liuzhichao.com/2016/hexo-auto-nofollow.html</a></p>
+<p><strong>&#x5982;&#x679C;&#x4F7F;&#x7528;&#x6709;&#x95EE;&#x9898;&#xFF0C;&#x53EF;&#x4EE5;&#x53C2;&#x7167;&#x7B14;&#x8005;&#x4FEE;&#x6539;&#x7684;&#xFF0C;&#x5DF2;&#x517C;&#x5BB9;&#x672C;&#x4E3B;&#x9898;</strong> <a href="https://github.com/ngudream/hexo-autonofollow" target="_blank" rel="external nofollow noopener noreferrer">hexo-autonofollow</a></p>
 <h2 id="&#x8FD4;&#x56DE;&#x9876;&#x90E8;"><a class="header-anchor" href="#&#x8FD4;&#x56DE;&#x9876;&#x90E8;"></a>&#x8FD4;&#x56DE;&#x9876;&#x90E8;</h2>
 <p>&#x53F3;&#x4E0B;&#x89D2;&#x968F;&#x7740;&#x6EDA;&#x52A8;&#x6761;&#x6ED1;&#x52A8;&#x800C;&#x51FA;&#x73B0;&#x7684;&#x8BA1;&#x6570;&#xFF0C;&#x8BF7;&#x53C2;&#x8003;&#xFF1A;<a href="http://suninuni.com/2015/11/27/frontend/hexo/back-to-top/" target="_blank" rel="external nofollow noopener noreferrer">http://suninuni.com/2015/11/27/frontend/hexo/back-to-top/</a></p>
 <h2 id="&#x7F51;&#x9875;&#x52A0;&#x901F;-&#x5B9E;&#x9A8C;&#x6027;"><a class="header-anchor" href="#&#x7F51;&#x9875;&#x52A0;&#x901F;-&#x5B9E;&#x9A8C;&#x6027;"></a>&#x7F51;&#x9875;&#x52A0;&#x901F;&#xFF08;&#x5B9E;&#x9A8C;&#x6027;&#xFF09;</h2>
