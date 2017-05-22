@@ -2,16 +2,23 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://ngudream.com/about/index.html</loc>
+    
+    <lastmod>2017-05-22T14:27:54.283Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://ngudream.com/2017/01/24/n-hexo-blog/</loc>
     
-    <lastmod>2017-05-21T10:44:55.932Z</lastmod>
+    <lastmod>2017-05-22T13:45:56.375Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://ngudream.com/2017/05/18/kotlin-for-android-expression/</loc>
     
-    <lastmod>2017-05-21T09:16:49.155Z</lastmod>
+    <lastmod>2017-05-22T12:42:19.575Z</lastmod>
     
   </url>
   
@@ -54,13 +61,6 @@
     <loc>http://ngudream.com/2017/04/28/android-so-compatibility/</loc>
     
     <lastmod>2017-05-07T13:28:23.471Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://ngudream.com/about/index.html</loc>
-    
-    <lastmod>2017-04-23T05:49:29.647Z</lastmod>
     
   </url>
   
