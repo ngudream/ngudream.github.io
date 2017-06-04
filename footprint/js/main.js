@@ -39,6 +39,7 @@ $('#nav').affix({
 	$(document).ready(function(e) {
 	//var windowBottom = $(window).height();
 	var index=0;
+
 	$(document).scroll(function(){
 		var top = $('#skills').height()-$(window).scrollTop();
 		if(top<-400){
@@ -54,6 +55,7 @@ $('#nav').affix({
 				}
 			index++;
 		}
+
 	})
 	//console.log(nagativeValue)
 	});
