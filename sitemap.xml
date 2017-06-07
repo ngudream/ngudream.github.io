@@ -2,6 +2,27 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://ngudream.com/2016/08/14/realm-browse/</loc>
+    
+    <lastmod>2017-06-07T12:35:15.208Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://ngudream.com/2016/08/13/realm-builder/</loc>
+    
+    <lastmod>2017-06-07T12:34:57.947Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://ngudream.com/2016/09/06/realm-dbhelper/</loc>
+    
+    <lastmod>2017-06-07T12:34:27.194Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://ngudream.com/guestbook/index.html</loc>
     
     <lastmod>2017-06-01T15:21:55.459Z</lastmod>
@@ -425,27 +446,6 @@
     <loc>http://ngudream.com/2016/09/10/rxjava-eventbus/</loc>
     
     <lastmod>2017-01-15T07:58:44.449Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://ngudream.com/2016/09/06/realm-dbhelper/</loc>
-    
-    <lastmod>2017-01-15T07:58:44.444Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://ngudream.com/2016/08/13/realm-builder/</loc>
-    
-    <lastmod>2017-01-15T07:58:44.443Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://ngudream.com/2016/08/14/realm-browse/</loc>
-    
-    <lastmod>2017-01-15T07:58:44.441Z</lastmod>
     
   </url>
   

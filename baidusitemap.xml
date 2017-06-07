@@ -3,6 +3,68 @@
 
 
     
+  <url>
+    <loc>http://ngudream.com/2016/08/14/realm-browse/</loc>
+    <lastmod>2017-06-07T12:35:15.208Z</lastmod>
+    <data>
+        <display>
+        <title>Realm实战总结--数据浏览</title>
+        <pubTime>2016-08-14T02:49:55.000Z</pubTime>
+        
+        <tag>Realm</tag>
+         
+         
+           
+             
+              <breadCrumb title="数据库" url="http://ngudream.com/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://ngudream.com/2016/08/13/realm-builder/</loc>
+    <lastmod>2017-06-07T12:34:57.947Z</lastmod>
+    <data>
+        <display>
+        <title>Realm实战总结--平台搭建</title>
+        <pubTime>2016-08-13T02:15:48.000Z</pubTime>
+        
+        <tag>Realm</tag>
+         
+         
+           
+             
+              <breadCrumb title="数据库" url="http://ngudream.com/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://ngudream.com/2016/09/06/realm-dbhelper/</loc>
+    <lastmod>2017-06-07T12:34:27.194Z</lastmod>
+    <data>
+        <display>
+        <title>Realm常用操作封装</title>
+        <pubTime>2016-09-06T14:09:16.000Z</pubTime>
+        
+        <tag>Android</tag>
+         
+        <tag>Realm</tag>
+         
+         
+           
+             
+              <breadCrumb title="移动开发" url="http://ngudream.com/categories/%E7%A7%BB%E5%8A%A8%E5%BC%80%E5%8F%91/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
     
     
   <url>
@@ -1217,68 +1279,6 @@
            
              
               <breadCrumb title="移动开发" url="http://ngudream.com/categories/%E7%A7%BB%E5%8A%A8%E5%BC%80%E5%8F%91/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://ngudream.com/2016/09/06/realm-dbhelper/</loc>
-    <lastmod>2017-01-15T07:58:44.444Z</lastmod>
-    <data>
-        <display>
-        <title>Realm常用操作封装</title>
-        <pubTime>2016-09-06T14:09:16.000Z</pubTime>
-        
-        <tag>Android</tag>
-         
-        <tag>Realm</tag>
-         
-         
-           
-             
-              <breadCrumb title="移动开发" url="http://ngudream.com/categories/%E7%A7%BB%E5%8A%A8%E5%BC%80%E5%8F%91/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://ngudream.com/2016/08/13/realm-builder/</loc>
-    <lastmod>2017-01-15T07:58:44.443Z</lastmod>
-    <data>
-        <display>
-        <title>Realm实战总结--平台搭建</title>
-        <pubTime>2016-08-13T02:15:48.000Z</pubTime>
-        
-        <tag>Realm</tag>
-         
-         
-           
-             
-              <breadCrumb title="数据库" url="http://ngudream.com/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://ngudream.com/2016/08/14/realm-browse/</loc>
-    <lastmod>2017-01-15T07:58:44.441Z</lastmod>
-    <data>
-        <display>
-        <title>Realm实战总结--数据浏览</title>
-        <pubTime>2016-08-14T02:49:55.000Z</pubTime>
-        
-        <tag>Realm</tag>
-         
-         
-           
-             
-              <breadCrumb title="数据库" url="http://ngudream.com/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
           
         </display>
     </data>
