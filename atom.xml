@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://ngudream.com/"/>
-  <updated>2017-05-31T13:04:13.351Z</updated>
+  <updated>2017-06-08T12:18:48.914Z</updated>
   <id>http://ngudream.com/</id>
   
   <author>
@@ -20,9 +20,521 @@
     <link href="http://ngudream.com/2017/05/31/java-interview-algorithm/"/>
     <id>http://ngudream.com/2017/05/31/java-interview-algorithm/</id>
     <published>2017-05-31T12:18:54.000Z</published>
-    <updated>2017-05-31T13:04:13.351Z</updated>
+    <updated>2017-06-08T12:18:48.914Z</updated>
     
-    <content type="html"><![CDATA[<h2 id="&#x7B97;&#x6CD5;"><a class="header-anchor" href="#&#x7B97;&#x6CD5;"></a>&#x7B97;&#x6CD5;</h2>
+    <content type="html"><![CDATA[<h2 id="&#x5E38;&#x89C1;&#x6392;&#x5E8F;&#x7B97;&#x6CD5;"><a class="header-anchor" href="#&#x5E38;&#x89C1;&#x6392;&#x5E8F;&#x7B97;&#x6CD5;"></a>&#x5E38;&#x89C1;&#x6392;&#x5E8F;&#x7B97;&#x6CD5;</h2>
+<p>&#x5728;&#x8BA1;&#x7B97;&#x673A;&#x79D1;&#x5B66;&#x4E0E;&#x6570;&#x5B66;&#x4E2D;&#xFF0C;&#x4E00;&#x4E2A;&#x6392;&#x5E8F;&#x7B97;&#x6CD5;&#xFF08;Sorting algorithm&#xFF09;&#x662F;&#x4E00;&#x79CD;&#x80FD;&#x5C06;&#x4E00;&#x4E32;&#x6570;&#x636E;&#x4F9D;&#x7167;&#x7279;&#x5B9A;&#x6392;&#x5E8F;&#x65B9;&#x5F0F;&#x7684;&#x4E00;&#x79CD;&#x7B97;&#x6CD5;&#x3002;&#x6700;&#x5E38;&#x7528;&#x5230;&#x7684;&#x6392;&#x5E8F;&#x65B9;&#x5F0F;&#x662F;&#x6570;&#x503C;&#x987A;&#x5E8F;&#x4EE5;&#x53CA;&#x5B57;&#x5178;&#x987A;&#x5E8F;&#x3002;&#x6709;&#x6548;&#x7684;&#x6392;&#x5E8F;&#x7B97;&#x6CD5;&#x5728;&#x4E00;&#x4E9B;&#x7B97;&#x6CD5;&#xFF08;&#x4F8B;&#x5982;&#x641C;&#x7D22;&#x7B97;&#x6CD5;&#x4E0E;&#x5408;&#x5E76;&#x7B97;&#x6CD5;&#xFF09;&#x4E2D;&#x662F;&#x91CD;&#x8981;&#x7684;&#xFF0C;&#x5982;&#x6B64;&#x8FD9;&#x4E9B;&#x7B97;&#x6CD5;&#x624D;&#x80FD;&#x5F97;&#x5230;&#x6B63;&#x786E;&#x89E3;&#x7B54;&#x3002;&#x6392;&#x5E8F;&#x7B97;&#x6CD5;&#x4E5F;&#x7528;&#x5728;&#x5904;&#x7406;&#x6587;&#x5B57;&#x6570;&#x636E;&#x4EE5;&#x53CA;&#x4EA7;&#x751F;&#x4EBA;&#x7C7B;&#x53EF;&#x8BFB;&#x7684;&#x8F93;&#x51FA;&#x7ED3;&#x679C;&#x3002;&#x57FA;&#x672C;&#x4E0A;&#xFF0C;&#x6392;&#x5E8F;&#x7B97;&#x6CD5;&#x7684;&#x8F93;&#x51FA;&#x5FC5;&#x987B;&#x9075;&#x5B88;&#x4E0B;&#x5217;&#x4E24;&#x4E2A;&#x539F;&#x5219;&#xFF1A;<br>
+&#x2022;	&#x8F93;&#x51FA;&#x7ED3;&#x679C;&#x4E3A;&#x9012;&#x589E;&#x4E32;&#x884C;&#xFF08;&#x9012;&#x589E;&#x662F;&#x9488;&#x5BF9;&#x6240;&#x9700;&#x7684;&#x6392;&#x5E8F;&#x987A;&#x5E8F;&#x800C;&#x8A00;&#xFF09;<br>
+&#x2022;	&#x8F93;&#x51FA;&#x7ED3;&#x679C;&#x662F;&#x539F;&#x8F93;&#x5165;&#x7684;&#x4E00;&#x79CD;&#x6392;&#x5217;&#x3001;&#x6216;&#x662F;&#x91CD;&#x7EC4;</p>
+<p><strong>&#x5206;&#x7C7B;&#xFF1A;</strong></p>
+<p>&#x4E3B;&#x8981;&#x6709;&#x4EE5;&#x4E0B;&#x51E0;&#x5927;&#x65B9;&#x9762;&#xFF1A;</p>
+<p>&#x2022;	&#x8BA1;&#x7B97;&#x590D;&#x6742;&#x5EA6;&#xFF1A;&#x4E5F;&#x5C31;&#x662F;&#x65F6;&#x95F4;&#x590D;&#x6742;&#x5EA6;&#xFF0C;&#xFF08;&#x6700;&#x5DEE;&#x3001;&#x5E73;&#x5747;&#x3001;&#x548C;&#x6700;&#x597D;&#x6027;&#x80FD;&#xFF09;&#xFF0C;&#x4F9D;&#x636E;&#x5217;&#x8868;&#xFF08;list&#xFF09;&#x7684;&#x5927;&#x5C0F;&#xFF08;n&#xFF09;&#x3002;&#x4E00;&#x822C;&#x800C;&#x8A00;&#xFF0C;&#x597D;&#x7684;&#x6027;&#x80FD;&#x662F;O(n log n)&#xFF0C;&#x4E14;&#x574F;&#x7684;&#x884C;&#x4E3A;&#x662F;O(n2)<br>
+&#x2022;	&#x5B58;&#x50A8;&#x5668;&#x4F7F;&#x7528;&#x91CF;&#xFF1A;&#x4E5F;&#x5C31;&#x662F;&#x7A7A;&#x95F4;&#x590D;&#x6742;&#x5EA6;<br>
+&#x2022;	&#x7A33;&#x5B9A;&#x5EA6;&#xFF1A;&#x7A33;&#x5B9A;&#x6392;&#x5E8F;&#x7B97;&#x6CD5;&#x4F1A;&#x4F9D;&#x7167;&#x76F8;&#x7B49;&#x7684;&#x5173;&#x952E;&#xFF08;&#x6362;&#x8A00;&#x4E4B;&#x5C31;&#x662F;&#x503C;&#xFF09;&#x7EF4;&#x6301;&#x7EAA;&#x5F55;&#x7684;&#x76F8;&#x5BF9;&#x6B21;&#x5E8F;&#x3002;&#x4E5F;&#x5C31;&#x662F;&#x4E00;&#x4E2A;&#x6392;&#x5E8F;&#x7B97;&#x6CD5;&#x662F;&#x7A33;&#x5B9A;&#x7684;&#xFF0C;&#x5C31;&#x662F;&#x5F53;&#x6709;&#x4E24;&#x4E2A;&#x6709;&#x76F8;&#x7B49;&#x5173;&#x952E;&#x7684;&#x7EAA;&#x5F55;R&#x548C;S&#xFF0C;&#x4E14;&#x5728;&#x539F;&#x672C;&#x7684;&#x5217;&#x8868;&#x4E2D;R&#x51FA;&#x73B0;&#x5728;S&#x4E4B;&#x524D;&#xFF0C;&#x5728;&#x6392;&#x5E8F;&#x8FC7;&#x7684;&#x5217;&#x8868;&#x4E2D;R&#x4E5F;&#x5C06;&#x4F1A;&#x662F;&#x5728;S&#x4E4B;&#x524D;&#x3002;<br>
+&#x2022;	&#x6392;&#x5E8F;&#x7279;&#x6027;&#xFF1A;&#x63D2;&#x5165;&#x3001;&#x4EA4;&#x6362;&#x3001;&#x9009;&#x62E9;&#x3001;&#x5408;&#x5E76;&#x7B49;&#x7B49;<br>
+&#x2022;	&#x6392;&#x5E8F;&#x8303;&#x7574;&#xFF1A;&#x5185;&#x5B58;&#x6392;&#x5E8F;(&#x5185;&#x6392;)&#xFF0C;&#x5916;&#x5B58;&#x6392;&#x5E8F;&#xFF08;&#x5916;&#x6392;&#xFF09;<br>
+&#x5177;&#x4F53;&#x5206;&#x4E3A;&#x4EE5;&#x4E0B;&#xFF1A;</p>
+<div align="center">
+<img data-original="/2017/05/31/java-interview-algorithm/algorithm.jpg" class="lazy">
+</div>
+<p>&#xFF08;1&#xFF09;&#x5192;&#x6CE1;&#x6392;&#x5E8F;</p>
+<p>n &#x8F6E;&#x626B;&#x63CF;&#xFF0C;&#x6BCF;&#x6B21;&#x6BD4;&#x8F83;&#x76F8;&#x90BB;&#x4E24;&#x6570;&#xFF0C;&#x6BCF;&#x8F6E;&#x5192;&#x51FA;&#x4E00;&#x4E2A;&#x6781;&#x503C;&#x51FA;&#x6765;&#x3002;</p>
+<pre><code>package org.vanjor.sort;
+ 
+public class BubbleSort implements Sorter {
+ 
+    @Override
+    public String getName() {
+        return &quot;BubbleSort&quot;;
+    }
+    @Override
+    public void sort(int[] array) {
+        int temp;
+        for (int i = 0; i &lt; array.length - 1; i++) {
+            // &#x6BCF;&#x6B21;&#x5C06;&#x6700;&#x5C0F;&#x7684;&#x5192;&#x5230;&#x6700;&#x524D;&#x9762;
+            for (int j = array.length - 1; j &gt; i; j--) {
+                if (array[j - 1] &gt; array[j]) {
+                    temp = array[j - 1];
+                    array[j - 1] = array[j];
+                    array[j] = temp;
+                }
+            }
+        }
+    }
+}
+</code></pre>
+<p>&#xFF08;2&#xFF09;&#x63D2;&#x5165;&#x6392;&#x5E8F;</p>
+<p>n &#x8F6E;&#x626B;&#x63CF;&#xFF0C;&#x6BCF;&#x6B21;&#x9009;&#x62E9;&#x4E00;&#x4E2A;&#x6781;&#x503C;&#x63D2;&#x5165;&#x5230;&#x5DF2;&#x6392;&#x5E8F;&#x4E00;&#x4FA7;&#x4E2D;</p>
+<pre><code>package org.vanjor.sort;
+ 
+public class InsertSort implements Sorter {
+ 
+    @Override
+    public String getName() {
+        return &quot;InsertSort&quot;;
+    }
+ 
+    @Override
+    public void sort(int[] array) {
+        int temp;
+        int j;
+        // i&#x4E4B;&#x524D;&#x7684;&#x5B50;&#x4E32;&#x90FD;&#x662F;&#x5DF2;&#x7ECF;&#x6392;&#x5E8F;&#x597D;&#x4E86;
+        for (int i = 1; i &lt; array.length; i++) {
+            j = i;
+            temp = array[j];
+            // &#x5BF9;&#x5F53;&#x524D;&#x4F4D;&#x7F6E;j&#x7684;&#x6570;&#x5B57;&#x5728;&#x5DF2;&#x6392;&#x5E8F;&#x597D;&#x7684;&#x5B50;&#x4E32;&#x9009;&#x62E9;&#x5408;&#x9002;&#x7684;&#x4F4D;&#x7F6E;&#x63D2;&#x5165;
+            while (j &gt; 0 &amp;&amp; temp &lt; array[j - 1]) {
+                // &#x987A;&#x79FB;&#x76F4;&#x63A5;&#x5B58;&#x653E;
+                array[j] = array[j - 1];
+                j--;
+            }
+            // &#x9009;&#x62E9;&#x5230;&#x4F4D;&#x7F6E;&#xFF0C;&#x76F4;&#x63A5;&#x5B58;&#x653E;&#x5F52;&#x961F;
+            array[j] = temp;
+        }
+    }
+}
+</code></pre>
+<p>&#xFF08;3&#xFF09;&#x6298;&#x534A;&#x63D2;&#x5165;&#x6392;&#x5E8F;</p>
+<p>&#x76F8;&#x6BD4;&#x7B80;&#x5355;&#x63D2;&#x5165;&#x6392;&#x5E8F;&#xFF0C;&#x6298;&#x534A;&#x63D2;&#x5165;&#x5728;&#x5DF2;&#x6392;&#x5E8F;&#x4E2D;&#x5BFB;&#x627E;&#x63D2;&#x5165;&#x4F4D;&#x7F6E;&#x7528;&#x6298;&#x534A;&#x67E5;&#x627E;&#xFF1A;</p>
+<pre><code>package org.vanjor.sort;
+ 
+public class HalfInsertSort implements Sorter {
+    @Override
+    public String getName() {
+        return &quot;HalfInsertSort&quot;;
+    }
+ 
+    @Override
+    public void sort(int[] array) {
+        for (int i = 1; i &lt; array.length; i++) {
+            // &#x4E8C;&#x5206;&#x67E5;&#x627E;&#x5BFB;&#x627E;&#x6700;&#x4F73;&#x63D2;&#x5165;&#x4F4D;&#x7F6E;
+            int low = 0, high = i - 1;
+            while (low &lt;= high) {
+                int middle = (low + high) / 2;
+                if (array[middle] &gt; array[i]) {
+                    high = middle - 1;
+                } else {
+                    low = middle + 1;
+                }
+            }
+            // &#x987A;&#x79FB;&#x5E76;&#x63D2;&#x5165;
+            int cursor = i;
+            int temp = array[i];
+            while (cursor &gt; low) {
+                array[cursor] = array[cursor - 1];
+                cursor--;
+            }
+            array[cursor] = temp;
+        }
+    }
+}
+</code></pre>
+<p>&#xFF08;4&#xFF09;&#x9009;&#x62E9;&#x6392;&#x5E8F;</p>
+<p>n &#x8F6E;&#x626B;&#x63CF;&#xFF0C;&#x6BCF;&#x6B21;&#x9009;&#x51FA;&#x5F53;&#x524D;&#x8F6E;&#x6B21;&#x7684;&#x6781;&#x503C;&#x51FA;&#x6765;&#xFF0C;&#x5E76;&#x76F4;&#x63A5;&#x653E;&#x5165;&#x6709;&#x5E8F;&#x7684;&#x4E00;&#x4FA7;</p>
+<pre><code>package org.vanjor.sort;
+ 
+public class SelectSort implements Sorter {
+ 
+    @Override
+    public String getName(){
+        return &quot;SelectSort&quot;;
+    }
+ 
+    @Override
+    public void sort(int[] array) {
+        int cursor;
+        int temp;
+        for (int i = 0; i &lt; array.length - 1; i++) {
+            //&#x901A;&#x8FC7;&#x6BD4;&#x8F83;&#x9009;&#x51FA;&#x6700;&#x5C0F;&#x503C;&#x7684;&#x6E38;&#x6807;&#xFF0C;&#x6700;&#x540E;&#x624D;&#x4EA4;&#x6362;
+            cursor = i;
+            for (int j = i + 1; j &lt; array.length; j++) {
+                if (array[j] &lt; array[cursor]) {
+                    cursor = j;
+                }
+            }
+            if(cursor!=i){
+                temp = array[i];
+                array[i] = array[cursor];
+                array[cursor] = temp;
+            }
+        }
+    }
+ 
+}
+</code></pre>
+<p>&#xFF08;5&#xFF09;&#x5FEB;&#x901F;&#x6392;&#x5E8F;</p>
+<p>&#x9012;&#x5F52;&#x5206;&#x6CBB;&#x5206;&#x5272;&#xFF0C;&#x6BCF;&#x5757;&#xFF0C;&#x9009;&#x53D6;&#x4E00;&#x4E2A;&#x65D7;&#x6746;&#xFF0C;&#x5C06;&#x5927;&#x6570;&#x548C;&#x5C0F;&#x6811;&#x5206;&#x653E;&#x4E24;&#x8FB9;&#xFF0C;&#x8FD0;&#x7528;&#x4E00;low&#x4E00;high&#x6807;&#x8BB0;&#x4F4D;&#x505A;&#x5230;&#x5C31;&#x5730;&#x5206;&#x5272;</p>
+<pre><code>package org.vanjor.sort;
+ 
+public class QuickSort implements Sorter {
+ 
+    @Override
+    public String getName() {
+        return &quot;QuickSort&quot;;
+    }
+ 
+    @Override
+    public void sort(int[] array) {
+        if (array == null || array.length == 0) {
+            return;
+        }
+        sort(array, 0, array.length - 1);
+    }
+ 
+    /**
+     * &#x9012;&#x5F52;&#x5F0F;&#xFF0C;&#x5BF9;array&#x4E2D;&#x7684;start&#x5230;end&#x533A;&#x57DF;&#x8FDB;&#x884C;&#x5FEB;&#x6392;
+     *
+     * @param array
+     * @param start
+     * @param end
+     */
+    private void sort(int[] array, int start, int end) {
+        // &#x9012;&#x5F52;&#x7EC8;&#x6B62;&#x6761;&#x4EF6;
+        if (start &gt;= end) {
+            return;
+        }
+ 
+        int low = start;
+        int high = end;
+        // &#x9009;&#x62E9;&#x5F53;&#x524D;&#x5B50;&#x6570;&#x7EC4;&#x7B2C;&#x4E00;&#x4E2A;&#x6570;&#x4E3A;&#x65D7;&#x5E1C;
+        int flag = array[low];
+        while (low &lt; high) {
+ 
+            while (low &lt; high &amp;&amp; array[high] &gt;= flag) {
+                high--;
+            }
+            array[low] = array[high];
+ 
+            while (low &lt; high &amp;&amp; array[low] &lt;= flag) {
+                low++;
+            }
+            array[high] = array[low];
+        }
+        // &#x6B64;&#x65F6;low&#x7684;&#x4F4D;&#x7F6E;&#x4E3A;&#x65D7;&#x5E1C;&#x7684;&#x6700;&#x7EC8;&#x6B63;&#x786E;&#x4F4D;&#x7F6E;
+        array[low] = flag;
+ 
+        // &#x9012;&#x5F52;&#x5BF9;&#x65D7;&#x5E1C;&#x7684;&#x4E24;&#x8FB9;&#x8FDB;&#x884C;&#x6392;&#x5E8F;&#xFF0C;&#x8FD9;&#x662F;low=high
+        sort(array, start, low - 1);
+        sort(array, high + 1, end);
+    }
+}
+</code></pre>
+<p>&#xFF08;6&#xFF09;&#x5E0C;&#x5C14;&#x6392;&#x5E8F;</p>
+<p>&#x76F8;&#x6BD4;&#x5192;&#x6CE1;&#x6392;&#x5E8F;&#xFF0C;&#x76F8;&#x90BB;&#x6BD4;&#x8F83;&#xFF0C;&#x5E0C;&#x5C14;&#x662F;&#x9009;&#x62E9;&#x4E00;&#x5B9A;&#x95F4;&#x9694;&#x7684;&#x8FDB;&#x884C;&#x6BD4;&#x8F83;&#xFF0C;&#x95F4;&#x9694;&#x9010;&#x6E10;&#x7F29;&#x77ED;&#xFF0C;&#x6700;&#x7EC8;&#x505A;&#x5230;&#x6709;&#x5E8F;&#xFF0C;&#x76F8;&#x6BD4;&#x5192;&#x6CE1;&#x6392;&#x5E8F;&#xFF0C;&#x51CF;&#x5C11;&#x4E86;&#x6BD4;&#x8F83;&#x4EA4;&#x6362;&#x7684;&#x6B21;&#x6570;&#x3002;</p>
+<pre><code>package org.vanjor.sort;
+ 
+public class ShellSort implements Sorter {
+ 
+    @Override
+    public String getName() {
+        return &quot;ShellSort&quot;;
+    }
+ 
+    @Override
+    public void sort(int[] array) {
+        int temp;
+        int inc = array.length / 2;
+        while (inc &gt;= 2) {
+            for (int cursor = 0; cursor &lt;= array.length - 1 - inc; cursor++) {
+                if (array[cursor] &gt; array[cursor + inc]) {
+                    temp = array[cursor];
+                    array[cursor] = array[cursor + inc];
+                    array[cursor + inc] = temp;
+                }
+ 
+            }
+            // &#x6B65;&#x957F;&#x5E8F;&#x5217;&#x6BCF;&#x6B21;&#x9664;2
+            inc /= 2;
+        }
+ 
+        // &#x6700;&#x540E;&#x6B65;&#x957F;&#x4E3A;1&#xFF0C;&#x77E5;&#x9053;&#x68C0;&#x67E5;&#x65E0;&#x66F4;&#x6539;&#xFF0C;&#x5373;&#x9000;&#x51FA;&#x5FAA;&#x73AF;
+        boolean tag = true;
+        while (tag) {
+            tag = false;
+            for (int cursor = 0; cursor &lt; array.length - 1; cursor++) {
+                if (array[cursor] &gt; array[cursor + 1]) {
+                    temp = array[cursor];
+                    array[cursor] = array[cursor + 1];
+                    array[cursor + 1] = temp;
+                    tag = true;
+                }
+            }
+        }
+    }
+}
+</code></pre>
+<p>&#xFF08;7&#xFF09;&#x5F52;&#x5E76;&#x6392;&#x5E8F;</p>
+<p>&#x8FD0;&#x7528;&#x6700;&#x57FA;&#x672C;&#x7684;&#x5206;&#x6CBB;&#x601D;&#x60F3;&#xFF0C;&#x5C06;&#x539F;&#x59CB;&#x7684;&#x6570;&#x636E;&#x4E0D;&#x65AD;&#x7684;&#x4E8C;&#x5206;&#xFF0C;&#x6392;&#x5E8F;&#xFF0C;&#x518D;&#x5F52;&#x5E76;</p>
+<pre><code>package org.vanjor.sort;
+ 
+public class MergeSort implements Sorter {
+ 
+    @Override
+    public String getName(){
+        return &quot;MergeSort&quot;;
+    }
+    @Override
+    public void sort(int[] array) {
+        int[] tempArray = new int[array.length];
+        mergeSort(array, tempArray, 0, array.length - 1);
+    }
+ 
+    /**
+     * &#x4E0D;&#x65AD;&#x5206;&#x5272;&#xFF0C;&#x518D;&#x5408;&#x5E76;&#xFF0C;&#x9012;&#x5F52;&#x6C42;&#x89E3;
+     */
+    private void mergeSort(int[] array, int[] tempArray, int start, int end) {
+        // &#x9012;&#x5F52;&#x7EC8;&#x6B62;&#x6761;&#x4EF6;&#xFF0C;&#x6700;&#x7EC8;&#x7C92;&#x5EA6;&#x4E3A;1
+        if (end &lt;= start) {
+            return;
+        }
+        // &#x8FD9;&#x91CC;&#x4FDD;&#x8BC1;&#x4E86;start&lt;=middle,middle+1&lt;=end
+        int middle = (start + end) / 2;
+        // &#x4ECE;middle&#x5206;&#x4E24;&#x90E8;&#x5206;&#xFF0C;&#x6BCF;&#x4E00;&#x90E8;&#x5206;&#x6392;&#x5E8F;&#x540E;&#xFF0C;&#x518D;&#x5408;&#x5E76;&#x6392;&#x5E8F;
+        mergeSort(array, tempArray, start, middle);
+        mergeSort(array, tempArray, middle + 1, end);
+        // &#x5408;&#x5E76;
+        merge(array, tempArray, start, middle, end);
+    }
+ 
+    /**
+     * &#x5C06;&#x4E24;&#x4E2A;&#x6709;&#x5E8F;&#x6570;&#x636E;&#x5408;&#x5E76;&#xFF0C;&#x4E24;&#x6570;&#x7EC4;&#x7684;&#x4F4D;&#x7F6E;&#x5206;&#x522B;&#x4E3A;start-&gt;middle,middle+1-&gt;end
+     */
+    private void merge(int[] array, int[] tempArray, int start, int middle,
+            int end) {
+        int pos1, pos2, mergePos;
+        //&#x5C06;&#x4E24;&#x76F8;&#x90BB;&#x5B50;&#x6570;&#x7EC4;&#x5408;&#x5E76;&#x5230;&#x4E34;&#x65F6;&#x6570;&#x636E;&#x4E2D;
+        for (pos1 = start, pos2 = middle + 1, mergePos = start; pos1 &lt;= middle
+                &amp;&amp; pos2 &lt;= end; mergePos++) {
+            if (array[pos1] &gt; array[pos2]) {
+                tempArray[mergePos] = array[pos2++];
+            } else {
+                tempArray[mergePos] = array[pos1++];
+            }
+        }
+        //&#x5BF9;&#x5269;&#x4F59;&#x7684;&#x90E8;&#x5206;&#x76F4;&#x63A5;&#x590D;&#x5236;
+        while (pos1 &lt;= middle) {
+            tempArray[mergePos++] = array[pos1++];
+        }
+        while (pos2 &lt;= end) {
+            tempArray[mergePos++] = array[pos2++];
+        }
+ 
+        //&#x5C06;&#x4E34;&#x65F6;&#x6570;&#x636E;&#x4E2D;&#x6309;&#x4F4D;&#x7F6E;&#x62F7;&#x8D1D;&#x56DE;
+        int pos = start;
+        while (pos &lt;= end) {
+            array[pos] = tempArray[pos];
+            pos++;
+        }
+ 
+    }
+}
+</code></pre>
+<p>&#xFF08;8&#xFF09;&#x5806;&#x6392;&#x5E8F;</p>
+<p>&#x8FD0;&#x7528;&#x5806;&#x7684;&#x7279;&#x6027;&#xFF0C;&#x7279;&#x6B8A;&#x7684;&#x4E8C;&#x53C9;&#x6811;&#xFF0C;&#x9876;&#x70B9;&#x6BD4;&#x4E24;&#x4E2A;&#x5B69;&#x5B50;&#x8981;&#x4E48;&#x90FD;&#x5927;&#xFF08;&#x5927;&#x9876;&#x5806;&#xFF09;&#xFF0C;&#x8981;&#x4E48;&#x90FD;&#x5C0F;&#xFF08;&#x5C0F;&#x9876;&#x5806;&#xFF09;&#xFF0C;&#x5BF9;&#x4E8E;&#x6570;&#x7EC4;&#x521D;&#x59CB;&#x5316;&#x6784;&#x5EFA;&#x540E;&#xFF0C;&#x4E5F;&#x662F;&#x4E00;&#x4E2A;&#x5B8C;&#x5168;&#x4E8C;&#x53C9;&#x6811;&#xFF0C;&#x5E8F;&#x53F7;&#x4E3A;p&#x7684;&#x4E24;&#x4E2A;&#x5B69;&#x5B50;&#x4E3A;2p&#x4E0E;2p+1&#xFF0C;&#x5148;n/2&#x8F6E;&#x6B21;&#xFF08;&#x4ECE;&#x6700;&#x5E95;&#x7AEF;&#x975E;&#x53F6;&#x5B50;&#x8282;&#x70B9;&#x5F00;&#x59CB;&#xFF09;&#x5EFA;&#x5806;&#xFF0C;&#x7136;&#x540E;&#x6BCF;&#x6B21;&#x53D6;&#x5806;&#x9876;&#xFF0C;&#x540E;&#x8C03;&#x6574;&#x5806;&#xFF0C;&#x6700;&#x7EC8;&#x5B8C;&#x6210;&#x6709;&#x5E8F;&#x6392;&#x5E8F;&#x3002;</p>
+<p>&#x5806;&#x6392;&#x5E8F;&#x7B97;&#x6CD5;&#x7684;&#x57FA;&#x672C;&#x601D;&#x60F3;&#x662F;&#xFF0C;&#x5C06;&#x6570;&#x7EC4;A&#x521B;&#x5EFA;&#x4E3A;&#x4E00;&#x4E2A;&#x6700;&#x5927;&#x5806;&#xFF0C;&#x7136;&#x540E;&#x4EA4;&#x6362;&#x5806;&#x7684;&#x6839;(&#x6700;&#x5927;&#x5143;&#x7D20;)&#x548C;&#x6700;&#x540E;&#x4E00;&#x4E2A;&#x53F6;&#x8282;&#x70B9;x&#xFF0C;&#x5C06;x&#x4ECE;&#x5806;&#x4E2D;&#x53BB;&#x6389;&#x5F62;&#x6210;&#x65B0;&#x7684;&#x5806;A1&#xFF0C;&#x7136;&#x540E;&#x91CD;&#x590D;&#x4EE5;&#x4E0A;&#x52A8;&#x4F5C;&#xFF0C;&#x76F4;&#x5230;&#x5806;&#x4E2D;&#x53EA;&#x6709;&#x4E00;&#x4E2A;&#x8282;&#x70B9;&#x3002;</p>
+<pre><code>package org.vanjor.sort;
+ 
+public class HeapSort implements Sorter {
+    @Override
+    public String getName() {
+        return &quot;HeapSort&quot;;
+    }
+ 
+    public void sort(int[] array) {
+        if (array == null || array.length &lt; 2) {
+            return;
+        }
+        int len = array.length - 1;
+ 
+        // &#x4ECE;&#x6700;&#x5E95;&#x5C42;&#x975E;&#x53F6;&#x5B50;&#x8282;&#x70B9;&#x5F00;&#x59CB;&#x5EFA;&#x5806;
+        for (int i = (len) / 2; i &gt;= 1; i--) {
+            headAjust(array, i, len);
+        }
+        // &#x9700;&#x8981;turnNum&#x6B21;&#x53D6;&#x5806;&#x9876;&#xFF0C;&#x83B7;&#x5F97;&#x5168;&#x90E8;&#x6392;&#x5E8F;
+        int turnNum = len;
+        // &#x5F53;&#x524D;&#x8F6E;&#x6B21;&#xFF0C;&#x5806;&#x9876;&#xFF0C;&#x6700;&#x5927;&#x503C;
+        int turnMax = array[1];
+ 
+        // &#x56E0;&#x4E3A;array&#x6392;&#x5E8F;&#x8D77;&#x70B9;&#x4E3A;1&#xFF0C;&#x6240;&#x8C13;&#x5230;1&#x505C;&#x6B62;&#x4E86;
+        while (turnNum &gt;= 1) {
+            array[1] = array[turnNum];
+            array[turnNum] = turnMax;
+            turnNum--;
+            // &#x91CD;&#x5EFA;&#x5806;
+            headAjust(array, 1, turnNum);
+            // &#x5F97;&#x5230;&#x65B0;&#x5806;&#x5806;&#x9876;
+            turnMax = array[1];
+        }
+    }
+ 
+    public void headAjust(int[] array, int start, int end) {
+        int cursor;
+        // &#x4FDD;&#x5B58;&#x5F53;&#x524D;&#x9876;&#x70B9;start&#x503C;
+        int local = array[start];
+        for (cursor = 2 * start; cursor &lt;= end; cursor *= 2) {
+            // &#x53D6;start&#x7684;&#x4E24;&#x4E2A;&#x53F6;&#x5B50;&#x8282;&#x70B9;&#x4E2D;&#x8F83;&#x5927;&#x8005;&#xFF0C;cursor&#x4E3A;&#x5BF9;&#x5E94;&#x53F6;&#x5B50;&#x8282;&#x70B9;&#x5E8F;&#x53F7;
+            if (cursor &lt; end &amp;&amp; array[cursor] &lt; array[cursor + 1]) {
+                cursor++;
+            }
+            // &#x5982;&#x679C;&#x9876;&#x8282;&#x70B9;&#x5C31;&#x662F;&#x6700;&#x5927;&#xFF0C;&#x5219;&#x65E0;&#x9700;&#x7EE7;&#x7EED;&#x8C03;&#x8282;&#x4E86;
+            if (local &gt;= array[cursor]) {
+                break;
+            }
+            // &#x6700;&#x5927;&#x503C;&#x4E0A;&#x79FB;&#x5230;&#x9876;&#x70B9;
+            array[start] = array[cursor];
+            // &#x6CBF;&#x6811;&#x5411;&#x4E0B;&#x7EE7;&#x7EED;&#x5EFA;&#x5806;&#x8C03;&#x6574;&#xFF0C;&#x5176;&#x5B9E;&#x4E5F;&#x5C31;&#x662F;&#x88AB;&#x66FF;&#x6362;&#x4E0B;&#x6765;&#x7684;&#x9876;&#x70B9;&#x627E;&#x5230;&#x4F4D;&#x7F6E;
+            start = cursor;
+        }
+        // &#x627E;&#x5230;&#x5BF9;&#x5E94;&#x4F4D;&#x7F6E;&#xFF0C;&#x5F52;&#x4F4D;
+        array[start] = local;
+    }
+}
+</code></pre>
+<p>&#xFF08;9&#xFF09;&#x57FA;&#x6570;&#x6392;&#x5E8F;</p>
+<p>&#x57FA;&#x6570;&#x6392;&#x5E8F;&#x4E2D;&#x7684;&#x4E00;&#x4E2A;&#x73AF;&#x8282;&#x4E0E;&#x6876;&#x6392;&#x5E8F;&#x601D;&#x8DEF;&#x5F88;&#x76F8;&#x540C;&#xFF0C;&#x5C31;&#x662F;&#x5229;&#x7528;&#x6570;&#x5B57;&#x5206;&#x5C42;&#xFF0C;&#x5982;&#x4E2A;&#x4F4D;&#xFF0C;&#x5341;&#x4F4D;&#xFF0C;&#x767E;&#x4F4D;&#xFF0C;&#x5206;&#x522B;&#x6392;&#x5E8F;&#xFF0C;&#x6BCF;&#x4E00;&#x5C42;&#x90FD;&#x53EF;&#x4EE5;&#x88AB;&#x653E;&#x5728;&#x5341;&#x4E2A;&#x6876;&#x91CC;&#xFF0C;&#x4ECE;0&#x5230;9&#xFF0C;&#x8FDB;&#x884C;&#x8F6E;&#x6B21;&#x7684;&#x53D6;&#x653E;&#xFF0C;&#x6700;&#x7EC8;&#x5F97;&#x5230;&#x6709;&#x5E8F;&#x3002;</p>
+<p>&#x57FA;&#x6570;&#x6392;&#x5E8F;&#x662F;&#x5178;&#x578B;&#x7684;&#x5229;&#x7528;&#x7A7A;&#x95F4;&#x6362;&#x65F6;&#x95F4;&#x7684;&#x4E00;&#x79CD;&#x601D;&#x8DEF;&#xFF0C;&#x6709;&#x4E24;&#x79CD;&#x6781;&#x7AEF;&#x7684;&#x65B9;&#x5411;&#xFF1A;</p>
+<ul>
+<li>&#x6876;&#x591F;&#x591A;&#xFF1A;&#x5982;&#x679C;&#x5E26;&#x6392;&#x6570;&#x76F8;&#x5DEE;&#x4E0D;&#x662F;&#x7279;&#x522B;&#x5927;&#xFF0C;&#x53EF;&#x4EE5;&#x7528;&#x4E00;&#x4E2A;&#x8DB3;&#x591F;&#x7684;&#x6876;&#x96C6;&#xFF0C;&#x76F4;&#x63A5;&#x5C06;&#x6BCF;&#x4E00;&#x4E2A;&#x4E0D;&#x540C;&#x7684;&#x6570;&#x653E;&#x5230;&#x4E0D;&#x540C;&#x7684;&#x6876;&#x91CC;&#xFF0C;&#x6700;&#x540E;&#x6876;&#x7684;&#x987A;&#x5E8F;&#x5C31;&#x662F;&#x6570;&#x7684;&#x987A;&#x5E8F;&#xFF0C;&#x5728;&#x6570;&#x7684;&#x5BC6;&#x5EA6;&#x591F;&#x5747;&#x5300;&#x7684;&#x60C5;&#x51B5;&#x4E0B;&#x6548;&#x7387;&#x4E3A;O(n)</li>
+<li>&#x6876;&#x591F;&#x5C11;&#xFF1A;&#x5982;&#x679C;&#x6309;bit&#x4F4D;&#x6765;&#x8FDB;&#x884C;&#x57FA;&#x6570;&#x6392;&#x5E8F;&#x65F6;&#xFF0C;&#x6BCF;&#x4E2A;bit&#x5C31;&#x4E24;&#x79CD;&#x60C5;&#x51B5;0,1,&#x4E5F;&#x5C31;&#x662F;&#x53EA;&#x9700;&#x8981;&#x4E24;&#x4E2A;&#x6876;&#xFF0C;&#x4F46;&#x662F;&#x8FD9;&#x6837;&#x603B;&#x5171;&#x9700;&#x8981;&#x7684;&#x8F6E;&#x6B21;&#xFF0C;&#x5047;&#x8BBE;&#x6700;&#x5927;&#x503C;&#x4E3A;M&#xFF0C;&#x5219;&#x8F6E;&#x6B21;&#x4E3A;log(M)&#xFF0C;&#x65F6;&#x95F4;&#x590D;&#x6742;&#x5EA6;&#x4E3A;log(M)&#x2022;O&#xFF08;n&#xFF09;</li>
+</ul>
+<p>&#x57FA;&#x6570;&#x6392;&#x5E8F;&#x7684;&#x4E3B;&#x8981;&#x601D;&#x8DEF;&#x662F;&#xFF0C;&#x5C06;&#x6240;&#x6709;&#x5F85;&#x6BD4;&#x8F83;&#x6570;&#x503C;(&#x6CE8;&#x610F;,&#x5FC5;&#x987B;&#x662F;&#x6B63;&#x6574;&#x6570;)&#x7EDF;&#x4E00;&#x4E3A;&#x540C;&#x6837;&#x7684;&#x6570;&#x4F4D;&#x957F;&#x5EA6;,&#x6570;&#x4F4D;&#x8F83;&#x77ED;&#x7684;&#x6570;&#x524D;&#x9762;&#x8865;&#x96F6;&#x3002;&#x7136;&#x540E;, &#x4ECE;&#x6700;&#x4F4E;&#x4F4D;&#x5F00;&#x59CB;, &#x4F9D;&#x6B21;&#x8FDB;&#x884C;&#x4E00;&#x6B21;&#x7A33;&#x5B9A;&#x6392;&#x5E8F;(&#x6211;&#x4EEC;&#x5E38;&#x7528;&#x4E0A;&#x4E00;&#x7BC7;blog&#x4ECB;&#x7ECD;&#x7684;&#x8BA1;&#x6570;&#x6392;&#x5E8F;&#x7B97;&#x6CD5;, &#x56E0;&#x4E3A;&#x6BCF;&#x4E2A;&#x4F4D;&#x53EF;&#x80FD;&#x7684;&#x53D6;&#x503C;&#x8303;&#x56F4;&#x662F;&#x56FA;&#x5B9A;&#x7684;&#x4ECE;0&#x5230;9)&#x3002;&#x8FD9;&#x6837;&#x4ECE;&#x6700;&#x4F4E;&#x4F4D;&#x6392;&#x5E8F;&#x4E00;&#x76F4;&#x5230;&#x6700;&#x9AD8;&#x4F4D;&#x6392;&#x5E8F;&#x5B8C;&#x6210;&#x4EE5;&#x540E;, &#x6570;&#x5217;&#x5C31;&#x53D8;&#x6210;&#x4E00;&#x4E2A;&#x6709;&#x5E8F;&#x5E8F;&#x5217;&#x3002;</p>
+<p>&#x6BD4;&#x5982;&#x8FD9;&#x6837;&#x4E00;&#x4E2A;&#x6570;&#x5217;&#x6392;&#x5E8F;: 342 58 576 356, &#x4EE5;&#x4E0B;&#x63CF;&#x8FF0;&#x6F14;&#x793A;&#x4E86;&#x5177;&#x4F53;&#x7684;&#x6392;&#x5E8F;&#x8FC7;&#x7A0B;</p>
+<p>&#x7B2C;&#x4E00;&#x6B21;&#x6392;&#x5E8F;(&#x4E2A;&#x4F4D;):<br>
+3 4 2<br>
+5 7 6<br>
+3 5 6<br>
+0 5 8<br>
+&#x7B2C;&#x4E8C;&#x6B21;&#x6392;&#x5E8F;(&#x5341;&#x4F4D;):<br>
+3 4 2<br>
+3 5 6<br>
+0 5 8<br>
+5 7 6<br>
+&#x7B2C;&#x4E09;&#x6B21;&#x6392;&#x5E8F;(&#x767E;&#x4F4D;):<br>
+0 5 8<br>
+3 4 2<br>
+3 5 6<br>
+5 7 6<br>
+&#x7ED3;&#x679C;: 58 342 356 576</p>
+<pre><code>package org.vanjor.sort;
+ 
+import java.util.ArrayList;
+import java.util.LinkedList;
+ 
+public class RadixSort implements Sorter {
+ 
+    @Override
+    public String getName() {
+        return &quot;RadixSort&quot;;
+    }
+ 
+    @Override
+    public void sort(int[] array) {
+        // &#x53EA;&#x662F;&#x4E3A;&#x4E86;&#x6F14;&#x793A;&#xFF0C;&#x57FA;&#x6570;&#x6240;&#x7528;&#x6876;&#xFF0C;&#x8FD9;&#x91CC;&#x7528;&#x9AD8;&#x7EA7;&#x94FE;&#x8868;API
+        // &#x6876;&#x96C6;A&#x5B58;&#x653E;&#x5F53;&#x524D;&#x8F6E;&#x6B21;&#x5F00;&#x59CB;&#x524D;&#x7684;&#x72B6;&#x6001;
+        ArrayList&lt;LinkedList&lt;Integer&gt;&gt; bucketA = new ArrayList&lt;LinkedList&lt;Integer&gt;&gt;();
+        // &#x6876;&#x96C6;B&#x5B58;&#x653E;&#x5F53;&#x524D;&#x8F6E;&#x6B21;&#x6392;&#x5E8F;&#x540E;&#x7684;&#x72B6;&#x6001;
+        ArrayList&lt;LinkedList&lt;Integer&gt;&gt; bucketB = new ArrayList&lt;LinkedList&lt;Integer&gt;&gt;();
+        // &#x6BCF;&#x8F6E;&#x6B21;&#x6392;&#x5E8F;&#x540E;&#x98A0;&#x5012;&#x540E;&#x4EA4;&#x6362;&#x7528;
+        ArrayList&lt;LinkedList&lt;Integer&gt;&gt; tempArray;
+        // &#x57FA;&#x4E8E;&#x6570;&#x5B57;&#x6392;&#x5E8F;&#xFF0C;&#x5171;10&#x4E2A;&#x6876;
+        final int bucketBase = 10;
+        int temp = bucketBase;
+        while ((--temp) &gt;= 0) {
+            bucketA.add(new LinkedList&lt;Integer&gt;());
+            bucketB.add(new LinkedList&lt;Integer&gt;());
+        }
+        // &#x627E;&#x51FA;&#x5F53;&#x524D;&#x6700;&#x5927;&#x7684;&#x6570;&#xFF0C;&#x7528;&#x4EE5;&#x786E;&#x5B9A;&#x6700;&#x591A;&#x9700;&#x8981;&#x6876;&#x88C5;&#x586B;&#x7684;&#x8F6E;&#x6B21;
+        int maxNum = -1;
+        for (int i = 0; i &lt; array.length; i++) {
+            if (array[i] &gt; maxNum) {
+                maxNum = array[i];
+            }
+        }
+        // &#x8BA1;&#x7B97;&#x8F6E;&#x6B21;
+        int turn = 0;
+        while (maxNum &gt; 0) {
+            turn++;
+            maxNum /= bucketBase;
+        }
+        // &#x521D;&#x59CB;&#x88C5;&#x586B;&#x5230;A&#x6876;&#x96C6;&#x4E2D;
+        for (int i = 0; i &lt; array.length; i++) {
+            bucketA.get(array[i] % 10).add(array[i]);
+        }
+        int locNum;
+        int turnBaseDiv = 1;
+        while ((turn--) &gt; 0) {
+            // &#x5F53;&#x524D;&#x8F6E;&#x6B21;&#xFF0C;&#x5BF9;&#x6876;&#x96C6;&#x4E2D;&#x7684;10&#x4E2A;&#x6876;&#x6309;&#x5F53;&#x524D;&#x4F4D;&#x8FDB;&#x884C;&#x91CD;&#x65B0;&#x72B6;&#x6001;
+            for (int i = 0; i &lt; bucketBase; i++) {
+                while (!bucketA.get(i).isEmpty()) {
+                    locNum = bucketA.get(i).remove();
+                    // &#x6839;&#x636E;&#x5F53;&#x524D;&#x8F6E;&#x6B21;&#x6BD4;&#x8F83;&#x4F4D;&#xFF0C;&#x627E;&#x5230;&#x5BF9;&#x5E94;&#x7684;&#x6876;
+                    bucketB.get((locNum / turnBaseDiv) % 10).add(locNum);
+                }
+            }
+            // &#x6BD4;&#x8F83;&#x4F4D;&#x524D;&#x79FB;
+            turnBaseDiv *= 10;
+            // &#x4EA4;&#x6362;A&#xFF0C;B&#x6B21;&#x5E8F;
+            tempArray = bucketB;
+            bucketB = bucketA;
+            bucketA = tempArray;
+        }
+        // &#x4ECE;&#x6876;&#x4E2D;&#x987A;&#x5E8F;&#x53D6;&#x6570;
+        for (int i = 0, j = 0; i &lt; 10; i++) {
+            while (!bucketA.get(i).isEmpty()) {
+                array[j++] = bucketA.get(i).remove();
+            }
+        }
+    }
+}
+</code></pre>
+<p>&#xFF08;9&#xFF09;&#x6876;&#x5F0F;&#x6392;&#x5E8F;</p>
+<p>&#x6876;&#x5F0F;&#x6392;&#x5E8F;&#x4E0D;&#x518D;&#x662F;&#x57FA;&#x4E8E;&#x6BD4;&#x8F83;&#x7684;&#x4E86;&#xFF0C;&#x5B83;&#x548C;&#x57FA;&#x6570;&#x6392;&#x5E8F;&#x540C;&#x5C5E;&#x4E8E;&#x5206;&#x914D;&#x7C7B;&#x7684;&#x6392;&#x5E8F;&#xFF0C;&#x8FD9;&#x7C7B;&#x6392;&#x5E8F;&#x7684;&#x7279;&#x70B9;&#x662F;&#x4E8B;&#x5148;&#x8981;&#x77E5;&#x9053;&#x5F85;&#x6392;&#x5E8F;&#x5217;&#x7684;&#x4E00;&#x4E9B;&#x7279;&#x5F81;&#x3002;&#x6876;&#x5F0F;&#x6392;&#x5E8F;&#x4E8B;&#x5148;&#x8981;&#x77E5;&#x9053;&#x5F85;&#x6392;&#x5E8F;&#x5217;&#x5728;&#x4E00;&#x4E2A;&#x8303;&#x56F4;&#x5185;&#xFF0C;&#x800C;&#x4E14;&#x8FD9;&#x4E2A;&#x8303;&#x56F4;&#x5E94;&#x8BE5;&#x4E0D;&#x662F;&#x5F88;&#x5927;&#x7684;&#x3002;&#x6BD4;&#x5982;&#x77E5;&#x9053;&#x5F85;&#x6392;&#x5E8F;&#x5217;&#x5728;[0,M&#xFF09;&#x5185;&#xFF0C;&#x90A3;&#x4E48;&#x53EF;&#x4EE5;&#x5206;&#x914D;M&#x4E2A;&#x6876;&#xFF0C;&#x7B2C;I&#x4E2A;&#x6876;&#x8BB0;&#x5F55;I&#x7684;&#x51FA;&#x73B0;&#x60C5;&#x51B5;&#xFF0C;&#x6700;&#x540E;&#x6839;&#x636E;&#x6BCF;&#x4E2A;&#x6876;&#x6536;&#x5230;&#x7684;&#x4F4D;&#x7F6E;&#x4FE1;&#x606F;&#x628A;&#x6570;&#x636E;&#x8F93;&#x51FA;&#x6210;&#x6709;&#x5E8F;&#x7684;&#x5F62;&#x5F0F;&#x3002;&#x8FD9;&#x91CC;&#x6211;&#x4EEC;&#x7528;&#x4E24;&#x4E2A;&#x4E34;&#x65F6;&#x6027;&#x6570;&#x7EC4;&#xFF0C;&#x4E00;&#x4E2A;&#x7528;&#x4E8E;&#x8BB0;&#x5F55;&#x4F4D;&#x7F6E;&#x4FE1;&#x606F;&#xFF0C;&#x4E00;&#x4E2A;&#x7528;&#x4E8E;&#x65B9;&#x4FBF;&#x8F93;&#x51FA;&#x6570;&#x636E;&#x6210;&#x6709;&#x5E8F;&#x65B9;&#x5F0F;&#xFF0C;&#x53E6;&#x5916;&#x6211;&#x4EEC;&#x5047;&#x8BBE;&#x6570;&#x636E;&#x843D;&#x5728;0&#x5230;MAX,&#x5982;&#x679C;&#x6240;&#x7ED9;&#x6570;&#x636E;&#x4E0D;&#x662F;&#x4ECE;0&#x5F00;&#x59CB;&#xFF0C;&#x4F60;&#x53EF;&#x4EE5;&#x628A;&#x6BCF;&#x4E2A;&#x6570;&#x51CF;&#x53BB;&#x6700;&#x5C0F;&#x7684;&#x6570;&#x3002;</p>
+<p>&#x5982;&#x679C;&#x6211;&#x4EEC;&#x6709;N&#x4E2A;&#x6574;&#x6570;&#xFF0C;&#x8303;&#x56F4;&#x4ECE;1&#x5230;M(&#x6216;&#x4ECE;0&#x5230;M-1)&#xFF0C;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x5229;&#x7528;&#x8FD9;&#x4E2A;&#x4FE1;&#x606F;&#x5F97;&#x5230;&#x4E00;&#x79CD;&#x5FEB;&#x901F;&#x7684;&#x6392;&#x5E8F;&#xFF0C;&#x53EB;&#x505A;&#x6876;&#x5F0F;&#x6392;&#x5E8F;(bucket sort)&#x3002;&#x6211;&#x4EEC;&#x7559;&#x7F6E;&#x4E00;&#x4E2A;&#x6570;&#x7EC4;&#xFF0C;&#x79F0;&#x4E4B;&#x4E3A;Count&#xFF0C;&#x5927;&#x5C0F;&#x4E3A;M&#xFF0C;&#x5E76;&#x521D;&#x59CB;&#x5316;&#x4E3A;&#x96F6;&#x3002;&#x4E8E;&#x662F;&#xFF0C;Count&#x6709;M&#x4E2A;&#x5355;&#x5143;(&#x6216;&#x6876;)&#xFF0C;&#x5F00;&#x59CB;&#x65F6;&#x4ED6;&#x4EEC;&#x90FD;&#x662F;&#x7A7A;&#x7684;&#x3002;&#x5F53;&#x6570;&#x7EC4;&#x5143;&#x7D20;A[i]&#x88AB;&#x8BFB;&#x5165;&#x65F6;Count[A[i]]&#x589E;1&#x3002;&#x5728;&#x6240;&#x6709;&#x7684;&#x8F93;&#x5165;&#x88AB;&#x8BFB;&#x8FDB;&#x4EE5;&#x540E;&#xFF0C;&#x626B;&#x63CF;&#x6570;&#x7EC4;Count&#xFF0C;&#x6253;&#x5370;&#x8F93;&#x51FA;&#x6392;&#x597D;&#x5E8F;&#x7684;&#x8868;&#x3002;&#x8BE5;&#x7B97;&#x6CD5;&#x82B1;&#x8D39;O(M+N)&#x3002;<br>
+&#x7531;&#x6B64;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x53D1;&#x73B0;&#x6876;&#x5F0F;&#x6392;&#x5E8F;&#x9700;&#x8981;&#x6EE1;&#x8DB3;&#x7684;&#x4E24;&#x4E2A;&#x524D;&#x63D0;&#x6761;&#x4EF6;&#xFF1A;&#x7B2C;&#x4E00;&#xFF0C;&#x5F85;&#x6392;&#x5E8F;&#x6570;&#x7EC4;&#x5143;&#x7D20;&#x4E3A;&#x975E;&#x8D1F;&#x6574;&#x6570;&#xFF1B;&#x7B2C;&#x4E8C;&#xFF0C;&#x5F85;&#x6392;&#x5E8F;&#x6570;&#x7EC4;&#x5143;&#x7D20;&#x6709;&#x754C;&#x3002;&#x8FD9;&#x4E24;&#x4E2A;&#x524D;&#x63D0;&#x6761;&#x4EF6;&#x9650;&#x5236;&#x4E86;&#x6876;&#x5F0F;&#x6392;&#x5E8F;&#x7684;&#x5E94;&#x7528;&#x8303;&#x56F4;&#xFF0C;&#x4F46;&#x6876;&#x5F0F;&#x6392;&#x5E8F;&#x7B97;&#x6CD5;&#x7684;&#x601D;&#x60F3;&#x662F;&#x5F88;&#x503C;&#x5F97;&#x6211;&#x4EEC;&#x5B66;&#x4E60;&#x548C;&#x501F;&#x9274;&#x7684;&#x3002;</p>
+<pre><code>#include &lt;stdio.h&gt;  
+  
+// Count&#x6570;&#x7EC4;&#x5927;&#x5C0F;  
+#define MAXNUM 100  
+  
+// &#x529F;&#x80FD;&#xFF1A;&#x6876;&#x5F0F;&#x6392;&#x5E8F;  
+// &#x8F93;&#x5165;&#xFF1A;&#x5F85;&#x6392;&#x5E8F;&#x6570;&#x7EC4;         arrayForSort[]  
+//       &#x5F85;&#x6392;&#x5E8F;&#x6570;&#x7EC4;&#x5927;&#x5C0F;        arraySize  
+//       &#x5F85;&#x6392;&#x5E8F;&#x6570;&#x7EC4;&#x5143;&#x7D20;&#x4E0A;&#x754C;  maxItem&#xFF1B;&#x6570;&#x7EC4;&#x4E2D;&#x7684;&#x5143;&#x7D20;&#x90FD;&#x843D;&#x5728;[0, maxItem]&#x533A;&#x95F4;  
+// &#x8F93;&#x51FA;&#xFF1A;void  
+void BucketSort(int arrayForSort[], int arraySize, int maxItem)  
+{  
+    int Count[MAXNUM];  
+    // &#x7F6E;&#x7A7A;  
+    for (int i = 0; i &lt;= maxItem; ++i)  
+    {  
+        Count[i] = 0;  
+    }  
+    // &#x904D;&#x5386;&#x5F85;&#x6392;&#x5E8F;&#x6570;&#x7EC4;  
+    for (int i = 0; i &lt; arraySize; ++i)  
+    {  
+        ++Count[arrayForSort[i]];  
+    }  
+  
+    // &#x6876;&#x6392;&#x5E8F;&#x8F93;&#x51FA;  
+    // &#x4E5F;&#x53EF;&#x4EE5;&#x5B58;&#x50A8;&#x5728;&#x6570;&#x7EC4;&#x4E2D;&#xFF0C;&#x7136;&#x540E;&#x8FD4;&#x56DE;&#x6570;&#x7EC4;  
+    for (int i = 0; i &lt;= maxItem; ++i)  
+    {  
+        for (int j = 1; j &lt;= Count[i]; ++j)  
+        {  
+            printf(&quot;%3d&quot;, i);  
+        }  
+    }  
+    printf(&quot;\n&quot;);  
+}  
+  
+void main()  
+{  
+    // &#x6D4B;&#x8BD5;  
+    int a[] = {2, 5, 6, 12, 4, 8, 8, 6, 7, 8, 8, 10, 7, 6, 0, 1};  
+    BucketSort(a, sizeof(a) / sizeof(a[0]), 12);  
+}  
+</code></pre>
+<h2 id="&#x5176;&#x5B83;&#x7B97;&#x6CD5;"><a class="header-anchor" href="#&#x5176;&#x5B83;&#x7B97;&#x6CD5;"></a>&#x5176;&#x5B83;&#x7B97;&#x6CD5;</h2>
 <p><strong>1. &#x4F7F;&#x7528;&#x968F;&#x673A;&#x7B97;&#x6CD5;&#x4EA7;&#x751F;&#x4E00;&#x4E2A;&#x6570;&#xFF0C;&#x8981;&#x6C42;&#x628A;1-1000W&#x4E4B;&#x95F4;&#x8FD9;&#x4E9B;&#x6570;&#x5168;&#x90E8;&#x751F;&#x6210;&#x3002;</strong></p>
 <pre><code>/** 
  * &#x4F7F;&#x7528;&#x968F;&#x673A;&#x7B97;&#x6CD5;&#x4EA7;&#x751F;&#x4E00;&#x4E2A;&#x6570;&#xFF0C;&#x8981;&#x6C42;&#x628A;1-1000W&#x4E4B;&#x95F4;&#x8FD9;&#x4E9B;&#x6570;&#x5168;&#x90E8;&#x751F;&#x6210;&#x3002; 
@@ -218,18 +730,14 @@ int main()
     return 0;
 }
 </code></pre>
-<p><strong>5. &#x8BF4;&#x767D;&#x4E86;&#x5C31;&#x662F;&#x5E38;&#x89C1;&#x7684;&#x90A3;&#x4E9B;&#x67E5;&#x627E;&#x3001;&#x6392;&#x5E8F;&#x7B97;&#x6CD5;&#x4EE5;&#x53CA;&#x5404;&#x81EA;&#x7684;&#x65F6;&#x95F4;&#x590D;&#x6742;&#x5EA6;&#x3002;</strong></p>
-<div align="center">
-<img data-original="/2017/05/31/java-interview-algorithm/algorithm.jpg" class="lazy">
-</div>
-<p><strong>6. &#x4E8C;&#x53C9;&#x6811;&#x7684;&#x904D;&#x5386;&#x7B97;&#x6CD5;</strong></p>
+<p><strong>5. &#x4E8C;&#x53C9;&#x6811;&#x7684;&#x904D;&#x5386;&#x7B97;&#x6CD5;</strong></p>
 <p>&#x4E8C;&#x53C9;&#x6811;&#x662F;&#x6BCF;&#x4E2A;&#x7ED3;&#x70B9;&#x6700;&#x591A;&#x6709;&#x4E24;&#x4E2A;&#x5B50;&#x6811;&#x7684;&#x6709;&#x5E8F;&#x6811;&#x3002;&#x901A;&#x5E38;&#x5B50;&#x6811;&#x7684;&#x6839;&#x88AB;&#x79F0;&#x4F5C;&#x201C;&#x5DE6;&#x5B50;&#x6811;&#x201D;&#xFF08;left subtree&#xFF09;&#x548C;&#x201C;&#x53F3;&#x5B50;&#x6811;&#x201D;&#xFF08;right subtree&#xFF09;&#x3002;&#x4E8C;&#x53C9;&#x6811;&#x5E38;&#x88AB;&#x7528;&#x4F5C;&#x4E8C;&#x53C9;&#x67E5;&#x627E;&#x6811;&#x548C;&#x4E8C;&#x53C9;&#x5806;&#x6216;&#x662F;&#x4E8C;&#x53C9;&#x6392;&#x5E8F;&#x6811;&#x3002;&#x4E8C;&#x53C9;&#x6811;&#x7684;&#x6BCF;&#x4E2A;&#x7ED3;&#x70B9;&#x81F3;&#x591A;&#x53EA;&#x6709;&#x4E8C;&#x68F5;&#x5B50;&#x6811;(&#x4E0D;&#x5B58;&#x5728;&#x5EA6;&#x5927;&#x4E8E;2&#x7684;&#x7ED3;&#x70B9;)&#xFF0C;&#x4E8C;&#x53C9;&#x6811;&#x7684;&#x5B50;&#x6811;&#x6709;&#x5DE6;&#x53F3;&#x4E4B;&#x5206;&#xFF0C;&#x6B21;&#x5E8F;&#x4E0D;&#x80FD;&#x98A0;&#x5012;&#x3002;&#x4E8C;&#x53C9;&#x6811;&#x7684;&#x7B2C;i&#x5C42;&#x81F3;&#x591A;&#x6709;2&#x7684; i -1&#x6B21;&#x65B9;&#x4E2A;&#x7ED3;&#x70B9;&#xFF1B;&#x6DF1;&#x5EA6;&#x4E3A;k&#x7684;&#x4E8C;&#x53C9;&#x6811;&#x81F3;&#x591A;&#x6709;2^(k) -1&#x4E2A;&#x7ED3;&#x70B9;&#xFF1B;&#x5BF9;&#x4EFB;&#x4F55;&#x4E00;&#x68F5;&#x4E8C;&#x53C9;&#x6811;T&#xFF0C;&#x5982;&#x679C;&#x5176;&#x7EC8;&#x7AEF;&#x7ED3;&#x70B9;&#x6570;(&#x5373;&#x53F6;&#x5B50;&#x7ED3;&#x70B9;&#x6570;)&#x4E3A;n0&#xFF0C;&#x5EA6;&#x4E3A;2&#x7684;&#x7ED3;&#x70B9;&#x6570;&#x4E3A;n2&#xFF0C;&#x5219;n0 = n2 + 1&#x3002;</p>
 <p>&#x5177;&#x4F53;&#x8BF7;&#x770B;&#xFF1A;</p>
 <ul>
 <li><a href="http://blog.csdn.net/sjf0115/article/details/8645991" target="_blank" rel="external nofollow noopener noreferrer">http://blog.csdn.net/sjf0115/article/details/8645991</a></li>
 <li><a href="http://blog.csdn.net/pony_maggie/article/details/38390513" target="_blank" rel="external nofollow noopener noreferrer">http://blog.csdn.net/pony_maggie/article/details/38390513</a></li>
 </ul>
-<p><strong>7. DFS,BFS&#x7B97;&#x6CD5;</strong></p>
+<p><strong>6. DFS,BFS&#x7B97;&#x6CD5;</strong></p>
 <p>&#x5173;&#x4E8E;&#x56FE;&#x7684;&#x641C;&#x7D22;&#x6709;&#x4E24;&#x79CD;&#xFF1A;&#x5E7F;&#x5EA6;&#x4F18;&#x5148;&#xFF08;bfs&#xFF09;&#x6DF1;&#x5EA6;&#x4F18;&#x5148; &#xFF08;dfs&#xFF09;&#x3002;<br>
 &#x4EE5;&#x4E0B;&#x56FE;&#x4E3A;&#x4F8B;&#xFF1A;</p>
 <div align="center">
@@ -367,7 +875,7 @@ return 0;
 6 1
 */
 </code></pre>
-<p><strong>9. &#x6BD4;&#x8F83;&#x91CD;&#x8981;&#x7684;&#x6570;&#x636E;&#x7ED3;&#x6784;&#xFF0C;&#x5982;&#x94FE;&#x8868;&#xFF0C;&#x961F;&#x5217;&#xFF0C;&#x6808;&#x7684;&#x57FA;&#x672C;&#x7406;&#x89E3;&#x53CA;&#x5927;&#x81F4;&#x5B9E;&#x73B0;&#x3002;</strong></p>
+<p><strong>7. &#x6BD4;&#x8F83;&#x91CD;&#x8981;&#x7684;&#x6570;&#x636E;&#x7ED3;&#x6784;&#xFF0C;&#x5982;&#x94FE;&#x8868;&#xFF0C;&#x961F;&#x5217;&#xFF0C;&#x6808;&#x7684;&#x57FA;&#x672C;&#x7406;&#x89E3;&#x53CA;&#x5927;&#x81F4;&#x5B9E;&#x73B0;&#x3002;</strong></p>
 <p>&#x5355;&#x5411;&#x94FE;&#x8868;&#xFF1A;</p>
 <pre><code>public class LinkedList {
     private Node head;
@@ -582,16 +1090,16 @@ return 0;
 <li><a href="https://segmentfault.com/a/1190000002602101" target="_blank" rel="external nofollow noopener noreferrer">https://segmentfault.com/a/1190000002602101</a></li>
 <li><a href="http://blog.csdn.net/amork/article/details/7258216" target="_blank" rel="external nofollow noopener noreferrer">http://blog.csdn.net/amork/article/details/7258216</a></li>
 </ul>
-<p><strong>10. &#x5FEB;&#x6392;&#x4E3A;&#x4EC0;&#x4E48;&#x4E0D;&#x7A33;&#x5B9A;&#xFF0C;&#x4E3A;&#x4EC0;&#x4E48;&#x4F60;&#x7684;&#x9879;&#x76EE;&#x8FD8;&#x5728;&#x7528;</strong></p>
+<p><strong>8. &#x5FEB;&#x6392;&#x4E3A;&#x4EC0;&#x4E48;&#x4E0D;&#x7A33;&#x5B9A;&#xFF0C;&#x4E3A;&#x4EC0;&#x4E48;&#x4F60;&#x7684;&#x9879;&#x76EE;&#x8FD8;&#x5728;&#x7528;</strong></p>
 <p>&#x6392;&#x5E8F;&#x7B97;&#x6CD5;&#x7A33;&#x5B9A;&#x5B9A;&#x4E49;&#x662F;:&#x5047;&#x5B9A;&#x5728;&#x5F85;&#x6392;&#x5E8F;&#x7684;&#x8BB0;&#x5F55;&#x5E8F;&#x5217;&#x4E2D;&#xFF0C;&#x5B58;&#x5728;&#x591A;&#x4E2A;&#x5177;&#x6709;&#x76F8;&#x540C;&#x7684;&#x5173;&#x952E;&#x5B57;&#x7684;&#x8BB0;&#x5F55;&#xFF0C;&#x82E5;&#x7ECF;&#x8FC7;&#x6392;&#x5E8F;&#xFF0C;&#x8FD9;&#x4E9B;&#x8BB0;&#x5F55;&#x7684;&#x76F8;&#x5BF9;&#x6B21;&#x5E8F;&#x4FDD;&#x6301;&#x4E0D;&#x53D8;&#xFF0C;&#x5373;&#x5728;&#x539F;&#x5E8F;&#x5217;&#x4E2D;&#xFF0C;ri=rj&#xFF0C;&#x4E14;ri&#x5728;rj&#x4E4B;&#x524D;&#xFF0C;&#x800C;&#x5728;&#x6392;&#x5E8F;&#x540E;&#x7684;&#x5E8F;&#x5217;&#x4E2D;&#xFF0C;ri&#x4ECD;&#x5728;rj&#x4E4B;&#x524D;&#xFF0C;&#x5219;&#x79F0;&#x8FD9;&#x79CD;&#x6392;&#x5E8F;&#x7B97;&#x6CD5;&#x662F;&#x7A33;&#x5B9A;&#x7684;&#xFF1B;&#x5426;&#x5219;&#x79F0;&#x4E3A;&#x4E0D;&#x7A33;&#x5B9A;&#x7684;&#x3002;</p>
 <p>&#x5FEB;&#x901F;&#x6392;&#x5E8F;&#x662F;&#x4ECE;&#x5934;&#x548C;&#x5C3E;&#x5F00;&#x59CB;&#x5BF9;&#x5143;&#x7D20;&#x8FDB;&#x884C;&#x6BD4;&#x8F83;&#xFF0C;&#x6709;&#x53EF;&#x80FD;&#x628A;&#x5173;&#x952E;&#x503C;&#x76F8;&#x540C;&#x7684;&#x4E24;&#x4E2A;&#x5143;&#x7D20;&#x8C03;&#x6362;&#x4E86;&#x4F4D;&#x7F6E;&#xFF0C;&#x6240;&#x4EE5;&#x8BF4;&#x662F;&#x4E0D;&#x7A33;&#x5B9A;&#x7684;&#xFF0C;&#x6BD4;&#x5982;&#x5BF9; 2 4 1 3 1&#x8FDB;&#x884C;&#x6392;&#x5E8F;&#xFF0C;&#x7B2C;&#x4E00;&#x8D9F;&#x5C31;&#x628A;&#x540E;&#x9762;&#x7684;1&#x6362;&#x5230;&#x524D;&#x9762;&#x53BB;&#xFF0C;&#x5F62;&#x6210;&#x4E86;&#x4E0D;&#x7A33;&#x5B9A;&#x6392;&#x5E8F;</p>
-<p><strong>11. &#x9006;&#x6CE2;&#x5170;&#x8BA1;&#x7B97;&#x5668;</strong></p>
+<p><strong>9. &#x9006;&#x6CE2;&#x5170;&#x8BA1;&#x7B97;&#x5668;</strong></p>
 <p>&#x6D89;&#x53CA;&#x5230;&#x4E2D;&#x7F00;&#x8868;&#x8FBE;&#x5F0F;&#xFF0C;&#x6CE2;&#x5170;&#x8868;&#x8FBE;&#x5F0F;&#x3001;&#x9006;&#x6CE2;&#x5170;&#x8868;&#x8FBE;&#x5F0F;</p>
 <p>&#x5177;&#x4F53;&#x8BF7;&#x770B;&#xFF1A; <a href="http://blog.csdn.net/Leoamy/article/details/51217362" target="_blank" rel="external nofollow noopener noreferrer">http://blog.csdn.net/Leoamy/article/details/51217362</a></p>
-<p><strong>12. Hoffman &#x7F16;&#x7801;</strong></p>
+<p><strong>10. Hoffman &#x7F16;&#x7801;</strong></p>
 <p>&#x970D;&#x592B;&#x66FC;&#x7F16;&#x7801;&#xFF08;Huffman Coding&#xFF09;&#x662F;&#x4E00;&#x79CD;&#x7F16;&#x7801;&#x65B9;&#x5F0F;&#xFF0C;&#x662F;&#x4E00;&#x79CD;&#x7528;&#x4E8E;&#x65E0;&#x635F;&#x6570;&#x636E;&#x538B;&#x7F29;&#x7684;&#x71B5;&#x7F16;&#x7801;&#xFF08;&#x6743;&#x7F16;&#x7801;&#xFF09;&#x7B97;&#x6CD5;&#x3002;1952&#x5E74;&#xFF0C;David A. Huffman&#x5728;&#x9EBB;&#x7701;&#x7406;&#x5DE5;&#x653B;&#x8BFB;&#x535A;&#x58EB;&#x65F6;&#x6240;&#x53D1;&#x660E;&#x7684;&#xFF0C;&#x5E76;&#x53D1;&#x8868;&#x4E8E;&#x300A;&#x4E00;&#x79CD;&#x6784;&#x5EFA;&#x6781;&#x5C0F;&#x591A;&#x4F59;&#x7F16;&#x7801;&#x7684;&#x65B9;&#x6CD5;&#x300B;&#xFF08;A Method for the Construction of Minimum-Redundancy Codes&#xFF09;&#x4E00;&#x6587;&#x3002;</p>
 <p>&#x5728;&#x8BA1;&#x7B97;&#x673A;&#x6570;&#x636E;&#x5904;&#x7406;&#x4E2D;&#xFF0C;&#x970D;&#x592B;&#x66FC;&#x7F16;&#x7801;&#x4F7F;&#x7528;&#x53D8;&#x957F;&#x7F16;&#x7801;&#x8868;&#x5BF9;&#x6E90;&#x7B26;&#x53F7;&#xFF08;&#x5982;&#x6587;&#x4EF6;&#x4E2D;&#x7684;&#x4E00;&#x4E2A;&#x5B57;&#x6BCD;&#xFF09;&#x8FDB;&#x884C;&#x7F16;&#x7801;&#xFF0C;&#x5176;&#x4E2D;&#x53D8;&#x957F;&#x7F16;&#x7801;&#x8868;&#x662F;&#x901A;&#x8FC7;&#x4E00;&#x79CD;&#x8BC4;&#x4F30;&#x6765;&#x6E90;&#x7B26;&#x53F7;&#x51FA;&#x73B0;&#x673A;&#x7387;&#x7684;&#x65B9;&#x6CD5;&#x5F97;&#x5230;&#x7684;&#xFF0C;&#x51FA;&#x73B0;&#x673A;&#x7387;&#x9AD8;&#x7684;&#x5B57;&#x6BCD;&#x4F7F;&#x7528;&#x8F83;&#x77ED;&#x7684;&#x7F16;&#x7801;&#xFF0C;&#x53CD;&#x4E4B;&#x51FA;&#x73B0;&#x673A;&#x7387;&#x4F4E;&#x7684;&#x5219;&#x4F7F;&#x7528;&#x8F83;&#x957F;&#x7684;&#x7F16;&#x7801;&#xFF0C;&#x8FD9;&#x4FBF;&#x4F7F;&#x7F16;&#x7801;&#x4E4B;&#x540E;&#x7684;&#x5B57;&#x7B26;&#x4E32;&#x7684;&#x5E73;&#x5747;&#x957F;&#x5EA6;&#x3001;&#x671F;&#x671B;&#x503C;&#x964D;&#x4F4E;&#xFF0C;&#x4ECE;&#x800C;&#x8FBE;&#x5230;&#x65E0;&#x635F;&#x538B;&#x7F29;&#x6570;&#x636E;&#x7684;&#x76EE;&#x7684;&#x3002;</p>
-<p><strong>13. &#x67E5;&#x627E;&#x6811;&#x4E0E;&#x7EA2;&#x9ED1;&#x6811;</strong></p>
+<p><strong>11. &#x67E5;&#x627E;&#x6811;&#x4E0E;&#x7EA2;&#x9ED1;&#x6811;</strong></p>
 <p>&#xFF08;1&#xFF09;&#x4E8C;&#x53C9;&#x67E5;&#x627E;&#x6811;</p>
 <p>&#x4E8C;&#x53C9;&#x641C;&#x7D22;&#x6811;&#x662F;&#x4E00;&#x79CD;&#x7279;&#x6B8A;&#x7684;&#x4E8C;&#x53C9;&#x6811;&#xFF0C;&#x5373;&#xFF1A;&#x8282;&#x70B9;&#x7684;&#x5DE6;&#x5B50;&#x8282;&#x70B9;&#x7684;&#x503C;&#x90FD;&#x5C0F;&#x4E8E;&#x8FD9;&#x4E2A;&#x8282;&#x70B9;&#x7684;&#x503C;&#xFF0C;&#x8282;&#x70B9;&#x7684;&#x53F3;&#x5B50;&#x8282;&#x70B9;&#x7684;&#x503C;&#x90FD;&#x5927;&#x4E8E;&#x7B49;&#x4E8E;&#x8FD9;&#x4E2A;&#x8282;&#x70B9;&#x7684;&#x503C;&#x3002;</p>
 <p>&#x641C;&#x7D22;&#x4E8C;&#x53C9;&#x6811;&#x6709;&#x4E00;&#x4E2A;&#x7279;&#x70B9;&#xFF0C;&#x5373;&#x5982;&#x679C;&#x4F7F;&#x7528;&#x4E2D;&#x5E8F;&#x904D;&#x5386;&#x904D;&#x5386;&#x641C;&#x7D22;&#x4E8C;&#x53C9;&#x6811;&#xFF0C;&#x5C06;&#x5F97;&#x5230;&#x5305;&#x542B;&#x641C;&#x7D22;&#x4E8C;&#x53C9;&#x6811;&#x4E2D;&#x6240;&#x6709;&#x8282;&#x70B9;&#x503C;&#x7684;&#x5347;&#x5E8F;&#x6392;&#x5E8F;&#x7ED3;&#x679C;&#x3002;</p>

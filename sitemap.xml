@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://ngudream.com/2017/05/31/java-interview-algorithm/</loc>
+    
+    <lastmod>2017-06-08T12:18:48.914Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://ngudream.com/2016/08/14/realm-browse/</loc>
     
     <lastmod>2017-06-07T12:35:15.208Z</lastmod>
@@ -40,13 +47,6 @@
     <loc>http://ngudream.com/2017/03/17/java-interview/</loc>
     
     <lastmod>2017-06-01T15:09:12.178Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://ngudream.com/2017/05/31/java-interview-algorithm/</loc>
-    
-    <lastmod>2017-05-31T13:04:13.351Z</lastmod>
     
   </url>
   
