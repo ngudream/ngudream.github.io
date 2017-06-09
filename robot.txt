@@ -2,7 +2,7 @@
 Allow: /
 Allow: /archives/
 Allow: /about/
-Allow: /tags/ 
+Allow: /tags/
 Disallow: /vendors/
 Disallow: /js/
 Disallow: /css/
@@ -10,3 +10,4 @@ Disallow: /fonts/
 Disallow: /vendors/
 Disallow: /fancybox/
 Sitemap: http://ngudream.com/sitemap.xml
+Sitemap: http://ngudream.com/baidusitemap.xml
