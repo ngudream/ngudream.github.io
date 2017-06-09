@@ -1026,7 +1026,7 @@ h1 {
 }
 
 .page2 .m-time .m-time-run .line.left:after,.page2 .m-time .m-time-run .line.right:after {
-	content: '历经';
+	content: '☀ 路漫漫 ☽';
 	position: relative;
 	top: 5px;
 	color: #787977;
@@ -1034,7 +1034,7 @@ h1 {
 }
 
 .page2 .m-time .m-time-run .line.right:after {
-	content: '路漫漫……'
+	content: '✈ 天涯海角 ✈'
 }
 
 .page2 .m-time .m-time-run span {

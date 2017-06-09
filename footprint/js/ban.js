@@ -21,25 +21,25 @@ $(function(){
   function colorValue(min) {
     return Math.floor(Math.random() * 255 + min);
   }
-  
+
   function createColorStyle(r,g,b) {
     return 'rgba(' + r + ',' + g + ',' + b + ', 0.9)';
   }
-  
+
   function mixComponents(comp1, weight1, comp2, weight2) {
     return (comp1 * weight1 + comp2 * weight2) / (weight1 + weight2);
   }
-  
+
   function averageColorStyles(dot1, dot2) {
     var color1 = dot1.color,
         color2 = dot2.color;
-    
+
     var r = mixComponents(color1.r, dot1.radius, color2.r, dot2.radius),
         g = mixComponents(color1.g, dot1.radius, color2.g, dot2.radius),
         b = mixComponents(color1.b, dot1.radius, color2.b, dot2.radius);
     return createColorStyle(Math.floor(r), Math.floor(g), Math.floor(b));
   }
-  
+
   function Color(min) {
     min = min || 0;
     this.r = colorValue(min);
@@ -126,7 +126,7 @@ $(function(){
     connectDots();
     drawDots();
 
-    requestAnimationFrame(animateDots); 
+    requestAnimationFrame(animateDots);
   }
 
   $('canvas').on('mousemove', function(e){
@@ -140,5 +140,5 @@ $(function(){
   });
 
   createDots();
-  requestAnimationFrame(animateDots); 
+  requestAnimationFrame(animateDots);
 });

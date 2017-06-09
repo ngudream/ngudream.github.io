@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://ngudream.com/2017/01/24/n-hexo-blog/</loc>
+    
+    <lastmod>2017-06-09T12:13:59.882Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://ngudream.com/2017/05/31/java-interview-algorithm/</loc>
     
     <lastmod>2017-06-08T15:21:43.587Z</lastmod>
@@ -61,13 +68,6 @@
     <loc>http://ngudream.com/2017/05/18/kotlin-for-android-expression/</loc>
     
     <lastmod>2017-05-31T11:44:40.835Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://ngudream.com/2017/01/24/n-hexo-blog/</loc>
-    
-    <lastmod>2017-05-22T13:45:56.375Z</lastmod>
     
   </url>
   
