@@ -2,6 +2,20 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://ngudream.com/2017/05/13/kotlin-for-android-introduction-2/</loc>
+    
+    <lastmod>2017-06-10T14:50:21.846Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://ngudream.com/2017/05/10/kotlin-for-android-introduction/</loc>
+    
+    <lastmod>2017-06-10T14:49:29.708Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://ngudream.com/2017/01/24/n-hexo-blog/</loc>
     
     <lastmod>2017-06-09T12:13:59.882Z</lastmod>
@@ -68,20 +82,6 @@
     <loc>http://ngudream.com/2017/05/18/kotlin-for-android-expression/</loc>
     
     <lastmod>2017-05-31T11:44:40.835Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://ngudream.com/2017/05/13/kotlin-for-android-introduction-2/</loc>
-    
-    <lastmod>2017-05-21T09:09:56.263Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://ngudream.com/2017/05/10/kotlin-for-android-introduction/</loc>
-    
-    <lastmod>2017-05-21T09:05:20.233Z</lastmod>
     
   </url>
   

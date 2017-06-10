@@ -81,7 +81,12 @@ $('#nav').affix({
 			marginTop = 106;
 		} else if(width >= 1420){
 			marginLeft = 50;
-			marginTop = 106;
+      var isSafari = window.navigator.userAgent.indexOf("Safari") > -1 && window.navigator.userAgent.indexOf("Chrome") < 1 ; //判断是否Safari
+      if(isSafari){
+        marginTop = 120;
+      } else {
+        marginTop = 106;
+      }
 		}
 		$("#intro-video").css("margin-left", marginLeft).css("margin-top", marginTop);
 		var aud = document.getElementById("intro-video");
