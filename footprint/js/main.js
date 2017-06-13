@@ -92,7 +92,9 @@ $('#nav').affix({
 		var aud = document.getElementById("intro-video");
 		aud.oncanplaythrough = function() {
 			$("#v4-pre-loaded").hide();
-      $("#section_5_id").css("background", "url('./img/deng.jpg')").css("background-size", "100% 100%");
+      $("#section_2_id").css("background", "url('./img/great_wall.jpg')").css("background-size", "100% 100%");
+      $("#section_3_id").css("background", "url('./img/graduate.jpg')").css("background-size", "100% 100%");
+      $("#section_5_id").css("background", "url('./img/light.jpg')").css("background-size", "100% 100%");
       $("#footer_span_id").css("color", "#B5B5B5")
 		};
 		$('.overwatch-warp').fadeOut();
