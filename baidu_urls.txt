@@ -9,6 +9,7 @@ http://ngudream.com/2017/04/22/h5-knowledge-summary/
 http://ngudream.com/2017/04/09/java-interview-network-communication/
 http://ngudream.com/2017/03/17/java-interview/
 http://ngudream.com/2017/03/14/android-binder/
+http://ngudream.com/2017/03/12/android-plugin-knowledge/
 http://ngudream.com/2017/03/06/rxjava-subject/
 http://ngudream.com/2017/02/28/android-animation-theory/
 http://ngudream.com/2017/02/27/rxjava-only-flatmap/
@@ -77,4 +78,3 @@ http://ngudream.com/2016/07/30/okhttp-call-flow/
 http://ngudream.com/2016/07/25/horizontal-list-view/
 http://ngudream.com/2016/07/25/okhttp-cache/
 http://ngudream.com/2016/07/24/work-plan/
-http://ngudream.com/2016/07/22/okhttp-call-cancel/
