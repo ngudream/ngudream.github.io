@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://ngudream.com/2017/05/31/java-interview-algorithm/</loc>
+    
+    <lastmod>2017-06-27T14:25:57.065Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://ngudream.com/whizz-kid/index.html</loc>
     
     <lastmod>2017-06-24T05:34:53.399Z</lastmod>
@@ -47,13 +54,6 @@
     <loc>http://ngudream.com/2017/01/24/n-hexo-blog/</loc>
     
     <lastmod>2017-06-09T12:13:59.882Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://ngudream.com/2017/05/31/java-interview-algorithm/</loc>
-    
-    <lastmod>2017-06-08T15:21:43.587Z</lastmod>
     
   </url>
   
