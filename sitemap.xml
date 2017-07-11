@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://ngudream.com//404.html</loc>
+    
+    <lastmod>2017-07-11T13:16:04.123Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://ngudream.com/2017/05/31/java-interview-algorithm/</loc>
     
     <lastmod>2017-06-27T14:25:57.065Z</lastmod>
@@ -747,13 +754,6 @@
     <loc>http://ngudream.com/social/index.html</loc>
     
     <lastmod>2016-12-29T15:16:20.128Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://ngudream.com//404.html</loc>
-    
-    <lastmod>2016-12-20T14:28:24.477Z</lastmod>
     
   </url>
   
