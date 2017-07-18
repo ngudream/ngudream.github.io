@@ -1,3 +1,4 @@
+http://ngudream.com/2017/07/13/java-interview-high-concurrent/
 http://ngudream.com/2017/05/31/java-interview-algorithm/
 http://ngudream.com/2017/05/31/kotlin-coroutines/
 http://ngudream.com/2017/05/18/kotlin-for-android-expression/
@@ -77,4 +78,3 @@ http://ngudream.com/2016/08/12/git-common-command/
 http://ngudream.com/2016/07/30/okhttp-call-flow/
 http://ngudream.com/2016/07/25/horizontal-list-view/
 http://ngudream.com/2016/07/25/okhttp-cache/
-http://ngudream.com/2016/07/24/work-plan/
