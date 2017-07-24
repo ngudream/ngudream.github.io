@@ -4,6 +4,48 @@
 
     
   <url>
+    <loc>http://ngudream.com/2017/07/13/java-interview-high-concurrent/</loc>
+    <lastmod>2017-07-24T14:17:16.064Z</lastmod>
+    <data>
+        <display>
+        <title>Java 面试题之并发与性能</title>
+        <pubTime>2017-07-13T13:57:52.000Z</pubTime>
+        
+        <tag>Java</tag>
+         
+         
+           
+             
+              <breadCrumb title="编程" url="http://ngudream.com/categories/%E7%BC%96%E7%A8%8B/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://ngudream.com/2017/07/24/kotlin-static-method/</loc>
+    <lastmod>2017-07-24T13:22:24.971Z</lastmod>
+    <data>
+        <display>
+        <title>Kotlin 如何创建静态方法</title>
+        <pubTime>2017-07-24T12:39:54.000Z</pubTime>
+        
+        <tag>Android</tag>
+         
+        <tag>Kotlin</tag>
+         
+         
+           
+             
+              <breadCrumb title="移动开发" url="http://ngudream.com/categories/%E7%A7%BB%E5%8A%A8%E5%BC%80%E5%8F%91/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://ngudream.com/2017/02/28/android-animation-theory/</loc>
     <lastmod>2017-07-22T05:43:22.162Z</lastmod>
     <data>
@@ -17,26 +59,6 @@
            
              
               <breadCrumb title="移动开发" url="http://ngudream.com/categories/%E7%A7%BB%E5%8A%A8%E5%BC%80%E5%8F%91/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://ngudream.com/2017/07/13/java-interview-high-concurrent/</loc>
-    <lastmod>2017-07-18T14:24:04.242Z</lastmod>
-    <data>
-        <display>
-        <title>Java 面试题之并发与性能</title>
-        <pubTime>2017-07-13T13:57:52.000Z</pubTime>
-        
-        <tag>Java</tag>
-         
-         
-           
-             
-              <breadCrumb title="编程" url="http://ngudream.com/categories/%E7%BC%96%E7%A8%8B/"/>
           
         </display>
     </data>
