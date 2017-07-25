@@ -2,6 +2,20 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://ngudream.com/2017/06/20/kotlin-okhttp/</loc>
+    
+    <lastmod>2017-07-25T12:11:23.023Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://ngudream.com/2017/06/10/kotlin-singleton/</loc>
+    
+    <lastmod>2017-07-25T12:07:01.588Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://ngudream.com/2017/07/13/java-interview-high-concurrent/</loc>
     
     <lastmod>2017-07-24T14:17:16.064Z</lastmod>

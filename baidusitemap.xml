@@ -4,6 +4,50 @@
 
     
   <url>
+    <loc>http://ngudream.com/2017/06/20/kotlin-okhttp/</loc>
+    <lastmod>2017-07-25T12:11:23.023Z</lastmod>
+    <data>
+        <display>
+        <title>Kotlin 封装OKHttp请求</title>
+        <pubTime>2017-06-20T12:01:38.000Z</pubTime>
+        
+        <tag>Android</tag>
+         
+        <tag>Kotlin</tag>
+         
+         
+           
+             
+              <breadCrumb title="移动开发" url="http://ngudream.com/categories/%E7%A7%BB%E5%8A%A8%E5%BC%80%E5%8F%91/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://ngudream.com/2017/06/10/kotlin-singleton/</loc>
+    <lastmod>2017-07-25T12:07:01.588Z</lastmod>
+    <data>
+        <display>
+        <title>Kotlin 单例模式</title>
+        <pubTime>2017-06-10T11:59:55.000Z</pubTime>
+        
+        <tag>Android</tag>
+         
+        <tag>Kotlin</tag>
+         
+         
+           
+             
+              <breadCrumb title="移动开发" url="http://ngudream.com/categories/%E7%A7%BB%E5%8A%A8%E5%BC%80%E5%8F%91/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://ngudream.com/2017/07/13/java-interview-high-concurrent/</loc>
     <lastmod>2017-07-24T14:17:16.064Z</lastmod>
     <data>
