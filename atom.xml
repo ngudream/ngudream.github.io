@@ -268,7 +268,7 @@ do note
     <link href="http://ngudream.com/2017/06/20/kotlin-okhttp/"/>
     <id>http://ngudream.com/2017/06/20/kotlin-okhttp/</id>
     <published>2017-06-20T12:01:38.000Z</published>
-    <updated>2017-07-25T12:11:23.023Z</updated>
+    <updated>2017-07-27T13:23:05.149Z</updated>
     
     <content type="html"><![CDATA[<p>&#x73B0;&#x5728;&#x8D8A;&#x6765;&#x8D8A;&#x591A;&#x7684;&#x670B;&#x53CB;&#x4F7F;&#x7528;OKHttp&#x4F5C;&#x4E3A;&#x7F51;&#x7EDC;&#x8BF7;&#x6C42;&#x6846;&#x67B6;&#xFF0C;&#x6211;&#x81EA;&#x5DF1;&#x4E5F;&#x4E0D;&#x4F8B;&#x5916;&#x3002;&#x90A3;&#x4E48;&#x5728;Kotlin&#x4E2D;&#x5177;&#x4F53;&#x662F;&#x600E;&#x4E48;&#x5B9E;&#x73B0;&#x7684;&#x5462;&#xFF1F;&#x4E0B;&#x9762;&#x4ECB;&#x7ECD;&#x4E0B;&#x5BF9;&#x5176;&#x7684;&#x5C01;&#x88C5;&#x3002;</p>
 <h2 id="&#x5C01;&#x88C5;okhttp&#x8BF7;&#x6C42;"><a class="header-anchor" href="#&#x5C01;&#x88C5;okhttp&#x8BF7;&#x6C42;"></a>&#x5C01;&#x88C5;OKHttp&#x8BF7;&#x6C42;</h2>
@@ -411,7 +411,7 @@ class AccountHttpClient private constructor() {
         try {
             val okResponse = performRequest(OKRequest(type, url, requestParams, requestHeaders))//&#x8FDB;&#x884C;&#x53C2;&#x6570;&#x5C01;&#x88C5;&#xFF0C;&#x53D1;&#x8D77;&#x7F51;&#x7EDC;&#x8BF7;&#x6C42;
             if (okResponse != null) {
-                result = AccountResponse(okResponse.responseCode, okResponse.response, okResponse.headers)
+                result = AccountResponse(okResponse.responseCode, okResponse.body, okResponse.headers)
             }
         } catch (e: Exception) {
             e.printStackTrace()
@@ -428,7 +428,7 @@ class AccountHttpClient private constructor() {
         try {
             val okResponse = performRequest(OKRequest(Type.POST, url, requestParams, requestHeaders, filePath))
             if (okResponse != null) {
-                result = AccountResponse(okResponse.responseCode, okResponse.response, okResponse.headers)
+                result = AccountResponse(okResponse.responseCode, okResponse.body, okResponse.headers)
             }
         } catch (e: Exception) {
             throw e
@@ -516,15 +516,15 @@ class AccountHttpClient private constructor() {
     /**
      * &#x54CD;&#x5E94;&#x7C7B;
      */
-    private inner class OKResponse(private val mResponse: Response?) {
+    private inner class OKResponse(private val response: Response?) {
 
         val responseCode: Int
             get() = mResponse!!.code()
 
-        val response: ByteArray?
+        val body: ByteArray?
             get() {
                 var result: ByteArray? = null
-                if (mResponse != null &amp;&amp; mResponse.body() != null) {
+                if (response != null &amp;&amp; response.body() != null) {
                     try {
                         result = mResponse.body()!!.bytes()
                     } catch (e: IOException) {
@@ -538,9 +538,9 @@ class AccountHttpClient private constructor() {
         val headers: MutableMap&lt;String, MutableList&lt;String&gt;&gt;?
             get() {
                 var headers: MutableMap&lt;String, MutableList&lt;String&gt;&gt;? = null
-                if (mResponse != null &amp;&amp; mResponse.headers() != null) {
+                if (response != null &amp;&amp; response.headers() != null) {
                     try {
-                        headers = mResponse.headers().toMultimap()
+                        headers = response.headers().toMultimap()
                     } catch (e: Exception) {
                     }
 
@@ -613,7 +613,7 @@ class AccountHttpClient private constructor() {
     <link href="http://ngudream.com/2017/06/10/kotlin-singleton/"/>
     <id>http://ngudream.com/2017/06/10/kotlin-singleton/</id>
     <published>2017-06-10T11:59:55.000Z</published>
-    <updated>2017-07-25T12:07:01.588Z</updated>
+    <updated>2017-07-27T13:21:51.822Z</updated>
     
     <content type="html"><![CDATA[<p>&#x5355;&#x4F8B;&#x6A21;&#x5F0F;&#x662F;&#x4E00;&#x79CD;&#x5E38;&#x89C1;&#x7684;&#x8BBE;&#x8BA1;&#x6A21;&#x5F0F;&#xFF0C;&#x5B83;&#x786E;&#x4FDD;&#x67D0;&#x4E2A;&#x7C7B;&#x53EA;&#x6709;&#x4E00;&#x4E2A;&#x5B9E;&#x4F8B;&#xFF0C;&#x800C;&#x4E14;&#x81EA;&#x884C;&#x5B9E;&#x4F8B;&#x5316;&#x5E76;&#x5411;&#x6574;&#x4E2A;&#x7CFB;&#x7EDF;&#x63D0;&#x4F9B;&#x8FD9;&#x4E2A;&#x5B9E;&#x4F8B;&#x3002;&#x5355;&#x4F8B;&#x6A21;&#x5F0F;&#x7684;&#x5199;&#x6CD5;&#x6709;&#x597D;&#x51E0;&#x79CD;&#xFF0C;Kotlin&#x4E2D;&#x5982;&#x4F55;&#x5B9E;&#x73B0;&#x5462;&#xFF1F;</p>
 <h2 id="kotlin-&#x5355;&#x4F8B;&#x6A21;&#x5F0F;"><a class="header-anchor" href="#kotlin-&#x5355;&#x4F8B;&#x6A21;&#x5F0F;"></a>Kotlin &#x5355;&#x4F8B;&#x6A21;&#x5F0F;</h2>
@@ -705,7 +705,7 @@ Singleton.test()
    bv = {1, 0, 1},
    k = 1,
    d1 = {&quot;\u0000\u0012\n\u0002\u0018\u0002\n\u0002\u0010\u0000\n\u0002\b\u0002\n\u0002\u0010\u0002\n\u0000\b&#xC6;\u0002\u0018\u00002\u00020\u0001B\u0007\b\u0002&#xA2;\u0006\u0002\u0010\u0002J\u0006\u0010\u0003\u001a\u00020\u0004&#xA8;\u0006\u0005&quot;},
-   d2 = {&quot;Lcom/meizu/example/kotlin/Singleton;&quot;, &quot;&quot;, &quot;()V&quot;, &quot;test&quot;, &quot;&quot;, &quot;production sources for module app&quot;}
+   d2 = {&quot;Lcom/xxx/example/kotlin/Singleton;&quot;, &quot;&quot;, &quot;()V&quot;, &quot;test&quot;, &quot;&quot;, &quot;production sources for module app&quot;}
 )
 public final class Singleton {
    public static final Singleton INSTANCE;
