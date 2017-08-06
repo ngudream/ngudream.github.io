@@ -2,6 +2,27 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://ngudream.com/2016/11/30/android-data-gather/</loc>
+    
+    <lastmod>2017-08-06T03:49:08.069Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://ngudream.com/2017/01/14/android-change-app-launcher-icon-dynamically/</loc>
+    
+    <lastmod>2017-08-06T01:47:59.351Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://ngudream.com/2016/11/13/android-view-draw-theory/</loc>
+    
+    <lastmod>2017-08-05T08:37:54.171Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://ngudream.com/2017/06/20/kotlin-okhttp/</loc>
     
     <lastmod>2017-08-02T11:20:05.784Z</lastmod>
@@ -240,13 +261,6 @@
   </url>
   
   <url>
-    <loc>http://ngudream.com/2016/11/13/android-view-draw-theory/</loc>
-    
-    <lastmod>2017-02-26T03:30:01.970Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://ngudream.com/2016/07/25/okhttp-cache/</loc>
     
     <lastmod>2017-02-26T02:59:48.917Z</lastmod>
@@ -299,13 +313,6 @@
     <loc>http://ngudream.com/2016/12/26/rxjava-thread-switch-theory/</loc>
     
     <lastmod>2017-02-21T13:46:58.166Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://ngudream.com/2017/01/14/android-change-app-launcher-icon-dynamically/</loc>
-    
-    <lastmod>2017-02-19T15:09:46.555Z</lastmod>
     
   </url>
   
@@ -740,13 +747,6 @@
     <loc>http://ngudream.com/2016/09/17/android-dynamic-load/</loc>
     
     <lastmod>2017-01-15T07:58:44.324Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://ngudream.com/2016/11/30/android-data-gather/</loc>
-    
-    <lastmod>2017-01-15T07:58:44.320Z</lastmod>
     
   </url>
   

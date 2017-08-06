@@ -4,6 +4,66 @@
 
     
   <url>
+    <loc>http://ngudream.com/2016/11/30/android-data-gather/</loc>
+    <lastmod>2017-08-06T03:49:08.069Z</lastmod>
+    <data>
+        <display>
+        <title>Android 知识梳理</title>
+        <pubTime>2016-11-30T15:16:15.000Z</pubTime>
+        
+        <tag>Android</tag>
+         
+         
+           
+             
+              <breadCrumb title="移动开发" url="http://ngudream.com/categories/%E7%A7%BB%E5%8A%A8%E5%BC%80%E5%8F%91/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://ngudream.com/2017/01/14/android-change-app-launcher-icon-dynamically/</loc>
+    <lastmod>2017-08-06T01:47:59.351Z</lastmod>
+    <data>
+        <display>
+        <title>Android 动态改变 App 桌面图标</title>
+        <pubTime>2017-01-14T12:10:28.000Z</pubTime>
+        
+        <tag>Android</tag>
+         
+         
+           
+             
+              <breadCrumb title="移动开发" url="http://ngudream.com/categories/%E7%A7%BB%E5%8A%A8%E5%BC%80%E5%8F%91/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://ngudream.com/2016/11/13/android-view-draw-theory/</loc>
+    <lastmod>2017-08-05T08:37:54.171Z</lastmod>
+    <data>
+        <display>
+        <title>深入理解Android之View的绘制流程</title>
+        <pubTime>2016-11-13T15:19:04.000Z</pubTime>
+        
+        <tag>Android</tag>
+         
+         
+           
+             
+              <breadCrumb title="移动开发" url="http://ngudream.com/categories/%E7%A7%BB%E5%8A%A8%E5%BC%80%E5%8F%91/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://ngudream.com/2017/06/20/kotlin-okhttp/</loc>
     <lastmod>2017-08-02T11:20:05.784Z</lastmod>
     <data>
@@ -625,26 +685,6 @@
 
     
   <url>
-    <loc>http://ngudream.com/2016/11/13/android-view-draw-theory/</loc>
-    <lastmod>2017-02-26T03:30:01.970Z</lastmod>
-    <data>
-        <display>
-        <title>深入理解Android之View的绘制流程</title>
-        <pubTime>2016-11-13T15:19:04.000Z</pubTime>
-        
-        <tag>Android</tag>
-         
-         
-           
-             
-              <breadCrumb title="移动开发" url="http://ngudream.com/categories/%E7%A7%BB%E5%8A%A8%E5%BC%80%E5%8F%91/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>http://ngudream.com/2016/07/25/okhttp-cache/</loc>
     <lastmod>2017-02-26T02:59:48.917Z</lastmod>
     <data>
@@ -795,26 +835,6 @@
         <pubTime>2016-12-26T14:13:27.000Z</pubTime>
         
         <tag>RxJava</tag>
-         
-         
-           
-             
-              <breadCrumb title="移动开发" url="http://ngudream.com/categories/%E7%A7%BB%E5%8A%A8%E5%BC%80%E5%8F%91/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://ngudream.com/2017/01/14/android-change-app-launcher-icon-dynamically/</loc>
-    <lastmod>2017-02-19T15:09:46.555Z</lastmod>
-    <data>
-        <display>
-        <title>Android 动态改变 App 桌面图标</title>
-        <pubTime>2017-01-14T12:10:28.000Z</pubTime>
-        
-        <tag>Android</tag>
          
          
            
@@ -2115,26 +2135,6 @@
         <tag>Android</tag>
          
         <tag>HotFix</tag>
-         
-         
-           
-             
-              <breadCrumb title="移动开发" url="http://ngudream.com/categories/%E7%A7%BB%E5%8A%A8%E5%BC%80%E5%8F%91/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://ngudream.com/2016/11/30/android-data-gather/</loc>
-    <lastmod>2017-01-15T07:58:44.320Z</lastmod>
-    <data>
-        <display>
-        <title>Android 知识梳理</title>
-        <pubTime>2016-11-30T15:16:15.000Z</pubTime>
-        
-        <tag>Android</tag>
          
          
            
