@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://ngudream.com/2016/09/04/java-mult-threads/</loc>
+    
+    <lastmod>2017-08-07T12:03:51.584Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://ngudream.com/2016/11/30/android-data-gather/</loc>
     
     <lastmod>2017-08-06T03:49:08.069Z</lastmod>
@@ -565,13 +572,6 @@
     <loc>http://ngudream.com/2016/09/02/mobile-pay-market/</loc>
     
     <lastmod>2017-01-15T07:58:44.416Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://ngudream.com/2016/09/04/java-mult-threads/</loc>
-    
-    <lastmod>2017-01-15T07:58:44.413Z</lastmod>
     
   </url>
   

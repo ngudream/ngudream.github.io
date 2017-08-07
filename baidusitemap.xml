@@ -4,6 +4,28 @@
 
     
   <url>
+    <loc>http://ngudream.com/2016/09/04/java-mult-threads/</loc>
+    <lastmod>2017-08-07T12:03:51.584Z</lastmod>
+    <data>
+        <display>
+        <title>40个Java多线程问题总结</title>
+        <pubTime>2016-09-04T13:07:01.000Z</pubTime>
+        
+        <tag>Java</tag>
+         
+        <tag>Thread</tag>
+         
+         
+           
+             
+              <breadCrumb title="晨读" url="http://ngudream.com/categories/%E6%99%A8%E8%AF%BB/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://ngudream.com/2016/11/30/android-data-gather/</loc>
     <lastmod>2017-08-06T03:49:08.069Z</lastmod>
     <data>
@@ -1588,28 +1610,6 @@
         <pubTime>2016-09-01T16:16:26.000Z</pubTime>
         
         <tag>移动支付</tag>
-         
-         
-           
-             
-              <breadCrumb title="晨读" url="http://ngudream.com/categories/%E6%99%A8%E8%AF%BB/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://ngudream.com/2016/09/04/java-mult-threads/</loc>
-    <lastmod>2017-01-15T07:58:44.413Z</lastmod>
-    <data>
-        <display>
-        <title>40个Java多线程问题总结</title>
-        <pubTime>2016-09-04T13:07:01.000Z</pubTime>
-        
-        <tag>Java</tag>
-         
-        <tag>Thread</tag>
          
          
            
