@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://ngudream.com/"/>
-  <updated>2017-07-24T13:22:24.971Z</updated>
+  <updated>2017-08-10T14:38:44.174Z</updated>
   <id>http://ngudream.com/</id>
   
   <author>
@@ -14,6 +14,251 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>RxJava 内部如何管理线程？</title>
+    <link href="http://ngudream.com/2017/08/10/rxjava-why-io/"/>
+    <id>http://ngudream.com/2017/08/10/rxjava-why-io/</id>
+    <published>2017-08-10T13:37:24.000Z</published>
+    <updated>2017-08-10T14:38:44.174Z</updated>
+    
+    <content type="html"><![CDATA[<p>RxJava&#x4F7F;&#x7528;subscribeOn&#x3001;observeOn&#x548C;onNext&#x7684;&#x65F6;&#x5019;&#x53EF;&#x4EE5;&#x6539;&#x53D8;&#x548C;&#x5207;&#x6362;&#x7EBF;&#x7A0B;&#xFF0C;&#x5B83;&#x4EEC;&#x90FD;&#x662F;&#x6309;&#x987A;&#x5E8F;&#x6267;&#x884C;&#x7684;&#xFF0C;&#x4E0D;&#x662F;&#x5E76;&#x53D1;&#x6267;&#x884C;&#xFF0C;&#x81F3;&#x591A;&#x4E5F;&#x5C31;&#x5207;&#x6362;&#x5230;&#x53E6;&#x5916;&#x4E00;&#x4E2A;&#x7EBF;&#x7A0B;&#xFF0C;&#x5982;&#x679C;&#x5B83;&#x4E2D;&#x95F4;&#x7684;&#x64CD;&#x4F5C;&#x662F;&#x963B;&#x585E;&#x7684;&#xFF0C;&#x4E45;&#x4F1A;&#x5F71;&#x54CD;&#x6574;&#x4E2A;Rx&#x7684;&#x6267;&#x884C;&#x3002;</p>
+<p>Rx&#x662F;&#x901A;&#x8FC7;&#x8C03;&#x5EA6;&#x5668;&#x6765;&#x9009;&#x62E9;&#x54EA;&#x4E2A;&#x7EBF;&#x7A0B;&#x6267;&#x884C;&#x7684;&#xFF0C;RxJava&#x5185;&#x7F6E;&#x4E86;&#x51E0;&#x79CD;&#x8C03;&#x5EA6;&#x5668;&#xFF0C;&#x5206;&#x522B;&#x4E3A;&#x4E0D;&#x540C;&#x7684;case&#x63D0;&#x4F9B;&#x7EBF;&#x7A0B;&#xFF1A;</p>
+<h2 id="&#x8C03;&#x5EA6;&#x5668;&#x5206;&#x7C7B;"><a class="header-anchor" href="#&#x8C03;&#x5EA6;&#x5668;&#x5206;&#x7C7B;"></a>&#x8C03;&#x5EA6;&#x5668;&#x5206;&#x7C7B;</h2>
+<table>
+<thead>
+<tr>
+<th>&#x8C03;&#x5EA6;&#x5668;&#x7C7B;&#x578B;</th>
+<th>&#x4F5C;&#x7528;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Schedulers.computation(&#x202F;)</td>
+<td>&#x7528;&#x4E8E;&#x8BA1;&#x7B97;&#x4EFB;&#x52A1;&#xFF0C;&#x5982;&#x4E8B;&#x4EF6;&#x5FAA;&#x73AF;&#x6216;&#x548C;&#x56DE;&#x8C03;&#x5904;&#x7406;&#xFF0C;&#x4E0D;&#x8981;&#x7528;&#x4E8E;IO&#x64CD;&#x4F5C;&#xFF0C;&#x9ED8;&#x8BA4;&#x7EBF;&#x7A0B;&#x6570;&#x7B49;&#x4E8E;&#x5904;&#x7406;&#x5668;&#x7684;&#x6570;&#x91CF;&#x3002;&#x5B83;&#x4E5F;&#x662F;&#x8BB8;&#x591A;RxJava&#x65B9;&#x6CD5;&#x7684;&#x9ED8;&#x8BA4;&#x8C03;&#x5EA6;&#x5668;&#xFF1A;buffer(),debounce(),delay(),interval(),sample(),skip()&#x3002;</td>
+</tr>
+<tr>
+<td>Schedulers.from(executor)</td>
+<td>&#x4F7F;&#x7528;&#x6307;&#x5B9A;&#x7684;Executor&#x4F5C;&#x4E3A;&#x8C03;&#x5EA6;&#x5668;</td>
+</tr>
+<tr>
+<td>Schedulers.immediate(&#x202F;)</td>
+<td>&#x8FD9;&#x4E2A;&#x8C03;&#x5EA6;&#x5668;&#x5141;&#x8BB8;&#x4F60;&#x7ACB;&#x5373;&#x5728;&#x5F53;&#x524D;&#x7EBF;&#x7A0B;&#x6267;&#x884C;&#x4F60;&#x6307;&#x5B9A;&#x7684;&#x5DE5;&#x4F5C;&#x3002;&#x5B83;&#x662F;timeout(),timeInterval(),&#x4EE5;&#x53CA;timestamp()&#x65B9;&#x6CD5;&#x9ED8;&#x8BA4;&#x7684;&#x8C03;&#x5EA6;&#x5668;</td>
+</tr>
+<tr>
+<td><a href="http://Schedulers.io" target="_blank" rel="external nofollow noopener noreferrer">Schedulers.io</a>(&#x202F;)</td>
+<td>&#x7528;&#x4E8E;IO&#x5BC6;&#x96C6;&#x578B;&#x4EFB;&#x52A1;&#xFF0C;&#x5982;&#x5F02;&#x6B65;&#x963B;&#x585E;IO&#x64CD;&#x4F5C;&#xFF08;&#x8BFB;&#x5199;&#x6587;&#x4EF6;&#x3001;&#x8BFB;&#x5199;&#x6570;&#x636E;&#x5E93;&#x3001;&#x7F51;&#x7EDC;&#x4FE1;&#x606F;&#x4EA4;&#x4E92;&#x7B49;&#xFF09;&#xFF0C;&#x8FD9;&#x4E2A;&#x8C03;&#x5EA6;&#x5668;&#x7684;&#x7EBF;&#x7A0B;&#x6C60;&#x4F1A;&#x6839;&#x636E;&#x9700;&#x8981;&#x589E;&#x957F;&#xFF1B;&#x5BF9;&#x4E8E;&#x666E;&#x901A;&#x7684;&#x8BA1;&#x7B97;&#x4EFB;&#x52A1;&#xFF0C;&#x8BF7;&#x4F7F;&#x7528;Schedulers.computation()&#xFF1B;<a href="http://Schedulers.io" target="_blank" rel="external nofollow noopener noreferrer">Schedulers.io</a>(&#x202F;)&#x9ED8;&#x8BA4;&#x662F;&#x4E00;&#x4E2A;CachedThreadScheduler&#xFF0C;&#x5F88;&#x50CF;&#x4E00;&#x4E2A;&#x6709;&#x7EBF;&#x7A0B;&#x7F13;&#x5B58;&#x7684;&#x65B0;&#x7EBF;&#x7A0B;&#x8C03;&#x5EA6;&#x5668;</td>
+</tr>
+<tr>
+<td>Schedulers.newThread(&#x202F;)</td>
+<td>&#x4E3A;&#x6BCF;&#x4E2A;&#x4EFB;&#x52A1;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x65B0;&#x7EBF;&#x7A0B;&#xFF0C;&#x5B83;&#x662F;&#x6CA1;&#x6709;&#x7EBF;&#x7A0B;&#x6C60;&#x5728;&#x7BA1;&#x7406;&#x7684;</td>
+</tr>
+<tr>
+<td>Schedulers.trampoline(&#x202F;)</td>
+<td>&#x4E3A;&#x5F53;&#x524D;&#x7EBF;&#x7A0B;&#x5EFA;&#x7ACB;&#x4E00;&#x4E2A;&#x961F;&#x5217;&#xFF0C;&#x5C06;&#x5F53;&#x524D;&#x4EFB;&#x52A1;&#x52A0;&#x5165;&#x5230;&#x961F;&#x5217;&#x4E2D;&#x4F9D;&#x6B21;&#x6267;&#x884C;&#x3002;&#x5F53;&#x5176;&#x5B83;&#x6392;&#x961F;&#x7684;&#x4EFB;&#x52A1;&#x5B8C;&#x6210;&#x540E;&#xFF0C;&#x5728;&#x5F53;&#x524D;&#x7EBF;&#x7A0B;&#x6392;&#x961F;&#x5F00;&#x59CB;&#x6267;&#x884C;</td>
+</tr>
+<tr>
+<td>AndroidSchedulers.mainThread()</td>
+<td>&#x5728;&#x4E3B;&#x7EBF;&#x7A0B;&#x4E2D;&#x5DE5;&#x4F5C;</td>
+</tr>
+</tbody>
+</table>
+<p>&#x6211;&#x4EEC;&#x6765;&#x770B;&#x4E00;&#x4E0B;&#x6E90;&#x7801;&#xFF0C;&#x770B;&#x5B83;&#x662F;&#x5982;&#x4F55;&#x533A;&#x5206;&#x7EBF;&#x7A0B;&#x7684;&#xFF1F;</p>
+<pre><code>private Schedulers() {
+        Scheduler c = RxJavaPlugins.getInstance().getSchedulersHook().getComputationScheduler();
+        if (c != null) {
+            computationScheduler = c;
+        } else {
+            computationScheduler = new EventLoopsScheduler();
+        }
+
+        Scheduler io = RxJavaPlugins.getInstance().getSchedulersHook().getIOScheduler();
+        if (io != null) {
+            ioScheduler = io;
+        } else {
+            ioScheduler = new CachedThreadScheduler();
+        }
+
+        Scheduler nt = RxJavaPlugins.getInstance().getSchedulersHook().getNewThreadScheduler();
+        if (nt != null) {
+            newThreadScheduler = nt;
+        } else {
+            newThreadScheduler = NewThreadScheduler.instance();
+        }
+    }
+</code></pre>
+<p>&#x5B83;&#x5185;&#x90E8;&#x7EF4;&#x62A4;&#x4E86;&#x4E00;&#x4E2A;Schedulers&#x7684;&#x5355;&#x4F8B;&#x5BF9;&#x8C61;&#xFF1A;private static final Schedulers INSTANCE = new Schedulers(); &#x5728;&#x5B83;&#x7684;&#x79C1;&#x6709;&#x6784;&#x9020;&#x51FD;&#x6570;&#x4E2D;&#xFF0C;&#x6839;&#x636E;&#x4E0D;&#x540C;&#x7C7B;&#x578B;&#x521B;&#x5EFA;&#x4E86;&#x76F8;&#x5E94;&#x7684;Scheduler&#xFF0C;&#x4E5F;&#x5373;WorkThread&#x3002;</p>
+<p><strong>&#x6211;&#x4EEC;&#x5148;&#x6765;&#x770B;&#x4E00;&#x4E0B;computation&#x65B9;&#x5F0F;</strong>&#xFF0C;&#x5B83;&#x662F;&#x4E00;&#x4E2A;EventLoopsScheduler&#xFF0C;&#x5728;&#x8FD9;&#x4E2A;&#x7C7B;&#x5185;&#x90E8;&#x5B9A;&#x4E49;&#x4E86;&#x4E00;&#x4E2A;&#x9759;&#x6001;&#x7684;&#x5185;&#x90E8;&#x7C7B;&#xFF0C;</p>
+<pre><code> static final class FixedSchedulerPool {
+        final int cores;
+
+        final PoolWorker[] eventLoops;
+        long n;
+
+        FixedSchedulerPool() {
+            // initialize event loops
+            this.cores = MAX_THREADS; //&#x51B3;&#x5B9A;&#x7EBF;&#x7A0B;&#x6C60;&#x4E2D;&#x7EBF;&#x7A0B;&#x4E2A;&#x6570;
+            this.eventLoops = new PoolWorker[cores];
+            for (int i = 0; i &lt; cores; i++) {
+                this.eventLoops[i] = new PoolWorker(THREAD_FACTORY);
+            }
+        }
+
+        public PoolWorker getEventLoop() {
+            // simple round robin, improvements to come
+            return eventLoops[(int)(n++ % cores)];
+        }
+    }
+</code></pre>
+<p>&#x5B83;&#x7684;&#x7EBF;&#x7A0B;&#x4E2A;&#x6570;&#x662F;&#x6839;&#x636E;MAX_THREADS&#x6765;&#x5B9A;&#x7684;&#xFF0C;&#x90A3;&#x8FD9;&#x4E2A;&#x503C;&#x53C8;&#x662F;&#x5728;&#x54EA;&#x91CC;&#x8D4B;&#x503C;&#x7684;&#x5462;&#xFF1F;&#x8FD8;&#x662F;&#x8FD9;&#x4E2A;&#x7C7B;&#xFF0C;&#x5B83;&#x6709;&#x4E00;&#x4E2A;&#x9759;&#x6001;&#x4EE3;&#x7801;&#x5757;&#xFF1A;</p>
+<pre><code>/** 
+     * Key to setting the maximum number of computation scheduler threads.
+     * Zero or less is interpreted as use available. Capped by available.
+     */
+    static final String KEY_MAX_THREADS = &quot;rx.scheduler.max-computation-threads&quot;;
+
+static {
+        int maxThreads = Integer.getInteger(KEY_MAX_THREADS, 0);
+        int ncpu = Runtime.getRuntime().availableProcessors();
+        int max;
+        if (maxThreads &lt;= 0 || maxThreads &gt; ncpu) {
+            max = ncpu;
+        } else {
+            max = maxThreads;
+        }
+        MAX_THREADS = max;
+    }
+
+</code></pre>
+<p>&#x5B83;&#x5148;&#x53D6;SystemProperty&#x4E2D;&#x7684;&#x53D8;&#x91CF;KEY_MAX_THREADS&#xFF0C;&#x7136;&#x540E;&#x5224;&#x65AD;&#x8FD9;&#x4E2A;&#x503C;&#x662F;&#x4E0D;&#x662F;&#x5927;&#x4E8E;cpu&#x4E2A;&#x6570;&#xFF0C;&#x5982;&#x679C;&#x5C0F;&#x4E8E;&#xFF0C;&#x5E76;&#x4E14;&#x5927;&#x5C0F;0&#x5219;&#x4EE5;&#x8FD9;&#x4E2A;&#x503C;&#x4E3A;&#x7EBF;&#x7A0B;&#x7684;&#x4E2A;&#x6570;&#x3002;&#x4E5F;&#x5C31;&#x662F;&#x8BF4;&#xFF0C;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x6539;&#x53D8;KEY_MAX_THREADS&#x7684;&#x503C;&#xFF0C;&#x6765;&#x6539;&#x53D8;&#x7EBF;&#x7A0B;&#x6C60;&#x4E2D;&#x7EBF;&#x7A0B;&#x7684;&#x6700;&#x5927;&#x4E2A;&#x6570;&#xFF0C;&#x4F46;&#x4E0D;&#x80FD;&#x5927;&#x4E8E;cpu&#x5185;&#x6838;&#x4E2A;&#x6570;&#x3002;</p>
+<p><strong>&#x6211;&#x4EEC;&#x518D;&#x6765;&#x770B;&#x4E00;&#x4E0B;io()&#x65B9;&#x5F0F;&#xFF1A;</strong></p>
+<pre><code>private static final class CachedWorkerPool {
+        private final long keepAliveTime;
+        private final ConcurrentLinkedQueue&lt;ThreadWorker&gt; expiringWorkerQueue;
+        private final ScheduledExecutorService evictExpiredWorkerExecutor;
+
+        CachedWorkerPool(long keepAliveTime, TimeUnit unit) {
+            this.keepAliveTime = unit.toNanos(keepAliveTime);
+            this.expiringWorkerQueue = new ConcurrentLinkedQueue&lt;ThreadWorker&gt;();
+		//&#x521B;&#x5EFA;&#x7EBF;&#x7A0B;&#x6C60;
+            evictExpiredWorkerExecutor = Executors.newScheduledThreadPool(1, EVICTOR_THREAD_FACTORY);
+            evictExpiredWorkerExecutor.scheduleWithFixedDelay(
+                    new Runnable() {
+                        @Override
+                        public void run() {
+                            evictExpiredWorkers();
+                        }
+                    }, this.keepAliveTime, this.keepAliveTime, TimeUnit.NANOSECONDS
+            );
+        }
+
+        private static CachedWorkerPool INSTANCE = new CachedWorkerPool(
+                60L, TimeUnit.SECONDS
+        );//&#x6700;&#x5927;&#x4FDD;&#x6D3B;&#x65F6;&#x95F4;
+
+        ThreadWorker get() {
+            while (!expiringWorkerQueue.isEmpty()) {//&#x5982;&#x679C;&#x7A7A;&#x95F2;&#x961F;&#x5217;&#x4E0D;&#x4E3A;&#x7A7A;&#xFF0C;&#x5219;&#x4ECE;&#x7A7A;&#x95F2;&#x961F;&#x5217;&#x4E2D;&#x53D6;&#x4E00;&#x4E2A;&#x7EBF;&#x7A0B;&#x6765;&#x7528;&#xFF0C;&#x800C;&#x4E0D;&#x7528;&#x6BCF;&#x6B21;&#x65B0;&#x521B;&#x5EFA;&#x7EBF;&#x7A0B;
+                ThreadWorker threadWorker = expiringWorkerQueue.poll();
+                if (threadWorker != null) {
+                    return threadWorker;
+                }
+            }
+
+            // No cached worker found, so create a new one.
+            return new ThreadWorker(WORKER_THREAD_FACTORY);
+        }
+
+        void release(ThreadWorker threadWorker) {
+            // Refresh expire time before putting worker back in pool
+            threadWorker.setExpirationTime(now() + keepAliveTime);
+
+            expiringWorkerQueue.offer(threadWorker);
+        }
+
+        void evictExpiredWorkers() {
+            if (!expiringWorkerQueue.isEmpty()) {
+                long currentTimestamp = now();
+
+                for (ThreadWorker threadWorker : expiringWorkerQueue) {
+                    if (threadWorker.getExpirationTime() &lt;= currentTimestamp) {
+                        if (expiringWorkerQueue.remove(threadWorker)) {
+                            threadWorker.unsubscribe();
+                        }
+                    } else {
+                        // Queue is ordered with the worker that will expire first in the beginning, so when we
+                        // find a non-expired worker we can stop evicting.
+                        break;
+                    }
+                }
+            }
+        }
+
+        long now() {
+            return System.nanoTime();
+        }
+    }
+</code></pre>
+<p>CachedThreadScheduler&#x7C7B;&#x5185;&#x90E8;&#x4E5F;&#x5B9A;&#x4E49;&#x4E86;&#x4E00;&#x4E2A;&#x9759;&#x6001;&#x5185;&#x90E8;&#x7C7B;&#xFF0C;&#x7528;&#x6765;&#x521B;&#x5EFA;&#x7EBF;&#x7A0B;&#x6C60;&#x3002;&#x7EBF;&#x7A0B;&#x6C60;&#x662F;&#x7528;Executors.newScheduledThreadPool&#x6765;&#x521B;&#x5EFA;&#x7684;&#xFF0C;&#x6838;&#x5FC3;&#x7EBF;&#x7A0B;&#x4E2A;&#x6570;&#x4E3A;1&#xFF0C;&#x5E76;&#x4F20;&#x5165;&#x4E86;&#x4E00;&#x4E2A;&#x81EA;&#x5B9A;&#x4E49;&#x7684;RxThreadFactory&#xFF1A;</p>
+<pre><code>private static final RxThreadFactory EVICTOR_THREAD_FACTORY =
+            new RxThreadFactory(EVICTOR_THREAD_NAME_PREFIX);
+</code></pre>
+<p>RxThreadFactory&#x7C7B;&#x5185;&#x90E8;&#x662F;&#x901A;&#x8FC7;AtomicLongFieldUpdater&#x6765;&#x4E3A;&#x7EBF;&#x7A0B;&#x5B9A;&#x4E49;&#x540D;&#x5B57;&#x7684;&#xFF0C;&#x5B83;&#x4EE5;&#x5BF9;&#x6307;&#x5B9A;&quot;&#x7C7B;&#x7684; &apos;volatile long&#x2019;&#x7C7B;&#x578B;&#x7684;&#x6210;&#x5458;&quot;&#x8FDB;&#x884C;&#x539F;&#x5B50;&#x66F4;&#x65B0;&#x3002;&#x5B83;&#x662F;&#x57FA;&#x4E8E;&#x53CD;&#x5C04;&#x539F;&#x7406;&#x5B9E;&#x73B0;&#x7684;&#x3002;&#x5C31;&#x662F;&#x8BF4;&#xFF0C;&#x5728;&#x4E0D;&#x65AD;&#x8C03;&#x7528;io()&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x5982;&#x679C;&#x6CA1;&#x6709;&#x7A7A;&#x95F2;&#x7EBF;&#x7A0B;&#xFF0C;&#x5219;&#x6BCF;&#x6B21;&#x65B0;&#x5EFA;&#x4E00;&#x4E2A;&#xFF0C;&#x8FD9;&#x4E2A;&#x7EBF;&#x7A0B;&#x7684;&#x7684;&#x540D;&#x5B57;&#x662F;&#x7531;&#x524D;&#x7F00;prefix&#x4E0E;counter&#x7EC4;&#x6210;&#x7684;&#x3002;</p>
+<pre><code>public final class RxThreadFactory implements ThreadFactory {
+    final String prefix;
+    volatile long counter;
+    static final AtomicLongFieldUpdater&lt;RxThreadFactory&gt; COUNTER_UPDATER
+            = AtomicLongFieldUpdater.newUpdater(RxThreadFactory.class, &quot;counter&quot;);
+
+    public RxThreadFactory(String prefix) {
+        this.prefix = prefix;
+    }
+
+    @Override
+    public Thread newThread(Runnable r) {
+        Thread t = new Thread(r, prefix + COUNTER_UPDATER.incrementAndGet(this));
+        t.setDaemon(true);
+        return t;
+    }
+}
+</code></pre>
+<p>&#x901A;&#x8FC7;&#x4EE5;&#x4E0A;&#x6E90;&#x7801;&#x7684;&#x5206;&#x6790;&#xFF0C;&#x6211;&#x4EEC;&#x5927;&#x81F4;&#x4E86;&#x89E3;&#x4E86;RxJava&#x662F;&#x5982;&#x4F55;&#x521D;&#x59CB;&#x5316;&#x3001;&#x7BA1;&#x7406;&#x7EBF;&#x7A0B;&#x6C60;&#x7684;&#x3002;&#x6211;&#x4EEC;&#x4E5F;&#x53EF;&#x4EE5;&#x56DE;&#x987E;&#x4E00;&#x4E0B;&#x5728;computation&#x6216;io&#x8C03;&#x5EA6;&#x7684;&#x6A21;&#x5757;&#x91CC;&#x9762;&#x4F7F;&#x7528;Thread.currentThread().getName()&#x65B9;&#x6CD5;&#xFF0C;&#x662F;&#x4E0D;&#x662F;&#x4F1A;&#x5206;&#x522B;&#x6253;&#x5370;&#x4EE5;&#x4E0B;log&#xFF1A;</p>
+<pre><code>08-10 22:33:37.180 11395-11565/com.ngudream.rxjava.example D/-----&gt;: -------&gt;onNext&#x7EBF;&#x7A0B;:RxNewThreadScheduler-1
+08-10 22:33:37.180 11395-11565/com.ngudream.rxjava.example D/-----&gt;: -------&gt;call&#x7EBF;&#x7A0B;:RxNewThreadScheduler-1
+
+08-10 22:33:39.810 11395-11582/com.ngudream.rxjava.example D/-----&gt;: -------&gt;onNext&#x7EBF;&#x7A0B;:RxCachedThreadScheduler-1
+08-10 22:33:39.812 11395-11582/com.ngudream.rxjava.example D/-----&gt;: -------&gt;call&#x7EBF;&#x7A0B;:RxCachedThreadScheduler-1
+
+08-10 22:33:42.112 11395-11601/com.ngudream.rxjava.example D/-----&gt;: -------&gt;onNext&#x7EBF;&#x7A0B;:RxComputationThreadPool-1
+08-10 22:33:42.113 11395-11601/com.ngudream.rxjava.example D/-----&gt;: -------&gt;call&#x7EBF;&#x7A0B;:RxComputationThreadPool-1
+</code></pre>
+<h2 id="&#x603B;&#x7ED3;"><a class="header-anchor" href="#&#x603B;&#x7ED3;"></a>&#x603B;&#x7ED3;</h2>
+<p>&#x6211;&#x4EEC;&#x7279;&#x522B;&#x5F3A;&#x8C03;&#x4E00;&#x4E0B;io&#x548C;computation&#xFF0C;&#x56E0;&#x4E3A;&#x5B83;&#x4EEC;&#x4E24;&#x4E2A;&#x90FD;&#x662F;&#x4F9D;&#x8D56;&#x7EBF;&#x7A0B;&#x6C60;&#x6765;&#x7EF4;&#x62A4;&#x7EBF;&#x7A0B;&#x7684;&#xFF0C;&#x533A;&#x522B;&#x5C31;&#x662F;io&#x7EBF;&#x7A0B;&#x6C60;&#x4E2D;&#x7684;&#x4E2A;&#x6570;&#x662F;&#x65E0;&#x9650;&#x7684;&#xFF0C;&#x7531;AtomicLongFieldUpdater&#x4EA7;&#x751F;&#x7684;&#x9012;&#x589E;&#x503C;&#x548C;prefix&#x6765;&#x51B3;&#x5B9A;&#x7EBF;&#x7A0B;&#x7684;&#x540D;&#x5B57;&#xFF1B;&#x800C;computation&#x4E2D;&#x5219;&#x662F;&#x4E00;&#x4E2A;&#x56FA;&#x5B9A;&#x7EBF;&#x7A0B;&#x6570;&#x91CF;&#x7684;&#x7EBF;&#x7A0B;&#x6C60;&#xFF0C;&#x6570;&#x636E;&#x4E3A;cpu&#x4E2A;&#x6570;&#xFF0C;&#x5E76;&#x4E14;&#x4E0D;&#x8981;&#x628A; I/O &#x64CD;&#x4F5C;&#x653E;&#x5728; computation() &#x4E2D;&#xFF0C;&#x5426;&#x5219; I/O &#x64CD;&#x4F5C;&#x7684;&#x7B49;&#x5F85;&#x65F6;&#x95F4;&#x4F1A;&#x6D6A;&#x8D39; CPU&#x3002;</p>
+<br>
+<p>&#x6240;&#x4EE5;&#x6211;&#x4EEC;&#x5728;&#x4F7F;&#x7528;&#x65F6;&#xFF0C;&#x9700;&#x8981;&#x6CE8;&#x610F;&#xFF0C;&#x63A7;&#x5236;io&#x7EBF;&#x7A0B;&#x7684;&#x6570;&#x91CF;&#xFF0C;&#x5982;&#x679C;&#x4F60;&#x4F7F;&#x7528;&#x4E86;&#x5927;&#x91CF;&#x7684;&#x7EBF;&#x7A0B;&#x7684;&#x8BDD;&#xFF0C;&#x53EF;&#x80FD;&#x4F1A;&#x5BFC;&#x81F4;OutOfMemory&#x7B49;&#x8D44;&#x6E90;&#x7528;&#x5C3D;&#x7684;&#x5F02;&#x5E38;&#x3002;</p>
+<br>
+<p>io() &#x7684;&#x884C;&#x4E3A;&#x6A21;&#x5F0F;&#x548C; newThread() &#x5DEE;&#x4E0D;&#x591A;&#xFF0C;&#x533A;&#x522B;&#x5728;&#x4E8E; io() &#x7684;&#x5185;&#x90E8;&#x5B9E;&#x73B0;&#x662F;&#x662F;&#x7528;&#x4E00;&#x4E2A;&#x65E0;&#x6570;&#x91CF;&#x4E0A;&#x9650;&#x7684;&#x7EBF;&#x7A0B;&#x6C60;&#xFF0C;&#x53EF;&#x4EE5;&#x91CD;&#x7528;&#x7A7A;&#x95F2;&#x7684;&#x7EBF;&#x7A0B;&#xFF0C;&#x56E0;&#x6B64;&#x591A;&#x6570;&#x60C5;&#x51B5;&#x4E0B; io() &#x6BD4; newThread() &#x66F4;&#x6709;&#x6548;&#x7387;&#x3002;&#x4E0D;&#x8981;&#x628A;&#x8BA1;&#x7B97;&#x5DE5;&#x4F5C;&#x653E;&#x5728; io() &#x4E2D;&#xFF0C;&#x53EF;&#x4EE5;&#x907F;&#x514D;&#x521B;&#x5EFA;&#x4E0D;&#x5FC5;&#x8981;&#x7684;&#x7EBF;&#x7A0B;&#x3002;</p>
+<br>
+<p>&#x53C2;&#x8003;&#xFF1A;</p>
+<ul>
+<li><a href="http://www.importnew.com/23325.html" target="_blank" rel="external nofollow noopener noreferrer">http://www.importnew.com/23325.html</a></li>
+<li><a href="http://blog.csdn.net/wangkai0681080/article/details/50512415" target="_blank" rel="external nofollow noopener noreferrer">http://blog.csdn.net/wangkai0681080/article/details/50512415</a></li>
+<li><a href="http://www.jianshu.com/p/129a26c8ba9e" target="_blank" rel="external nofollow noopener noreferrer">http://www.jianshu.com/p/129a26c8ba9e</a></li>
+</ul>]]></content>
+    
+    <summary type="html">
+    
+      RxJava 中 Schedulers 有很多种线程切换调度，在不指定线程的情况下，RxJava遵循的是线程不变原则，也就是说，它是在调用 subscribe 方法的那个线程中执行的。我们可以指定切换成哪种线程，那它的内部是如何维护各种不同的线程的呢？
+    
+    </summary>
+    
+      <category term="移动开发" scheme="http://ngudream.com/categories/%E7%A7%BB%E5%8A%A8%E5%BC%80%E5%8F%91/"/>
+    
+    
+      <category term="Android" scheme="http://ngudream.com/tags/Android/"/>
+    
+      <category term="RxJava" scheme="http://ngudream.com/tags/RxJava/"/>
+    
+  </entry>
   
   <entry>
     <title>Kotlin 如何创建静态方法</title>
@@ -8152,265 +8397,6 @@ public class Circle extends SurfaceView implements SurfaceHolder.Callback {
     
     
       <category term="RxJava" scheme="http://ngudream.com/tags/RxJava/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>android 判断应用是否处于前台</title>
-    <link href="http://ngudream.com/2017/02/26/android-app-is-foreground/"/>
-    <id>http://ngudream.com/2017/02/26/android-app-is-foreground/</id>
-    <published>2017-02-26T04:25:59.000Z</published>
-    <updated>2017-02-26T05:09:25.208Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="&#x5224;&#x65AD;-app-&#x662F;&#x5426;&#x5904;&#x4E8E;&#x524D;&#x53F0;"><a class="header-anchor" href="#&#x5224;&#x65AD;-app-&#x662F;&#x5426;&#x5904;&#x4E8E;&#x524D;&#x53F0;"></a>&#x5224;&#x65AD; app &#x662F;&#x5426;&#x5904;&#x4E8E;&#x524D;&#x53F0;</h2>
-<h3 id="&#x65B9;&#x6CD5;1"><a class="header-anchor" href="#&#x65B9;&#x6CD5;1"></a>&#x65B9;&#x6CD5;1</h3>
-<p>&#x4F7F;&#x7528; RunningAppProcessInfo &#x7C7B;&#x63D0;&#x4F9B;&#x7684;&#x4FE1;&#x606F;&#x6765;&#x5224;&#x65AD;&#xFF0C;&#x4E3B;&#x8981;&#x662F;&#x4F9D;&#x636E;&#x8FDB;&#x7A0B;&#x7B49;&#x7EA7;&#x6765;&#x5224;&#x65AD;&#x3002;</p>
-<p>&#x8FDB;&#x7A0B;&#x7B49;&#x7EA7;&#x5206;5&#x7EA7;&#xFF1A;</p>
-<ul>
-<li>IMPORTANCE_FOREGROUND &#x6B63;&#x5904;&#x4E8E;activity resume&#x72B6;&#x6001;&#xFF0C;&#x6B63;&#x5904;&#x4E8E;bound&#x670D;&#x52A1;&#x4EA4;&#x4E92;&#x7684;&#x72B6;&#x6001;&#xFF0C;&#x6B63;&#x5904;&#x4E8E;&#x670D;&#x52A1;&#x5728;&#x524D;&#x53F0;&#x8FD0;&#x884C;&#x7684;&#x72B6;&#x6001;&#xFF08;StartForeGround&#xFF08;&#xFF09;&#x88AB;&#x8C03;&#x7528;&#xFF09;&#xFF0C;Service&#x751F;&#x547D;&#x5468;&#x671F;&#x6B63;&#x5728;&#x88AB;&#x6267;&#x884C;nCreate&#xFF08;&#xFF09;&#xFF0C;onStart&#xFF08;&#xFF09;&#xFF0C;onDestroy&#xFF08;&#xFF09;&#xFF09;&#xFF0C;BroadcastReceiver&#x6B63;&#x5728;&#x6267;&#x884C;onReceive&#xFF08;&#xFF09;&#x65B9;&#x6CD5;&#xFF0C; &#x6740;&#x6B7B;foreground&#x9700;&#x8981;&#x7528;&#x6237;&#x54CD;&#x5E94;&#xFF0C;&#x56E0;&#x4E3A;&#x8FD9;&#x4E2A;&#x5B89;&#x5168;&#x4F18;&#x5148;&#x7EA7;&#x662F;&#x6700;&#x9AD8;&#x7684;</li>
-<li>IMPORTANCE_VISIBLE activity&#x4E0D;&#x5728;&#x524D;&#x7AEF;&#x663E;&#x793A;&#xFF0C;&#x4F46;&#x4E5F;&#x6CA1;&#x6709;&#x5B8C;&#x5168;&#x9690;&#x85CF;&#xFF0C;&#x80FD;&#x591F;&#x770B;&#x5F97;&#x89C1;&#xFF0C;&#x6BD4;&#x5982;&#x5F39;&#x51FA;&#x4E00;&#x4E2A;&#x5BF9;&#x8BDD;&#x6846;&#xFF0C;&#x6CA1;&#x6709;&#x524D;&#x53F0;&#x7EC4;&#x4EF6;&#xFF0C;&#x4F46;&#x4ECD;&#x53EF;&#x88AB;&#x7528;&#x6237;&#x5728;&#x5C4F;&#x5E55;&#x4E0A;&#x6240;&#x89C1;&#x3002;</li>
-<li>IMPORTANCE_SERVICE &#x6B63;&#x5728;&#x8FD0;&#x884C;&#x7684;&#xFF0C;&#x4E0D;&#x5728;&#x4E0A;&#x8FF0;&#x4E24;&#x79CD;&#x72B6;&#x6001;&#x7684;service&#xFF0C;&#x662F;&#x7531; startService() &#x65B9;&#x6CD5;&#x542F;&#x52A8;&#x7684;&#x670D;&#x52A1;&#xFF0C;&#x5B83;&#x4E0D;&#x4F1A;&#x53D8;&#x6210;&#x4E0A;&#x8FF0;&#x4E24;&#x7C7B;&#x3002;</li>
-<li>IMPORTANCE_BACKGROUND &#x4E0D;&#x53EF;&#x89C1;&#x72B6;&#x6001;&#x7684;activity&#x8FDB;&#x7A0B;&#xFF0C;onstop&#x88AB;&#x8C03;&#x7528;</li>
-<li>IMPORTANCE_EMPTY &#x6CA1;&#x6709;&#x8FD0;&#x884C;&#x4EFB;&#x4F55;component&#x7684;&#x8FDB;&#x7A0B;&#xFF0C;&#x4FDD;&#x7559;&#x8FD9;&#x4E2A;&#x8FDB;&#x7A0B;&#x4E3B;&#x8981;&#x662F;&#x4E3A;&#x4E86;&#x7F13;&#x5B58;&#x7684;&#x9700;&#x8981;</li>
-</ul>
-<p>&#x5B9E;&#x73B0;&#x65B9;&#x6CD5;&#x5982;&#x4E0B;&#xFF1A;</p>
-<pre><code>/**
-     * &#x5E94;&#x7528;&#x662F;&#x5426;&#x5904;&#x4E8E;&#x524D;&#x53F0;
-     * @return
-     */
-    private boolean isAppForeground(){
-        ActivityManager manager = (ActivityManager) getSystemService(ACTIVITY_SERVICE);
-        List&lt;ActivityManager.RunningAppProcessInfo&gt; appProcessInfos = manager.getRunningAppProcesses();
-        if(appProcessInfos == null || appProcessInfos.isEmpty()){
-            return false;
-        }
-        for(ActivityManager.RunningAppProcessInfo info : appProcessInfos){
-            //&#x5F53;&#x524D;&#x5E94;&#x7528;&#x5904;&#x4E8E;&#x8FD0;&#x884C;&#x4E2D;&#xFF0C;&#x5E76;&#x4E14;&#x5728;&#x524D;&#x53F0;
-            if(info.processName.equals(getPackageName()) &amp;&amp; info.importance == ActivityManager.RunningAppProcessInfo.IMPORTANCE_FOREGROUND){
-                return true;
-            }
-        }
-        return false;
-    }
-</code></pre>
-<h3 id="&#x65B9;&#x6CD5;2"><a class="header-anchor" href="#&#x65B9;&#x6CD5;2"></a>&#x65B9;&#x6CD5;2</h3>
-<p>&#x4E3B;&#x8981;&#x662F;&#x5B9E;&#x73B0; ActivityLifecycleCallbacks &#x63A5;&#x53E3;&#xFF0C;&#x539F;&#x7406;&#x5C31;&#x662F;&#x6839;&#x636E; activity &#x7684;&#x751F;&#x547D;&#x5468;&#x671F;&#x7684;&#x53D8;&#x5316;&#xFF0C;&#x4F1A;&#x56DE;&#x8C03;&#x76F8;&#x5E94;&#x7684;&#x51FD;&#x6570;&#xFF0C;&#x8FD9;&#x6837;&#x6211;&#x4EEC;&#x5C31;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x8BB0;&#x5F55;&#x524D;&#x53F0; activity &#x7684;&#x6570;&#x91CF;&#x6765;&#x8FBE;&#x5230;&#x5224;&#x65AD;&#x5E94;&#x7528;&#x662F;&#x5426;&#x5904;&#x4E8E;&#x524D;&#x53F0;&#x7684;&#x76EE;&#x7684;&#x3002;</p>
-<p>&#x5B9E;&#x73B0;&#x65B9;&#x6CD5;&#x5982;&#x4E0B;&#xFF1A;</p>
-<pre><code>package com.meizu.rxjava.example;
-
-import android.app.Activity;
-import android.app.Application;
-import android.os.Bundle;
-
-/**
- * Created by ngudream on 2017/2/26.
- */
-public class MyApplication extends Application {
-
-    private MyActivitiesLife myActivitiesLife;
-
-    @Override
-    public void onCreate() {
-        super.onCreate();
-        registerActivityLifecycleCallbacks(myActivitiesLife);
-    }
-
-    private static class MyActivitiesLife implements ActivityLifecycleCallbacks{
-
-        private static int resumed;
-        private static int paused;
-
-        @Override
-        public void onActivityCreated(Activity activity, Bundle savedInstanceState) {
-        }
-
-        @Override
-        public void onActivityStarted(Activity activity) {
-        }
-
-        @Override
-        public void onActivityResumed(Activity activity) {
-            ++resumed;
-        }
-
-        @Override
-        public void onActivityPaused(Activity activity) {
-            ++paused;
-        }
-
-        @Override
-        public void onActivityStopped(Activity activity) {
-        }
-
-        @Override
-        public void onActivityDestroyed(Activity activity) {
-        }
-
-        @Override
-        public void onActivitySaveInstanceState(Activity activity, Bundle outState) {
-        }
-
-        /**
-         * &#x5224;&#x65AD;&#x5E94;&#x7528;&#x662F;&#x5426;&#x5728;&#x524D;&#x53F0;
-         * @return
-         */
-        public static boolean isAppForeground() {
-            return resumed &gt; paused;
-        }
-    }
-}
-
-</code></pre>
-<p>&#x5F53; resumed &#x72B6;&#x6001;&#x7684; activity&#xFF0C;&#x5373;&#x53EF;&#x89C1;&#x72B6;&#x6001;&#x7684; activity &#x7684;&#x6570;&#x91CF;&#x5927;&#x4E8E;&#x4E0D;&#x53EF;&#x89C1;&#x72B6;&#x6001;&#x7684; activity &#x7684;&#x6570;&#x91CF;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x6211;&#x4EEC;&#x5C31;&#x53EF;&#x4EE5;&#x8BA4;&#x4E3A;&#x5E94;&#x7528;&#x5904;&#x4E8E;&#x524D;&#x53F0;&#x3002;</p>
-<h2 id="&#x521B;&#x5EFA;&#x524D;&#x53F0;-service"><a class="header-anchor" href="#&#x521B;&#x5EFA;&#x524D;&#x53F0;-service"></a>&#x521B;&#x5EFA;&#x524D;&#x53F0; service</h2>
-<p>&#x524D;&#x53F0;&#x670D;&#x52A1;&#x662F;&#x90A3;&#x4E9B;&#x88AB;&#x8BA4;&#x4E3A;&#x7528;&#x6237;&#x77E5;&#x9053;&#x4E14;&#x5728;&#x7CFB;&#x7EDF;&#x5185;&#x5B58;&#x4E0D;&#x8DB3;&#x7684;&#x65F6;&#x5019;&#x4E0D;&#x5141;&#x8BB8;&#x7CFB;&#x7EDF;&#x6740;&#x6B7B;&#x7684;&#x670D;&#x52A1;&#x3002;&#x524D;&#x53F0;&#x670D;&#x52A1;&#x5FC5;&#x987B;&#x7ED9;&#x72B6;&#x6001;&#x680F;&#x63D0;&#x4F9B;&#x4E00;&#x4E2A;&#x901A;&#x77E5;&#xFF0C;&#x5373;&#x4F9D;&#x8D56;&#x901A;&#x77E5;&#x680F;&#x7684;&#x5B58;&#x5728;&#x6765;&#x4FDD;&#x8BC1;&#x670D;&#x52A1;&#x4E0D;&#x88AB;&#x6740;&#x6B7B;&#xFF0C;&#x76F4;&#x5230;&#x901A;&#x77E5;&#x88AB;&#x5173;&#x6389;&#x3002;</p>
-<p>&#x9996;&#x5148;&#x6211;&#x4EEC;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;service&#xFF1A;</p>
-<pre><code>package com.meizu.rxjava.example;
-
-import android.app.Service;
-import android.content.Intent;
-import android.os.IBinder;
-import android.support.annotation.Nullable;
-
-/**
- * Created by ngudream on 2017/2/26.
- */
-
-public class MyForegroundService extends Service {
-
-    @Override
-    public void onCreate() {
-        super.onCreate();
-    }
-
-    @Override
-    public int onStartCommand(Intent intent, int flags, int startId) {
-        return super.onStartCommand(intent, flags, startId);
-    }
-
-    @Nullable
-    @Override
-    public IBinder onBind(Intent intent) {
-        return null;
-    }
-}
-
-</code></pre>
-<p>&#x7136;&#x540E;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x901A;&#x77E5;&#x680F;&#x6D88;&#x606F;&#xFF1A;</p>
-<pre><code>/**
-     * &#x6784;&#x5EFA;&#x901A;&#x77E5;&#x680F;&#x6D88;&#x606F;
-     * @return
-     */
-    private Notification createNotification() {
-        Notification.Builder builder = new Notification.Builder(this.getApplicationContext()); //&#x83B7;&#x53D6;&#x4E00;&#x4E2A;Notification&#x6784;&#x9020;&#x5668;
-        Intent newIntent = new Intent(this, MainActivity.class);
-        builder.setContentIntent(PendingIntent.getActivity(this, 0, newIntent, 0))
-                .setContentTitle(&quot;&#x524D;&#x53F0; service &#x6807;&#x9898;&quot;)
-                .setContentText(&quot;&#x524D;&#x53F0; service &#x5185;&#x5BB9;&quot;)
-                .setLargeIcon(BitmapFactory.decodeResource(getResources(), R.mipmap.ic_launcher))
-                .setSmallIcon(R.mipmap.ic_launcher);
-        
-        return builder.build();
-    }
-</code></pre>
-<p>&#x90A3;&#x5728;&#x4EC0;&#x4E48;&#x65F6;&#x673A;&#x8C03;&#x7528;&#xFF08;&#x542F;&#x52A8;&#x524D;&#x53F0;&#x670D;&#x52A1;&#xFF09;&#x8FD9;&#x4E2A;&#x901A;&#x77E5;&#x680F;&#x6D88;&#x606F;&#x5462;&#xFF1F;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x5728; onStartCommand &#x65B9;&#x6CD5;&#x4E2D;&#x8C03;&#x7528;&#x3002;service &#x63D0;&#x4F9B;&#x4E86; startForeground &#x65B9;&#x6CD5;&#x3002;</p>
-<pre><code>@Override
-    public int onStartCommand(Intent intent, int flags, int startId) {
-        startForeground(FOREGROUND_SERVICE_ID, createNotification());
-        return super.onStartCommand(intent, flags, startId);
-    }
-</code></pre>
-<p>&#x5982;&#x4F55;&#x60F3;&#x505C;&#x6B62;&#x524D;&#x53F0;&#x670D;&#x52A1;&#xFF0C;&#x5373;&#x5220;&#x9664;&#x901A;&#x77E5;&#x680F;&#x6D88;&#x606F;&#xFF0C;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x5728; service &#x7684; onDestroy &#x65B9;&#x6CD5;&#x4E2D;&#x8C03;&#x7528; stopForeground &#x6765;&#x5B8C;&#x6210;&#xFF1A;</p>
-<pre><code>@Override
-    public void onDestroy() {
-        super.onDestroy();
-        stopForeground(true);
-    }
-</code></pre>
-<p>stopForeground &#x65B9;&#x6CD5;&#x7684;&#x539F;&#x578B;&#x5982;&#x4E0B;&#xFF0C;&#x53C2;&#x6570;&#x8868;&#x793A;&#x662F;&#x5426;&#x79FB;&#x9664;&#x901A;&#x77E5;&#x680F;&#x6D88;&#x606F;&#xFF1A;</p>
-<pre><code>/**
-     * Synonym for {@link #stopForeground(int)}.
-     * @param removeNotification If true, the {@link #STOP_FOREGROUND_REMOVE} flag
-     * will be supplied.
-     * @see #stopForeground(int)
-     * @see #startForeground(int, Notification)
-     */
-    public final void stopForeground(boolean removeNotification) {
-        stopForeground(removeNotification ? STOP_FOREGROUND_REMOVE : 0);
-    }
-</code></pre>
-<p>&#x6574;&#x4E2A; service &#x7684;&#x5B8C;&#x6574;&#x4EE3;&#x7801;&#x5982;&#x4E0B;&#xFF1A;</p>
-<pre><code>package com.meizu.rxjava.example;
-
-import android.app.Notification;
-import android.app.PendingIntent;
-import android.app.Service;
-import android.content.Intent;
-import android.graphics.BitmapFactory;
-import android.os.IBinder;
-import android.support.annotation.Nullable;
-
-/**
- * Created by ngudream on 2017/2/26.
- * &#x524D;&#x53F0;&#x670D;&#x52A1;&#x4F18;&#x5148;&#x7EA7;&#x6BD4;&#x8F83;&#x9AD8;&#xFF0C;&#x5728;&#x7CFB;&#x7EDF;&#x5185;&#x5B58;&#x4E0D;&#x8DB3;&#x7684;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;&#x4E0D;&#x4F1A;&#x88AB;&#x7CFB;&#x7EDF;&#x6740;&#x6B7B;
- */
-
-public class MyForegroundService extends Service {
-
-    private final static int FOREGROUND_SERVICE_ID = 100;
-
-    @Override
-    public void onCreate() {
-        super.onCreate();
-    }
-
-    @Override
-    public int onStartCommand(Intent intent, int flags, int startId) {
-        startForeground(FOREGROUND_SERVICE_ID, createNotification());//&#x542F;&#x52A8;&#x524D;&#x53F0;&#x670D;&#x52A1;&#xFF0C;&#x5728;&#x901A;&#x77E5;&#x680F;&#x663E;&#x793A;&#x4E00;&#x4E2A;&#x6D88;&#x606F;
-        return super.onStartCommand(intent, flags, startId);
-    }
-
-    @Nullable
-    @Override
-    public IBinder onBind(Intent intent) {
-        return null;
-    }
-
-    @Override
-    public void onDestroy() {
-        super.onDestroy();
-        stopForeground(true);//&#x505C;&#x6B62;&#x524D;&#x53F0;&#x670D;&#x52A1;&#x5E76;&#x4E14;&#x79FB;&#x9664;&#x901A;&#x77E5;&#x680F;
-    }
-
-    /**
-     * &#x6784;&#x5EFA;&#x901A;&#x77E5;&#x680F;&#x6D88;&#x606F;
-     * @return
-     */
-    private Notification createNotification() {
-        Notification.Builder builder = new Notification.Builder(this.getApplicationContext()); //&#x83B7;&#x53D6;&#x4E00;&#x4E2A;Notification&#x6784;&#x9020;&#x5668;
-        Intent newIntent = new Intent(this, MainActivity.class);
-        builder.setContentIntent(PendingIntent.getActivity(this, 0, newIntent, 0))
-                .setContentTitle(&quot;&#x524D;&#x53F0; service &#x6807;&#x9898;&quot;)
-                .setContentText(&quot;&#x524D;&#x53F0; service &#x5185;&#x5BB9;&quot;)
-                .setLargeIcon(BitmapFactory.decodeResource(getResources(), R.mipmap.ic_launcher))
-                .setSmallIcon(R.mipmap.ic_launcher);
-
-        return builder.build();
-    }
-}
-
-</code></pre>]]></content>
-    
-    <summary type="html">
-    
-      Android 中判断应用程序在前台还是在后台运行，我们可以通过 RunningAppProcessInfo，获取应用本身的优先等级去判断，也可能使用 ActivityLifecycleCallbacks，根据 activity 的生命周期去判断（Android 4.0 以上）。
-    
-    </summary>
-    
-      <category term="移动开发" scheme="http://ngudream.com/categories/%E7%A7%BB%E5%8A%A8%E5%BC%80%E5%8F%91/"/>
-    
-    
-      <category term="Android" scheme="http://ngudream.com/tags/Android/"/>
     
   </entry>
   

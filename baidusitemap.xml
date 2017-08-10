@@ -4,6 +4,28 @@
 
     
   <url>
+    <loc>http://ngudream.com/2017/08/10/rxjava-why-io/</loc>
+    <lastmod>2017-08-10T14:38:44.174Z</lastmod>
+    <data>
+        <display>
+        <title>RxJava 内部如何管理线程？</title>
+        <pubTime>2017-08-10T13:37:24.000Z</pubTime>
+        
+        <tag>Android</tag>
+         
+        <tag>RxJava</tag>
+         
+         
+           
+             
+              <breadCrumb title="移动开发" url="http://ngudream.com/categories/%E7%A7%BB%E5%8A%A8%E5%BC%80%E5%8F%91/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://ngudream.com/2016/09/04/java-mult-threads/</loc>
     <lastmod>2017-08-07T12:03:51.584Z</lastmod>
     <data>
