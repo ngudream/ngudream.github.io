@@ -4,6 +4,70 @@
 
     
   <url>
+    <loc>http://ngudream.com/2017/08/13/android-so-load/</loc>
+    <lastmod>2017-08-13T03:40:05.712Z</lastmod>
+    <data>
+        <display>
+        <title>Android SO库的加载过程</title>
+        <pubTime>2017-08-13T03:17:48.000Z</pubTime>
+        
+        <tag>Android</tag>
+         
+         
+           
+             
+              <breadCrumb title="移动开发" url="http://ngudream.com/categories/%E7%A7%BB%E5%8A%A8%E5%BC%80%E5%8F%91/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://ngudream.com/2017/08/13/android-h5-security/</loc>
+    <lastmod>2017-08-13T03:14:47.370Z</lastmod>
+    <data>
+        <display>
+        <title>Android WebView之安全性</title>
+        <pubTime>2017-08-13T01:50:31.000Z</pubTime>
+        
+        <tag>Android</tag>
+         
+        <tag>WebView</tag>
+         
+        <tag>HTTPS</tag>
+         
+         
+           
+             
+              <breadCrumb title="移动开发" url="http://ngudream.com/categories/%E7%A7%BB%E5%8A%A8%E5%BC%80%E5%8F%91/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://ngudream.com/2017/04/13/https-ssl/</loc>
+    <lastmod>2017-08-13T02:36:27.007Z</lastmod>
+    <data>
+        <display>
+        <title>HTTPS验证过程与HTTP区别</title>
+        <pubTime>2017-04-13T01:49:57.000Z</pubTime>
+        
+        <tag>HTTP</tag>
+         
+         
+           
+             
+              <breadCrumb title="通信" url="http://ngudream.com/categories/%E9%80%9A%E4%BF%A1/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://ngudream.com/2017/08/12/http-domain-hijacking/</loc>
     <lastmod>2017-08-13T01:36:12.931Z</lastmod>
     <data>
