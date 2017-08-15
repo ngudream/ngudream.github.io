@@ -1,3 +1,4 @@
+http://ngudream.com/2017/08/15/java-protobuf-superior/
 http://ngudream.com/2017/08/13/android-so-load/
 http://ngudream.com/2017/08/13/android-h5-security/
 http://ngudream.com/2017/08/12/http-domain-hijacking/
@@ -77,4 +78,3 @@ http://ngudream.com/2016/08/25/rxjava-repeatwhen-retrywhen/
 http://ngudream.com/2016/08/25/presenter-interface/
 http://ngudream.com/2016/08/25/rxjava-operators/
 http://ngudream.com/2016/08/23/android-lrucache-bug/
-http://ngudream.com/2016/08/23/morning-reading/

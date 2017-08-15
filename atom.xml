@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://ngudream.com/"/>
-  <updated>2017-08-13T03:40:05.712Z</updated>
+  <updated>2017-08-15T11:07:37.879Z</updated>
   <id>http://ngudream.com/</id>
   
   <author>
@@ -14,6 +14,116 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Protobuf的优势在哪里？</title>
+    <link href="http://ngudream.com/2017/08/15/java-protobuf-superior/"/>
+    <id>http://ngudream.com/2017/08/15/java-protobuf-superior/</id>
+    <published>2017-08-15T10:45:58.000Z</published>
+    <updated>2017-08-15T11:07:37.879Z</updated>
+    
+    <content type="html"><![CDATA[<style>
+br{ 
+line-height:2px; 
+} 
+</style>
+<h2 id="&#x4EC0;&#x4E48;&#x662F;protobuf"><a class="header-anchor" href="#&#x4EC0;&#x4E48;&#x662F;protobuf"></a>&#x4EC0;&#x4E48;&#x662F;Protobuf</h2>
+<p>Protobuf&#x662F;&#x4E00;&#x79CD;&#x8F7B;&#x4FBF;&#x9AD8;&#x6548;&#x7684;&#x7ED3;&#x6784;&#x5316;&#x6570;&#x636E;&#x5B58;&#x50A8;&#x683C;&#x5F0F;&#xFF0C;&#x53EF;&#x4EE5;&#x7528;&#x4E8E;&#x7ED3;&#x6784;&#x5316;&#x6570;&#x636E;&#x4E32;&#x884C;&#x5316;&#xFF0C;&#x6216;&#x8005;&#x8BF4;&#x5E8F;&#x5217;&#x5316;&#x3002;&#x5B83;&#x7684;&#x8BBE;&#x8BA1;&#x975E;&#x5E38;&#x9002;&#x7528;&#x4E8E;&#x5728;&#x7F51;&#x7EDC;&#x901A;&#x8BAF;&#x4E2D;&#x7684;&#x6570;&#x636E;&#x8F7D;&#x4F53;&#xFF0C;&#x5F88;&#x9002;&#x5408;&#x505A;&#x6570;&#x636E;&#x5B58;&#x50A8;&#x6216; RPC &#x6570;&#x636E;&#x4EA4;&#x6362;&#x683C;&#x5F0F;&#xFF0C;&#x5B83;&#x5E8F;&#x5217;&#x5316;&#x51FA;&#x6765;&#x7684;&#x6570;&#x636E;&#x91CF;&#x5C11;&#x518D;&#x52A0;&#x4E0A;&#x4EE5;K-V&#x7684;&#x65B9;&#x5F0F;&#x6765;&#x5B58;&#x50A8;&#x6570;&#x636E;&#xFF0C;&#x5BF9;&#x6D88;&#x606F;&#x7684;&#x7248;&#x672C;&#x517C;&#x5BB9;&#x6027;&#x975E;&#x5E38;&#x5F3A;&#xFF0C;&#x53EF;&#x7528;&#x4E8E;&#x901A;&#x8BAF;&#x534F;&#x8BAE;&#x3001;&#x6570;&#x636E;&#x5B58;&#x50A8;&#x7B49;&#x9886;&#x57DF;&#x7684;&#x8BED;&#x8A00;&#x65E0;&#x5173;&#x3001;&#x5E73;&#x53F0;&#x65E0;&#x5173;&#x3001;&#x53EF;&#x6269;&#x5C55;&#x7684;&#x5E8F;&#x5217;&#x5316;&#x7ED3;&#x6784;&#x6570;&#x636E;&#x683C;&#x5F0F;&#x3002;</p>
+<h3 id="protobuf-&#x6D88;&#x606F;"><a class="header-anchor" href="#protobuf-&#x6D88;&#x606F;"></a>Protobuf &#x6D88;&#x606F;</h3>
+<p>message&#x7531;&#x81F3;&#x5C11;&#x4E00;&#x4E2A;&#x5B57;&#x6BB5;&#x7EC4;&#x5408;&#x800C;&#x6210;&#xFF0C;&#x7C7B;&#x4F3C;&#x4E8E;C&#x8BED;&#x8A00;&#x4E2D;&#x7684;&#x7ED3;&#x6784;&#x3002;&#x6BCF;&#x4E2A;&#x5B57;&#x6BB5;&#x90FD;&#x6709;&#x4E00;&#x5B9A;&#x7684;&#x683C;&#x5F0F;&#xFF1A;</p>
+<pre><code>&#x9650;&#x5B9A;&#x4FEE;&#x9970;&#x7B26; | &#x6570;&#x636E;&#x7C7B;&#x578B; | &#x5B57;&#x6BB5;&#x540D;&#x79F0; | = | &#x5B57;&#x6BB5;&#x7F16;&#x7801;&#x503C; | [&#x5B57;&#x6BB5;&#x9ED8;&#x8BA4;&#x503C;]
+</code></pre>
+<h3 id="&#x9650;&#x5B9A;&#x4FEE;&#x9970;&#x7B26;"><a class="header-anchor" href="#&#x9650;&#x5B9A;&#x4FEE;&#x9970;&#x7B26;"></a>&#x9650;&#x5B9A;&#x4FEE;&#x9970;&#x7B26;</h3>
+<ul>
+<li>message&#x5C31;&#x662F;&#x76F8;&#x5F53;&#x4E8E;class</li>
+<li>Required&#xFF1A;&#x8868;&#x793A;&#x662F;&#x4E00;&#x4E2A;&#x5FC5;&#x987B;&#x5B57;&#x6BB5;&#xFF0C;&#x5FC5;&#x987B;&#x76F8;&#x5BF9;&#x4E8E;&#x53D1;&#x9001;&#x65B9;&#xFF0C;&#x5728;&#x53D1;&#x9001;&#x6D88;&#x606F;&#x4E4B;&#x524D;&#x5FC5;&#x987B;&#x8BBE;&#x7F6E;&#x8BE5;&#x5B57;&#x6BB5;&#x7684;&#x503C;&#xFF1B;&#x5BF9;&#x4E8E;&#x63A5;&#x6536;&#x65B9;&#xFF0C;&#x5FC5;&#x987B;&#x80FD;&#x591F;&#x8BC6;&#x522B;&#x8BE5;&#x5B57;&#x6BB5;&#x7684;&#x610F;&#x601D;&#x3002;&#x53D1;&#x9001;&#x4E4B;&#x524D;&#x6CA1;&#x6709;&#x8BBE;&#x7F6E;required&#x5B57;&#x6BB5;&#x6216;&#x8005;&#x65E0;&#x6CD5;&#x8BC6;&#x522B;required&#x5B57;&#x6BB5;&#x90FD;&#x4F1A;&#x5F15;&#x53D1;&#x7F16;&#x89E3;&#x7801;&#x5F02;&#x5E38;&#xFF0C;&#x5BFC;&#x81F4;&#x6D88;&#x606F;&#x88AB;&#x4E22;&#x5F03;&#x3002;</li>
+<li>Optional&#xFF1A;&#x8868;&#x793A;&#x662F;&#x4E00;&#x4E2A;&#x53EF;&#x9009;&#x5B57;&#x6BB5;&#xFF0C;&#x53EF;&#x9009;&#x5BF9;&#x4E8E;&#x53D1;&#x9001;&#x65B9;&#xFF0C;&#x5728;&#x53D1;&#x9001;&#x6D88;&#x606F;&#x65F6;&#xFF0C;&#x53EF;&#x4EE5;&#x6709;&#x9009;&#x62E9;&#x6027;&#x7684;&#x8BBE;&#x7F6E;&#x6216;&#x8005;&#x4E0D;&#x8BBE;&#x7F6E;&#x8BE5;&#x5B57;&#x6BB5;&#x7684;&#x503C;&#xFF1B;&#x5BF9;&#x4E8E;&#x63A5;&#x6536;&#x65B9;&#xFF0C;&#x5982;&#x679C;&#x80FD;&#x591F;&#x8BC6;&#x522B;&#x53EF;&#x9009;&#x5B57;&#x6BB5;&#x5C31;&#x8FDB;&#x884C;&#x76F8;&#x5E94;&#x7684;&#x5904;&#x7406;&#xFF0C;&#x5982;&#x679C;&#x65E0;&#x6CD5;&#x8BC6;&#x522B;&#xFF0C;&#x5219;&#x5FFD;&#x7565;&#x8BE5;&#x5B57;&#x6BB5;&#xFF0C;&#x6D88;&#x606F;&#x4E2D;&#x7684;&#x5176;&#x5B83;&#x5B57;&#x6BB5;&#x6B63;&#x5E38;&#x5904;&#x7406;&#x3002;&#x5F88;&#x591A;&#x63A5;&#x53E3;&#x5728;&#x5347;&#x7EA7;&#x7248;&#x672C;&#x4E2D;&#x90FD;&#x628A;&#x540E;&#x6765;&#x6DFB;&#x52A0;&#x7684;&#x5B57;&#x6BB5;&#x90FD;&#x7EDF;&#x4E00;&#x7684;&#x8BBE;&#x7F6E;&#x4E3A;optional&#x5B57;&#x6BB5;&#xFF0C;&#x8FD9;&#x6837;&#x8001;&#x7684;&#x7248;&#x672C;&#x65E0;&#x9700;&#x5347;&#x7EA7;&#x7A0B;&#x5E8F;&#x4E5F;&#x53EF;&#x4EE5;&#x6B63;&#x5E38;&#x7684;&#x4E0E;&#x65B0;&#x7684;&#x8F6F;&#x4EF6;&#x8FDB;&#x884C;&#x901A;&#x4FE1;&#xFF0C;&#x53EA;&#x4E0D;&#x8FC7;&#x65B0;&#x7684;&#x5B57;&#x6BB5;&#x65E0;&#x6CD5;&#x8BC6;&#x522B;&#x800C;&#x5DF2;&#xFF0C;&#x56E0;&#x4E3A;&#x5E76;&#x4E0D;&#x662F;&#x6BCF;&#x4E2A;&#x8282;&#x70B9;&#x90FD;&#x9700;&#x8981;&#x65B0;&#x7684;&#x529F;&#x80FD;&#xFF0C;&#x56E0;&#x6B64;&#x53EF;&#x4EE5;&#x505A;&#x5230;&#x6309;&#x9700;&#x5347;&#x7EA7;&#x548C;&#x5E73;&#x6ED1;&#x8FC7;&#x6E21;&#x3002;</li>
+<li>Repeated&#xFF1A;&#x8868;&#x793A;&#x8BE5;&#x5B57;&#x6BB5;&#x53EF;&#x4EE5;&#x5305;&#x542B;0 ~ N&#x4E2A;&#x5143;&#x7D20;&#xFF0C;&#x53EF;&#x4EE5;&#x770B;&#x4F5C;&#x662F;&#x5728;&#x4F20;&#x9012;&#x6570;&#x7EC4;&#x3002;</li>
+</ul>
+<h2 id="protobuf&#x7684;&#x4F18;&#x52BF;"><a class="header-anchor" href="#protobuf&#x7684;&#x4F18;&#x52BF;"></a>Protobuf&#x7684;&#x4F18;&#x52BF;</h2>
+<ul>
+<li>&#xFF08;1&#xFF09;&#x5E8F;&#x5217;&#x5316;&#x540E;&#x4F53;&#x79EF;&#x76F8;&#x6BD4;Json&#x548C;XML&#x5F88;&#x5C0F;&#xFF0C;&#x9002;&#x5408;&#x7F51;&#x7EDC;&#x4F20;&#x8F93;</li>
+<li>&#xFF08;2&#xFF09;&#x652F;&#x6301;&#x8DE8;&#x5E73;&#x53F0;&#x591A;&#x8BED;&#x8A00;</li>
+<li>&#xFF08;3&#xFF09;&#x6D88;&#x606F;&#x683C;&#x5F0F;&#x5347;&#x7EA7;&#x548C;&#x517C;&#x5BB9;&#x6027;&#x4E0D;&#x9519;&#xFF0C;&#x201C;&#x5411;&#x540E;&#x201D;&#x517C;&#x5BB9;&#x6027;&#x597D;</li>
+<li>&#xFF08;4&#xFF09;&#x5E8F;&#x5217;&#x5316;&#x53CD;&#x5E8F;&#x5217;&#x5316;&#x901F;&#x5EA6;&#x5F88;&#x5FEB;&#xFF0C;&#x5FEB;&#x4E8E;Json&#x7684;&#x5904;&#x7406;&#x901F;&#x901F;</li>
+<li>&#xFF08;5&#xFF09;Protobuf &#x8BED;&#x4E49;&#x66F4;&#x6E05;&#x6670;&#xFF0C;&#x65E0;&#x9700;&#x7C7B;&#x4F3C; XML &#x89E3;&#x6790;&#x5668;&#x7684;&#x4E1C;&#x897F;&#xFF08;&#x56E0;&#x4E3A; Protobuf &#x7F16;&#x8BD1;&#x5668;&#x4F1A;&#x5C06; .proto &#x6587;&#x4EF6;&#x7F16;&#x8BD1;&#x751F;&#x6210;&#x5BF9;&#x5E94;&#x7684;&#x6570;&#x636E;&#x8BBF;&#x95EE;&#x7C7B;&#x4EE5;&#x5BF9; Protobuf &#x6570;&#x636E;&#x8FDB;&#x884C;&#x5E8F;&#x5217;&#x5316;&#x3001;&#x53CD;&#x5E8F;&#x5217;&#x5316;&#x64CD;&#x4F5C;&#xFF09;&#x3002;</li>
+</ul>
+<p>Protobuf&#x4E0E;JSON&#x7684;&#x6570;&#x636E;&#x5927;&#x5C0F;&#x5BF9;&#x6BD4;&#xFF1A;</p>
+<p>&#xFF08;1&#xFF09;Protobuf&#x7684;&#x6570;&#x636E;&#x5927;&#x5C0F;</p>
+<div align="center">
+<img data-original="/2017/08/15/java-protobuf-superior/fed19654-3ea0-3e49-b5ab-4a722a3c655f.png" class="lazy">
+</div>
+<p>&#xFF08;2&#xFF09;JSON&#x7684;&#x6570;&#x636E;&#x5927;&#x5C0F;</p>
+<div align="center">
+<img data-original="/2017/08/15/java-protobuf-superior/9369a50d-f9ea-3f01-bd1f-fabba514dbec.png" class="lazy">
+</div>
+<h2 id="&#x4E3A;&#x4EC0;&#x4E48;protobuf&#x7684;&#x901F;&#x5EA6;&#x5FEB;"><a class="header-anchor" href="#&#x4E3A;&#x4EC0;&#x4E48;protobuf&#x7684;&#x901F;&#x5EA6;&#x5FEB;"></a>&#x4E3A;&#x4EC0;&#x4E48;Protobuf&#x7684;&#x901F;&#x5EA6;&#x5FEB;</h2>
+<p>Protobuf &#x7684;&#x4E3B;&#x8981;&#x4F18;&#x70B9;&#x5728;&#x4E8E;&#x6027;&#x80FD;&#x9AD8;&#x3002;&#x5B83;&#x4EE5;&#x9AD8;&#x6548;&#x7684;&#x4E8C;&#x8FDB;&#x5236;&#x65B9;&#x5F0F;&#x5B58;&#x50A8;&#xFF0C;&#x6BD4; XML &#x5C0F; 3 &#x5230; 10 &#x500D;&#xFF0C;&#x5FEB; 20 &#x5230; 100 &#x500D;&#x3002;<br>
+&#x5BF9;&#x4E8E;&#x8FD9;&#x4E9B; &#x201C;&#x5C0F; 3 &#x5230; 10 &#x500D;&#x201D;,&#x201C;&#x5FEB; 20 &#x5230; 100 &#x500D;&#x201D;&#x7684;&#x8BF4;&#x6CD5;&#xFF0C;&#x4E25;&#x8083;&#x7684;&#x7A0B;&#x5E8F;&#x5458;&#x9700;&#x8981;&#x4E00;&#x4E2A;&#x89E3;&#x91CA;&#x3002;&#x56E0;&#x6B64;&#x5728;&#x672C;&#x6587;&#x7684;&#x6700;&#x540E;&#xFF0C;&#x8BA9;&#x6211;&#x4EEC;&#x7A0D;&#x5FAE;&#x6DF1;&#x5165; Protobuf &#x7684;&#x5185;&#x90E8;&#x5B9E;&#x73B0;&#x5427;&#x3002;</p>
+<p>&#x6709;&#x4E24;&#x9879;&#x6280;&#x672F;&#x4FDD;&#x8BC1;&#x4E86;&#x91C7;&#x7528; Protobuf &#x7684;&#x7A0B;&#x5E8F;&#x80FD;&#x83B7;&#x5F97;&#x76F8;&#x5BF9;&#x4E8E; XML &#x6781;&#x5927;&#x7684;&#x6027;&#x80FD;&#x63D0;&#x9AD8;&#x3002;</p>
+<h3 id="zigzag-&#x7F16;&#x7801;"><a class="header-anchor" href="#zigzag-&#x7F16;&#x7801;"></a>Zigzag &#x7F16;&#x7801;</h3>
+<p>&#x7B2C;&#x4E00;&#x70B9;&#xFF0C;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x8003;&#x5BDF; Protobuf &#x5E8F;&#x5217;&#x5316;&#x540E;&#x7684;&#x4FE1;&#x606F;&#x5185;&#x5BB9;&#x3002;&#x60A8;&#x53EF;&#x4EE5;&#x770B;&#x5230; Protocol Buffer &#x4FE1;&#x606F;&#x7684;&#x8868;&#x793A;&#x975E;&#x5E38;&#x7D27;&#x51D1;&#xFF0C;&#x8FD9;&#x610F;&#x5473;&#x7740;&#x6D88;&#x606F;&#x7684;&#x4F53;&#x79EF;&#x51CF;&#x5C11;&#xFF0C;&#x81EA;&#x7136;&#x9700;&#x8981;&#x66F4;&#x5C11;&#x7684;&#x8D44;&#x6E90;&#x3002;&#x6BD4;&#x5982;&#x7F51;&#x7EDC;&#x4E0A;&#x4F20;&#x8F93;&#x7684;&#x5B57;&#x8282;&#x6570;&#x66F4;&#x5C11;&#xFF0C;&#x9700;&#x8981;&#x7684; IO &#x66F4;&#x5C11;&#x7B49;&#xFF0C;&#x4ECE;&#x800C;&#x63D0;&#x9AD8;&#x6027;&#x80FD;&#x3002;&#x8FD9;&#x4E2A;&#x5229;&#x76CA;&#x4E8E;Protobuf &#x91C7;&#x7528;&#x7684;&#x975E;&#x5E38;&#x5DE7;&#x5999;&#x7684; Encoding &#x65B9;&#x6CD5;&#xFF1A;Zigzag &#x7F16;&#x7801;&#x3002;</p>
+<p>&#x4ECB;&#x7ECD;Zigzag&#x7F16;&#x7801;&#x524D;&#xFF0C;&#x5148;&#x666E;&#x53CA;&#x4E00;&#x4E0B;&#x4E00;&#x4E2A;&#x53EB;&#x505A; Varint &#x7684;&#x672F;&#x8BED;&#x3002;</p>
+<p>Varint &#x662F;&#x4E00;&#x79CD;&#x7D27;&#x51D1;&#x7684;&#x8868;&#x793A;&#x6570;&#x5B57;&#x7684;&#x65B9;&#x6CD5;&#x3002;&#x5B83;&#x7528;&#x4E00;&#x4E2A;&#x6216;&#x591A;&#x4E2A;&#x5B57;&#x8282;&#x6765;&#x8868;&#x793A;&#x4E00;&#x4E2A;&#x6570;&#x5B57;&#xFF0C;&#x503C;&#x8D8A;&#x5C0F;&#x7684;&#x6570;&#x5B57;&#x4F7F;&#x7528;&#x8D8A;&#x5C11;&#x7684;&#x5B57;&#x8282;&#x6570;&#x3002;&#x8FD9;&#x80FD;&#x51CF;&#x5C11;&#x7528;&#x6765;&#x8868;&#x793A;&#x6570;&#x5B57;&#x7684;&#x5B57;&#x8282;&#x6570;&#x3002;&#x6BD4;&#x5982;&#x5BF9;&#x4E8E; int32 &#x7C7B;&#x578B;&#x7684;&#x6570;&#x5B57;&#xFF0C;&#x4E00;&#x822C;&#x9700;&#x8981; 4 &#x4E2A; byte &#x6765;&#x8868;&#x793A;&#x3002;&#x4F46;&#x662F;&#x91C7;&#x7528; Varint&#xFF0C;&#x5BF9;&#x4E8E;&#x5F88;&#x5C0F;&#x7684; int32 &#x7C7B;&#x578B;&#x7684;&#x6570;&#x5B57;&#xFF0C;&#x5219;&#x53EF;&#x4EE5;&#x7528; 1 &#x4E2A; byte &#x6765;&#x8868;&#x793A;&#x3002;&#x5F53;&#x7136;&#x51E1;&#x4E8B;&#x90FD;&#x6709;&#x597D;&#x7684;&#x4E5F;&#x6709;&#x4E0D;&#x597D;&#x7684;&#x4E00;&#x9762;&#xFF0C;&#x91C7;&#x7528; Varint &#x8868;&#x793A;&#x6CD5;&#xFF0C;&#x5927;&#x7684;&#x6570;&#x5B57;&#x5219;&#x9700;&#x8981; 5 &#x4E2A; byte &#x6765;&#x8868;&#x793A;&#x3002;&#x4ECE;&#x7EDF;&#x8BA1;&#x7684;&#x89D2;&#x5EA6;&#x6765;&#x8BF4;&#xFF0C;&#x4E00;&#x822C;&#x4E0D;&#x4F1A;&#x6240;&#x6709;&#x7684;&#x6D88;&#x606F;&#x4E2D;&#x7684;&#x6570;&#x5B57;&#x90FD;&#x662F;&#x5927;&#x6570;&#xFF0C;&#x56E0;&#x6B64;&#x5927;&#x591A;&#x6570;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;&#x91C7;&#x7528; Varint &#x540E;&#xFF0C;&#x53EF;&#x4EE5;&#x7528;&#x66F4;&#x5C11;&#x7684;&#x5B57;&#x8282;&#x6570;&#x6765;&#x8868;&#x793A;&#x6570;&#x5B57;&#x4FE1;&#x606F;&#x3002;</p>
+<p>&#x6D88;&#x606F;&#x7ECF;&#x8FC7;&#x5E8F;&#x5217;&#x5316;&#x540E;&#x4F1A;&#x6210;&#x4E3A;&#x4E00;&#x4E2A;&#x4E8C;&#x8FDB;&#x5236;&#x6570;&#x636E;&#x6D41;&#xFF0C;&#x8BE5;&#x6D41;&#x4E2D;&#x7684;&#x6570;&#x636E;&#x4E3A;&#x4E00;&#x7CFB;&#x5217;&#x7684; Key-Value &#x5BF9;&#x3002;&#x4E0B;&#x9762;&#x5C31;&#x8BE6;&#x7EC6;&#x4ECB;&#x7ECD;&#x4E00;&#x4E0B;Varint&#x3002;</p>
+<p>Varint &#x4E2D;&#x7684;&#x6BCF;&#x4E2A; byte &#x7684;&#x6700;&#x9AD8;&#x4F4D; bit &#x6709;&#x7279;&#x6B8A;&#x7684;&#x542B;&#x4E49;&#xFF0C;&#x5982;&#x679C;&#x8BE5;&#x4F4D;&#x4E3A; 1&#xFF0C;&#x8868;&#x793A;&#x540E;&#x7EED;&#x7684; byte &#x4E5F;&#x662F;&#x8BE5;&#x6570;&#x5B57;&#x7684;&#x4E00;&#x90E8;&#x5206;&#xFF0C;&#x5982;&#x679C;&#x8BE5;&#x4F4D;&#x4E3A; 0&#xFF0C;&#x5219;&#x7ED3;&#x675F;&#x3002;&#x5176;&#x4ED6;&#x7684; 7 &#x4E2A; bit &#x90FD;&#x7528;&#x6765;&#x8868;&#x793A;&#x6570;&#x5B57;&#x3002;&#x56E0;&#x6B64;&#x5C0F;&#x4E8E; 128 &#x7684;&#x6570;&#x5B57;&#x90FD;&#x53EF;&#x4EE5;&#x7528;&#x4E00;&#x4E2A; byte &#x8868;&#x793A;&#x3002;&#x5927;&#x4E8E; 128 &#x7684;&#x6570;&#x5B57;&#xFF0C;&#x6BD4;&#x5982; 300&#xFF0C;&#x4F1A;&#x7528;&#x4E24;&#x4E2A;&#x5B57;&#x8282;&#x6765;&#x8868;&#x793A;&#xFF1A;1010 1100 0000 0010&#x3002;</p>
+<p>&#x5728;&#x8BA1;&#x7B97;&#x673A;&#x5185;&#xFF0C;&#x4E00;&#x4E2A;&#x8D1F;&#x6570;&#x4E00;&#x822C;&#x4F1A;&#x88AB;&#x8868;&#x793A;&#x4E3A;&#x4E00;&#x4E2A;&#x5F88;&#x5927;&#x7684;&#x6574;&#x6570;&#xFF0C;&#x56E0;&#x4E3A;&#x8BA1;&#x7B97;&#x673A;&#x5B9A;&#x4E49;&#x8D1F;&#x6570;&#x7684;&#x7B26;&#x53F7;&#x4F4D;&#x4E3A;&#x6570;&#x5B57;&#x7684;&#x6700;&#x9AD8;&#x4F4D;&#x3002;&#x5982;&#x679C;&#x91C7;&#x7528; Varint &#x8868;&#x793A;&#x4E00;&#x4E2A;&#x8D1F;&#x6570;&#xFF0C;&#x90A3;&#x4E48;&#x4E00;&#x5B9A;&#x9700;&#x8981; 5 &#x4E2A; byte&#x3002;&#x4E3A;&#x6B64; Google Protocol Buffer &#x5B9A;&#x4E49;&#x4E86; sint32 &#x8FD9;&#x79CD;&#x7C7B;&#x578B;&#xFF0C;&#x91C7;&#x7528; zigzag &#x7F16;&#x7801;&#xFF0C;&#x7528;&#x65E0;&#x7B26;&#x53F7;&#x6570;&#x6765;&#x8868;&#x793A;&#x6709;&#x7B26;&#x53F7;&#x6570;&#x5B57;&#xFF0C;&#x6B63;&#x6570;&#x548C;&#x8D1F;&#x6570;&#x4EA4;&#x9519;&#xFF0C;-1&#x5C06;&#x4F1A;&#x88AB;&#x7F16;&#x7801;&#x6210;1&#xFF0C;1&#x5C06;&#x4F1A;&#x88AB;&#x7F16;&#x7801;&#x6210;2&#xFF0C;-2&#x4F1A;&#x88AB;&#x7F16;&#x7801;&#x6210;3&#x3002;</p>
+<p>&#x4F7F;&#x7528; zigzag &#x7F16;&#x7801;&#xFF0C;&#x7EDD;&#x5BF9;&#x503C;&#x5C0F;&#x7684;&#x6570;&#x5B57;&#xFF0C;&#x65E0;&#x8BBA;&#x6B63;&#x8D1F;&#x90FD;&#x53EF;&#x4EE5;&#x91C7;&#x7528;&#x8F83;&#x5C11;&#x7684; byte &#x6765;&#x8868;&#x793A;&#xFF0C;&#x5145;&#x5206;&#x5229;&#x7528;&#x4E86; Varint &#x8FD9;&#x79CD;&#x6280;&#x672F;&#x3002;&#x5176;&#x4ED6;&#x7684;&#x6570;&#x636E;&#x7C7B;&#x578B;&#xFF0C;&#x6BD4;&#x5982;&#x5B57;&#x7B26;&#x4E32;&#x7B49;&#x5219;&#x91C7;&#x7528;&#x7C7B;&#x4F3C;&#x6570;&#x636E;&#x5E93;&#x4E2D;&#x7684; varchar &#x7684;&#x8868;&#x793A;&#x65B9;&#x6CD5;&#xFF0C;&#x5373;&#x7528;&#x4E00;&#x4E2A; varint &#x8868;&#x793A;&#x957F;&#x5EA6;&#xFF0C;&#x7136;&#x540E;&#x5C06;&#x5176;&#x4F59;&#x90E8;&#x5206;&#x7D27;&#x8DDF;&#x5728;&#x8FD9;&#x4E2A;&#x957F;&#x5EA6;&#x90E8;&#x5206;&#x4E4B;&#x540E;&#x5373;&#x53EF;&#x3002;</p>
+<p>&#x6BD4;&#x5982;&#x6211;&#x4EEC;&#x5B9A;&#x4E49;&#x5982;&#x4E0B;protobuf&#x6587;&#x4EF6;&#xFF1A;</p>
+<pre><code>package lm;
+
+message helloworld
+ {
+    required int32     id = 1;  // ID
+    required string    str = 2;  // str
+    optional int32     opt = 3;  //optional field
+ }
+</code></pre>
+<p>&#x8F6C;&#x5316;&#x4E3A;&#x76F8;&#x5E94;&#x7684;.java&#x6587;&#x4EF6;&#x540E;&#xFF0C;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x53D1;&#x73B0;&#x6709;&#x8FD9;&#x4E2A;&#x65B9;&#x6CD5;&#xFF0C;&#x8FDB;&#x884C;&#x4E8C;&#x8FDB;&#x5236;&#x7684;&#x8F6C;&#x5B58;&#x3002;</p>
+<pre><code>public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      getSerializedSize();
+      if (((bitField0_ &amp; 0x00000001) == 0x00000001)) {
+        output.writeUInt32(1, width_);
+      }
+      if (((bitField0_ &amp; 0x00000002) == 0x00000002)) {
+        output.writeUInt32(2, height_);
+      }
+      getUnknownFields().writeTo(output);
+    }
+</code></pre>
+<p>&#x7528; Protobuf &#x5E8F;&#x5217;&#x5316;&#x540E;&#x7684;&#x5B57;&#x8282;&#x5E8F;&#x5217;&#x4E3A;&#xFF1A;</p>
+<pre><code>08 65 12 06 48 65 6C 6C 6F 77
+</code></pre>
+<p>&#x800C;&#x5982;&#x679C;&#x7528; XML&#xFF0C;&#x5219;&#x7C7B;&#x4F3C;&#x8FD9;&#x6837;&#xFF1A;</p>
+<pre><code>31 30 31 3C 2F 69 64 3E 3C 6E 61 6D 65 3E 68 65
+
+6C 6C 6F 3C 2F 6E 61 6D 65 3E 3C 2F 68 65 6C 6C
+
+6F 77 6F 72 6C 64 3E
+</code></pre>
+<h3 id="protobuf&#x89E3;&#x5305;"><a class="header-anchor" href="#protobuf&#x89E3;&#x5305;"></a>Protobuf&#x89E3;&#x5305;</h3>
+<p>&#x5148;&#x6765;&#x4E86;&#x89E3;&#x4E00;&#x4E0B; XML &#x7684;&#x5C01;&#x89E3;&#x5305;&#x8FC7;&#x7A0B;&#x3002;XML &#x9700;&#x8981;&#x4ECE;&#x6587;&#x4EF6;&#x4E2D;&#x8BFB;&#x53D6;&#x51FA;&#x5B57;&#x7B26;&#x4E32;&#xFF0C;&#x518D;&#x8F6C;&#x6362;&#x4E3A; XML &#x6587;&#x6863;&#x5BF9;&#x8C61;&#x7ED3;&#x6784;&#x6A21;&#x578B;&#x3002;&#x4E4B;&#x540E;&#xFF0C;&#x518D;&#x4ECE; XML &#x6587;&#x6863;&#x5BF9;&#x8C61;&#x7ED3;&#x6784;&#x6A21;&#x578B;&#x4E2D;&#x8BFB;&#x53D6;&#x6307;&#x5B9A;&#x8282;&#x70B9;&#x7684;&#x5B57;&#x7B26;&#x4E32;&#xFF0C;&#x6700;&#x540E;&#x518D;&#x5C06;&#x8FD9;&#x4E2A;&#x5B57;&#x7B26;&#x4E32;&#x8F6C;&#x6362;&#x6210;&#x6307;&#x5B9A;&#x7C7B;&#x578B;&#x7684;&#x53D8;&#x91CF;&#x3002;&#x8FD9;&#x4E2A;&#x8FC7;&#x7A0B;&#x975E;&#x5E38;&#x590D;&#x6742;&#xFF0C;&#x5176;&#x4E2D;&#x5C06; XML &#x6587;&#x4EF6;&#x8F6C;&#x6362;&#x4E3A;&#x6587;&#x6863;&#x5BF9;&#x8C61;&#x7ED3;&#x6784;&#x6A21;&#x578B;&#x7684;&#x8FC7;&#x7A0B;&#x901A;&#x5E38;&#x9700;&#x8981;&#x5B8C;&#x6210;&#x8BCD;&#x6CD5;&#x6587;&#x6CD5;&#x5206;&#x6790;&#x7B49;&#x5927;&#x91CF;&#x6D88;&#x8017; CPU &#x7684;&#x590D;&#x6742;&#x8BA1;&#x7B97;&#x3002;</p>
+<p>Protobuf&#x89E3;&#x5305;&#xFF0C;&#x53EA;&#x9700;&#x8981;&#x7B80;&#x5355;&#x5730;&#x5C06;&#x4E00;&#x4E2A;&#x4E8C;&#x8FDB;&#x5236;&#x5E8F;&#x5217;&#xFF0C;&#x6309;&#x7167;&#x6307;&#x5B9A;&#x7684;&#x683C;&#x5F0F;&#x8BFB;&#x53D6;&#x5230;&#x5BF9;&#x5E94;&#x7684;&#x7ED3;&#x6784;&#x7C7B;&#x578B;&#x4E2D;&#x5C31;&#x53EF;&#x4EE5;&#x4E86;&#x3002;&#x6D88;&#x606F;&#x7684; decoding &#x8FC7;&#x7A0B;&#x4E5F;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x51E0;&#x4E2A;&#x4F4D;&#x79FB;&#x64CD;&#x4F5C;&#x7EC4;&#x6210;&#x7684;&#x8868;&#x8FBE;&#x5F0F;&#x8BA1;&#x7B97;&#x5373;&#x53EF;&#x5B8C;&#x6210;&#xFF0C;&#x901F;&#x5EA6;&#x975E;&#x5E38;&#x5FEB;&#x3002;</p>
+<p>Protobuf&#x538B;&#x7F29;&#x4F18;&#x52BF;&#x4E3B;&#x8981;&#x5728;&#x4E8E;&#x5BF9;integer&#x7684;&#x538B;&#x7F29;&#xFF0C;&#x751A;&#x81F3;&#x6709;&#x7B26;&#x53F7;&#x65E0;&#x7B26;&#x53F7;&#x90FD;&#x91C7;&#x7528;&#x4E86;&#x4E0D;&#x540C;&#x7684;&#x7F16;&#x7801;&#x65B9;&#x5F0F;&#xFF0C;&#x80FD;&#x591F;&#x63D0;&#x4F9B;&#x6781;&#x9AD8;&#x7684;&#x538B;&#x7F29;&#x6BD4;&#x3002;&#x800C;&#x5B57;&#x7B26;&#x4E32;&#x5BF9;&#x8C61;&#x76EE;&#x524D;&#x636E;&#x6211;&#x6240;&#x77E5;&#x662F;&#x6CA1;&#x6709;&#x7F16;&#x7801;&#x7684;&#xFF0C;&#x4E0D;&#x8FC7;&#x53EF;&#x4EE5;&#x5BF9;pb&#x518D;&#x6B21;&#x8FDB;&#x884C;&#x538B;&#x7F29;&#xFF1B;</p>
+<p>&#x90E8;&#x5206;&#x5185;&#x8089;&#x8F6C;&#x81EA;&#xFF1A;</p>
+<ul>
+<li><a href="http://www.xuebuyuan.com/1674314.html" target="_blank" rel="external nofollow noopener noreferrer">http://www.xuebuyuan.com/1674314.html</a></li>
+<li><a href="http://blog.csdn.net/tianmohust/article/details/42125381" target="_blank" rel="external nofollow noopener noreferrer">http://blog.csdn.net/tianmohust/article/details/42125381</a></li>
+</ul>]]></content>
+    
+    <summary type="html">
+    
+      Protocol Buffers是Google公司开发的一种数据描述语言可用于数据存储、通信协议等方面。Protobuf 在数据交换上有什么优点？原理又是什么？本文将给大家做个比较详细的说明。
+    
+    </summary>
+    
+      <category term="编程" scheme="http://ngudream.com/categories/%E7%BC%96%E7%A8%8B/"/>
+    
+    
+      <category term="Protobuf" scheme="http://ngudream.com/tags/Protobuf/"/>
+    
+  </entry>
   
   <entry>
     <title>Android SO库的加载过程</title>
@@ -6797,100 +6907,6 @@ public class ThreadImplementsCallable implements Callable&lt;Integer&gt; {
     
     
       <category term="Java" scheme="http://ngudream.com/tags/Java/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Android Binder机制</title>
-    <link href="http://ngudream.com/2017/03/14/android-binder/"/>
-    <id>http://ngudream.com/2017/03/14/android-binder/</id>
-    <published>2017-03-14T14:47:29.000Z</published>
-    <updated>2017-03-14T14:59:03.482Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="&#x4E3A;&#x4EC0;&#x4E48;&#x662F;binder&#xFF1F;"><a class="header-anchor" href="#&#x4E3A;&#x4EC0;&#x4E48;&#x662F;binder&#xFF1F;"></a>&#x4E3A;&#x4EC0;&#x4E48;&#x662F;Binder&#xFF1F;</h2>
-<p>Binder&#x67B6;&#x6784;&#x4E5F;&#x662F;&#x91C7;&#x7528;&#x5206;&#x5C42;&#x67B6;&#x6784;&#x8BBE;&#x8BA1;, &#x6BCF;&#x4E00;&#x5C42;&#x90FD;&#x6709;&#x5176;&#x4E0D;&#x540C;&#x7684;&#x529F;&#x80FD;&#xFF1A;</p>
-<div align="center">
-<img data-original="/2017/03/14/android-binder/binder.png" class="lazy">
-</div>
-<ul>
-<li>Java &#x5E94;&#x7528;&#x5C42;: &#x5BF9;&#x4E8E;&#x4E0A;&#x5C42;&#x5E94;&#x7528;&#x901A;&#x8FC7;&#x8C03;&#x7528; AMP.startService, &#x5B8C;&#x5168;&#x53EF;&#x4EE5;&#x4E0D;&#x7528;&#x5173;&#x5FC3;&#x5E95;&#x5C42;,&#x7ECF;&#x8FC7;&#x5C42;&#x5C42;&#x8C03;&#x7528;,&#x6700;&#x7EC8;&#x5FC5;&#x7136;&#x4F1A;&#x8C03;&#x7528;&#x5230; AMS.startService&#x3002;</li>
-<li>Java IPC&#x5C42;: Binder &#x901A;&#x4FE1;&#x662F;&#x91C7;&#x7528;C/S&#x67B6;&#x6784;, Android&#x7CFB;&#x7EDF;&#x7684;&#x57FA;&#x7840;&#x67B6;&#x6784;&#x4FBF;&#x5DF2;&#x8BBE;&#x8BA1;&#x597D; Binder &#x5728; Java framework &#x5C42;&#x7684; Binder &#x5BA2;&#x6237;&#x7C7B; BinderProxy&#x548C;&#x670D;&#x52A1;&#x7C7B;Binder;</li>
-<li>Native IPC&#x5C42;: &#x5BF9;&#x4E8E; Native &#x5C42;&#xFF0C;&#x5982;&#x679C;&#x9700;&#x8981;&#x76F4;&#x63A5;&#x4F7F;&#x7528; Binder(&#x6BD4;&#x5982; media &#x76F8;&#x5173;), &#x5219;&#x53EF;&#x4EE5;&#x76F4;&#x63A5;&#x4F7F;&#x7528; BpBinder &#x548C; BBinder (&#x5F53;&#x7136;&#x8FD9;&#x91CC;&#x8FD8;&#x6709; JavaBBinder)&#x5373;&#x53EF;, &#x5BF9;&#x4E8E;&#x4E0A;&#x4E00;&#x5C42; Java IPC &#x7684;&#x901A;&#x4FE1;&#x4E5F;&#x662F;&#x57FA;&#x4E8E;&#x8FD9;&#x4E2A;&#x5C42;&#x9762;.</li>
-<li>Kernel&#x7269;&#x7406;&#x5C42;: &#x8FD9;&#x91CC;&#x662F; Binder Driver, &#x524D;&#x9762;3&#x5C42;&#x90FD;&#x8DD1;&#x5728;&#x7528;&#x6237;&#x7A7A;&#x95F4;,&#x5BF9;&#x4E8E;&#x7528;&#x6237;&#x7A7A;&#x95F4;&#x7684;&#x5185;&#x5B58;&#x8D44;&#x6E90;&#x662F;&#x4E0D;&#x5171;&#x4EAB;&#x7684;,&#x6BCF;&#x4E2A; Android &#x7684;&#x8FDB;&#x7A0B;&#x53EA;&#x80FD;&#x8FD0;&#x884C;&#x5728;&#x81EA;&#x5DF1;&#x8FDB;&#x7A0B;&#x6240;&#x62E5;&#x6709;&#x7684;&#x865A;&#x62DF;&#x5730;&#x5740;&#x7A7A;&#x95F4;, &#x800C;&#x5185;&#x6838;&#x7A7A;&#x95F4;&#x5374;&#x662F;&#x53EF;&#x5171;&#x4EAB;&#x7684;. &#x771F;&#x6B63;&#x901A;&#x4FE1;&#x7684;&#x6838;&#x5FC3;&#x73AF;&#x8282;&#x8FD8;&#x662F;&#x5728; Binder Driver.</li>
-</ul>
-<p><strong>&#x5404;&#x79CD;IPC&#x65B9;&#x5F0F;&#x6570;&#x636E;&#x62F7;&#x8D1D;&#x6B21;&#x6570;&#xFF1A;</strong></p>
-<table>
-<thead>
-<tr>
-<th>IPC</th>
-<th>&#x6570;&#x636E;&#x62F7;&#x8D1D;&#x6B21;&#x6570;</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>&#x5171;&#x4EAB;&#x5185;&#x5B58;</td>
-<td>0</td>
-</tr>
-<tr>
-<td>Binder</td>
-<td>1</td>
-</tr>
-<tr>
-<td>Socket/&#x7BA1;&#x9053;/&#x6D88;&#x606F;&#x961F;&#x5217;</td>
-<td>2</td>
-</tr>
-</tbody>
-</table>
-<p>&#x901A;&#x8FC7;&#x4E0A;&#x8868;&#x6570;&#x636E;&#x7684;&#x5BF9;&#x6BD4;&#xFF0C;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x4E86;&#x89E3;&#x5230;&#x4F20;&#x7EDF;IPC&#x7684;&#x4E00;&#x4E9B;&#x5C40;&#x9650;&#x6027;&#xFF1A;</p>
-<ul>
-<li>&#x7BA1;&#x9053;&#x548C;&#x6D88;&#x606F;&#x961F;&#x5217;&#xFF1A;&#x56E0;&#x4E3A;&#x91C7;&#x7528;&#x5B58;&#x50A8;&#x8F6C;&#x53D1;&#x65B9;&#x5F0F;&#xFF0C;&#x5373;&#x6570;&#x636E;&#x5148;&#x4ECE;&#x53D1;&#x9001;&#x65B9;&#x7F13;&#x5B58;&#x533A;&#x62F7;&#x8D1D;&#x5230;&#x5185;&#x6838;&#x5F00;&#x8F9F;&#x7684;&#x7F13;&#x5B58;&#x533A;&#x4E2D;&#xFF0C;&#x7136;&#x540E;&#x518D;&#x4ECE;&#x5185;&#x6838;&#x7F13;&#x5B58;&#x533A;&#x62F7;&#x8D1D;&#x5230;&#x63A5;&#x6536;&#x65B9;&#x7F13;&#x5B58;&#x533A;&#xFF0C;&#x6240;&#x4EE5;&#x81F3;&#x5C11;&#x9700;&#x8981;&#x62F7;&#x8D1D;2&#x6B21;&#x6570;&#x636E;&#xFF0C;&#x6548;&#x7387;&#x4F4E;&#xFF1B;</li>
-<li>socket&#xFF1A;&#x4F5C;&#x4E3A;&#x4E00;&#x6B3E;&#x901A;&#x7528;&#x63A5;&#x53E3;&#xFF0C;&#x5176;&#x4F20;&#x8F93;&#x6548;&#x7387;&#x4F4E;&#xFF0C;&#x5F00;&#x9500;&#x5927;&#xFF0C;&#x4E3B;&#x8981;&#x7528;&#x5728;&#x8DE8;&#x7F51;&#x7EDC;&#x7684;&#x8FDB;&#x7A0B;&#x95F4;&#x901A;&#x4FE1;&#x548C;&#x672C;&#x673A;&#x4E0A;&#x8FDB;&#x7A0B;&#x95F4;&#x7684;&#x4F4E;&#x901F;&#x901A;&#x4FE1;&#x3002;</li>
-<li>&#x5171;&#x4EAB;&#x5185;&#x5B58;&#xFF1A;&#x867D;&#x7136;&#x5728;&#x4F20;&#x8F93;&#x65F6;&#x6CA1;&#x6709;&#x62F7;&#x8D1D;&#x6570;&#x636E;&#xFF0C;&#x4F46;&#x5176;&#x63A7;&#x5236;&#x673A;&#x5236;&#x590D;&#x6742;&#xFF0C;&#x6BD4;&#x5982;&#x8DE8;&#x8FDB;&#x7A0B;&#x901A;&#x4FE1;&#x65F6;&#xFF0C;&#x9700;&#x83B7;&#x53D6;&#x5BF9;&#x65B9;&#x8FDB;&#x7A0B;&#x7684;pid&#xFF0C;&#x5F97;&#x591A;&#x79CD;&#x673A;&#x5236;&#x534F;&#x540C;&#x64CD;&#x4F5C;&#xFF0C;&#x96BE;&#x4EE5;&#x4F7F;&#x7528;&#x3002;</li>
-</ul>
-<p>Binder&#x5F62;&#x5F0F;&#x7684;&#x4F18;&#x52BF;&#xFF1A;</p>
-<ul>
-<li>&#x6709;&#x66F4;&#x597D;&#x7684;&#x4F20;&#x8F93;&#x6027;&#x80FD;&#x3002;</li>
-<li>&#x91C7;&#x7528;C/S&#x7684;&#x901A;&#x4FE1;&#x6A21;&#x5F0F;&#x3002;&#x800C;&#x5728; linux &#x901A;&#x4FE1;&#x673A;&#x5236;&#x4E2D;&#xFF0C;&#x76EE;&#x524D;&#x53EA;&#x6709;socket&#x652F;&#x6301;C/S&#x7684;&#x901A;&#x4FE1;&#x6A21;&#x5F0F;&#xFF0C;&#x4F46;socket&#x6709;&#x5176;&#x52A3;&#x52BF;&#xFF0C;&#x5177;&#x4F53;&#x53C2;&#x770B;&#x7B2C;&#x4E8C;&#x6761;&#x3002;</li>
-<li>&#x5B89;&#x5168;&#x6027;&#x66F4;&#x9AD8;&#x3002; &#x9996;&#x5148;&#x4F20;&#x7EDF; IPC &#x7684;&#x63A5;&#x6536;&#x65B9;&#x65E0;&#x6CD5;&#x83B7;&#x5F97;&#x5BF9;&#x65B9;&#x8FDB;&#x7A0B;&#x53EF;&#x9760;&#x7684; UID &#x548C; PID&#xFF08;&#x7528;&#x6237;ID&#x8FDB;&#x7A0B;ID&#xFF09;&#xFF0C;&#x4ECE;&#x800C;&#x65E0;&#x6CD5;&#x9274;&#x522B;&#x5BF9;&#x65B9;&#x8EAB;&#x4EFD;&#x3002;Binder &#x673A;&#x5236;&#x662F;&#x7531; Android &#x5185;&#x6838;&#x81EA;&#x52A8;&#x5206;&#x914D;&#x7684;&#xFF0C;&#x65E0;&#x6CD5;&#x4FEE;&#x6539;&#xFF0C;&#x6240;&#x4EE5;&#x5B89;&#x5168;&#x6027;&#x66F4;&#x9AD8;&#x3002;</li>
-</ul>
-<p>&#x6E90;&#x7801;&#x4E2D;&#xFF0C;&#x5B8F;&#x5B9A;&#x4E49;&#xFF1A;<em><em>#define BINDER_SERVICE_MANAGER ((void</em>)0)</em>*<br>
-&#x8868;&#x793A; ServiceManager &#x5BF9;&#x5E94;&#x7684;&#x53E5;&#x67C4;&#x4E3A;0&#xFF0C;&#x8868;&#x9762;&#x81EA;&#x5DF1;&#x662F;&#x670D;&#x52A1;&#x5668;&#x7BA1;&#x7406;&#x8005;&#x3002;&#x5176;&#x4ED6;&#x7684;Server&#x8FDB;&#x7A0B;&#x53E5;&#x67C4;&#x503C;&#x90FD;&#x662F;&#x5927;&#x4E8E;0&#x7684;&#x3002;</p>
-<p>Binder &#x901A;&#x4FE1;&#x673A;&#x5236;&#x4F7F;&#x7528;&#x53E5;&#x67C4;&#x6765;&#x4EE3;&#x8868;&#x8FDC;&#x7A0B;&#x63A5;&#x53E3;&#xFF0C;&#x8FD9;&#x4E2A;&#x53E5;&#x67C4;&#x7684;&#x610F;&#x4E49;&#x548C; Windows &#x7F16;&#x7A0B;&#x4E2D;&#x7528;&#x5230;&#x7684;&#x53E5;&#x67C4;&#x662F;&#x5DEE;&#x4E0D;&#x591A;&#x7684;&#x6982;&#x5FF5;&#x3002;&#x524D;&#x9762;&#x8BF4;&#x5230;&#xFF0C;Service Manager &#x5728;&#x5145;&#x5F53;&#x5B88;&#x62A4;&#x8FDB;&#x7A0B;&#x7684;&#x540C;&#x65F6;&#xFF0C;&#x5B83;&#x5145;&#x5F53; Server &#x7684;&#x89D2;&#x8272;&#xFF0C;&#x5F53;&#x5B83;&#x4F5C;&#x4E3A;&#x8FDC;&#x7A0B;&#x63A5;&#x53E3;&#x4F7F;&#x7528;&#x65F6;&#xFF0C;&#x5B83;&#x7684;&#x53E5;&#x67C4;&#x503C;&#x4FBF;&#x4E3A;0&#xFF0C;&#x8FD9;&#x5C31;&#x662F;&#x5B83;&#x7684;&#x7279;&#x6B8A;&#x4E4B;&#x5904;&#xFF0C;&#x5176;&#x4F59;&#x7684; Server &#x7684;&#x8FDC;&#x7A0B;&#x63A5;&#x53E3;&#x53E5;&#x67C4;&#x503C;&#x90FD;&#x662F;&#x4E00;&#x4E2A;&#x5927;&#x4E8E;0 &#x800C;&#x4E14;&#x7531; Binder &#x9A71;&#x52A8;&#x7A0B;&#x5E8F;&#x81EA;&#x52A8;&#x8FDB;&#x884C;&#x5206;&#x914D;&#x7684;&#x3002;</p>
-<h2 id="&#x51E0;&#x70B9;&#x7591;&#x95EE;"><a class="header-anchor" href="#&#x51E0;&#x70B9;&#x7591;&#x95EE;"></a>&#x51E0;&#x70B9;&#x7591;&#x95EE;</h2>
-<p><strong>&#xFF08;1&#xFF09;&#x662F;&#x8C01;&#xFF0C;&#x600E;&#x4E48;&#x6837;&#x6210;&#x4E3A;SM&#x5B88;&#x62A4;&#x8FDB;&#x7A0B;&#xFF0C;handle&#x4E3A;0&#x7684;binder&#x5B9E;&#x4F53;&#x4EC0;&#x4E48;&#x65F6;&#x5019;&#x521B;&#x5EFA;&#xFF1F;</strong></p>
-<p>&#x5F53;&#x4E00;&#x4E2A;&#x8FDB;&#x7A0B;&#x4F7F;&#x7528; BINDER_SET_CONTEXT_MGR &#x547D;&#x4EE4;&#x5C06;&#x81EA;&#x5DF1;&#x6CE8;&#x518C;&#x6210; SM &#x65F6; Binder &#x9A71;&#x52A8;&#x4F1A;&#x81EA;&#x52A8;&#x4E3A;&#x5B83;&#x521B;&#x5EFA; Binder &#x5B9E;&#x4F53;&#xFF08;&#x8FD9;&#x5C31;&#x662F;&#x90A3;&#x53EA;&#x9884;&#x5148;&#x9020;&#x597D;&#x7684;&#x9E21;&#xFF09;&#x3002;&#x5176;&#x6B21;&#x8FD9;&#x4E2A;Binder&#x7684;&#x5F15;&#x7528;&#x5728;&#x6240;&#x6709;Client&#x4E2D;&#x90FD;&#x56FA;&#x5B9A;&#x4E3A;0&#x800C;&#x65E0;&#x987B;&#x901A;&#x8FC7;&#x5176;&#x5B83;&#x624B;&#x6BB5;&#x83B7;&#x5F97;&#x3002;&#x4E5F;&#x5C31;&#x662F;&#x8BF4;&#xFF0C;&#x4E00;&#x4E2A; Server &#x82E5;&#x8981;&#x5411; SM &#x6CE8;&#x518C;&#x81EA;&#x5DF1; Binder &#x5C31;&#x5FC5;&#x9700;&#x901A;&#x8FC7;0&#x8FD9;&#x4E2A;&#x5F15;&#x7528;&#x548C; SM &#x7684; Binder &#x901A;&#x4FE1;&#x3002;</p>
-<p><strong>&#xFF08;2&#xFF09;binder&#x5F15;&#x7528;&#x548C;&#x5B9E;&#x4F53;&#x662F;&#x5982;&#x4F55;&#x521B;&#x5EFA;&#x7684;&#xFF1F;&#x5728;&#x9A71;&#x52A8;&#x4E2D;&#x5982;&#x4F55;&#x5B9E;&#x73B0;&#x7684;&#x901A;&#x4FE1;&#xFF1F;</strong></p>
-<p>Server &#x521B;&#x5EFA;&#x4E86; Binder &#x5B9E;&#x4F53;&#xFF0C;&#x4E3A;&#x5176;&#x53D6;&#x4E00;&#x4E2A;&#x5B57;&#x7B26;&#x5F62;&#x5F0F;&#xFF0C;&#x53EF;&#x8BFB;&#x6613;&#x8BB0;&#x7684;&#x540D;&#x5B57;&#xFF0C;&#x5C06;&#x8FD9;&#x4E2A; Binder &#x8FDE;&#x540C;&#x540D;&#x5B57;&#x4EE5;&#x6570;&#x636E;&#x5305;&#x7684;&#x5F62;&#x5F0F;&#x901A;&#x8FC7; Binder &#x9A71;&#x52A8;&#x53D1;&#x9001;&#x7ED9; SM&#xFF0C;&#x901A;&#x77E5; SM &#x6CE8;&#x518C;&#x4E00;&#x4E2A;&#x540D;&#x53EB;&#x5F20;&#x4E09;&#x7684; Binder&#xFF0C;&#x5B83;&#x4F4D;&#x4E8E;&#x67D0;&#x4E2A; Server &#x4E2D;&#x3002;&#x9A71;&#x52A8;&#x4E3A;&#x8FD9;&#x4E2A;&#x7A7F;&#x8FC7;&#x8FDB;&#x7A0B;&#x8FB9;&#x754C;&#x7684; Binder &#x521B;&#x5EFA;&#x4F4D;&#x4E8E;&#x5185;&#x6838;&#x4E2D;&#x7684;&#x5B9E;&#x4F53;&#x8282;&#x70B9;&#x4EE5;&#x53CA; SM &#x5BF9;&#x5B9E;&#x4F53;&#x7684;&#x5F15;&#x7528;&#xFF0C;&#x5C06;&#x540D;&#x5B57;&#x53CA;&#x65B0;&#x5EFA;&#x7684;&#x5F15;&#x7528;&#x4F20;&#x9012;&#x7ED9; SM&#x3002; SM &#x6536;&#x6570;&#x636E;&#x5305;&#x540E;&#xFF0C;&#x4ECE;&#x4E2D;&#x53D6;&#x51FA;&#x540D;&#x5B57;&#x548C;&#x5F15;&#x7528;&#x586B;&#x5165;&#x4E00;&#x5F20;&#x67E5;&#x627E;&#x8868;&#x4E2D;&#x3002;</p>
-<p>Server &#x5411; SM &#x6CE8;&#x518C;&#x4E86; Binder &#x5B9E;&#x4F53;&#x53CA;&#x5176;&#x540D;&#x5B57;&#x540E;(service_manager.c)&#xFF0C;Client &#x5C31;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x540D;&#x5B57;&#x83B7;&#x5F97;&#x8BE5; Binder &#x7684;&#x5F15;&#x7528;&#x4E86;&#x3002;Client &#x4E5F;&#x5229;&#x7528;&#x4FDD;&#x7559;&#x7684;0&#x53F7;&#x5F15;&#x7528;&#x5411;SMgr&#x8BF7;&#x6C42;&#x8BBF;&#x95EE;&#x67D0;&#x4E2A; Binder&#xFF1A;&#x6211;&#x7533;&#x8BF7;&#x83B7;&#x5F97;&#x540D;&#x5B57;&#x53EB;&#x5F20;&#x4E09;&#x7684; Binder &#x7684;&#x5F15;&#x7528;&#x3002;SM &#x6536;&#x5230;&#x8FD9;&#x4E2A;&#x8FDE;&#x63A5;&#x8BF7;&#x6C42;&#xFF0C;&#x4ECE;&#x8BF7;&#x6C42;&#x6570;&#x636E;&#x5305;&#x91CC;&#x83B7;&#x5F97; Binder &#x7684;&#x540D;&#x5B57;&#xFF0C;&#x5728;&#x67E5;&#x627E;&#x8868;&#x91CC;&#x627E;&#x5230;&#x8BE5;&#x540D;&#x5B57;&#x5BF9;&#x5E94;&#x7684;&#x6761;&#x76EE;&#xFF0C;&#x4ECE;&#x6761;&#x76EE;&#x4E2D;&#x53D6;&#x51FA; Binder &#x7684;&#x5F15;&#x7528;&#xFF0C;&#x5C06;&#x8BE5;&#x5F15;&#x7528;&#x4F5C;&#x4E3A;&#x56DE;&#x590D;&#x53D1;&#x9001;&#x7ED9;&#x53D1;&#x8D77;&#x8BF7;&#x6C42;&#x7684; Client&#x3002;</p>
-<p><strong>&#xFF08;3&#xFF09;&#x5728;SM&#x4E2D;&#xFF0C;binder&#x5B9E;&#x4F53;&#x662F;&#x600E;&#x6837;&#x8F6C;&#x6362;&#x6210;&#x4E3A;&#x5F15;&#x7528;&#x7684;&#xFF1F;</strong></p>
-<p>&#x9996;&#x5148;&#xFF0C;XXXServer(XXX&#x4EE3;&#x8868;&#x67D0;&#x4E2A;)&#x5728;&#x81EA;&#x5DF1;&#x7684;&#x8FDB;&#x7A0B;&#x4E2D;&#x5411;Binder&#x9A71;&#x52A8;&#x7533;&#x8BF7;&#x521B;&#x5EFA;&#x4E00;&#x4E2A; XXXService &#x7684; Binder &#x7684;&#x5B9E;&#x4F53;&#xFF0C;</p>
-<p>Binder &#x9A71;&#x52A8;&#x4E3A;&#x8FD9;&#x4E2A; XXXService &#x521B;&#x5EFA;&#x4F4D;&#x4E8E;&#x5185;&#x6838;&#x4E2D;&#x7684; Binder &#x5B9E;&#x4F53;&#x8282;&#x70B9;&#x4EE5;&#x53CA; Binder &#x7684;&#x5F15;&#x7528;&#xFF0C;&#x6CE8;&#x610F;&#xFF0C;&#x662F;&#x5C06;&#x540D;&#x5B57;&#x548C;&#x65B0;&#x5EFA;&#x7684;&#x5F15;&#x7528;&#x6253;&#x5305;&#x4F20;&#x9012;&#x7ED9; SM&#xFF08;&#x5B9E;&#x4F53;&#x6CA1;&#x6709;&#x4F20;&#x7ED9; SM&#xFF09;&#xFF0C;&#x901A;&#x77E5;SM&#x6CE8;&#x518C;&#x4E00;&#x4E2A;&#x540D;&#x53EB; XXX&#x7684;Service&#x3002;</p>
-<p>SM &#x6536;&#x5230;&#x6570;&#x636E;&#x5305;&#x540E;&#xFF0C;&#x4ECE;&#x4E2D;&#x53D6;&#x51FA; XXXService &#x540D;&#x5B57;&#x548C;&#x5F15;&#x7528;&#xFF0C;&#x586B;&#x5165;&#x4E00;&#x5F20;&#x67E5;&#x627E;&#x8868;&#x4E2D;&#x3002;</p>
-<p>&#x6B64;&#x65F6;&#xFF0C;&#x5982;&#x679C;&#x6709; Client &#x5411; SM &#x53D1;&#x9001;&#x7533;&#x8BF7;&#x670D;&#x52A1; XXXService &#x7684;&#x8BF7;&#x6C42;&#xFF0C;&#x90A3;&#x4E48;SM&#x5C31;&#x53EF;&#x4EE5;&#x5728;&#x67E5;&#x627E;&#x8868;&#x4E2D;&#x627E;&#x5230;&#x8BE5; Service &#x7684; Binder &#x5F15;&#x7528;&#xFF0C;&#x5E76;&#x628A; Binder &#x5F15;&#x7528;(XXXBpBinder)&#x8FD4;&#x56DE;&#x7ED9; Client&#x3002;</p>
-<p><strong>&#xFF08;4&#xFF09;Server&#x662F;&#x5982;&#x4F55;&#x6CE8;&#x518C;&#x670D;&#x52A1;&#xFF0C;Client&#x662F;&#x5982;&#x4F55;&#x83B7;&#x53D6;&#x670D;&#x52A1;&#x7684;&#xFF1F;</strong></p>
-<p>&#x5BF9;&#x4E8E;Server&#x8FDB;&#x7A0B;&#xFF0C;&#x8C03;&#x7528;IServiceManager::addService&#x8FD9;&#x4E2A;&#x63A5;&#x53E3;&#x6765;&#x548C;Binder&#x9A71;&#x52A8;&#x8FDB;&#x884C;&#x4EA4;&#x4E92;&#xFF0C;&#x5373;BpServiceManager::addService&#x3002;&#x7136;&#x540E;BpServiceManager::addService&#x901A;&#x8FC7;&#x8C03;&#x7528;&#x5176;&#x57FA;&#x7C7B;BpRefBase&#x7684;&#x6210;&#x5458;&#x51FD;&#x6570;remote&#x83B7;&#x53D6;&#x539F;&#x5148;&#x521B;&#x5EFA;&#x7684;BpBinder&#x5B9E;&#x4F8B;&#xFF1B;&#x63A5;&#x7740;&#x8C03;&#x7528;BpBinder::transact&#x6210;&#x5458;&#x51FD;&#x6570;&#x3002;&#x5728;transact&#x51FD;&#x6570;&#x4E2D;&#xFF0C;&#x53C8;&#x4F1A;&#x8C03;&#x7528;IPCThreadState::transact&#x6210;&#x5458;&#x51FD;&#x6570;&#x4E0E;Binder&#x9A71;&#x52A8;&#x7A0B;&#x5E8F;&#x8FDB;&#x884C;&#x4EA4;&#x4E92;&#x3002;&#x539F;&#x56E0;&#x662F;IPCThreadState&#x7684;&#x6210;&#x5458;&#x53D8;&#x91CF;mProcess&#x662F;ProcessState&#x7C7B;&#x578B;&#xFF0C;&#x5176;&#x53EF;&#x4EE5;&#x6253;&#x5F00;Binder&#x8BBE;&#x5907;&#x3002;</p>
-<p>&#x5BF9;&#x4E8E; Client &#x8FDB;&#x7A0B;&#xFF0C;&#x8C03;&#x7528; IServiceManager::getService &#x63A5;&#x53E3;&#x6765;&#x548C; Binder &#x9A71;&#x52A8;&#x8FDB;&#x884C;&#x4EA4;&#x4E92;&#x3002;&#x540E;&#x7EED;&#x6B65;&#x9AA4;&#x8DDF; Server &#x8FDB;&#x7A0B;&#x4E00;&#x6837;&#x3002;</p>
-<p>&#x5BF9;&#x4E00;&#x822C;&#x7684; Service &#x7EC4;&#x4EF6;&#x6765;&#x8BF4;&#xFF0C;Client &#x8FDB;&#x7A0B;&#x9996;&#x5148;&#x8981;&#x901A;&#x8FC7; Binder &#x9A71;&#x52A8;&#x7A0B;&#x5E8F;&#x6765;&#x83B7;&#x53D6;&#x5B83;&#x7684;&#x4E00;&#x4E2A;&#x53E5;&#x67C4;&#x503C;&#xFF0C;&#x7136;&#x540E;&#x901A;&#x8FC7;&#x8FD9;&#x4E2A;&#x53E5;&#x67C4;&#x521B;&#x5EFA;&#x4E00;&#x4E2A; Binder &#x4EE3;&#x7406;&#x5BF9;&#x8C61;&#xFF0C;&#x6700;&#x540E;&#x5C06;&#x8FD9;&#x4E2A; Binder &#x4EE3;&#x7406;&#x5BF9;&#x8C61;&#x5C01;&#x88C5;&#x6210;&#x4E00;&#x4E2A;&#x5B9E;&#x73B0;&#x7279;&#x5B9A;&#x63A5;&#x53E3;&#x7684;&#x4EE3;&#x7406;&#x5BF9;&#x8C61;&#x3002;&#x7531;&#x4E8E; ServiceManager &#x7684;&#x53E5;&#x67C4;&#x503C;&#x4E3A;0&#xFF0C;&#x56E0;&#x6B64;&#x83B7;&#x53D6;&#x5B83;&#x7684;&#x4EE3;&#x7406;&#x5BF9;&#x8C61;&#x4E0D;&#x9700;&#x8981;&#x8DDF; Binder &#x9A71;&#x52A8;&#x7A0B;&#x5E8F;&#x8FDB;&#x7A0B;&#x4EA4;&#x4E92;&#x3002;</p>
-<p><strong>&#xFF08;5&#xFF09;&#x4E3A;&#x4EC0;&#x4E48;Binder&#x673A;&#x5236;&#x53EA;&#x7528;&#x4E00;&#x6B21;&#x62F7;&#x8D1D;&#xFF1F;</strong></p>
-<p>Binder &#x673A;&#x5236;&#x4F1A;&#x540C;&#x65F6;&#x4F7F;&#x7528;&#x8FDB;&#x7A0B;&#x865A;&#x62DF;&#x5730;&#x5740;&#x7A7A;&#x95F4;&#x548C;&#x5185;&#x6838;&#x865A;&#x62DF;&#x5730;&#x5740;&#x7A7A;&#x95F4;&#x6765;&#x6620;&#x5C04;&#x540C;&#x4E00;&#x4E2A;&#x7269;&#x7406;&#x9875;&#x9762;&#x3002;&#x8FD9;&#x4E5F;&#x662F; Binder &#x8FDB;&#x7A0B;&#x95F4;&#x901A;&#x4FE1;&#x673A;&#x5236;&#x7684;&#x7CBE;&#x9AD3;&#x6240;&#x5728;&#x4E86;&#xFF0C;&#x540C;&#x4E00;&#x4E2A;&#x7269;&#x7406;&#x9875;&#x9762;&#xFF0C;&#x4E00;&#x65B9;&#x6620;&#x5C04;&#x5230;&#x8FDB;&#x7A0B;&#x865A;&#x62DF;&#x5730;&#x5740;&#x7A7A;&#x95F4;&#xFF0C;&#x4E00;&#x65B9;&#x9762;&#x6620;&#x5C04;&#x5230;&#x5185;&#x6838;&#x865A;&#x62DF;&#x5730;&#x5740;&#x7A7A;&#x95F4;&#xFF0C;&#x8FD9;&#x6837;&#xFF0C;&#x8FDB;&#x7A0B;&#x548C;&#x5185;&#x6838;&#x4E4B;&#x95F4;&#x5C31;&#x53EF;&#x4EE5;&#x51CF;&#x5C11;&#x4E00;&#x6B21;&#x5185;&#x5B58;&#x62F7;&#x8D1D;&#x4E86;&#xFF0C;&#x63D0;&#x5230;&#x4E86;&#x8FDB;&#x7A0B;&#x95F4;&#x901A;&#x4FE1;&#x6548;&#x7387;&#x3002;&#x4E3E;&#x4E2A;&#x4F8B;&#x5B50;&#x5982;&#xFF0C;Client &#x8981;&#x5C06;&#x4E00;&#x5757;&#x5185;&#x5B58;&#x6570;&#x636E;&#x4F20;&#x9012;&#x7ED9; Server&#xFF0C;&#x4E00;&#x822C;&#x7684;&#x505A;&#x6CD5;&#x662F;&#xFF0C;Client &#x5C06;&#x8FD9;&#x5757;&#x6570;&#x636E;&#x4ECE;&#x5B83;&#x7684;&#x8FDB;&#x7A0B;&#x7A7A;&#x95F4;&#x62F7;&#x8D1D;&#x5230;&#x5185;&#x6838;&#x7A7A;&#x95F4;&#x4E2D;&#xFF0C;&#x7136;&#x540E;&#x5185;&#x6838;&#x518D;&#x5C06;&#x8FD9;&#x4E2A;&#x6570;&#x636E;&#x4ECE;&#x5185;&#x6838;&#x7A7A;&#x95F4;&#x62F7;&#x8D1D;&#x5230; Server &#x7684;&#x8FDB;&#x7A0B;&#x7A7A;&#x95F4;&#xFF0C;&#x8FD9;&#x6837;&#xFF0C;Server &#x5C31;&#x53EF;&#x4EE5;&#x8BBF;&#x95EE;&#x8FD9;&#x4E2A;&#x6570;&#x636E;&#x4E86;&#x3002;&#x4F46;&#x662F;&#x5728;&#x8FD9;&#x79CD;&#x65B9;&#x6CD5;&#x4E2D;&#xFF0C;&#x6267;&#x884C;&#x4E86;&#x4E24;&#x6B21;&#x5185;&#x5B58;&#x62F7;&#x8D1D;&#x64CD;&#x4F5C;&#xFF0C;&#x800C;&#x91C7;&#x7528;&#x6211;&#x4EEC;&#x4E0A;&#x9762;&#x63D0;&#x5230;&#x7684;&#x65B9;&#x6CD5;&#xFF0C;&#x53EA;&#x9700;&#x8981;&#x628A; Client &#x8FDB;&#x7A0B;&#x7A7A;&#x95F4;&#x7684;&#x6570;&#x636E;&#x62F7;&#x8D1D;&#x4E00;&#x6B21;&#x5230;&#x5185;&#x6838;&#x7A7A;&#x95F4;&#xFF0C;&#x7136;&#x540E; Server &#x4E0E;&#x5185;&#x6838;&#x5171;&#x4EAB;&#x8FD9;&#x4E2A;&#x6570;&#x636E;&#x5C31;&#x53EF;&#x4EE5;&#x4E86;&#xFF0C;&#x6574;&#x4E2A;&#x8FC7;&#x7A0B;&#x53EA;&#x9700;&#x8981;&#x6267;&#x884C;&#x4E00;&#x6B21;&#x5185;&#x5B58;&#x62F7;&#x8D1D;&#xFF0C;&#x63D0;&#x9AD8;&#x4E86;&#x6548;&#x7387;&#x3002;</p>
-<h2 id="&#x53C2;&#x8003;"><a class="header-anchor" href="#&#x53C2;&#x8003;"></a>&#x53C2;&#x8003;</h2>
-<ul>
-<li><a href="http://blog.csdn.net/luoshengyang/article/details/6621566" target="_blank" rel="external nofollow noopener noreferrer">http://blog.csdn.net/luoshengyang/article/details/6621566</a></li>
-<li><a href="https://segmentfault.com/a/1190000007997113" target="_blank" rel="external nofollow noopener noreferrer">https://segmentfault.com/a/1190000007997113</a></li>
-<li><a href="http://blog.csdn.net/snake_hope/article/details/50994923" target="_blank" rel="external nofollow noopener noreferrer">http://blog.csdn.net/snake_hope/article/details/50994923</a></li>
-<li><a href="http://blog.csdn.net/kevinx_xu/article/details/20170655" target="_blank" rel="external nofollow noopener noreferrer">http://blog.csdn.net/kevinx_xu/article/details/20170655</a></li>
-</ul>]]></content>
-    
-    <summary type="html">
-    
-      直观来说，Binder是Android中的一个类，它继承了IBinder接口；从IPC角度来说，Binder是Android中的一种跨进程通信方式，Binder还可以理解为一种虚拟的物理设备，它的设备驱动是/dev/binder，该通信方式在linux中没有；从Android Framework角度来说，Binder是ServiceManager连接各种Manager（ActivityManager、WindowManager，etc）和相应ManagerService的桥梁；从Android应用层来说，Binder是客户端和服务端进行通信的媒介。
-    
-    </summary>
-    
-      <category term="移动开发" scheme="http://ngudream.com/categories/%E7%A7%BB%E5%8A%A8%E5%BC%80%E5%8F%91/"/>
-    
-    
-      <category term="Android" scheme="http://ngudream.com/tags/Android/"/>
     
   </entry>
   
