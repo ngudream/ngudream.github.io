@@ -1,3 +1,6 @@
+http://ngudream.com/2017/09/02/kotlin-realm/
+http://ngudream.com/2017/08/29/kotlin-database-helper/
+http://ngudream.com/2017/08/22/kotlin-function/
 http://ngudream.com/2017/08/15/java-protobuf-superior/
 http://ngudream.com/2017/08/13/android-so-load/
 http://ngudream.com/2017/08/13/android-h5-security/
@@ -75,6 +78,3 @@ http://ngudream.com/2016/08/30/android-getauthtoken/
 http://ngudream.com/2016/08/29/weixin-protocal/
 http://ngudream.com/2016/08/25/android-plugin-sample/
 http://ngudream.com/2016/08/25/rxjava-repeatwhen-retrywhen/
-http://ngudream.com/2016/08/25/presenter-interface/
-http://ngudream.com/2016/08/25/rxjava-operators/
-http://ngudream.com/2016/08/23/android-lrucache-bug/
