@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://ngudream.com/"/>
-  <updated>2018-02-06T14:17:51.830Z</updated>
+  <updated>2018-02-10T14:59:21.386Z</updated>
   <id>http://ngudream.com/</id>
   
   <author>
@@ -14,6 +14,408 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Kotlin 遇到 RxJava</title>
+    <link href="http://ngudream.com/2017/09/12/kotlin-rxjava/"/>
+    <id>http://ngudream.com/2017/09/12/kotlin-rxjava/</id>
+    <published>2017-09-12T14:38:18.000Z</published>
+    <updated>2018-02-10T14:59:21.386Z</updated>
+    
+    <content type="html"><![CDATA[<p>RxJava &#x4EE3;&#x7801;&#x7B80;&#x6D01;&#x6613;&#x8BFB;&#xFF0C;&#x5B83;&#x5185;&#x90E8;&#x652F;&#x6301;&#x591A;&#x7EBF;&#x7A0B;&#x64CD;&#x4F5C;&#xFF0C;&#x8FD8;&#x63D0;&#x4F9B;&#x4E30;&#x5BCC;&#x7684;&#x64CD;&#x4F5C;&#x7B26;&#x3002;&#x6BD4;&#x5982;&#x5F3A;&#x5927;&#x7684;map&#x548C;flatmap&#x64CD;&#x4F5C;&#x7B26;&#xFF0C;&#x53EF;&#x4EE5;&#x8BA9;&#x6211;&#x4EEC;&#x4F9D;&#x8D56;&#x4E0A;&#x4E00;&#x6B21;&#x63A5;&#x53E3;&#x6570;&#x636E;&#x7684;&#x4E1A;&#x52A1;&#x8FDB;&#x884C;&#x4E8C;&#x6B21;&#x5904;&#x7406;&#x65F6;&#x4E0D;&#x4F1A;&#x53D1;&#x751F;&#x5D4C;&#x5957;&#x3002;&#x518D;&#x52A0;&#x4E0A;Java1.8&#x548C;&#x7B2C;&#x4E09;&#x65B9;&#x6846;&#x67B6;&#x652F;&#x6301;Lambda&#x6D41;&#x5F0F;&#xFF0C;&#x4F1A;&#x4F7F;RxJava&#x7684;&#x4EE3;&#x7801;&#x5199;&#x8D77;&#x6765;&#x66F4;&#x52A0;&#x7B80;&#x6D01;&#x3002;&#x4E0B;&#x9762;&#x5C06;&#x914D;&#x5408;Kotlin&#xFF0C;&#x5C06;RxJava&#x4EE3;&#x7801;&#x5199;&#x5F97;&#x66F4;&#x52A0;&#x7B80;&#x5355;&#x3001;&#x4F18;&#x96C5;&#x3002;</p>
+<div align="center">
+<img data-original="/2017/09/12/kotlin-rxjava/rxjava.png" class="lazy">
+</div>
+<h2 id="&#x521B;&#x5EFA;-obsevable"><a class="header-anchor" href="#&#x521B;&#x5EFA;-obsevable"></a>&#x521B;&#x5EFA; Obsevable</h2>
+<p>RxJava2 &#x7684;&#x5199;&#x6CD5;&#xFF1A;</p>
+<pre><code>Observable&lt;String&gt; observable = Observable.create(new ObservableOnSubscribe&lt;String&gt;() {
+            @Override
+            public void subscribe(@NonNull ObservableEmitter&lt;String&gt; emitter) throws Exception {
+                emitter.onNext(&quot;hello world&quot;);
+            }
+        });
+
+</code></pre>
+<p>&#x7ED3;&#x5408; Kotlin &#x7684;&#x5199;&#x6CD5;&#xFF1A;</p>
+<pre><code>Observable.create(ObservableOnSubscribe&lt;String&gt;
+            { emitter -&gt; emitter.onNext(fetchFromServer()) });
+</code></pre>
+<h2 id="&#x7EBF;&#x7A0B;&#x5207;&#x6362;"><a class="header-anchor" href="#&#x7EBF;&#x7A0B;&#x5207;&#x6362;"></a>&#x7EBF;&#x7A0B;&#x5207;&#x6362;</h2>
+<p>RxJava2 &#x7684;&#x5199;&#x6CD5;&#xFF1A;</p>
+<pre><code>Observable.create(new ObservableOnSubscribe&lt;String&gt;() {
+            @Override
+            public void subscribe(@NonNull ObservableEmitter&lt;String&gt; emitter) throws Exception {
+                emitter.onNext(&quot;hello world&quot;);
+            }
+        })
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(new Consumer&lt;String&gt;() {
+                    @Override
+                    public void accept(String value) {
+                        Log.d(TAG, &quot;result = &quot; + value);
+                    }
+                }, new Consumer&lt;Throwable&gt;() {
+                    @Override
+                    public void accept(Throwable throwable) {
+
+                    }
+                });
+
+</code></pre>
+<p>&#x7ED3;&#x5408; Kotlin &#x7684;&#x5199;&#x6CD5;&#xFF1A;</p>
+<pre><code>Observable.create(ObservableOnSubscribe&lt;String&gt;
+                { emitter -&gt; emitter.onNext(&quot;hello world&quot;) })
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe{ result -&gt;  Log.d(TAG, &quot;result = &quot; + result) }
+</code></pre>
+<h2 id="&#x9519;&#x8BEF;&#x5904;&#x7406;"><a class="header-anchor" href="#&#x9519;&#x8BEF;&#x5904;&#x7406;"></a>&#x9519;&#x8BEF;&#x5904;&#x7406;</h2>
+<p>RxJava2 &#x7684;&#x5199;&#x6CD5;&#xFF1A;</p>
+<pre><code>Observable.create(new ObservableOnSubscribe&lt;String&gt;() {
+            @Override
+            public void subscribe(@NonNull ObservableEmitter&lt;String&gt; emitter) {
+                try{
+                    emitter.onNext(&quot;hello world&quot;);
+                    emitter.onComplete();
+                } catch (Exception e){
+                    emitter.onError(e);
+                }
+            }
+        })
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(new Consumer&lt;String&gt;() {
+                    @Override
+                    public void accept(String value) {
+                        Log.d(TAG, &quot;result = &quot; + value);
+                    }
+                }, new Consumer&lt;Throwable&gt;() {
+                    @Override
+                    public void accept(Throwable throwable) {
+                        Log.d(TAG, &quot;error = &quot; + throwable.getMessage());
+                    }
+                });
+
+</code></pre>
+<p>&#x7ED3;&#x5408; Kotlin &#x7684;&#x5199;&#x6CD5;&#xFF1A;</p>
+<pre><code>Observable.create(ObservableOnSubscribe&lt;String&gt;
+        { emitter -&gt;
+            try {
+                emitter.onNext(&quot;hello world&quot;)
+                emitter.onComplete()
+            } catch (error: Exception) {
+                emitter.onError(error)
+            }
+        })
+                .subscribe(
+                        { result -&gt; Log.d(TAG, &quot;result = &quot; + result) },
+                        { error -&gt; Log.e(TAG, &quot;{$error.message}&quot;) },
+                        { Log.d(TAG, &quot;completed&quot;) }
+                )
+</code></pre>
+<h2 id="&#x64CD;&#x4F5C;&#x7B26;"><a class="header-anchor" href="#&#x64CD;&#x4F5C;&#x7B26;"></a>&#x64CD;&#x4F5C;&#x7B26;</h2>
+<h3 id="map"><a class="header-anchor" href="#map"></a>map</h3>
+<p>RxJava2 &#x7684;&#x5199;&#x6CD5;&#xFF1A;</p>
+<pre><code>Observable.create(new ObservableOnSubscribe&lt;Integer&gt;() {
+            @Override
+            public void subscribe(@NonNull ObservableEmitter&lt;Integer&gt; e) throws Exception {
+                e.onNext(1);
+            }
+        }).map(new Function&lt;Integer, String&gt;() {
+            @Override
+            public String apply(@NonNull Integer integer) throws Exception {
+                return &quot;This is result &quot; + integer;
+            }
+        }).subscribe(new Consumer&lt;String&gt;() {
+            @Override
+            public void accept(@NonNull String s) throws Exception {
+                Log.e(TAG, &quot;accept : &quot; + s +&quot;\n&quot; );
+            }
+        });
+</code></pre>
+<p>&#x7ED3;&#x5408; Kotlin &#x7684;&#x5199;&#x6CD5;&#xFF1A;</p>
+<pre><code>Observable
+                .just(&quot;apple&quot;, &quot;orange&quot;, &quot;mango&quot;)
+                .map { fruit -&gt; &quot;eats $fruit&quot; }
+                .subscribe{ dilicous -&gt; Log.d(TAG, &quot;Ethan $dilicous&quot;) }
+</code></pre>
+<h3 id="flatmap"><a class="header-anchor" href="#flatmap"></a>flatmap</h3>
+<p>RxJava2 &#x7684;&#x5199;&#x6CD5;&#xFF1A;</p>
+<pre><code>String url = &quot;https://www.baidu.com&quot;;
+        Observable.just(url)
+                .subscribeOn(Schedulers.io())
+                .flatMap(new Function&lt;String, Observable&lt;Response&gt;&gt;() {
+
+                    @Override
+                    public Observable&lt;Response&gt; apply(@NonNull String url) throws Exception {
+                        //&#x4F7F;&#x7528;okhttp3&#x8BBF;&#x95EE;&#x7F51;&#x7EDC;
+                        Request.Builder builder = new Request.Builder();
+                        Request request = builder.url(url).get().build();
+                        OkHttpClient client = new OkHttpClient.Builder().build();
+                        Response response = client.newCall(request).execute();
+                        return Observable.from(response);
+                    }
+                })
+                .doOnNext(new Consumer&lt;Response&gt;() {
+                    @Override
+                    public void accept(Response response) throws Exception {
+                        //&#x4FDD;&#x5B58;&#x6570;&#x636E;&#x5E93;
+                    }
+                })
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(new Consumer&lt;Response&gt;() {
+                    @Override
+                    public void accept(Response response) throws Exception {
+                        ResponseBody responseBody = response.body();
+                        String result = responseBody.toString();
+                    }
+                });
+</code></pre>
+<p>&#x7ED3;&#x5408; Kotlin &#x7684;&#x5199;&#x6CD5;&#xFF1A;</p>
+<pre><code>val url = &quot;https://www.baidu.com&quot;
+Observable.just(url)
+        .flatMap({ value -&gt;
+            //&#x4F7F;&#x7528;okhttp3&#x8BBF;&#x95EE;&#x7F51;&#x7EDC;
+            val builder = Request.Builder()
+            val request = builder.url(value).get().build()
+            val client = OkHttpClient.Builder().build()
+            val response = client.newCall(request).execute()
+            val responseBody = response.body()
+            val result = responseBody?.string()
+            return@flatMap Observable.from(result)
+        })
+        .subscribe({ result -&gt;
+            Log.d(TAG, result)
+        }, { error -&gt;
+            Toast.makeText(this, error.message, Toast.LENGTH_SHORT).show()
+        })
+</code></pre>
+<h3 id="merge"><a class="header-anchor" href="#merge"></a>merge</h3>
+<p>RxJava2 &#x7684;&#x5199;&#x6CD5;&#xFF1A;</p>
+<pre><code>final String[] aStrings = {&quot;A1&quot;, &quot;A2&quot;, &quot;A3&quot;, &quot;A4&quot;};
+        final String[] bStrings = {&quot;B1&quot;, &quot;B2&quot;, &quot;B3&quot;};
+
+        final Observable&lt;String&gt; aObservable = Observable.fromArray(aStrings);
+        final Observable&lt;String&gt; bObservable = Observable.fromArray(bStrings);
+
+        Observable.merge(aObservable, bObservable)
+                .subscribe(new Consumer&lt;String&gt;() {
+                    @Override
+                    public void accept(String s) throws Exception {
+                        Log.d(TAG, &quot;result = &quot; + s);
+                    }
+                });
+</code></pre>
+<p>&#x7ED3;&#x5408; Kotlin &#x7684;&#x5199;&#x6CD5;&#xFF1A;</p>
+<pre><code>val aStrings = arrayOf(&quot;A1&quot;, &quot;A2&quot;, &quot;A3&quot;, &quot;A4&quot;)
+        val bStrings = arrayOf(&quot;B1&quot;, &quot;B2&quot;, &quot;B3&quot;)
+
+        val aObservable = Observable.fromArray(*aStrings)
+        val bObservable = Observable.fromArray(*bStrings)
+
+        Observable.merge(aObservable, bObservable)
+                .subscribe{value -&gt; Log.d(TAG, &quot;result = &quot; + value)}
+</code></pre>
+<h3 id="zip"><a class="header-anchor" href="#zip"></a>zip</h3>
+<p>RxJava2 &#x7684;&#x5199;&#x6CD5;&#xFF1A;</p>
+<pre><code>private Observable&lt;String&gt; getStrObservable() {
+        return Observable.create(new ObservableOnSubscribe&lt;String&gt;() {
+            @Override
+            public void subscribe(@NonNull ObservableEmitter&lt;String&gt; e) throws Exception {
+                if (!e.isDisposed()) {
+                    e.onNext(&quot;A&quot;);
+                    e.onNext(&quot;B&quot;);
+                    e.onNext(&quot;C&quot;);
+                }
+            }
+        });
+    }
+
+    private Observable&lt;Integer&gt; getIntObservable() {
+        return Observable.create(new ObservableOnSubscribe&lt;Integer&gt;() {
+            @Override
+            public void subscribe(@NonNull ObservableEmitter&lt;Integer&gt; e) throws Exception {
+                if (!e.isDisposed()) {
+                    e.onNext(1);
+                    e.onNext(2);
+                    e.onNext(3);
+                    e.onNext(4);
+                    e.onNext(5);
+                }
+            }
+        });
+    }
+
+    private void test() {
+        Observable.zip(getStrObservable(), getIntObservable(), new BiFunction&lt;String, Integer, String&gt;() {
+            @Override
+            public String apply(@NonNull String s, @NonNull Integer integer) throws Exception {
+                return s + integer;
+            }
+        }).subscribe(new Consumer&lt;String&gt;() {
+            @Override
+            public void accept(@NonNull String result) throws Exception {
+                Log.d(TAG, &quot;result &quot; + result + &quot;\n&quot;);
+            }
+        });
+    }
+</code></pre>
+<p>&#x7ED3;&#x5408; Kotlin &#x7684;&#x5199;&#x6CD5;&#xFF1A;</p>
+<pre><code>private fun getStrObservable(): Observable&lt;String&gt; {
+        return Observable.create { e -&gt;
+            if (!e.isDisposed) {
+                e.onNext(&quot;A&quot;)
+                e.onNext(&quot;B&quot;)
+                e.onNext(&quot;C&quot;)
+            }
+        }
+    }
+
+    private fun getIntObservable(): Observable&lt;Int&gt; {
+        return Observable.create { e -&gt;
+            if (!e.isDisposed) {
+                e.onNext(1)
+                e.onNext(2)
+                e.onNext(3)
+                e.onNext(4)
+                e.onNext(5)
+            }
+        }
+    }
+
+    fun test() {
+        Observable.zip(getStrObservable(), getIntObservable(), BiFunction&lt;String, Int, String&gt; {
+                strValue, intValue -&gt; strValue + intValue
+        }).subscribe { result -&gt; Log.d(TAG, &quot;result &quot; + result + &quot;\n&quot;) }
+    }
+</code></pre>
+<h3 id="zipwith"><a class="header-anchor" href="#zipwith"></a>zipWith</h3>
+<p>RxJava2 &#x7684;&#x5199;&#x6CD5;&#xFF1A;</p>
+<pre><code>private Observable&lt;String&gt; getStringObservable() {
+        return Observable.create(new ObservableOnSubscribe&lt;String&gt;() {
+            @Override
+            public void subscribe(@NonNull ObservableEmitter&lt;String&gt; e) throws Exception {
+                if (!e.isDisposed()) {
+                    e.onNext(&quot;Test&quot;);
+                }
+            }
+        });
+    }
+
+    private class SomeClass {
+        private String result;
+        private int first, second;
+
+        public SomeClass(int a, int b) {
+            first = a;
+            second = b;
+        }
+
+        public void setResult(String value) {
+            result = value + (first + second);
+        }
+
+        public String getResult(){
+            return result;
+        }
+    }
+
+    List&lt;SomeClass&gt; list = new ArrayList&lt;&gt;();
+            list.add(new SomeClass(1, 2));
+            list.add(new SomeClass(3, 4));
+            Observable
+                    .fromIterable(list)
+                    .zipWith(getStringObservable(), new BiFunction&lt;SomeClass, String, SomeClass&gt;() {
+                        @Override
+                        public SomeClass apply(@NonNull SomeClass someClass, @NonNull String s) throws Exception {
+                            someClass.setResult(s);
+                            return someClass;
+                        }
+                    })
+                    .subscribe(new Consumer&lt;SomeClass&gt;() {
+                        @Override
+                        public void accept(SomeClass result) throws Exception {
+                            Log.d(TAG, &quot;result = &quot; + result.getResult());
+                        }
+                    });
+
+</code></pre>
+<p>&#x7ED3;&#x5408; Kotlin &#x7684;&#x5199;&#x6CD5;&#xFF1A;</p>
+<pre><code>private fun getStringObservable(): Observable&lt;String&gt; {
+        return Observable.create { e -&gt;
+            if (!e.isDisposed) {
+                e.onNext(&quot;Test&quot;)
+            }
+        }
+    }
+
+    private inner class SomeClass(private val first: Int, private val second: Int) {
+        var result: String? = null
+            set(value) {
+                field = value + (first + second)
+            }
+            get()=field
+    }
+
+    val list = listOf(SomeClass(1, 2), SomeClass(3, 4))
+        Observable
+                .fromIterable(list)
+                .zipWith(getStringObservable(), BiFunction&lt;SomeClass, String, SomeClass&gt; { someClass, s -&gt;
+                    someClass.result = s
+                    someClass
+                })
+                .subscribe { result -&gt; Log.d(TAG, &quot;result = &quot; + result.result) }
+</code></pre>
+<h3 id="concat"><a class="header-anchor" href="#concat"></a>concat</h3>
+<p>RxJava2 &#x7684;&#x5199;&#x6CD5;&#xFF1A;</p>
+<pre><code>Observable.concat(Observable.just(1,2,3), Observable.just(4,5,6))
+                .subscribe(new Consumer&lt;Integer&gt;() {
+                    @Override
+                    public void accept(@NonNull Integer integer) throws Exception {
+                        Log.d(TAG, &quot;concat : &quot;+ integer + &quot;\n&quot; );
+                    }
+                });
+</code></pre>
+<p>&#x7ED3;&#x5408; Kotlin &#x7684;&#x5199;&#x6CD5;&#xFF1A;</p>
+<pre><code>Observable.concat(Observable.just(1, 2, 3), Observable.just(4, 5, 6))
+                .subscribe{result -&gt; Log.d(TAG, &quot;result = &quot; + result)}
+</code></pre>
+<h3 id="filter"><a class="header-anchor" href="#filter"></a>filter</h3>
+<p>RxJava2 &#x7684;&#x5199;&#x6CD5;&#xFF1A;</p>
+<pre><code>Observable.just(1, 2, 3, 4, 5)
+               .filter(new Predicate&lt;Integer&gt;() {
+                   @Override
+                   public boolean test(@NonNull Integer integer) throws Exception {
+                       return integer % 2 == 0;
+                   }
+               })
+               .subscribe(new Consumer&lt;Integer&gt;() {
+                   @Override
+                   public void accept(Integer integer) throws Exception {
+                       Log.d(TAG, &quot;result = &quot; + integer);
+                   }
+               });
+</code></pre>
+<p>&#x7ED3;&#x5408; Kotlin &#x7684;&#x5199;&#x6CD5;&#xFF1A;</p>
+<pre><code>Observable.just(1, 2, 3, 4, 5)
+                .filter { value -&gt; return@filter value % 2 == 0 }
+                .subscribe({ t -&gt; Log.d(TAG, &quot;result &quot; + t) })
+</code></pre>
+<p>&#x5927;&#x5BB6;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;<a href="https://github.com/ReactiveX/RxKotlin" target="_blank" rel="external nofollow noopener noreferrer">RxKotlin</a>&#xFF0C;&#x5B83;&#x662F;&#x89C4;&#x8303;&#x4E86;RxJava&#x4E0E;Kotlin&#x4F7F;&#x7528;&#x7684;&#x60EF;&#x4F8B;&#x3002;</p>]]></content>
+    
+    <summary type="html">
+    
+      通过前面的学习，我们知道 Kotlin 的思路与写Java时一样，不过更简洁清爽。如果再结合 RxJava，将进一步减少冗余代码，更容易专注于功能的开发，整个过程轻松愉快。
+    
+    </summary>
+    
+      <category term="移动开发" scheme="http://ngudream.com/categories/%E7%A7%BB%E5%8A%A8%E5%BC%80%E5%8F%91/"/>
+    
+    
+      <category term="Kotlin" scheme="http://ngudream.com/tags/Kotlin/"/>
+    
+  </entry>
   
   <entry>
     <title>Kotlin 封装 Realm 操作举例</title>
@@ -5076,583 +5478,6 @@ apply plugin: &apos;kotlin-android&apos;
     
     
       <category term="Android" scheme="http://ngudream.com/tags/Android/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>H5使用总结和小技巧</title>
-    <link href="http://ngudream.com/2017/04/22/h5-knowledge-summary/"/>
-    <id>http://ngudream.com/2017/04/22/h5-knowledge-summary/</id>
-    <published>2017-04-22T03:19:19.000Z</published>
-    <updated>2017-04-22T05:33:34.437Z</updated>
-    
-    <content type="html"><![CDATA[<div><img class="pic lazy" data-original="/2017/04/22/h5-knowledge-summary/timg.jpg" style="float:left; margin-right:16px" alt="">
-<span>&#x4E00;&#x822C; App &#x90FD;&#x4F1A;&#x91C7;&#x7528; Hybrid &#x6DF7;&#x5408;&#x5F00;&#x53D1;&#xFF0C;Native+HTML5&#xFF1B;&#x7B14;&#x8005;&#x5F53;&#x524D;&#x53C2;&#x4E0E;&#x7684;&#x9879;&#x76EE;&#x4E5F;&#x4F7F;&#x7528;&#x6B64;&#x6A21;&#x5F0F;&#xFF0C;&#x73B0;&#x5076;&#x7136;&#x95F4;&#x770B;&#x89C1; github &#x5927;&#x795E;&#x603B;&#x7ED3;&#x7684; H5 &#x77E5;&#x8BC6;&#xFF0C;&#x5B66;&#x4E60;&#x4E86;&#x4E00;&#x6CE2;&#x3002;</span></div>
-<a id="more"></a>
-<h2 id="h5&#x9879;&#x76EE;&#x5E38;&#x89C1;&#x95EE;&#x9898;&#x53CA;&#x6CE8;&#x610F;&#x4E8B;&#x9879;"><a class="header-anchor" href="#h5&#x9879;&#x76EE;&#x5E38;&#x89C1;&#x95EE;&#x9898;&#x53CA;&#x6CE8;&#x610F;&#x4E8B;&#x9879;"></a>H5&#x9879;&#x76EE;&#x5E38;&#x89C1;&#x95EE;&#x9898;&#x53CA;&#x6CE8;&#x610F;&#x4E8B;&#x9879;</h2>
-<h3 id="meta&#x57FA;&#x7840;&#x77E5;&#x8BC6;"><a class="header-anchor" href="#meta&#x57FA;&#x7840;&#x77E5;&#x8BC6;"></a>Meta&#x57FA;&#x7840;&#x77E5;&#x8BC6;</h3>
-<ul>
-<li>H5&#x9875;&#x9762;&#x7A97;&#x53E3;&#x81EA;&#x52A8;&#x8C03;&#x6574;&#x5230;&#x8BBE;&#x5907;&#x5BBD;&#x5EA6;&#xFF0C;&#x5E76;&#x7981;&#x6B62;&#x7528;&#x6237;&#x7F29;&#x653E;&#x9875;&#x9762;</li>
-</ul>
-<pre><code>//&#x4E00;&#x3001;HTML&#x9875;&#x9762;&#x7ED3;&#x6784;
-&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no&quot; /&gt;
-// width    &#x8BBE;&#x7F6E;viewport&#x5BBD;&#x5EA6;&#xFF0C;&#x4E3A;&#x4E00;&#x4E2A;&#x6B63;&#x6574;&#x6570;&#xFF0C;&#x6216;&#x5B57;&#x7B26;&#x4E32;&#x2018;device-width&#x2019;
-// height   &#x8BBE;&#x7F6E;viewport&#x9AD8;&#x5EA6;&#xFF0C;&#x4E00;&#x822C;&#x8BBE;&#x7F6E;&#x4E86;&#x5BBD;&#x5EA6;&#xFF0C;&#x4F1A;&#x81EA;&#x52A8;&#x89E3;&#x6790;&#x51FA;&#x9AD8;&#x5EA6;&#xFF0C;&#x53EF;&#x4EE5;&#x4E0D;&#x7528;&#x8BBE;&#x7F6E;
-// initial-scale    &#x9ED8;&#x8BA4;&#x7F29;&#x653E;&#x6BD4;&#x4F8B;&#xFF0C;&#x4E3A;&#x4E00;&#x4E2A;&#x6570;&#x5B57;&#xFF0C;&#x53EF;&#x4EE5;&#x5E26;&#x5C0F;&#x6570;
-// minimum-scale    &#x5141;&#x8BB8;&#x7528;&#x6237;&#x6700;&#x5C0F;&#x7F29;&#x653E;&#x6BD4;&#x4F8B;&#xFF0C;&#x4E3A;&#x4E00;&#x4E2A;&#x6570;&#x5B57;&#xFF0C;&#x53EF;&#x4EE5;&#x5E26;&#x5C0F;&#x6570;
-// maximum-scale    &#x5141;&#x8BB8;&#x7528;&#x6237;&#x6700;&#x5927;&#x7F29;&#x653E;&#x6BD4;&#x4F8B;&#xFF0C;&#x4E3A;&#x4E00;&#x4E2A;&#x6570;&#x5B57;&#xFF0C;&#x53EF;&#x4EE5;&#x5E26;&#x5C0F;&#x6570;
-// user-scalable    &#x662F;&#x5426;&#x5141;&#x8BB8;&#x624B;&#x52A8;&#x7F29;&#x653E;
-//&#x4E8C;&#x3001;JS&#x52A8;&#x6001;&#x5224;&#x65AD;
-var phoneWidth =  parseInt(window.screen.width);
-var phoneScale = phoneWidth/640;
-var ua = navigator.userAgent;
-if (/Android (\d+\.\d+)/.test(ua)){
-	var version = parseFloat(RegExp.$1);
-	if(version&gt;2.3){
-		document.write(&apos;&lt;meta name=&quot;viewport&quot; content=&quot;width=640, minimum-scale = &apos;+phoneScale+&apos;, maximum-scale = &apos;+phoneScale+&apos;, target-densitydpi=device-dpi&quot;&gt;&apos;);
-	}else{
-		document.write(&apos;&lt;meta name=&quot;viewport&quot; content=&quot;width=640, target-densitydpi=device-dpi&quot;&gt;&apos;);
-	}
-} else {
-	document.write(&apos;&lt;meta name=&quot;viewport&quot; content=&quot;width=640, user-scalable=no, target-densitydpi=device-dpi&quot;&gt;&apos;);
-}
-</code></pre>
-<ul>
-<li>H5&#x7A7A;&#x767D;&#x9875;&#x57FA;&#x672C;meta&#x6807;&#x7B7E;</li>
-</ul>
-<pre><code>&lt;!-- &#x8BBE;&#x7F6E;&#x7F29;&#x653E; --&gt;
-&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1, user-scalable=no, minimal-ui&quot; /&gt;
-&lt;!-- &#x53EF;&#x9690;&#x85CF;&#x5730;&#x5740;&#x680F;&#xFF0C;&#x4EC5;&#x9488;&#x5BF9;IOS&#x7684;Safari&#xFF08;&#x6CE8;&#xFF1A;IOS7.0&#x7248;&#x672C;&#x4EE5;&#x540E;&#xFF0C;safari&#x4E0A;&#x5DF2;&#x770B;&#x4E0D;&#x5230;&#x6548;&#x679C;&#xFF09; --&gt;
-&lt;meta name=&quot;apple-mobile-web-app-capable&quot; content=&quot;yes&quot; /&gt;
-&lt;!-- &#x4EC5;&#x9488;&#x5BF9;IOS&#x7684;Safari&#x9876;&#x7AEF;&#x72B6;&#x6001;&#x6761;&#x7684;&#x6837;&#x5F0F;&#xFF08;&#x53EF;&#x9009;default/black/black-translucent &#xFF09; --&gt;
-&lt;meta name=&quot;apple-mobile-web-app-status-bar-style&quot; content=&quot;black&quot; /&gt;
-&lt;!-- IOS&#x4E2D;&#x7981;&#x7528;&#x5C06;&#x6570;&#x5B57;&#x8BC6;&#x522B;&#x4E3A;&#x7535;&#x8BDD;&#x53F7;&#x7801;/&#x5FFD;&#x7565;Android&#x5E73;&#x53F0;&#x4E2D;&#x5BF9;&#x90AE;&#x7BB1;&#x5730;&#x5740;&#x7684;&#x8BC6;&#x522B; --&gt;
-&lt;meta name=&quot;format-detection&quot;content=&quot;telephone=no, email=no&quot; /&gt;
-</code></pre>
-<ul>
-<li>PC&#x7AEF;&#x57FA;&#x7840;meta&#x6807;&#x7B7E;</li>
-</ul>
-<pre><code>&lt;!-- &#x9875;&#x9762;&#x5173;&#x952E;&#x8BCD;--&gt;
-&lt;meta name=&quot;keywords&quot; content=&quot;your tags&quot; /&gt;
-&lt;!-- &#x9875;&#x9762;&#x63CF;&#x8FF0;--&gt;
-&lt;meta name=&quot;description&quot; content=&quot;150 words&quot; /&gt;
-&lt;!-- &#x641C;&#x7D22;&#x5F15;&#x64CE;&#x7D22;&#x5F15;&#x65B9;&#x5F0F;&#xFF1A;robotterms&#x662F;&#x4E00;&#x7EC4;&#x4F7F;&#x7528;&#x9017;&#x53F7;(,)&#x5206;&#x5272;&#x7684;&#x503C;&#xFF0C;&#x901A;&#x5E38;&#x6709;&#x5982;&#x4E0B;&#x51E0;&#x79CD;&#x53D6;&#x503C;&#xFF1A;none&#xFF0C;noindex&#xFF0C;nofollow&#xFF0C;all&#xFF0C;index&#x548C;follow&#x3002;&#x786E;&#x4FDD;&#x6B63;&#x786E;&#x4F7F;&#x7528;nofollow&#x548C;noindex&#x5C5E;&#x6027;&#x503C;&#x3002;--&gt;
-&lt;meta name=&quot;robots&quot; content=&quot;index,follow&quot; /&gt;
-&lt;!--
-    all&#xFF1A;&#x6587;&#x4EF6;&#x5C06;&#x88AB;&#x68C0;&#x7D22;&#xFF0C;&#x4E14;&#x9875;&#x9762;&#x4E0A;&#x7684;&#x94FE;&#x63A5;&#x53EF;&#x4EE5;&#x88AB;&#x67E5;&#x8BE2;&#xFF1B;
-    none&#xFF1A;&#x6587;&#x4EF6;&#x5C06;&#x4E0D;&#x88AB;&#x68C0;&#x7D22;&#xFF0C;&#x4E14;&#x9875;&#x9762;&#x4E0A;&#x7684;&#x94FE;&#x63A5;&#x4E0D;&#x53EF;&#x4EE5;&#x88AB;&#x67E5;&#x8BE2;&#xFF1B;
-    index&#xFF1A;&#x6587;&#x4EF6;&#x5C06;&#x88AB;&#x68C0;&#x7D22;&#xFF1B;
-    follow&#xFF1A;&#x9875;&#x9762;&#x4E0A;&#x7684;&#x94FE;&#x63A5;&#x53EF;&#x4EE5;&#x88AB;&#x67E5;&#x8BE2;&#xFF1B;
-    noindex&#xFF1A;&#x6587;&#x4EF6;&#x5C06;&#x4E0D;&#x88AB;&#x68C0;&#x7D22;&#xFF1B;
-    nofollow&#xFF1A;&#x9875;&#x9762;&#x4E0A;&#x7684;&#x94FE;&#x63A5;&#x4E0D;&#x53EF;&#x4EE5;&#x88AB;&#x67E5;&#x8BE2;&#x3002;
- --&gt;
- 
- &lt;!-- &#x9875;&#x9762;&#x91CD;&#x5B9A;&#x5411;&#x548C;&#x5237;&#x65B0;&#xFF1A;content&#x5185;&#x7684;&#x6570;&#x5B57;&#x4EE3;&#x8868;&#x65F6;&#x95F4;&#xFF08;&#x79D2;&#xFF09;&#xFF0C;&#x65E2;&#x591A;&#x5C11;&#x65F6;&#x95F4;&#x540E;&#x5237;&#x65B0;&#x3002;&#x5982;&#x679C;&#x52A0;url,&#x5219;&#x4F1A;&#x91CD;&#x5B9A;&#x5411;&#x5230;&#x6307;&#x5B9A;&#x7F51;&#x9875;&#xFF08;&#x641C;&#x7D22;&#x5F15;&#x64CE;&#x80FD;&#x591F;&#x81EA;&#x52A8;&#x68C0;&#x6D4B;&#xFF0C;&#x4E5F;&#x5F88;&#x5BB9;&#x6613;&#x88AB;&#x5F15;&#x64CE;&#x89C6;&#x4F5C;&#x8BEF;&#x5BFC;&#x800C;&#x53D7;&#x5230;&#x60E9;&#x7F5A;&#xFF09;&#x3002;--&gt;
- &lt;meta http-equiv=&quot;refresh&quot; content=&quot;0;url=&quot; /&gt;
-</code></pre>
-<ul>
-<li>&#x9875;&#x9762;&#x7F13;&#x5B58;&#x8BBE;&#x7F6E;</li>
-</ul>
-<pre><code>&lt;!-- &#x6E05;&#x9664;&#x7F13;&#x5B58; --&gt;
-&lt;meta http-equiv=&quot;pragma&quot; content=&quot;no-cache&quot;&gt;
-&lt;meta http-equiv=&quot;cache-control&quot; content=&quot;no-cache&quot;&gt;
-&lt;meta http-equiv=&quot;expires&quot; content=&quot;0&quot;&gt;
-</code></pre>
-<ul>
-<li>&#x5176;&#x4ED6;meta&#x6807;&#x7B7E;</li>
-</ul>
-<pre><code>&lt;!-- &#x542F;&#x7528;360&#x6D4F;&#x89C8;&#x5668;&#x7684;&#x6781;&#x901F;&#x6A21;&#x5F0F;(webkit) --&gt;
-&lt;meta name=&quot;renderer&quot; content=&quot;webkit&quot;&gt;
-&lt;!-- &#x907F;&#x514D;IE&#x4F7F;&#x7528;&#x517C;&#x5BB9;&#x6A21;&#x5F0F; --&gt;
-&lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;IE=edge&quot;&gt;
-&lt;!-- &#x9488;&#x5BF9;&#x624B;&#x6301;&#x8BBE;&#x5907;&#x4F18;&#x5316;&#xFF0C;&#x4E3B;&#x8981;&#x662F;&#x9488;&#x5BF9;&#x4E00;&#x4E9B;&#x8001;&#x7684;&#x4E0D;&#x8BC6;&#x522B;viewport&#x7684;&#x6D4F;&#x89C8;&#x5668;&#xFF0C;&#x6BD4;&#x5982;&#x9ED1;&#x8393; --&gt;
-&lt;meta name=&quot;HandheldFriendly&quot; content=&quot;true&quot;&gt;
-&lt;!-- &#x5FAE;&#x8F6F;&#x7684;&#x8001;&#x5F0F;&#x6D4F;&#x89C8;&#x5668; --&gt;
-&lt;meta name=&quot;MobileOptimized&quot; content=&quot;320&quot;&gt;
-&lt;!-- uc&#x5F3A;&#x5236;&#x7AD6;&#x5C4F; --&gt;
-&lt;meta name=&quot;screen-orientation&quot; content=&quot;portrait&quot;&gt;
-&lt;!-- QQ&#x5F3A;&#x5236;&#x7AD6;&#x5C4F; --&gt;
-&lt;meta name=&quot;x5-orientation&quot; content=&quot;portrait&quot;&gt;
-&lt;!-- UC&#x5F3A;&#x5236;&#x5168;&#x5C4F; --&gt;
-&lt;meta name=&quot;full-screen&quot; content=&quot;yes&quot;&gt;
-&lt;!-- QQ&#x5F3A;&#x5236;&#x5168;&#x5C4F; --&gt;
-&lt;meta name=&quot;x5-fullscreen&quot; content=&quot;true&quot;&gt;
-&lt;!-- UC&#x5E94;&#x7528;&#x6A21;&#x5F0F; --&gt;
-&lt;meta name=&quot;browsermode&quot; content=&quot;application&quot;&gt;
-&lt;!-- QQ&#x5E94;&#x7528;&#x6A21;&#x5F0F; --&gt;
-&lt;meta name=&quot;x5-page-mode&quot; content=&quot;app&quot;&gt;
-&lt;!-- windows phone &#x70B9;&#x51FB;&#x65E0;&#x9AD8;&#x5149; --&gt;
-&lt;meta name=&quot;msapplication-tap-highlight&quot; content=&quot;no&quot;&gt;
-&lt;meta name=&quot;author&quot; content=&quot;author name&quot; /&gt; &lt;!-- &#x5B9A;&#x4E49;&#x7F51;&#x9875;&#x4F5C;&#x8005; --&gt;
-&lt;meta name=&quot;google&quot; content=&quot;index,follow&quot; /&gt;
-&lt;meta name=&quot;googlebot&quot; content=&quot;index,follow&quot; /&gt;
-&lt;meta name=&quot;verify&quot; content=&quot;index,follow&quot; /&gt;
-</code></pre>
-<h2 id="&#x5E38;&#x89C1;&#x95EE;&#x9898;"><a class="header-anchor" href="#&#x5E38;&#x89C1;&#x95EE;&#x9898;"></a>&#x5E38;&#x89C1;&#x95EE;&#x9898;</h2>
-<ul>
-<li>&#x79FB;&#x52A8;&#x7AEF;&#x5982;&#x4F55;&#x5B9A;&#x4E49;&#x5B57;&#x4F53;font-family</li>
-</ul>
-<pre><code>@ --------------------------------------&#x4E2D;&#x6587;&#x5B57;&#x4F53;&#x7684;&#x82F1;&#x6587;&#x540D;&#x79F0;
-@ &#x5B8B;&#x4F53;      SimSun
-@ &#x9ED1;&#x4F53;      SimHei
-@ &#x5FAE;&#x4FE1;&#x96C5;&#x9ED1;   Microsoft Yahei
-@ &#x5FAE;&#x8F6F;&#x6B63;&#x9ED1;&#x4F53; Microsoft JhengHei
-@ &#x65B0;&#x5B8B;&#x4F53;    NSimSun
-@ &#x65B0;&#x7EC6;&#x660E;&#x4F53;  MingLiU
-@ &#x7EC6;&#x660E;&#x4F53;    MingLiU
-@ &#x6807;&#x6977;&#x4F53;    DFKai-SB
-@ &#x4EFF;&#x5B8B;     FangSong
-@ &#x6977;&#x4F53;     KaiTi
-@ &#x4EFF;&#x5B8B;_GB2312  FangSong_GB2312
-@ &#x6977;&#x4F53;_GB2312  KaiTi_GB2312  
-@
-@ &#x8BF4;&#x660E;&#xFF1A;&#x4E2D;&#x6587;&#x5B57;&#x4F53;&#x591A;&#x6570;&#x4F7F;&#x7528;&#x5B8B;&#x4F53;&#x3001;&#x96C5;&#x9ED1;&#xFF0C;&#x82F1;&#x6587;&#x7528;Helvetica
-body { font-family: Microsoft Yahei,SimSun,Helvetica; }
-</code></pre>
-<ul>
-<li>&#x6253;&#x7535;&#x8BDD;&#x53D1;&#x77ED;&#x4FE1;&#x5199;&#x90AE;&#x4EF6;&#x600E;&#x4E48;&#x5B9E;&#x73B0;</li>
-</ul>
-<pre><code>// &#x4E00;&#x3001;&#x6253;&#x7535;&#x8BDD;
-&lt;a href=&quot;tel:0755-10086&quot;&gt;&#x6253;&#x7535;&#x8BDD;&#x7ED9;:0755-10086&lt;/a&gt;
-//  &#x4E8C;&#x3001;&#x53D1;&#x77ED;&#x4FE1;&#xFF0C;winphone&#x7CFB;&#x7EDF;&#x65E0;&#x6548;
-&lt;a href=&quot;sms:10086&quot;&gt;&#x53D1;&#x77ED;&#x4FE1;&#x7ED9;: 10086&lt;/a&gt;
-// &#x4E09;&#x3001;&#x5199;&#x90AE;&#x4EF6;
-//&#x6CE8;&#xFF1A;&#x5728;&#x6DFB;&#x52A0;&#x8FD9;&#x4E9B;&#x529F;&#x80FD;&#x65F6;&#xFF0C;&#x7B2C;&#x4E00;&#x4E2A;&#x529F;&#x80FD;&#x4EE5;&quot;?&quot;&#x5F00;&#x5934;&#xFF0C;&#x540E;&#x9762;&#x7684;&#x4EE5;&quot;&amp;&quot;&#x5F00;&#x5934;
-//1.&#x666E;&#x901A;&#x90AE;&#x4EF6;
-&lt;a href=&quot;mailto:863139978@qq.com&quot;&gt;&#x70B9;&#x51FB;&#x6211;&#x53D1;&#x90AE;&#x4EF6;&lt;/a&gt;
-//2.&#x6536;&#x4EF6;&#x5730;&#x5740;&#x540E;&#x6DFB;&#x52A0;?cc=&#x5F00;&#x5934;&#xFF0C;&#x53EF;&#x6DFB;&#x52A0;&#x6284;&#x9001;&#x5730;&#x5740;&#xFF08;Android&#x5B58;&#x5728;&#x517C;&#x5BB9;&#x95EE;&#x9898;&#xFF09;
-&lt;a href=&quot;mailto:863139978@qq.com?cc=zhangqian0406@yeah.net&quot;&gt;&#x70B9;&#x51FB;&#x6211;&#x53D1;&#x90AE;&#x4EF6;&lt;/a&gt;
-//3.&#x8DDF;&#x7740;&#x6284;&#x9001;&#x5730;&#x5740;&#x540E;&#xFF0C;&#x5199;&#x4E0A;&amp;bcc=,&#x53EF;&#x6DFB;&#x52A0;&#x5BC6;&#x4EF6;&#x6284;&#x9001;&#x5730;&#x5740;&#xFF08;Android&#x5B58;&#x5728;&#x517C;&#x5BB9;&#x95EE;&#x9898;&#xFF09;
-&lt;a href=&quot;mailto:863139978@qq.com?cc=zhangqian0406@yeah.net&amp;bcc=384900096@qq.com&quot;&gt;&#x70B9;&#x51FB;&#x6211;&#x53D1;&#x90AE;&#x4EF6;&lt;/a&gt;
-//4.&#x5305;&#x542B;&#x591A;&#x4E2A;&#x6536;&#x4EF6;&#x4EBA;&#x3001;&#x6284;&#x9001;&#x3001;&#x5BC6;&#x4EF6;&#x6284;&#x9001;&#x4EBA;&#xFF0C;&#x7528;&#x5206;&#x53F7;(;)&#x9694;&#x5F00;&#x591A;&#x4E2A;&#x90AE;&#x4EF6;&#x4EBA;&#x7684;&#x5730;&#x5740;
-&lt;a href=&quot;mailto:863139978@qq.com;384900096@qq.com&quot;&gt;&#x70B9;&#x51FB;&#x6211;&#x53D1;&#x90AE;&#x4EF6;&lt;/a&gt;
-//5.&#x5305;&#x542B;&#x4E3B;&#x9898;&#xFF0C;&#x7528;?subject=
-&lt;a href=&quot;mailto:863139978@qq.com?subject=&#x90AE;&#x4EF6;&#x4E3B;&#x9898;&quot;&gt;&#x70B9;&#x51FB;&#x6211;&#x53D1;&#x90AE;&#x4EF6;&lt;/a&gt;
-//6.&#x5305;&#x542B;&#x5185;&#x5BB9;&#xFF0C;&#x7528;?body=;&#x5982;&#x5185;&#x5BB9;&#x5305;&#x542B;&#x6587;&#x672C;&#xFF0C;&#x4F7F;&#x7528;%0A&#x7ED9;&#x6587;&#x672C;&#x6362;&#x884C; 
-&lt;a href=&quot;mailto:863139978@qq.com?body=&#x90AE;&#x4EF6;&#x4E3B;&#x9898;&#x5185;&#x5BB9;%0A&#x817E;&#x8BAF;&#x8BDA;&#x4FE1;%0A&#x671F;&#x5F85;&#x60A8;&#x7684;&#x5230;&#x6765;&quot;&gt;&#x70B9;&#x51FB;&#x6211;&#x53D1;&#x90AE;&#x4EF6;&lt;/a&gt;
-//7.&#x5185;&#x5BB9;&#x5305;&#x542B;&#x94FE;&#x63A5;&#xFF0C;&#x542B;http(s)://&#x7B49;&#x7684;&#x6587;&#x672C;&#x81EA;&#x52A8;&#x8F6C;&#x5316;&#x4E3A;&#x94FE;&#x63A5;
-&lt;a href=&quot;mailto:863139978@qq.com?body=http://www.baidu.com&quot;&gt;&#x70B9;&#x51FB;&#x6211;&#x53D1;&#x90AE;&#x4EF6;&lt;/a&gt;
-//8.&#x5185;&#x5BB9;&#x5305;&#x542B;&#x56FE;&#x7247;&#xFF08;PC&#x4E0D;&#x652F;&#x6301;&#xFF09;
-&lt;a href=&quot;mailto:863139978@qq.com?body=&lt;img src=&apos;images/1.jpg&apos; /&gt;&quot;&gt;&#x70B9;&#x51FB;&#x6211;&#x53D1;&#x90AE;&#x4EF6;&lt;/a&gt;
-//9.&#x5B8C;&#x6574;&#x793A;&#x4F8B;
-&lt;a href=&quot;mailto:863139978@qq.com;384900096@qq.com?cc=zhangqian0406@yeah.net&amp;bcc=993233461@qq.com&amp;subject=[&#x90AE;&#x4EF6;&#x4E3B;&#x9898;]&amp;body=&#x817E;&#x8BAF;&#x8BDA;&#x9080;&#x60A8;&#x53C2;&#x4E0E;%0A%0Ahttp://www.baidu.com%0A%0A&lt;img src=&apos;images/1.jpg&apos; /&gt;&quot;&gt;&#x70B9;&#x51FB;&#x6211;&#x53D1;&#x90AE;&#x4EF6;&lt;/a&gt;
-</code></pre>
-<ul>
-<li>&#x79FB;&#x52A8;&#x7AEF;touch&#x4E8B;&#x4EF6;&#xFF08;&#x533A;&#x5206;webkit&#x548C;winphone&#xFF09;</li>
-</ul>
-<pre><code>/* &#x5F53;&#x7528;&#x6237;&#x624B;&#x6307;&#x653E;&#x5728;&#x79FB;&#x52A8;&#x8BBE;&#x5907;&#x5728;&#x5C4F;&#x5E55;&#x4E0A;&#x6ED1;&#x52A8;&#x4F1A;&#x89E6;&#x53D1;&#x7684;touch&#x4E8B;&#x4EF6; */
-// &#x4EE5;&#x4E0B;&#x652F;&#x6301;webkit
-touchstart&#x2014;&#x2014;&#x5F53;&#x624B;&#x6307;&#x89E6;&#x78B0;&#x5C4F;&#x5E55;&#x65F6;&#x5019;&#x53D1;&#x751F;&#x3002;&#x4E0D;&#x7BA1;&#x5F53;&#x524D;&#x6709;&#x591A;&#x5C11;&#x53EA;&#x624B;&#x6307;
-touchmove&#x2014;&#x2014;&#x5F53;&#x624B;&#x6307;&#x5728;&#x5C4F;&#x5E55;&#x4E0A;&#x6ED1;&#x52A8;&#x65F6;&#x8FDE;&#x7EED;&#x89E6;&#x53D1;&#x3002;&#x901A;&#x5E38;&#x6211;&#x4EEC;&#x518D;&#x6ED1;&#x5C4F;&#x9875;&#x9762;&#xFF0C;&#x4F1A;&#x8C03;&#x7528;event&#x7684;preventDefault()&#x53EF;&#x4EE5;&#x963B;&#x6B62;&#x9ED8;&#x8BA4;&#x60C5;&#x51B5;&#x7684;&#x53D1;&#x751F;&#xFF1A;&#x963B;&#x6B62;&#x9875;&#x9762;&#x6EDA;&#x52A8;
-touchend&#x2014;&#x2014;&#x5F53;&#x624B;&#x6307;&#x79BB;&#x5F00;&#x5C4F;&#x5E55;&#x65F6;&#x89E6;&#x53D1;
-touchcancel&#x2014;&#x2014;&#x7CFB;&#x7EDF;&#x505C;&#x6B62;&#x8DDF;&#x8E2A;&#x89E6;&#x6478;&#x65F6;&#x5019;&#x4F1A;&#x89E6;&#x53D1;&#x3002;&#x4F8B;&#x5982;&#x5728;&#x89E6;&#x6478;&#x8FC7;&#x7A0B;&#x4E2D;&#x7A81;&#x7136;&#x9875;&#x9762;alert()&#x4E00;&#x4E2A;&#x63D0;&#x793A;&#x6846;&#xFF0C;&#x6B64;&#x65F6;&#x4F1A;&#x89E6;&#x53D1;&#x8BE5;&#x4E8B;&#x4EF6;&#xFF0C;&#x8FD9;&#x4E2A;&#x4E8B;&#x4EF6;&#x6BD4;&#x8F83;&#x5C11;&#x7528;
-//TouchEvent&#x8BF4;&#x660E;&#xFF1A;
-touches&#xFF1A;&#x5C4F;&#x5E55;&#x4E0A;&#x6240;&#x6709;&#x624B;&#x6307;&#x7684;&#x4FE1;&#x606F;
-targetTouches&#xFF1A;&#x624B;&#x6307;&#x5728;&#x76EE;&#x6807;&#x533A;&#x57DF;&#x7684;&#x624B;&#x6307;&#x4FE1;&#x606F;
-changedTouches&#xFF1A;&#x6700;&#x8FD1;&#x4E00;&#x6B21;&#x89E6;&#x53D1;&#x8BE5;&#x4E8B;&#x4EF6;&#x7684;&#x624B;&#x6307;&#x4FE1;&#x606F;
-touchend&#x65F6;&#xFF0C;touches&#x4E0E;targetTouches&#x4FE1;&#x606F;&#x4F1A;&#x88AB;&#x5220;&#x9664;&#xFF0C;changedTouches&#x4FDD;&#x5B58;&#x7684;&#x6700;&#x540E;&#x4E00;&#x6B21;&#x7684;&#x4FE1;&#x606F;&#xFF0C;&#x6700;&#x597D;&#x7528;&#x4E8E;&#x8BA1;&#x7B97;&#x624B;&#x6307;&#x4FE1;&#x606F;
-//&#x53C2;&#x6570;&#x4FE1;&#x606F;(changedTouches[0])
-clientX&#x3001;clientY&#x5728;&#x663E;&#x793A;&#x533A;&#x7684;&#x5750;&#x6807;
-target&#xFF1A;&#x5F53;&#x524D;&#x5143;&#x7D20;
-//&#x4E8B;&#x4EF6;&#x54CD;&#x5E94;&#x987A;&#x5E8F;
-ontouchstart  &gt; ontouchmove  &gt; ontouchend &gt; onclick
-// &#x4EE5;&#x4E0B;&#x652F;&#x6301;winphone 8
-MSPointerDown&#x2014;&#x2014;&#x5F53;&#x624B;&#x6307;&#x89E6;&#x78B0;&#x5C4F;&#x5E55;&#x65F6;&#x5019;&#x53D1;&#x751F;&#x3002;&#x4E0D;&#x7BA1;&#x5F53;&#x524D;&#x6709;&#x591A;&#x5C11;&#x53EA;&#x624B;&#x6307;
-MSPointerMove&#x2014;&#x2014;&#x5F53;&#x624B;&#x6307;&#x5728;&#x5C4F;&#x5E55;&#x4E0A;&#x6ED1;&#x52A8;&#x65F6;&#x8FDE;&#x7EED;&#x89E6;&#x53D1;&#x3002;&#x901A;&#x5E38;&#x6211;&#x4EEC;&#x518D;&#x6ED1;&#x5C4F;&#x9875;&#x9762;&#xFF0C;&#x4F1A;&#x8C03;&#x7528;css&#x7684;html{-ms-touch-action: none;}&#x53EF;&#x4EE5;&#x963B;&#x6B62;&#x9ED8;&#x8BA4;&#x60C5;&#x51B5;&#x7684;&#x53D1;&#x751F;&#xFF1A;&#x963B;&#x6B62;&#x9875;&#x9762;&#x6EDA;&#x52A8;
-MSPointerUp&#x2014;&#x2014;&#x5F53;&#x624B;&#x6307;&#x79BB;&#x5F00;&#x5C4F;&#x5E55;&#x65F6;&#x89E6;&#x53D1;
-</code></pre>
-<ul>
-<li>&#x79FB;&#x52A8;&#x7AEF;click&#x5C4F;&#x5E55;&#x4EA7;&#x751F;200-300ms&#x7684;&#x5EF6;&#x65F6;&#x54CD;&#x5E94;</li>
-</ul>
-<pre><code>&#x8BF4;&#x660E;&#xFF1A;&#x79FB;&#x52A8;&#x8BBE;&#x5907;&#x4E0A;&#x7684;web&#x7F51;&#x9875;&#x662F;&#x6709;300ms&#x5EF6;&#x8FDF;&#x7684;&#xFF0C;&#x73A9;&#x73A9;&#x4F1A;&#x9020;&#x6210;&#x6309;&#x94AE;&#x70B9;&#x51FB;&#x5EF6;&#x8FDF;&#x751A;&#x81F3;&#x662F;&#x70B9;&#x51FB;&#x5931;&#x6548;&#x3002;
-&#x4EE5;&#x4E0B;&#x662F;&#x5386;&#x53F2;&#x539F;&#x56E0;&#xFF0C;&#x6765;&#x6E90;&#x4E00;&#x4E2A;&#x516C;&#x53F8;&#x5185;&#x4E00;&#x4E2A;&#x540C;&#x4E8B;&#x7684;&#x5206;&#x4EAB;&#xFF1A;
-2007&#x5E74;&#x82F9;&#x679C;&#x53D1;&#x5E03;&#x9996;&#x6B3E;iphone&#x4E0A;IOS&#x7CFB;&#x7EDF;&#x642D;&#x8F7D;&#x7684;safari&#x4E3A;&#x4E86;&#x5C06;&#x9002;&#x7528;&#x4E8E;PC&#x7AEF;&#x4E0A;&#x5927;&#x5C4F;&#x5E55;&#x7684;&#x7F51;&#x9875;&#x80FD;&#x6BD4;&#x8F83;&#x597D;&#x7684;&#x5C55;&#x793A;&#x5728;&#x624B;&#x673A;&#x7AEF;&#x4E0A;&#xFF0C;&#x4F7F;&#x7528;&#x4E86;&#x53CC;&#x51FB;&#x7F29;&#x653E;(double tap to zoom)&#x7684;&#x65B9;&#x6848;&#xFF0C;&#x6BD4;&#x5982;&#x4F60;&#x5728;&#x624B;&#x673A;&#x4E0A;&#x7528;&#x6D4F;&#x89C8;&#x5668;&#x6253;&#x5F00;&#x4E00;&#x4E2A;PC&#x4E0A;&#x7684;&#x7F51;&#x9875;&#xFF0C;&#x4F60;&#x53EF;&#x80FD;&#x5728;&#x770B;&#x5230;&#x9875;&#x9762;&#x5185;&#x5BB9;&#x867D;&#x7136;&#x53EF;&#x4EE5;&#x6491;&#x6EE1;&#x6574;&#x4E2A;&#x5C4F;&#x5E55;&#xFF0C;&#x4F46;&#x662F;&#x5B57;&#x4F53;&#x3001;&#x56FE;&#x7247;&#x90FD;&#x5F88;&#x5C0F;&#x770B;&#x4E0D;&#x6E05;&#xFF0C;&#x6B64;&#x65F6;&#x53EF;&#x4EE5;&#x5FEB;&#x901F;&#x53CC;&#x51FB;&#x5C4F;&#x5E55;&#x4E0A;&#x7684;&#x67D0;&#x4E00;&#x90E8;&#x5206;&#xFF0C;&#x4F60;&#x5C31;&#x80FD;&#x770B;&#x6E05;&#x8BE5;&#x90E8;&#x5206;&#x653E;&#x5927;&#x540E;&#x7684;&#x5185;&#x5BB9;&#xFF0C;&#x518D;&#x6B21;&#x53CC;&#x51FB;&#x540E;&#x80FD;&#x56DE;&#x5230;&#x539F;&#x59CB;&#x72B6;&#x6001;&#x3002;
-&#x53CC;&#x51FB;&#x7F29;&#x653E;&#x662F;&#x6307;&#x7528;&#x624B;&#x6307;&#x5728;&#x5C4F;&#x5E55;&#x4E0A;&#x5FEB;&#x901F;&#x70B9;&#x51FB;&#x4E24;&#x6B21;&#xFF0C;iOS &#x81EA;&#x5E26;&#x7684; Safari &#x6D4F;&#x89C8;&#x5668;&#x4F1A;&#x5C06;&#x7F51;&#x9875;&#x7F29;&#x653E;&#x81F3;&#x539F;&#x59CB;&#x6BD4;&#x4F8B;&#x3002;
-&#x539F;&#x56E0;&#x5C31;&#x51FA;&#x5728;&#x6D4F;&#x89C8;&#x5668;&#x9700;&#x8981;&#x5982;&#x4F55;&#x5224;&#x65AD;&#x5FEB;&#x901F;&#x70B9;&#x51FB;&#x4E0A;&#xFF0C;&#x5F53;&#x7528;&#x6237;&#x5728;&#x5C4F;&#x5E55;&#x4E0A;&#x5355;&#x51FB;&#x67D0;&#x4E00;&#x4E2A;&#x5143;&#x7D20;&#x65F6;&#x5019;&#xFF0C;&#x4F8B;&#x5982;&#x8DF3;&#x8F6C;&#x94FE;&#x63A5;&lt;a href=&quot;#&quot;&gt;&lt;/a&gt;&#xFF0C;&#x6B64;&#x5904;&#x6D4F;&#x89C8;&#x5668;&#x4F1A;&#x5148;&#x6355;&#x83B7;&#x8BE5;&#x6B21;&#x5355;&#x51FB;&#xFF0C;&#x4F46;&#x6D4F;&#x89C8;&#x5668;&#x4E0D;&#x80FD;&#x51B3;&#x5B9A;&#x7528;&#x6237;&#x662F;&#x5355;&#x7EAF;&#x8981;&#x70B9;&#x51FB;&#x94FE;&#x63A5;&#x8FD8;&#x662F;&#x8981;&#x53CC;&#x51FB;&#x8BE5;&#x90E8;&#x5206;&#x533A;&#x57DF;&#x8FDB;&#x884C;&#x7F29;&#x653E;&#x64CD;&#x4F5C;&#xFF0C;&#x6240;&#x4EE5;&#xFF0C;&#x6355;&#x83B7;&#x7B2C;&#x4E00;&#x6B21;&#x5355;&#x51FB;&#x540E;&#xFF0C;&#x6D4F;&#x89C8;&#x5668;&#x4F1A;&#x5148;Hold&#x4E00;&#x6BB5;&#x65F6;&#x95F4;t&#xFF0C;&#x5982;&#x679C;&#x5728;t&#x65F6;&#x95F4;&#x533A;&#x95F4;&#x91CC;&#x7528;&#x6237;&#x672A;&#x8FDB;&#x884C;&#x4E0B;&#x4E00;&#x6B21;&#x70B9;&#x51FB;&#xFF0C;&#x5219;&#x6D4F;&#x89C8;&#x5668;&#x4F1A;&#x505A;&#x5355;&#x51FB;&#x8DF3;&#x8F6C;&#x94FE;&#x63A5;&#x7684;&#x5904;&#x7406;&#xFF0C;&#x5982;&#x679C;t&#x65F6;&#x95F4;&#x91CC;&#x7528;&#x6237;&#x8FDB;&#x884C;&#x4E86;&#x7B2C;&#x4E8C;&#x6B21;&#x5355;&#x51FB;&#x64CD;&#x4F5C;&#xFF0C;&#x5219;&#x6D4F;&#x89C8;&#x5668;&#x4F1A;&#x7981;&#x6B62;&#x8DF3;&#x8F6C;&#xFF0C;&#x8F6C;&#x800C;&#x8FDB;&#x884C;&#x5BF9;&#x8BE5;&#x90E8;&#x5206;&#x533A;&#x57DF;&#x9875;&#x9762;&#x7684;&#x7F29;&#x653E;&#x64CD;&#x4F5C;&#x3002;&#x90A3;&#x4E48;&#x8FD9;&#x4E2A;&#x65F6;&#x95F4;&#x533A;&#x95F4;t&#x6709;&#x591A;&#x5C11;&#x5462;&#xFF1F;&#x5728;IOS safari&#x4E0B;&#xFF0C;&#x5927;&#x6982;&#x4E3A;300&#x6BEB;&#x79D2;&#x3002;&#x8FD9;&#x5C31;&#x662F;&#x5EF6;&#x8FDF;&#x7684;&#x7531;&#x6765;&#x3002;&#x9020;&#x6210;&#x7684;&#x540E;&#x679C;&#x7528;&#x6237;&#x7EAF;&#x7CB9;&#x5355;&#x51FB;&#x9875;&#x9762;&#xFF0C;&#x9875;&#x9762;&#x9700;&#x8981;&#x8FC7;&#x4E00;&#x6BB5;&#x65F6;&#x95F4;&#x624D;&#x54CD;&#x5E94;&#xFF0C;&#x7ED9;&#x7528;&#x6237;&#x6162;&#x4F53;&#x9A8C;&#x611F;&#x89C9;&#xFF0C;&#x5BF9;&#x4E8E;web&#x5F00;&#x53D1;&#x8005;&#x6765;&#x8BF4;&#x662F;&#xFF0C;&#x9875;&#x9762;js&#x6355;&#x83B7;click&#x4E8B;&#x4EF6;&#x7684;&#x56DE;&#x8C03;&#x51FD;&#x6570;&#x5904;&#x7406;&#xFF0C;&#x9700;&#x8981;300ms&#x540E;&#x624D;&#x751F;&#x6548;&#xFF0C;&#x4E5F;&#x5C31;&#x95F4;&#x63A5;&#x5BFC;&#x81F4;&#x5F71;&#x54CD;&#x5176;&#x4ED6;&#x4E1A;&#x52A1;&#x903B;&#x8F91;&#x7684;&#x5904;&#x7406;&#x3002;
-//&#x89E3;&#x51B3;&#x65B9;&#x6848;&#xFF1A;
-fastclick&#x53EF;&#x4EE5;&#x89E3;&#x51B3;&#x5728;&#x624B;&#x673A;&#x4E0A;&#x70B9;&#x51FB;&#x4E8B;&#x4EF6;&#x7684;300ms&#x5EF6;&#x8FDF;
-zepto&#x7684;touch&#x6A21;&#x5757;&#xFF0C;tap&#x4E8B;&#x4EF6;&#x4E5F;&#x662F;&#x4E3A;&#x4E86;&#x89E3;&#x51B3;&#x5728;click&#x7684;&#x5EF6;&#x8FDF;&#x95EE;&#x9898;
-</code></pre>
-<ul>
-<li>Rentina&#x663E;&#x793A;&#x5C4F;&#x539F;&#x7406;&#x53CA;&#x8BBE;&#x8BA1;&#x65B9;&#x6848;</li>
-</ul>
-<pre><code>&#x8BF4;&#x660E;&#xFF1A;retina&#x5C4F;&#x662F;&#x4E00;&#x79CD;&#x5177;&#x5907;&#x8D85;&#x9AD8;&#x50CF;&#x7D20;&#x5BC6;&#x5EA6;&#x7684;&#x6DB2;&#x6676;&#x5C4F;&#xFF0C;&#x540C;&#x6837;&#x5927;&#x5C0F;&#x7684;&#x5C4F;&#x5E55;&#x4E0A;&#x663E;&#x793A;&#x7684;&#x50CF;&#x7D20;&#x70B9;&#x7531;1&#x4E2A;&#x53D8;&#x4E3A;&#x591A;&#x4E2A;&#xFF0C;&#x5982;&#x5728;&#x540C;&#x6837;&#x5E26;&#x4E0B;&#x7684;&#x5C4F;&#x5E55;&#x4E0A;&#xFF0C;&#x82F9;&#x679C;&#x8BBE;&#x5907;&#x7684;retina&#x663E;&#x793A;&#x5C4F;&#x4E2D;&#xFF0C;&#x50CF;&#x7D20;&#x70B9;1&#x4E2A;&#x53D8;&#x4E3A;4&#x4E2A;&#x3002;
-&#x5728;&#x9AD8;&#x6E05;&#x663E;&#x793A;&#x5C4F;&#x4E2D;&#x7684;&#x4F4D;&#x56FE;&#x88AB;&#x653E;&#x5927;&#xFF0C;&#x56FE;&#x7247;&#x4F1A;&#x53D8;&#x5F97;&#x6A21;&#x7CCA;&#xFF0C;&#x56E0;&#x6B64;&#x79FB;&#x52A8;&#x7AEF;&#x7684;&#x89C6;&#x89C9;&#x7A3F;&#x901A;&#x5E38;&#x4F1A;&#x8BBE;&#x8BA1;&#x4E3A;&#x4F20;&#x7EDF;PC&#x7684;2&#x500D;&#x3002;
-&#x90A3;&#x4E48;&#xFF0C;&#x524D;&#x7AEF;&#x7684;&#x5E94;&#x5BF9;&#x65B9;&#x6848;&#x662F;&#xFF1A;&#x8BBE;&#x8BA1;&#x7A3F;&#x5207;&#x51FA;&#x6765;&#x7684;&#x56FE;&#x7247;&#x957F;&#x5BBD;&#x4FDD;&#x8BC1;&#x4E3A;&#x5076;&#x6570;&#xFF0C;&#x5E76;&#x4F7F;&#x7528;backgroud-size&#x628A;&#x56FE;&#x7247;&#x7F29;&#x5C0F;&#x4E3A;&#x539F;&#x6765;&#x7684;1/2
-//&#x4F8B;&#x5982;&#x56FE;&#x7247;&#x5BBD;&#x9AD8;&#x4E3A;&#xFF1A;200px*200px&#xFF0C;&#x90A3;&#x4E48;&#x5199;&#x6CD5;&#x5982;&#x4E0B;
-.css{width:100px;height:100px;background-size:100px 100px;}
-//&#x5176;&#x5B83;&#x5143;&#x7D20;&#x7684;&#x53D6;&#x503C;&#x4E3A;&#x539F;&#x6765;&#x7684;1/2&#xFF0C;&#x4F8B;&#x5982;&#x89C6;&#x89C9;&#x7A3F;40px&#x7684;&#x5B57;&#x4F53;&#xFF0C;&#x4F7F;&#x7528;&#x6837;&#x5F0F;&#x7684;&#x5199;&#x6CD5;&#x4E3A;20px
-.css{font-size:20px}
-//image-set&#x8BBE;&#x8BA1;Rentina&#x80CC;&#x666F;&#x56FE;
-image-set,webkit&#x79C1;&#x6709;&#x5C5E;&#x6027;&#xFF0C;&#x4E5F;&#x662F;CSS4&#x7684;&#x5C5E;&#x6027;&#xFF0C;&#x4E3A;&#x89E3;&#x51B3;Rentina&#x5C4F;&#x5E55;&#x4E0B;&#x7684;&#x56FE;&#x50CF;&#x800C;&#x751F;&#x3002;
-.css {
-	background: url(images/bg.jpg) no-repeat center;
-	background: -webkit-image-set(
-	url(images/bg.jpg) 1x,     //&#x652F;&#x6301;image-set&#x666E;&#x901A;&#x5C4F;
-	url(images/bg-2x.jpg) 2x); //&#x652F;&#x6301;image-set&#x7684;Rentinan
-}
-</code></pre>
-<ul>
-<li>&#x70B9;&#x51FB;&#x5143;&#x7D20;&#x4EA7;&#x751F;&#x80CC;&#x666F;&#x6216;&#x8FB9;&#x6846;&#x600E;&#x4E48;&#x53BB;&#x6389;</li>
-</ul>
-<pre><code>//ios&#x7528;&#x6237;&#x70B9;&#x51FB;&#x4E00;&#x4E2A;&#x94FE;&#x63A5;&#xFF0C;&#x4F1A;&#x51FA;&#x73B0;&#x4E00;&#x4E2A;&#x534A;&#x900F;&#x660E;&#x7070;&#x8272;&#x906E;&#x7F69;, &#x5982;&#x679C;&#x60F3;&#x8981;&#x7981;&#x7528;&#xFF0C;&#x53EF;&#x8BBE;&#x7F6E;-webkit-tap-highlight-color&#x7684;alpha&#x503C;&#x4E3A;0&#x53BB;&#x9664;&#x7070;&#x8272;&#x534A;&#x900F;&#x660E;&#x906E;&#x7F69;&#xFF1B;
-//android&#x7528;&#x6237;&#x70B9;&#x51FB;&#x4E00;&#x4E2A;&#x94FE;&#x63A5;&#xFF0C;&#x4F1A;&#x51FA;&#x73B0;&#x4E00;&#x4E2A;&#x8FB9;&#x6846;&#x6216;&#x8005;&#x534A;&#x900F;&#x660E;&#x7070;&#x8272;&#x906E;&#x7F69;, &#x4E0D;&#x540C;&#x751F;&#x4EA7;&#x5546;&#x5B9A;&#x4E49;&#x51FA;&#x6765;&#x989D;&#x6548;&#x679C;&#x4E0D;&#x4E00;&#x6837;&#xFF0C;&#x53EF;&#x8BBE;&#x7F6E;-webkit-tap-highlight-color&#x7684;alpha&#x503C;&#x4E3A;0&#x53BB;&#x9664;&#x90E8;&#x5206;&#x673A;&#x5668;&#x81EA;&#x5E26;&#x7684;&#x6548;&#x679C;&#xFF1B;
-//winphone&#x7CFB;&#x7EDF;,&#x70B9;&#x51FB;&#x6807;&#x7B7E;&#x4EA7;&#x751F;&#x7684;&#x7070;&#x8272;&#x534A;&#x900F;&#x660E;&#x80CC;&#x666F;&#xFF0C;&#x80FD;&#x901A;&#x8FC7;&#x8BBE;&#x7F6E;&lt;meta name=&quot;msapplication-tap-highlight&quot; content=&quot;no&quot;&gt;&#x53BB;&#x6389;&#xFF1B;
-//&#x7279;&#x6B8A;&#x8BF4;&#x660E;&#xFF1A;&#x6709;&#x4E9B;&#x673A;&#x578B;&#x53BB;&#x9664;&#x4E0D;&#x4E86;&#xFF0C;&#x5982;&#x5C0F;&#x7C73;2&#x3002;&#x5BF9;&#x4E8E;&#x6309;&#x94AE;&#x7C7B;&#x8FD8;&#x6709;&#x4E2A;&#x529E;&#x6CD5;&#xFF0C;&#x4E0D;&#x4F7F;&#x7528;a&#x6216;&#x8005;input&#x6807;&#x7B7E;&#xFF0C;&#x76F4;&#x63A5;&#x7528;div&#x6807;&#x7B7E;
-a,button,input,textarea { 
-	-webkit-tap-highlight-color: rgba(0,0,0,0); 
-	-webkit-user-modify:read-write-plaintext-only; //-webkit-user-modify&#x6709;&#x4E2A;&#x526F;&#x4F5C;&#x7528;&#xFF0C;&#x5C31;&#x662F;&#x8F93;&#x5165;&#x6CD5;&#x4E0D;&#x518D;&#x80FD;&#x591F;&#x8F93;&#x5165;&#x591A;&#x4E2A;&#x5B57;&#x7B26;
-}   
-// &#x4E5F;&#x53EF;&#x4EE5; 
-* { -webkit-tap-highlight-color: rgba(0,0,0,0); }
-//winphone&#x4E0B;
-&lt;meta name=&quot;msapplication-tap-highlight&quot; content=&quot;no&quot;&gt;
-
-</code></pre>
-<ul>
-<li>&#x7F8E;&#x5316;&#x8868;&#x5355;&#x5143;&#x7D20;</li>
-</ul>
-<pre><code>//&#x4E00;&#x3001;&#x4F7F;&#x7528;appearance&#x6539;&#x53D8;webkit&#x6D4F;&#x89C8;&#x5668;&#x7684;&#x9ED8;&#x8BA4;&#x5916;&#x89C2;
-input,select { -webkit-appearance:none; appearance: none; }
-//&#x4E8C;&#x3001;winphone&#x4E0B;&#xFF0C;&#x4F7F;&#x7528;&#x4F2A;&#x5143;&#x7D20;&#x6539;&#x53D8;&#x8868;&#x5355;&#x5143;&#x7D20;&#x9ED8;&#x8BA4;&#x5916;&#x89C2;
-//1.&#x7981;&#x7528;select&#x9ED8;&#x8BA4;&#x7BAD;&#x5934;&#xFF0C;::-ms-expand&#x4FEE;&#x6539;&#x8868;&#x5355;&#x63A7;&#x4EF6;&#x4E0B;&#x62C9;&#x7BAD;&#x5934;&#xFF0C;&#x8BBE;&#x7F6E;&#x9690;&#x85CF;&#x5E76;&#x4F7F;&#x7528;&#x80CC;&#x666F;&#x56FE;&#x7247;&#x6765;&#x4FEE;&#x9970;
-select::-ms-expand { display:none; }
-//2.&#x7981;&#x7528;radio&#x548C;checkbox&#x9ED8;&#x8BA4;&#x6837;&#x5F0F;&#xFF0C;::-ms-check&#x4FEE;&#x6539;&#x8868;&#x5355;&#x590D;&#x9009;&#x6846;&#x6216;&#x5355;&#x9009;&#x6846;&#x9ED8;&#x8BA4;&#x56FE;&#x6807;&#xFF0C;&#x8BBE;&#x7F6E;&#x9690;&#x85CF;&#x5E76;&#x4F7F;&#x7528;&#x80CC;&#x666F;&#x56FE;&#x7247;&#x6765;&#x4FEE;&#x9970;
-input[type=radio]::-ms-check,
-input[type=checkbox]::-ms-check { display:none; }
-//3.&#x7981;&#x7528;pc&#x7AEF;&#x8868;&#x5355;&#x8F93;&#x5165;&#x6846;&#x9ED8;&#x8BA4;&#x6E05;&#x9664;&#x6309;&#x94AE;&#xFF0C;::-ms-clear&#x4FEE;&#x6539;&#x6E05;&#x9664;&#x6309;&#x94AE;&#xFF0C;&#x8BBE;&#x7F6E;&#x9690;&#x85CF;&#x5E76;&#x4F7F;&#x7528;&#x80CC;&#x666F;&#x56FE;&#x7247;&#x6765;&#x4FEE;&#x9970;
-input[type=text]::-ms-clear,
-input[type=tel]::-ms-clear,
-input[type=number]::-ms-clear { display:none; }
-</code></pre>
-<ul>
-<li>&#x79FB;&#x52A8;&#x7AEF;&#x5B57;&#x4F53;&#x5355;&#x4F4D;font-size&#x9009;&#x62E9;px&#x8FD8;&#x662F;rem</li>
-</ul>
-<pre><code>// &#x5982;&#x9700;&#x9002;&#x914D;&#x591A;&#x79CD;&#x79FB;&#x52A8;&#x8BBE;&#x5907;&#xFF0C;&#x5EFA;&#x8BAE;&#x4F7F;&#x7528;rem&#x3002;&#x4EE5;&#x4E0B;&#x4E3A;&#x53C2;&#x8003;&#x503C;&#xFF1A;
-html { font-size: 62.5%; }   //10*16 = 62.5%
-//&#x8BBE;&#x7F6E;12px&#x5B57;&#x4F53;   &#x8FD9;&#x91CC;&#x6CE8;&#x610F;&#x5728;rem&#x524D;&#x8981;&#x52A0;&#x4E0A;&#x5BF9;&#x5E94;&#x7684;px&#x503C;&#xFF0C;&#x89E3;&#x51B3;&#x4E0D;&#x652F;&#x6301;rem&#x7684;&#x6D4F;&#x89C8;&#x5668;&#x7684;&#x517C;&#x5BB9;&#x95EE;&#x9898;&#xFF0C;&#x505A;&#x5230;&#x4F18;&#x96C5;&#x964D;&#x7EA7;
-body { font-size:12px; font-size:1.2rem; }
-</code></pre>
-<ul>
-<li>&#x8D85;&#x5B9E;&#x7528;&#x7684;CSS&#x6837;&#x5F0F;</li>
-</ul>
-<pre><code>//&#x53BB;&#x6389;webkit&#x7684;&#x6EDA;&#x52A8;&#x6761;&#x2014;&#x2014;display: none;
-//&#x5176;&#x4ED6;&#x53C2;&#x6570;
-::-webkit-scrollba //&#x6EDA;&#x52A8;&#x6761;&#x6574;&#x4F53;&#x90E8;&#x5206;
-::-webkit-scrollbar-thumb   //&#x6EDA;&#x52A8;&#x6761;&#x5185;&#x7684;&#x5C0F;&#x65B9;&#x5757;
-::-webkit-scrollbar-track   //&#x6EDA;&#x52A8;&#x6761;&#x8F68;&#x9053;
-::-webkit-scrollbar-button  //&#x6EDA;&#x52A8;&#x6761;&#x8F68;&#x9053;&#x4E24;&#x7AEF;&#x6309;&#x94AE;
-::-webkit-scrollbar-track-piece  //&#x6EDA;&#x52A8;&#x6761;&#x4E2D;&#x95F4;&#x90E8;&#x5206;&#xFF0C;&#x5185;&#x7F6E;&#x8F68;&#x9053;
-::-webkit-scrollbar-corner       //&#x8FB9;&#x89D2;&#xFF0C;&#x4E24;&#x4E2A;&#x6EDA;&#x52A8;&#x6761;&#x4EA4;&#x6C47;&#x5904;
-::-webkit-resizer            //&#x4E24;&#x4E2A;&#x6EDA;&#x52A8;&#x6761;&#x7684;&#x4EA4;&#x6C47;&#x5904;&#x4E0A;&#x7528;&#x4E8E;&#x901A;&#x8FC7;&#x62D6;&#x52A8;&#x8C03;&#x6574;&#x5143;&#x7D20;&#x5927;&#x5C0F;&#x7684;&#x5C0F;&#x63A7;&#x4EF6;
-// &#x7981;&#x6B62;&#x957F;&#x6309;&#x94FE;&#x63A5;&#x4E0E;&#x56FE;&#x7247;&#x5F39;&#x51FA;&#x83DC;&#x5355;
-a,img { -webkit-touch-callout: none }    
-// &#x7981;&#x6B62;ios&#x548C;android&#x7528;&#x6237;&#x9009;&#x4E2D;&#x6587;&#x5B57;
-html,body {-webkit-user-select:none; user-select: none; }
-// &#x6539;&#x53D8;&#x8F93;&#x5165;&#x6846;placeholder&#x7684;&#x989C;&#x8272;&#x503C;
-::-webkit-input-placeholder { /* WebKit browsers */
-color: #999; }
-:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
-color: #999; }
-::-moz-placeholder { /* Mozilla Firefox 19+ */
-color: #999; }
-:-ms-input-placeholder { /* Internet Explorer 10+ */
-color: #999; }
-input:focus::-webkit-input-placeholder{ color:#999; }
-// android&#x4E0A;&#x53BB;&#x6389;&#x8BED;&#x97F3;&#x8F93;&#x5165;&#x6309;&#x94AE;
-input::-webkit-input-speech-button {display: none}
-// &#x963B;&#x6B62;windows Phone&#x7684;&#x9ED8;&#x8BA4;&#x89E6;&#x6478;&#x4E8B;&#x4EF6;
-/*&#x8BF4;&#x660E;&#xFF1A;winphone&#x4E0B;&#x9ED8;&#x8BA4;&#x89E6;&#x6478;&#x4E8B;&#x4EF6;&#x4E8B;&#x4EF6;&#x4F7F;&#x7528;e.preventDefault&#x662F;&#x65E0;&#x6548;&#x7684;&#xFF0C;&#x53EF;&#x901A;&#x8FC7;&#x6837;&#x5F0F;&#x6765;&#x7981;&#x7528;&#xFF0C;&#x5982;&#xFF1A;*/
-html { -ms-touch-action:none; } //&#x7981;&#x6B62;winphone&#x9ED8;&#x8BA4;&#x89E6;&#x6478;&#x4E8B;&#x4EF6;
-</code></pre>
-<ul>
-<li>&#x53D6;&#x6D88;input&#x5728;ios&#x4E0B;&#xFF0C;&#x8F93;&#x5165;&#x7684;&#x65F6;&#x5019;&#x82F1;&#x6587;&#x9996;&#x5B57;&#x6BCD;&#x7684;&#x9ED8;&#x8BA4;&#x5927;&#x5199;</li>
-</ul>
-<pre><code>&lt;input autocapitalize=&quot;off&quot; autocorrect=&quot;off&quot; /&gt;
-</code></pre>
-<ul>
-<li>&#x624B;&#x673A;&#x62CD;&#x7167;&#x548C;&#x4E0A;&#x4F20;&#x56FE;&#x7247;</li>
-</ul>
-<pre><code>//IOS&#x6709;&#x62CD;&#x7167;&#x3001;&#x5F55;&#x50CF;&#x3001;&#x9009;&#x53D6;&#x672C;&#x5730;&#x56FE;&#x7247;&#x529F;&#x80FD;&#xFF0C;&#x90E8;&#x5206;Android&#x53EA;&#x6709;&#x9009;&#x62E9;&#x672C;&#x5730;&#x56FE;&#x7247;&#x529F;&#x80FD;&#x3002;Winphone&#x4E0D;&#x652F;&#x6301;
-&lt;input type=&quot;file&quot; accept=&quot;images/*&quot; /&gt;
-&lt;input type=&quot;file&quot; accept=&quot;video/*&quot; /&gt;
-</code></pre>
-<ul>
-<li>&#x5C4F;&#x5E55;&#x65CB;&#x8F6C;&#x7684;&#x4E8B;&#x4EF6;&#x548C;&#x6837;&#x5F0F;</li>
-</ul>
-<pre><code>//JS&#x5904;&#x7406;
-function orientInit(){
-	var orientChk = document.documentElement.clientWidth &gt; document.documentElement.clientHeight?&apos;landscape&apos;:&apos;portrait&apos;;
-	if(orientChk ==&apos;lapdscape&apos;){
-		//&#x8FD9;&#x91CC;&#x662F;&#x6A2A;&#x5C4F;&#x4E0B;&#x9700;&#x8981;&#x6267;&#x884C;&#x7684;&#x4E8B;&#x4EF6;
-	}else{
-		//&#x8FD9;&#x91CC;&#x662F;&#x7AD6;&#x5C4F;&#x4E0B;&#x9700;&#x8981;&#x6267;&#x884C;&#x7684;&#x4E8B;&#x4EF6;
-	}
-}
-orientInit();
-window.addEventListener(&apos;onorientationchange&apos; in window?&apos;orientationchange&apos;:&apos;resize&apos;, function(){
-	setTimeout(orientInit, 100);
-},false)	
-//CSS&#x5904;&#x7406;
-//&#x7AD6;&#x5C4F;&#x65F6;&#x6837;&#x5F0F;
-@media all and (orientation:portrait){   }
-//&#x6A2A;&#x5C4F;&#x65F6;&#x6837;&#x5F0F;
-@media all and (orientation:landscape){   }
-</code></pre>
-<ul>
-<li>audio&#x5143;&#x7D20;&#x548C;video&#x5143;&#x7D20;&#x5728;ios&#x548C;andriod&#x4E2D;&#x65E0;&#x6CD5;&#x81EA;&#x52A8;&#x64AD;&#x653E;</li>
-</ul>
-<pre><code>//&#x97F3;&#x9891;&#xFF0C;&#x5199;&#x6CD5;&#x4E00;
-&lt;audio src=&quot;music/bg.mp3&quot; autoplay loop controls&gt;&#x4F60;&#x7684;&#x6D4F;&#x89C8;&#x5668;&#x8FD8;&#x4E0D;&#x652F;&#x6301;&#x54E6;&lt;/audio&gt;
-//&#x97F3;&#x9891;&#xFF0C;&#x5199;&#x6CD5;&#x4E8C;
-&lt;audio controls=&quot;controls&quot;&gt;	
-	&lt;source src=&quot;music/bg.ogg&quot; type=&quot;audio/ogg&quot;&gt;&lt;/source&gt;
-	&lt;source src=&quot;music/bg.mp3&quot; type=&quot;audio/mpeg&quot;&gt;&lt;/source&gt;
-	&#x4F18;&#x5148;&#x64AD;&#x653E;&#x97F3;&#x4E50;bg.ogg&#xFF0C;&#x4E0D;&#x652F;&#x6301;&#x5728;&#x64AD;&#x653E;bg.mp3
-&lt;/audio&gt;
-//JS&#x7ED1;&#x5B9A;&#x81EA;&#x52A8;&#x64AD;&#x653E;&#xFF08;&#x64CD;&#x4F5C;window&#x65F6;&#xFF0C;&#x64AD;&#x653E;&#x97F3;&#x4E50;&#xFF09;
-$(window).one(&apos;touchstart&apos;, function(){
-	music.play();
-})
-//&#x5FAE;&#x4FE1;&#x4E0B;&#x517C;&#x5BB9;&#x5904;&#x7406;
-document.addEventListener(&quot;WeixinJSBridgeReady&quot;, function () {
-    music.play();
-}, false);
-//&#x5C0F;&#x7ED3;
-//1.audio&#x5143;&#x7D20;&#x7684;autoplay&#x5C5E;&#x6027;&#x5728;IOS&#x53CA;Android&#x4E0A;&#x65E0;&#x6CD5;&#x4F7F;&#x7528;&#xFF0C;&#x5728;PC&#x7AEF;&#x6B63;&#x5E38;
-//2.audio&#x5143;&#x7D20;&#x6CA1;&#x6709;&#x8BBE;&#x7F6E;controls&#x65F6;&#xFF0C;&#x5728;IOS&#x53CA;Android&#x4F1A;&#x5360;&#x636E;&#x7A7A;&#x95F4;&#x5927;&#x5C0F;&#xFF0C;&#x800C;&#x5728;PC&#x7AEF;Chrome&#x662F;&#x4E0D;&#x4F1A;&#x5360;&#x636E;&#x4EFB;&#x4F55;&#x7A7A;&#x95F4;
-</code></pre>
-<ul>
-<li>&#x91CD;&#x529B;&#x611F;&#x5E94;&#x4E8B;&#x4EF6;</li>
-</ul>
-<pre><code>// &#x8FD0;&#x7528;HTML5&#x7684;deviceMotion&#xFF0C;&#x8C03;&#x7528;&#x91CD;&#x529B;&#x611F;&#x5E94;&#x4E8B;&#x4EF6;
-if(window.DeviceMotionEvent){
-	document.addEventListener(&apos;devicemotion&apos;, deviceMotionHandler, false)
-}	
-var speed = 30;
-var x = y = z = lastX = lastY = lastZ = 0;
-function deviceMotionHandler(eventData){
-	var acceleration = event.accelerationIncludingGravity;
-	x = acceleration.x;
-	y = acceleration.y; 
-	z = acceleration.z;
-	if(Math.abs(x-lastX)&gt;speed || Math.abs(y-lastY)&gt;speed || Math.abs(z-lastZ)&gt;speed ){
-		//&#x8FD9;&#x91CC;&#x662F;&#x6447;&#x52A8;&#x540E;&#x8981;&#x6267;&#x884C;&#x7684;&#x65B9;&#x6CD5; 
-		yaoAfter();
-	}
-	lastX = x;
-	lastY = y;
-	lastZ = z;
-}
-function yaoAfter(){
-	//do something
-}
-//&#x8BF4;&#x660E;&#xFF1A;&#x8BF4;&#x89C1;&#x6848;&#x4F8B;&#x6447;&#x4E00;&#x6447;&#x6548;&#x679C;&#x4E2D;yao.js
-</code></pre>
-<ul>
-<li>&#x5FAE;&#x4FE1;&#x6D4F;&#x89C8;&#x5668;&#x7528;&#x6237;&#x8C03;&#x6574;&#x5B57;&#x4F53;&#x5927;&#x5C0F;&#x540E;&#x9875;&#x9762;&#x77EC;&#x4E86;&#xFF0C;&#x600E;&#x4E48;&#x963B;&#x6B62;&#x7528;&#x6237;&#x8C03;&#x6574;</li>
-</ul>
-<pre><code>//&#x4EE5;&#x4E0B;&#x4EE3;&#x7801;&#x53EF;&#x4F7F;Android&#x673A;&#x9875;&#x9762;&#x4E0D;&#x518D;&#x53D7;&#x7528;&#x6237;&#x5B57;&#x4F53;&#x7F29;&#x653E;&#x5F3A;&#x5236;&#x6539;&#x53D8;&#x5927;&#x5C0F;&#xFF0C;&#x4F46;&#x662F;&#x4F1A;&#x6709;1S&#x5DE6;&#x53F3;&#x5EF6;&#x65F6;&#xFF0C;&#x671F;&#x95F4;&#x53EF;&#x4EE5;&#x8003;&#x8651;loading&#x6765;&#x5904;&#x7406;
-if (typeof(WeixinJSBridge) == &quot;undefined&quot;) {
-	document.addEventListener(&quot;WeixinJSBridgeReady&quot;, function (e) {
-	    setTimeout(function(){
-		    WeixinJSBridge.invoke(&apos;setFontSizeCallback&apos;, { &apos;fontSize&apos;:0}, function(res){
-			    alert(JSON.stringify(res));
-		    })
-	    }, 0)
-	});
-}else{	
-    setTimeout(function(){
-	    WeixinJSBridge.invoke(&apos;setFontSizeCallback&apos;, { &apos;fontSize&apos;:0}, function(res){
-		    alert(JSON.stringify(res));
-	    })
-    }, 0)	
-}
-//IOS&#x4E0B;&#x53EF;&#x4F7F;&#x7528; -webkit-text-size-adjust&#x7981;&#x6B62;&#x7528;&#x6237;&#x8C03;&#x6574;&#x5B57;&#x4F53;&#x5927;&#x5C0F;
-body { -webkit-text-size-adjust:100%!important; }
-//&#x6700;&#x597D;&#x7684;&#x89E3;&#x51B3;&#x65B9;&#x6848;&#xFF1A;&#x6700;&#x597D;&#x4F7F;&#x7528;rem&#x6216;&#x767E;&#x5206;&#x6BD4;&#x5E03;&#x5C40;
-</code></pre>
-<ul>
-<li>&#x5B9A;&#x4F4D;&#x7684;&#x5751;</li>
-</ul>
-<pre><code>//fixed&#x5B9A;&#x4F4D;
-//1.ios&#x4E0B;fixed&#x5143;&#x7D20;&#x5BB9;&#x6613;&#x5B9A;&#x4F4D;&#x51FA;&#x9519;&#xFF0C;&#x8F6F;&#x952E;&#x76D8;&#x5F39;&#x51FA;&#x65F6;&#xFF0C;&#x5F71;&#x54CD;fixed&#x5143;&#x7D20;&#x5B9A;&#x4F4D;
-//2.android&#x4E0B;fixed&#x8868;&#x73B0;&#x8981;&#x6BD4;iOS&#x66F4;&#x597D;&#xFF0C;&#x8F6F;&#x952E;&#x76D8;&#x5F39;&#x51FA;&#x65F6;&#xFF0C;&#x4E0D;&#x4F1A;&#x5F71;&#x54CD;fixed&#x5143;&#x7D20;&#x5B9A;&#x4F4D;
-//3.ios4&#x4E0B;&#x4E0D;&#x652F;&#x6301;position:fixed
-//&#x89E3;&#x51B3;&#x65B9;&#x6848;&#xFF1A;&#x4F7F;&#x7528;[Iscroll](http://cubiq.org/iscroll-5)&#xFF0C;&#x5982;&#xFF1A;
-&lt;div id=&quot;wrapper&quot;&gt;
-        &lt;ul&gt;
-               &lt;li&gt;&lt;/li&gt;
-               .....
-        &lt;/ul&gt;
-&lt;/div&gt;
-&lt;script src=&quot;iscroll.js&quot;&gt;&lt;/script&gt;
-&lt;script&gt;
-	var myscroll;
-	function loaded(){
-		myscroll=new iScroll(&quot;wrapper&quot;);
-	}
-	window.addEventListener(&quot;DOMContentLoaded&quot;,loaded,false);
-&lt;/script&gt;
-//position&#x5B9A;&#x4F4D;
-//Android&#x4E0B;&#x5F39;&#x51FA;&#x8F6F;&#x952E;&#x76D8;&#x5F39;&#x51FA;&#x65F6;&#xFF0C;&#x5F71;&#x54CD;absolute&#x5143;&#x7D20;&#x5B9A;&#x4F4D;
-//&#x89E3;&#x51B3;&#x65B9;&#x6848;:
-var ua = navigator.userAgent.indexOf(&apos;Android&apos;);
-if(ua&gt;-1){
-	$(&apos;.ipt&apos;).on(&apos;focus&apos;, function(){
-		$(&apos;.css&apos;).css({&apos;visibility&apos;:&apos;hidden&apos;})
-	}).on(&apos;blur&apos;, function(){
-		$(&apos;.css&apos;).css({&apos;visibility&apos;:&apos;visible&apos;})
-	})
-}
-</code></pre>
-<ul>
-<li>&#x64AD;&#x653E;&#x89C6;&#x9891;&#x4E0D;&#x5168;&#x5C4F;</li>
-</ul>
-<pre><code>&lt;!--
-1.ios7+&#x652F;&#x6301;&#x81EA;&#x52A8;&#x64AD;&#x653E;
-2.&#x652F;&#x6301;Airplay&#x7684;&#x8BBE;&#x5907;&#xFF08;&#x5982;&#xFF1A;&#x97F3;&#x7BB1;&#x3001;Apple TV)&#x64AD;&#x653E;
-x-webkit-airplay=&quot;true&quot; 
-3.&#x64AD;&#x653E;&#x89C6;&#x9891;&#x4E0D;&#x5168;&#x5C4F;
-webkit-playsinline=&quot;true&quot; 
---&gt;
-&lt;video x-webkit-airplay=&quot;true&quot; webkit-playsinline=&quot;true&quot; preload=&quot;auto&quot; autoplay src=&quot;http://&quot;&gt;&lt;/video&gt;
-</code></pre>
-<ul>
-<li>JS&#x5224;&#x65AD;&#x8BBE;&#x5907;</li>
-</ul>
-<pre><code>function deviceType(){
-	var ua = navigator.userAgent;
-	var agent = [&quot;Android&quot;, &quot;iPhone&quot;, &quot;SymbianOS&quot;, &quot;Windows Phone&quot;, &quot;iPad&quot;, &quot;iPod&quot;];	
-	for(var i=0; i&lt;len,len = agent.length; i++){
-		if(ua.indexOf(agent[i])&gt;0){			
-			break;
-		}
-	}
-}
-deviceType();
-window.addEventListener(&apos;resize&apos;, function(){
-	deviceType();
-})
-</code></pre>
-<ul>
-<li>JS&#x5224;&#x65AD;&#x5FAE;&#x4FE1;&#x6D4F;&#x89C8;&#x5668;</li>
-</ul>
-<pre><code>function isWeixin(){
-	var ua = navigator.userAgent.toLowerCase();
-	if(ua.match(/MicroMessenger/i)==&apos;micromessenger&apos;){
-		return true;
-	}else{
-		return false;
-	}
-}
-</code></pre>
-<ul>
-<li>android 2.3 bug</li>
-</ul>
-<pre><code>//1.@-webkit-keyframes &#x9700;&#x8981;&#x4EE5;0%&#x5F00;&#x59CB;100%&#x7ED3;&#x675F;&#xFF0C;0%&#x7684;&#x767E;&#x5206;&#x53F7;&#x4E0D;&#x80FD;&#x53BB;&#x6389;
-//2.after&#x548C;before&#x4F2A;&#x7C7B;&#x65E0;&#x6CD5;&#x4F7F;&#x7528;&#x52A8;&#x753B;animation
-//3.border-radius&#x4E0D;&#x652F;&#x6301;%&#x5355;&#x4F4D;&#xFF0C;&#x5982;&#x8981;&#x517C;&#x5BB9;&#xFF0C;&#x53EF;&#x4EE5;&#x7ED9;radius&#x8BBE;&#x7F6E;&#x4E00;&#x4E0B;&#x8F83;&#x5927;&#x7684;&#x503C;
-//4.translate&#x767E;&#x5206;&#x6BD4;&#x7684;&#x5199;&#x6CD5;&#x548C;scale&#x5728;&#x4E00;&#x8D77;&#x4F1A;&#x5BFC;&#x81F4;&#x5931;&#x6548;&#xFF0C;&#x4F8B;&#x5982;&#xFF1A;
--webkit-transform: translate(-50%,-50%) scale(-0.5, 1)
-</code></pre>
-<ul>
-<li>android 4.x bug</li>
-</ul>
-<pre><code>//1.&#x4E09;&#x661F; Galaxy S4&#x4E2D;&#x81EA;&#x5E26;&#x6D4F;&#x89C8;&#x5668;&#x4E0D;&#x652F;&#x6301;border-radius&#x7F29;&#x5199;
-//2.&#x540C;&#x65F6;&#x8BBE;&#x7F6E;border-radius&#x548C;&#x80CC;&#x666F;&#x8272;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x80CC;&#x666F;&#x8272;&#x4F1A;&#x6EA2;&#x51FA;&#x5230;&#x5706;&#x89D2;&#x4EE5;&#x5916;&#x90E8;&#x5206;
-//3.&#x90E8;&#x5206;&#x624B;&#x673A;(&#x5982;&#x4E09;&#x661F;)&#xFF0C;a&#x94FE;&#x63A5;&#x652F;&#x6301;&#x9F20;&#x6807;:visited&#x4E8B;&#x4EF6;&#xFF0C;&#x4E5F;&#x5C31;&#x662F;&#x8BF4;&#x94FE;&#x63A5;&#x8BBF;&#x95EE;&#x540E;&#x6587;&#x5B57;&#x53D8;&#x4E3A;&#x7D2B;&#x8272;
-//4.android&#x65E0;&#x6CD5;&#x540C;&#x65F6;&#x64AD;&#x653E;&#x591A;&#x97F3;&#x9891;audio
-</code></pre>
-<ul>
-<li>&#x6D88;&#x9664;transition&#x95EA;&#x5C4F;</li>
-</ul>
-<pre><code>.css {
-	-webkit-transform-style: preserve-3d;
-	-webkit-backface-visibility: hidden;
-	-webkit-perspective: 1000;
-}
-</code></pre>
-<ul>
-<li>&#x5F00;&#x542F;&#x786C;&#x4EF6;&#x52A0;&#x901F;</li>
-</ul>
-<pre><code>//&#x76EE;&#x524D;&#xFF0C;&#x50CF;Chrome/Filefox/Safari/IE9+&#x4EE5;&#x53CA;&#x6700;&#x65B0;&#x7248;&#x672C;Opera&#x90FD;&#x652F;&#x6301;&#x786C;&#x4EF6;&#x52A0;&#x901F;&#xFF0C;&#x5F53;&#x68C0;&#x6D4B;&#x5230;&#x67D0;&#x4E2A;DOM&#x5143;&#x7D20;&#x5E94;&#x7528;&#x4E86;&#x67D0;&#x4E9B;CSS&#x89C4;&#x5219;&#x65F6;&#x5C31;&#x4F1A;&#x81EA;&#x52A8;&#x5F00;&#x542F;&#xFF0C;&#x4ECE;&#x800C;&#x89E3;&#x51B3;&#x9875;&#x9762;&#x95EA;&#x767D;&#xFF0C;&#x4FDD;&#x8BC1;&#x52A8;&#x753B;&#x6D41;&#x7545;&#x3002;
-.css {
-	-webkit-transform: translate3d(0,0,0);
-	-moz-transform: translate3d(0,0,0);
-	-ms-transform: translate3d(0,0,0);
-	transform: translate3d(0,0,0);
-}
-</code></pre>
-<ul>
-<li>&#x6E32;&#x67D3;&#x4F18;&#x5316;</li>
-</ul>
-<pre><code>//1.&#x7981;&#x6B62;&#x4F7F;&#x7528;iframe&#xFF08;&#x963B;&#x585E;&#x7236;&#x6587;&#x6863;onload&#x4E8B;&#x4EF6;&#xFF09;
-//2.&#x7981;&#x6B62;&#x4F7F;&#x7528;gif&#x56FE;&#x7247;&#x5B9E;&#x73B0;loading&#x6548;&#x679C;&#xFF08;&#x964D;&#x4F4E;CPU&#x6D88;&#x8017;&#xFF0C;&#x63D0;&#x5347;&#x6E32;&#x67D3;&#x6027;&#x80FD;&#xFF09;
-//&#x4F7F;&#x7528;CSS3&#x4EE3;&#x7801;&#x4EE3;&#x66FF;JS&#x52A8;&#x753B;&#xFF1B;
-//&#x5F00;&#x542F;GPU&#x52A0;&#x901F;&#xFF1B;
-//&#x4F7F;&#x7528;base64&#x4F4D;&#x7F16;&#x7801;&#x56FE;&#x7247;(&#x4E0D;&#x5C0F;&#x56FE;&#x800C;&#x8A00;&#xFF0C;&#x5927;&#x56FE;&#x4E0D;&#x5EFA;&#x8BAE;&#x4F7F;&#x7528;)
-	// &#x5BF9;&#x4E8E;&#x4E00;&#x4E9B;&#x5C0F;&#x56FE;&#x6807;&#xFF0C;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;base64&#x4F4D;&#x7F16;&#x7801;&#xFF0C;&#x4EE5;&#x51CF;&#x5C11;&#x7F51;&#x7EDC;&#x8BF7;&#x6C42;&#x3002;&#x4F46;&#x4E0D;&#x5EFA;&#x8BAE;&#x5927;&#x56FE;&#x4F7F;&#x7528;&#xFF0C;&#x6BD4;&#x8F83;&#x8017;&#x8D39;CPU&#x3002;&#x5C0F;&#x56FE;&#x6807;&#x4F18;&#x52BF;&#x5728;&#x4E8E;&#xFF1A;
-	//1.&#x51CF;&#x5C11;HTTP&#x8BF7;&#x6C42;&#xFF1B;
-	//2.&#x907F;&#x514D;&#x6587;&#x4EF6;&#x8DE8;&#x57DF;&#xFF1B;
-	//3.&#x4FEE;&#x6539;&#x53CA;&#x65F6;&#x751F;&#x6548;&#xFF1B;
-</code></pre>
-<ul>
-<li>&#x817E;&#x8BAF;&#x65B9;&#x6848;</li>
-</ul>
-<pre><code class="language-javascript">var autoScale = function(){
-    var ratio = 320/504,   //&#x8FD9;&#x662F;&#x8BBE;&#x8BA1;&#x7A3F;&#x7684;&#x5BBD;&#x9AD8;&#x6BD4;&#xFF08;504&#x662F;Iphone&#x7684;&#x9AD8;&#x5EA6;&#x53BB;&#x6389;&#x6807;&#x9898;&#x680F;&#x9AD8;&#x5EA6;&#xFF09;
-        winW = document.getElement.clientWidth,
-        winH = document.getElement.clientHeight,
-        ratio2 = winW/winH,
-        scale;
-    if(ratio&lt;ratio2){
-        scale = (winH/504).toString().substring(0, 6);
-    }else{
-        scale = (winW/320).toString().substring(0, 6);  
-    }
-    var cssText = &apos;-webkit-transform: scale(&apos;+scale+&apos;);-webkit-transform-origin: top; opacity:1;&apos;  
-    $(&apos;.wrap&apos;).attr(&apos;style&apos;, cssText);
-}
-setTimeout(function(){
-    if(document.documentElement.clientWidth/document.documentElement.clientHeight !== 320/504){
-        autoScale();
-    }else{
-        $(&apos;.page&apos;).css({&apos;opacity&apos;: 1});
-    }
-}, 300)  //&#x6DFB;&#x52A0;&#x4E00;&#x5B9A;&#x65F6;&#x957F;&#x4EE5;&#x786E;&#x4FDD;&#x5BBD;&#x9AD8;&#x83B7;&#x53D6;&#x6B63;&#x786E;
-window.addEventListener(&apos;onorientationchange&apos; in window?&apos;orientationchange&apos;:&apos;resize&apos;, autoScale, false){
-        detectOrientatioin();
-}   //&#x5207;&#x6362;&#x6A2A;&#x7AD6;&#x5C4F;
-function detectOrientatioin(){
-    if(window.orientation==180 || window.orientation==0){
-        //&#x7AD6;&#x5C4F;
-    }
-    if(window.orientation==90 || window.orientation==-90){
-        //&#x6A2A;&#x5C4F;
-    }
-}
-</code></pre>
-<h2 id="&#x5E38;&#x7528;&#x7684;&#x79FB;&#x52A8;&#x7AEF;&#x6846;&#x67B6;"><a class="header-anchor" href="#&#x5E38;&#x7528;&#x7684;&#x79FB;&#x52A8;&#x7AEF;&#x6846;&#x67B6;"></a>&#x5E38;&#x7528;&#x7684;&#x79FB;&#x52A8;&#x7AEF;&#x6846;&#x67B6;</h2>
-<p>&#xFF08;1&#xFF09; zepto.js</p>
-<ul>
-<li><a href="http://zeptojs.com/" target="_blank" rel="external nofollow noopener noreferrer">&#x5B98;&#x7F51;</a></li>
-<li><a href="http://www.css88.com/doc/zeptojs_api/" target="_blank" rel="external nofollow noopener noreferrer">&#x4E2D;&#x6587;&#x7F51;</a></li>
-<li><a href="https://github.com/madrobby/zepto/blob/master/src/detect.js" target="_blank" rel="external nofollow noopener noreferrer">&#x6D4F;&#x89C8;&#x5668;&#x68C0;&#x6D4B;</a></li>
-<li><a href="https://github.com/madrobby/zepto/blob/master/src/touch.js" target="_blank" rel="external nofollow noopener noreferrer">tap&#x4E8B;&#x4EF6;</a></li>
-</ul>]]></content>
-    
-    <summary type="html">
-    
-      &lt;div&gt;&lt;img class=&quot;pic lazy&quot; data-original=&quot;/2017/04/22/h5-knowledge-summary/timg.jpg&quot; style=&quot;float:left; margin-right:16px&quot; alt=&quot;&quot;&gt;
-&lt;span&gt;&amp;#x4E00;&amp;#x822C; App &amp;#x90FD;&amp;#x4F1A;&amp;#x91C7;&amp;#x7528; Hybrid &amp;#x6DF7;&amp;#x5408;&amp;#x5F00;&amp;#x53D1;&amp;#xFF0C;Native+HTML5&amp;#xFF1B;&amp;#x7B14;&amp;#x8005;&amp;#x5F53;&amp;#x524D;&amp;#x53C2;&amp;#x4E0E;&amp;#x7684;&amp;#x9879;&amp;#x76EE;&amp;#x4E5F;&amp;#x4F7F;&amp;#x7528;&amp;#x6B64;&amp;#x6A21;&amp;#x5F0F;&amp;#xFF0C;&amp;#x73B0;&amp;#x5076;&amp;#x7136;&amp;#x95F4;&amp;#x770B;&amp;#x89C1; github &amp;#x5927;&amp;#x795E;&amp;#x603B;&amp;#x7ED3;&amp;#x7684; H5 &amp;#x77E5;&amp;#x8BC6;&amp;#xFF0C;&amp;#x5B66;&amp;#x4E60;&amp;#x4E86;&amp;#x4E00;&amp;#x6CE2;&amp;#x3002;&lt;/span&gt;&lt;/div&gt;
-    
-    </summary>
-    
-      <category term="移动开发" scheme="http://ngudream.com/categories/%E7%A7%BB%E5%8A%A8%E5%BC%80%E5%8F%91/"/>
-    
-    
-      <category term="HTML5" scheme="http://ngudream.com/tags/HTML5/"/>
     
   </entry>
   
