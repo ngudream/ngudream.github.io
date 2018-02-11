@@ -45,7 +45,7 @@ body{color:#535353;font-size:12px;font-family: "arial","微软雅黑";background
 .timeblock .numf{background-position:0px -48px;}
 .timeblock .nums{background-position:0px 0px;}
 .timeblock .numt{background-position:0px -24px;}
-.timeblock .numfo{background-position:0px -168px;}
+.timeblock .numfo{background-position:0px -192px;}/*控制最顶部年份 */
 #content{height:355px;width:1180px;overflow:hidden;background:url(../images/vertical.png) no-repeat 434px 2px;padding-top:10px;}
 .list{overflow:hidden;position:relative;}
 .list li{height:110px;vertical-align:bottom;overflow:hidden;position:relative;}
