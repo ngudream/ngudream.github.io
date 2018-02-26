@@ -4,6 +4,46 @@
 
     
   <url>
+    <loc>http://ngudream.com/2018/01/16/blockchain-tutorial/</loc>
+    <lastmod>2018-02-26T14:13:54.250Z</lastmod>
+    <data>
+        <display>
+        <title>区块链入门教程</title>
+        <pubTime>2018-01-16T15:07:16.000Z</pubTime>
+        
+        <tag>Architecture</tag>
+         
+         
+           
+             
+              <breadCrumb title="服务器" url="http://ngudream.com/categories/%E6%9C%8D%E5%8A%A1%E5%99%A8/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://ngudream.com/2018/02/05/go-blockchain/</loc>
+    <lastmod>2018-02-26T14:11:27.770Z</lastmod>
+    <data>
+        <display>
+        <title>只用200行Go代码写一个自己的区块链！</title>
+        <pubTime>2018-02-05T13:36:46.000Z</pubTime>
+        
+        <tag>Architecture</tag>
+         
+         
+           
+             
+              <breadCrumb title="服务器" url="http://ngudream.com/categories/%E6%9C%8D%E5%8A%A1%E5%99%A8/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://ngudream.com/2017/09/02/kotlin-realm/</loc>
     <lastmod>2018-02-12T12:34:26.685Z</lastmod>
     <data>
