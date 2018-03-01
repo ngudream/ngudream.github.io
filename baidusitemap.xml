@@ -4,6 +4,28 @@
 
     
   <url>
+    <loc>http://ngudream.com/2017/06/10/kotlin-singleton/</loc>
+    <lastmod>2018-03-01T14:55:38.766Z</lastmod>
+    <data>
+        <display>
+        <title>Kotlin 单例模式</title>
+        <pubTime>2017-06-10T11:59:55.000Z</pubTime>
+        
+        <tag>Android</tag>
+         
+        <tag>Kotlin</tag>
+         
+         
+           
+             
+              <breadCrumb title="移动开发" url="http://ngudream.com/categories/%E7%A7%BB%E5%8A%A8%E5%BC%80%E5%8F%91/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://ngudream.com/2018/01/16/blockchain-tutorial/</loc>
     <lastmod>2018-02-26T14:13:54.250Z</lastmod>
     <data>
@@ -338,28 +360,6 @@
         <display>
         <title>Kotlin 封装OKHttp请求</title>
         <pubTime>2017-06-20T12:01:38.000Z</pubTime>
-        
-        <tag>Android</tag>
-         
-        <tag>Kotlin</tag>
-         
-         
-           
-             
-              <breadCrumb title="移动开发" url="http://ngudream.com/categories/%E7%A7%BB%E5%8A%A8%E5%BC%80%E5%8F%91/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://ngudream.com/2017/06/10/kotlin-singleton/</loc>
-    <lastmod>2017-07-27T13:21:51.822Z</lastmod>
-    <data>
-        <display>
-        <title>Kotlin 单例模式</title>
-        <pubTime>2017-06-10T11:59:55.000Z</pubTime>
         
         <tag>Android</tag>
          

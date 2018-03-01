@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://ngudream.com/2017/06/10/kotlin-singleton/</loc>
+    
+    <lastmod>2018-03-01T14:55:38.766Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://ngudream.com/2018/01/16/blockchain-tutorial/</loc>
     
     <lastmod>2018-02-26T14:13:54.250Z</lastmod>
@@ -117,13 +124,6 @@
     <loc>http://ngudream.com/2017/06/20/kotlin-okhttp/</loc>
     
     <lastmod>2017-08-02T11:20:05.784Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://ngudream.com/2017/06/10/kotlin-singleton/</loc>
-    
-    <lastmod>2017-07-27T13:21:51.822Z</lastmod>
     
   </url>
   
